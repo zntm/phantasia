@@ -35,9 +35,6 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
             }
         }
         
-		var _sun_ray_inside = instance_exists(collision_rectangle(_cx1, _cy1, _cx2, _cy2, obj_Light_Sun, false, true));
-		var _inst_inside = instance_exists(collision_rectangle(_cx1, _cy1, _cx2, _cy2, __inst, false, true));
-        
 		for (var _z = 0; _z < CHUNK_SIZE_Z; ++_z)
 		{
 			var _zbit = 1 << _z;
@@ -158,7 +155,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 					if (_skew_update)
 					{
 						_skew    = _tile.skew;
-                        _skew_to = ((_sun_ray_inside) && (position_meeting(_camera_x + _x1, _camera_y + _y1, obj_Light_Sun)) ? random(_skew_strength) : 0);
+                        _skew_to = ((is_near_sunlight) && (position_meeting(_camera_x + _x1, _camera_y + _y1, obj_Light_Sun)) ? random(_skew_strength) : 0);
 						
 						chunk[@ _xyzindex].set_skew_values(_skew, _skew_to);
 					}
@@ -168,7 +165,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                         _skew    = _tile.skew;
 						_skew_to = _tile.skew_to;
 						
-						if (_inst_inside)
+						if (is_near_inst)
 						{
 							var _inst2 = instance_position(x - TILE_SIZE_H + _xoffset, y - TILE_SIZE_H + _yoffset, __inst);
                             

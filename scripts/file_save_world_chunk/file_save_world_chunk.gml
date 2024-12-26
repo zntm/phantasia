@@ -18,32 +18,33 @@ function file_save_world_chunk(_inst)
 		for (var i = 0; i < CHUNK_SIZE_Z; ++i)
 		{
 			if ((surface_display & (1 << i)) == 0) continue;
-		
+                
 			var j = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
-	
+            
 			repeat (CHUNK_SIZE_X * CHUNK_SIZE_Y)
 			{
 				var _tile = _chunk[j++];
-		
+                
 				if (_tile == TILE_EMPTY)
 				{
 					buffer_write(_buffer, buffer_string, "");
-			
+                    
 					continue;
 				}
-		
+                
 				var _item_id = _tile.item_id;
-		
+                
 				buffer_write(_buffer, buffer_string, _item_id);
 				
 				var _next = buffer_tell(_buffer);
+                
 				buffer_write(_buffer, buffer_u32, 0);
 				
 				buffer_write(_buffer, buffer_u32, _tile.state_id);
 				buffer_write(_buffer, buffer_u64, _tile.scale_rotation_index);
 				
 				var _data = _item_data[$ _item_id];
-		
+                
 				if (_data.type & ITEM_TYPE_BIT.CONTAINER)
 				{
 					var _inventory = _tile.inventory;

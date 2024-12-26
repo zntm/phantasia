@@ -18,7 +18,7 @@ function file_save_world_values()
 	
 	for (var i = 0; i < _length; ++i)
 	{
-		var _name = _names[i];
+		var _name  = _names[i];
 		var _value = _command_value[$ _name];
 		
 		if (_value == undefined) continue;

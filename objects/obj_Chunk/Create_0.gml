@@ -1,6 +1,9 @@
 is_generated  = false;
 is_in_view    = false;
+
 is_near_light = false;
+is_near_sunlight = false;
+is_near_inst = false;
 
 connected = 0;
 connected_type = array_create(CHUNK_SIZE_X);

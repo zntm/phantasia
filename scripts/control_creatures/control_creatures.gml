@@ -22,6 +22,8 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 	var _volume_passive = global.settings_value.creature_passive;
 	var _volume_hostile = global.settings_value.creature_hostile;
 	
+    var _is_moved = false;
+    
 	with (obj_Creature)
 	{
 		if (rectangle_distance(x, y, _camera_x, _camera_y, _camera_x2, _camera_y2) > TILE_SIZE * 8)
@@ -82,6 +84,9 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		
 		var _attributes = _data.attributes;
 		
+        var _old_x = x;
+        var _old_y = y;
+        
 		var _move_type = _data.get_move_type();
 		
 		if (_move_type == CREATURE_MOVE_TYPE.DEFAULT)
@@ -94,7 +99,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 				
 				if (hp <= 0)
 				{
-					creature_handle_death(_data.drops);
+					creature_handle_death(_sfx, _data.drops);
 					
 					continue;
 				}
@@ -112,7 +117,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 				if (jump_count == 0) ? (creature_check_fall_height(_xto, y, -1, 3, _world_height) >= 3) : (chance(_chance_jump_default))
 				{
 					yvelocity = -buffs[$ "jump_height"];
-						
+					
 					++jump_count;
 				}
 			}
@@ -120,7 +125,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		else if (_move_type == CREATURE_MOVE_TYPE.FLY) || (_move_type == CREATURE_MOVE_TYPE.SWIM && tile_meeting(x, y, CHUNK_DEPTH_LIQUID, ITEM_TYPE_BIT.LIQUID, _world_height))
 		{
 			image_angle = lerp_delta(image_angle, (xdirection != 0 ? xdirection * -12 : 0), 0.1, _delta_time);
-	
+            
 			if (_fall_amount > 3)
 			{
 				if (chance(0.04 * _delta_time))
@@ -130,19 +135,19 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 				else
 				{
 					var _direction = tile_meeting(x - 1, y, undefined, undefined, _world_height) - tile_meeting(x + 1, y, undefined, undefined, _world_height);
-			
+                    
 					if (_direction != 0)
 					{
 						xdirection = _direction;
 					}
 				}
-		
+                
 				physics_y(_delta_time, buffs[$ "gravity"], undefined, undefined, undefined, _world_height);
 			}
 			else
 			{
 				ydirection = -1;
-		
+                
 				physics_y(_delta_time, 0, undefined, undefined, undefined, _world_height);
 			}
 			
@@ -161,5 +166,15 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		}
 		
 		y = clamp(y, 0, _entity_ymax);
+        
+        if (x != _old_x) || (y != _old_y)
+        {
+            _is_moved = true;
+        }
 	}
+    
+    if (_is_moved)
+    {
+        chunk_update_near_inst();
+    }
 }

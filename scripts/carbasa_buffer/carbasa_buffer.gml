@@ -8,6 +8,4 @@ function carbasa_buffer(_page)
 	}
 	
 	buffer_get_surface(global.carbasa_surface_buffer[$ _page], global.carbasa_surface[$ _page], 0);
-	
-	surface_save(global.carbasa_surface[$ _page], $"carbasa/{_page}.png");
 }

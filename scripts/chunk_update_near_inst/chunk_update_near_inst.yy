@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"chunk_update_near_inst",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"chunk_update_near_inst",
+  "parent":{
+    "name":"Chunk",
+    "path":"folders/Scripts/Chunk.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -280,7 +280,7 @@ if (file_exists("Global.json")) && (file_exists("Settings.dat"))
 	
 	var _length = buffer_read(_buffer, buffer_u8);
 	
-	for (var i = 0; i < _length; ++i)
+	repeat (_length)
 	{
 		var _name = buffer_read(_buffer, buffer_string);
 		

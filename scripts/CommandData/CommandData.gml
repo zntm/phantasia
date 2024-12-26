@@ -219,6 +219,7 @@ global.command_data[$ "tp"] = new CommandData()
         
         add_structure_surface_check();
         chunk_update_near_light();
+        chunk_update_near_inst();
 		
 		chat_add(undefined, $"Teleported {_user.name} to [{_x}, {_y}]");
 	});
