@@ -86,9 +86,6 @@ global.structure_surface_checked_index = -1;
 
 add_structure_surface_check();
 
-// global.structure_cave_checked_index = 0;
-// global.structure_cave_checked = [ 0, 0, 0, 0 ];
-
 global.structure_cave_checked_xmin = 0;
 global.structure_cave_checked_xmax = 0;
 

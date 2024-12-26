@@ -21,18 +21,18 @@ function init_loot(_directory, _prefix = "phantasia", _type = 0)
 	{
 		var _file = _files[i];
 		
-		var _name = $"{_prefix}:{string_delete(_file, string_length(_file) - 4, 5)}";
-	
-		show_debug_message($"[Init] : [Loot] * Loading '{_name}'...");
-	
+		var _name = string_delete(_file, string_length(_file) - 4, 5);
+        
+		debug_timer("init_data_loot");
+        
 		var _data = json_parse(buffer_load_text($"{_directory}/{_file}"));
-	
+        
 		var _guaranteed = _data.guaranteed;
 		var _guaranteed_length = array_length(_guaranteed);
 		
 		var _loots = _data.loot;
 		var _length = array_length(_loots);
-	
+        
 		var _ = {
 			container: choose_weighted_parse(_data.container),
 			guaranteed: array_create(_guaranteed_length),
@@ -64,6 +64,8 @@ function init_loot(_directory, _prefix = "phantasia", _type = 0)
 		
 		_.loot = choose_weighted_parse(_.loot);
 		
-		global.loot_data[$ _name] = _;
+		global.loot_data[$ $"{_prefix}:{_name}"] = _;
+        
+        debug_timer("init_data_loot", $"[Init] Loaded Loot: \'{_file}\'");
 	}
 }
