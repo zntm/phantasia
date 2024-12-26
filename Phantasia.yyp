@@ -1136,7 +1136,7 @@
     {"id":{"name":"BiomeData","path":"scripts/BiomeData/BiomeData.yy",},},
     {"id":{"name":"BossData","path":"scripts/BossData/BossData.yy",},},
     {"id":{"name":"buffer_delete_existing","path":"scripts/buffer_delete_existing/buffer_delete_existing.yy",},},
-    {"id":{"name":"buffer_load_decompress","path":"scripts/buffer_load_decompress/buffer_load_decompress.yy",},},
+    {"id":{"name":"buffer_load_decompressed","path":"scripts/buffer_load_decompressed/buffer_load_decompressed.yy",},},
     {"id":{"name":"buffer_load_text","path":"scripts/buffer_load_text/buffer_load_text.yy",},},
     {"id":{"name":"call_destroy_whip","path":"scripts/call_destroy_whip/call_destroy_whip.yy",},},
     {"id":{"name":"carbasa_buffer","path":"scripts/carbasa_buffer/carbasa_buffer.yy",},},

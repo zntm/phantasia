@@ -271,23 +271,21 @@ add_setting("accessibility", "camera_shake", new SettingsData(1, SETTINGS_TYPE.S
 
 if (file_exists("Global.json")) && (file_exists("Settings.dat"))
 {
-	var _buffer = buffer_load("Settings.dat");
-	var _buffer2 = buffer_decompress(_buffer);
+	var _buffer = buffer_load_decompressed("Settings.dat");
 	
-	var _version_major = buffer_read(_buffer2, buffer_u8);
-	var _version_minor = buffer_read(_buffer2, buffer_u8);
-	var _version_patch = buffer_read(_buffer2, buffer_u8);
-	var _version_type  = buffer_read(_buffer2, buffer_u8);
+	var _version_major = buffer_read(_buffer, buffer_u8);
+	var _version_minor = buffer_read(_buffer, buffer_u8);
+	var _version_patch = buffer_read(_buffer, buffer_u8);
+	var _version_type  = buffer_read(_buffer, buffer_u8);
 	
-	var _length = buffer_read(_buffer2, buffer_u8);
+	var _length = buffer_read(_buffer, buffer_u8);
 	
 	for (var i = 0; i < _length; ++i)
 	{
-		var _name = buffer_read(_buffer2, buffer_string);
+		var _name = buffer_read(_buffer, buffer_string);
 		
-		global.settings_value[$ _name] = buffer_read(_buffer2, buffer_f16);
+		global.settings_value[$ _name] = buffer_read(_buffer, buffer_f16);
 	}
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

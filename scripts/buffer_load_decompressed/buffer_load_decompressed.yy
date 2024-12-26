@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"buffer_load_decompress",
+  "%Name":"buffer_load_decompressed",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"buffer_load_decompress",
+  "name":"buffer_load_decompressed",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

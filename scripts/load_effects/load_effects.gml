@@ -4,20 +4,19 @@ function load_effects(_id)
 	
 	if (!file_exists(_directory)) exit;
 	
-	var _buffer  = buffer_load(_directory);
-	var _buffer2 = buffer_decompress(_buffer);
+	var _buffer = buffer_load_decompressed(_directory);
 	
-	var _version_major = buffer_read(_buffer2, buffer_u8);
-	var _version_minor = buffer_read(_buffer2, buffer_u8);
-	var _version_patch = buffer_read(_buffer2, buffer_u8);
-	var _version_type  = buffer_read(_buffer2, buffer_u8);
+	var _version_major = buffer_read(_buffer, buffer_u8);
+	var _version_minor = buffer_read(_buffer, buffer_u8);
+	var _version_patch = buffer_read(_buffer, buffer_u8);
+	var _version_type  = buffer_read(_buffer, buffer_u8);
 	
-	var _length = buffer_read(_buffer2, buffer_u16);
+	var _length = buffer_read(_buffer, buffer_u16);
 	
 	repeat (_length)
 	{
-		var _name  = buffer_read(_buffer2, buffer_string);
-		var _level = buffer_read(_buffer2, buffer_u16);
+		var _name  = buffer_read(_buffer, buffer_string);
+		var _level = buffer_read(_buffer, buffer_u16);
 		
 		if (_level == 0)
 		{
@@ -26,9 +25,9 @@ function load_effects(_id)
 			continue;
 		}
 		
-		var _timer = buffer_read(_buffer2, buffer_f64);
+		var _timer = buffer_read(_buffer, buffer_f64);
 		
-		var _particle = buffer_read(_buffer2, buffer_bool);
+		var _particle = buffer_read(_buffer, buffer_bool);
 		
 		_id.effects[$ _name] = {
 			level: _level,
@@ -38,5 +37,4 @@ function load_effects(_id)
 	}
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

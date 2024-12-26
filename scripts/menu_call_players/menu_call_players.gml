@@ -19,23 +19,22 @@ function menu_call_players()
 	
 	if (room != rm_Menu_List_Players) exit;
 	
-	var _buffer  = buffer_load($"{DIRECTORY_PLAYERS}/{directory}/Info.dat");
-	var _buffer2 = buffer_decompress(_buffer);
+	var _buffer = buffer_load_decompressed($"{DIRECTORY_PLAYERS}/{directory}/Info.dat");
 	
-	var _version_major = buffer_read(_buffer2, buffer_u8);
-	var _version_minor = buffer_read(_buffer2, buffer_u8);
-	var _version_patch = buffer_read(_buffer2, buffer_u8);
-	var _version_type  = buffer_read(_buffer2, buffer_u8);
+	var _version_major = buffer_read(_buffer, buffer_u8);
+	var _version_minor = buffer_read(_buffer, buffer_u8);
+	var _version_patch = buffer_read(_buffer, buffer_u8);
+	var _version_type  = buffer_read(_buffer, buffer_u8);
 	
 	try
 	{
-		var _unix = buffer_read(_buffer2, buffer_f64);
-		var _name = buffer_read(_buffer2, buffer_string);
+		var _unix = buffer_read(_buffer, buffer_f64);
+		var _name = buffer_read(_buffer, buffer_string);
 		
-		var _hp     = buffer_read(_buffer2, buffer_u16);
-		var _hp_max = buffer_read(_buffer2, buffer_u16);
+		var _hp     = buffer_read(_buffer, buffer_u16);
+		var _hp_max = buffer_read(_buffer, buffer_u16);
 		
-		var _hotbar = buffer_read(_buffer2, buffer_u8);
+		var _hotbar = buffer_read(_buffer, buffer_u8);
 	
 		data = {
 			uuid: directory,
@@ -51,15 +50,15 @@ function menu_call_players()
 		
 		repeat (_length)
 		{
-			var _attire = buffer_read(_buffer2, buffer_string);
+			var _attire = buffer_read(_buffer, buffer_string);
 			
 			data.attire[$ _attire] = {
-				colour: buffer_read(_buffer2, buffer_u16)
+				colour: buffer_read(_buffer, buffer_u16)
 			}
 			
 			if (_attire != "body")
 			{
-				data.attire[$ _attire].index = buffer_read(_buffer2, buffer_u16);
+				data.attire[$ _attire].index = buffer_read(_buffer, buffer_u16);
 			}
 		}
 		
@@ -92,5 +91,4 @@ function menu_call_players()
 	}
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

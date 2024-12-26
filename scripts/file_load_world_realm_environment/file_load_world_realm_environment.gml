@@ -14,13 +14,12 @@ function file_load_world_realm_environment(_realm)
 	
 	global.world_environment = {}
 	
-	var _buffer  = buffer_load(_directory);
-	var _buffer2 = buffer_decompress(_buffer);
+	var _buffer = buffer_load_decompressed(_directory);
 	
-	var _version_major = buffer_read(_buffer2, buffer_u8);
-	var _version_minor = buffer_read(_buffer2, buffer_u8);
-	var _version_patch = buffer_read(_buffer2, buffer_u8);
-	var _version_type  = buffer_read(_buffer2, buffer_u8);
+	var _version_major = buffer_read(_buffer, buffer_u8);
+	var _version_minor = buffer_read(_buffer, buffer_u8);
+	var _version_patch = buffer_read(_buffer, buffer_u8);
+	var _version_type  = buffer_read(_buffer, buffer_u8);
 	
 	var _length = buffer_read(_buffer, buffer_u16);
 	
@@ -33,5 +32,4 @@ function file_load_world_realm_environment(_realm)
 	}
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

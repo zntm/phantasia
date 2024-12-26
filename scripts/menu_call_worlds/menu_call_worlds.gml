@@ -19,26 +19,25 @@ function menu_call_worlds()
 	
 	if (room != rm_Menu_List_Worlds) exit;
 	
-	var _buffer  = buffer_load($"{DIRECTORY_WORLDS}/{directory}/Info.dat");
-	var _buffer2 = buffer_decompress(_buffer);
+	var _buffer = buffer_load_decompressed($"{DIRECTORY_WORLDS}/{directory}/Info.dat");
 	
 	try
 	{
 		data = {}
 		
-		var _version_major = buffer_read(_buffer2, buffer_u8);
-		var _version_minor = buffer_read(_buffer2, buffer_u8);
-		var _version_patch = buffer_read(_buffer2, buffer_u8);
-		var _version_type  = buffer_read(_buffer2, buffer_u8);
+		var _version_major = buffer_read(_buffer, buffer_u8);
+		var _version_minor = buffer_read(_buffer, buffer_u8);
+		var _version_patch = buffer_read(_buffer, buffer_u8);
+		var _version_type  = buffer_read(_buffer, buffer_u8);
 		
-		var _unix = buffer_read(_buffer2, buffer_f64);
-		var _name = buffer_read(_buffer2, buffer_string);
+		var _unix = buffer_read(_buffer, buffer_f64);
+		var _name = buffer_read(_buffer, buffer_string);
 		
 		data.name = _name;
-		data.seed = buffer_read(_buffer2, buffer_f64);
+		data.seed = buffer_read(_buffer, buffer_f64);
 		
-		data.time = buffer_read(_buffer2, buffer_f64);
-		data.day  = buffer_read(_buffer2, buffer_u64);
+		data.time = buffer_read(_buffer, buffer_f64);
+		data.day  = buffer_read(_buffer, buffer_u64);
 		
 		data.last_played = _unix;
 		
@@ -74,5 +73,4 @@ function menu_call_worlds()
 	}
 	
 	buffer_delete_existing(_buffer);
-	buffer_delete_existing(_buffer2);
 }

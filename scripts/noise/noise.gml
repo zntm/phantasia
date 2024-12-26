@@ -1,8 +1,4 @@
-var _buffer = buffer_load($"{DATAFILES_RESOURCES}\\noise.dat");
-
-global.noise_buffer = buffer_decompress(_buffer);
-
-buffer_delete(_buffer);
+global.noise_buffer = buffer_load_decompressed($"{DATAFILES_RESOURCES}\\noise.dat");
 
 function noise(_x, _y, _octaves, _seed)
 {

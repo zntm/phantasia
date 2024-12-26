@@ -253,7 +253,7 @@
     {"name":"bg_music","order":5,"path":"scripts/bg_music/bg_music.yy",},
     {"name":"bg_time_update","order":6,"path":"scripts/bg_time_update/bg_time_update.yy",},
     {"name":"buffer_delete_existing","order":21,"path":"scripts/buffer_delete_existing/buffer_delete_existing.yy",},
-    {"name":"buffer_load_decompress","order":46,"path":"scripts/buffer_load_decompress/buffer_load_decompress.yy",},
+    {"name":"buffer_load_decompressed","order":46,"path":"scripts/buffer_load_decompressed/buffer_load_decompressed.yy",},
     {"name":"buffer_load_text","order":45,"path":"scripts/buffer_load_text/buffer_load_text.yy",},
     {"name":"carbasa_buffer","order":4,"path":"scripts/carbasa_buffer/carbasa_buffer.yy",},
     {"name":"carbasa_refresh","order":7,"path":"scripts/carbasa_refresh/carbasa_refresh.yy",},

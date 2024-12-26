@@ -13,13 +13,12 @@ function load_sun_rays(_camera_width)
 		exit;
 	}
 	
-	var _buffer  = buffer_load(_directory);
-	var _buffer2 = buffer_decompress(_buffer);
+	var _buffer = buffer_load_decompressed(_directory);
 	
-	var _version_major = buffer_read(_buffer2, buffer_u8);
-	var _version_minor = buffer_read(_buffer2, buffer_u8);
-	var _version_patch = buffer_read(_buffer2, buffer_u8);
-	var _version_type  = buffer_read(_buffer2, buffer_u8);
+	var _version_major = buffer_read(_buffer, buffer_u8);
+	var _version_minor = buffer_read(_buffer, buffer_u8);
+	var _version_patch = buffer_read(_buffer, buffer_u8);
+	var _version_type  = buffer_read(_buffer, buffer_u8);
 	
 	var _length = buffer_read(_buffer, buffer_u16);
 	var _start = buffer_read(_buffer, buffer_s32);
@@ -30,5 +29,4 @@ function load_sun_rays(_camera_width)
 	}
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

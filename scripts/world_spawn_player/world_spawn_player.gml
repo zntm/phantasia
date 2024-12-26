@@ -6,34 +6,31 @@ function world_spawn_player(_directory, _seed, _inst)
 		
 		if (file_exists(_spawnpoint))
 		{
-			var _buffer  = buffer_load(_spawnpoint);
-			var _buffer2 = buffer_decompress(_buffer);
+			var _buffer = buffer_load_decompressed(_spawnpoint);
 			
-			var _version_major = buffer_read(_buffer2, buffer_u8);
-			var _version_minor = buffer_read(_buffer2, buffer_u8);
-			var _version_patch = buffer_read(_buffer2, buffer_u8);
-			var _version_type  = buffer_read(_buffer2, buffer_u8);
+			var _version_major = buffer_read(_buffer, buffer_u8);
+			var _version_minor = buffer_read(_buffer, buffer_u8);
+			var _version_patch = buffer_read(_buffer, buffer_u8);
+			var _version_type  = buffer_read(_buffer, buffer_u8);
 			
-			var _realm = buffer_read(_buffer2, buffer_string);
+			var _realm = buffer_read(_buffer, buffer_string);
 			
 			if (global.world.realm == _realm)
 			{
-				_inst.x = buffer_read(_buffer2, buffer_f64);
-				_inst.y = buffer_read(_buffer2, buffer_f64);
+				_inst.x = buffer_read(_buffer, buffer_f64);
+				_inst.y = buffer_read(_buffer, buffer_f64);
 				
-				_inst.xvelocity = buffer_read(_buffer2, buffer_f16);
-				_inst.yvelocity = buffer_read(_buffer2, buffer_f16);
+				_inst.xvelocity = buffer_read(_buffer, buffer_f16);
+				_inst.yvelocity = buffer_read(_buffer, buffer_f16);
 				
-				_inst.ylast = buffer_read(_buffer2, buffer_f64);
+				_inst.ylast = buffer_read(_buffer, buffer_f64);
 				
 				buffer_delete(_buffer);
-				buffer_delete(_buffer2);
 				
 				exit;
 			}
 			
 			buffer_delete(_buffer);
-			buffer_delete(_buffer2);
 		}
 	}
 	

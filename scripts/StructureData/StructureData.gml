@@ -36,18 +36,17 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
 {
 	static __init_dat = function(_prefix, _file, _directory, _item_data)
 	{
-		var _buffer  = buffer_load(_directory);
-		var _buffer2 = buffer_decompress(_buffer);
+		var _buffer = buffer_load_decompressed(_directory);
 		
-		var _version_major = buffer_read(_buffer2, buffer_u8);
-		var _version_minor = buffer_read(_buffer2, buffer_u8);
-		var _version_patch = buffer_read(_buffer2, buffer_u8);
-		var _version_type  = buffer_read(_buffer2, buffer_u8);
+		var _version_major = buffer_read(_buffer, buffer_u8);
+		var _version_minor = buffer_read(_buffer, buffer_u8);
+		var _version_patch = buffer_read(_buffer, buffer_u8);
+		var _version_type  = buffer_read(_buffer, buffer_u8);
 		
 		var _json = json_parse(buffer_load_text($"{string_delete(_directory, string_length(_directory) - 3, 4)}.json"));
 		
-		var _width  = buffer_read(_buffer2, buffer_s32);
-		var _height = buffer_read(_buffer2, buffer_s32);
+		var _width  = buffer_read(_buffer, buffer_s32);
+		var _height = buffer_read(_buffer, buffer_s32);
 		
 		var _rectangle = _width * _height;
 		
@@ -63,7 +62,7 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
 			{
 				var _index_xy = i + _index_y;
 				
-				if (buffer_read(_buffer2, buffer_bool))
+				if (buffer_read(_buffer, buffer_bool))
 				{
 					for (var l = CHUNK_SIZE_Z - 1; l >= 0; --l)
 					{
@@ -75,39 +74,39 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
                 
 				for (var l = CHUNK_SIZE_Z - 1; l >= 0; --l)
 				{
-					var _item_id = buffer_read(_buffer2, buffer_string);
+					var _item_id = buffer_read(_buffer, buffer_string);
 					
 					if (_item_id == "") continue;
                     
 					var _tile = new Tile(_item_id, _item_data);
 					
-					_tile.state_id = buffer_read(_buffer2, buffer_u32);
-					_tile.scale_rotation_index = buffer_read(_buffer2, buffer_u64);
+					_tile.state_id = buffer_read(_buffer, buffer_u32);
+					_tile.scale_rotation_index = buffer_read(_buffer, buffer_u64);
                     
 					var _data2 = _item_data[$ _item_id];
                     
 					if (_data2.type & ITEM_TYPE_BIT.CONTAINER)
 					{
-						if (buffer_read(_buffer2, buffer_bool))
+						if (buffer_read(_buffer, buffer_bool))
 						{
-							_tile.set_loot(buffer_read(_buffer2, buffer_string));
+							_tile.set_loot(buffer_read(_buffer, buffer_string));
 						}
 						else
 						{
-							var _length = buffer_read(_buffer2, buffer_u8);
+							var _length = buffer_read(_buffer, buffer_u8);
 							
 							for (var m = 0; m < _length; ++m)
 							{
-								var _item_id2 = buffer_read(_buffer2, buffer_string);
+								var _item_id2 = buffer_read(_buffer, buffer_string);
                                 
 								if (_item_id2 == "") continue;
                                 
-								var _value2 = buffer_read(_buffer2, buffer_u64);
+								var _value2 = buffer_read(_buffer, buffer_u64);
 								
-								var _amount       = buffer_read(_buffer2, buffer_u16);
-								var _index        = buffer_read(_buffer2, buffer_s8);
-								var _index_offset = buffer_read(_buffer2, buffer_s8);
-								var _state        = buffer_read(_buffer2, buffer_u16);
+								var _amount       = buffer_read(_buffer, buffer_u16);
+								var _index        = buffer_read(_buffer, buffer_s8);
+								var _index_offset = buffer_read(_buffer, buffer_s8);
+								var _state        = buffer_read(_buffer, buffer_u16);
 								
 								_tile.inventory[@ m] = new Inventory(_item_id2, _amount)
 									.set_index(_index)
@@ -116,7 +115,7 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
                                 
 								if (_item_data[$ _item_id2].type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
 								{
-									_tile.inventory[@ m].durability = buffer_read(_buffer2, buffer_u16);
+									_tile.inventory[@ m].durability = buffer_read(_buffer, buffer_u16);
 								}
 							}
 						}
@@ -127,13 +126,13 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
 					if (_variable_names != undefined)
 					{
 						var _variable = _data2.variable;
-						var _length = buffer_read(_buffer2, buffer_u8);
+						var _length = buffer_read(_buffer, buffer_u8);
                         
 						repeat (_length)
 						{
-							var _name2 = buffer_read(_buffer2, buffer_string);
+							var _name2 = buffer_read(_buffer, buffer_string);
 							
-							_tile[$ $"variable.{_name2}"] = buffer_read(_buffer2, (is_string(_variable[$ _name2]) ? buffer_string : buffer_f32));
+							_tile[$ $"variable.{_name2}"] = buffer_read(_buffer, (is_string(_variable[$ _name2]) ? buffer_string : buffer_f32));
 						}
 					}
                     
@@ -143,7 +142,6 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
 		}
 		
 		buffer_delete(_buffer);
-		buffer_delete(_buffer2);
 		
 		return _structure.set_data(_data);
 	}
