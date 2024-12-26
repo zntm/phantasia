@@ -402,7 +402,5 @@ with (obj_Chunk)
 	var _x = x - TILE_SIZE_H;
 	var _y = y - TILE_SIZE_H;
 	
-	if (!rectangle_in_rectangle(_x1, _x2, _y1, _x2, _x, _y, _x - 1 + CHUNK_SIZE_WIDTH, _y - 1 + CHUNK_SIZE_HEIGHT)) continue;
-	
-	is_in_view = true;
+	is_in_view = rectangle_in_rectangle(_x1, _x2, _y1, _x2, _x, _y, _x - 1 + CHUNK_SIZE_WIDTH, _y - 1 + CHUNK_SIZE_HEIGHT);
 }

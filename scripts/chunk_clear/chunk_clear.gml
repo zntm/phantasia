@@ -5,7 +5,7 @@ function chunk_clear(_inst)
 		file_save_world_chunk(_inst);
 	}
 	
-	for (var i = 0; i < CHUNK_SIZE_Z; ++i)
+	for (var i = 0; i < CHUNK_SIZE_Z * 2; ++i)
 	{
 		surface_free_existing(_inst.surface[i]);
 		buffer_delete_existing(_inst.surface_buffer[i]);

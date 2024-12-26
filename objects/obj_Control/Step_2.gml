@@ -16,7 +16,7 @@ var _bbox_h = _camera_y + _camera_height + CHUNK_SIZE_HEIGHT;
 if (refresh_sun_ray)
 {
 	refresh_sun_ray = false;
-		
+	
 	light_clusterize();
 }
 
