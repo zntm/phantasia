@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"hp_add",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"hp_add",
+  "parent":{
+    "name":"HP",
+    "path":"folders/Scripts/Phantasia/Entities/HP.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

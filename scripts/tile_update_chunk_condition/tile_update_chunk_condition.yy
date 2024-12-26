@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"tile_update_chunk_condition",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tile_update_chunk_condition",
+  "parent":{
+    "name":"Tile",
+    "path":"folders/Scripts/Tile/Tile.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

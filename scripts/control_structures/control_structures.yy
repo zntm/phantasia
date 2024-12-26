@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"control_structures",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"control_structures",
+  "parent":{
+    "name":"Phantasia",
+    "path":"folders/Scripts/Phantasia.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

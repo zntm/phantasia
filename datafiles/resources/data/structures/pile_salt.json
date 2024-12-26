@@ -1,0 +1,17 @@
+{
+	"width": [ 10, 22 ],
+	"height": [ 6, 16 ],
+	"placement_offset": {
+		"x": 0,
+		"y": [ 2, 6 ]
+	},
+	"data": {
+		"function": "generic:pile",
+		"arguments": {
+			"use_structure_void": true,
+			"tile": "phantasia:block_of_salt",
+            "height_random_offset": 0.3,
+            "start_offset": [ 0, 2 ]
+		}
+	}
+}

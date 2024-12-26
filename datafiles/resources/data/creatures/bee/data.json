@@ -1,0 +1,21 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 2,
+        "moving": 2
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 4,
+    "type": {
+        "hostility": "passive",
+        "movement": "flight"
+    },
+    "attributes": {
+        "movement_speed": 0.3,
+        "gravity": 0.1,
+        "jump_height": 0.3
+    }
+}

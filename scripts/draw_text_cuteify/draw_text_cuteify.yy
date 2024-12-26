@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"draw_text_cuteify",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"draw_text_cuteify",
+  "parent":{
+    "name":"Cuteify",
+    "path":"folders/Scripts/Functions/Cuteify.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"achievement_unlock",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"achievement_unlock",
+  "parent":{
+    "name":"Miscellaneous",
+    "path":"folders/Scripts/Phantasia/Miscellaneous.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

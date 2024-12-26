@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"menu_button_outline",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"menu_button_outline",
+  "parent":{
+    "name":"Button",
+    "path":"folders/Scripts/Menu/Button.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

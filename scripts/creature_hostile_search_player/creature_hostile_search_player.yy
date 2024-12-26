@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"creature_hostile_search_player",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"creature_hostile_search_player",
+  "parent":{
+    "name":"Hostile",
+    "path":"folders/Scripts/Entity/Creature/Hostile.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

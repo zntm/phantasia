@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"save_grimoire",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"save_grimoire",
+  "parent":{
+    "name":"Saves",
+    "path":"folders/Scripts/Phantasia/Saves.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

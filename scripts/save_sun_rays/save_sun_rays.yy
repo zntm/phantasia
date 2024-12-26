@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"save_sun_rays",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"save_sun_rays",
+  "parent":{
+    "name":"Saves",
+    "path":"folders/Scripts/Phantasia/Saves.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

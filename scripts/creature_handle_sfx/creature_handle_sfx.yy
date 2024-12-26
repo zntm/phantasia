@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"creature_handle_sfx",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"creature_handle_sfx",
+  "parent":{
+    "name":"Handlers",
+    "path":"folders/Scripts/Entity/Creature/Handlers.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

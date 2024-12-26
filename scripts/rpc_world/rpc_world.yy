@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"rpc_world",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"rpc_world",
+  "parent":{
+    "name":"Phantasia",
+    "path":"folders/Scripts/Phantasia.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

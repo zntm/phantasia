@@ -1,0 +1,25 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 1,
+        "moving": 4
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 12,
+    "type": {
+        "hostility": "passive",
+        "movement": "ground"
+    },
+    "attributes": {
+        "movement_speed": 0.8,
+        "jump_height": 0.55
+    },
+    "sprite_index": {
+        "default": [ 0, 1, 2, 3 ],
+        "phantasia:borealis": [ 0, 3 ],
+        "phantasia:tundra": [ 1, 2 ]
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"structure_create",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"structure_create",
+  "parent":{
+    "name":"Phantasia",
+    "path":"folders/Scripts/Phantasia.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

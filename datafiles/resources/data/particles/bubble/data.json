@@ -1,0 +1,9 @@
+{
+	"frames": 6,
+	"gravity": 0,
+	"scale": [ 0.75, 2 ],
+	"lifetime": [ 24, 64 ],
+	"fade_out": true,
+	"collision": false,
+	"stretch_animation": true
+}

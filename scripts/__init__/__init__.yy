@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__init__",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__init__",
+  "parent":{
+    "name":"Phantasia",
+    "path":"Phantasia.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

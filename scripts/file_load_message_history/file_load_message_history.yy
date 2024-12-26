@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"file_load_message_history",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"file_load_message_history",
+  "parent":{
+    "name":"Load",
+    "path":"folders/Scripts/File/Load.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

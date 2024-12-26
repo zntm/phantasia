@@ -1,0 +1,162 @@
+{
+	"data": [
+		{
+			"header": "lead_developer",
+			"colour": "#D2B5FF",
+			"contributors": [
+				{
+					"name": "Zhen",
+					"youtube": "zntm",
+					"twitter": "zhntm",
+					"bluesky": "zntm.bsky.social"
+				}
+			]
+		},
+		{
+			"header": "artist",
+			"colour": "#FFCEE7",
+			"contributors": [
+				{
+					"name": "cyanflower",
+					"bluesky": "cyanflower.bsky.social"
+				},
+				{
+					"name": "KazooTheCat",
+					"bluesky": "claireeverywhere.bsky.social"
+				},
+				{
+					"name": "NHJ",
+					"bluesky": "nhj03.bsky.social",
+					"twitter": "NHJ__NHJ"
+				},
+				{
+					"name": "NetBa",
+					"bluesky": "netba.bsky.social",
+					"twitter": "NetBa_Art"
+				},
+				{
+					"name": "lettucenotcabbage",
+					"twitter": "lettucenotcabb"
+				}
+			]
+		},
+		{
+			"header": "composer",
+			"colour": "#D8F4FF",
+			"contributors": [
+				{
+					"name": "GlydeOut",
+					"youtube": "GreetingsCultist",
+					"twitter": "GlydeGameDev"
+				},
+				{
+					"name": "LonelyChicken",
+					"twitter": "LonelyChicken12"
+				},
+				{
+					"name": "Oh Eight"
+				},
+				{
+					"name": "Skies"
+				}
+			]
+		},
+		{
+			"header": "translation_es",
+			"colour": "#FFEBB2",
+			"contributors": [
+				{
+					"name": "LanFemboy"
+				},
+				{
+					"name": "Artemisia"
+				}
+			]
+		},
+		{
+			"header": "playtester",
+			"colour": "#53626B",
+			"contributors": [
+				{
+					"name": "zenuss."
+				},
+				{
+					"name": "abyssaltheking"
+				},
+				{
+					"name": "fordivinity"
+				},
+				{
+					"name": "jay_ar3"
+				},
+				{
+					"name": "licensedfunnyman"
+				},
+				{
+					"name": "iammefr"
+				},
+				{
+					"name": "srisrid"
+				},
+				{
+					"name": "wanterwither"
+				},
+				{
+					"name": "anxieteaplushbee"
+				},
+				{
+					"name": "ceasingbonsai17"
+				},
+				{
+					"name": "emjaycrowe"
+				},
+				{
+					"name": "greetingscultist"
+				},
+				{
+					"name": "hunvich"
+				},
+				{
+					"name": "hyfa"
+				},
+				{
+					"name": "jarviscrompz"
+				},
+				{
+					"name": "void_4736"
+				},
+				{
+					"name": "tamtixx"
+				},
+				{
+					"name": "kksxx"
+				},
+				{
+					"name": "Yuiayyy"
+				}
+			]
+		},
+		{
+			"header": "special_thanks",
+			"colour": "#904443",
+			"contributors": [
+				{
+					"name": "zenuss."
+				},
+				{
+					"name": "pieusername"
+				},
+				{
+					"name": "nisazzz",
+					"twitter": "NisaDonut"
+				},
+				{
+					"name": "jay_ar3"
+				},
+				{
+					"name": "anxieteaplushbee"
+				}
+			]
+		}
+	]
+}

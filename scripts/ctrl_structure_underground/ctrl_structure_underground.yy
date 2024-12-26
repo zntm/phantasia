@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ctrl_structure_underground",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ctrl_structure_underground",
+  "parent":{
+    "name":"Controls",
+    "path":"folders/Scripts/Phantasia/Controls.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

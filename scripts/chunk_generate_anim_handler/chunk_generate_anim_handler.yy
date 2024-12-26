@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"chunk_generate_anim_handler",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"chunk_generate_anim_handler",
+  "parent":{
+    "name":"Chunks",
+    "path":"folders/Scripts/Phantasia/Chunks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"creature_check_fall_height",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"creature_check_fall_height",
+  "parent":{
+    "name":"Creature",
+    "path":"folders/Scripts/Entity/Creature.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

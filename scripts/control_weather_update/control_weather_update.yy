@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"control_weather_update",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"control_weather_update",
+  "parent":{
+    "name":"Controls",
+    "path":"folders/Scripts/Phantasia/Controls.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

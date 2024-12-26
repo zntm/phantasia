@@ -1,0 +1,13 @@
+{
+	"frames": 4,
+	"gravity": 0,
+	"xspeed": [ -0.6, 0.6 ],
+	"yspeed": [ -0.5, -0.1 ],
+	"scale": [ 0.25, 1 ],
+	"rotation": [ 1, 8 ],
+	"lifetime": [ 60, 120 ],
+	"stretch_animation": true,
+	"fade_out": true,
+	"xorigin": 3,
+	"yorigin": 3
+}

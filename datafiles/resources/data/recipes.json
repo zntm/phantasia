@@ -1,0 +1,2866 @@
+{
+	"recipes": [
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_beef",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_beef"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_bluefish",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_bluefish"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_chicken",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_chicken"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_cod",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_cod"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_crab",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_crab"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_frog_leg",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_frog_leg"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_bunny",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_bunny"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_salmon",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_salmon"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_tuna",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_tuna"
+        },
+        {
+            "amount": 5,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_whole_turkey",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "item_id": "phantasia:raw_turkey"
+        },
+        {
+            "amount": 5,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:cooked_whole_turkey",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "item_id": "phantasia:cooked_turkey"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_turkey",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_turkey"
+        },
+        {
+            "amount": 1,
+            "ingredients": [
+                {
+                    "item_id": "phantasia:raw_whole_turkey",
+                    "amount": 1,
+                    "unlock_grimoire": true
+                }
+            ],
+            "stations": "phantasia:stove",
+            "item_id": "phantasia:cooked_whole_turkey"
+        },
+        {
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": [
+						"phantasia:acacia_wood",
+						"phantasia:ashen_wood",
+						"phantasia:birch_wood",
+						"phantasia:blizzard_wood",
+						"phantasia:bloom_wood",
+						"phantasia:cherry_wood",
+						"phantasia:mahogany_wood",
+						"phantasia:mangrove_wood",
+						"phantasia:oak_wood",
+						"phantasia:palm_wood",
+						"phantasia:pine_wood",
+						"phantasia:wysteria_wood",
+						"phantasia:yucca_wood"
+					],
+					"amount": 24
+				},
+                {
+					"item_id": "phantasia:iron",
+					"amount": 10,
+					"unlock_grimoire": true
+				},
+				{
+					"item_id": "phantasia:coal",
+					"amount": 12
+				}
+			],
+			"item_id": "phantasia:pencil"
+		},
+        {
+			"amount": 1,
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 3,
+					"unlock_grimoire": true
+				},
+				{
+					"item_id": "phantasia:torch",
+					"amount": 1
+				}
+			],
+			"item_id": "phantasia:lantern"
+		},
+        {
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": [
+						"phantasia:acacia_wood",
+						"phantasia:ashen_wood",
+						"phantasia:birch_wood",
+						"phantasia:blizzard_wood",
+						"phantasia:bloom_wood",
+						"phantasia:cherry_wood",
+						"phantasia:mahogany_wood",
+						"phantasia:mangrove_wood",
+						"phantasia:oak_wood",
+						"phantasia:palm_wood",
+						"phantasia:pine_wood",
+						"phantasia:wysteria_wood",
+						"phantasia:yucca_wood"
+					],
+					"amount": 1
+				},
+				{
+					"item_id": "phantasia:coal",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:torch"
+		},
+        {
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 10
+				},
+                {
+					"item_id": "phantasia:lucky_clover",
+					"amount": 8
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:lucky_horseshoe"
+		},
+        {
+			"ingredients": [
+				{
+					"item_id": "phantasia:twig",
+					"amount": 12,
+					"unlock_grimoire": true
+				},
+                {
+					"item_id": "phantasia:rose",
+					"amount": 2
+				},
+                {
+					"item_id": "phantasia:blue_bells",
+					"amount": 2
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:flower_crown"
+		},
+        {
+			"ingredients": [
+				{
+					"item_id": "phantasia:brass",
+					"amount": 14,
+					"unlock_grimoire": true
+				},
+                {
+					"item_id": "phantasia:torch",
+					"amount": 8
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:mining_helmet"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:anvil"
+		},
+        {
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:bucket"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:stone",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:furnace"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": [
+						"phantasia:acacia_wood",
+						"phantasia:ashen_wood",
+						"phantasia:birch_wood",
+						"phantasia:blizzard_wood",
+						"phantasia:bloom_wood",
+						"phantasia:cherry_wood",
+						"phantasia:mahogany_wood",
+						"phantasia:mangrove_wood",
+						"phantasia:oak_wood",
+						"phantasia:palm_wood",
+						"phantasia:pine_wood",
+						"phantasia:wysteria_wood",
+						"phantasia:yucca_wood"
+					],
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": [
+						"phantasia:acacia_wood",
+						"phantasia:ashen_wood",
+						"phantasia:birch_wood",
+						"phantasia:blizzard_wood",
+						"phantasia:bloom_wood",
+						"phantasia:cherry_wood",
+						"phantasia:mahogany_wood",
+						"phantasia:mangrove_wood",
+						"phantasia:oak_wood",
+						"phantasia:palm_wood",
+						"phantasia:pine_wood",
+						"phantasia:wysteria_wood",
+						"phantasia:yucca_wood"
+					],
+					"amount": 6,
+					"unlock_grimoire": true
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 4,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:sawmill"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:stone",
+					"amount": 6,
+					"unlock_grimoire": true
+				},
+				{
+					"item_id": "phantasia:mud_bricks",
+					"amount": 4,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:stove"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:stone",
+					"amount": 6,
+					"unlock_grimoire": true
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 4,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:stonecutter"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:coal",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:block_of_coal"
+		},
+		{
+			"amount": 8,
+			"ingredients": [
+				{
+					"item_id": "phantasia:block_of_coal",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:coal"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": [
+						"phantasia:acacia_wood",
+						"phantasia:ashen_wood",
+						"phantasia:birch_wood",
+						"phantasia:blizzard_wood",
+						"phantasia:bloom_wood",
+						"phantasia:cherry_wood",
+						"phantasia:mahogany_wood",
+						"phantasia:mangrove_wood",
+						"phantasia:oak_wood",
+						"phantasia:palm_wood",
+						"phantasia:pine_wood",
+						"phantasia:wysteria_wood",
+						"phantasia:yucca_wood"
+					],
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:coal"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 14,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_helmet"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 18,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_breastplate"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_leggings"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_sword"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_axe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_shovel"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_hammer"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_bow"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:platinum_fishing_pole"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:platinum",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:block_of_platinum"
+		},
+		{
+			"amount": 8,
+			"ingredients": [
+				{
+					"item_id": "phantasia:block_of_platinum",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:platinum"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:raw_platinum",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:platinum"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 14,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_helmet"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 18,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_breastplate"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_leggings"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_sword"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_axe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_shovel"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_hammer"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_bow"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:gold_fishing_pole"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:gold",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:block_of_gold"
+		},
+		{
+			"amount": 8,
+			"ingredients": [
+				{
+					"item_id": "phantasia:block_of_gold",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:gold"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:raw_gold",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:gold"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 14,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_helmet"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 18,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_breastplate"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_leggings"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_sword"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_axe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_shovel"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_hammer"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_bow"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:iron_fishing_pole"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:iron",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:block_of_iron"
+		},
+		{
+			"amount": 8,
+			"ingredients": [
+				{
+					"item_id": "phantasia:block_of_iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:iron"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:raw_iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:iron"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 14,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_helmet"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 18,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_breastplate"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_leggings"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_sword"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_axe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_shovel"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_hammer"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 10,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_bow"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:copper_fishing_pole"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:copper",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:block_of_copper"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:weathered_block_of_copper",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:block_of_copper"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:tarnished_block_of_copper",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:block_of_copper"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:weathered_copper",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:weathered_block_of_copper"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:tarnished_copper",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:anvil",
+			"item_id": "phantasia:tarnished_block_of_copper"
+		},
+		{
+			"amount": 8,
+			"ingredients": [
+				{
+					"item_id": "phantasia:block_of_copper",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:copper"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:raw_copper",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:copper"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:raw_weathered_copper",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:copper"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:raw_tarnished_copper",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:copper"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:acacia_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:acacia_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:acacia_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:acacia_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:acacia_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:acacia_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:acacia_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:acacia_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:ashen_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:ashen_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:ashen_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:ashen_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:ashen_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:ashen_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:ashen_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:ashen_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:birch_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:birch_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:birch_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:birch_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:birch_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:birch_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:birch_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:birch_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:blizzard_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:blizzard_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:blizzard_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:blizzard_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:blizzard_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:blizzard_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:blizzard_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:blizzard_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:bloom_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:bloom_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:bloom_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:bloom_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:bloom_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:bloom_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:bloom_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:bloom_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:cherry_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:cherry_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:cherry_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:cherry_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:cherry_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:cherry_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:cherry_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:cherry_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:mahogany_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:mahogany_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:mahogany_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:mahogany_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:mahogany_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:mahogany_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:mahogany_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:mahogany_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:mangrove_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:mangrove_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:mangrove_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:mangrove_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:mangrove_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:mangrove_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:mangrove_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:mangrove_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:oak_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:oak_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:oak_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:oak_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:oak_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:oak_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:oak_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:oak_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:palm_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:palm_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:palm_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:palm_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:palm_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:palm_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:palm_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:palm_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:pine_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:pine_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:pine_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:pine_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:pine_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:pine_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:pine_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:pine_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:wysteria_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:wysteria_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:wysteria_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:wysteria_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:wysteria_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:wysteria_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:wysteria_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:wysteria_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_wood",
+					"amount": 12,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:yucca_pickaxe"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_wood",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:yucca_shovel"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_wood",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:yucca_planks"
+		},
+		{
+			"amount": 3,
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_planks",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:yucca_planks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_wood",
+					"amount": 6
+				},
+				{
+					"item_id": "phantasia:iron",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:yucca_chest"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_planks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:yucca_chair"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_planks",
+					"amount": 6,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:yucca_table"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_planks",
+					"amount": 8,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:yucca_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:stone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:stone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:stone",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_stone"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_stone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_stone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:stone",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:stone_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:stone_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:stone_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:emustone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:emustone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:emustone",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_emustone"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_emustone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_emustone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:emustone",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:emustone_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:emustone_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:emustone_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:andesite",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:andesite_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:andesite",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_andesite"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_andesite",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_andesite_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:andesite",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:andesite_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:andesite_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:andesite_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:basalt",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:basalt_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:basalt",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_basalt"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_basalt",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_basalt_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:basalt",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:basalt_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:basalt_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:basalt_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:deadstone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:deadstone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:deadstone",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_deadstone"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_deadstone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_deadstone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:deadstone",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:deadstone_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:deadstone_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:deadstone_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:granite",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:granite_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:granite",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_granite"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_granite",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_granite_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:granite",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:granite_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:granite_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:granite_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:kyanite",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:kyanite_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:kyanite",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_kyanite"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_kyanite",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_kyanite_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:kyanite",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:kyanite_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:kyanite_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:kyanite_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:lumin_stone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:lumin_stone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:lumin_stone",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_lumin_stone"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_lumin_stone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_lumin_stone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:lumin_stone",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:lumin_stone_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:lumin_stone_bricks",
+					"amount": 3
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:lumin_stone_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:sandstone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:sandstone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:sandstone",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_sandstone"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_sandstone",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_sandstone_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:sandstone",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:sandstone_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:sandstone_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:sandstone_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:strata",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:strata_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:strata",
+					"amount": 1,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_strata"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:polished_strata",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:polished_strata_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:strata",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:strata_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:strata_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:strata_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mud",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:furnace",
+			"item_id": "phantasia:dried_mud"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mud",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:mud_bricks"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mud_bricks",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:stonecutter",
+			"item_id": "phantasia:mud_bricks_wall"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:rocks",
+					"amount": 2
+				},
+				{
+					"item_id": "phantasia:twig",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:hatchet"
+		}
+	]
+}

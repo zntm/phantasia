@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"world_init_bg_clouds",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"world_init_bg_clouds",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

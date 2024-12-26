@@ -1,0 +1,19 @@
+{
+	"width": 1,
+	"height": [ 10, 18 ],
+	"placement_offset": {
+		"x": 0,
+		"y": 0
+	},
+	"data": {
+		"function": "plant:bamboo",
+		"arguments": {
+			"use_structure_void": true,
+			"tile": "phantasia:dark_bamboo",
+			"index": [ 1, 2 ],
+			"index_mid": 3,
+			"index_top": 4,
+			"mid_height": [ 2, 6 ]
+		}
+	}
+}

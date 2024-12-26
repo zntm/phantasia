@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"chunk_iterate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"chunk_iterate",
+  "parent":{
+    "name":"Iteration",
+    "path":"folders/Scripts/Chunk/Iteration.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

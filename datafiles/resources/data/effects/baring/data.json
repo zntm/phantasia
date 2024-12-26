@@ -1,0 +1,17 @@
+{
+    "type": "constant",
+    "attribute": "defense",
+    "calculation": [
+        {
+            "value": "phantasia:level",
+            "type": "phantasia:multiply"
+        }
+    ],
+    "base_value": -0.6,
+    "is_negative": true,
+    "particle": {
+        "id": "phantasia:effect",
+        "chance": 0.1,
+        "colour": "#687199"
+    }
+}

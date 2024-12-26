@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"choose_weighted_parse",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"choose_weighted_parse",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Scripts/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

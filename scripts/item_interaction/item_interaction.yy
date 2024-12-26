@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"item_interaction",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"item_interaction",
+  "parent":{
+    "name":"Phantasia",
+    "path":"folders/Scripts/Phantasia.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

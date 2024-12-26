@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"load_grimoire",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"load_grimoire",
+  "parent":{
+    "name":"Load",
+    "path":"folders/Scripts/Phantasia/Load.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

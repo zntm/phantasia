@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"render_glow",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"render_glow",
+  "parent":{
+    "name":"Render",
+    "path":"folders/Scripts/Phantasia/Render.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

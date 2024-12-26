@@ -1,0 +1,10 @@
+{
+    "type": "constant",
+    "attribute": null,
+    "calculation": [],
+    "base_value": 1,
+    "particle": {
+        "id": "phantasia:inkdrop",
+        "chance": 0.7
+    }
+}

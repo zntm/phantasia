@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"file_load_world_structures_old",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"file_load_world_structures_old",
+  "parent":{
+    "name":"Load",
+    "path":"folders/Scripts/File/Load.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

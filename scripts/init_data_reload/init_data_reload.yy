@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"init_data_reload",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"init_data_reload",
+  "parent":{
+    "name":"Data",
+    "path":"folders/Init/Data.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

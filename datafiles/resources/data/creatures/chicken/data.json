@@ -1,0 +1,34 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 1,
+        "moving": 8
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 4,
+    "type": {
+        "hostility": "passive",
+        "movement": "ground"
+    },
+    "sfx": "phantasia:creature.chicken",
+    "drops": [
+        {
+            "item_id": "phantasia:raw_chicken",
+            "amount": 1,
+            "chance": 1
+        },
+        {
+            "item_id": "phantasia:feather",
+            "amount": [ 1, 3 ],
+            "chance": 1
+        }
+    ],
+    "attributes": {
+        "movement_speed": 0.5,
+        "gravity": 0.1,
+        "jump_height": 0.3
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"lerp_delta",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"lerp_delta",
+  "parent":{
+    "name":"Delta",
+    "path":"folders/Scripts/Functions/Delta.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

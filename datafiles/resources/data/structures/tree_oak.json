@@ -1,0 +1,19 @@
+{
+	"width": 5,
+	"height": [ 6, 9 ],
+	"placement_offset": {
+		"x": 0,
+		"y": 0
+	},
+	"data": {
+		"function": "tree:default",
+		"arguments": [
+			true,
+			"phantasia:oak_wood",
+			"phantasia:oak_leaves",
+			[ 1, 3 ],
+			4,
+			5
+		]
+	}
+}

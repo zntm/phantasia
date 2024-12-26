@@ -1,0 +1,12 @@
+{
+	"type": "solid",
+	"animation_type": "connected",
+	"drops": "phantasia:dirt_wall",
+	"can_flip_x": true,
+	"can_flip_y": true,
+	"mining_stats": {
+		"type": "hammer",
+		"amount": 8
+	},
+	"sfx": "phantasia:tile.~.dirt"
+}

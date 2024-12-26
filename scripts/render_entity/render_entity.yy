@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"render_entity",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"render_entity",
+  "parent":{
+    "name":"Render",
+    "path":"folders/Scripts/Phantasia/Render.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

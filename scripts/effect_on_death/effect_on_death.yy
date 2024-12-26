@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"effect_on_death",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"effect_on_death",
+  "parent":{
+    "name":"Effect",
+    "path":"folders/Scripts/Phantasia/Entities/Effect.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,39 @@
+{
+	"container": [
+		{
+			"item_id": "phantasia:oak_chest",
+			"weight": 1
+		},
+		{
+			"item_id": "phantasia:pine_chest",
+			"weight": 1
+		}
+	],
+	"guaranteed": [
+		{
+			"item_id": [ "phantasia:thorned_pendant", "phantasia:wooden_cane" ],
+			"amount": 1
+		}
+	],
+	"loot": [
+		{
+			"item_id": -1,
+			"weight": 8
+		},
+		{
+			"item_id": "phantasia:twig",
+			"amount": [ 1, 4 ],
+			"weight": 1
+		},
+		{
+			"item_id": "phantasia:rocks",
+			"amount": [ 1, 2 ],
+			"weight": 1
+		},
+		{
+			"item_id": "phantasia:torch",
+			"amount": [ 1, 4 ],
+			"weight": 1
+		}
+	]
+}

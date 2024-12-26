@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"entity_init_sprite",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"entity_init_sprite",
+  "parent":{
+    "name":"Entities",
+    "path":"folders/Scripts/Phantasia/Entities.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

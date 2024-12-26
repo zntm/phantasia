@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"refresh_world",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"refresh_world",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

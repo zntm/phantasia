@@ -1,0 +1,14 @@
+placeholder = "Placeholder";
+
+text = "";
+text_length = 24;
+
+surface_index = 0;
+
+on_update = -1;
+
+selected       = false;
+active         = true;
+visible_button = true;
+
+area = -1;

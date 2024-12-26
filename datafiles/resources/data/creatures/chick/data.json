@@ -1,0 +1,22 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 1,
+        "moving": 6
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 4,
+    "type": {
+        "hostility": "passive",
+        "movement": "ground"
+    },
+    "sfx": "phantasia:creature.chicken",
+    "attributes": {
+        "movement_speed": 0.3,
+        "gravity": 0.1,
+        "jump_height": 0.3
+    }
+}

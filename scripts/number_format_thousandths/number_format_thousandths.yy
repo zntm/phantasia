@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"number_format_thousandths",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"number_format_thousandths",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

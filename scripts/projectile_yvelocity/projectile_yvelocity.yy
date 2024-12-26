@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"projectile_yvelocity",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"projectile_yvelocity",
+  "parent":{
+    "name":"Projectile",
+    "path":"folders/Scripts/Projectile.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

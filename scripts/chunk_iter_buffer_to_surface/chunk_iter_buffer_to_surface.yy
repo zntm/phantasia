@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"chunk_iter_buffer_to_surface",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"chunk_iter_buffer_to_surface",
+  "parent":{
+    "name":"Iteration",
+    "path":"folders/Scripts/Chunk/Iteration.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

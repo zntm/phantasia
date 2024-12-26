@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"chunk_clear",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"chunk_clear",
+  "parent":{
+    "name":"Chunks",
+    "path":"folders/Scripts/Phantasia/Chunks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

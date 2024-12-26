@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"control_pets",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"control_pets",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

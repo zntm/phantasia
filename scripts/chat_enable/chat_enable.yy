@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"chat_enable",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"chat_enable",
+  "parent":{
+    "name":"Chat",
+    "path":"folders/Scripts/Chat.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"handler_damage",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"handler_damage",
+  "parent":{
+    "name":"Phantasia",
+    "path":"folders/Scripts/Phantasia.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

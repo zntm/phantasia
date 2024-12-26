@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"control_snapshot",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"control_snapshot",
+  "parent":{
+    "name":"Controls",
+    "path":"folders/Scripts/Phantasia/Controls.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
