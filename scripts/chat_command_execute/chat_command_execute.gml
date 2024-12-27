@@ -52,16 +52,12 @@ function chat_command_execute(_command)
 	if (_parameter_length > 0)
 	{
 		array_resize(__parameter, _parameter_length);
-	
+        
 		for (var i = 0; i < _parameter_length; ++i)
 		{
 			var _parameter = _data.get_parameter(i);
 			
-			var _index = _name_index + (i + 1);
-			
-			var _default_value_used = true;
-			
-			var _value;
+			var _index = _name_index + i + 1;
 			
 			if (_index >= _command_parsed_length)
 			{
@@ -78,7 +74,7 @@ function chat_command_execute(_command)
 			}
 			else
 			{
-				_value = _command_parsed[_index];
+				var _value = _command_parsed[_index];
 				
 				var _value_parsed = chat_command_parameter_parse(_value, _parameter, _index, obj_Player, true);
                 
