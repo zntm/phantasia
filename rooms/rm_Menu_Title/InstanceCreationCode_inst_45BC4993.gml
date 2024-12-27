@@ -18,7 +18,7 @@ on_draw = function(_x, _y, _id, _xmultiplier, _ymultiplier)
 	draw_sprite_ext(spr_Phantasia, image_index, _x, _y + _yscale, _xscale, _yscale, 0, c_black, 0.25);
 	draw_sprite_ext(spr_Phantasia, image_index, _x, _y, _xscale, _yscale, 0, c_white, 1);
 	
-	var _cos = cos(global.timer_delta * 0.02) * 0.25;
+	var _cos = dcos(global.timer_delta) * 0.25;
 	
 	var _xscale2 = _xmultiplier + _cos;
 	var _yscale2 = _ymultiplier + _cos;
