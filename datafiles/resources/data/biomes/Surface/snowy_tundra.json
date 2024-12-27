@@ -2,8 +2,18 @@
 	"background": "phantasia:greenia",
 	"map_colour": "#00BFFF",
 	"sky_colour": {
-		"base": [ "#180738", "#5F91FE", "#C4502D", "#000019" ],
-		"gradient": [ "#2A1504", "#244FE9", "#DA651C", "#020008" ]
+		"base": [
+			"#180738",
+			"#5F91FE",
+			"#C4502D",
+			"#000019"
+		],
+		"gradient": [
+			"#2A1504",
+			"#244FE9",
+			"#DA651C",
+			"#020008"
+		]
 	},
 	"light_colour": [
 		"#374A91",
@@ -39,40 +49,25 @@
 		}
 	},
 	"creatures": {
-		"can_spawn_on": [ "phantasia:grass_block_tundra", "phantasia:dirt" ],
+		"can_spawn_on": [
+			"phantasia:grass_block_tundra",
+			"phantasia:dirt"
+		],
 		"passive_spawn_chance": 0.02,
-		"passive_spawn_amount": [ 1, 4 ],
+		"passive_spawn_amount": [
+			1,
+			4
+		],
 		"passive": {
-			"phantasia:cow": {
+			"phantasia:fox": {
 				"weight": 1
 			},
-			"phantasia:capybara": {
-				"weight": 1
-			},
-			"phantasia:toad": {
-				"weight": 1
-			},
-			"phantasia:tortoise": {
-				"weight": 1
-			},
-			"phantasia:parrot": {
-				"weight": 1
-			},
-			"phantasia:toucan": {
-				"weight": 1
-			},
-			"phantasia:snail": {
-				"weight": 1
-			},
-			"phantasia:butterfly": {
-				"weight": 1
-			},
-			"phantasia:ladybug": {
+			"phantasia:bunny": {
 				"weight": 1
 			}
 		},
 		"hostile_spawn_chance": 0,
-		"hostile_spawn_amount": [ 1, 4 ],
+		"hostile_spawn_amount": 0,
 		"hostile": {}
 	},
 	"structures": [
@@ -82,23 +77,17 @@
 		}
 	],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:grass_block_tundra" ],
-		"chance": 0.8,
+		"can_spawn_on": [
+			"phantasia:grass_block_tundra"
+		],
+		"chance": 0.7,
 		"tiles": [
 			{
 				"item_id": "phantasia:short_grass_tundra",
-				"weight": 4
+				"weight": 3
 			},
 			{
 				"item_id": "phantasia:tall_grass_tundra",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:blue_bells",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:persian_speedwell",
 				"weight": 1
 			},
 			{
@@ -111,7 +100,7 @@
 			},
 			{
 				"item_id": "phantasia:snow_pile",
-				"weight": 2
+				"weight": 3
 			},
 			{
 				"item_id": "phantasia:forget_me_not",

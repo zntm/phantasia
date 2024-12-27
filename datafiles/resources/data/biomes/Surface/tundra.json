@@ -79,10 +79,7 @@
 			}
 		},
 		"hostile_spawn_chance": 0,
-		"hostile_spawn_amount": [
-			1,
-			4
-		],
+		"hostile_spawn_amount": 0,
 		"hostile": {}
 	},
 	"structures": [
