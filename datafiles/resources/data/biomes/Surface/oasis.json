@@ -53,7 +53,10 @@
 			"phantasia:sand"
 		],
 		"passive_spawn_chance": 0.02,
-		"passive_spawn_amount": [ 1, 4 ],
+		"passive_spawn_amount": [
+			1,
+			4
+		],
 		"passive": {
 			"phantasia:ostrich": {
 				"weight": 1
@@ -69,7 +72,10 @@
 			}
 		},
 		"hostile_spawn_chance": 0,
-		"hostile_spawn_amount": [ 1, 4 ],
+		"hostile_spawn_amount": [
+			1,
+			4
+		],
 		"hostile": {}
 	},
 	"structures": [],
