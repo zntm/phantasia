@@ -1,4 +1,4 @@
-function worldgen_get_biome_cave(_x, _y, _seed, _ysurface, _world_data)
+function worldgen_get_cave_biome(_x, _y, _seed, _ysurface, _world_data)
 {
 	var _cave = _world_data.biome.cave;
 	

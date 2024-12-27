@@ -14,11 +14,11 @@ function chunk_generate(_world, _seed, _world_data)
 	
 	var _realm = _world.realm;
 	
-	var _seed_wall = _seed + 512;
-	var _seed_base = _seed + WORLGEN_SALT.BASE;
-	var _seed_foliage = _seed - 2048;
-	
-	var _seed_cave = _seed + WORLGEN_SALT.CAVE;
+    var _seed_cave    = _seed + WORLGEN_SALT.CAVE;
+    
+	var _seed_wall    = _seed + WORLGEN_SALT.WALL;
+	var _seed_base    = _seed + WORLGEN_SALT.BASE;
+	var _seed_foliage = _seed + WORLGEN_SALT.FOLIAGE;
 	
 	var _biome_data = global.biome_data;
 	var _item_data = global.item_data;
@@ -59,12 +59,12 @@ function chunk_generate(_world, _seed, _world_data)
 	
     debug_timer("chunk_generation");
     
-	var _coll_y1 = ycenter - CHUNK_SIZE_HEIGHT_H;
-	var _coll_y2 = ycenter + CHUNK_SIZE_HEIGHT_H;
+	var _collision_chunk_y1 = ycenter - CHUNK_SIZE_HEIGHT_H;
+	var _collision_chunk_y2 = ycenter + CHUNK_SIZE_HEIGHT_H;
 	
-	var _chunk_inside_structure = instance_exists(collision_rectangle(xcenter - CHUNK_SIZE_WIDTH_H, _coll_y1, xcenter + CHUNK_SIZE_WIDTH_H, _coll_y2, obj_Structure, false, true));
+	var _structure_inside_chunk_rectangle = instance_exists(collision_rectangle(xcenter - CHUNK_SIZE_WIDTH_H, _collision_chunk_y1, xcenter + CHUNK_SIZE_WIDTH_H, _collision_chunk_y2, obj_Structure, false, true));
 	
-	if (!_chunk_inside_structure) && (--_max < round(_coll_y1 / TILE_SIZE)) && (_max > round(_coll_y2 / TILE_SIZE)) exit;
+	if (!_structure_inside_chunk_rectangle) && (_max - 1 < round(_collision_chunk_y1 / TILE_SIZE)) && (_max - 1 > round(_collision_chunk_y2 / TILE_SIZE)) exit;
 	
 	for (var _x = CHUNK_SIZE_X - 1; _x >= 0; --_x)
 	{
@@ -81,7 +81,7 @@ function chunk_generate(_world, _seed, _world_data)
 		
 		var _chunk_data = __chunk_data[CHUNK_SIZE_X | _x];
 		
-		var _x_inside_structure = (_chunk_inside_structure) && (instance_exists(collision_rectangle(_xinst - TILE_SIZE_H, _coll_y1, _xinst + TILE_SIZE_H, _coll_y2, obj_Structure, false, true)));
+		var _structure_inside_chunk_x = (_structure_inside_chunk_rectangle) && (instance_exists(collision_rectangle(_xinst - TILE_SIZE_H, _collision_chunk_y1, _xinst + TILE_SIZE_H, _collision_chunk_y2, obj_Structure, false, true)));
 		
 		var _connected_x1 = 1 << (_x << 1);
 		var _connected_x2 = _connected_x1 << 1;
@@ -93,15 +93,15 @@ function chunk_generate(_world, _seed, _world_data)
 			var _ypos = chunk_ystart + _y;
 			var _yinst = _ypos * TILE_SIZE;
 			
-			var _surface = worldgen_get_biome_surface(_xpos, _ypos, _seed, _ysurface, _world_data, _realm);
-			var _cave    = worldgen_get_biome_cave(_xpos, _ypos, _seed, _ysurface, _world_data);
-			var _sky     = worldgen_get_biome_sky(_xpos, _ypos, _seed);
+			var _surface_biome = worldgen_get_surface_biome(_xpos, _ypos, _seed, _ysurface, _world_data, _realm);
+			var _cave_biome    = worldgen_get_cave_biome(_xpos, _ypos, _seed, _ysurface, _world_data);
+			var _sky_biome     = worldgen_get_sky_biome(_xpos, _ypos, _seed);
             
 			var _index_xy = _x | (_y << CHUNK_SIZE_X_BIT);
 			
 			var _skip_layer = 0;
             
-			if (_x_inside_structure) && (position_meeting(_xinst, _yinst, obj_Structure))
+			if (_structure_inside_chunk_x) && (position_meeting(_xinst, _yinst, obj_Structure))
 			{
 				ds_list_clear(__list);
                 
@@ -222,7 +222,7 @@ function chunk_generate(_world, _seed, _world_data)
 			{
 				if ((_skip_layer & 1) == 0)
 				{
-					var _ = worldgen_wall(_xpos, _ypos, _seed_wall, _world_data, _biome_data, _surface, _cave, _ysurface);
+					var _ = worldgen_wall(_xpos, _ypos, _seed_wall, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface);
                     
 					if (_ != TILE_EMPTY)
 					{
@@ -251,7 +251,7 @@ function chunk_generate(_world, _seed, _world_data)
 				
 				if ((_skip_layer & 2) == 0) && ((_chunk_data & _ybit) == 0)
 				{
-					var _ = worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface, _cave, _ysurface);
+					var _ = worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface);
 					
 					if (_ != TILE_EMPTY)
 					{
@@ -279,10 +279,10 @@ function chunk_generate(_world, _seed, _world_data)
 				}
 			}
 			
-			if ((_skip_layer & 2) == 0) && ((_ypos == _ysurface - 1) || ((_cave != -1) && (_chunk_data & _ybit) && ((_chunk_data & (_ybit << 1)) == 0)))
+			if ((_skip_layer & 2) == 0) && ((_ypos == _ysurface - 1) || ((_cave_biome != -1) && (_chunk_data & _ybit) && ((_chunk_data & (_ybit << 1)) == 0)))
 			{
-				var _tile_surface = worldgen_base(_xpos, _ypos + 1, _seed_base, _world_data, _biome_data, _surface, _cave, _ysurface);
-				var _tile_foliage = worldgen_foliage(_xpos, _ypos, _seed_foliage, _world_data, _biome_data, _surface, _cave, _tile_surface[0]);
+				var _tile_surface = worldgen_base(_xpos, _ypos + 1, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface);
+				var _tile_foliage = worldgen_foliage(_xpos, _ypos, _seed_foliage, _world_data, _biome_data, _surface_biome, _cave_biome, _tile_surface[0]);
 				
 				if (_tile_foliage != TILE_EMPTY)
 				{

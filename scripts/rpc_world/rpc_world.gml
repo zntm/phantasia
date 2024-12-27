@@ -61,7 +61,7 @@ function rpc_world()
 		np_setpresence(loca_translate($"rpc.biome.{_type}.{string_split(_biome, ":")[1]}"), _biome, _data.rpc_icon, "");
 	}
 	
-	var _cave = worldgen_get_biome_cave(_x, _y, _seed, _ysurface, _world_data);
+	var _cave = worldgen_get_cave_biome(_x, _y, _seed, _ysurface, _world_data);
 	
 	if (_cave != -1)
 	{
@@ -70,5 +70,5 @@ function rpc_world()
 		exit;
 	}
 	
-	__rpc(worldgen_get_biome_surface(_x, _y, _seed, _ysurface, _world_data, _realm), "surface");
+	__rpc(worldgen_get_surface_biome(_x, _y, _seed, _ysurface, _world_data, _realm), "surface");
 }

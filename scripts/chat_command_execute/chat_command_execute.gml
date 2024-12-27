@@ -24,7 +24,7 @@ function chat_command_execute(_command)
     
     if (_data == undefined)
     {
-        chat_add(undefined, $"Invalid command. Type /help for a list of commands.");
+        chat_add(undefined, $"Invalid command. Type /help for a list of commands.", CHAT_COMMAND_ERROR);
         
         exit;
     }

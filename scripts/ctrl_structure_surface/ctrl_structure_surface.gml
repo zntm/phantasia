@@ -106,7 +106,7 @@ function ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_hei
 		
 		var _index = string(i);
 		
-		var _structures = _biome_data[$ worldgen_get_biome_surface(i, 0, _seed, _ysurface, _world_data, _realm)].structures;
+		var _structures = _biome_data[$ worldgen_get_surface_biome(i, 0, _seed, _ysurface, _world_data, _realm)].structures;
 		var _structures_length = array_length(_structures);
 		
 		if (_structures_length <= 0) continue;

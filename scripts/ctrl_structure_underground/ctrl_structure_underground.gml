@@ -74,7 +74,7 @@ function ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera
 			
 			var _index = $"{i},{j}";
 			
-			var _cave = worldgen_get_biome_cave(_x2, _y2, _seed, _ysurface, _world_data);
+			var _cave = worldgen_get_cave_biome(_x2, _y2, _seed, _ysurface, _world_data);
 			
 			if (_cave == -1) || (worldgen_carve_cave(_x2, _y2, _seed_cave, _world_value, _world_caves, _ysurface)) || (!worldgen_carve_cave(_x2, _y2 - 1, _seed_cave, _world_value, _world_caves, _ysurface)) continue;
 			

@@ -51,7 +51,7 @@ function world_spawn_player(_directory, _seed, _inst)
 		
 		var _ysurface = worldgen_get_ysurface(_x, _seed, _data);
 		
-		if (worldgen_get_biome_surface(_x, 0, _seed, _ysurface, _data, _realm) == FORCE_SPAWN_ON)
+		if (worldgen_get_surface_biome(_x, 0, _seed, _ysurface, _data, _realm) == FORCE_SPAWN_ON)
 		{
 			_inst.x = _x * TILE_SIZE;
 			
@@ -63,7 +63,7 @@ function world_spawn_player(_directory, _seed, _inst)
 		
 		var _ysurface2 = worldgen_get_ysurface(-_x, _seed, _data);
 		
-		if (worldgen_get_biome_surface(-_x, 0, _seed, _ysurface2, _data, _realm) == FORCE_SPAWN_ON)
+		if (worldgen_get_surface_biome(-_x, 0, _seed, _ysurface2, _data, _realm) == FORCE_SPAWN_ON)
 		{
 			_inst.x = -_x * TILE_SIZE;
 			

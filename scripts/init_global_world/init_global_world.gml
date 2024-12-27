@@ -3,8 +3,11 @@
 #macro FORCE_CAVE_BIOME    -1
 
 enum WORLGEN_SALT {
-	CAVE =  0x81CFA386D,
-	BASE = -0x17E8FD1A9
+	CAVE    =  0x81CFA386D,
+    
+    WALL    =  0xFF0BD9144,
+	BASE    = -0x17E8FD1A9,
+    FOLIAGE = -0x02D81BAC5
 }
 
 #macro TILE_SIZE_BIT 4

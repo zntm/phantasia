@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"worldgen_get_biome_surface",
+  "%Name":"worldgen_get_cave_biome",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"worldgen_get_biome_surface",
+  "name":"worldgen_get_cave_biome",
   "parent":{
     "name":"World Generation",
     "path":"folders/Scripts/Phantasia/World Generation.yy",
