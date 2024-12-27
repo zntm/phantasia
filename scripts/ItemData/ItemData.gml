@@ -973,7 +973,10 @@ new ItemData(item_Grass_Block_Greenia, ITEM_TYPE_BIT.SOLID)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt")
 	.set_sfx("phantasia:tile.leaves")
-	.set_on_draw_update(item_update_grass);
+	.set_on_draw_update(function(_x, _y, _z)
+    {
+        item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:grass_block_greenia", false);
+    });
 
 new ItemData(item_Grass_Block_Borealis, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
@@ -982,7 +985,10 @@ new ItemData(item_Grass_Block_Borealis, ITEM_TYPE_BIT.SOLID)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt")
 	.set_sfx("phantasia:tile.leaves")
-	.set_on_draw_update(item_update_grass);
+	.set_on_draw_update(function(_x, _y, _z)
+    {
+        item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:grass_block_borealis", false);
+    });
 
 new ItemData(item_Grass_Block_Swamplands, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
@@ -991,7 +997,10 @@ new ItemData(item_Grass_Block_Swamplands, ITEM_TYPE_BIT.SOLID)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt")
 	.set_sfx("phantasia:tile.leaves")
-	.set_on_draw_update(item_update_grass);
+	.set_on_draw_update(function(_x, _y, _z)
+    {
+        item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:grass_block_swamplands", false);
+    });
 
 new ItemData(item_Oak_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
@@ -2149,18 +2158,24 @@ new ItemData(item_Grass_Block_Amazonia, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
-	.set_drops("phantasia:grass_block_amazonia")
+	.set_drops("phantasia:dirt")
 	.set_sfx("phantasia:tile.dirt")
-	.set_on_draw_update(item_update_grass);
+	.set_on_draw_update(function(_x, _y, _z)
+    {
+        item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:grass_block_amazonia", false);
+    });
 
 
 new ItemData(item_Grass_Block_Savannah, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
-	.set_drops("phantasia:grass_block_savannah")
+	.set_drops("phantasia:dirt")
 	.set_sfx("phantasia:tile.dirt")
-	.set_on_draw_update(item_update_grass);
+	.set_on_draw_update(function(_x, _y, _z)
+    {
+        item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:grass_block_savannah", false);
+    });
 
 new ItemData(item_Trident, ITEM_TYPE_BIT.SWORD);
 
@@ -2342,7 +2357,7 @@ new ItemData(item_Dirt_Obitus, ITEM_TYPE_BIT.SOLID)
 	.set_drops("phantasia:dirt_obitus")
 	.set_sfx("phantasia:tile.dirt");
 
-new ItemData(item_Dead_Grass_Block, ITEM_TYPE_BIT.SOLID)
+new ItemData(item_Grass_Block_Obitus, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
@@ -2350,7 +2365,7 @@ new ItemData(item_Dead_Grass_Block, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.dirt")
 	.set_on_draw_update(function(_x, _y, _z)
 	{
-		item_update_grass(_x, _y, _z, "phantasia:dirt_obitus", false);
+		item_update_grass(_x, _y, _z, "phantasia:dirt_obitus", "phantasia:grass_block_obitus", false);
 	});
 new ItemData(item_Structure_Block, ITEM_TYPE_BIT.SOLID, ITEM_TYPE_BIT.MENU)
 	.set_instance({
@@ -4057,7 +4072,10 @@ new ItemData(item_Podzol, ITEM_TYPE_BIT.SOLID)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_drops("phantasia:dirt")
 	.set_sfx("phantasia:tile.dirt")
-	.set_on_draw_update(item_update_grass);
+	.set_on_draw_update(function(_x, _y, _z)
+    {
+        item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:podzol", false);
+    });
 
 new ItemData(item_Polished_Andesite, ITEM_TYPE_BIT.SOLID)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED)
