@@ -25,10 +25,12 @@ function item_update_grass(_x, _y, _z, _tile = "phantasia:dirt", _spread = true)
 	
 	if (chance(0.80 * _delta_time)) exit;
 	
+    var _x2 = _x + irandom_range(-3, 3);
+    var _y2 = _y + irandom_range(-3, 3);
+    
+    if (_x == _x2) && (_y == _y2) exit;
+    
 	var _ = tile_get(_x, _y, _z, undefined, _world_height);
-	
-	var _x2 = _x + irandom_range(-3, 3);
-	var _y2 = _y + irandom_range(-3, 3);
 	
 	if (tile_get(_x2, _y2, _z, undefined, _world_height) == _tile)
 	{

@@ -2,8 +2,10 @@ function chunk_generate(_world, _seed, _world_data)
 {
 	var _cache_draw_update = global.item_on_draw;
 	
-	static __array = [];
-	static __list = ds_list_create();
+    static __ysurface = array_create(CHUNK_SIZE_X);
+    
+	static __structures_array = [];
+	static __structures_list = ds_list_create();
 	
 	static __sort = function(_a, _b)
 	{
@@ -11,7 +13,29 @@ function chunk_generate(_world, _seed, _world_data)
 	}
 	
 	static __chunk_data = array_create((CHUNK_SIZE_X + 2) + CHUNK_SIZE_X, 0);
-	
+    
+    #region Check if chunk is inside of a structure.
+    
+    var _ymax = 0;
+    
+    for (var i = 0; i < CHUNK_SIZE_X; ++i)
+    {
+        var _ysurface = worldgen_get_ysurface(chunk_xstart + i, _seed, _world_data);
+        
+        _ymax = max(_ymax, _ysurface);
+        
+        __ysurface[@ i] = _ysurface;
+    }
+    
+    var _collision_chunk_y1 = ycenter - CHUNK_SIZE_HEIGHT_H;
+    var _collision_chunk_y2 = ycenter + CHUNK_SIZE_HEIGHT_H;
+    
+    var _structure_inside_chunk_rectangle = instance_exists(collision_rectangle(xcenter - CHUNK_SIZE_WIDTH_H, _collision_chunk_y1, xcenter + CHUNK_SIZE_WIDTH_H, _collision_chunk_y2, obj_Structure, false, true));
+    
+    if (!_structure_inside_chunk_rectangle) && (_ymax - 1 < round(_collision_chunk_y1 / TILE_SIZE)) && (_ymax - 1 > round(_collision_chunk_y2 / TILE_SIZE)) exit;
+    
+    #endregion
+    
 	var _realm = _world.realm;
 	
     var _seed_cave    = _seed + WORLGEN_SALT.CAVE;
@@ -30,41 +54,32 @@ function chunk_generate(_world, _seed, _world_data)
 	
 	var _ysurface_offset = (_world_value >> 16) & 0xff;
 	
-	var _max = 0;
-	
-	for (var i = CHUNK_SIZE_X - 1; i >= 0; --i)
+	for (var i = 0; i < CHUNK_SIZE_X; ++i)
 	{
 		var _xpos = chunk_xstart + i;
-		var _ysurface = worldgen_get_ysurface(_xpos, _seed, _world_data);
-		
-		_max = max(_max, _ysurface);
+		var _ysurface = __ysurface[i];
+        
+        var _index = CHUNK_SIZE_X | i;
 		
 		__chunk_data[@ i] = _ysurface;
-		
-		var _index = CHUNK_SIZE_X | i;
-		
 		__chunk_data[@ _index] = 0;
 		
-		var _ysurface2 = _ysurface + _ysurface_offset;
+		var _ymin = _ysurface + _ysurface_offset;
 		
-		for (var j = CHUNK_SIZE_Y; j >= 0; --j)
+        if (_ymin < chunk_ystart) continue;
+        
+		for (var j = 0; j < CHUNK_SIZE_Y; ++j)
 		{
 			var _ypos = chunk_ystart + j;
 			
-			if (_ypos <= _ysurface2) || (!worldgen_carve_cave(_xpos, _ypos, _seed_cave, _world_value, _world_caves, _ysurface)) continue;
-			
-			__chunk_data[@ _index] |= 1 << j;
+			if (_ypos > _ymin) && (worldgen_carve_cave(_xpos, _ypos, _seed_cave, _world_value, _world_caves, _ysurface))
+            {
+                __chunk_data[@ _index] |= 1 << j;
+            }
 		}
 	}
 	
     debug_timer("chunk_generation");
-    
-	var _collision_chunk_y1 = ycenter - CHUNK_SIZE_HEIGHT_H;
-	var _collision_chunk_y2 = ycenter + CHUNK_SIZE_HEIGHT_H;
-	
-	var _structure_inside_chunk_rectangle = instance_exists(collision_rectangle(xcenter - CHUNK_SIZE_WIDTH_H, _collision_chunk_y1, xcenter + CHUNK_SIZE_WIDTH_H, _collision_chunk_y2, obj_Structure, false, true));
-	
-	if (!_structure_inside_chunk_rectangle) && (_max - 1 < round(_collision_chunk_y1 / TILE_SIZE)) && (_max - 1 > round(_collision_chunk_y2 / TILE_SIZE)) exit;
 	
 	for (var _x = CHUNK_SIZE_X - 1; _x >= 0; --_x)
 	{
@@ -103,23 +118,24 @@ function chunk_generate(_world, _seed, _world_data)
             
 			if (_structure_inside_chunk_x) && (position_meeting(_xinst, _yinst, obj_Structure))
 			{
-				ds_list_clear(__list);
+				ds_list_clear(__structures_list);
                 
-				var _length = instance_position_list(_xinst, _yinst, obj_Structure, __list, false);
+				var _length = instance_position_list(_xinst, _yinst, obj_Structure, __structures_list, false);
 				
+                array_resize(__structures_array, _length);
+                
 				for (var i = 0; i < _length; ++i)
 				{
-					__array[@ i] = __list[| i];
+					__structures_array[@ i] = __structures_list[| i];
 				}
-				
-				array_resize(__array, _length);
-				array_sort(__array, __sort);
+                
+				array_sort(__structures_array, __sort);
 				
 				var _break = 0;
 				
 				for (var i = 0; i < _length; ++i)
 				{
-					var _inst = __array[i];
+					var _inst = __structures_array[i];
 					
 					var _id = _inst.structure_id;
                     
