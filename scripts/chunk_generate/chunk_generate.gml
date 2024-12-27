@@ -124,7 +124,9 @@ function chunk_generate(_world, _seed, _world_data)
 					var _id = _inst.structure_id;
                     
 					var _xscale = _inst.image_xscale;
-					var _rectangle = _xscale * _inst.image_yscale;
+                    var _yscale = _inst.image_yscale;
+                    
+					var _rectangle = _xscale * _yscale;
                     
 					var _data = _inst.data;
 					var _natural = _inst.natural;

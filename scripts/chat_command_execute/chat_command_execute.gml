@@ -4,7 +4,7 @@
 #macro CHAT_COMMAND_POSITION_PLACEHOLDER "~"
 #macro CHAT_COMMAND_PLAYER_PLACEHOLDER "@"
 
-#macro CHAT_COMMAND_ERROR "#C4424D"
+#macro CHAT_COMMAND_ERROR #C4424D
 
 function chat_command_execute(_command)
 {
@@ -24,7 +24,7 @@ function chat_command_execute(_command)
     
     if (_data == undefined)
     {
-        chat_add(undefined, "Invalid command");
+        chat_add(undefined, $"Invalid command. Type /help for a list of commands.");
         
         exit;
     }
@@ -37,7 +37,7 @@ function chat_command_execute(_command)
 		{
 			if (_data.get_parameter_length() > 0) break;
 			
-			chat_add(undefined, "Invalid command");
+			chat_add(undefined, $"Invalid command. Type /help for a list of commands.", CHAT_COMMAND_ERROR);
 			
 			exit;
 		}
@@ -69,7 +69,7 @@ function chat_command_execute(_command)
 				
 				if (_default_value == undefined)
 				{
-					chat_add(undefined, "Invalid argument count");
+					chat_add(undefined, $"Command contains invalid argument count.", CHAT_COMMAND_ERROR);
 					
 					exit;
 				}
@@ -81,7 +81,7 @@ function chat_command_execute(_command)
 				_value = _command_parsed[_index];
 				
 				var _value_parsed = chat_command_parameter_parse(_value, _parameter, _index, obj_Player, true);
-		
+                
 				if (_value_parsed == undefined) exit;
 				
 				__parameter[@ i] = _value_parsed;
@@ -90,7 +90,7 @@ function chat_command_execute(_command)
 	}
 	else if (_command_parsed_length - 1 != _name_index)
 	{
-		chat_add(undefined, "Invalid argument count");
+		chat_add(undefined, $"Command contains invalid argument count.", CHAT_COMMAND_ERROR);
 		
 		exit;
 	}
