@@ -2,23 +2,36 @@
     "1_1": [
         "New year, new me!",
         "Happy new years!",
-        "Cheers to new beginnings!"
+        "Cheers to new beginnings!",
+        "New year, same old Phantasia!"
     ],
     "2_14": [
         "Love is in the air!",
         "Happy Valentine's Day!",
-        "Spread the love!"
+        "Spread the love!",
+        "143!",
+        "sqrt(-1) love you!"
     ],
     "4_1": [
         "Kerprank'd!",
         "All of The Lights",
         "April Fools!",
         "*whoopie cushion noises*",
-        "50% more pranks!"
+        "50% more pranks!",
+        "dQw4w9WgXcQ"
+    ],
+    "6_1": [
+        "Happy Pride Month!",
+        "Love is love!",
+        "Be proud of who you are!",
+        "Rainbows everywhere!",
+        "Celebrate diversity!",
+        "Very colorful!"
     ],
     "10_31": [
         "boo",
         "Spooky!",
+        "Scary!",
         "Trick or Treat!",
         "Spooky Scary Skeleton!",
         "Procedurally generated!"
@@ -30,11 +43,13 @@
     "12_25": [
         "Merry Christmas!",
         "Merry X-mas!",
-        "Ho ho ho!"
+        "Ho ho ho!",
+        "It's the most wonderful time of the year!",
+        "Unwraping the joy!"
     ],
     "12_31": [
         "See you next year!",
-        "Waiting 'till midnight!"
+        "Counting down to midnight!",
     ],
     "default": [
         "Phantasia is love, Phantasia is life",
@@ -67,7 +82,7 @@
         "Stay hydrated!",
         "Stay safe!",
         "Stay strong!",
-        "umop apisdn",
+        "umop-apisdn",
         "Don't worry, be happy!",
         "noot noot",
         "Subscribe!",
@@ -78,9 +93,34 @@
         "Hmm...",
         "Turing complete!",
         "Gasp!",
+        "wooosh",
+        "Pretty!",
         "This is a facade, the game is still loading.",
         "More in the works!",
         "Procedurally generated!",
-        "Finding the randomsauce..."
+        "Finding the randomsauce...",
+        "lol",
+        "rofl",
+        "Splash!",
+        "Wilder than ever!",
+        "Finding the 8 pages.",
+        "owo",
+        "uwu",
+        "May contain fractals.",
+        "Fantasy!",
+        "Indie!",
+        "Awesome!",
+        "One! Two! Pandemonium!",
+        "Woah!",
+        "Wow!",
+        "Nice to meet you!",
+        "RAHHH",
+        "It's getting sticky!",
+        "What's up doc?",
+        "So many splash texts!",
+        "Where the magic happens!",
+        "We have the meats!",
+        "Built different!",
+        "Create dreams and nightmares!"
     ]
 }
