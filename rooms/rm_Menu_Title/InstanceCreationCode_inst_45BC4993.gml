@@ -2,7 +2,10 @@ image_index = (irandom(9999) == 0);
 
 randomize();
 
-text = array_choose(global.splash_text);
+var _splash_text = global.splash_text;
+var _splash_text_date = _splash_text[$ $"{current_month}_{current_day}"];
+
+text = array_choose((chance(0.5)) && (_splash_text_date != undefined) ? _splash_text_date : _splash_text[$ "default"]);
 
 on_draw = function(_x, _y, _id, _xmultiplier, _ymultiplier)
 {

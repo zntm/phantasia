@@ -1,11 +1,26 @@
 {
     "1_1": [
         "New year, new me!",
-        "Happy new years!"
+        "Happy new years!",
+        "Cheers to new beginnings!"
+    ],
+    "2_14": [
+        "Love is in the air!",
+        "Happy Valentine's Day!",
+        "Spread the love!"
+    ],
+    "4_1": [
+        "Kerprank'd!",
+        "All of The Lights",
+        "April Fools!",
+        "*whoopie cushion noises*",
+        "50% more pranks!"
     ],
     "10_31": [
         "boo",
-        "Spooky!"
+        "Spooky!",
+        "Trick or Treat!",
+        "Spooky Scary Skeleton!"
     ],
     "12_18": [
         "Just a week away!",
@@ -16,7 +31,16 @@
         "Merry X-mas!",
         "Ho ho ho!"
     ],
+    "12_31": [
+        "See you next year!"
+    ],
     "default": [
-        "Phantasia is love, Phantasia is life"
+        "Phantasia is love, Phantasia is life",
+        "IT BURNS!",
+        "It's a game!",
+        "Clever girl...",
+        "A whole new world!",
+        "Don't let the game bugs bite!",
+        "TODO: Make this splash text funnier."
     ]
 }
