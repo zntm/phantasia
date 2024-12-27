@@ -2151,10 +2151,7 @@ new ItemData(item_Grass_Block_Amazonia, ITEM_TYPE_BIT.SOLID)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:grass_block_amazonia")
 	.set_sfx("phantasia:tile.dirt")
-	.set_on_draw_update(function(_x, _y, _z)
-	{
-		item_update_grass(_x, _y, _z, "phantasia:grass_block_amazonia", false);
-	});
+	.set_on_draw_update(item_update_grass);
 
 
 new ItemData(item_Grass_Block_Savannah, ITEM_TYPE_BIT.SOLID)
@@ -2163,10 +2160,7 @@ new ItemData(item_Grass_Block_Savannah, ITEM_TYPE_BIT.SOLID)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:grass_block_savannah")
 	.set_sfx("phantasia:tile.dirt")
-	.set_on_draw_update(function(_x, _y, _z)
-	{
-		item_update_grass(_x, _y, _z, "phantasia:grass_block_savannah", false);
-	});
+	.set_on_draw_update(item_update_grass);
 
 new ItemData(item_Trident, ITEM_TYPE_BIT.SWORD);
 
