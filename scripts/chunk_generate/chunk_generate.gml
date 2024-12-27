@@ -54,30 +54,56 @@ function chunk_generate(_world, _seed, _world_data)
 	
 	var _ysurface_offset = (_world_value >> 16) & 0xff;
 	
+    static __surface_biome = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Y);
+    static __cave_biome    = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Y);
+    
+    static __base = array_create(CHUNK_SIZE_X * (CHUNK_SIZE_Y + 1));
+    
 	for (var i = 0; i < CHUNK_SIZE_X; ++i)
 	{
 		var _xpos = chunk_xstart + i;
 		var _ysurface = __ysurface[i];
         
-        var _index = CHUNK_SIZE_X | i;
-		
-		__chunk_data[@ i] = _ysurface;
-		__chunk_data[@ _index] = 0;
+        var _chunk_data = 0;
 		
 		var _ymin = _ysurface + _ysurface_offset;
 		
-        if (_ymin < chunk_ystart) continue;
-        
-		for (var j = 0; j < CHUNK_SIZE_Y; ++j)
-		{
-			var _ypos = chunk_ystart + j;
-			
-			if (_ypos > _ymin) && (worldgen_carve_cave(_xpos, _ypos, _seed_cave, _world_value, _world_caves, _ysurface))
+        if (_ymin >= chunk_ystart)
+        {
+            for (var j = 0; j < CHUNK_SIZE_Y; ++j)
             {
-                __chunk_data[@ _index] |= 1 << j;
+                var _ypos = chunk_ystart + j;
+                
+                if (_ypos > _ymin) && (worldgen_carve_cave(_xpos, _ypos, _seed_cave, _world_value, _world_caves, _ysurface))
+                {
+                    _chunk_data |= 1 << j;
+                }
             }
-		}
+        }
+        
+        __chunk_data[@ i] = _ysurface;
+        __chunk_data[@ CHUNK_SIZE_X | i] = _chunk_data;
+        
+        for (var j = 0; j < CHUNK_SIZE_Y + 1; ++j)
+        {
+            var _ypos = chunk_ystart + j;
+            
+            var _index = i | (j << CHUNK_SIZE_X_BIT);
+            
+            var _surface_biome = worldgen_get_surface_biome(_xpos, _ypos, _seed, _ysurface, _world_data, _realm);
+            var _cave_biome    = worldgen_get_cave_biome(_xpos, _ypos, _seed, _ysurface, _world_data);
+            
+            __base[@ _index] = ((_chunk_data & (1 << j)) ? TILE_EMPTY : worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface));
+            
+            if (j > CHUNK_SIZE_Y)
+            {
+                __surface_biome[@ _index] = _surface_biome;
+                __cave_biome[@ _index]    = _cave_biome;
+            }
+        }
 	}
+    
+    // worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface)
 	
     debug_timer("chunk_generation");
 	
@@ -108,11 +134,11 @@ function chunk_generate(_world, _seed, _world_data)
 			var _ypos = chunk_ystart + _y;
 			var _yinst = _ypos * TILE_SIZE;
 			
-			var _surface_biome = worldgen_get_surface_biome(_xpos, _ypos, _seed, _ysurface, _world_data, _realm);
-			var _cave_biome    = worldgen_get_cave_biome(_xpos, _ypos, _seed, _ysurface, _world_data);
-			var _sky_biome     = worldgen_get_sky_biome(_xpos, _ypos, _seed);
+            var _index_xy = _x | (_y << CHUNK_SIZE_X_BIT);
             
-			var _index_xy = _x | (_y << CHUNK_SIZE_X_BIT);
+			var _surface_biome = __surface_biome[_index_xy];
+			var _cave_biome    = __cave_biome[_index_xy];
+			var _sky_biome     = worldgen_get_sky_biome(_xpos, _ypos, _seed);
 			
 			var _skip_layer = 0;
             
@@ -267,7 +293,9 @@ function chunk_generate(_world, _seed, _world_data)
 				
 				if ((_skip_layer & 2) == 0) && ((_chunk_data & _ybit) == 0)
 				{
-					var _ = worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface);
+                    var _ = __base[@ _index_xy];
+                    
+					// var _ = worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface);
 					
 					if (_ != TILE_EMPTY)
 					{
@@ -297,7 +325,7 @@ function chunk_generate(_world, _seed, _world_data)
 			
 			if ((_skip_layer & 2) == 0) && ((_ypos == _ysurface - 1) || ((_cave_biome != -1) && (_chunk_data & _ybit) && ((_chunk_data & (_ybit << 1)) == 0)))
 			{
-				var _tile_surface = worldgen_base(_xpos, _ypos + 1, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface);
+                var _tile_surface = __base[@ _x | ((_y + 1) << CHUNK_SIZE_X_BIT)];
 				var _tile_foliage = worldgen_foliage(_xpos, _ypos, _seed_foliage, _world_data, _biome_data, _surface_biome, _cave_biome, _tile_surface[0]);
 				
 				if (_tile_foliage != TILE_EMPTY)
