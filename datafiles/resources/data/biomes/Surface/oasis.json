@@ -2,8 +2,18 @@
 	"background": "phantasia:desert",
 	"map_colour": "#AC75FF",
 	"sky_colour": {
-		"base": [ "#180738", "#5F91FE", "#C4502D", "#000019" ],
-		"gradient": [ "#2A1504", "#244FE9", "#DA651C", "#020008" ]
+		"base": [
+			"#180738",
+			"#5F91FE",
+			"#C4502D",
+			"#000019"
+		],
+		"gradient": [
+			"#2A1504",
+			"#244FE9",
+			"#DA651C",
+			"#020008"
+		]
 	},
 	"light_colour": [
 		"#374A91",
@@ -39,7 +49,9 @@
 		}
 	},
 	"creatures": {
-		"can_spawn_on": [ "phantasia:sand" ],
+		"can_spawn_on": [
+			"phantasia:sand"
+		],
 		"passive_spawn_chance": 0.02,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
@@ -62,8 +74,10 @@
 	},
 	"structures": [],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:sand" ],
-		"chance": 0.8,
+		"can_spawn_on": [
+			"phantasia:sand"
+		],
+		"chance": 0.75,
 		"tiles": [
 			{
 				"item_id": "phantasia:yucca",
@@ -71,14 +85,14 @@
 			},
 			{
 				"item_id": "phantasia:dead_bush",
-				"weight": 6
+				"weight": 4
 			},
 			{
-				"item_id": "phantasia:desert_waves",
-				"weight": 2
+				"item_id": "phantasia:pink_hibiscus",
+				"weight": 1
 			},
 			{
-				"item_id": "phantasia:skull",
+				"item_id": "phantasia:yellow_hibiscus",
 				"weight": 1
 			},
 			{
