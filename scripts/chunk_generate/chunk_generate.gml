@@ -95,7 +95,7 @@ function chunk_generate(_world, _seed, _world_data)
             
             __base[@ _index] = ((_chunk_data & (1 << j)) ? TILE_EMPTY : worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface));
             
-            if (j > CHUNK_SIZE_Y)
+            if (j < CHUNK_SIZE_Y)
             {
                 __surface_biome[@ _index] = _surface_biome;
                 __cave_biome[@ _index]    = _cave_biome;
@@ -103,8 +103,6 @@ function chunk_generate(_world, _seed, _world_data)
         }
 	}
     
-    // worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface)
-	
     debug_timer("chunk_generation");
 	
 	for (var _x = CHUNK_SIZE_X - 1; _x >= 0; --_x)
@@ -295,8 +293,6 @@ function chunk_generate(_world, _seed, _world_data)
 				{
                     var _ = __base[@ _index_xy];
                     
-					// var _ = worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface);
-					
 					if (_ != TILE_EMPTY)
 					{
 						var _item_id      = _[0];
