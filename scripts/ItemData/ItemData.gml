@@ -377,11 +377,11 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	{
 		variable = _variable;
 		variable_names = struct_get_names(variable);
-			
+		
 		return self;
 	}
 	
-	static set_buff = function(_type = "defense", _value = 1)
+	static set_buff = function(_type, _value)
 	{
 		buffs[$ _type] = _value;
 		
@@ -494,15 +494,15 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	{
 		set_inventory_scale(INVENTORY_SCALE.TOOL);
 		set_inventory_max(1);
-			
+		
 		set_damage(undefined, DAMAGE_TYPE.RANGED);
 		
 		ammo_type_cooldown = (AMMO_TYPE.BOW << 8) | 12;
-			
+		
 		static set_ammo_type = function(_type)
 		{
 			ammo_type_cooldown = (_type << 8) | (ammo_type_cooldown & 0xff);
-				
+			
 			return self;
 		}
 			
@@ -530,7 +530,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	{
 		set_inventory_scale(INVENTORY_SCALE.TOOL);
 		set_inventory_max(1);
-			
+		
 		__fishing_value = (1 << 32) | (8 << 24) | c_black;
 		
 		static set_fishing_line = function(_colour = c_black, _detail = 8)
@@ -582,20 +582,20 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		set_damage(undefined, DAMAGE_TYPE.RANGED);
 		
 		max_throw_multiplier = 1;
-			
+		
 		static set_max_throw_multiplier = function(_strength = 1)
 		{
 			max_throw_multiplier = _strength;
-				
+			
 			return self;
 		}
 			
 		gravity_strength = 1;
-			
+		
 		static set_gravity_strength = function(_multiplier = 1)
 		{
 			gravity_strength = _multiplier;
-				
+			
 			return self;
 		}
 		
@@ -706,12 +706,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
         {
             var _effect = self[$ "__on_consumption_effect"];
             
-            if (_effect == undefined)
-            {
-                return undefined;
-            }
-            
-            return _effect[$ _name];
+            return ((_effect != undefined) ? _effect[$ _name] : undefined);
         }
         
         static get_consumption_effect_names = function()
