@@ -59,7 +59,7 @@ function gui_effects()
 		}
 		else
 		{
-			var _seconds = _effect.timer / _tick;
+			var _seconds = _timer / _tick;
 			var _minutes = floor(_seconds / 60);
 			
 			_time = ((_minutes >= 60) ? $"{floor(_minutes / 60)}:{string_pad_start(_minutes % 60, "0", 2)}:{string_pad_start(ceil(_seconds % 60), "0", 2)}" : $"{string_pad_start(_minutes % 60, "0", 2)}:{string_pad_start(ceil(_seconds % 60), "0", 2)}");
