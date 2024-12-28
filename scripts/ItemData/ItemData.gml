@@ -1576,10 +1576,10 @@ new ItemData(item_Orange, ITEM_TYPE_BIT.CONSUMABLE)
 new ItemData(item_Wheat);
 
 new ItemData(item_Bread, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(10);
+	.set_consumption_hp(8);
 
 new ItemData(item_Toast, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(18);
+	.set_consumption_hp(12);
 
 new ItemData(item_Bloom_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAINER)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -1595,7 +1595,7 @@ new ItemData(item_Vicuz_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Potato, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(4);
+	.set_consumption_hp(3);
 
 new ItemData(item_Bloom_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
