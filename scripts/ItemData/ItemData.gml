@@ -646,16 +646,76 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	
 	if (type & ITEM_TYPE_BIT.CONSUMABLE)
 	{
-		on_consume = undefined;
-		on_consume_return = undefined;
-		
-		static set_on_consume = function(_func, _return = -1)
+		static set_on_consume = function(_function)
 		{
-			on_consume = _func;
-			on_consume_return = _return;
+			__on_consume = _function;
 			
 			return self;
 		}
+        
+        static get_on_consume = function()
+        {
+            return self[$ "__on_consume"];
+        }
+        
+        static set_consumption_hp = function(_hp)
+        {
+            __on_consumption_hp = _hp;
+        }
+        
+        static get_consumption_hp = function()
+        {
+            return self[$ "__on_consumption_hp"];
+        }
+        
+        static set_consumption_return = function(_item_id, _amount)
+        {
+            self[$ "__on_consumption_return"] ??= [];
+            
+            array_push(__on_consumption_return, {
+                item_id: _item_id,
+                amount: _amount
+            });
+            
+            return self;
+        }
+        
+        static get_consumption_return = function()
+        {
+            return self[$ "__on_consumption_return"];
+        }
+        
+        static set_consumption_effect = function(_name, _chance, _level, _time, _particle)
+        {
+            self[$ "__on_consumption_effect"] ??= {}
+            self[$ "__on_consumption_effect_names"] ??= [];
+            
+            array_push(__on_consumption_effect_names, _name);
+            
+            __on_consumption_effect[$ _name] = {
+                chance: _chance,
+                value: (_particle << 24) | (_level << 16) | _time
+            }
+            
+            return self;
+        }
+        
+        static get_consumption_effect = function(_name)
+        {
+            var _effect = self[$ "__on_consumption_effect"];
+            
+            if (_effect == undefined)
+            {
+                return undefined;
+            }
+            
+            return _effect[$ _name];
+        }
+        
+        static get_consumption_effect_names = function()
+        {
+            return self[$ "__on_consumption_effect_names"];
+        }
 	}
 	
 	if (type & (ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.WALL | ITEM_TYPE_BIT.PLANT | ITEM_TYPE_BIT.CONTAINER | ITEM_TYPE_BIT.LIQUID))
@@ -1028,11 +1088,7 @@ new ItemData(item_Bee_Nest, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData(item_Beeswax);
 
 new ItemData(item_Honeycomb, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-		// effect_set("movement_speed", 15, 1, _inst);
-	});
+    .set_consumption_hp(10);
 
 new ItemData(item_Birch_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
@@ -1502,43 +1558,25 @@ new ItemData(item_Platinum_Fishing_Pole, ITEM_TYPE_BIT.FISHING_POLE)
 	.set_durability(728);
 
 new ItemData(item_Raw_Frog_Leg, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 4);
-	});
+	.set_consumption_hp(4);
 
 new ItemData(item_Cooked_Frog_Leg, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 18);
-	});
+	.set_consumption_hp(18);
 
 new ItemData(item_Apple, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_inventory_index(0, 2)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 12);
-	});
+	.set_consumption_hp(12);
 
 new ItemData(item_Orange, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 12);
-	});
+	.set_consumption_hp(12);
 
 new ItemData(item_Wheat);
 
 new ItemData(item_Bread, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 24);
-	});
+	.set_consumption_hp(24);
 
 new ItemData(item_Toast, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-	});
+	.set_consumption_hp(10);
 
 new ItemData(item_Bloom_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAINER)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -1554,10 +1592,7 @@ new ItemData(item_Vicuz_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Potato, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	});
+	.set_consumption_hp(8);
 
 new ItemData(item_Bloom_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -1593,10 +1628,7 @@ new ItemData(item_Redberry_Bush, ITEM_TYPE_BIT.PLANT)
 	.set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Redberry, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-	});
+	.set_consumption_hp(10);
 
 new ItemData(item_Blueberry_Bush, ITEM_TYPE_BIT.PLANT)
 	.set_is_plant_waveable()
@@ -1604,10 +1636,7 @@ new ItemData(item_Blueberry_Bush, ITEM_TYPE_BIT.PLANT)
 	.set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Blueberry, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-	});
+	.set_consumption_hp(10);
 
 new ItemData(item_Lumin_Moss, ITEM_TYPE_BIT.SOLID)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED)
@@ -1727,10 +1756,7 @@ new ItemData(item_Lumin_Berry, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONSUMAB
 	.set_flip_on(true, false)
 	.set_mining_stats(, undefined, 8)
 	.set_drops("phantasia:lumin_berry")
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 12);
-	});
+	.set_consumption_hp(12);
 
 new ItemData(item_Raw_Tarnished_Copper);
 
@@ -1802,10 +1828,7 @@ new ItemData(item_Weathered_Block_Of_Copper, ITEM_TYPE_BIT.SOLID)
 
 new ItemData(item_Yucca_Fruit, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_drops("phantasia:yucca_fruit")
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-	});
+	.set_consumption_hp(10);
 
 new ItemData(item_Tarnished_Block_Of_Copper, ITEM_TYPE_BIT.SOLID)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED)
@@ -2888,43 +2911,27 @@ new ItemData(item_Acacia_Door, ITEM_TYPE_BIT.SOLID)
 	.set_drops("phantasia:acacia_door");
 
 new ItemData(item_Watermelon, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 12);
-	});
+	.set_consumption_hp(12);
 
 new ItemData(item_Raw_Beef, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 4);
-	});
+	.set_consumption_hp(4);
 
 new ItemData(item_Cooked_Beef, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 28);
-	});
+	.set_consumption_hp(28);
 
 new ItemData(item_Bottle);
 
 new ItemData(item_Bottle_Of_Water, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-	}, "phantasia:bottle");
+	.set_consumption_hp(10)
+    .set_consumption_return("phantasia:bottle", 1);
 
 new ItemData(item_Bottle_Of_Milk, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-		// effect_set("phantasia:safeguard", 30, 1, _inst);
-	}, "phantasia:bottle");
+    .set_consumption_hp(10)
+    .set_consumption_return("phantasia:bottle", 1);
 
 new ItemData(item_Bottle_Of_Orange_Juice, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-	}, "phantasia:bottle");
+    .set_consumption_hp(10)
+    .set_consumption_return("phantasia:bottle", 1);
 
 new ItemData(item_Ashen_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAINER)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -2944,114 +2951,54 @@ new ItemData(item_Ashen_Door, ITEM_TYPE_BIT.SOLID)
 	.set_drops("phantasia:ashen_door");
 
 new ItemData(item_Carrot, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	});
+	.set_consumption_hp(8);
 
 new ItemData(item_Raw_Chicken, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-		
-		if (random(1) < 0.8)
-		{
-			// effect_set("phantasia:poison", 8, 1, _inst);
-		}
-	});
+    .set_consumption_hp(8);
 
 new ItemData(item_Cooked_Chicken, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 28);
-	});
+	.set_consumption_hp(28);
 
 new ItemData(item_Cake, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 40);
-	});
+	.set_consumption_hp(40);
 
 new ItemData(item_Tomato, ITEM_TYPE_BIT.CONSUMABLE, ITEM_TYPE_BIT.THROWABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	});
+	.set_consumption_hp(8);
 
 new ItemData(item_Raw_Cod, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 6);
-	});
+	.set_consumption_hp(6);
 
 new ItemData(item_Cooked_Cod, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 24);
-	});
+	.set_consumption_hp(24);
 
 new ItemData(item_Raw_Salmon, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 6);
-	});
+	.set_consumption_hp(6);
 
 new ItemData(item_Cooked_Salmon, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 24);
-	});
+	.set_consumption_hp(24);
 
 new ItemData(item_Raw_Bluefish, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 6);
-	});
+	.set_consumption_hp(6);
 
 new ItemData(item_Cooked_Bluefish, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 24);
-	});
+	.set_consumption_hp(24);
 
 new ItemData(item_Raw_Tuna, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 6);
-	});
+	.set_consumption_hp(6);
 
 new ItemData(item_Cooked_Tuna, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 24);
-	});
+	.set_consumption_hp(24);
 
 new ItemData(item_Pufferfish, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 6);
-		// effect_set("phantasia:poison", 14, 3, _inst);
-		// effect_set("phantasia:lag", 14, 3, _inst);
-	});
+	.set_consumption_hp(6);
 
 new ItemData(item_Clownfish, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 6);
-	});
+	.set_consumption_hp(6);
 
 new ItemData(item_Chili_Pepper, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 6);
-		// effect_set("phantasia:picante", 45, 1, _inst);
-	});
+	.set_consumption_hp(6);
 
-new ItemData(item_Pumpkin)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-	});
+new ItemData(item_Pumpkin);
 
 new ItemData(item_Banana_Peel, ITEM_TYPE_BIT.THROWABLE);
 
@@ -3082,10 +3029,7 @@ new ItemData(item_Birch_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_drops("phantasia:birch_chair");
 
 new ItemData(item_Cookie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 12);
-	});
+	.set_consumption_hp(12);
 
 new ItemData(item_Yucca_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAINER)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -3093,28 +3037,16 @@ new ItemData(item_Yucca_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAINE
 	.set_container_sfx("phantasia:tile.container.~.chest");
 
 new ItemData(item_Apple_Pie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 20);
-	});
+	.set_consumption_hp(20);
 
 new ItemData(item_Redberry_Pie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 20);
-	});
+	.set_consumption_hp(20);
 
 new ItemData(item_Blueberry_Pie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 20);
-	});
+	.set_consumption_hp(20);
 
 new ItemData(item_Pumpkin_Pie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 20);
-	});
+	.set_consumption_hp(20);
 
 new ItemData(item_Sugar);
 
@@ -3125,10 +3057,8 @@ new ItemData(item_Cherry_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAIN
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Banana, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	}, "phantasia:banana_peel");
+	.set_consumption_hp(8)
+    .set_consumption_return("phantasia:banana_peel", 1);
 
 new ItemData(item_Cherry_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -3136,16 +3066,10 @@ new ItemData(item_Cherry_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Raw_Bunny, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 6);
-	});
+	.set_consumption_hp(6);
 
 new ItemData(item_Cooked_Bunny, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 28);
-	});
+	.set_consumption_hp(28);
 
 new ItemData(item_Ashen_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
 	.set_damage(5, DAMAGE_TYPE.MELEE)
@@ -3201,10 +3125,7 @@ new ItemData(item_Cherry_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
 	.set_durability(73);
 
 new ItemData(item_Prickly_Pear_Fruit, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	});
+	.set_consumption_hp(8);
 
 new ItemData(item_Yucca_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
 	.set_damage(5, DAMAGE_TYPE.MELEE)
@@ -3259,10 +3180,7 @@ new ItemData(item_Cherry_Shovel, ITEM_TYPE_BIT.SHOVEL)
 	.set_durability(65);
 
 new ItemData(item_Fried_Egg, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 14);
-	});
+	.set_consumption_hp(14);
 
 new ItemData(item_Yucca_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED_TO_SELF)
@@ -4377,30 +4295,18 @@ new ItemData(item_Raw_Whole_Turkey, ITEM_TYPE_BIT.ARMOR_HELMET);
 new ItemData(item_Cooked_Whole_Turkey, ITEM_TYPE_BIT.ARMOR_HELMET);
 
 new ItemData(item_Raw_Turkey, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 3);
-	});
+	.set_consumption_hp(3);
 
 new ItemData(item_Cooked_Turkey, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 12);
-	});
+	.set_consumption_hp(12);
 
 new ItemData(item_Flamethrower, ITEM_TYPE_BIT.BOW);
 
 new ItemData(item_Raw_Crab, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	});
+	.set_consumption_hp(8);
 
 new ItemData(item_Cooked_Crab, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 28);
-	});
+	.set_consumption_hp(28);
 
 new ItemData(item_Yucca_Planks_Wall, ITEM_TYPE_BIT.WALL)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED)
@@ -4565,25 +4471,15 @@ new ItemData(item_Mangrove_Shovel, ITEM_TYPE_BIT.SHOVEL)
 	.set_durability(65);
 
 new ItemData(item_Honey_Apple, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-		// effect_set("movement_speed", 15, 1, _inst);
-	});
+	.set_consumption_hp(10);
 
 new ItemData(item_Grilled_Cheese, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 16);
-	});
+	.set_consumption_hp(16);
 
 new ItemData(item_Lush_Shard);
 
 new ItemData(item_Cherry, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	});
+	.set_consumption_hp(8);
 
 new ItemData(item_Revenant_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 148)
@@ -4595,10 +4491,7 @@ new ItemData(item_Revenant_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData(item_Snail_Shell);
 
 new ItemData(item_Passionfruit, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	});
+	.set_consumption_hp(8);
 
 new ItemData(item_Yucca_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -4617,11 +4510,7 @@ new ItemData(item_Yucca_Door, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Zombie_Flesh, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 4);
-		// effect_set("phantasia:baring", 14, 3, _inst);
-	});
+	.set_consumption_hp(4);
 
 new ItemData(item_Turtle_Shell);
 
@@ -4685,10 +4574,7 @@ new ItemData(item_Salt_Bricks_Wall, ITEM_TYPE_BIT.WALL)
 	.set_sfx("phantasia:tile.bricks");
 
 new ItemData(item_Pie_Crust, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 8);
-	});
+	.set_consumption_hp(8);
 
 new ItemData(item_Dark_Bamboo, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_flip_on(true, false)
@@ -4821,11 +4707,7 @@ new ItemData(item_Valentine_Ring, ITEM_TYPE_BIT.ACCESSORY)
 new ItemData(item_Heart_Balloon);
 
 new ItemData(item_Chocolate, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		hp_add(_inst, 10);
-		// effect_set("movement_speed", 8, 1, _inst);
-	});
+    .set_consumption_hp(10);
 
 new ItemData(item_Cupids_Bow, ITEM_TYPE_BIT.BOW)
 	.set_damage(19);
@@ -5191,10 +5073,7 @@ new ItemData(item_Platinum_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
 	.set_buff(, 11);
 
 new ItemData(item_Rotten_Potato, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_on_consume(function(_x, _y, _inst)
-	{
-		// effect_set("poison", 10, 1, _inst);
-	});
+    .set_consumption_hp(-1);
 
 new ItemData(item_Polished_Strata, ITEM_TYPE_BIT.SOLID)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
