@@ -1152,6 +1152,7 @@
     {"id":{"name":"chat_command_parameter_parse","path":"scripts/chat_command_parameter_parse/chat_command_parameter_parse.yy",},},
     {"id":{"name":"chat_disable","path":"scripts/chat_disable/chat_disable.yy",},},
     {"id":{"name":"chat_enable","path":"scripts/chat_enable/chat_enable.yy",},},
+    {"id":{"name":"Chat","path":"scripts/Chat/Chat.yy",},},
     {"id":{"name":"choose_weighted_parse","path":"scripts/choose_weighted_parse/choose_weighted_parse.yy",},},
     {"id":{"name":"choose_weighted","path":"scripts/choose_weighted/choose_weighted.yy",},},
     {"id":{"name":"chunk_clear","path":"scripts/chunk_clear/chunk_clear.yy",},},

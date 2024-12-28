@@ -78,8 +78,10 @@ function ctrl_chat()
 	{
 		obj_Control.surface_refresh_chat = true;
 	}
+    
+    var _chat_message = obj_Control.chat_message;
 	
-	if (string_length(obj_Control.chat_message) == 0)
+	if (_chat_message == "")
 	{
 		if (keyboard_check_pressed(vk_backspace)) || (keyboard_check_pressed(vk_enter)) || (keyboard_check_pressed(vk_tab))
 		{
@@ -91,8 +93,6 @@ function ctrl_chat()
 	
 	if (keyboard_check_pressed(vk_enter))
 	{
-		var _chat_message = obj_Control.chat_message;
-		
 		if (string_starts_with(_chat_message, CHAT_COMMAND_PREFIX))
 		{
 			chat_command_execute(string_delete(_chat_message, 1, string_length(CHAT_COMMAND_PREFIX)), obj_Player);
