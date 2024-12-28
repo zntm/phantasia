@@ -16,9 +16,9 @@ function accessory_get_buff(_type, _object = id, _attributes = undefined)
 	{
 		var _item_data = global.item_data;
 		var _inventory = global.inventory;
-	
+        
 		_value += __get_buff(_inventory.armor_helmet[0], _type, _item_data) + __get_buff(_inventory.armor_breastplate[0], _type, _item_data) + __get_buff(_inventory.armor_leggings[0], _type, _item_data);
-	
+        
 		var _accessories = _inventory.accessory;
 		
 		for (var i = 0; i < INVENTORY_LENGTH.ACCESSORIES; ++i)

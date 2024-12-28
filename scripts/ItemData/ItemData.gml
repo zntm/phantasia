@@ -372,7 +372,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	
 	variable = undefined;
 	variable_names = undefined;
-		
+	
 	static set_variable = function(_variable)
 	{
 		variable = _variable;
@@ -380,11 +380,11 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 			
 		return self;
 	}
-			
+	
 	static set_buff = function(_type = "defense", _value = 1)
 	{
 		buffs[$ _type] = _value;
-			
+		
 		return self;
 	}
 	
@@ -4875,7 +4875,7 @@ new ItemData(item_Bomb, ITEM_TYPE_BIT.THROWABLE)
 	.set_rotation(1, 10);
 
 new ItemData(item_Mining_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET, ITEM_TYPE_BIT.ACCESSORY)
-	.set_buff(undefined, 3)
+	.set_buff("defense", 3)
 	.set_buff("build_cooldown", -0.1);
 
 new ItemData(item_Structure_Void, ITEM_TYPE_BIT.UNTOUCHABLE);
@@ -5028,58 +5028,58 @@ new ItemData(item_Piggy_Bank, ITEM_TYPE_BIT.CONTAINER)
 	.set_container_sfx("phantasia:tile.container.~.chest");
 
 new ItemData(item_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(undefined, 3);
+	.set_buff("defense", 5);
 
 new ItemData(item_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(undefined, 5);
+	.set_buff("defense", 6);
 
 new ItemData(item_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(undefined, 4);
+	.set_buff("defense", 4);
 
 new ItemData(item_Weathered_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(undefined, 2);
+	.set_buff("defense", 4);
 
 new ItemData(item_Weathered_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(undefined, 4);
+	.set_buff("defense", 5);
 
 new ItemData(item_Weathered_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(undefined, 3);
+	.set_buff("defense", 3);
 
 new ItemData(item_Tarnished_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(undefined, 1);
+	.set_buff("defense", 3);
 
 new ItemData(item_Tarnished_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(undefined, 3);
+	.set_buff("defense", 3);
 
 new ItemData(item_Tarnished_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(undefined, 2);
+	.set_buff("defense", 2);
 
 new ItemData(item_Iron_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(undefined, 5);
+	.set_buff("defense", 8);
 
 new ItemData(item_Iron_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(undefined, 7);
+	.set_buff("defense", 9);
 
 new ItemData(item_Iron_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(undefined, 6);
+	.set_buff("defense", 6);
 
 new ItemData(item_Gold_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(undefined, 7);
+	.set_buff("defense", 10);
 
 new ItemData(item_Gold_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(undefined, 10);
+	.set_buff("defense", 12);
 
 new ItemData(item_Gold_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(undefined, 8);
+	.set_buff("defense", 8);
 
 new ItemData(item_Platinum_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(undefined, 9);
+	.set_buff("defense", 14);
 
 new ItemData(item_Platinum_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(undefined, 14);
+	.set_buff("defense", 17);
 
 new ItemData(item_Platinum_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(undefined, 11);
+	.set_buff("defense", 11);
 
 new ItemData(item_Rotten_Potato, ITEM_TYPE_BIT.CONSUMABLE)
     .set_consumption_hp(-1)
