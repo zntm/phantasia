@@ -176,5 +176,5 @@ if (_length > 0)
 
 physics_slow_down(xdirection);
 
-physics_y(, _data.gravity_strength);
+physics_y(undefined, _data.gravity_strength);
 physics_x(_data.get_xspeed() * _delta_time);

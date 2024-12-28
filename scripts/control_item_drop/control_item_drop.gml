@@ -31,7 +31,7 @@ function control_item_drop(_xplayer, _yplayer, _item_data, _tick, _world_height,
 			}
 			else
 			{
-				physics_y(, undefined, false, undefined, undefined, _world_height);
+				physics_y(undefined, undefined, false, undefined, undefined, _world_height);
 				
 				y = clamp(y, 0, _entity_ymax);
 				

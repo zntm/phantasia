@@ -95,7 +95,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 			
 			if (tile_meeting(x, y + 1, undefined, undefined, _world_height))
 			{
-				entity_fall(, _world_height);
+				entity_fall(undefined, _world_height);
 				
 				if (hp <= 0)
 				{
@@ -158,7 +158,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 
 		physics_x(buffs[$ "movement_speed"] * _delta_time, undefined, undefined, _world_height);
 		
-		physics_bury(, _world_height);
+		physics_bury(undefined, _world_height);
 		
 		if (xdirection != 0)
 		{

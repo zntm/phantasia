@@ -80,7 +80,7 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
 				image_xscale = _direction * abs(image_xscale);
 			}
             
-			if (yvelocity != 0) || (physics_bury(, _world_height))
+			if (yvelocity != 0) || (physics_bury(undefined, _world_height))
 			{
 				y = clamp(y, 0, _entity_ymax);
 			}

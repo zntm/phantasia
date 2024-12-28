@@ -484,7 +484,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		set_inventory_scale(INVENTORY_SCALE.TOOL);
 		set_inventory_max(1);
 			
-		set_damage(, DAMAGE_TYPE.MELEE);
+		set_damage(undefined, DAMAGE_TYPE.MELEE);
 		
 		// 0xffff_ffff_ffff
 		set_durability(1);
@@ -495,7 +495,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		set_inventory_scale(INVENTORY_SCALE.TOOL);
 		set_inventory_max(1);
 			
-		set_damage(, DAMAGE_TYPE.RANGED);
+		set_damage(undefined, DAMAGE_TYPE.RANGED);
 		
 		ammo_type_cooldown = (AMMO_TYPE.BOW << 8) | 12;
 			
@@ -579,7 +579,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	
 	if (type & ITEM_TYPE_BIT.THROWABLE)
 	{
-		set_damage(, DAMAGE_TYPE.RANGED);
+		set_damage(undefined, DAMAGE_TYPE.RANGED);
 		
 		max_throw_multiplier = 1;
 			
@@ -661,6 +661,8 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
         static set_consumption_hp = function(_hp)
         {
             __on_consumption_hp = _hp;
+            
+            return self;
         }
         
         static get_consumption_hp = function()
@@ -685,7 +687,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
             return self[$ "__on_consumption_return"];
         }
         
-        static set_consumption_effect = function(_name, _chance, _level, _time, _particle)
+        static set_consumption_effect = function(_name, _chance, _level, _time, _particle = true)
         {
             self[$ "__on_consumption_effect"] ??= {}
             self[$ "__on_consumption_effect_names"] ??= [];
@@ -1088,7 +1090,8 @@ new ItemData(item_Bee_Nest, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData(item_Beeswax);
 
 new ItemData(item_Honeycomb, ITEM_TYPE_BIT.CONSUMABLE)
-    .set_consumption_hp(10);
+    .set_consumption_hp(10)
+    .set_consumption_effect("phantasia:speed", 0.9, 1, 6);
 
 new ItemData(item_Birch_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
@@ -1237,19 +1240,19 @@ new ItemData(item_Pot, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_flip_on(true, false);
 
 new ItemData(item_Coral_Tube, ITEM_TYPE_BIT.SOLID)
-	.set_mining_stats(, undefined, 10)
+	.set_mining_stats(undefined, undefined, 10)
 	.set_drops("phantasia:coral_tube");
 
 new ItemData(item_Coral_Tube_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 9)
+	.set_mining_stats(undefined, undefined, 9)
 	.set_drops("phantasia:coral_tube_fan");
 
 new ItemData(item_Coral_Wave, ITEM_TYPE_BIT.SOLID)
-	.set_mining_stats(, undefined, 10)
+	.set_mining_stats(undefined, undefined, 10)
 	.set_drops("phantasia:coral_wave");
 
 new ItemData(item_Coral_Wave_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 9)
+	.set_mining_stats(undefined, undefined, 9)
 	.set_drops("phantasia:coral_wave_fan");
 
 new ItemData(item_Chrystal_Blade, ITEM_TYPE_BIT.SWORD)
@@ -1561,22 +1564,22 @@ new ItemData(item_Raw_Frog_Leg, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_consumption_hp(4);
 
 new ItemData(item_Cooked_Frog_Leg, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(18);
+	.set_consumption_hp(15);
 
 new ItemData(item_Apple, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_inventory_index(0, 2)
-	.set_consumption_hp(12);
+	.set_consumption_hp(4);
 
 new ItemData(item_Orange, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(12);
+	.set_consumption_hp(4);
 
 new ItemData(item_Wheat);
 
 new ItemData(item_Bread, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(24);
+	.set_consumption_hp(10);
 
 new ItemData(item_Toast, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(10);
+	.set_consumption_hp(18);
 
 new ItemData(item_Bloom_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAINER)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -1592,7 +1595,7 @@ new ItemData(item_Vicuz_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Potato, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(8);
+	.set_consumption_hp(4);
 
 new ItemData(item_Bloom_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -1628,7 +1631,7 @@ new ItemData(item_Redberry_Bush, ITEM_TYPE_BIT.PLANT)
 	.set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Redberry, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(10);
+	.set_consumption_hp(4);
 
 new ItemData(item_Blueberry_Bush, ITEM_TYPE_BIT.PLANT)
 	.set_is_plant_waveable()
@@ -1636,7 +1639,7 @@ new ItemData(item_Blueberry_Bush, ITEM_TYPE_BIT.PLANT)
 	.set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Blueberry, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(10);
+	.set_consumption_hp(4);
 
 new ItemData(item_Lumin_Moss, ITEM_TYPE_BIT.SOLID)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED)
@@ -1658,7 +1661,7 @@ new ItemData(item_Coal);
 
 new ItemData(item_Kelp, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 8)
+	.set_mining_stats(undefined, undefined, 8)
 	.set_drops("phantasia:kelp")
 	.set_sfx("phantasia:tile.leaves");
 
@@ -1754,9 +1757,9 @@ new ItemData(item_Lumin_Bulb, ITEM_TYPE_BIT.SOLID)
 
 new ItemData(item_Lumin_Berry, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 8)
+	.set_mining_stats(undefined, undefined, 8)
 	.set_drops("phantasia:lumin_berry")
-	.set_consumption_hp(12);
+	.set_consumption_hp(5);
 
 new ItemData(item_Raw_Tarnished_Copper);
 
@@ -1828,7 +1831,7 @@ new ItemData(item_Weathered_Block_Of_Copper, ITEM_TYPE_BIT.SOLID)
 
 new ItemData(item_Yucca_Fruit, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_drops("phantasia:yucca_fruit")
-	.set_consumption_hp(10);
+	.set_consumption_hp(6);
 
 new ItemData(item_Tarnished_Block_Of_Copper, ITEM_TYPE_BIT.SOLID)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED)
@@ -1879,7 +1882,7 @@ new ItemData(item_Rocks, ITEM_TYPE_BIT.THROWABLE, ITEM_TYPE_BIT.PLANT)
 	.set_damage(3)
 	.set_random_index(1, 4)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 1)
+	.set_mining_stats(undefined, undefined, 1)
 	.set_drops("phantasia:rocks")
 	.set_sfx("phantasia:tile.stone");
 
@@ -1905,7 +1908,7 @@ new ItemData(item_Deadflower, ITEM_TYPE_BIT.PLANT)
 
 new ItemData(item_Bamboo, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 8)
+	.set_mining_stats(undefined, undefined, 8)
 	.set_drops("phantasia:bamboo");
 
 new ItemData(item_Sandstone_Wall, ITEM_TYPE_BIT.WALL)
@@ -2004,55 +2007,55 @@ new ItemData(item_Curly_Fern, ITEM_TYPE_BIT.PLANT)
 
 new ItemData(item_Skull, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.ARMOR_HELMET)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 3)
+	.set_mining_stats(undefined, undefined, 3)
 	.set_drops("phantasia:bone");
 
 new ItemData(item_Dead_Coral_Tube, ITEM_TYPE_BIT.SOLID)
-	.set_mining_stats(, undefined, 10)
+	.set_mining_stats(undefined, undefined, 10)
 	.set_drops("phantasia:dead_coral_tube");
 
 new ItemData(item_Dead_Coral_Tube_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 9)
+	.set_mining_stats(undefined, undefined, 9)
 	.set_drops("phantasia:dead_coral_tube_fan");
 
 new ItemData(item_Dead_Coral_Wave, ITEM_TYPE_BIT.SOLID)
-	.set_mining_stats(, undefined, 10)
+	.set_mining_stats(undefined, undefined, 10)
 	.set_drops("phantasia:dead_coral_wave");
 
 new ItemData(item_Dead_Coral_Wave_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 9)
+	.set_mining_stats(undefined, undefined, 9)
 	.set_drops("phantasia:dead_coral_wave_fan");
 
 new ItemData(item_Coral_Flame, ITEM_TYPE_BIT.SOLID)
-	.set_mining_stats(, undefined, 10)
+	.set_mining_stats(undefined, undefined, 10)
 	.set_drops("phantasia:coral_flame");
 
 new ItemData(item_Coral_Flame_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 9)
+	.set_mining_stats(undefined, undefined, 9)
 	.set_drops("phantasia:coral_flame_fan");
 
 new ItemData(item_Dead_Coral_Flame, ITEM_TYPE_BIT.SOLID)
-	.set_mining_stats(, undefined, 10)
+	.set_mining_stats(undefined, undefined, 10)
 	.set_drops("phantasia:dead_coral_flame");
 
 new ItemData(item_Dead_Coral_Flame_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 9)
+	.set_mining_stats(undefined, undefined, 9)
 	.set_drops("phantasia:dead_coral_flame_fan");
 
 new ItemData(item_Coral_Horn, ITEM_TYPE_BIT.SOLID)
-	.set_mining_stats(, undefined, 10)
+	.set_mining_stats(undefined, undefined, 10)
 	.set_drops("phantasia:coral_horn");
 
 new ItemData(item_Coral_Horn_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 9)
+	.set_mining_stats(undefined, undefined, 9)
 	.set_drops("phantasia:coral_horn_fan");
 
 new ItemData(item_Dead_Coral_Horn, ITEM_TYPE_BIT.SOLID)
-	.set_mining_stats(, undefined, 10)
+	.set_mining_stats(undefined, undefined, 10)
 	.set_drops("phantasia:dead_coral_horn");
 
 new ItemData(item_Dead_Coral_Horn_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 9)
+	.set_mining_stats(undefined, undefined, 9)
 	.set_drops("phantasia:dead_coral_horn_fan");
 
 new ItemData(item_Grass_Block_Tundra, ITEM_TYPE_BIT.SOLID)
@@ -2128,7 +2131,7 @@ new ItemData(item_Cyan_Rose, ITEM_TYPE_BIT.PLANT)
 	.set_drops("phantasia:cyan_rose");
 
 new ItemData(item_Cattail, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 8)
+	.set_mining_stats(undefined, undefined, 8)
 	.set_sfx("phantasia:tile.leaves")
 	.set_drops("phantasia:cattail");
 
@@ -2654,7 +2657,7 @@ new ItemData(item_Dead_Rose, ITEM_TYPE_BIT.PLANT)
 	.set_drops("phantasia:dead_rose");
 
 new ItemData(item_Vine, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 8)
+	.set_mining_stats(undefined, undefined, 8)
 	.set_drops("phantasia:vine");
 
 new ItemData(item_Written_Book, ITEM_TYPE_BIT.MENU);
@@ -2868,12 +2871,12 @@ new ItemData(item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_animation_type(ANIMATION_TYPE.INCREMENT)
 	.set_colour_offset(0, -2, -28)
 	.set_bloom(#160704)
-	.set_mining_stats(, undefined, 8)
+	.set_mining_stats(undefined, undefined, 8)
 	.set_drops("phantasia:campfire");
 
 new ItemData(item_Cloud, ITEM_TYPE_BIT.SOLID)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED_TO_SELF)
-	.set_mining_stats(, undefined, 14)
+	.set_mining_stats(undefined, undefined, 14)
 	.set_drops("phantasia:cloud");
 
 new ItemData(item_Honey_Bricks_Wall, ITEM_TYPE_BIT.WALL)
@@ -2911,13 +2914,13 @@ new ItemData(item_Acacia_Door, ITEM_TYPE_BIT.SOLID)
 	.set_drops("phantasia:acacia_door");
 
 new ItemData(item_Watermelon, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(12);
+	.set_consumption_hp(7);
 
 new ItemData(item_Raw_Beef, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(4);
+	.set_consumption_hp(3);
 
 new ItemData(item_Cooked_Beef, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(28);
+	.set_consumption_hp(17);
 
 new ItemData(item_Bottle);
 
@@ -2927,7 +2930,8 @@ new ItemData(item_Bottle_Of_Water, ITEM_TYPE_BIT.CONSUMABLE)
 
 new ItemData(item_Bottle_Of_Milk, ITEM_TYPE_BIT.CONSUMABLE)
     .set_consumption_hp(10)
-    .set_consumption_return("phantasia:bottle", 1);
+    .set_consumption_return("phantasia:bottle", 1)
+    .set_consumption_effect("phantasia:safeguard", 1, 1, 5);
 
 new ItemData(item_Bottle_Of_Orange_Juice, ITEM_TYPE_BIT.CONSUMABLE)
     .set_consumption_hp(10)
@@ -2951,49 +2955,52 @@ new ItemData(item_Ashen_Door, ITEM_TYPE_BIT.SOLID)
 	.set_drops("phantasia:ashen_door");
 
 new ItemData(item_Carrot, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(8);
+	.set_consumption_hp(3);
 
 new ItemData(item_Raw_Chicken, ITEM_TYPE_BIT.CONSUMABLE)
-    .set_consumption_hp(8);
+    .set_consumption_hp(2)
+    .set_consumption_effect("phantasia:poison", 0.7, 1, 6);
 
 new ItemData(item_Cooked_Chicken, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(28);
+	.set_consumption_hp(17);
 
 new ItemData(item_Cake, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(40);
+	.set_consumption_hp(32)
+    .set_consumption_effect("phantasia:speed", 1, 2, 7);
 
 new ItemData(item_Tomato, ITEM_TYPE_BIT.CONSUMABLE, ITEM_TYPE_BIT.THROWABLE)
-	.set_consumption_hp(8);
+	.set_consumption_hp(4);
 
 new ItemData(item_Raw_Cod, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(6);
+	.set_consumption_hp(2);
 
 new ItemData(item_Cooked_Cod, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(24);
+	.set_consumption_hp(14);
 
 new ItemData(item_Raw_Salmon, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(6);
+	.set_consumption_hp(2);
 
 new ItemData(item_Cooked_Salmon, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(24);
+	.set_consumption_hp(14);
 
 new ItemData(item_Raw_Bluefish, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(6);
+	.set_consumption_hp(2);
 
 new ItemData(item_Cooked_Bluefish, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(24);
+	.set_consumption_hp(14);
 
 new ItemData(item_Raw_Tuna, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(6);
+	.set_consumption_hp(2);
 
 new ItemData(item_Cooked_Tuna, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(24);
+	.set_consumption_hp(14);
 
 new ItemData(item_Pufferfish, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(6);
+	.set_consumption_hp(3)
+    .set_consumption_effect("phantasia:poison", 1, 3, 7);
 
 new ItemData(item_Clownfish, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(6);
+	.set_consumption_hp(7);
 
 new ItemData(item_Chili_Pepper, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_consumption_hp(6);
@@ -3029,7 +3036,7 @@ new ItemData(item_Birch_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_drops("phantasia:birch_chair");
 
 new ItemData(item_Cookie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(12);
+	.set_consumption_hp(9);
 
 new ItemData(item_Yucca_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAINER)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -3037,16 +3044,16 @@ new ItemData(item_Yucca_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAINE
 	.set_container_sfx("phantasia:tile.container.~.chest");
 
 new ItemData(item_Apple_Pie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(20);
+	.set_consumption_hp(16);
 
 new ItemData(item_Redberry_Pie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(20);
+	.set_consumption_hp(16);
 
 new ItemData(item_Blueberry_Pie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(20);
+	.set_consumption_hp(16);
 
 new ItemData(item_Pumpkin_Pie, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(20);
+	.set_consumption_hp(16);
 
 new ItemData(item_Sugar);
 
@@ -3057,7 +3064,7 @@ new ItemData(item_Cherry_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAIN
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Banana, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(8)
+	.set_consumption_hp(4)
     .set_consumption_return("phantasia:banana_peel", 1);
 
 new ItemData(item_Cherry_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
@@ -3066,10 +3073,10 @@ new ItemData(item_Cherry_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Raw_Bunny, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(6);
+	.set_consumption_hp(3);
 
 new ItemData(item_Cooked_Bunny, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(28);
+	.set_consumption_hp(15);
 
 new ItemData(item_Ashen_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
 	.set_damage(5, DAMAGE_TYPE.MELEE)
@@ -3125,7 +3132,7 @@ new ItemData(item_Cherry_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
 	.set_durability(73);
 
 new ItemData(item_Prickly_Pear_Fruit, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(8);
+	.set_consumption_hp(4);
 
 new ItemData(item_Yucca_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
 	.set_damage(5, DAMAGE_TYPE.MELEE)
@@ -3180,7 +3187,7 @@ new ItemData(item_Cherry_Shovel, ITEM_TYPE_BIT.SHOVEL)
 	.set_durability(65);
 
 new ItemData(item_Fried_Egg, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(14);
+	.set_consumption_hp(11);
 
 new ItemData(item_Yucca_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED_TO_SELF)
@@ -3732,12 +3739,12 @@ new ItemData(item_Blonde_Cherry_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData(item_Snow_Pile, ITEM_TYPE_BIT.PLANT)
 	.set_random_index(0, 5)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 2)
+	.set_mining_stats(undefined, undefined, 2)
 	.set_sfx("phantasia:tile.snow");
 
 new ItemData(item_Birds_Nest, ITEM_TYPE_BIT.PLANT)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 1)
+	.set_mining_stats(undefined, undefined, 1)
 	.set_drops("phantasia:twig");
 
 new ItemData(item_Forget_Me_Not, ITEM_TYPE_BIT.PLANT)
@@ -4298,15 +4305,15 @@ new ItemData(item_Raw_Turkey, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_consumption_hp(3);
 
 new ItemData(item_Cooked_Turkey, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(12);
+	.set_consumption_hp(11);
 
 new ItemData(item_Flamethrower, ITEM_TYPE_BIT.BOW);
 
 new ItemData(item_Raw_Crab, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(8);
+	.set_consumption_hp(3);
 
 new ItemData(item_Cooked_Crab, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(28);
+	.set_consumption_hp(12);
 
 new ItemData(item_Yucca_Planks_Wall, ITEM_TYPE_BIT.WALL)
 	.set_animation_type(ANIMATION_TYPE.CONNECTED)
@@ -4360,7 +4367,7 @@ new ItemData(item_Hatchet, ITEM_TYPE_BIT.AXE)
 new ItemData(item_Twig, ITEM_TYPE_BIT.PLANT)
 	.set_random_index(1, 1)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 1)
+	.set_mining_stats(undefined, undefined, 1)
 	.set_drops("phantasia:twig")
     .set_sfx("phantasia:tile.stick");
 
@@ -4471,7 +4478,8 @@ new ItemData(item_Mangrove_Shovel, ITEM_TYPE_BIT.SHOVEL)
 	.set_durability(65);
 
 new ItemData(item_Honey_Apple, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(10);
+	.set_consumption_hp(9)
+    .set_consumption_effect("phantasia:speed", 0.2, 1, 4);
 
 new ItemData(item_Grilled_Cheese, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_consumption_hp(16);
@@ -4479,7 +4487,7 @@ new ItemData(item_Grilled_Cheese, ITEM_TYPE_BIT.CONSUMABLE)
 new ItemData(item_Lush_Shard);
 
 new ItemData(item_Cherry, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(8);
+	.set_consumption_hp(4);
 
 new ItemData(item_Revenant_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 148)
@@ -4491,7 +4499,7 @@ new ItemData(item_Revenant_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData(item_Snail_Shell);
 
 new ItemData(item_Passionfruit, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(8);
+	.set_consumption_hp(4);
 
 new ItemData(item_Yucca_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -4510,7 +4518,8 @@ new ItemData(item_Yucca_Door, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Zombie_Flesh, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(4);
+	.set_consumption_hp(3)
+    .set_consumption_effect("phantasia:baring", 0.8, 1, 6);
 
 new ItemData(item_Turtle_Shell);
 
@@ -4573,12 +4582,11 @@ new ItemData(item_Salt_Bricks_Wall, ITEM_TYPE_BIT.WALL)
 	.set_drops("phantasia:salt_bricks_wall")
 	.set_sfx("phantasia:tile.bricks");
 
-new ItemData(item_Pie_Crust, ITEM_TYPE_BIT.CONSUMABLE)
-	.set_consumption_hp(8);
+new ItemData(item_Pie_Crust);
 
 new ItemData(item_Dark_Bamboo, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_flip_on(true, false)
-	.set_mining_stats(, undefined, 8)
+	.set_mining_stats(undefined, undefined, 8)
 	.set_drops("phantasia:dark_bamboo");
 
 new ItemData(item_Block_Of_Dark_Bamboo, ITEM_TYPE_BIT.SOLID)
@@ -4602,7 +4610,7 @@ new ItemData(item_Mud_Bricks_Wall, ITEM_TYPE_BIT.WALL)
 	.set_sfx("phantasia:tile.bricks");
 
 new ItemData(item_Salt_Lamp, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_mining_stats(, undefined, 3)
+	.set_mining_stats(undefined, undefined, 3)
 	.set_drops("phantasia:block_of_dark_bamboo");
 
 new ItemData(item_Sandstone_Bricks, ITEM_TYPE_BIT.SOLID)
@@ -4707,7 +4715,8 @@ new ItemData(item_Valentine_Ring, ITEM_TYPE_BIT.ACCESSORY)
 new ItemData(item_Heart_Balloon);
 
 new ItemData(item_Chocolate, ITEM_TYPE_BIT.CONSUMABLE)
-    .set_consumption_hp(10);
+    .set_consumption_hp(8)
+    .set_consumption_effect("phantasia:speed", 0.1, 1, 3);
 
 new ItemData(item_Cupids_Bow, ITEM_TYPE_BIT.BOW)
 	.set_damage(19);
@@ -4866,7 +4875,7 @@ new ItemData(item_Bomb, ITEM_TYPE_BIT.THROWABLE)
 	.set_rotation(1, 10);
 
 new ItemData(item_Mining_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET, ITEM_TYPE_BIT.ACCESSORY)
-	.set_buff(, 3)
+	.set_buff(undefined, 3)
 	.set_buff("build_cooldown", -0.1);
 
 new ItemData(item_Structure_Void, ITEM_TYPE_BIT.UNTOUCHABLE);
@@ -5019,61 +5028,62 @@ new ItemData(item_Piggy_Bank, ITEM_TYPE_BIT.CONTAINER)
 	.set_container_sfx("phantasia:tile.container.~.chest");
 
 new ItemData(item_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(, 3);
+	.set_buff(undefined, 3);
 
 new ItemData(item_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(, 5);
+	.set_buff(undefined, 5);
 
 new ItemData(item_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(, 4);
+	.set_buff(undefined, 4);
 
 new ItemData(item_Weathered_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(, 2);
+	.set_buff(undefined, 2);
 
 new ItemData(item_Weathered_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(, 4);
+	.set_buff(undefined, 4);
 
 new ItemData(item_Weathered_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(, 3);
+	.set_buff(undefined, 3);
 
 new ItemData(item_Tarnished_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(, 1);
+	.set_buff(undefined, 1);
 
 new ItemData(item_Tarnished_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(, 3);
+	.set_buff(undefined, 3);
 
 new ItemData(item_Tarnished_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(, 2);
+	.set_buff(undefined, 2);
 
 new ItemData(item_Iron_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(, 5);
+	.set_buff(undefined, 5);
 
 new ItemData(item_Iron_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(, 7);
+	.set_buff(undefined, 7);
 
 new ItemData(item_Iron_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(, 6);
+	.set_buff(undefined, 6);
 
 new ItemData(item_Gold_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(, 7);
+	.set_buff(undefined, 7);
 
 new ItemData(item_Gold_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(, 10);
+	.set_buff(undefined, 10);
 
 new ItemData(item_Gold_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(, 8);
+	.set_buff(undefined, 8);
 
 new ItemData(item_Platinum_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
-	.set_buff(, 9);
+	.set_buff(undefined, 9);
 
 new ItemData(item_Platinum_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
-	.set_buff(, 14);
+	.set_buff(undefined, 14);
 
 new ItemData(item_Platinum_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
-	.set_buff(, 11);
+	.set_buff(undefined, 11);
 
 new ItemData(item_Rotten_Potato, ITEM_TYPE_BIT.CONSUMABLE)
-    .set_consumption_hp(-1);
+    .set_consumption_hp(-1)
+    .set_consumption_effect("phantasia:poison", 0.7, 1, 8);
 
 new ItemData(item_Polished_Strata, ITEM_TYPE_BIT.SOLID)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
