@@ -1118,16 +1118,14 @@ new ItemData(item_Golden_Birch_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Gold_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(5, DAMAGE_TYPE.MELEE)
+	.set_damage(14, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.GOLD, 8)
-	.set_durability(616)
-;
+	.set_durability(616);
 
 new ItemData(item_Gold_Hammer, ITEM_TYPE_BIT.HAMMER)
-	.set_damage(8, DAMAGE_TYPE.MELEE)
+	.set_damage(18, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.GOLD, 8)
-	.set_durability(410)
-;
+	.set_durability(410);
 
 new ItemData(item_Sapking_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 148)
@@ -1916,19 +1914,16 @@ new ItemData(item_Tent, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_drops("phantasia:tent");
 
 new ItemData(item_Copper_Bow, ITEM_TYPE_BIT.BOW)
-	.set_damage(12)
-	.set_durability(113)
-;
+	.set_damage(12, DAMAGE_TYPE.RANGED)
+	.set_durability(113);
 
 new ItemData(item_Weathered_Copper_Bow, ITEM_TYPE_BIT.BOW)
-	.set_damage(10)
-	.set_durability(95)
-;
+	.set_damage(10, DAMAGE_TYPE.RANGED)
+	.set_durability(95);
 
 new ItemData(item_Tarnished_Copper_Bow, ITEM_TYPE_BIT.BOW)
-	.set_damage(8)
-	.set_durability(80)
-;
+	.set_damage(8, DAMAGE_TYPE.RANGED)
+	.set_durability(80);
 
 new ItemData(item_Mixed_Orchids, ITEM_TYPE_BIT.PLANT)
 	.set_is_plant_waveable()
@@ -2784,7 +2779,7 @@ new ItemData(item_Bloom_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Pine_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
@@ -2879,7 +2874,7 @@ new ItemData(item_Maurice_Staff, ITEM_TYPE_BIT.TOOL)
 	});
 
 new ItemData(item_Mahogany_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
@@ -3061,7 +3056,7 @@ new ItemData(item_Pumpkin)
 new ItemData(item_Banana_Peel, ITEM_TYPE_BIT.THROWABLE);
 
 new ItemData(item_Pine_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
@@ -3153,54 +3148,54 @@ new ItemData(item_Cooked_Bunny, ITEM_TYPE_BIT.CONSUMABLE)
 	});
 
 new ItemData(item_Ashen_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Ashen_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
 
 new ItemData(item_Palm_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Palm_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
 
 new ItemData(item_Acacia_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Acacia_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
 
 new ItemData(item_Bloom_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Bloom_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
 
 new ItemData(item_Cherry_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
@@ -3212,25 +3207,25 @@ new ItemData(item_Prickly_Pear_Fruit, ITEM_TYPE_BIT.CONSUMABLE)
 	});
 
 new ItemData(item_Yucca_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Yucca_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
 
 new ItemData(item_Wysteria_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Wysteria_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
@@ -3460,26 +3455,22 @@ new ItemData(item_Stone_Bricks, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.bricks");
 
 new ItemData(item_Gold_Sword, ITEM_TYPE_BIT.SWORD)
-	.set_damage(17)
-	.set_durability(410)
-;
+	.set_damage(25, DAMAGE_TYPE.MELEE)
+	.set_durability(799);
 
 new ItemData(item_Gold_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(5, DAMAGE_TYPE.MELEE)
+	.set_damage(22, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.GOLD, 8)
-	.set_durability(695)
-;
+	.set_durability(695);
 
 new ItemData(item_Gold_Axe, ITEM_TYPE_BIT.AXE)
-	.set_damage(5, DAMAGE_TYPE.MELEE)
+	.set_damage(20, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.GOLD, 8)
-	.set_durability(653)
-;
+	.set_durability(653);
 
 new ItemData(item_Gold_Bow, ITEM_TYPE_BIT.BOW)
-	.set_damage(17)
-	.set_durability(555)
-;
+	.set_damage(23, DAMAGE_TYPE.RANGED)
+	.set_durability(555);
 
 new ItemData(item_Gold_Fishing_Pole, ITEM_TYPE_BIT.FISHING_POLE)
 	.set_durability(470);
@@ -3765,13 +3756,13 @@ new ItemData(item_Wysteria_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Blizzard_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Blizzard_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
@@ -3938,30 +3929,30 @@ new ItemData(item_Mangrove_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Copper_Sword, ITEM_TYPE_BIT.SWORD)
-	.set_damage(11)
+	.set_damage(13, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(6)
 	.set_durability(162);
 
 new ItemData(item_Copper_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(7)
+	.set_damage(11, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(6)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(141);
 
 new ItemData(item_Copper_Axe, ITEM_TYPE_BIT.AXE)
-	.set_damage(8)
+	.set_damage(10, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(6)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(133);
 
 new ItemData(item_Copper_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(6)
+	.set_damage(7, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(6)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(125);
 
 new ItemData(item_Copper_Hammer, ITEM_TYPE_BIT.HAMMER)
-	.set_damage(8)
+	.set_damage(9, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(6)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(104);
@@ -3970,30 +3961,30 @@ new ItemData(item_Copper_Fishing_Pole, ITEM_TYPE_BIT.FISHING_POLE)
 	.set_durability(95);
 
 new ItemData(item_Weathered_Copper_Sword, ITEM_TYPE_BIT.SWORD)
-	.set_damage(11)
+	.set_damage(11, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_durability(136);
 
 new ItemData(item_Weathered_Copper_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(7)
+	.set_damage(10, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(119);
 
 new ItemData(item_Weathered_Copper_Axe, ITEM_TYPE_BIT.AXE)
-	.set_damage(8)
+	.set_damage(9, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(111);
 
 new ItemData(item_Weathered_Copper_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(6)
+	.set_damage(6, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(105);
 
 new ItemData(item_Weathered_Copper_Hammer, ITEM_TYPE_BIT.HAMMER)
-	.set_damage(8)
+	.set_damage(8, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(87);
@@ -4002,30 +3993,30 @@ new ItemData(item_Weathered_Copper_Fishing_Pole, ITEM_TYPE_BIT.FISHING_POLE)
 	.set_durability(80);
 
 new ItemData(item_Tarnished_Copper_Sword, ITEM_TYPE_BIT.SWORD)
-	.set_damage(11)
+	.set_damage(8, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(3)
 	.set_durability(115);
 
 new ItemData(item_Tarnished_Copper_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(7)
+	.set_damage(7, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(3)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(100);
 
 new ItemData(item_Tarnished_Copper_Axe, ITEM_TYPE_BIT.AXE)
-	.set_damage(8)
+	.set_damage(7, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(3)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(94);
 
 new ItemData(item_Tarnished_Copper_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(6)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(3)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(89);
 
 new ItemData(item_Tarnished_Copper_Hammer, ITEM_TYPE_BIT.HAMMER)
-	.set_damage(8)
+	.set_damage(6, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(3)
 	.set_mining_stats(TOOL_POWER.COPPER, 4)
 	.set_durability(80);
@@ -4162,7 +4153,7 @@ new ItemData(item_Paper);
 new ItemData(item_Book);
 
 new ItemData(item_Mahogany_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
@@ -4470,25 +4461,25 @@ new ItemData(item_Twig, ITEM_TYPE_BIT.PLANT)
 new ItemData(item_Floral_Fury, ITEM_TYPE_BIT.SWORD);
 
 new ItemData(item_Birch_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Oak_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_swing_speed(4)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Birch_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
 
 new ItemData(item_Oak_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
@@ -4505,81 +4496,70 @@ new ItemData(item_Wysteria_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Iron_Sword, ITEM_TYPE_BIT.SWORD)
-	.set_damage(13)
-	.set_durability(474)
-;
+	.set_damage(18, DAMAGE_TYPE.MELEE)
+	.set_durability(474);
 
 new ItemData(item_Iron_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(2)
+	.set_damage(16, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.IRON, 6)
-	.set_durability(413)
-;
+	.set_durability(413);
 
 new ItemData(item_Iron_Axe, ITEM_TYPE_BIT.AXE)
-	.set_damage(2)
+	.set_damage(14, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.IRON, 6)
-	.set_durability(387)
-;
+	.set_durability(387);
 
 new ItemData(item_Iron_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(2)
+	.set_damage(10, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.IRON, 6)
-	.set_durability(366)
-;
+	.set_durability(366);
 
 new ItemData(item_Iron_Hammer, ITEM_TYPE_BIT.HAMMER)
-	.set_damage(2)
+	.set_damage(13, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.IRON, 6)
-	.set_durability(304)
-;
+	.set_durability(304);
 
 new ItemData(item_Iron_Bow, ITEM_TYPE_BIT.BOW)
-	.set_damage(13)
-	.set_durability(329)
-;
+	.set_damage(17, DAMAGE_TYPE.RANGED)
+	.set_durability(329);
 
 new ItemData(item_Platinum_Sword, ITEM_TYPE_BIT.SWORD)
-	.set_damage(22)
+	.set_damage(29, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.PLATINUM, 9)
-	.set_durability(1239)
-;
+	.set_durability(1239);
 
 new ItemData(item_Platinum_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(2)
+	.set_damage(25, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.PLATINUM, 9)
-	.set_durability(1078)
-;
+	.set_durability(1078);
 
 new ItemData(item_Platinum_Axe, ITEM_TYPE_BIT.AXE)
-	.set_damage(2)
+	.set_damage(23, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.PLATINUM, 9)
-	.set_durability(1012)
-;
+	.set_durability(1012);
 
 new ItemData(item_Platinum_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(2)
+	.set_damage(17, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.PLATINUM, 9)
-	.set_durability(955)
-;
+	.set_durability(955);
 
 new ItemData(item_Platinum_Hammer, ITEM_TYPE_BIT.HAMMER)
-	.set_damage(2)
+	.set_damage(21, DAMAGE_TYPE.MELEE)
 	.set_mining_stats(TOOL_POWER.PLATINUM, 9)
-	.set_durability(795)
-;
+	.set_durability(795);
 
 new ItemData(item_Platinum_Bow, ITEM_TYPE_BIT.BOW)
-	.set_damage(22)
+	.set_damage(27, DAMAGE_TYPE.RANGED)
 	.set_durability(861);
 
 new ItemData(item_Mangrove_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
-	.set_damage(3)
+	.set_damage(5, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(73);
 
 new ItemData(item_Mangrove_Shovel, ITEM_TYPE_BIT.SHOVEL)
-	.set_damage(3)
+	.set_damage(3, DAMAGE_TYPE.MELEE)
 	.set_swing_speed(4)
 	.set_mining_stats(TOOL_POWER.WOOD, 2)
 	.set_durability(65);
