@@ -1251,6 +1251,7 @@
     {"id":{"name":"get_buffs","path":"scripts/get_buffs/get_buffs.yy",},},
     {"id":{"name":"get_control","path":"scripts/get_control/get_control.yy",},},
     {"id":{"name":"gui_boss_hp","path":"scripts/gui_boss_hp/gui_boss_hp.yy",},},
+    {"id":{"name":"gui_chat_command_subcommand","path":"scripts/gui_chat_command_subcommand/gui_chat_command_subcommand.yy",},},
     {"id":{"name":"gui_chat_command","path":"scripts/gui_chat_command/gui_chat_command.yy",},},
     {"id":{"name":"gui_chat_history","path":"scripts/gui_chat_history/gui_chat_history.yy",},},
     {"id":{"name":"gui_effects","path":"scripts/gui_effects/gui_effects.yy",},},

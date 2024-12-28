@@ -355,7 +355,7 @@ if (is_opened_gui)
         {
             draw_set_valign(fa_bottom);
             
-            draw_text_transformed_color(_text_x, _history_ystart, "You do not have permissions to access commands", 1, 1, 0, c_red, c_red, c_red, c_red, 1);
+            draw_text_transformed_color(_text_x, _history_ystart, "You do not have permissions to access commands", 1, 1, 0, CHAT_COMMAND_ERROR, CHAT_COMMAND_ERROR, CHAT_COMMAND_ERROR, CHAT_COMMAND_ERROR, 1);
             
             draw_set_valign(fa_top);
         }

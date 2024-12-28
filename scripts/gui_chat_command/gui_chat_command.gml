@@ -1,13 +1,3 @@
-function gui_chat_command_subcommand(_x, _y, _string, _description)
-{
-	draw_text_transformed_colour(_x, _y, _string, 1, 1, 0, c_white, c_white, c_white, c_white, 1);
-	
-	if (_description != undefined)
-	{
-		draw_text_transformed_colour(_x + string_width(_string), _y, $" - {_description}", 1, 1, 0, c_white, c_white, c_white, c_white, 0.75);
-	}
-}
-
 function gui_chat_command(_x, _y, _height)
 {
 	static __count_empty = function(_chat_message, _chat_message_length)
@@ -136,7 +126,7 @@ function gui_chat_command(_x, _y, _height)
                 
                 if (_description != undefined)
                 {
-                    draw_text_transformed_colour(_x, _y - _height, _description, 0.75, 0.75, 0, c_white, c_white, c_white, c_white, 0.75);
+                    draw_text_transformed_colour(_x, _y - _height, _description, 0.75, 0.75, 0, c_white, c_white, c_white, c_white, CHAT_COMMAND_SUBCOMMAND_ALPHA);
                 }
             }
 			
@@ -148,11 +138,11 @@ function gui_chat_command(_x, _y, _height)
                 
                 if (chat_command_parameter_parse(_string, _parameter, _index2, obj_Player, false) == undefined)
                 {
-                    _colour = c_red;
+                    _colour = CHAT_COMMAND_ERROR;
                 }
                 else
                 {
-                    _colour = (_chat_message_length - 1 == _index2 ? c_yellow : c_aqua);
+                    _colour = (_chat_message_length - 1 == _index2 ? CHAT_COMMAND_PARAMETER_SELECTED : CHAT_COMMAND_PARAMETER);
                 }
                 
                 draw_text_transformed_colour(_x2, _y, _string, 1, 1, 0, _colour, _colour, _colour, _colour, 1);
@@ -161,7 +151,7 @@ function gui_chat_command(_x, _y, _height)
 			{
 				_string = $"[{_parameter.get_name()}: {__parameter_type[_parameter.get_type()]}{!_parameter.get_is_required() ? ("? " + _parameter.get_default_value()) : ""}]";
 				
-				draw_text_transformed_colour(_x2, _y, _string, 1, 1, 0, c_white, c_white, c_white, c_white, 0.75);
+				draw_text_transformed_colour(_x2, _y, _string, 1, 1, 0, c_white, c_white, c_white, c_white, CHAT_COMMAND_SUBCOMMAND_ALPHA);
 			}
 			
 			_x2 += string_width(" " + _string);
