@@ -1864,7 +1864,8 @@ new ItemData(item_Rocks, ITEM_TYPE_BIT.THROWABLE, ITEM_TYPE_BIT.PLANT)
 
 new ItemData(item_Dead_Bush, ITEM_TYPE_BIT.PLANT)
 	.set_random_index(0, 8)
-	.set_flip_on(true, false);
+	.set_flip_on(true, false)
+    .set_sfx("phantasia:tile.stick");
 
 new ItemData(item_Persian_Speedwell, ITEM_TYPE_BIT.PLANT)
 	.set_flip_on(true, false)
@@ -2159,7 +2160,7 @@ new ItemData(item_Grass_Block_Amazonia, ITEM_TYPE_BIT.SOLID)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt")
-	.set_sfx("phantasia:tile.dirt")
+	.set_sfx("phantasia:tile.leaves")
 	.set_on_draw_update(function(_x, _y, _z)
     {
         item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:grass_block_amazonia", false);
@@ -2171,7 +2172,7 @@ new ItemData(item_Grass_Block_Savannah, ITEM_TYPE_BIT.SOLID)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt")
-	.set_sfx("phantasia:tile.dirt")
+	.set_sfx("phantasia:tile.leaves")
 	.set_on_draw_update(function(_x, _y, _z)
     {
         item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:grass_block_savannah", false);
@@ -2362,7 +2363,7 @@ new ItemData(item_Grass_Block_Obitus, ITEM_TYPE_BIT.SOLID)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt_obitus")
-	.set_sfx("phantasia:tile.dirt")
+	.set_sfx("phantasia:tile.leaves")
 	.set_on_draw_update(function(_x, _y, _z)
 	{
 		item_update_grass(_x, _y, _z, "phantasia:dirt_obitus", "phantasia:grass_block_obitus", false);
@@ -4283,7 +4284,7 @@ new ItemData(item_Tumbleweed, ITEM_TYPE_BIT.PLANT)
 	.set_is_plant_waveable()
 	.set_flip_on(true, false)
 	.set_drops("phantasia:tumbleweed")
-	.set_sfx("phantasia:tile.leaves");
+	.set_sfx("phantasia:tile.stick");
 
 new ItemData(item_Kiln, ITEM_TYPE_BIT.UNTOUCHABLE);
 
@@ -4463,7 +4464,8 @@ new ItemData(item_Twig, ITEM_TYPE_BIT.PLANT)
 	.set_random_index(1, 1)
 	.set_flip_on(true, false)
 	.set_mining_stats(, undefined, 1)
-	.set_drops("phantasia:twig");
+	.set_drops("phantasia:twig")
+    .set_sfx("phantasia:tile.stick");
 
 new ItemData(item_Floral_Fury, ITEM_TYPE_BIT.SWORD);
 
