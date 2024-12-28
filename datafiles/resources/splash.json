@@ -35,7 +35,8 @@
         "Scary!",
         "Trick or Treat!",
         "Spooky Scary Skeleton!",
-        "Procedurally generated!"
+        "*skull emoji*",
+        "Prepare your pumpkins!"
     ],
     "12_18": [
         "Just a week away!",
@@ -47,7 +48,8 @@
         "Ho ho ho!",
         "It's the most wonderful time of the year!",
         "Unwraping the joy!",
-        "'tis the season!"
+        "'tis the season!",
+        "May contain sleigh bells."
     ],
     "12_31": [
         "See you next year!",
@@ -141,6 +143,8 @@
         "Maurice...",
         "Do you have what it takes?",
         "Do you want to play a game?",
-        "The game is a lie."
+        "The game is a lie.",
+        "Everything is pixels!",
+        "In it to win it!"
     ]
 }
