@@ -10,7 +10,8 @@
         "Happy Valentine's Day!",
         "Spread the love!",
         "143!",
-        "sqrt(-1) love you!"
+        "sqrt(-1) love you!",
+        "Love is in the air, seek shelter!"
     ],
     "4_1": [
         "Kerprank'd!",
@@ -49,7 +50,12 @@
     ],
     "12_31": [
         "See you next year!",
-        "Counting down to midnight!"
+        "Counting down to midnight!",
+        "TODO: Prep next year's calendar.",
+        "Don't forget to buy a new calendar!",
+        "Which calendar to get... bunny? cats? dogs?",
+        "Purchasing fireworks...",
+        "Mid...night?"
     ],
     "default": [
         "Phantasia is love, Phantasia is life!",
@@ -121,6 +127,8 @@
         "Where the magic happens!",
         "We have the meats!",
         "Built different!",
-        "Create dreams and nightmares!"
+        "Create dreams and nightmares!",
+        "Did you see it?",
+        "HORSE"
     ]
 }
