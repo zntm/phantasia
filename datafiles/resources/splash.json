@@ -46,7 +46,8 @@
         "Merry X-mas!",
         "Ho ho ho!",
         "It's the most wonderful time of the year!",
-        "Unwraping the joy!"
+        "Unwraping the joy!",
+        "'tis the season!"
     ],
     "12_31": [
         "See you next year!",
@@ -129,6 +130,8 @@
         "Built different!",
         "Create dreams and nightmares!",
         "Did you see it?",
-        "HORSE"
+        "HORSE",
+        "Yes, sir!",
+        "aeiou"
     ]
 }
