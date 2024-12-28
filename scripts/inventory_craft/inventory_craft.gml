@@ -15,11 +15,11 @@ function inventory_craft(_player_x, _player_y, _inst)
 	
 	if (_station != undefined)
 	{
-		sfx_play(global.item_data[$ _station].sfx_craft, global.settings_value.master * global.settings_value.blocks);
+		sfx_play(global.item_data[$ _station].sfx_craft, global.settings_value.blocks);
 	}
 	else
 	{
-		sfx_play("phantasia:menu.inventory.press", global.settings_value.master * global.settings_value.blocks);
+		sfx_play("phantasia:menu.inventory.press", global.settings_value.blocks);
 	}
 	
 	var _ingredients = _data.ingredients;

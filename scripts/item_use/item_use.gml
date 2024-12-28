@@ -180,14 +180,14 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			global.inventory.base[@ _inventory_selected_hotbar] = INVENTORY_EMPTY;
 		}
 		
-		sfx_play("phantasia:action.consume", global.settings_value.master * global.settings_value.sfx);
+		sfx_play("phantasia:action.consume", global.settings_value.sfx);
 		
 		exit;
 	}
 	
 	if (!instance_exists(obj_Tool))
 	{
-		sfx_play(_data.get_sfx_swing(), global.settings_value.master * global.settings_value.sfx, random_range(0.8, 1.2));
+		sfx_play(_data.get_sfx_swing(), global.settings_value.sfx, random_range(0.8, 1.2));
 		
 		var _damage = _id.buffs[$ "attack_damage"] * _data.get_damage();
 		var _distance;

@@ -18,7 +18,7 @@ function inventory_scroll(_sign, _delta_time)
 				yoffset += INVENTORY_SCROLL_CRAFTABLE_SPEED * _sign;
 			}
 			
-			sfx_play("phantasia:menu.inventory.scroll", global.settings_value.master * global.settings_value.sfx);
+			sfx_play("phantasia:menu.inventory.scroll", global.settings_value.sfx);
 		}
 	}
 	else
@@ -34,7 +34,7 @@ function inventory_scroll(_sign, _delta_time)
 			global.inventory_selected_hotbar = 0;
 		}
 		
-		sfx_play("phantasia:menu.inventory.scroll", global.settings_value.master * global.settings_value.sfx);
+		sfx_play("phantasia:menu.inventory.scroll", global.settings_value.sfx);
 	}
 	
 	obj_Control.surface_refresh_inventory = true;

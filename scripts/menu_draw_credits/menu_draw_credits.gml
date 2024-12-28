@@ -52,7 +52,7 @@ function menu_draw_credits(_xmultiplier, _ymultiplier, _display_width, _display_
 			{
 				_colour = c_dkgray;
 				
-				sfx_play("phantasia:menu.button.press", global.settings_value.master * global.settings_value.sfx);
+				sfx_play("phantasia:menu.button.press", global.settings_value.sfx);
 			}
 			else if (mouse_check_button(mb_left))
 			{

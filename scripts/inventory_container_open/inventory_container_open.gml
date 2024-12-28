@@ -23,7 +23,7 @@ function inventory_container_open(_x, _y, _inst = noone)
 	
 	if (_container_sfx != undefined)
 	{
-		sfx_play(string_replace(_container_sfx, "~", "open"), global.settings_value.master * global.settings_value.sfx);
+		sfx_play(string_replace(_container_sfx, "~", "open"), global.settings_value.sfx);
 	}
 	
 	var _size = _data.container_size;

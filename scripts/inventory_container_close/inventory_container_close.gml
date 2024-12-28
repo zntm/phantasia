@@ -16,7 +16,7 @@ function inventory_container_close()
 		
 		if (_sfx != undefined)
 		{
-			sfx_play(string_replace(_sfx, "~", "close"), global.settings_value.master * global.settings_value.sfx);
+			sfx_play(string_replace(_sfx, "~", "close"), global.settings_value.sfx);
 		}
 	}
 	

@@ -10,13 +10,13 @@ function spawn_pet(_x, _y, _id)
 	{
 		var _pet = global.pets[_length - 1];
 		
-		sfx_play($"phantasia:pet.despawn.{_data.name}", global.settings_value.master * global.settings_value.sfx);
+		sfx_play($"phantasia:pet.despawn.{_data.name}", global.settings_value.sfx);
 		
 		instance_destroy(_pet);
 		array_pop(global.pets);
 	}
 	
-	sfx_play($"phantasia:pet.spawn.{_data.name}", global.settings_value.master * global.settings_value.sfx);
+	sfx_play($"phantasia:pet.spawn.{_data.name}", global.settings_value.sfx);
 	
 	var _sprite_idle   = is_array_choose(_data.sprite_idle);
 	var _sprite_moving = is_array_choose(_data.sprite_moving);

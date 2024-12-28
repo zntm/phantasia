@@ -22,7 +22,7 @@ if (hp <= 0)
 	
 	var _explosion = _data.explosion;
 	
-	var _gain = global.settings_value.master * global.settings_value.sfx;
+	var _gain = global.settings_value.sfx;
 	
 	if (!dead)
 	{
@@ -57,7 +57,7 @@ if (hp <= 0)
 		
 		// audio_play_sound(mus_One_Step_Closer, 0, false);
 		
-		sfx_play("phantasia:generic.explosion", global.settings_value.master * global.settings_value.sfx, random_range(0.8, 1.2));
+        sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, "phantasia:generic.explosion");
 		
 		call_later(90, time_source_units_frames, call_destroy_whip);
 		
@@ -79,11 +79,8 @@ if (hp <= 0)
 		}
 		else if (!_e.exploded)
 		{
-			sfx_play("phantasia:generic.explosion", global.settings_value.master * global.settings_value.sfx, random_range(0.8, 1.2));
-			
-			// spawn_particle(x, y, CHUNK_SIZE_Z - 1, PARTICLE.BOSS_EXPLOSION_GLOW, irandom_range(2, 6));
-			// spawn_particle(x, y, CHUNK_SIZE_Z - 1, PARTICLE.BOSS_EXPLOSION_PART, irandom_range(2, 6), _explosion);
-				
+            sfx_diagetic_play(obj_Player.x, obj_Player.y, _e.x, _e.y, "phantasia:generic.explosion");
+            
 			explosion[@ i].timer = -1;
 			explosion[@ i].exploded = true;
 		}

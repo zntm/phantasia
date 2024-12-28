@@ -26,5 +26,5 @@ function control_snapshot(_camera_width, _camera_height)
 	
 	surface_save(surface_snapshot, $"{DIRECTORY_SNAPSHOTS}/{datetime_to_unix()}.png");
 	
-	sfx_play("phantasia:generic.snapshot", global.settings_value.master * global.settings_value.sfx);
+	sfx_play("phantasia:generic.snapshot", global.settings_value.sfx);
 }

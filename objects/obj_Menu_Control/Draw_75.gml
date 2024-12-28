@@ -186,7 +186,7 @@ for (var i = 0; i < _length; ++i)
 	
 				if (_selectable) && (active) && ((area == -1) || (point_in_rectangle(_xoffset + mouse_x, _yoffset + mouse_y, area[0], area[1], area[2], area[3]))) && (mouse_check_button_pressed(mb_left))
 				{
-					sfx_play("phantasia:menu.button.press", global.settings_value.master * global.settings_value.sfx);
+					sfx_play("phantasia:menu.button.press", global.settings_value.sfx);
 		
 					selected = true;
 				}
@@ -313,7 +313,7 @@ for (var i = 0; i < _length; ++i)
 	
 			if (_selectable) && (active) && ((area == -1) || (point_in_rectangle(_xoffset + mouse_x, _yoffset + mouse_y, area[0], area[1], area[2], area[3]))) && (mouse_check_button_pressed(mb_left))
 			{
-				sfx_play("phantasia:menu.button.press", global.settings_value.master * global.settings_value.sfx);
+				sfx_play("phantasia:menu.button.press", global.settings_value.sfx);
 		
 				selected = true;
 				keyboard_string = text;

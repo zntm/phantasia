@@ -6,7 +6,7 @@ function inventory_drop()
 	var _inventory_selected_hotbar = global.inventory_selected_hotbar;
 	var _holding = global.inventory.base[_inventory_selected_hotbar];
 	
-	sfx_play("phantasia:menu.inventory.drop", global.settings_value.master * global.settings_value.sfx);
+	sfx_play("phantasia:menu.inventory.drop", global.settings_value.sfx);
 	
 	if (_holding == INVENTORY_EMPTY) exit;
 	

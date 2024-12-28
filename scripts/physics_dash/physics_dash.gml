@@ -37,7 +37,7 @@ function physics_dash(_key_left, _key_right, _dash, _delta_time)
 			dash_speed = _dash;
 			dash_timer = 0;
 			
-			sfx_play("phantasia:action.dash", _settings_value.master * _settings_value.sfx, random_range(0.8, 1.2));
+			sfx_play("phantasia:action.dash", _settings_value.sfx, random_range(0.8, 1.2));
 			
 			exit;
 		}

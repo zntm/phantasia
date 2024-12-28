@@ -11,6 +11,6 @@ function entity_damage(_xvelocity, _yvelocity, _damage, _type = DAMAGE_TYPE.DEFA
 	
 	if (object_index == obj_Player)
 	{
-		sfx_play("phantasia:action.damage", global.settings_value.master * global.settings_value.sfx);
+		sfx_play("phantasia:action.damage", global.settings_value.sfx);
 	}
 }
