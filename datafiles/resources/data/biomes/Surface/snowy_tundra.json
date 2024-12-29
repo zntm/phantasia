@@ -21,7 +21,13 @@
 		"#C68B69",
 		"#141B35"
 	],
-	"music": [ "phantasia:lichen", "phantasia:fall", "phantasia:hocus_pocus", "phantasia:liminality", "phantasia:soliloquy" ],
+	"music": [
+		"phantasia:lichen",
+		"phantasia:fall",
+		"phantasia:hocus_pocus",
+		"phantasia:liminality",
+		"phantasia:soliloquy"
+	],
 	"tiles": {
 		"crust_top": {
 			"solid": {
@@ -74,6 +80,10 @@
 		{
 			"id": "phantasia:shrine_empty",
 			"chance": 0.0007
+		},
+		{
+			"id": "phantasia:tree_pine",
+			"chance": 0.009
 		}
 	],
 	"foliage": {
