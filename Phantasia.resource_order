@@ -348,6 +348,7 @@
     {"name":"function_execute","order":22,"path":"scripts/function_execute/function_execute.yy",},
     {"name":"function_parse","order":23,"path":"scripts/function_parse/function_parse.yy",},
     {"name":"function_reference","order":24,"path":"scripts/function_reference/function_reference.yy",},
+    {"name":"gaussian_distribution","order":50,"path":"scripts/gaussian_distribution/gaussian_distribution.yy",},
     {"name":"get_buffs","order":47,"path":"scripts/get_buffs/get_buffs.yy",},
     {"name":"get_control","order":16,"path":"scripts/get_control/get_control.yy",},
     {"name":"gui_boss_hp","order":1,"path":"scripts/gui_boss_hp/gui_boss_hp.yy",},

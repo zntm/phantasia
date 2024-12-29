@@ -38,11 +38,11 @@ function chunk_generate(_world, _seed, _world_data)
     
 	var _realm = _world.realm;
 	
-    var _seed_cave    = _seed + WORLGEN_SALT.CAVE;
+    var _seed_cave    = _seed + WORLDGEN_SALT.CAVE;
     
-	var _seed_wall    = _seed + WORLGEN_SALT.WALL;
-	var _seed_base    = _seed + WORLGEN_SALT.BASE;
-	var _seed_foliage = _seed + WORLGEN_SALT.FOLIAGE;
+	var _seed_wall    = _seed + WORLDGEN_SALT.WALL;
+	var _seed_base    = _seed + WORLDGEN_SALT.BASE;
+	var _seed_foliage = _seed + WORLDGEN_SALT.FOLIAGE;
 	
 	var _biome_data = global.biome_data;
 	var _item_data = global.item_data;

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"gaussian_distribution",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"gaussian_distribution",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

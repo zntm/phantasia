@@ -2,12 +2,15 @@
 #macro FORCE_SURFACE_BIOME -1
 #macro FORCE_CAVE_BIOME    -1
 
-enum WORLGEN_SALT {
-	CAVE    =  0x81CFA386D,
+enum WORLDGEN_SALT {
+	CAVE           =  0x81CFA386D,
     
-    WALL    =  0xFF0BD9144,
-	BASE    = -0x17E8FD1A9,
-    FOLIAGE = -0x02D81BAC5
+    WALL           =  0xFF0BD9144,
+	BASE           = -0x17E8FD1A9,
+    FOLIAGE        = -0x02D81BAC5,
+    
+    BIOME_HEAT     =  0x7F33A10A2,
+    BIOME_HUMIDITY = -0xA441027BD
 }
 
 #macro TILE_SIZE_BIT 4

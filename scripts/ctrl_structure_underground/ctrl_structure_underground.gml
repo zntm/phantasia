@@ -51,7 +51,7 @@ function ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera
 	
 	var _seed = _world.seed;
 	
-	var _seed_cave = _seed + WORLGEN_SALT.CAVE;
+	var _seed_cave = _seed + WORLDGEN_SALT.CAVE;
     
 	for (var i = _xstart; i <= _xend; ++i)
 	{

@@ -2736,9 +2736,9 @@ new ItemData(item_Wheat_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z)
+    .set_on_draw_update(function(_x, _y, _z, _tile)
     {
-        item_update_plant(_x, _y, _z, 0.005, 3);
+        item_update_plant(_x, _y, _z, _tile);
     });
 
 new ItemData(item_Oak_Planks_Wall, ITEM_TYPE_BIT.WALL)
@@ -4918,9 +4918,9 @@ new ItemData(item_Carrot_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z)
+    .set_on_draw_update(function(_x, _y, _z, _tile)
     {
-        item_update_plant(_x, _y, _z, 0.005, 3);
+        item_update_plant(_x, _y, _z, _tile);
     });
 
 new ItemData(item_Potato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
@@ -4929,9 +4929,9 @@ new ItemData(item_Potato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z)
+    .set_on_draw_update(function(_x, _y, _z, _tile)
     {
-        item_update_plant(_x, _y, _z, 0.005, 3);
+        item_update_plant(_x, _y, _z, _tile);
     });
 
 new ItemData(item_Bucket_Of_Water, ITEM_TYPE_BIT.DEPLOYABLE)
@@ -5003,7 +5003,7 @@ new ItemData(item_Tomato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     })
     .set_on_draw_update(function(_x, _y, _z)
     {
-        item_update_plant(_x, _y, _z, 0.005, 3);
+        item_update_plant(_x, _y, _z, _tile);
     });
 
 new ItemData(item_Rosetta_Strike, ITEM_TYPE_BIT.WHIP)

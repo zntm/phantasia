@@ -1253,6 +1253,7 @@
     {"id":{"name":"function_execute","path":"scripts/function_execute/function_execute.yy",},},
     {"id":{"name":"function_parse","path":"scripts/function_parse/function_parse.yy",},},
     {"id":{"name":"function_reference","path":"scripts/function_reference/function_reference.yy",},},
+    {"id":{"name":"gaussian_distribution","path":"scripts/gaussian_distribution/gaussian_distribution.yy",},},
     {"id":{"name":"get_buffs","path":"scripts/get_buffs/get_buffs.yy",},},
     {"id":{"name":"get_control","path":"scripts/get_control/get_control.yy",},},
     {"id":{"name":"gui_boss_hp","path":"scripts/gui_boss_hp/gui_boss_hp.yy",},},
