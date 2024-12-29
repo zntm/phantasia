@@ -33,7 +33,7 @@ function render_mine(_camera_x, _camera_y, _camera_width, _camera_height, _minin
 	var _xscale = _tile.get_xscale();
 	var _yscale = _tile.get_yscale();
 	
-	draw_sprite_ext(_data.sprite, _index, _xstart, _ystart, _xscale, _yscale, _tile.get_rotation(), c_white, 1);
+	draw_sprite_ext(_data.sprite, _index, _xstart, _ystart, _xscale, _yscale, _tile.get_random_rotation(), c_white, 1);
 	
 	gpu_set_colorwriteenable(true, true, true, false);
 	

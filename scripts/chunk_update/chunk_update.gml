@@ -32,7 +32,7 @@ function chunk_update()
 				
 				var _tile = chunk[_index];
 				
-				if (_tile == TILE_EMPTY) || ((_tile.scale_rotation_index & (1 << 48)) == 0) || (_data[$ _tile.item_id] == undefined) continue;
+				if (_tile == TILE_EMPTY) || ((_tile.scale_rotation_index & (1 << 48)) == 0) || (_item_data_on_draw[$ _tile.item_id] == undefined) continue;
 				
 				chunk[@ _index].scale_rotation_index &= 0xf_f_f_f_ffff_ff_ff;
 			}
@@ -47,7 +47,7 @@ function chunk_update()
 					var _xyzindex = _yzindex | _x;
 					
 					var _tile = chunk[_xyzindex];
-						
+					
 					if (_tile == TILE_EMPTY) || (_tile.scale_rotation_index & (1 << 48)) continue;
 					
 					var _function = _item_data_on_draw[$ _tile.item_id];

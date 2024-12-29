@@ -95,7 +95,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 						{
 							var _data2 = _item_data[$ _tile2.item_id];
                             
-							if (_data2.type & ITEM_TYPE_BIT.SOLID) && (_data2.boolean & ITEM_BOOLEAN.IS_OBSTRUCTING) && ((_data2.get_animation_type() & (ANIMATION_TYPE.CONNECTED | ANIMATION_TYPE.CONNECTED_TO_SELF | ANIMATION_TYPE.NONE)) == 0) continue;
+							if (_data2.type & ITEM_TYPE_BIT.SOLID) && (_data2.boolean & ITEM_BOOLEAN.IS_OBSTRUCTING) && ((_data2.get_animation_type() & (TILE_ANIMATION_TYPE.CONNECTED | TILE_ANIMATION_TYPE.CONNECTED_TO_SELF | TILE_ANIMATION_TYPE.NONE)) == 0) continue;
 						}
 					}
 					
@@ -111,7 +111,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 						var _animation_index_min = _data.get_animation_index_min();
 						var _animation_index_max = _data.get_animation_index_max();
                         
-						_index = ((_animation_type & ANIMATION_TYPE.INCREMENT) ?
+						_index = ((_animation_type & TILE_ANIMATION_TYPE.INCREMENT) ?
 							(_animation_index_min + (_index_animation % ((_animation_index_max - _animation_index_min) + 1))) :
 							((_scale_rotation_index >> 8) & 0xff) - 0x80 - 0x80);
 					}

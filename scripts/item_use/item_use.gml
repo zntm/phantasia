@@ -258,7 +258,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 				var _xvelocity = projectile_xvelocity(_x, PROJECTILE_XVELOCITY * _multiplier);
 				var _yvelocity = projectile_yvelocity(_y, PROJECTILE_YVELOCITY * _multiplier);
 				
-				spawn_projectile(x, y, _data.get_damage(), _data.sprite, 0, _xvelocity, _yvelocity, _data.gravity_strength, is_array_random(_data.get_rotation()) * -sign(_x), PROJECTILE_BOOLEAN.COLLISION | PROJECTILE_BOOLEAN.DESTROY_ON_COLLISION);
+				spawn_projectile(x, y, _data.get_damage(), _data.sprite, 0, _xvelocity, _yvelocity, _data.gravity_strength, is_array_random(_data.get_random_rotation()) * -sign(_x), PROJECTILE_BOOLEAN.COLLISION | PROJECTILE_BOOLEAN.DESTROY_ON_COLLISION);
 			}
 		}
 	}

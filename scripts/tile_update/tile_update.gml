@@ -27,11 +27,11 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 	var _data = _item_data[$ _item_id];
 	var _animation_type = _data.get_animation_type();
 	
-	if (_animation_type & (ANIMATION_TYPE.NONE | ANIMATION_TYPE.INCREMENT)) exit;
+	if (_animation_type & (TILE_ANIMATION_TYPE.NONE | TILE_ANIMATION_TYPE.INCREMENT)) exit;
 	
 	var _index2;
 	
-	if (_animation_type & ANIMATION_TYPE.CONNECTED)
+	if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED)
 	{
 		var _type = _data.type;
 		

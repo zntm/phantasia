@@ -38,9 +38,9 @@ function tile_instance_create(_x, _y, _z, _tile, _item_data = global.item_data)
 		}
 	}
 		
-	var _instance = _data.instance;
+	var _instance = _data.get_instance();
 		
-	if (_instance != -1)
+	if (_instance != undefined)
 	{
 		with (instance_create_layer(_x * TILE_SIZE, _y * TILE_SIZE, "Instances", obj_Tile_Instance))
 		{

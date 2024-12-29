@@ -70,6 +70,13 @@ enum TOOL_POWER {
 	PLATINUM
 }
 
+enum TILE_ANIMATION_TYPE {
+    NONE              = 1,
+    INCREMENT         = 2,
+    CONNECTED         = 4,
+    CONNECTED_TO_SELF = 8
+}
+
 global.item_data = {}
 
 function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
@@ -482,7 +489,19 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		// 0xffff_ffff_ffff
 		set_durability(1);
 	}
+    
+    static set_ammo_type = function(_type)
+    {
+        __ammo_type = _type;
+        
+        return self;
+    }
 	
+    static get_ammo_type = function()
+    {
+        return __ammo_type;
+    }
+    
 	if (type & ITEM_TYPE_BIT.BOW)
 	{
 		set_inventory_scale(INVENTORY_SCALE.TOOL);
@@ -492,18 +511,6 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		
         __ammo_type = "phantasia:bow";
         __ammo_cooldown = 12;
-		
-		static set_ammo_type = function(_type)
-		{
-			__ammo_type = _type;
-			
-			return self;
-		}
-			
-		static get_ammo_type = function()
-		{
-			return __ammo_type;
-		}
 		
 		static set_ammo_cooldown = function(_cooldown)
 		{
@@ -561,14 +568,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	
 	if (type & ITEM_TYPE_BIT.AMMO)
 	{
-		__ammo_type = "phantasia:bow";
-		
-		static set_ammo_type = function(_type)
-		{
-			__ammo_type = _type;
-			
-			return self;
-		}
+		__ammo_type = "phantasia:arrow";
 	}
 	
 	if (type & ITEM_TYPE_BIT.THROWABLE)
@@ -600,9 +600,12 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 			__rotation = ((_max + 0x8000) << 16) | (_min + 0x8000);
 		}
 		
-		static get_rotation = function()
+		static get_random_rotation = function()
 		{
-			return irandom_range((__rotation & 0xffff) - 0x8000, ((__rotation >> 16) & 0xffff) - 0x8000);
+            var _min = get_min_rotation();
+            var _max = get_max_rotation();
+            
+			return random_range(_min, _max);
 		}
 		
 		static get_min_rotation = function()
@@ -762,7 +765,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 			return self[$ "__place_requirement"];
 		}
 		
-		__sprite_value = (0 << 57) | (0 << 56) | (0 << 48) | (0 << 40) | (ANIMATION_TYPE.NONE << 32) | ((sprite_get_number(_sprite) - 1 + 0x80) << 24) | ((1 + 0x80) << 16) | (1 << 8) | 1;
+		__sprite_value = (0 << 57) | (0 << 56) | (0 << 48) | (0 << 40) | (TILE_ANIMATION_TYPE.NONE << 32) | ((sprite_get_number(_sprite) - 1 + 0x80) << 24) | ((1 + 0x80) << 16) | (1 << 8) | 1;
 		
 		static set_flip_on = function(_x = false, _y = false)
 		{
@@ -800,7 +803,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		
 		static set_animation_type = function(_type)
 		{
-			if (_type & ANIMATION_TYPE.INCREMENT)
+			if (_type & TILE_ANIMATION_TYPE.INCREMENT)
 			{
 				boolean |= ITEM_BOOLEAN.IS_ANIMATED;
 			}
@@ -868,13 +871,6 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 			return self[$ "__sfx"];
 		}
 		
-		enum ANIMATION_TYPE {
-			NONE              = 1,
-			INCREMENT         = 2,
-			CONNECTED         = 4,
-			CONNECTED_TO_SELF = 8
-		}
-		
 		static set_colour_offset = function(_r = 0, _g = 0, _b = 0)
 		{
 			self[$ "__colour_offset_bloom"] ??= 0;
@@ -894,7 +890,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 			self[$ "__colour_offset_bloom"] ??= 0;
 			
             __colour_offset_bloom = (__colour_offset_bloom & 0xffffffff_000000) | _colour;
-				
+			
 			return self;
 		}
 		
@@ -929,9 +925,9 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 			
 			return self;
 		}
-			
+		
 		on_destroy = undefined;
-			
+		
 		static set_on_destroy = function(_on_destroy)
 		{
 			on_destroy = _on_destroy;
@@ -967,15 +963,18 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
             return self[$ "__slipperiness"] ?? PHYSICS_GLOBAL_SLIPPERINESS;
         }
 		
-		instance = -1;
-			
 		static set_instance = function(_instance)
 		{
-			instance = _instance;
+			__instance = _instance;
 			
 			return self;
 		}
 		
+        static get_instance = function()
+        {
+            return self[$ "__instance"];
+        }
+        
 		if (type & ITEM_TYPE_BIT.CRAFTING_STATION)
 		{
 			static set_sfx_craft = function(_sfx)
@@ -987,7 +986,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
             
             static get_sfx_craft = function()
             {
-                return self[$ "__sfx_craft"];
+                return self[$ "__sfx_craft"] ?? "phantasia:menu.inventory.press";
             }
 		}
 	}
@@ -995,7 +994,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	if (type & ITEM_TYPE_BIT.MENU)
 	{
 		menu = undefined;
-			
+		
 		static set_menu = function(_menu)
 		{
 			menu = _menu;
@@ -1006,14 +1005,14 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 }
 
 new ItemData(item_Dirt, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_drops("phantasia:dirt")
 	.set_sfx("phantasia:tile.dirt");
 
 new ItemData(item_Dirt_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 8)
 	.set_drops("phantasia:dirt_wall")
@@ -1021,7 +1020,7 @@ new ItemData(item_Dirt_Wall, ITEM_TYPE_BIT.WALL)
 
 new ItemData(item_Grass_Block_Greenia, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt")
@@ -1033,7 +1032,7 @@ new ItemData(item_Grass_Block_Greenia, ITEM_TYPE_BIT.SOLID)
 
 new ItemData(item_Grass_Block_Borealis, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt")
@@ -1045,7 +1044,7 @@ new ItemData(item_Grass_Block_Borealis, ITEM_TYPE_BIT.SOLID)
 
 new ItemData(item_Grass_Block_Swamplands, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
 	.set_drops("phantasia:dirt")
@@ -1061,7 +1060,7 @@ new ItemData(item_Oak_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_sfx("phantasia:tile.wood");
   
 new ItemData(item_Oak_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
 	.set_drops(
@@ -1090,28 +1089,28 @@ new ItemData(item_Birch_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Stone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:stone")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Stone_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:stone_wall")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Emustone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 94)
 	.set_drops("phantasia:emustone")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Emustone_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, TOOL_POWER.COPPER, 68)
 	.set_drops("phantasia:emustone_wall")
@@ -1120,7 +1119,7 @@ new ItemData(item_Emustone_Wall, ITEM_TYPE_BIT.WALL)
 new ItemData(item_Abysstone, ITEM_TYPE_BIT.SOLID);
 
 new ItemData(item_Basalt, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:basalt")
 	.set_sfx("phantasia:tile.stone");
@@ -1132,13 +1131,13 @@ new ItemData(item_Snow, ITEM_TYPE_BIT.SOLID)
 
 new ItemData(item_Birch_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:birch_planks")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Birch_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
 	.set_drops(
@@ -1153,7 +1152,7 @@ new ItemData(item_Birch_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Golden_Birch_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
 	.set_drops(
@@ -1387,7 +1386,7 @@ new ItemData(item_Cherry_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Cherry_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_flip_on(true, true)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
 	.set_drops(
 		INVENTORY_EMPTY, 19,
@@ -1418,7 +1417,7 @@ new ItemData(item_Pink_Amaryllis, ITEM_TYPE_BIT.PLANT)
 
 new ItemData(item_Cherry_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:cherry_planks")
 	.set_sfx("phantasia:tile.wood");
@@ -1449,7 +1448,7 @@ new ItemData(item_Blue_Bells, ITEM_TYPE_BIT.PLANT)
 
 new ItemData(item_Oak_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:oak_planks")
 	.set_sfx("phantasia:tile.wood");
@@ -1478,14 +1477,14 @@ new ItemData(item_Mangrove_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Mangrove_Roots, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, true)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
 	.set_drops("phantasia:mangrove_roots")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Mangrove_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_flip_on(true, true)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED_TO_SELF)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
 	.set_sfx("phantasia:tile.leaves");
 
@@ -1507,20 +1506,20 @@ new ItemData(item_Lily_Pad, ITEM_TYPE_BIT.SOLID)
 
 new ItemData(item_Sand, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, true)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 11)
 	.set_drops("phantasia:sand")
 	.set_sfx("phantasia:tile.grain");
 
 new ItemData(item_Sandstone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:sandstone")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Polished_Sandstone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 52)
 	.set_drops("phantasia:polished_sandstone")
@@ -1532,7 +1531,7 @@ new ItemData(item_Cactus, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_drops("phantasia:cactus");
 
 new ItemData(item_Moss, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 11)
 	.set_drops("phantasia:moss")
@@ -1633,7 +1632,7 @@ new ItemData(item_Blueberry, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_consumption_hp(4);
 
 new ItemData(item_Lumin_Moss, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 11)
 	.set_drops("phantasia:lumin_moss")
@@ -1642,7 +1641,7 @@ new ItemData(item_Lumin_Moss, ITEM_TYPE_BIT.SOLID)
 new ItemData(item_Lumin_Shard);
 
 new ItemData(item_Polished_Sandstone_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:polished_sandstone_wall")
@@ -1657,7 +1656,7 @@ new ItemData(item_Kelp, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Mud, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_drops("phantasia:mud");
 
@@ -1698,7 +1697,7 @@ new ItemData(item_Wildbloom_Ore, ITEM_TYPE_BIT.SOLID)
 new ItemData(item_Wildbloom_Shard);
 
 new ItemData(item_Gravel, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_drops(
 		"phantasia:gravel", 19,
@@ -1740,7 +1739,7 @@ new ItemData(item_Raw_Weathered_Copper);
 new ItemData(item_Weathered_Copper);
 
 new ItemData(item_Lumin_Bulb, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_colour_offset(-30, -127, 0)
 	.set_bloom(#070A16)
@@ -1766,7 +1765,7 @@ new ItemData(item_Block_Of_Coal, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Block_Of_Iron, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 86)
 	.set_drops("phantasia:block_of_iron")
 	.set_sfx("phantasia:tile.metal");
@@ -1790,13 +1789,13 @@ new ItemData(item_Block_Of_Platinum, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Block_Of_Copper, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 74)
 	.set_drops("phantasia:block_of_copper")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Dried_Mud, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 14)
 	.set_drops("phantasia:dried_mud")
 	.set_sfx("phantasia:tile.dirt");
@@ -1809,13 +1808,13 @@ new ItemData(item_Luminoso_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Kyanite_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:kyanite_wall")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Weathered_Block_Of_Copper, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 74)
 	.set_drops("phantasia:weathered_block_of_copper")
 	.set_sfx("phantasia:tile.metal");
@@ -1825,7 +1824,7 @@ new ItemData(item_Yucca_Fruit, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_consumption_hp(6);
 
 new ItemData(item_Tarnished_Block_Of_Copper, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 74)
 	.set_drops("phantasia:tarnished_block_of_copper")
 	.set_sfx("phantasia:tile.metal");
@@ -1904,7 +1903,7 @@ new ItemData(item_Bamboo, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Sandstone_Wall, ITEM_TYPE_BIT.WALL)
 	.set_flip_on(true, true)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:sandstone_wall")
 	.set_sfx("phantasia:tile.stone");
@@ -2057,7 +2056,7 @@ new ItemData(item_Grass_Block_Tundra, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.dirt");
 
 new ItemData(item_Kyanite, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:kyanite")
 	.set_sfx("phantasia:tile.stone");
@@ -2167,7 +2166,7 @@ new ItemData(item_Palm_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Grass_Block_Amazonia, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, false)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_is_not_obstructing(false)
@@ -2231,7 +2230,7 @@ new ItemData(item_Ashen_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Ashen_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:ashen_planks")
 	.set_sfx("phantasia:tile.wood");
@@ -2274,33 +2273,33 @@ new ItemData(item_Acacia_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Acacia_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:acacia_planks")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Coal_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 64)
 	.set_drops("phantasia:coal")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Iron_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 76)
 	.set_drops("phantasia:raw_iron")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Strata, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:strata")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Strata_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:strata_wall")
 	.set_sfx("phantasia:tile.stone");
@@ -2315,21 +2314,21 @@ new ItemData(item_Honey_Bricks, ITEM_TYPE_BIT.SOLID)
 	.set_drops("phantasia:honey_bricks");
 
 new ItemData(item_Lumin_Stone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:lumin_stone")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Lumin_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 76)
 	.set_drops("phantasia:lumin_shard")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Deadstone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:deadstone")
@@ -2364,7 +2363,7 @@ new ItemData(item_Tall_Lumin_Growth, ITEM_TYPE_BIT.PLANT)
 	.set_flip_on(true, false);
 
 new ItemData(item_Dirt_Obitus, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_drops("phantasia:dirt_obitus")
@@ -2654,19 +2653,19 @@ new ItemData(item_Vine, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData(item_Written_Book, ITEM_TYPE_BIT.MENU);
 
 new ItemData(item_Granite, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:granite");
 
 new ItemData(item_Andesite, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:andesite");
 
 new ItemData(item_Aphide, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_drops("phantasia:aphide")
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, 32, 72);
@@ -2685,7 +2684,7 @@ new ItemData(item_Cocoon, ITEM_TYPE_BIT.SOLID)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined,);
 
 new ItemData(item_Cobweb, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true);
 
 new ItemData(item_Pink_Amethyst, ITEM_TYPE_BIT.SOLID)
@@ -2719,7 +2718,7 @@ new ItemData(item_Wheat_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Oak_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:oak_planks_wall")
 	.set_sfx("phantasia:tile.wood");
@@ -2727,7 +2726,7 @@ new ItemData(item_Oak_Planks_Wall, ITEM_TYPE_BIT.WALL)
 new ItemData(item_Cloud_Wall, ITEM_TYPE_BIT.WALL);
 
 new ItemData(item_Bricks, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:bricks")
 	.set_sfx("phantasia:tile.bricks");
@@ -2750,7 +2749,7 @@ new ItemData(item_Acacia_Chest, ITEM_TYPE_BIT.UNTOUCHABLE, ITEM_TYPE_BIT.CONTAIN
 	.set_container_sfx("phantasia:tile.container.~.chest");
 
 new ItemData(item_Lumin_Moss_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 8)
 	.set_drops("phantasia:lumin_moss_wall");
 
@@ -2760,12 +2759,12 @@ new ItemData(item_Lumin_Shroom, ITEM_TYPE_BIT.PLANT)
 	.set_drops("phantasia:lumin_shroom");
 
 new ItemData(item_Polished_Stone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:polished_stone");
 
 new ItemData(item_Moss_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 8)
 	.set_drops("phantasia:moss_wall");
 
@@ -2774,7 +2773,7 @@ new ItemData(item_Deadstone_Wall, ITEM_TYPE_BIT.WALL)
 	.set_drops("phantasia:deadstone_wall");
 
 new ItemData(item_Polished_Granite, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:polished_granite");
 
@@ -2803,7 +2802,7 @@ new ItemData(item_Pine_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
 
 new ItemData(item_Bloom_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:bloom_planks")
 	.set_sfx("phantasia:tile.wood");
@@ -2813,7 +2812,7 @@ new ItemData(item_Acacia_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_drops("phantasia:acacia_chair");
 
 new ItemData(item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.INCREMENT)
+	.set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
 	.set_animation_index(0, 5)
 	.set_colour_offset(0, -12, -50)
 	.set_bloom(#160704)
@@ -2859,14 +2858,14 @@ new ItemData(item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
 	});
 
 new ItemData(item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.INCREMENT)
+	.set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
 	.set_colour_offset(0, -2, -28)
 	.set_bloom(#160704)
 	.set_mining_stats(undefined, undefined, 8)
 	.set_drops("phantasia:campfire");
 
 new ItemData(item_Cloud, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED_TO_SELF)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
 	.set_mining_stats(undefined, undefined, 14)
 	.set_drops("phantasia:cloud");
 
@@ -3181,7 +3180,7 @@ new ItemData(item_Fried_Egg, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_consumption_hp(11);
 
 new ItemData(item_Yucca_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED_TO_SELF)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
 	.set_drops("phantasia:yucca_wood")
 	.set_sfx("phantasia:tile.wood");
@@ -3196,7 +3195,7 @@ new ItemData(item_Yucca_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Yucca_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:yucca_planks")
 	.set_sfx("phantasia:tile.wood");
@@ -3242,95 +3241,95 @@ new ItemData(item_Yucca_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_drops("phantasia:yucca_table");
 
 new ItemData(item_Block_Of_Lumin, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 74)
 	.set_drops("phantasia:block_of_lumin");
 
 new ItemData(item_Block_Of_Ebonrich, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 74)
 	.set_drops("phantasia:block_of_ebonrich");
 
 new ItemData(item_Block_Of_Wildbloom, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 74)
 	.set_drops("phantasia:block_of_wildbloom");
 
 new ItemData(item_Block_Of_Sandstorm, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 74)
 	.set_drops("phantasia:block_of_sandstorm");
 
 new ItemData(item_Block_Of_Volcanite, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 74)
 	.set_drops("phantasia:block_of_volcanite");
 
 new ItemData(item_Block_Of_Diamond, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_diamond");
 
 new ItemData(item_Block_Of_Ruby, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_ruby");
 
 new ItemData(item_Block_Of_Emerald, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_emerald");
 
 new ItemData(item_Block_Of_Amethyst, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_amethyst");
 
 new ItemData(item_Block_Of_Liminite, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.PLATINUM, 74)
 	.set_drops("phantasia:block_of_liminite")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Block_Of_Bismuth, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 74)
 	.set_drops("phantasia:block_of_bismuth")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Copper_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.WOOD, 70)
 	.set_drops("phantasia:raw_copper")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Weathered_Copper_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.WOOD, 70)
 	.set_drops("phantasia:raw_weathered_copper");
 
 new ItemData(item_Tarnished_Copper_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.WOOD, 70)
 	.set_drops("phantasia:raw_tarnished_copper")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Gold_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 82)
 	.set_drops("phantasia:raw_gold")
@@ -3365,7 +3364,7 @@ new ItemData(item_Trumpet, ITEM_TYPE_BIT.SWORD);
 new ItemData(item_Triangle, ITEM_TYPE_BIT.SWORD);
 
 new ItemData(item_Stone_Bricks, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:stone_bricks")
 	.set_sfx("phantasia:tile.bricks");
@@ -3398,189 +3397,189 @@ new ItemData(item_Bucket);
 new ItemData(item_Telescope);
 
 new ItemData(item_Platinum_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 90)
 	.set_drops("phantasia:raw_platinum")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Ruby_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:ruby");
 
 new ItemData(item_Amber_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:amber");
 
 new ItemData(item_Topaz_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:topaz");
 
 new ItemData(item_Emerald_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:emerald");
 
 new ItemData(item_Jade_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:jade");
 
 new ItemData(item_Diamond_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:diamond");
 
 new ItemData(item_Sapphire_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:sapphire");
 
 new ItemData(item_Amethyst_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:amethyst");
 
 new ItemData(item_Kunzite_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:kunzite");
 
 new ItemData(item_Moonstone_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:moonstone");
 
 new ItemData(item_Onyx_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 70)
 	.set_drops("phantasia:onyx");
 
 new ItemData(item_Emustone_Coal_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 84)
 	.set_drops("phantasia:coal")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Emustone_Copper_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.WOOD, 90)
 	.set_drops("phantasia:raw_copper")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Emustone_Weathered_Copper_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.WOOD, 90)
 	.set_drops("phantasia:raw_weathered_copper")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Emustone_Tarnished_Copper_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.WOOD, 90)
 	.set_drops("phantasia:raw_tarnished_copper")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Emustone_Iron_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 96)
 	.set_drops("phantasia:raw_iron")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Emustone_Gold_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 102)
 	.set_drops("phantasia:raw_gold")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Emustone_Platinum_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 110)
 	.set_drops("phantasia:raw_platinum")
 	.set_sfx("phantasia:tile.metal");
 
 new ItemData(item_Emustone_Ruby_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:kunzite");
 
 new ItemData(item_Emustone_Amber_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:amber");
 
 new ItemData(item_Emustone_Topaz_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:topaz");
 
 new ItemData(item_Emustone_Emerald_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:emerald");
 
 new ItemData(item_Emustone_Jade_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:jade");
 
 new ItemData(item_Emustone_Diamond_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:diamond");
 
 new ItemData(item_Emustone_Sapphire_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:sapphire");
 
 new ItemData(item_Emustone_Amethyst_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:amethyst");
 
 new ItemData(item_Emustone_Kunzite_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:kunzite");
 
 new ItemData(item_Emustone_Moonstone_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:moonstone");
 
 new ItemData(item_Emustone_Onyx_Ore, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 100)
 	.set_drops("phantasia:onyx");
@@ -3663,7 +3662,7 @@ new ItemData(item_Wysteria_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Wysteria_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
 	.set_sfx("phantasia:tile.leaves")
@@ -3685,7 +3684,7 @@ new ItemData(item_Blizzard_Shovel, ITEM_TYPE_BIT.SHOVEL)
 
 new ItemData(item_Wysteria_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:wisteria_planks")
 	.set_sfx("phantasia:tile.wood");
@@ -3715,7 +3714,7 @@ new ItemData(item_Brown_Dye);
 new ItemData(item_Black_Dye);
 
 new ItemData(item_Blonde_Cherry_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
 	.set_drops(
@@ -3822,7 +3821,7 @@ new ItemData(item_Black_Candle, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_drops("phantasia:black_candle");
 
 new ItemData(item_Stone_Bricks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:stone_bricks_wall")
 	.set_sfx("phantasia:tile.bricks");
@@ -3832,14 +3831,14 @@ new ItemData(item_Pencil, ITEM_TYPE_BIT.SWORD)
 
 new ItemData(item_Mahogany_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:mahogany_planks")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Mangrove_Planks, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
 	.set_drops("phantasia:mangrove_planks")
 	.set_sfx("phantasia:tile.wood");
@@ -3976,7 +3975,7 @@ new ItemData(item_Brown_Shelf_Fungus, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Podzol, ITEM_TYPE_BIT.SOLID)
 	.set_flip_on(true, false)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
 	.set_drops("phantasia:dirt")
 	.set_sfx("phantasia:tile.dirt")
@@ -3986,25 +3985,25 @@ new ItemData(item_Podzol, ITEM_TYPE_BIT.SOLID)
     });
 
 new ItemData(item_Polished_Andesite, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:polished_andesite")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Polished_Emustone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:polished_emustone")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Polished_Basalt, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:polished_basalt")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Polished_Deadstone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:polished_deadstone")
 	.set_sfx("phantasia:tile.stone");
@@ -4075,56 +4074,56 @@ new ItemData(item_Mahogany_Shovel, ITEM_TYPE_BIT.SHOVEL)
 	.set_durability(65);
 
 new ItemData(item_Block_Of_Amber, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_amber")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Block_Of_Topaz, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_topaz")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Block_Of_Kunzite, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_kunzite")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Block_Of_Jade, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_jade")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Block_Of_Sapphire, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_sapphire")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Block_Of_Moonstone, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_moonstone")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Block_Of_Jasper, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_jasper")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Block_Of_Onyx, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
 	.set_drops("phantasia:block_of_onyx");
@@ -4135,7 +4134,7 @@ new ItemData(item_Cloudflower, ITEM_TYPE_BIT.PLANT)
 	.set_drops("phantasia:cloudflower");
 
 new ItemData(item_Block_Of_Rainbow, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 28)
 	.set_drops("phantasia:block_of_rainbow");
 
@@ -4168,7 +4167,7 @@ new ItemData(item_Duckweed, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Water, ITEM_TYPE_BIT.LIQUID)
-	.set_animation_type(ANIMATION_TYPE.INCREMENT)
+	.set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
 	.set_animation_index(0, 7)
 	.set_on_draw_update(function(_x, _y, _z)
 	{
@@ -4230,49 +4229,49 @@ new ItemData(item_Basalt_Bricks_Wall, ITEM_TYPE_BIT.WALL)
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Birch_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:birch_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Cherry_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:cherry_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Blizzard_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:blizzard_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Pine_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:pine_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Palm_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:palm_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Ashen_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:ashen_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Acacia_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:acacia_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Bloom_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:bloom_planks_wall")
 	.set_sfx("phantasia:tile.wood");
@@ -4307,25 +4306,25 @@ new ItemData(item_Cooked_Crab, ITEM_TYPE_BIT.CONSUMABLE)
 	.set_consumption_hp(12);
 
 new ItemData(item_Yucca_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:yucca_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Wysteria_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:wisteria_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Mahogany_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:mahogany_planks_wall")
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Mangrove_Planks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 16)
 	.set_drops("phantasia:mangrove_planks_wall")
 	.set_sfx("phantasia:tile.wood");
@@ -4337,7 +4336,7 @@ new ItemData(item_Cherry_Door, ITEM_TYPE_BIT.SOLID)
 	.set_sfx("phantasia:tile.wood");
 
 new ItemData(item_Glass, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED_TO_SELF)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 8)
 	.set_drops("phantasia:glass")
 	.set_sfx("phantasia:tile.glass")
@@ -4589,13 +4588,13 @@ new ItemData(item_Bundle_Of_Rope, ITEM_TYPE_BIT.SOLID)
 	.set_drops("phantasia:bundle_of_rope");
 
 new ItemData(item_Mud_Bricks, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 50)
 	.set_drops("phantasia:mud_bricks")
 	.set_sfx("phantasia:tile.bricks");
 
 new ItemData(item_Mud_Bricks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 32)
 	.set_drops("phantasia:mud_bricks_wall")
 	.set_sfx("phantasia:tile.bricks");
@@ -4605,13 +4604,13 @@ new ItemData(item_Salt_Lamp, ITEM_TYPE_BIT.UNTOUCHABLE)
 	.set_drops("phantasia:block_of_dark_bamboo");
 
 new ItemData(item_Sandstone_Bricks, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 58)
 	.set_drops("phantasia:sandstone_bricks")
 	.set_sfx("phantasia:tile.bricks");
 
 new ItemData(item_Sandstone_Bricks_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 46)
 	.set_drops("phantasia:sandstone_bricks_wall")
 	.set_sfx("phantasia:tile.bricks");
@@ -4879,7 +4878,7 @@ new ItemData(item_Grenade, ITEM_TYPE_BIT.THROWABLE)
 new ItemData(item_Throwing_Knife, ITEM_TYPE_BIT.THROWABLE);
 
 new ItemData(item_Lava, ITEM_TYPE_BIT.LIQUID)
-	.set_animation_type(ANIMATION_TYPE.INCREMENT)
+	.set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
 	.set_animation_index(0, 3)
 	.set_on_draw_update(function(_x, _y, _z)
 	{
@@ -4922,7 +4921,7 @@ new ItemData(item_Bucket_Of_Lava, ITEM_TYPE_BIT.DEPLOYABLE)
 		.set_index_offset(0));
 
 new ItemData(item_Ink, ITEM_TYPE_BIT.LIQUID)
-	.set_animation_type(ANIMATION_TYPE.INCREMENT)
+	.set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
 	.set_animation_index(0, 3)
 	.set_on_draw_update(function(_x, _y, _z)
 	{
@@ -5227,7 +5226,7 @@ new ItemData(item_Air_Sword, ITEM_TYPE_BIT.SWORD)
 	.set_damage(33);
 
 new ItemData(item_Hardened_Aphide, ITEM_TYPE_BIT.SOLID)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_flip_on(true, true)
 	.set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
 	.set_drops("phantasia:hardened_aphide")
@@ -5433,19 +5432,19 @@ new ItemData(item_Record_Disc_Dungeon_Crawler, ITEM_TYPE_BIT.DEFAULT);
 new ItemData(item_Record_Disc_Hourglass, ITEM_TYPE_BIT.DEFAULT);
 
 new ItemData(item_Andesite_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:andesite_wall")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Granite_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:granite_wall")
 	.set_sfx("phantasia:tile.stone");
 
 new ItemData(item_Basalt_Wall, ITEM_TYPE_BIT.WALL)
-	.set_animation_type(ANIMATION_TYPE.CONNECTED)
+	.set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
 	.set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
 	.set_drops("phantasia:basalt_wall")
 	.set_sfx("phantasia:tile.stone");
