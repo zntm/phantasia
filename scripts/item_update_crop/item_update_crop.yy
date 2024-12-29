@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"item_update_plant",
+  "%Name":"item_update_crop",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"item_update_plant",
+  "name":"item_update_crop",
   "parent":{
     "name":"Update",
     "path":"folders/Scripts/Tile/Attributes/Item/Update.yy",
