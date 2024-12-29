@@ -1438,6 +1438,8 @@
     {"id":{"name":"worldgen_carve_cave","path":"scripts/worldgen_carve_cave/worldgen_carve_cave.yy",},},
     {"id":{"name":"worldgen_foliage","path":"scripts/worldgen_foliage/worldgen_foliage.yy",},},
     {"id":{"name":"worldgen_get_cave_biome","path":"scripts/worldgen_get_cave_biome/worldgen_get_cave_biome.yy",},},
+    {"id":{"name":"worldgen_get_heat","path":"scripts/worldgen_get_heat/worldgen_get_heat.yy",},},
+    {"id":{"name":"worldgen_get_humidity","path":"scripts/worldgen_get_humidity/worldgen_get_humidity.yy",},},
     {"id":{"name":"worldgen_get_sky_biome","path":"scripts/worldgen_get_sky_biome/worldgen_get_sky_biome.yy",},},
     {"id":{"name":"worldgen_get_surface_biome","path":"scripts/worldgen_get_surface_biome/worldgen_get_surface_biome.yy",},},
     {"id":{"name":"worldgen_get_ysurface","path":"scripts/worldgen_get_ysurface/worldgen_get_ysurface.yy",},},

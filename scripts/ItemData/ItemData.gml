@@ -901,17 +901,18 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
             return ((self[$ "__colour_offset_bloom"] ?? 0) >> 24) & 0xffffffff;
         }
         
-        collision_box[@ 0] = ((sprite_get_height(_sprite) + 0x80) << 24) | ((sprite_get_width(_sprite) + 0x80) << 16) | ((-sprite_get_yoffset(_sprite) + 0x80) << 8) | (-sprite_get_xoffset(_sprite) + 0x80);
-    
-        collision_box_length = 1;
-    
         static add_collision_box = function(_left, _top, _right, _bottom)
         {
+            self[$ "collision_box"] ??= [];
+            self[$ "collision_box_length"] ??= 0;
+            
             collision_box[@ collision_box_length++] = ((_bottom + 0x80) << 24) | ((_right + 0x80) << 16) | (_top << 8) | (_left + 0x80);
-        
+            
             return self;
         }
-    
+        
+        add_collision_box(-sprite_get_xoffset(_sprite), -sprite_get_yoffset(_sprite), sprite_get_width(_sprite) , sprite_get_height(_sprite));
+        
         static set_collision_box = function(_index, _left, _top, _right, _bottom)
         {
             collision_box[@ _index] = ((_bottom + 0x80) << 24) | ((_right + 0x80) << 16) | (_top << 8) | (_left + 0x80);
@@ -989,6 +990,26 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
             static get_sfx_craft = function()
             {
                 return self[$ "__sfx_craft"] ?? "phantasia:menu.inventory.press";
+            }
+        }
+        
+        if (type & ITEM_TYPE_BIT.CROP)
+        {
+            static __crop = {
+                time: 0
+            }
+            
+            set_variable(__crop);
+            
+            static set_crop_condition = function(_heat_peak, _heat_falloff, _humidity_peak, _humidity_falloff)
+            {
+                __crop_condition_heat_peak = _peak;
+                __crop_condition_heat_falloff = _falloff;
+                
+                __crop_condition_humidity_peak = _peak;
+                __crop_condition_humidity_falloff = _falloff;
+                
+                return self;
             }
         }
     }
@@ -2710,6 +2731,7 @@ new ItemData(item_Ruby);
 new ItemData(item_Emerald);
 
 new ItemData(item_Wheat_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
+    .set_crop_condition(0.5, 0.25, 0.4, 0.3)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
@@ -4891,6 +4913,7 @@ new ItemData(item_Lava, ITEM_TYPE_BIT.LIQUID)
 new ItemData(item_Obsidian, ITEM_TYPE_BIT.SOLID);
 
 new ItemData(item_Carrot_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
+    .set_crop_condition(0.4, 0.4, 0.65, 0.25)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
@@ -4901,6 +4924,7 @@ new ItemData(item_Carrot_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     });
 
 new ItemData(item_Potato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
+    .set_crop_condition(0.35, 0.3, 0.55, 0.4)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
@@ -4972,6 +4996,7 @@ new ItemData(item_Ball_Of_Yarn, ITEM_TYPE_BIT.TOOL)
     });
 
 new ItemData(item_Tomato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
+    .set_crop_condition(0.7, 0.3, 0.6, 0.45)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");

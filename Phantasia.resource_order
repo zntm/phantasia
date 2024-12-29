@@ -502,6 +502,8 @@
     {"name":"worldgen_carve_cave","order":3,"path":"scripts/worldgen_carve_cave/worldgen_carve_cave.yy",},
     {"name":"worldgen_foliage","order":1,"path":"scripts/worldgen_foliage/worldgen_foliage.yy",},
     {"name":"worldgen_get_cave_biome","order":5,"path":"scripts/worldgen_get_cave_biome/worldgen_get_cave_biome.yy",},
+    {"name":"worldgen_get_heat","order":8,"path":"scripts/worldgen_get_heat/worldgen_get_heat.yy",},
+    {"name":"worldgen_get_humidity","order":9,"path":"scripts/worldgen_get_humidity/worldgen_get_humidity.yy",},
     {"name":"worldgen_get_sky_biome","order":6,"path":"scripts/worldgen_get_sky_biome/worldgen_get_sky_biome.yy",},
     {"name":"worldgen_get_surface_biome","order":7,"path":"scripts/worldgen_get_surface_biome/worldgen_get_surface_biome.yy",},
     {"name":"worldgen_get_ysurface","order":4,"path":"scripts/worldgen_get_ysurface/worldgen_get_ysurface.yy",},

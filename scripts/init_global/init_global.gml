@@ -18,6 +18,8 @@ enum VERSION_NUMBER {
 	PATCH = 0,
 }
 
+#macro EULER 2.718281828459045
+
 if (DEVELOPER_MODE)
 {
 	global.debug_settings = {
