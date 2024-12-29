@@ -1,6 +1,6 @@
 function chunk_generate(_world, _seed, _world_data)
 {
-	var _cache_draw_update = global.item_on_draw;
+	var _item_data_on_draw = global.item_data_on_draw;
 	
     static __ysurface = array_create(CHUNK_SIZE_X);
     
@@ -220,7 +220,7 @@ function chunk_generate(_world, _seed, _world_data)
 						
 						tile_instance_create(_xpos, _ypos, j, _tile, _item_data);
 						
-						if (_cache_draw_update[$ _item_id] != undefined)
+						if (_item_data_on_draw[$ _item_id] != undefined)
 						{
 							is_on_draw_update |= _zbit;
 						}
@@ -280,7 +280,7 @@ function chunk_generate(_world, _seed, _world_data)
 						
 						surface_display |= 1 << CHUNK_DEPTH_WALL;
 						
-						if (_cache_draw_update[$ _item_id] != undefined)
+						if (_item_data_on_draw[$ _item_id] != undefined)
 						{
 							is_on_draw_update |= 1 << CHUNK_DEPTH_WALL;
 						}
@@ -309,7 +309,7 @@ function chunk_generate(_world, _seed, _world_data)
 						
 						surface_display |= 1 << CHUNK_DEPTH_DEFAULT;
 						
-						if (_cache_draw_update[$ _item_id] != undefined)
+						if (_item_data_on_draw[$ _item_id] != undefined)
 						{
 							is_on_draw_update |= 1 << CHUNK_DEPTH_DEFAULT;
 						}
@@ -340,7 +340,7 @@ function chunk_generate(_world, _seed, _world_data)
                     
                     var _zbit = 1 << _z;
 					
-					if (_cache_draw_update[$ _item_id] != undefined)
+					if (_item_data_on_draw[$ _item_id] != undefined)
 					{
 						is_on_draw_update |= _zbit;
 					}

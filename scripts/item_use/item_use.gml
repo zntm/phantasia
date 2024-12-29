@@ -61,9 +61,9 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			
 			var _inventory_data = _item_data[$ _inventory_item.item_id];
 			
-			if ((_inventory_data.type & ITEM_TYPE_BIT.AMMO) == 0) || (_data.get_ammo_type() != _inventory_data.ammo_type) continue;
+			if ((_inventory_data.type & ITEM_TYPE_BIT.AMMO) == 0) || (_data.get_ammo_type() != _inventory_data.get_ammo_type()) continue;
 			
-			cooldown_projectile = _data.get_cooldown();
+			cooldown_projectile = _data.get_ammo_cooldown();
 			
 			if (--global.inventory.base[i].amount <= 0)
 			{

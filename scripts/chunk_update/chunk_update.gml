@@ -1,10 +1,10 @@
-global.item_on_draw = {}
+global.item_data_on_draw = {}
 
 function chunk_update()
 {
 	randomize();
 	
-	var _data = global.item_on_draw;
+	var _item_data_on_draw = global.item_data_on_draw;
 	
 	with (obj_Chunk)
 	{
@@ -50,13 +50,13 @@ function chunk_update()
 						
 					if (_tile == TILE_EMPTY) || (_tile.scale_rotation_index & (1 << 48)) continue;
 					
-					var _func = _data[$ _tile.item_id];
+					var _function = _item_data_on_draw[$ _tile.item_id];
 					
-					if (_func == undefined) continue;
+					if (_function == undefined) continue;
 					
 					chunk[@ _xyzindex].scale_rotation_index |= 1 << 48;
 					
-					_func(chunk_xstart + _x, _y2, _z);
+					_function(chunk_xstart + _x, _y2, _z);
 				}
 			}
 		}

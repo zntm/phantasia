@@ -1,3 +1,6 @@
+#macro INVENTORY_CONTAINER_XOFFSET (GUI_SAFE_ZONE_X + (INVENTORY_SLOT_SCALE * INVENTORY_SLOT_WIDTH))
+#macro INVENTORY_CONTAINER_YOFFSET (GUI_SAFE_ZONE_Y)
+
 function inventory_container_open(_x, _y, _inst = noone)
 {
 	instance_activate_object(obj_Inventory);
@@ -26,7 +29,7 @@ function inventory_container_open(_x, _y, _inst = noone)
 		sfx_play(string_replace(_container_sfx, "~", "open"), global.settings_value.sfx);
 	}
 	
-	var _size = _data.container_size;
+	var _size = _data.get_container_size();
 	
 	obj_Control.is_opened_container = true;
 	obj_Control.is_opened_inventory = true;
@@ -38,12 +41,9 @@ function inventory_container_open(_x, _y, _inst = noone)
 	global.container_tile_position_z = _pz;
 	
 	var _container_length = array_length(_container_inventory);
-				
+	
 	var _inventory_row_height = floor(array_length(global.inventory.base) / INVENTORY_LENGTH.ROW) * INVENTORY_SLOT_SCALE * INVENTORY_SLOT_HEIGHT;
-				
-	#macro INVENTORY_CONTAINER_XOFFSET (GUI_SAFE_ZONE_X + (INVENTORY_SLOT_SCALE * INVENTORY_SLOT_WIDTH))
-	#macro INVENTORY_CONTAINER_YOFFSET (GUI_SAFE_ZONE_Y)
-			
+	
 	var _camera = global.camera;
 
 	var _xscale = (INVENTORY_SLOT_SCALE / _camera.gui_width)  * _camera.width;

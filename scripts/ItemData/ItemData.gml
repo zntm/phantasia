@@ -59,14 +59,7 @@ enum ITEM_TYPE_BIT {
 	CRAFTING_STATION  = 1 << 25
 }
 
-global.item_on_draw = {}
-
-enum AMMO_TYPE {
-	BOW,
-	BULLET,
-	EGG,
-	SNOWBALL
-}
+global.item_data_on_draw = {}
 
 enum TOOL_POWER {
 	ALL,
@@ -257,7 +250,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	static set_durability = function(_durability)
 	{
 		__durability = _durability;
-				
+		
 		return self;
 	}
 		
@@ -483,7 +476,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	{
 		set_inventory_scale(INVENTORY_SCALE.TOOL);
 		set_inventory_max(1);
-			
+		
 		set_damage(undefined, DAMAGE_TYPE.MELEE);
 		
 		// 0xffff_ffff_ffff
@@ -497,30 +490,31 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		
 		set_damage(undefined, DAMAGE_TYPE.RANGED);
 		
-		ammo_type_cooldown = (AMMO_TYPE.BOW << 8) | 12;
+        __ammo_type = "phantasia:bow";
+        __ammo_cooldown = 12;
 		
 		static set_ammo_type = function(_type)
 		{
-			ammo_type_cooldown = (_type << 8) | (ammo_type_cooldown & 0xff);
+			__ammo_type = _type;
 			
 			return self;
 		}
 			
 		static get_ammo_type = function()
 		{
-			return ammo_type_cooldown >> 8;
+			return __ammo_type;
 		}
 		
-		static set_cooldown = function(_cooldown)
+		static set_ammo_cooldown = function(_cooldown)
 		{
-			ammo_type_cooldown = (ammo_type_cooldown & 0xff00) | _cooldown;
+			__ammo_cooldown = _cooldown;
 			
 			return self;
 		}
 		
-		static get_cooldown = function()
+		static get_ammo_cooldown = function()
 		{
-			return ammo_type_cooldown & 0xff;
+			return __ammo_cooldown;
 		}
 		
 		set_durability(1);
@@ -567,12 +561,12 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 	
 	if (type & ITEM_TYPE_BIT.AMMO)
 	{
-		ammo_type = AMMO_TYPE.BOW;
-			
+		__ammo_type = "phantasia:bow";
+		
 		static set_ammo_type = function(_type)
 		{
-			ammo_type = _type;
-				
+			__ammo_type = _type;
+			
 			return self;
 		}
 	}
@@ -632,7 +626,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		{
 			deployable_tile = _tile;
 			deployable_z = _z;
-				
+			
 			return self;
 		}
 		
@@ -729,14 +723,19 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		}
 		else if (type & ITEM_TYPE_BIT.CONTAINER)
 		{
-			container_size = 40;
+			__container_size = 40;
 			
 			static set_container_size = function(_size)
 			{
-				container_size = _size;
+				__container_size = _size;
 				
 				return self;
 			}
+            
+            static get_container_size = function()
+            {
+                return self[$ "__container_size"];
+            }
 			
 			static set_container_sfx = function(_name)
 			{
@@ -835,11 +834,6 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		
 		static set_drops = function()
 		{
-			static __array = function(_value)
-			{
-				return _value;
-			}
-			
 			if (argument_count == 1)
 			{
 				__drops = argument[0];
@@ -923,7 +917,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		static set_collision_box = function(_index, _left, _top, _right, _bottom)
 		{
 			collision_box[@ _index] = ((_bottom + 0x80) << 24) | ((_right + 0x80) << 16) | (_top << 8) | (_left + 0x80);
-		
+            
 			return self;
 		}
 		
@@ -932,7 +926,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		static set_on_place = function(_on_place)
 		{
 			on_place = _on_place;
-				
+			
 			return self;
 		}
 			
@@ -941,58 +935,60 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		static set_on_destroy = function(_on_destroy)
 		{
 			on_destroy = _on_destroy;
-				
+			
 			return self;
 		}
-		
-		// on_draw_update = undefined;
 		
 		static set_on_draw_update = function(_on_draw_update)
 		{
-			global.item_on_draw[$ name] = _on_draw_update;
+			global.item_data_on_draw[$ name] = _on_draw_update;
 			
-			// on_draw_update = _on_draw_update;
-				
 			return self;
 		}
-			
+		
 		on_interaction = undefined;
-			
+		
 		static set_on_interaction = function(on)
 		{
 			on_interaction = on;
-				
+			
 			return self;
 		}
-			
-		slipperiness = PHYSICS_GLOBAL_SLIPPERINESS;
-			
+		
 		static set_slipperiness = function(_val)
 		{
-			slipperiness = _val;
-				
+			__slipperiness = _val;
+			
 			return self;
 		}
-			
+        
+        static get_slipperiness = function()
+        {
+            return self[$ "__slipperiness"] ?? PHYSICS_GLOBAL_SLIPPERINESS;
+        }
+		
 		instance = -1;
 			
 		static set_instance = function(_instance)
 		{
 			instance = _instance;
-				
+			
 			return self;
 		}
 		
 		if (type & ITEM_TYPE_BIT.CRAFTING_STATION)
 		{
-			sfx_craft = undefined;
-			
 			static set_sfx_craft = function(_sfx)
 			{
-				sfx_craft = _sfx;
+				__sfx_craft = _sfx;
 				
 				return self;
 			}
+            
+            static get_sfx_craft = function()
+            {
+                return self[$ "__sfx_craft"];
+            }
 		}
 	}
 	
@@ -1003,7 +999,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 		static set_menu = function(_menu)
 		{
 			menu = _menu;
-				
+			
 			return self;
 		}
 	}
@@ -1460,7 +1456,7 @@ new ItemData(item_Oak_Planks, ITEM_TYPE_BIT.SOLID)
 
 new ItemData(item_Snowball, ITEM_TYPE_BIT.THROWABLE, ITEM_TYPE_BIT.AMMO)
 	.set_damage(2)
-	.set_ammo_type(AMMO_TYPE.SNOWBALL);
+	.set_ammo_type("phantasia:snowball");
 
 new ItemData(item_Ice, ITEM_TYPE_BIT.SOLID)
 	.set_slipperiness(0.95)
@@ -1723,7 +1719,7 @@ new ItemData(item_Empty_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Bullet, ITEM_TYPE_BIT.AMMO)
 	.set_damage(8)
-	.set_ammo_type(AMMO_TYPE.BULLET);
+	.set_ammo_type("phantasia:bullet");
 
 new ItemData(item_Anchor, ITEM_TYPE_BIT.ACCESSORY);
 
@@ -2883,7 +2879,7 @@ new ItemData(item_Aphide_Wall, ITEM_TYPE_BIT.WALL)
 	.set_drops("phantasia:aphide_wall");
 
 new ItemData(item_Arrow, ITEM_TYPE_BIT.AMMO)
-	.set_ammo_type(AMMO_TYPE.BOW);
+	.set_ammo_type("phantasia:arrow");
 
 new ItemData(item_Chain);
 
@@ -2902,7 +2898,7 @@ new ItemData(item_Mahogany_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
 
 new ItemData(item_Egg, ITEM_TYPE_BIT.THROWABLE, ITEM_TYPE_BIT.AMMO)
 	.set_damage(6)
-	.set_ammo_type(AMMO_TYPE.EGG);
+	.set_ammo_type("phantasia:egg");
 
 new ItemData(item_Acacia_Door, ITEM_TYPE_BIT.SOLID)
 	.set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -4745,7 +4741,7 @@ new ItemData(item_Snow_Globe, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData(item_Snowball_Launcher, ITEM_TYPE_BIT.BOW)
 	.set_damage(14)
-	.set_ammo_type(AMMO_TYPE.SNOWBALL);
+	.set_ammo_type("phantasia:snowball");
 
 new ItemData(item_Santa_Cap, ITEM_TYPE_BIT.ARMOR_HELMET);
 
@@ -4769,7 +4765,7 @@ new ItemData(item_Eggnade, ITEM_TYPE_BIT.THROWABLE)
 
 new ItemData(item_Egg_Cannon, ITEM_TYPE_BIT.BOW)
 	.set_damage(21)
-	.set_ammo_type(AMMO_TYPE.EGG);
+	.set_ammo_type("phantasia:egg");
 
 new ItemData(item_Carrot_Cutlass, ITEM_TYPE_BIT.SWORD)
 	.set_damage(24);

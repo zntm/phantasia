@@ -9,7 +9,7 @@ function physics_slow_down(_direction, _delta_time = global.delta_time, _item_da
 	
 	if (_tile1 != TILE_EMPTY)
 	{
-		xvelocity = lerp_delta(xvelocity, _direction, _item_data[$ _tile1].slipperiness, _delta_time);
+		xvelocity = lerp_delta(xvelocity, _direction, _item_data[$ _tile1].get_slipperiness(), _delta_time);
 		
 		exit;
 	}
@@ -18,7 +18,7 @@ function physics_slow_down(_direction, _delta_time = global.delta_time, _item_da
 	
 	if (_tile2 != TILE_EMPTY)
 	{
-		xvelocity = lerp_delta(xvelocity, _direction, _item_data[$ _tile2].slipperiness, _delta_time);
+		xvelocity = lerp_delta(xvelocity, _direction, _item_data[$ _tile2].get_slipperiness(), _delta_time);
 		
 		exit;
 	}
@@ -27,7 +27,7 @@ function physics_slow_down(_direction, _delta_time = global.delta_time, _item_da
 	
 	if (_tile3 != TILE_EMPTY)
 	{
-		xvelocity = lerp_delta(xvelocity, _direction, _item_data[$ _tile3].slipperiness, _delta_time);
+		xvelocity = lerp_delta(xvelocity, _direction, _item_data[$ _tile3].get_slipperiness(), _delta_time);
 		
 		exit;
 	}

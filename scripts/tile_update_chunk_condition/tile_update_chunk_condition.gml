@@ -11,7 +11,7 @@ function tile_update_chunk_condition(_inst, _tile, _z, _condition = 0)
 {
 	static __update = function(_inst, _tile, _z, _condition)
 	{
-		var _cache_draw_update = global.item_on_draw;
+		var _cache_draw_update = global.item_data_on_draw;
         
 		var _update_condition_boolean = 0;
         
