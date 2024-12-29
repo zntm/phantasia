@@ -996,12 +996,13 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
         if (type & ITEM_TYPE_BIT.CROP)
         {
             static __crop = {
-                time: 0
+                growth_time: 0,
+                wither_time: 0
             }
             
             set_variable(__crop);
             
-            static set_crop_condition = function(_heat_peak, _heat_falloff, _humidity_peak, _humidity_falloff)
+            static set_crop_values = function(_heat_peak, _heat_falloff, _humidity_peak, _humidity_falloff)
             {
                 __crop_condition_heat_peak = _peak;
                 __crop_condition_heat_falloff = _falloff;
@@ -1010,6 +1011,26 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
                 __crop_condition_humidity_falloff = _falloff;
                 
                 return self;
+            }
+            
+            static get_crop_condition_heat_peak = function()
+            {
+                return self[$ "__crop_condition_heat_peak"];
+            }  
+            
+            static get_crop_condition_heat_falloff = function()
+            {
+                return self[$ "__crop_condition_heat_falloff"];
+            }
+            
+            static get_crop_condition_humidity_peak = function()
+            {
+                return self[$ "__crop_condition_humidity_peak"];
+            }
+            
+            static get_crop_condition_humidity_falloff = function()
+            {
+                return self[$ "__crop_condition_humidity_falloff"];
             }
         }
     }
@@ -2731,7 +2752,7 @@ new ItemData(item_Ruby);
 new ItemData(item_Emerald);
 
 new ItemData(item_Wheat_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
-    .set_crop_condition(0.5, 0.25, 0.4, 0.3)
+    .set_crop_values(0.5, 0.25, 0.4, 0.3)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
@@ -4913,7 +4934,7 @@ new ItemData(item_Lava, ITEM_TYPE_BIT.LIQUID)
 new ItemData(item_Obsidian, ITEM_TYPE_BIT.SOLID);
 
 new ItemData(item_Carrot_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
-    .set_crop_condition(0.4, 0.4, 0.65, 0.25)
+    .set_crop_values(0.4, 0.4, 0.65, 0.25)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
@@ -4924,7 +4945,7 @@ new ItemData(item_Carrot_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     });
 
 new ItemData(item_Potato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
-    .set_crop_condition(0.35, 0.3, 0.55, 0.4)
+    .set_crop_values(0.35, 0.3, 0.55, 0.4)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
@@ -4996,7 +5017,7 @@ new ItemData(item_Ball_Of_Yarn, ITEM_TYPE_BIT.TOOL)
     });
 
 new ItemData(item_Tomato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
-    .set_crop_condition(0.7, 0.3, 0.6, 0.45)
+    .set_crop_values(0.7, 0.3, 0.6, 0.45)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");

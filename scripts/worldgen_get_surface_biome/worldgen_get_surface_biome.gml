@@ -55,8 +55,8 @@ function worldgen_get_surface_biome(_x, _y, _seed, _ysurface, _world_data, _real
     var _surface3 = _world_data.biome.surface;
     
     var _biome = __array[$ _realm][
-        (worldgen_get_heat(_x, _y, (_surface3 >> 16) & 0xffff, _seed)) |
-        (worldgen_get_humidity(_x, _y, _surface3 & 0xffff, _seed) << 5)
+        round(worldgen_get_heat(_x, _y, (_surface3 >> 16) & 0xffff, _seed) * (WORLDGEN_SIZE_HEAT - 1)) |
+        round((worldgen_get_humidity(_x, _y, _surface3 & 0xffff, _seed) * (WORLDGEN_SIZE_HUMIDITY - 1)) << 5)
     ];
 	
 	return (_biome != 0 ? _biome : _surface3[$ "default"]);
