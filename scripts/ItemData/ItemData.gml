@@ -1045,7 +1045,8 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
             {
                 return self[$ "__crop_condition_humidity_falloff"];
             }
-        } }
+        }
+    }
     
     if (type & ITEM_TYPE_BIT.MENU)
     {

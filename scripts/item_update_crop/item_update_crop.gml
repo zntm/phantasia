@@ -27,10 +27,13 @@ function item_update_crop(_x, _y, _z, _tile)
         exit;
     }
     
+    var _crop_condition_humidity_peak    = _data.get_crop_condition_humidity_peak();
+    var _crop_condition_humidity_falloff = _data.get_crop_condition_humidity_falloff();
+    
     var _bonus_humidity = max(0.01, 1 - gaussian_distribution(
-        worldgen_get_heat(_x, _y, (_surface3 >> 16) & 0xffff, _seed),
-        _crop_condition_heat_peak,
-        _crop_condition_heat_falloff,
+        worldgen_get_humidity(_x, _y, _surface3 & 0xffff, _seed),
+        _crop_condition_humidity_peak,
+        _crop_condition_humidity_falloff,
     ));
     
     var _wither_time = _tile[$ "variable.wither_time"];
