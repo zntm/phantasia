@@ -17,6 +17,8 @@
     {"$GMSpriteFrame":"","%Name":"2fad0419-3cf7-4071-89e0-6b05fe0254d0","name":"2fad0419-3cf7-4071-89e0-6b05fe0254d0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"40a828bb-d94c-4148-bdf4-7efc92c09514","name":"40a828bb-d94c-4148-bdf4-7efc92c09514","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"b243be57-33b8-4b2f-99e3-6bb99f0a590f","name":"b243be57-33b8-4b2f-99e3-6bb99f0a590f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"54c917d5-5241-48b8-b6ca-4c3a475e43f4","name":"54c917d5-5241-48b8-b6ca-4c3a475e43f4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"1c639449-797a-4b63-b73d-0156f66b6588","name":"1c639449-797a-4b63-b73d-0156f66b6588","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -53,7 +55,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":5.0,
+    "length":7.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -87,6 +89,12 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b243be57-33b8-4b2f-99e3-6bb99f0a590f","path":"sprites/item_Tomato_Seeds/item_Tomato_Seeds.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"4b6d1b72-b606-4cd9-bcbf-61fdc44b6326","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"54c917d5-5241-48b8-b6ca-4c3a475e43f4","path":"sprites/item_Tomato_Seeds/item_Tomato_Seeds.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8191d787-b2e5-4e37-b162-75424aba88a2","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1c639449-797a-4b63-b73d-0156f66b6588","path":"sprites/item_Tomato_Seeds/item_Tomato_Seeds.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"9b0c1dda-567a-44c7-aa9f-ad293672bd01","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

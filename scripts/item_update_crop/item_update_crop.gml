@@ -14,7 +14,7 @@ function item_update_crop(_x, _y, _z, _tile)
         worldgen_get_heat(_x, _y, (_surface3 >> 16) & 0xffff, _seed),
         _crop_condition_heat_peak,
         _crop_condition_heat_falloff,
-    ));
+    )) * random_range(0.9, 1.1);
     
     var _growth_time = _tile[$ "variable.growth_time"];
     
@@ -22,7 +22,19 @@ function item_update_crop(_x, _y, _z, _tile)
     
     if (_growth_time < _maturity_limit)
     {
-         _tile[$ "variable.growth_time"] = min(_growth_time + _bonus_heat, _maturity_limit);
+        var _value = min(_growth_time + _bonus_heat, _maturity_limit);
+        
+        _tile[$ "variable.growth_time"] = _value;
+        
+        var _animation_index_min = _data.get_animation_index_min();
+        var _animation_index_max = _data.get_animation_index_max();
+        
+        var _index_offset = _animation_index_min + floor(_value * (_animation_index_max - 1 - _animation_index_min));
+        
+        if (_tile.get_index_offset() != _index_offset)
+        {
+            _tile.set_index_offset(_index_offset);
+        }
         
         exit;
     }
@@ -34,7 +46,7 @@ function item_update_crop(_x, _y, _z, _tile)
         worldgen_get_humidity(_x, _y, _surface3 & 0xffff, _seed),
         _crop_condition_humidity_peak,
         _crop_condition_humidity_falloff,
-    ));
+    )) * random_range(0.9, 1.1);
     
     var _wither_time = _tile[$ "variable.wither_time"];
     
@@ -42,42 +54,17 @@ function item_update_crop(_x, _y, _z, _tile)
     
     if (_wither_time < _wither_limit)
     {
-        _tile[$ "variable.wither_time"] = min(_wither_time + _bonus_humidity, _wither_limit);
+        var _value = min(_wither_time + _bonus_humidity, _wither_limit);
+        
+        _tile[$ "variable.wither_time"] = _value;
+        
+        var _animation_index_max = _data.get_animation_index_max();
+        
+        if (_tile.get_index_offset() != _animation_index_max)
+        {
+            _tile.set_index_offset(_animation_index_max);
+        }
         
         exit;
     }
-    
-    /*
-    var _crop_condition_heat_peak    = _data.get_crop_condition_heat_peak();
-    var _crop_condition_heat_falloff = _data.get_crop_condition_heat_falloff();
-    
-    var _bonus_heat = gaussian_distribution(
-        worldgen_get_heat(_x, _y, (_surface3 >> 16) & 0xffff, _seed),
-        _crop_condition_heat_peak,
-        _crop_condition_heat_falloff,
-    );
-    
-    var _crop_condition_humidity_peak    = _data.get_crop_condition_humidity_peak();
-    var _crop_condition_humidity_falloff = _data.get_crop_condition_humidity_falloff();
-    
-    var _bonus_humidity = gaussian_distribution(
-        worldgen_get_humidity(_x, _y, _surface3 & 0xffff, _seed),
-        _crop_condition_humidity_peak,
-        _crop_condition_humidity_falloff,
-    );
-    
-    /*
-	if (!chance(_chance)) exit;
-	
-	var _tile = tile_get(_x, _y, _z, -1);
-	
-	var _state = _tile.state;
-	var _s = _state >> 16;
-	
-	if (_s < _max)
-	{
-		tile_set(_x, _y, _z, "state", (++_s << 16) | (_state & 0xffff));
-		tile_set(_x, _y, _z, "scale_rotation_index", (_tile.scale_rotation_index & 0xfffffff00) | _state);
-	}
-    */
 }
