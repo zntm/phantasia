@@ -263,7 +263,7 @@ global.boss_data[$ "phantasia:revenant"] = new BossData("Revenant", bs_Revenant,
 		}
 	});
 
-global.boss_data[$ "phantasia:arachnos"] = new BossData("Arachnos", bs_Arachnos, BOSS_TYPE.CAVE,)
+global.boss_data[$ "phantasia:arachnos"] = new BossData("Arachnos", bs_Arachnos, BOSS_TYPE.CAVE)
 	.set_hp(450)
 	.set_bar_colours([
 		#E9F2FC,

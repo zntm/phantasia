@@ -1001,6 +1001,7 @@ function ItemData(_sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
             }
             
             set_variable(__crop);
+            set_on_draw_update(item_update_crop);
             
             static set_crop_values = function(_maturity_limit, _wither_limit, _heat_peak, _heat_falloff, _humidity_peak, _humidity_falloff)
             {
@@ -2770,10 +2771,7 @@ new ItemData(item_Wheat_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z, _tile)
-    {
-        item_update_crop(_x, _y, _z, _tile);
-    });
+    .set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Oak_Planks_Wall, ITEM_TYPE_BIT.WALL)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
@@ -4706,10 +4704,6 @@ new ItemData(item_Chili_Pepper_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z, _tile)
-    {
-        item_update_crop(_x, _y, _z, _tile);
-    })
     .set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Pumpkin_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
@@ -4717,10 +4711,6 @@ new ItemData(item_Pumpkin_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
-    })
-    .set_on_draw_update(function(_x, _y, _z, _tile)
-    {
-        item_update_crop(_x, _y, _z, _tile);
     })
     .set_sfx("phantasia:tile.leaves");
 
@@ -4730,10 +4720,6 @@ new ItemData(item_Watermelon_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CR
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z, _tile)
-    {
-        item_update_crop(_x, _y, _z, _tile);
-    })
     .set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Rice_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
@@ -4742,10 +4728,6 @@ new ItemData(item_Rice_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z, _tile)
-    {
-        item_update_crop(_x, _y, _z, _tile);
-    })
     .set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Lettuce_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
@@ -4753,10 +4735,6 @@ new ItemData(item_Lettuce_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     .set_place_requirement(function(_x, _y, _z)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
-    })
-    .set_on_draw_update(function(_x, _y, _z, _tile)
-    {
-        item_update_crop(_x, _y, _z, _tile);
     })
     .set_sfx("phantasia:tile.leaves");
 
@@ -4957,10 +4935,7 @@ new ItemData(item_Carrot_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z, _tile)
-    {
-        item_update_crop(_x, _y, _z, _tile);
-    });
+    .set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Potato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     .set_crop_values(600, 200, 0.35, 0.3, 0.55, 0.4)
@@ -4968,10 +4943,7 @@ new ItemData(item_Potato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z, _tile)
-    {
-        item_update_crop(_x, _y, _z, _tile);
-    });
+    .set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Bucket_Of_Water, ITEM_TYPE_BIT.DEPLOYABLE)
     .set_inventory_max(1)
@@ -5040,10 +5012,7 @@ new ItemData(item_Tomato_Seeds, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CROP)
     {
         return (tile_get(_x, _y + 1, _z) == "phantasia:dirt");
     })
-    .set_on_draw_update(function(_x, _y, _z)
-    {
-        item_update_crop(_x, _y, _z, _tile);
-    });
+    .set_sfx("phantasia:tile.leaves");
 
 new ItemData(item_Rosetta_Strike, ITEM_TYPE_BIT.WHIP)
     .set_damage(28, DAMAGE_TYPE.MELEE);
