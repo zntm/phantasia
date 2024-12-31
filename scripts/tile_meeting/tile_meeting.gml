@@ -61,30 +61,17 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 			var _collision_box = _data.collision_box;
 			var _collision_box_length = _data.collision_box_length;
 			
-			// NOTE: Used repeat to make it faster.
-			var l = 0;
-			
-			repeat (_collision_box_length)
+			for (var l = 0; l < _collision_box_length; ++l)
 			{
 				var _ = _collision_box[l];
 				
 				var _x3 = _xtile + (((_ & 0xff) + _tile_xoffset) * _tile_xscale);
 				
-				if (_x2 <= _x3) || (_x1 > _x3 + ((((_ >> 16) & 0xff) + _tile_xoffset) * _tile_xscale))
-				{
-					++l;
-					
-					continue;
-				}
+				if (_x2 <= _x3) || (_x1 > _x3 + ((((_ >> 16) & 0xff) + _tile_xoffset) * _tile_xscale)) continue;
 				
 				var _y3 = _ytile + ((((_ >> 8) & 0xff) + _tile_yoffset) * _tile_yscale);
 				
-				if (_y2 <= _y3) || (_y1 > _y3 + ((((_ >> 24) & 0xff) + _tile_yoffset) * _tile_yscale))
-				{
-					++l;
-					
-					continue;
-				}
+				if (_y2 <= _y3) || (_y1 > _y3 + ((((_ >> 24) & 0xff) + _tile_yoffset) * _tile_yscale)) continue;
 				
 				return true;
 			}

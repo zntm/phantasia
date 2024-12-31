@@ -55,7 +55,7 @@ function gui_inventory_tooltip()
 	var _item_id = _item.item_id;
 	var _data = global.item_data[$ _item_id];
 	
-	var _loca = $"item.{_item_id}";
+	var _loca = $"{_data.get_namespace()}:item.{_data.nameddwd}";
 	var _name_loca = loca_translate($"{_loca}.name");
 	
 	var _amount = _item.amount;

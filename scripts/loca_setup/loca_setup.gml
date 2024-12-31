@@ -11,7 +11,6 @@ function loca_setup(_langauge)
 	delete global.language;
 	
 	var _directory = $"{DATAFILES_RESOURCES}\\languages\\{_langauge}";
-	var _buffer = buffer_load($"{_directory}\\loca.json");
 	
 	if (file_exists($"{_directory}\\font.ttf"))
 	{
@@ -32,9 +31,7 @@ function loca_setup(_langauge)
 	
 	loca_effect();
 	
-	global.language = json_parse(buffer_read(_buffer, buffer_text));
-	
-	buffer_delete(_buffer);
+	global.language = json_parse(buffer_load_text($"{_directory}\\loca.json"));
 	
 	debug_log($"[Init] Loading Language: '{string_split(_langauge, " ")[1]}'");
 }
