@@ -1276,14 +1276,11 @@ new ItemData("phantasia", item_Larvelt_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:larvelt");
     });
 
-new ItemData("phantasia", item_Steel, ITEM_TYPE_BIT.UNTOUCHABLE)
-    .set_flip_on(true, false);
+new ItemData("phantasia", item_Steel);
 
-new ItemData("phantasia", item_Block_Of_Steel, ITEM_TYPE_BIT.UNTOUCHABLE)
-    .set_flip_on(true, false);
+new ItemData("phantasia", item_Block_Of_Steel, ITEM_TYPE_BIT.SOLID);
 
-new ItemData("phantasia", item_Pot, ITEM_TYPE_BIT.UNTOUCHABLE)
-    .set_flip_on(true, false);
+new ItemData("phantasia", item_Pot, ITEM_TYPE_BIT.UNTOUCHABLE);
 
 new ItemData("phantasia", item_Coral_Tube, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(undefined, undefined, 10)
