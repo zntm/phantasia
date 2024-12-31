@@ -151,13 +151,13 @@ function inventory_interaction()
 	
 	var _x = round(mouse_x / TILE_SIZE);
 	var _y = round(mouse_y / TILE_SIZE);
-			
+	
 	for (var _z = CHUNK_SIZE_Z - 1; _z >= 0; --_z)
 	{
 		var _tile = tile_get(_x, _y, _z, -1);
-				
+		
 		if (_tile == TILE_EMPTY) continue;
-				
+		
 		var _data = global.item_data[$ _tile.item_id];
 		
 		if (!obj_Control.is_opened_menu) && (_data.type & ITEM_TYPE_BIT.MENU)
@@ -175,16 +175,16 @@ function inventory_interaction()
 				for (var i = 0; i < _length; ++i)
 				{
 					var _ = _menu[i];
-					var _type = _.type;
+					var _type = _.get_type();
 					
 					if (_type == "anchor")
 					{
 						with (instance_create_layer(_camera_x + _.x, _camera_y + _.y, "Instances", obj_Menu_Anchor))
 						{
-							text = _[$ "text"] ?? "";
+							text = _.get_text() ?? -1;
 							
-							xscale = _[$ "xscale"] ?? 1;
-							yscale = _[$ "yscale"] ?? 1;
+							xscale = _.get_xscale();
+							yscale = _.get_yscale();
 							
 							on_draw = menu_on_draw_anchor;
 						}
@@ -195,11 +195,11 @@ function inventory_interaction()
 						
 						with (instance_create_layer(_camera_x + _.x, _camera_y + _.y, "Instances", obj_Menu_Button))
 						{
-							text = _[$ "text"] ?? "";
-							icon = _[$ "icon"] ?? -1;
+							text = _.get_text() ?? -1;
+							icon = _.get_icon() ?? -1;
 							
-							image_xscale = _.xscale;
-							image_yscale = _.yscale;
+                            xscale = _.get_xscale();
+                            yscale = _.get_yscale();
 							
 							on_press = (_function == "exit" ? tile_menu_close : _function);
 						}
@@ -208,14 +208,9 @@ function inventory_interaction()
 					{
 						with (instance_create_layer(_camera_x + _.x, _camera_y + _.y, "Instances", obj_Menu_Textbox))
 						{
-							variable = _[$ "variable"];
+							variable = _.get_variable();
 							
-							static __map = function(_value, _index)
-							{
-								return is_array_choose(_value);
-							}
-							
-							var _placeholder = _[$ "placeholder"];
+							var _placeholder = _.get_placeholder();
 							
 							if (_placeholder == undefined)
 							{
@@ -223,7 +218,7 @@ function inventory_interaction()
 							}
 							else if (is_array(_placeholder))
 							{
-								placeholder = string_join_ext("", array_map(_placeholder, __map));
+								placeholder = string_join_ext("", array_map(_placeholder, is_array_choose));
 							}
 							else
 							{
@@ -238,23 +233,23 @@ function inventory_interaction()
 							}
 							else
 							{
-								text = (_text ?? "");
+								text = _text ?? "";
 							}
 							
-							image_xscale = _.xscale;
-							image_yscale = _.yscale;
+							image_xscale = _.get_xscale();
+							image_yscale = _.get_yscale();
 							
 							if (_type == "textbox-string")
 							{
 								type = TILE_MENU_TEXTBOX_TYPE.STRING;
-								text_length = _.max;
+								text_length = _.get_max_length();
 							}
 							else if (_type == "textbox-number")
 							{
 								type = TILE_MENU_TEXTBOX_TYPE.NUMBER;
 								
-								value_min = _.min;
-								value_max = _.max;
+								value_min = _.get_min_value();
+								value_max = _.get_max_value();
 								
 								on_update = __menu_on_update_textbox;
 								

@@ -2444,25 +2444,16 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
         yscale: 1
     })
     .set_menu([
-        {
-            icon: ico_Arrow_Left,
-            type: "button",
-            x: 32,
-            y: 32,
-            xscale: 2.5,
-            yscale: 2.5,
-            "function": "exit"
-        },
-        {
-            text: "Structure",
-            type: "anchor",
-            x: 480,
-            y: 172 - 32,
-            xscale: 1,
-            yscale: 1
-        },
-        {
-            placeholder: [
+        new ItemMenu("button")
+            .set_icon(ico_Arrow_Left)
+            .set_position(32, 32)
+            .set_scale(2.5, 2.5)
+            .set_function("exit"),
+        new ItemMenu("anchor")
+            .set_text("Structure")
+            .set_position(480, 172 - 32),
+        new ItemMenu("textbox-string")
+            .set_placeholder([
                 [
                     "abandoned",
                     "ancient",
@@ -2498,86 +2489,41 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
                     "tower",
                     "watchtower"
                 ]
-            ],
-            text: -1,
-            type: "textbox-string",
-            max: 32,
-            x: 480,
-            y: 172,
-            xscale: 32,
-            yscale: 5,
-            variable: "structure_id"
-        },
-        {
-            text: "Offset",
-            type: "anchor",
-            x: 480,
-            y: 236 - 32,
-            xscale: 1,
-            yscale: 1
-        },
-        {
-            placeholder: "X",
-            type: "textbox-number",
-            min: -128,
-            max: 127,
-            x: 416,
-            y: 236,
-            xscale: 16,
-            yscale: 5,
-            instance_link: "x"
-        },
-        {
-            placeholder: "Y",
-            type: "textbox-number",
-            min: -128,
-            max: 127,
-            x: 544,
-            y: 236,
-            xscale: 16,
-            yscale: 5,
-            instance_link: "y"
-        },
-        {
-            text: "Scale",
-            type: "anchor",
-            x: 480,
-            y: 364 - 32,
-            xscale: 1,
-            yscale: 1
-        },
-        {
-            placeholder: "X",
-            type: "textbox-number",
-            min: -128,
-            max: 127,
-            instance_link: "xscale",
-            x: 416,
-            y: 364,
-            xscale: 16,
-            yscale: 5,
-            variable: "xscale"
-        },
-        {
-            placeholder: "Y",
-            type: "textbox-number",
-            min: -128,
-            max: 127,
-            instance_link: "yscale",
-            x: 544,
-            y: 364,
-            xscale: 16,
-            yscale: 5,
-            variable: "yscale"
-        },
-        {
-            text: "Export",
-            type: "button",
-            x: 480,
-            y: 480,
-            xscale: 16,
-            yscale: 2.5,
-            "function": function()
+            ])
+            .set_position(480, 172)
+            .set_scale(32, 5)
+            .set_variable("structure_id"),
+        new ItemMenu("anchor")
+            .set_text("Offset")
+            .set_position(480, 236 - 32),
+        new ItemMenu("textbox-number")
+            .set_placeholder("X")
+            .set_position(416, 236)
+            .set_scale(16, 5)
+            .set_instance_link("x"),
+        new ItemMenu("textbox-number")
+            .set_placeholder("Y")
+            .set_position(544, 236)
+            .set_scale(16, 5)
+            .set_instance_link("y"),
+        new ItemMenu("anchor")
+            .set_text("Scale")
+            .set_position(480, 364 - 32),
+        new ItemMenu("textbox-number")
+            .set_placeholder("X")
+            .set_position(416, 364)
+            .set_scale(16, 5)
+            .set_instance_link("xscale"),
+        new ItemMenu("textbox-number")
+            .set_placeholder("Y")
+            .set_position(544, 364)
+            .set_scale(16, 5)
+            .set_instance_link("yscale"),
+        new ItemMenu("button")
+            .set_text("Export")
+            .set_position(480, 480)
+            .set_scale(16, 2.5)
+            .set_function(function()
             {
                 var _menu_tile = global.menu_tile;
                 
@@ -2592,8 +2538,7 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
                     round((_instance.bbox_right  - TILE_SIZE_H) / TILE_SIZE),
                     round((_instance.bbox_bottom - TILE_SIZE_H) / TILE_SIZE)
                 );
-            }
-        }
+            })
     ]);
 
 new ItemData("phantasia", item_Short_Dead_Grass, ITEM_TYPE_BIT.PLANT)
@@ -2611,33 +2556,19 @@ new ItemData("phantasia", item_Structure_Loot, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_B
         loot_id: "Loot"
     })
     .set_menu([
-        {
-            text: "Confirm",
-            type: "button",
-            x: 32,
-            y: 32,
-            xscale: 2.5,
-            yscale: 2.5,
-            "function": "exit"
-        },
-        {
-            text: "Loot",
-            type: "anchor",
-            x: 480,
-            y: 172 - 32,
-            xscale: 1,
-            yscale: 1
-        },
-        {
-            placeholder: "Loot ID",
-            type: "textbox-string",
-            max: 32,
-            x: 480,
-            y: 172,
-            xscale: 32,
-            yscale: 5,
-            variable: "loot_id"
-        }
+        new ItemMenu("button")
+            .set_icon(ico_Arrow_Left)
+            .set_position(32, 32)
+            .set_scale(2.5, 2.5)
+            .set_function("exit"),
+        new ItemMenu("anchor")
+            .set_text("Loot")
+            .set_position(480, 172 - 32),
+        new ItemMenu("textbox-string")
+            .set_placeholder("Loot ID")
+            .set_position(480, 172)
+            .set_scale(32, 5)
+            .set_variable("loot_id")
     ]);
 
 new ItemData("phantasia", item_Tall_Dead_Grass, ITEM_TYPE_BIT.PLANT)
@@ -5322,25 +5253,15 @@ new ItemData("phantasia", item_Structure_Point, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
         placement_yoffset: 0,
     })
     .set_menu([
-        {
-            text: "Confirm",
-            type: "button",
-            x: 32,
-            y: 32,
-            xscale: 2.5,
-            yscale: 2.5,
-            "function": "exit"
-        },
-        {
-            text: "Structure",
-            type: "anchor",
-            x: 480,
-            y: 172 - 32,
-            xscale: 1,
-            yscale: 1
-        },
-        {
-            placeholder: [
+        new ItemMenu("button")
+            .set_icon(ico_Arrow_Left)
+            .set_position(32, 32)
+            .set_scale(2.5, 2.5),
+        new ItemMenu("anchor")
+            .set_text("Structure")
+            .set_position(480, 172 - 32),
+        new ItemMenu("textbox-string")
+            .set_placeholder([
                 [
                     "abandoned",
                     "ancient",
@@ -5376,46 +5297,23 @@ new ItemData("phantasia", item_Structure_Point, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
                     "tower",
                     "watchtower"
                 ]
-            ],
-            text: -1,
-            type: "textbox-string",
-            max: 32,
-            x: 480,
-            y: 172,
-            xscale: 32,
-            yscale: 5,
-            variable: "structure_id"
-        },
-        {
-            text: "Placment Offset",
-            type: "anchor",
-            x: 480,
-            y: 172 + 32,
-            xscale: 1,
-            yscale: 1
-        },
-        {
-            placeholder: "X",
-            type: "textbox-number",
-            min: -128,
-            max: 127,
-            x: 416,
-            y: 172 + 64,
-            xscale: 16,
-            yscale: 5,
-            variable: "placement_xoffset"
-        },
-        {
-            placeholder: "Y",
-            type: "textbox-number",
-            min: -128,
-            max: 127,
-            x: 544,
-            y: 172 + 64,
-            xscale: 16,
-            yscale: 5,
-            variable: "placement_yoffset"
-        },
+            ])
+            .set_position(480, 172)
+            .set_scale(32, 5)
+            .set_variable("structure_id"),
+        new ItemMenu("anchor")
+            .set_text("Placment Offset")
+            .set_position(480, 172 + 32),
+        new ItemMenu("textbox-number")
+            .set_placeholder("X")
+            .set_position(480 - 64, 172 + 64)
+            .set_scale(16, 5)
+            .set_variable("placement_xoffset"),
+        new ItemMenu("textbox-number")
+            .set_placeholder("Y")
+            .set_position(480 + 64, 172 + 64)
+            .set_scale(16, 5)
+            .set_variable("placement_yoffset"),
     ]);
 
 new ItemData("phantasia", item_Record_Disc_Permit);

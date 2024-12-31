@@ -1309,6 +1309,7 @@
     {"id":{"name":"item_update_liquid_flow","path":"scripts/item_update_liquid_flow/item_update_liquid_flow.yy",},},
     {"id":{"name":"item_use","path":"scripts/item_use/item_use.yy",},},
     {"id":{"name":"ItemData","path":"scripts/ItemData/ItemData.yy",},},
+    {"id":{"name":"ItemMenu","path":"scripts/ItemMenu/ItemMenu.yy",},},
     {"id":{"name":"lerp_delta","path":"scripts/lerp_delta/lerp_delta.yy",},},
     {"id":{"name":"light_clusterize","path":"scripts/light_clusterize/light_clusterize.yy",},},
     {"id":{"name":"load_effects","path":"scripts/load_effects/load_effects.yy",},},
