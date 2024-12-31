@@ -24,7 +24,7 @@ function gui_inventory(_name, _value)
 	var _is_craftable = (_name == "craftable");
 	
 	#region Draw Slots
-		
+	
 	// Draw Outline
 	for (var i = 0; i < _length; ++i)
 	{
@@ -130,19 +130,19 @@ function gui_inventory(_name, _value)
 			draw_sprite_ext(_sprite, _index, _x, _y, _scale, _scale, 0, _colour, 1);
 		}
 	}
-		
+	
 	#endregion
-		
+	
 	#region Draw Amount
 	
 	for (var i = 0; i < _length; ++i)
 	{
 		var _item = _value[i];
-			
+		
 		if (_item == INVENTORY_EMPTY) || (_item.amount <= 1) continue;
-			
+		
 		var _instance = _instances[i];
-			
+		
 		if (_inventory_selected_backpack == _instance) continue;
 		
 		var _colour = ((_is_craftable) && (_instance.grimoire) ? c_gray : c_white);

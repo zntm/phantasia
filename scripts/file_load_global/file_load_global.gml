@@ -12,5 +12,5 @@ function file_load_global()
 		exit;
 	}
 	
-	global.global_data = buffer_load_text("Global.json");
+	global.global_data = json_parse(buffer_load_text("Global.json"));
 }
