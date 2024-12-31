@@ -1,14 +1,14 @@
 global.language = {}
 global.font_current = fnt_Main;
 
-function loca_setup(_namespace, _langauge)
+function loca_setup(_langauge)
 {
 	if (global.font_current != fnt_Main)
 	{
 		font_delete(global.font_current);
 	}
 	
-	delete global.language[$ _namespace];
+	delete global.language;
 	
 	var _directory = $"{DATAFILES_RESOURCES}\\languages\\{_langauge}";
 	
@@ -31,7 +31,7 @@ function loca_setup(_namespace, _langauge)
 	
 	loca_effect();
 	
-	global.language[$ _namespace] = json_parse(buffer_load_text($"{_directory}\\loca.json"));
+	global.language = json_parse(buffer_load_text($"{_directory}\\loca.json"));
 	
 	debug_log($"[Init] Loading Language: '{string_split(_langauge, " ")[1]}'");
 }
