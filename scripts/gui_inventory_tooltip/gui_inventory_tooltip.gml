@@ -73,11 +73,11 @@ function gui_inventory_tooltip()
 	var _description_loca = $"{_loca}.description";
 	var _description = loca_translate(_description_loca);
 	
-	if (_description == _description_loca)
+    var _description_string = "";
+    
+	if (_description != _description_loca)
 	{
-		__draw_tooltip(_x, _y, _name_width, _name_height, _name_loca, _data.get_rarity());
-		
-		exit;
+		_description_string = _description + "\n";
 	}
 	
 	var _type = _data.type;
@@ -88,18 +88,21 @@ function gui_inventory_tooltip()
 		
 		if (_defense != -1)
 		{
-			_description = $"{string(loca_translate("gui.defense"), number_format_thousandths(_defense))}\n{_description}";
+            var _a = loca_translate("gui.defense");
+            var _b = number_format_thousandths(_defense);
+            
+			_description_string += string(_a, _b) + "\n";
 		}
 	}
 	
 	if (_data.boolean & ITEM_BOOLEAN.IS_MATERIAL)
 	{
-		_description = $"{loca_translate("gui.material")}\n{_description}";
+		_description_string += loca_translate("gui.material") + "\n";
 	}
 	
 	if (_type & ITEM_TYPE_BIT.THROWABLE)
 	{
-		_description = $"{loca_translate("gui.throwable")}\n{_description}";
+        _description_string += loca_translate("gui.throwable") + "\n";
 	}
 	
 	var _damage = _data.get_damage();
@@ -109,33 +112,41 @@ function gui_inventory_tooltip()
 	
 	if (_damage_type == DAMAGE_TYPE.MELEE)
 	{
-		_description += string(loca_translate("gui.damage.melee"), _damage_string);
+		_description_string += string(loca_translate("gui.damage.melee"), _damage_string);
 	}
 	else if (_damage_type == DAMAGE_TYPE.RANGED)
 	{
-		_description += string(loca_translate("gui.damage.ranged"), _damage_string);
+		_description_string += string(loca_translate("gui.damage.ranged"), _damage_string);
 	}
 	else if (_damage_type == DAMAGE_TYPE.MAGIC)
 	{
-		_description += string(loca_translate("gui.damage.magic"), _damage_string);
+		_description_string += string(loca_translate("gui.damage.magic"), _damage_string);
 	}
 	else if (_damage_type == DAMAGE_TYPE.FIRE)
 	{
-		_description += string(loca_translate("gui.damage.fire"), _damage_string);
+		_description_string += string(loca_translate("gui.damage.fire"), _damage_string);
 	}
 	else if (_damage_type == DAMAGE_TYPE.BLAST)
 	{
-		_description += string(loca_translate("gui.damage.blast"), _damage_string);
+		_description_string += string(loca_translate("gui.damage.blast"), _damage_string);
 	}
 	else if (_damage > 1)
 	{
-		_description += string(loca_translate("gui.damage"), _damage_string);
+		_description_string += string(loca_translate("gui.damage"), _damage_string);
 	}
+    
+    if (string_ends_with(_description_string, "\n"))
+    {
+        _description_string = string_delete(_description_string, string_length(_description_string), 1);
+    }
 	
-	var _width	= max(_name_width, cuteify_get_width(_description, global.cuteify_emote) * GUI_TOOLTIP_DESCRIPTION_XSCALE);
-	var _height	= _name_height + (string_height(_description) * GUI_TOOLTIP_DESCRIPTION_YSCALE);
+	var _width	= max(_name_width, cuteify_get_width(_description_string, global.cuteify_emote) * GUI_TOOLTIP_DESCRIPTION_XSCALE);
+	var _height	= _name_height + (string_height(_description_string) * GUI_TOOLTIP_DESCRIPTION_YSCALE);
 	
 	__draw_tooltip(_x, _y, _width, _height, _name_loca, _data.get_rarity());
 	
-	draw_text_cuteify(_x, _y + _name_height, _description, GUI_TOOLTIP_DESCRIPTION_XSCALE, GUI_TOOLTIP_DESCRIPTION_YSCALE);
+    if (_description_string != "")
+    {
+        draw_text_cuteify(_x, _y + _name_height, _description_string, GUI_TOOLTIP_DESCRIPTION_XSCALE, GUI_TOOLTIP_DESCRIPTION_YSCALE);
+    }
 }
