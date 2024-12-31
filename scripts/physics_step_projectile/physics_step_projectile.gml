@@ -38,11 +38,11 @@ function physics_step_projectile(_x, _y, _id)
 			_inst.panic_time = GAME_FPS * CREATURE_PASSIVE_PANIC_SECONDS;
 		}
 		
-		sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, string_replace(_data.get_sfx(), "~", "hurt"), undefined, global.settings_value[$ (_is_passive ? "creature_passive" : "creature_hostile")]);
+		sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, string_replace(_data.get_sfx(), "~", "hurt"), undefined, global.settings_value[$ (_is_passive ? "creature_passive" : "creature_hostile")]);
 	}
 	else
 	{
-		sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, string_replace(global.boss_data[$ _inst.boss_id].sfx, "~", "hurt"), undefined, global.settings_value.creature_hostile);
+		sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, string_replace(global.boss_data[$ _inst.boss_id].sfx, "~", "hurt"), undefined, global.settings_value.creature_hostile);
 	}
 	
 	_inst.yvelocity = -3;

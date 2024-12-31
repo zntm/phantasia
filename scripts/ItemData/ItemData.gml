@@ -2538,38 +2538,6 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
             yscale: 5,
             instance_link: "y"
         },
-        /*
-        {
-            text: "Placment Offset",
-            type: "anchor",
-            x: 480,
-            y: 300 - 32,
-            xscale: 1,
-            yscale: 1
-        },
-        {
-            placeholder: "X",
-            type: "textbox-number",
-            min: -128,
-            max: 127,
-            x: 416,
-            y: 300,
-            xscale: 16,
-            yscale: 5,
-            variable: "placement_xoffset"
-        },
-        {
-            placeholder: "Y",
-            type: "textbox-number",
-            min: -128,
-            max: 127,
-            x: 544,
-            y: 300,
-            xscale: 16,
-            yscale: 5,
-            variable: "placement_yoffset"
-        },
-        */
         {
             text: "Scale",
             type: "anchor",

@@ -57,7 +57,7 @@ if (hp <= 0)
 		
 		// audio_play_sound(mus_One_Step_Closer, 0, false);
 		
-        sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, "phantasia:generic.explosion");
+        sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, "phantasia:generic.explosion");
 		
 		call_later(90, time_source_units_frames, call_destroy_whip);
 		
@@ -79,7 +79,7 @@ if (hp <= 0)
 		}
 		else if (!_e.exploded)
 		{
-            sfx_diagetic_play(obj_Player.x, obj_Player.y, _e.x, _e.y, "phantasia:generic.explosion");
+            sfx_diegetic_play(obj_Player.x, obj_Player.y, _e.x, _e.y, "phantasia:generic.explosion");
             
 			explosion[@ i].timer = -1;
 			explosion[@ i].exploded = true;
@@ -134,7 +134,7 @@ if (immunity_frame == 0)
 			
 			immunity_frame = 1;
 			
-			sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, string_replace(_data.sfx, "~", "hurt"), undefined, global.settings_value.hostile);
+			sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, string_replace(_data.sfx, "~", "hurt"), undefined, global.settings_value.hostile);
 		}
 		
 		if (_is_projectile) && (_damager.destroy_on_collision)

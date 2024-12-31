@@ -17,7 +17,7 @@ function creature_handle_death(_sfx, _drops)
 	
 	effect_on_death(x, y, id);
     
-    sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.death", undefined, undefined, global.settings_value.sfx)
+    sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.death", undefined, undefined, global.settings_value.sfx)
 	
 	instance_destroy();
 	

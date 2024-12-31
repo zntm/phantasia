@@ -114,7 +114,7 @@ function player_place(_x, _y, _world_height)
 	
 	tile_update_neighbor(_x, _y, undefined, undefined, _world_height);
 	
-	sfx_diagetic_play(obj_Player.x, obj_Player.y, _x * TILE_SIZE, _y * TILE_SIZE, $"{_data.get_sfx()}.place", undefined, global.settings_value.blocks);
+	sfx_diegetic_play(obj_Player.x, obj_Player.y, _x * TILE_SIZE, _y * TILE_SIZE, $"{_data.get_sfx()}.place", undefined, global.settings_value.blocks);
 	
 	// chunk_refresh(mouse_x, mouse_y, 1, true, true);
     chunk_update_near_light();

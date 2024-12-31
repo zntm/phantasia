@@ -15,12 +15,12 @@ function creature_handle_sfx(_sfx, _is_passive, _searching, _chance_sfx_idle, _c
         {
             if (chance(_chance_sfx_idle))
             {
-                sfx = sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height);
+                sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height);
             }
         }
         else if (chance(_chance_sfx_panic))
         {
-            sfx = sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, _volume_hostile, _world_height);
+            sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, _volume_hostile, _world_height);
         }
         
         exit;
@@ -32,6 +32,6 @@ function creature_handle_sfx(_sfx, _is_passive, _searching, _chance_sfx_idle, _c
     }
     else if (chance(_chance_sfx_idle))
     {
-        sfx = sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height);
+        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height);
     }
 }

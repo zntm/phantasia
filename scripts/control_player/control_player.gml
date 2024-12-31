@@ -89,7 +89,7 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
 			{
 				if (entity_fall(global.difficulty_multiplier_damage[global.world_settings.difficulty]))
 				{
-					sfx_diagetic_play(obj_Player.x, obj_Player.y, x, y, "phantasia:action.damage");
+					sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, "phantasia:action.damage");
 				}
                 
 				jump_pressed = 0;

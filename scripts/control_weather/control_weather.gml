@@ -48,7 +48,7 @@ function control_weather()
 		{
 			var _x = _inst.x;
 			
-			sfx_diagetic_play(obj_Player.x, obj_Player.y, _x, _y, "phantasia:weather.lightning");
+			sfx_diegetic_play(obj_Player.x, obj_Player.y, _x, _y, "phantasia:weather.lightning");
 			
 			with (instance_create_layer(_x, _y, "Instances", obj_Lightning))
 			{

@@ -36,7 +36,7 @@ if (_data.type == BIOME_TYPE.CAVE)
         
         if (!_is_playing)
         {
-            sfx_diagetic_play(obj_Player.x, obj_Player.y, obj_Player.x + random_range(-TILE_SIZE * 2, TILE_SIZE * 2), obj_Player.y + random_range(-TILE_SIZE * 2, TILE_SIZE * 2), array_choose(_sfx));
+            sfx_diegetic_play(obj_Player.x, obj_Player.y, obj_Player.x + random_range(-TILE_SIZE * 2, TILE_SIZE * 2), obj_Player.y + random_range(-TILE_SIZE * 2, TILE_SIZE * 2), array_choose(_sfx));
         }
     }
 }

@@ -101,7 +101,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
     
 	if (round(mining_current_fixed++) % 8 == 0)
 	{
-		sfx_diagetic_play(obj_Player.x, obj_Player.y, _xinst, _yinst, string_replace(_sfx, "~", "mine"), undefined, global.settings_value.blocks);
+		sfx_diegetic_play(obj_Player.x, obj_Player.y, _xinst, _yinst, string_replace(_sfx, "~", "mine"), undefined, global.settings_value.blocks);
 		
 		// spawn_particle(_tile_x + random_range(-_xoffset, _xoffset), _tile_y + irandom_range(-_yoffset, _yoffset), CHUNK_SIZE_Z - 1, PARTICLE.TILE, irandom_range(8, 12), undefined, undefined, undefined, _sprite, [ irandom_range(8, _sprite_width - 8), irandom_range(8, _sprite_height - 8) ]);
 	}
@@ -151,7 +151,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
 		}
 	}
 	
-	sfx_diagetic_play(obj_Player.x, obj_Player.y, _xinst, _yinst, string_replace(_sfx, "~", "destroy"), undefined, global.settings_value.blocks);
+	sfx_diegetic_play(obj_Player.x, obj_Player.y, _xinst, _yinst, string_replace(_sfx, "~", "destroy"), undefined, global.settings_value.blocks);
 	
 	// spawn_particle(_tile_x + random_range(-_xoffset, _xoffset), _tile_y + irandom_range(-_yoffset, _yoffset), CHUNK_SIZE_Z - 1, PARTICLE.TILE, irandom_range(8, 12), undefined, undefined, undefined, _sprite, [ irandom_range(8, _sprite_width - 8), irandom_range(8, _sprite_height - 8) ]);
 	

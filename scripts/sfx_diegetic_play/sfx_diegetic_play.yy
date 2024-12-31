@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"sfx_diagetic_floodfill",
+  "%Name":"sfx_diegetic_play",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"sfx_diagetic_floodfill",
+  "name":"sfx_diegetic_play",
   "parent":{
     "name":"SFX Data",
     "path":"folders/Game Data/SFX Data.yy",
