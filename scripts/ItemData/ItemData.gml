@@ -99,10 +99,10 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self[$ "__namespace"];
     }
     
-    global.item_data[$ $"{_namespace}:{name}"] = self;
-    
     name = string_lower(string_delete(sprite_get_name(_sprite), 1, 5));
     sprite = _sprite;
+    
+    global.item_data[$ $"{_namespace}:{name}"] = self;
     
     type = _type;
     

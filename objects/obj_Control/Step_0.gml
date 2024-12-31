@@ -153,11 +153,16 @@ if (keyboard_check_pressed(vk_escape))
 		else
 		{
 			is_paused = !is_paused;
-		
+            
 			if (is_paused)
 			{
+                audio_pause_all();
 				player_mine_value();
 			}
+            else
+            {
+                audio_resume_all();
+            }
 		}
 	}
 	
