@@ -98,7 +98,7 @@
 	],
 	"foliage": {
 		"can_spawn_on": [
-			"phantasia:grass_block_tundra"
+			"phantasia:podzol"
 		],
 		"chance": 0.7,
 		"tiles": [
