@@ -66,7 +66,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
 		
 		if (_holding_type & (ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER))
 		{
-			if ((_mining_type) && ((_holding_type & _mining_type) == 0)) || (_holding_data.get_mining_power() < _data.get_mining_power())
+			if (((_mining_type & ITEM_TYPE_BIT.DEFAULT) == 0) && ((_holding_type & _mining_type) == 0)) || (_holding_data.get_mining_power() < _data.get_mining_power())
 			{
 				return true;
 			}
@@ -75,7 +75,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
 		}
 		else
 		{
-			if (_mining_type) || (_holding_data.get_mining_power() != TOOL_POWER.ALL)
+			if ((_mining_type & ITEM_TYPE_BIT.DEFAULT) == 0) || (_holding_data.get_mining_power() != TOOL_POWER.ALL)
 			{
 				return true;
 			}
