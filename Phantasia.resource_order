@@ -296,7 +296,6 @@
     {"name":"control_weather","order":8,"path":"scripts/control_weather/control_weather.yy",},
     {"name":"CraftingRecipe","order":1,"path":"scripts/CraftingRecipe/CraftingRecipe.yy",},
     {"name":"creature_check_fall_height","order":3,"path":"scripts/creature_check_fall_height/creature_check_fall_height.yy",},
-    {"name":"creature_handle_sfx","order":1,"path":"scripts/creature_handle_sfx/creature_handle_sfx.yy",},
     {"name":"Creature","order":4,"path":"scripts/Creature/Creature.yy",},
     {"name":"ctrl_camera","order":3,"path":"scripts/ctrl_camera/ctrl_camera.yy",},
     {"name":"ctrl_chat","order":2,"path":"scripts/ctrl_chat/ctrl_chat.yy",},

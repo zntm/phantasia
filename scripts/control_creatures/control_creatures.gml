@@ -80,7 +80,52 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 			xdirection = choose(-1, 0, 0, 0, 1);
 		}
         
-        creature_handle_sfx(_sfx, _is_passive, _searching, _chance_sfx_idle, _chance_sfx_panic, _delta_time);
+        #region Sound Effects
+        
+        if (_sfx != undefined)
+        {
+            
+        }
+        if (!audio_is_playing(sfx))
+        {
+            sfx_time -= _delta_time;
+            
+            if (sfx_time > 0) exit;
+            
+            if (_is_passive)
+            {
+                if (panic_time <= 0)
+                {
+                    if (chance(_chance_sfx_idle))
+                    {
+                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
+                        
+                        sfx_time = _sfx_time;
+                    }
+                }
+                else if (chance(_chance_sfx_panic))
+                {
+                    sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, _volume_hostile, _world_height) ?? -1;
+                    
+                    sfx_time = _sfx_time;
+                }
+                
+                exit;
+            }
+            
+            if (_searching)
+            {
+                // TODO: Add searching sfx
+            }
+            else if (chance(_chance_sfx_idle))
+            {
+                sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
+                
+                sfx_time = _sfx_time;
+            }
+        }
+        
+        #endregion
 		
 		var _attributes = _data.attributes;
 		

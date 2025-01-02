@@ -6,24 +6,24 @@ if (is_exiting)
 		{
 			image_alpha = 0;
 		}
-	
+        
 		if (instance_exists(obj_Tool))
 		{
 			instance_destroy(obj_Tool);
 		}
-	
+        
 		if (instance_exists(obj_Whip))
 		{
 			instance_destroy(obj_Whip);
 		}
-	
+        
 		if (instance_exists(obj_Structure))
 		{
 			file_save_world_structures();
 		
 			instance_destroy(obj_Structure);
 		}
-	
+        
 		if (instance_exists(obj_Particle))
 		{
 			instance_destroy(obj_Particle);
