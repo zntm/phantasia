@@ -4308,7 +4308,7 @@ new ItemData("phantasia", item_Hatchet, ITEM_TYPE_BIT.AXE)
     .set_durability(68);
 
 new ItemData("phantasia", item_Twig, ITEM_TYPE_BIT.PLANT)
-    .set_random_index(1, 1)
+    .set_random_index(1, 3)
     .set_flip_on(true, false)
     .set_mining_stats(undefined, undefined, 1)
     .set_drops("phantasia:twig")
@@ -5158,8 +5158,9 @@ new ItemData("phantasia", item_Fantasia_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:fantasia");
     });
 
-new ItemData("phantasia", item_Brown_And_Sticky, ITEM_TYPE_BIT.SWORD)
-    .set_damage(33);
+new ItemData("phantasia", item_Combat_Stick, ITEM_TYPE_BIT.SWORD)
+    .set_swing_speed(7)
+    .set_damage(5);
 
 new ItemData("phantasia", item_Adventure_Is_Out_There, ITEM_TYPE_BIT.SWORD)
     .set_damage(33);

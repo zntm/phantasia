@@ -14,6 +14,8 @@
   "frames":[
     {"$GMSpriteFrame":"","%Name":"87a89f14-40f2-42d3-8004-5eb4ef577462","name":"87a89f14-40f2-42d3-8004-5eb4ef577462","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"0ba1e609-30c0-463c-9d59-eda5bd2366b7","name":"0ba1e609-30c0-463c-9d59-eda5bd2366b7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"0858b098-879f-4395-bd45-7d4efc2ae6f4","name":"0858b098-879f-4395-bd45-7d4efc2ae6f4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c63e821b-8ea7-4505-be0d-2b4a89ed95ea","name":"c63e821b-8ea7-4505-be0d-2b4a89ed95ea","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -50,7 +52,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":2.0,
+    "length":4.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -75,6 +77,12 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0ba1e609-30c0-463c-9d59-eda5bd2366b7","path":"sprites/item_Twig/item_Twig.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"0c3ed8c2-b1c7-461a-88d1-9aa7d900cbb8","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0858b098-879f-4395-bd45-7d4efc2ae6f4","path":"sprites/item_Twig/item_Twig.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d1db3505-cddb-4448-acea-22bf2c1d5157","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c63e821b-8ea7-4505-be0d-2b4a89ed95ea","path":"sprites/item_Twig/item_Twig.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d59aa19c-4a30-43dc-8409-2efee981fece","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
