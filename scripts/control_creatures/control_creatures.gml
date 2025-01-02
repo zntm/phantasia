@@ -84,44 +84,44 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
         
         if (_sfx != undefined)
         {
-            
-        }
-        if (!audio_is_playing(sfx))
-        {
-            sfx_time -= _delta_time;
-            
-            if (sfx_time > 0) exit;
-            
-            if (_is_passive)
+            if (!audio_is_playing(sfx))
             {
-                if (panic_time <= 0)
+                sfx_time -= _delta_time;
+            }
+            
+            if (sfx_time <= 0)
+            {
+                if (_is_passive)
                 {
-                    if (chance(_chance_sfx_idle))
+                    if (panic_time <= 0)
                     {
-                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
+                        if (chance(_chance_sfx_idle))
+                        {
+                            sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
+                            
+                            sfx_time = _sfx_time;
+                        }
+                    }
+                    else if (chance(_chance_sfx_panic))
+                    {
+                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, _volume_hostile, _world_height) ?? -1;
                         
                         sfx_time = _sfx_time;
                     }
+                    
+                    exit;
                 }
-                else if (chance(_chance_sfx_panic))
+                
+                if (_searching)
                 {
-                    sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, _volume_hostile, _world_height) ?? -1;
+                    // TODO: Add searching sfx
+                }
+                else if (chance(_chance_sfx_idle))
+                {
+                    sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
                     
                     sfx_time = _sfx_time;
                 }
-                
-                exit;
-            }
-            
-            if (_searching)
-            {
-                // TODO: Add searching sfx
-            }
-            else if (chance(_chance_sfx_idle))
-            {
-                sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
-                
-                sfx_time = _sfx_time;
             }
         }
         
