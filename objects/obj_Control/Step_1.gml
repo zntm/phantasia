@@ -13,7 +13,7 @@ if (_cx == infinity) || (_cy == infinity)
 	var _xplayer = obj_Player.x;
 	var _xtile = round(_xplayer / TILE_SIZE);
 	
-	var _camera_x = _xplayer - (_camera_width  / 2);
+	var _camera_x = _xplayer - (_camera_width / 2);
 	var _camera_y = obj_Player.y - (_camera_height / 2);
 	
 	if (global.world_settings.spawn_structures)

@@ -4221,13 +4221,21 @@ new ItemData("phantasia", item_Bloom_Planks_Wall, ITEM_TYPE_BIT.WALL)
     .set_drops("phantasia:bloom_planks_wall")
     .set_sfx("phantasia:tile.wood");
 
-new ItemData("phantasia", item_Bunny_Head, ITEM_TYPE_BIT.ARMOR_HELMET);
+new ItemData("phantasia", item_Bunny_Head, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("defense", 1)
+    .set_buff("gravity", -0.04);
 
-new ItemData("phantasia", item_Bunny_Shirt, ITEM_TYPE_BIT.ARMOR_BREASTPLATE);
+new ItemData("phantasia", item_Bunny_Shirt, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("defense", 2)
+    .set_buff("jump_height", 0.08);
 
-new ItemData("phantasia", item_Bunny_Pants, ITEM_TYPE_BIT.ARMOR_LEGGINGS);
+new ItemData("phantasia", item_Bunny_Pants, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    .set_buff("defense", 1)
+    .set_buff("jump_time", 0.7);
 
-new ItemData("phantasia", item_Flower_Crown, ITEM_TYPE_BIT.ARMOR_HELMET);
+new ItemData("phantasia", item_Flower_Crown, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("defense", 1)
+    .set_buff("luck", 1);
 
 new ItemData("phantasia", item_Lucky_Clover, ITEM_TYPE_BIT.ACCESSORY)
     .set_buff("luck", 2);
@@ -4655,7 +4663,8 @@ new ItemData("phantasia", item_Jack_O_Lantern, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_
 new ItemData("phantasia", item_Witchs_Broom, ITEM_TYPE_BIT.SWORD)
     .set_damage(19);
 
-new ItemData("phantasia", item_Vampire_Cape, ITEM_TYPE_BIT.ARMOR_BREASTPLATE);
+new ItemData("phantasia", item_Vampire_Cape, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("defense", 2);
 
 new ItemData("phantasia", item_Gravestone, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_flip_on(true, false)
@@ -4672,13 +4681,18 @@ new ItemData("phantasia", item_Snowball_Launcher, ITEM_TYPE_BIT.BOW)
     .set_damage(14)
     .set_ammo_type("phantasia:snowball");
 
-new ItemData("phantasia", item_Santa_Cap, ITEM_TYPE_BIT.ARMOR_HELMET);
+new ItemData("phantasia", item_Santa_Cap, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("defense", 1);
 
-new ItemData("phantasia", item_Santa_Suit, ITEM_TYPE_BIT.ARMOR_BREASTPLATE);
+new ItemData("phantasia", item_Santa_Suit, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("defense", 2);
 
-new ItemData("phantasia", item_Santa_Pants, ITEM_TYPE_BIT.ARMOR_LEGGINGS);
+new ItemData("phantasia", item_Santa_Pants, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    .set_buff("defense", 1);
 
-new ItemData("phantasia", item_Present_Hat, ITEM_TYPE_BIT.ARMOR_HELMET);
+new ItemData("phantasia", item_Present_Hat, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("defense", 1)
+    .set_buff("regeneration_value", 1);
 
 new ItemData("phantasia", item_Candy_Cane, ITEM_TYPE_BIT.SWORD)
     .set_damage(33);
@@ -4762,6 +4776,7 @@ new ItemData("phantasia", item_Balloon, ITEM_TYPE_BIT.ACCESSORY)
 new ItemData("phantasia", item_Magic_Pearl, ITEM_TYPE_BIT.ACCESSORY);
 
 new ItemData("phantasia", item_Froggy_Hat, ITEM_TYPE_BIT.ARMOR_HELMET, ITEM_TYPE_BIT.ACCESSORY)
+    .set_buff("defense", 2)
     .set_buff("jump_height", 0.15);
 
 new ItemData("phantasia", item_Sheep_Ram, ITEM_TYPE_BIT.ACCESSORY)
