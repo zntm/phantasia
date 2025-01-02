@@ -102,6 +102,7 @@ global.attributes_player = new Attributes()
 	.set_attribute("dash_power", 0)
 	.set_attribute("dash_cooldown", COOLDOWN_MAX_DASH)
 	.set_attribute("distance_station", 8)
-	.set_attribute("distance_container", 8);
+	.set_attribute("distance_container", 8)
+    .set_attribute("pet_max", 1);
 
 global.attributes_minmax = json_parse(buffer_load_text($"{DATAFILES_RESOURCES}\\data\\attributes.json"));

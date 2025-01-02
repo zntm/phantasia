@@ -4771,7 +4771,7 @@ new ItemData("phantasia", item_Wooden_Cane, ITEM_TYPE_BIT.ACCESSORY)
     .set_buff("jump_height", 2);
 
 new ItemData("phantasia", item_Balloon, ITEM_TYPE_BIT.ACCESSORY)
-    .set_buff("phantasia:gravitas", -0.2);
+    .set_buff("gravity", -0.2);
 
 new ItemData("phantasia", item_Magic_Pearl, ITEM_TYPE_BIT.ACCESSORY);
 
@@ -4938,7 +4938,7 @@ new ItemData("phantasia", item_Rocket_Boots, ITEM_TYPE_BIT.ACCESSORY);
 new ItemData("phantasia", item_Spring_Loaded_Boots, ITEM_TYPE_BIT.ACCESSORY);
 
 new ItemData("phantasia", item_Companion_Collar, ITEM_TYPE_BIT.ACCESSORY)
-    .set_buff("phantasia:companion", 2);
+    .set_buff("pet_max", 2);
 
 new ItemData("phantasia", item_Steadfast_Quiver, ITEM_TYPE_BIT.ACCESSORY);
 
@@ -4957,57 +4957,75 @@ new ItemData("phantasia", item_Piggy_Bank, ITEM_TYPE_BIT.CONTAINER)
     .set_container_sfx("phantasia:tile.container.~.chest");
 
 new ItemData("phantasia", item_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("movement_speed", 0.35)
     .set_buff("defense", 5);
 
 new ItemData("phantasia", item_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("movement_speed", 0.35)
     .set_buff("defense", 6);
 
 new ItemData("phantasia", item_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    .set_buff("movement_speed", 0.35)
     .set_buff("defense", 4);
 
 new ItemData("phantasia", item_Weathered_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("movement_speed", 0.2)
     .set_buff("defense", 4);
 
 new ItemData("phantasia", item_Weathered_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("movement_speed", 0.2)
     .set_buff("defense", 5);
 
 new ItemData("phantasia", item_Weathered_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    .set_buff("movement_speed", 0.2)
     .set_buff("defense", 3);
 
 new ItemData("phantasia", item_Tarnished_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("movement_speed", 0.08)
     .set_buff("defense", 3);
 
 new ItemData("phantasia", item_Tarnished_Copper_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("movement_speed", 0.08)
     .set_buff("defense", 3);
 
 new ItemData("phantasia", item_Tarnished_Copper_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    .set_buff("movement_speed", 0.08)
     .set_buff("defense", 2);
 
 new ItemData("phantasia", item_Iron_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("attack_damage", 1)
     .set_buff("defense", 8);
 
 new ItemData("phantasia", item_Iron_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("attack_damage", 2)
     .set_buff("defense", 9);
 
 new ItemData("phantasia", item_Iron_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    .set_buff("attack_damage", 1)
     .set_buff("defense", 6);
 
 new ItemData("phantasia", item_Gold_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("regeneration_speed", -0.1)
     .set_buff("defense", 10);
 
 new ItemData("phantasia", item_Gold_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("regeneration_speed", -0.2)
     .set_buff("defense", 12);
 
 new ItemData("phantasia", item_Gold_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    .set_buff("regeneration_speed", -0.3)
     .set_buff("defense", 8);
 
 new ItemData("phantasia", item_Platinum_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)
+    .set_buff("build_cooldown", -0.1)
     .set_buff("defense", 14);
 
 new ItemData("phantasia", item_Platinum_Breastplate, ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    .set_buff("build_cooldown", -0.2)
     .set_buff("defense", 17);
 
 new ItemData("phantasia", item_Platinum_Leggings, ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    .set_buff("build_cooldown", -0.15)
     .set_buff("defense", 11);
 
 new ItemData("phantasia", item_Rotten_Potato, ITEM_TYPE_BIT.CONSUMABLE)
