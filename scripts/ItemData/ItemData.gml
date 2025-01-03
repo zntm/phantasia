@@ -504,9 +504,6 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         set_damage(undefined, DAMAGE_TYPE.RANGED);
         
-        __ammo_type = "phantasia:bow";
-        __ammo_cooldown = 12;
-        
         static set_ammo_cooldown = function(_cooldown)
         {
             __ammo_cooldown = _cooldown;
@@ -516,7 +513,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         static get_ammo_cooldown = function()
         {
-            return __ammo_cooldown;
+            return self[$ "__ammo_cooldown"] ?? 12;
         }
         
         set_durability(1);
