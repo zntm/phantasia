@@ -200,7 +200,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		}
 		
 		physics_slow_down(xdirection, _delta_time, _item_data, _world_height);
-
+        
 		physics_x(buffs[$ "movement_speed"] * _delta_time, undefined, undefined, _world_height);
 		
 		physics_bury(undefined, _world_height);

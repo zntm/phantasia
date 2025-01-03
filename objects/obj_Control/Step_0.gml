@@ -354,7 +354,7 @@ for (var i = _delta_time; i > 0; --i)
 	{
 		timer_chunk_update -= 60;
 		
-		chunk_update();
+		chunk_update(_speed);
 	}
 }
 

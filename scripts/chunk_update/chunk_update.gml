@@ -1,6 +1,6 @@
 global.item_data_on_draw = {}
 
-function chunk_update()
+function chunk_update(_delta_time)
 {
 	randomize();
 	
@@ -56,7 +56,7 @@ function chunk_update()
 					
 					chunk[@ _xyzindex].scale_rotation_index |= 1 << 48;
 					
-					_function(chunk_xstart + _x, _y2, _z, _tile);
+					_function(chunk_xstart + _x, _y2, _z, _tile, _delta_time);
 				}
 			}
 		}

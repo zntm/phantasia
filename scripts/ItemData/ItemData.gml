@@ -1997,7 +1997,6 @@ new ItemData("phantasia", item_Mixed_Orchids, ITEM_TYPE_BIT.PLANT)
 
 new ItemData("phantasia", item_Blizzard_Planks, ITEM_TYPE_BIT.SOLID)
     .set_flip_on(true, false)
-    .set_is_plant_waveable()
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:blizzard_planks")
     .set_sfx("phantasia:tile.wood");
@@ -2453,43 +2452,7 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
             .set_text("Structure")
             .set_position(480, 172 - 32),
         new ItemMenu("textbox-string")
-            .set_placeholder([
-                [
-                    "abandoned",
-                    "ancient",
-                    "cursed",
-                    "large",
-                    "magical",
-                    "metal",
-                    "mystical",
-                    "ominous",
-                    "rusty",
-                    "scary",
-                    "small",
-                    "spooky",
-                    "stone",
-                    "vintage",
-                    "wooden"
-                ],
-                "_",
-                [
-                    "altar",
-                    "campsite",
-                    "chamber",
-                    "dungeon",
-                    "hideout",
-                    "house",
-                    "hut",
-                    "outpost",
-                    "portal",
-                    "room",
-                    "ruin",
-                    "shrine",
-                    "statue",
-                    "tower",
-                    "watchtower"
-                ]
-            ])
+            .set_placeholder(global.item_menu_placeholder_structure_id)
             .set_position(480, 172)
             .set_scale(32, 5)
             .set_variable("structure_id"),
@@ -2533,10 +2496,10 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
                 
                 structure_export(
                     _tile[$ "variable.structure_id"],
-                    round((_instance.bbox_left   + TILE_SIZE_H) / TILE_SIZE),
-                    round((_instance.bbox_top    + TILE_SIZE_H) / TILE_SIZE),
-                    round((_instance.bbox_right  - TILE_SIZE_H) / TILE_SIZE),
-                    round((_instance.bbox_bottom - TILE_SIZE_H) / TILE_SIZE)
+                    floor(_instance.bbox_left  / TILE_SIZE),
+                    floor(_instance.bbox_top   / TILE_SIZE),
+                    ceil(_instance.bbox_right  / TILE_SIZE),
+                    ceil(_instance.bbox_bottom / TILE_SIZE)
                 );
             })
     ]);
@@ -5295,43 +5258,7 @@ new ItemData("phantasia", item_Structure_Point, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
             .set_text("Structure")
             .set_position(480, 172 - 32),
         new ItemMenu("textbox-string")
-            .set_placeholder([
-                [
-                    "abandoned",
-                    "ancient",
-                    "cursed",
-                    "large",
-                    "magical",
-                    "metal",
-                    "mystical",
-                    "ominous",
-                    "rusty",
-                    "scary",
-                    "small",
-                    "spooky",
-                    "stone",
-                    "vintage",
-                    "wooden"
-                ],
-                "_",
-                [
-                    "altar",
-                    "campsite",
-                    "chamber",
-                    "dungeon",
-                    "hideout",
-                    "house",
-                    "hut",
-                    "outpost",
-                    "portal",
-                    "room",
-                    "ruin",
-                    "shrine",
-                    "statue",
-                    "tower",
-                    "watchtower"
-                ]
-            ])
+            .set_placeholder(global.item_menu_placeholder_structure_id)
             .set_position(480, 172)
             .set_scale(32, 5)
             .set_variable("structure_id"),

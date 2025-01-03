@@ -162,6 +162,44 @@ if (!directory_exists(DIRECTORY_DATA_ADDON))
 
 #endregion
 
+global.item_menu_placeholder_structure_id = [
+   [
+       "abandoned",
+       "ancient",
+       "cursed",
+       "large",
+       "magical",
+       "metal",
+       "mystical",
+       "ominous",
+       "rusty",
+       "scary",
+       "small",
+       "spooky",
+       "stone",
+       "vintage",
+       "wooden"
+   ],
+   "_",
+   [
+       "altar",
+       "campsite",
+       "chamber",
+       "dungeon",
+       "hideout",
+       "house",
+       "hut",
+       "outpost",
+       "portal",
+       "room",
+       "ruin",
+       "shrine",
+       "statue",
+       "tower",
+       "watchtower"
+   ]
+];
+
 global.version_game = {}
 
 global.version_game[$ "1_1.0.0"] = 0;

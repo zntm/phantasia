@@ -1,4 +1,4 @@
-function item_update_crop(_x, _y, _z, _tile)
+function item_update_crop(_x, _y, _z, _tile, _delta_time)
 {
     var _world_data = global.world_data;
     var _surface3 = _world_data.biome.surface;
@@ -14,7 +14,7 @@ function item_update_crop(_x, _y, _z, _tile)
         worldgen_get_heat(_x, _y, (_surface3 >> 16) & 0xffff, _seed),
         _crop_condition_heat_peak,
         _crop_condition_heat_falloff,
-    )) * random_range(0.9, 1.1);
+    )) * random_range(0.9, 1.1) * _delta_time;
     
     var _growth_time = _tile[$ "variable.growth_time"];
     
@@ -46,7 +46,7 @@ function item_update_crop(_x, _y, _z, _tile)
         worldgen_get_humidity(_x, _y, _surface3 & 0xffff, _seed),
         _crop_condition_humidity_peak,
         _crop_condition_humidity_falloff,
-    )) * random_range(0.9, 1.1);
+    )) * random_range(0.9, 1.1) * _delta_time;
     
     var _wither_time = _tile[$ "variable.wither_time"];
     
