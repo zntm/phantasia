@@ -368,10 +368,10 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     variable = undefined;
     variable_names = undefined;
     
-    static set_variable = function(_variable)
+    static set_tile_variable = function(_variable)
     {
         variable = _variable;
-        variable_names = struct_get_names(variable);
+        variable_names = struct_get_names(_variable);
         
         return self;
     }
@@ -494,7 +494,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static get_ammo_type = function()
     {
-        return __ammo_type;
+        return self[$ "__ammo_type"] ?? "phantasia:bow";
     }
     
     if (type & ITEM_TYPE_BIT.BOW)
@@ -993,7 +993,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
                 wither_time: 0
             }
             
-            set_variable(__crop);
+            set_tile_variable(__crop);
             set_on_draw_update(item_update_crop);
             
             static set_crop_values = function(_maturity_limit, _wither_limit, _heat_peak, _heat_falloff, _humidity_peak, _humidity_falloff)
@@ -2435,7 +2435,7 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_
             draw_rectangle_colour(_id.bbox_left, _id.bbox_top, _id.bbox_right - 1, _id.bbox_bottom - 1, #ff0000, #00ff00, #0000ff, #ffff00, true);
         }
     })
-    .set_variable({
+    .set_tile_variable({
         structure_id: "Structure",
         xoffset: 0,
         yoffset: 0,
@@ -2515,7 +2515,7 @@ new ItemData("phantasia", item_Short_Dead_Grass, ITEM_TYPE_BIT.PLANT)
     );
 
 new ItemData("phantasia", item_Structure_Loot, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.MENU)
-    .set_variable({
+    .set_tile_variable({
         loot_id: "Loot"
     })
     .set_menu([
@@ -5244,7 +5244,7 @@ new ItemData("phantasia", item_Palm_Door, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:palm_door");
 
 new ItemData("phantasia", item_Structure_Point, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.MENU)
-    .set_variable({
+    .set_tile_variable({
         structure_id: "Structure",
         placement_xoffset: 0,
         placement_yoffset: 0,
