@@ -2,6 +2,9 @@
 #macro INVENTORY_SLOT_HEIGHT 16
 #macro INVENTORY_SLOT_SCALE  3
 
+#macro INVENTORY_BACKPACK_XOFFSET 0
+#macro INVENTORY_BACKPACK_YOFFSET 16
+
 #macro INVENTORY_EMPTY -1
 
 enum INVENTORY_LENGTH {
@@ -43,29 +46,26 @@ function load_inventory()
 		var _i = _inventory_instances[$ _inventory_name];
 		
 		var _inventory_length = array_length(_i);
-	
+        
 		for (var j = 0; j < _inventory_length; ++j)
 		{
 			var _xoffset = 0;
 			var _yoffset = 0;
-		
+            
 			var _index = 0;
 			var _slot_type;
-		
+            
 			if (_inventory_name == "base")
 			{
 				_xoffset = GUI_SAFE_ZONE_X + ((j % INVENTORY_LENGTH.ROW) * INVENTORY_SLOT_SCALE * INVENTORY_SLOT_WIDTH);
 				_yoffset = GUI_SAFE_ZONE_Y + (floor(j / INVENTORY_LENGTH.ROW) * INVENTORY_SLOT_SCALE * INVENTORY_SLOT_HEIGHT);
-	
+                
 				if (j >= INVENTORY_LENGTH.ROW)
 				{
-					#macro INVENTORY_BACKPACK_XOFFSET 0
-					#macro INVENTORY_BACKPACK_YOFFSET 16
-		
 					_xoffset += INVENTORY_BACKPACK_XOFFSET;
 					_yoffset += INVENTORY_BACKPACK_YOFFSET;
 				}
-			
+                
 				_index = 2;
 				_slot_type = SLOT_TYPE.BASE;
 			}
@@ -73,7 +73,7 @@ function load_inventory()
 			{
 				_xoffset = _gui_width  - GUI_SAFE_ZONE_X - (INVENTORY_SLOT_WIDTH  * INVENTORY_SLOT_SCALE * 2) - (1 * INVENTORY_SLOT_SCALE);
 				_yoffset = _gui_height - GUI_SAFE_ZONE_Y - (INVENTORY_SLOT_HEIGHT * INVENTORY_SLOT_SCALE * 3);
-			
+                
 				_index = 3;
 				_slot_type = SLOT_TYPE.ARMOR_HELMET;
 			}
@@ -81,16 +81,16 @@ function load_inventory()
 			{
 				_xoffset = _gui_width  - GUI_SAFE_ZONE_X - (INVENTORY_SLOT_WIDTH  * INVENTORY_SLOT_SCALE * 2) - (1 * INVENTORY_SLOT_SCALE);
 				_yoffset = _gui_height - GUI_SAFE_ZONE_Y - (INVENTORY_SLOT_HEIGHT * INVENTORY_SLOT_SCALE * 2);
-			
+                
 				_index = 4;
 				_slot_type = SLOT_TYPE.ARMOR_BREASTPLATE;
-		
+                
 			}
 			else if (_inventory_name == "armor_leggings")
 			{
 				_xoffset = _gui_width  - GUI_SAFE_ZONE_X - (INVENTORY_SLOT_WIDTH  * INVENTORY_SLOT_SCALE * 2) - (1 * INVENTORY_SLOT_SCALE);
 				_yoffset = _gui_height - GUI_SAFE_ZONE_Y - (INVENTORY_SLOT_HEIGHT * INVENTORY_SLOT_SCALE * 1);
-			
+                
 				_index = 5;
 				_slot_type = SLOT_TYPE.ARMOR_LEGGINGS;
 			}
@@ -98,7 +98,7 @@ function load_inventory()
 			{
 				_xoffset = _gui_width  - GUI_SAFE_ZONE_X - (INVENTORY_SLOT_WIDTH  * INVENTORY_SLOT_SCALE);
 				_yoffset = _gui_height - GUI_SAFE_ZONE_Y - (INVENTORY_SLOT_HEIGHT * INVENTORY_SLOT_SCALE * (j + 1));
-			
+                
 				_index = 6;
 				_slot_type = SLOT_TYPE.ACCESSORY;
 			}
@@ -114,7 +114,7 @@ function load_inventory()
 				yoffset = _yoffset;
 				
 				inventory_placement = j;
-			
+                
 				type = _inventory_name;
 				slot_type = _slot_type;
 			

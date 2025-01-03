@@ -1,3 +1,6 @@
+#macro MENU_WORLD_NAME_RANDOM_ONCE  choose("Once", "Thrice", "Twice")
+#macro MENU_WORLD_NAME_RANDOM_START choose("The", "Thy", choose("Galloping", "Infinity", MENU_WORLD_NAME_RANDOM_ONCE, "Whispering") + ", in the")
+
 placeholder = loca_translate("menu.create_world.enter_name");
 text = global.world.name;
 
@@ -330,9 +333,6 @@ text_random = function()
 		_name = $"{_adjective} {_preposition} {_noun}";
 	}
 	
-	#macro MENU_WORLD_NAME_RANDOM_ONCE  choose("Once", "Thrice", "Twice")
-	#macro MENU_WORLD_NAME_RANDOM_START choose("The", "Thy", choose("Galloping", "Infinity", MENU_WORLD_NAME_RANDOM_ONCE, "Whispering") + ", in the")
-	
 	var _v2 = irandom(5);
 	
 	if (_v2 == 0)
@@ -353,7 +353,7 @@ text_random = function()
 	{
 		_name = $"{MENU_WORLD_NAME_RANDOM_START} {choose("Chronicle", "Epilogue", "Fable", "History", "Legend", "Myth", "Narrative", "Report", "Saga", "Spiel", "Story", "Tale")} of the {_name}";
 	}
-
+    
 	text = _name;
 	
 	global.world.name = _name;

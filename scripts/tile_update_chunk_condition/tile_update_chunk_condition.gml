@@ -20,7 +20,7 @@ function tile_update_chunk_condition(_inst, _tile, _z, _condition = 0)
 			_update_condition_boolean |= TILE_UPDATE_CHUNK_CONDITION.CACHE_DRAW_UPDATE;
 		}
         
-		var _zbit= 1 << _z;
+		var _zbit = 1 << _z;
 		var _zindex = _z << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
         
 		var _condition_cache_draw_update = _condition & TILE_UPDATE_CHUNK_CONDITION.CACHE_DRAW_UPDATE;

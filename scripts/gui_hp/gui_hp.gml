@@ -1,6 +1,9 @@
 #macro GUI_STATS_AMOUNT_ROW 10
 #macro GUI_SEGMENT_THRESHOLD_HP 5
 
+#macro GUI_HP_XSCALE 2
+#macro GUI_HP_YSCALE 2
+
 function gui_hp(_gui_width, _gui_height, _hp, _hp_max, _hp_critical)
 {
 	if (!surface_exists(surface_hp))
@@ -11,14 +14,11 @@ function gui_hp(_gui_width, _gui_height, _hp, _hp_max, _hp_critical)
 	surface_set_target(surface_hp);
 	draw_clear_alpha(DRAW_CLEAR_COLOUR, DRAW_CLEAR_ALPHA);
 	
-	#macro GUI_HP_XSCALE 2
-	#macro GUI_HP_YSCALE 2
-	
 	draw_set_align(fa_right, fa_bottom);
 	draw_set_font(global.font_current);
 	
 	draw_text(_gui_width - GUI_START_XOFFSET, GUI_START_YOFFSET, $"HP: {_hp}/{_hp_max}");
-
+    
 	draw_set_halign(fa_left);
 	
 	var _width  = sprite_get_width(gui_Heart)  * GUI_HP_XSCALE;
@@ -26,7 +26,7 @@ function gui_hp(_gui_width, _gui_height, _hp, _hp_max, _hp_critical)
 	
 	var _xstart = _gui_width - (_width * GUI_STATS_AMOUNT_ROW) - GUI_START_XOFFSET;
 	var _hp_clamped = max(GUI_SEGMENT_THRESHOLD_HP, _hp);
-
+    
 	randomize();
 	
 	var _w = _width  + 1;
