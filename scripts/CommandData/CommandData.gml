@@ -15,43 +15,43 @@ enum CHAT_COMMAND_PERMISSION {
 
 function CommandData() constructor
 {
-	__type = COMMAND_DATA_TYPE.DEFAULT;
+	___type = COMMAND_DATA_TYPE.DEFAULT;
 	
 	static get_type = function()
 	{
-		return __type;
+		return ___type;
 	}
 	
 	static set_description = function(_description)
 	{
-		__description = _description;
+		___description = _description;
 		
 		return self;
 	}
 	
 	static get_description = function()
 	{
-		return self[$ "__description"];
+		return self[$ "___description"];
 	}
 	
 	static add_subcommand = function(_name, _subcommand)
 	{
-		__type = COMMAND_DATA_TYPE.SUBCOMMAND;
+		___type = COMMAND_DATA_TYPE.SUBCOMMAND;
 		
-		self[$ "__subcommands"] ??= {}
-		self[$ "__subcommands_names"] ??= [];
+		self[$ "___subcommands"] ??= {}
+		self[$ "___subcommands_names"] ??= [];
 		
-		__subcommands[$ _name] = _subcommand;
+		___subcommands[$ _name] = _subcommand;
 		
-		array_push(__subcommands_names, _name);
-		array_sort(__subcommands_names, sort_alphabetical_descending);
+		array_push(___subcommands_names, _name);
+		array_sort(___subcommands_names, sort_alphabetical_descending);
 		
 		return self;
 	}
 	
 	static get_subcommand = function(_name)
 	{
-		var _subcommands = self[$ "__subcommands"];
+		var _subcommands = self[$ "___subcommands"];
 		
 		if (_subcommands == undefined)
 		{
@@ -63,53 +63,53 @@ function CommandData() constructor
 	
 	static get_subcommand_names = function(_name)
 	{
-		return self[$ "__subcommands_names"];
+		return self[$ "___subcommands_names"];
 	}
 	
 	static add_parameter = function(_parameter)
 	{
-		self[$ "__parameter"] ??= [];
-		self[$ "__parameter_length"] ??= 0;
+		self[$ "___parameter"] ??= [];
+		self[$ "___parameter_length"] ??= 0;
 		
-		array_push(__parameter, _parameter);
+		array_push(___parameter, _parameter);
 		
-		++__parameter_length;
+		++___parameter_length;
 		
 		return self;
 	}
 	
 	static get_parameter = function(_index)
 	{
-		return self[$ "__parameter"][_index];
+		return self[$ "___parameter"][_index];
 	}
 	
 	static get_parameter_length = function()
 	{
-		return self[$ "__parameter_length"] ?? 0;
+		return self[$ "___parameter_length"] ?? 0;
 	}
 	
 	static set_function = function(_function)
 	{
-		__function = _function;
+		___function = _function;
 		
 		return self;
 	}
 	
 	static get_function = function()
 	{
-		return self[$ "__function"];
+		return self[$ "___function"];
 	}
     
     static set_permissions = function()
     {
-        if (self[$ "__permissions"] == undefined)
+        if (self[$ "___permissions"] == undefined)
         {
-            __permissions = 0;
+            ___permissions = 0;
         }
         
         for (var i = 0; i < argument_count; ++i)
         {
-            __permissions |= 1 << argument[i];
+            ___permissions |= 1 << argument[i];
         }
         
         return self;
@@ -117,7 +117,7 @@ function CommandData() constructor
     
     static get_permissions = function()
     {
-        return self[$ "__permissions"] ?? 0;
+        return self[$ "___permissions"] ?? 0;
     }
 }
 

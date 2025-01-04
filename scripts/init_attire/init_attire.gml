@@ -4,7 +4,37 @@ function init_attire(_directory, _prefix = "phantasia", _type = 0)
 {
 	if (_type & INIT_TYPE.RESET)
 	{
-		carbasa_reset("attire");
+        static __delete = function(_data)
+        {
+            if (_data == undefined) exit;
+            
+            var _length = array_length(_data);
+            
+            for (var i = 0; i < _length; ++i)
+            {
+                sprite_delete(_data[i]);
+            }
+        }
+        
+		var _attire_data = global.attire_data;
+        
+        var _names = struct_get_names(_attire_data);
+        var _length = array_length(_names);
+        
+        for (var i = 0; i < _length; ++i)
+        {
+            var _data = _attire_data[$ _names[i]];
+            var _icon = _data.icon;
+            
+            if (sprite_exists(_icon))
+            {
+                sprite_delete(_icon);
+            }
+            
+            __delete(_data.colour);
+            __delete(_data.white);
+        }
+        
 		init_data_reset("attire_data");
 	}
 	

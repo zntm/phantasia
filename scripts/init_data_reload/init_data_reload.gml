@@ -157,7 +157,7 @@ function init_data_reload(_directory, _prefix, _type)
 	}
 	
 	gc_collect();
-	carbasa_refresh();
+    
 }
 
 call_later(1, time_source_units_frames, function()
