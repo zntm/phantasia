@@ -46,7 +46,7 @@ function gui_effects()
 		
 		draw_sprite_ext(gui_Effect_Border, _data.get_is_negative(), _x, _y, GUI_EFFECT_SCALE, GUI_EFFECT_SCALE, 0, c_white, 1);
 		
-		carbasa_draw("effects", _name, 0, _x, _y, GUI_EFFECT_SCALE, GUI_EFFECT_SCALE, 0, c_white, 1);
+		draw_sprite_ext(_data.get_sprite(), 0, _x, _y, GUI_EFFECT_SCALE, GUI_EFFECT_SCALE, 0, c_white, 1);
 		
 		draw_set_halign(fa_center);
 		

@@ -12,15 +12,24 @@ enum EFFECT_ENUM {
 	LEVEL,
 }
 
-function EffectData(_type = "phantasia:constant") constructor
+function EffectData(_sprite, _type = "phantasia:constant") constructor
 {
+    __sprite = _sprite;
+    
+    static get_sprite = function()
+    {
+        return __sprite;
+        return __sprite;
+    }
+    
 	__type = _type;
-	__value = 0;
 	
 	static get_type = function()
 	{
 		return __type;
 	}
+    
+    __value = 0;
 	
 	static set_is_negative = function(_negative)
 	{
@@ -219,11 +228,7 @@ function init_effects(_directory, _prefix = "phantasia", _type = 0)
 		
 		sprite_set_offset(_sprite, sprite_get_width(_sprite) / 2, sprite_get_height(_sprite) / 2);
 		
-		carbasa_sprite_add("effects", _sprite, $"{_prefix}:{_file}");
-		
-		sprite_delete(_sprite);
-		
-		global.effect_data[$ $"{_prefix}:{_file}"] = new EffectData(_data[$ "type"])
+		global.effect_data[$ $"{_prefix}:{_file}"] = new EffectData(_sprite, _data[$ "type"])
 			.set_is_negative(_data[$ "is_negative"] ?? 0)
 			.set_base_value(_data[$ "base_value"])
 			.set_min_value(_data[$ "min_value"])
@@ -239,6 +244,4 @@ function init_effects(_directory, _prefix = "phantasia", _type = 0)
 	global.effect_data_names = struct_get_names(global.effect_data);
 	
 	array_sort(global.effect_data_names, sort_alphabetical_descending);
-	
-	carbasa_buffer("effects");
 }
