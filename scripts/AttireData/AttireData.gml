@@ -7,11 +7,7 @@ function AttireData(_name, _index, _type, _icon) constructor
 	
 	sprite_set_offset(_sprite, sprite_get_width(_sprite) / 2, sprite_get_height(_sprite) / 2);
 	
-	carbasa_sprite_add("attire", _sprite, $"{_name}:{_type}:{_index}_icon");
-	
-	sprite_delete(_sprite);
-	
-	icon = $"{_name}:{_type}:{_index}_icon";
+	icon = _sprite;
 	
 	static set_colour = function(_sprite)
 	{

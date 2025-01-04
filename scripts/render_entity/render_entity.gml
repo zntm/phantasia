@@ -18,16 +18,21 @@ function render_entity(_surface_index_offset)
 		return (_immunity_frame != 0 ? _alpha * _immunity_alpha : _alpha);
 	}
 	
-	static __draw_player_attire = function(_sprite, _name, _x, _y, _arm_index, _alpha)
+	static __draw_player_attire = function(_sprite, _x, _y, _index, _alpha)
 	{
-		if (_sprite == 0)
+		if (!is_array(_sprite))
 		{
-			carbasa_draw("attire", _name, image_index, _x, _y, image_xscale, image_yscale, image_angle, c_white, 1);
+			draw_sprite_ext(_sprite, image_index, _x, _y, image_xscale, image_yscale, _index, c_white, 1);
+            
+            exit;
 		}
-		else
-		{
-			carbasa_draw("attire", _name, ((_sprite == 2) && ((_name == "shirt") || (_name == "shirt_detail")) ? _arm_index : image_index), _x, _y, image_xscale, image_yscale, image_angle, c_white, 1);
-		}
+        
+        var _length = array_length(_sprite);
+        
+        for (var i = 0; i < _length; ++i)
+        {
+            draw_sprite_ext(_sprite[i], image_index, _x, _y, image_xscale, image_yscale, _index, c_white, 1);
+        }
 	}
 	
 	static __draw_player_body = function(_sprite, _index, _x, _y, _xscale, _yscale, _angle, _alpha, _white, _colour)
@@ -302,17 +307,17 @@ function render_entity(_surface_index_offset)
 						var _arm_index2 = (((_name2 == "shirt") || (_name2 == "shirt_detail")) && (_index2 == 2) ? _arm_index : image_index);
 						
 						var _colour = _a.colour;
-							
-						if (_colour != undefined) && (_colour > _index2)
+                        
+						if (_colour != undefined) && (array_length(_colour) > _index2)
 						{
 							shader_set(shd_Colour_Replace);
-					
+                            
 							shader_set_uniform_i_array(_shader_colour_replace_match, _colour_white);
 							shader_set_uniform_i_array(_shader_colour_replace_replace, _colour_data[_.colour]);
-					
+                            
 							shader_set_uniform_i(_shader_colour_replace_amount, PLAYER_COLOUR_BASE_AMOUNT + PLAYER_COLOUR_OUTLINE_AMOUNT);
-						
-							__draw_player_attire(_colour, $"{_name2}:colour:{_index}_{_index2}", _x, _y, _arm_index2, _image_alpha);
+                            
+							__draw_player_attire(_colour, _x, _y, _arm_index2, _image_alpha);
 							
 							shader_reset();
 						}
@@ -321,16 +326,16 @@ function render_entity(_surface_index_offset)
 						
 						if (_white != undefined) && (_white > _index2)
 						{
-							__draw_player_attire(_white, $"{_name2}:white:{_index}_{_index2}", _x, _y, _arm_index2, _image_alpha);
+							__draw_player_attire(_white, _x, _y, _arm_index2, _image_alpha);
 						}
 						
 						continue;
 					}
 					
 					var _ = _attire[$ _name];
-							
+					
 					var _a = _attire_data[$ _name];
-							
+					
 					if (_a == undefined) continue;
 					
 					var _index = _.index;
@@ -344,14 +349,14 @@ function render_entity(_surface_index_offset)
 					if (_colour != undefined)
 					{
 						shader_set(shd_Colour_Replace);
-					
+                        
 						shader_set_uniform_i_array(_shader_colour_replace_match, _colour_white);
 						shader_set_uniform_i_array(_shader_colour_replace_replace, _colour_data[_.colour]);
-					
+                        
 						shader_set_uniform_i(_shader_colour_replace_amount, PLAYER_COLOUR_BASE_AMOUNT + PLAYER_COLOUR_OUTLINE_AMOUNT);
-								
-						__draw_player_attire(_colour, $"{_name}:colour:{_index}", _x, _y, _arm_index, _image_alpha);
-								
+						
+						__draw_player_attire(_colour, _x, _y, _arm_index, _image_alpha);
+						
 						shader_reset();
 					}
 						
@@ -359,7 +364,7 @@ function render_entity(_surface_index_offset)
 						
 					if (_white != undefined)
 					{
-						__draw_player_attire(_white, $"{_name}:white:{_index}", _x, _y, _arm_index, _image_alpha);
+						__draw_player_attire(_white, _x, _y, _arm_index, _image_alpha);
 					}
 				}
 				
@@ -407,20 +412,20 @@ function render_entity(_surface_index_offset)
 			{
 				random_set_seed(seed);
 				draw_primitive_begin(pr_linestrip);
-
+                
 				var _x = xfrom;
 				var _y = yfrom;
 				
 				var _max = min(1, life / 4);
-
+                
 				for (var i = 0; i <= _max; i += 1 / WEATHER_LIGHTING_SPLIT)
 				{
 					draw_vertex(lerp(_x, x, i), lerp(_y, y, i));
-	
+                    
 					_x += random_range(-WEATHER_LIGHTNING_OFFSET, WEATHER_LIGHTNING_OFFSET);
 					_y += random_range(-WEATHER_LIGHTNING_OFFSET, WEATHER_LIGHTNING_OFFSET);
 				}
-
+                
 				draw_primitive_end();
 			}
 			

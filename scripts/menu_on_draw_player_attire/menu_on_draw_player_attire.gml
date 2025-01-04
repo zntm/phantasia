@@ -24,7 +24,7 @@ function menu_on_draw_player_attire(_x, _y, _id, _xmultiplier, _ymultiplier, _co
 	
 	shader_set_uniform_i(global.shader_colour_replace_amount, PLAYER_COLOUR_BASE_AMOUNT + PLAYER_COLOUR_OUTLINE_AMOUNT);
 	
-	carbasa_draw("attire", _attire_data.icon, 0, _x * _xmultiplier, _y * _ymultiplier, _xmultiplier * 2, _ymultiplier * 2, 0, c_white, 1);
+    draw_sprite_ext(_attire_data.icon, 0, _x * _xmultiplier, _y * _ymultiplier, _xmultiplier * 2, _ymultiplier * 2, 0, c_white, 1);
 	
 	shader_reset();
 }

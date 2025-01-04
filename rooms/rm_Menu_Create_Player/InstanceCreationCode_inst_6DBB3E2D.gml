@@ -41,7 +41,7 @@ for (var i = 0; i < 6; ++i)
 	with (instance_create_layer(x + (52 * i), y, "Instances", obj_Menu_Button))
 	{
 		array_push(inst_6DBB3E2D.options, id);
-			
+		
 		image_xscale = 2.5;
 		image_yscale = 2.5;
 		

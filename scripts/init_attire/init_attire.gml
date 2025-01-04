@@ -48,31 +48,19 @@ function init_attire(_directory, _prefix = "phantasia", _type = 0)
 		
 		if (file_exists($"{_directory}.png"))
 		{
-			var _sprite = sprite_add($"{_directory}.png", __get_index(_name), false, false, 16, 24);
-			
-			carbasa_sprite_add("attire", _sprite, $"{_name}:{_type}:{_index}");
-			
-			sprite_delete(_sprite);
-			
-			return 0;
+			return sprite_add($"{_directory}.png", __get_index(_name), false, false, 16, 24);
 		}
 		
 		if (directory_exists(_directory))
 		{
-			var _length = 0;
+            var _array = [];
+            
+            for (var i = 0; file_exists($"{_directory}/{i}.png"); ++i)
+            {
+                array_push(_array, sprite_add($"{_directory}/{i}.png", __get_index(_name, i), false, false, 16, 24));
+            }
 			
-			while (file_exists($"{_directory}/{_length}.png"))
-			{
-				var _sprite = sprite_add($"{_directory}/{_length}.png", __get_index(_name, _length), false, false, 16, 24);
-				
-				carbasa_sprite_add("attire", _sprite, $"{_name}:{_type}:{_index}_{_length}");
-				
-				sprite_delete(_sprite);
-				
-				++_length;
-			}
-			
-			return _length;
+			return _array;
 		}
 	}
 	
@@ -98,6 +86,4 @@ function init_attire(_directory, _prefix = "phantasia", _type = 0)
 			debug_timer("init_attire", $"Added Attire Type: '{_file}', Index: '{j}'");
 		}
 	}
-	
-	carbasa_buffer("attire");
 }

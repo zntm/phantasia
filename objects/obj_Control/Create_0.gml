@@ -273,14 +273,14 @@ if (DEVELOPER_MODE)
 		
 		var _names  = struct_get_names(_item_data);
 		var _length = array_length(_names) - 1;
-	
+        
 		for (var i = 0; i < INVENTORY_LENGTH.BASE; ++i)
 		{
 			var _item_id = _names[irandom(_length)];
-		
+            
 			global.inventory.base[@ i] = new Inventory(_item_id, _item_data[$ _item_id].get_inventory_max());
 		}
-	
+        
 		obj_Control.surface_refresh_inventory = true;
 		refresh_craftables(true);
 	});
