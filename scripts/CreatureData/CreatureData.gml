@@ -131,7 +131,7 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 		
 		if (!is_array(_sprite))
 		{
-			carbasa_sprite_delete("creatures", _name);
+			sprite_delete(_sprite);
 			
 			exit;
 		}
@@ -140,7 +140,7 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 		
 		for (var i = 0; i < _length; ++i)
 		{
-			carbasa_sprite_delete("creatures", $"{_name}{i}");
+			sprite_delete(_sprite[i]);
 		}
 	}
 	
@@ -153,12 +153,11 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 		
 		for (var i = 0; i < _length; ++i)
 		{
-			var _name = _names[i];
-			var _data = _creature_data[$ _name];
+			var _data = _creature_data[$ _names[i]];
 			
-			__sprite_delete(_name, _data.sprite_idle);
-			__sprite_delete(_name, _data.sprite_moving);
-			__sprite_delete(_name, _data.sprite_white);
+			__sprite_delete(_data.sprite_idle);
+			__sprite_delete(_data.sprite_moving);
+			__sprite_delete(_data.sprite_white);
 		}
 		
 		init_data_reset("creature_data");
@@ -218,8 +217,6 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
         
         debug_timer("init_creature", $"Added Creature: '{_file}'");
 	}
-	
-	carbasa_buffer("creatures");
 }
 
 /*

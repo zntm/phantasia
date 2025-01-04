@@ -1,1 +1,0 @@
-carbasa_refresh();

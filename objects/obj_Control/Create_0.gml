@@ -324,5 +324,3 @@ if (DEVELOPER_MODE)
 	
 	dbg_text(ref_create(id, "debug_text"));
 }
-
-call_later(1, time_source_units_frames, carbasa_refresh);

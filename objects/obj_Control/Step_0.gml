@@ -113,8 +113,6 @@ var _window_height = window_get_height();
 
 if (window_width != _window_width) || (window_height != _window_height)
 {
-	carbasa_refresh();
-	
 	window_width  = _window_width;
 	window_height = _window_height;
 	

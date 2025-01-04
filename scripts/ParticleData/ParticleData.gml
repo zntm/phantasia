@@ -11,7 +11,7 @@ function init_particles(_directory, _prefix = "phantasia", _type = 0)
 		
 		for (var i = 0; i < _length; ++i)
 		{
-			carbasa_sprite_delete("particle", _names[i]);
+			sprite_delete(_particle_data[$ _names[i]].sprite);
 		}
 		
 		init_data_reset("particle_data");
@@ -74,6 +74,4 @@ function init_particles(_directory, _prefix = "phantasia", _type = 0)
 			bbox_bottom: _bbox_bottom,
 		}
 	}
-	
-	carbasa_buffer("particle");
 }
