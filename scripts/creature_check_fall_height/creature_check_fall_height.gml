@@ -4,7 +4,7 @@ function creature_check_fall_height(_x, _y, _direction, _max, _world_height)
 	
 	var _fall_amount = 0;
 
-	repeat (AI_CREATURE_FALL_CHECK - 1)
+	repeat (_max)
 	{
 		if (tile_meeting(_x, _y + ((_fall_amount + 1) * _tile_size), undefined, undefined, _world_height) != -1) break;
 		

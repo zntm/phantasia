@@ -10,8 +10,9 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 	var _chance_jump_default = 0.30 * _delta_time;
 	var _chance_jump_double  = 0.08 * _delta_time;
 	
-	var _chance_sfx_idle  = 0.03 * _delta_time;
-	var _chance_sfx_panic = 0.05 * _delta_time;
+	var _chance_sfx_idle   = 0.03 * _delta_time;
+	var _chance_sfx_panic  = 0.05 * _delta_time;
+	var _chance_sfx_search = 0.02 * _delta_time;
 	
 	var _camera_x2 = _camera_x + _camera_width;
 	var _camera_y2 = _camera_y + _camera_height;
@@ -114,7 +115,12 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                 
                 if (_searching)
                 {
-                    // TODO: Add searching sfx
+                    if (chance(_chance_sfx_search))
+                    {
+                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.search", undefined, _volume_hostile, _world_height) ?? -1;
+                        
+                        sfx_time = _sfx_time;
+                    }
                 }
                 else if (chance(_chance_sfx_idle))
                 {
