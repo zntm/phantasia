@@ -95,7 +95,7 @@ function carbasa_sprite_add(_page, _sprite, _name)
 			for (var j = _current_x; j < _size; ++j)
 			{
 				if (j >= _size) break;
-			
+                    
 				for (var l = _current_y; l < _size; ++l)
 				{
 					if (l + _height >= _size)

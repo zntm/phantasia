@@ -113,9 +113,9 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 		
 		var _array = [];
 		
-		for (var i = 0; file_exists($"{_directory}/{_index}.png"); ++i)
+		for (var i = 0; file_exists($"{_directory}/{i}.png"); ++i)
 		{
-			var _sprite = sprite_add($"{_directory}/{_index}.png", _frames, false, false, 0, 0);
+			var _sprite = sprite_add($"{_directory}/{i}.png", _frames, false, false, 0, 0);
 			
 			sprite_set_offset(_sprite, _xorigin ?? (sprite_get_width(_sprite) / 2), _yorigin ?? sprite_get_height(_sprite));
 			
@@ -171,7 +171,7 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 	{
 		var _file = _files[i];
 		
-		show_debug_message($"[Init] : [Creatures] * Loading '{_file}'...");
+		debug_timer("init_creature");
 		
 		var _ = json_parse(buffer_load_text($"{_directory}/{_file}/data.json"));
 		
@@ -215,6 +215,8 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 		_data.eye_level = _.eye_level;
 		
 		global.creature_data[$ $"{_prefix}:{_file}"] = _data.set_attributes(_a);
+        
+        debug_timer("init_creature", $"Added Creature: '{_file}'");
 	}
 	
 	carbasa_buffer("creatures");

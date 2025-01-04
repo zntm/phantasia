@@ -52,7 +52,7 @@ function control_weather()
 				image_yscale = global.world_data[$ global.world.realm].value & 0xffff;
 				
 				life = 0;
-			
+                
 				xfrom = x + random_range(-16, 16);
 				yfrom = _camera_y - 128;
 				

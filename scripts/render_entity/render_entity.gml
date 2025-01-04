@@ -69,25 +69,29 @@ function render_entity(_surface_index_offset)
 		{
 			if (_z != z) continue;
 			
-			if (_particle_data[$ particle_id].boolean & 8)
+            var _data = _particle_data[$ particle_id];
+            
+			if (_data.boolean & 8)
 			{
 				_particle_additive = true;
 				
 				continue;
 			}
 			
-			carbasa_draw("particle", particle_id, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, alpha);
+			draw_sprite_ext(_data, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, alpha);
 		}
 		
 		if (_particle_additive)
 		{
 			gpu_set_blendmode(bm_add);
-			
+            
 			with (obj_Particle)
 			{
-				if ((_particle_data[$ particle_id].boolean & 8) == 0) continue;
+                var _data = _particle_data[$ particle_id];
+                
+				if ((_data.boolean & 8) == 0) continue;
 				
-				carbasa_draw("particle", particle_id, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, alpha);
+				draw_sprite_ext(_data, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, alpha);
 			}
 			
 			gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_src_alpha, bm_one);

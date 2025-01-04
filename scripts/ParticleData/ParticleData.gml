@@ -40,10 +40,6 @@ function init_particles(_directory, _prefix = "phantasia", _type = 0)
 		
 		sprite_set_offset(_sprite, _sprite_xoffset, _sprite_yoffset);
 		
-		carbasa_sprite_add("particle", _sprite, $"{_prefix}:{_file}");
-		
-		sprite_delete(_sprite);
-		
 		var _xspeed_on_collision = _data[$ "xspeed_on_collision"] ?? PARTICLE_COLLISION_EMPTY;
 		var _yspeed_on_collision = _data[$ "yspeed_on_collision"] ?? PARTICLE_COLLISION_EMPTY;
 		
