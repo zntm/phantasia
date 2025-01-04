@@ -19,7 +19,6 @@ function EffectData(_sprite, _type = "phantasia:constant") constructor
     static get_sprite = function()
     {
         return __sprite;
-        return __sprite;
     }
     
 	__type = _type;
@@ -207,7 +206,7 @@ function init_effects(_directory, _prefix = "phantasia", _type = 0)
 		
 		for (var i = 0; i < _length; ++i)
 		{
-			carbasa_sprite_delete("effects", _names[i]);
+			sprite_delete(_effect_data[$ _names[i]].get_sprite());
 		}
 		
 		init_data_reset("effect_data");

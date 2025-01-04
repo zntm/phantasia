@@ -108,35 +108,30 @@ function render_entity(_surface_index_offset)
 			{
 				draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 			}
-			
+            
 			with (obj_Creature)
 			{
 				var _image_alpha = __get_alpha(image_alpha, immunity_frame, _immunity_alpha);
 				
 				var _data = _creature_data[$ creature_id];
 				
-				if (index == -1)
+                var _sprite = ((xvelocity == 0) ? _data.sprite_idle : _data.sprite_moving);
+                
+				if (!is_array(_sprite))
 				{
-					carbasa_draw("creatures", $"{creature_id}:{((xvelocity == 0) ? "idle" : "moving")}", image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-                    
-					var _sprite_white = _data.sprite_white;
-                    
-					if (_sprite_white != undefined)
-					{
-						carbasa_draw("creatures", $"{creature_id}:white", image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-					}
+					draw_sprite_ext(_sprite, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 				}
 				else
 				{
-					carbasa_draw("creatures", $"{creature_id}:{((xvelocity == 0) ? "idle" : "moving")}{index}", image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-                    
-					var _sprite_white = _data.sprite_white;
-                    
-					if (_sprite_white != undefined)
-					{
-						carbasa_draw("creatures", $"{creature_id}:white{index}", image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-					}
+					draw_sprite_ext(_sprite[index], image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 				}
+            
+                var _sprite_white = _data.sprite_white;
+                
+                if (_sprite_white != undefined)
+                {
+                    draw_sprite_ext(((xvelocity == 0) || (!is_array(_sprite_white)) ? _sprite_white : _sprite_white[index]), image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                }
                 
 				var _on_draw = _data.on_draw;
                 

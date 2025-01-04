@@ -103,11 +103,7 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 			
 			sprite_set_offset(_sprite, _xorigin ?? (sprite_get_width(_sprite) / 2), _yorigin ?? sprite_get_height(_sprite));
 			
-			carbasa_sprite_add("creatures", _sprite, _name);
-			
-			sprite_delete(_sprite);
-			
-			return -1;
+			return _sprite;
 		}
 		
 		if (!directory_exists(_directory))
@@ -115,21 +111,18 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 			return undefined;
 		}
 		
-		var _sprites = [];
-		var _index = 0;
+		var _array = [];
 		
-		while (file_exists($"{_directory}/{_index}.png"))
+		for (var i = 0; file_exists($"{_directory}/{_index}.png"); ++i)
 		{
 			var _sprite = sprite_add($"{_directory}/{_index}.png", _frames, false, false, 0, 0);
 			
 			sprite_set_offset(_sprite, _xorigin ?? (sprite_get_width(_sprite) / 2), _yorigin ?? sprite_get_height(_sprite));
 			
-			carbasa_sprite_add("creatures", _sprite, $"{_name}{_index++}");
-			
-			sprite_delete(_sprite);
+            array_push(_array, _sprite);
 		}
 		
-		return _index - 1;
+		return _array;
 	}
 	
 	static __sprite_delete = function(_name, _sprite)

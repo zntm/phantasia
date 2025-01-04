@@ -30,7 +30,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
             for (var i = 0; i < CHUNK_SIZE_Z; ++i)
             {
                 if ((chunk_z_animated & (1 << i)) == 0) continue;
-                    
+                
                 timer_surface[@ i] += _delta_time;
             }
         }

@@ -18,7 +18,7 @@ function init_attire(_directory, _prefix = "phantasia", _type = 0)
 		
 		if (_name == "body") continue;
 		
-		global.attire_data[$ _name] = undefined;
+		delete global.attire_data[$ _name];
 	}
 	
 	static __init = function(_name, _index, _type, _directory)
