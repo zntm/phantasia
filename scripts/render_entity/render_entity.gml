@@ -118,9 +118,9 @@ function render_entity(_surface_index_offset)
 				if (index == -1)
 				{
 					carbasa_draw("creatures", $"{creature_id}:{((xvelocity == 0) ? "idle" : "moving")}", image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-			
+                    
 					var _sprite_white = _data.sprite_white;
-			
+                    
 					if (_sprite_white != undefined)
 					{
 						carbasa_draw("creatures", $"{creature_id}:white", image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
@@ -129,17 +129,17 @@ function render_entity(_surface_index_offset)
 				else
 				{
 					carbasa_draw("creatures", $"{creature_id}:{((xvelocity == 0) ? "idle" : "moving")}{index}", image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-			
+                    
 					var _sprite_white = _data.sprite_white;
-			
+                    
 					if (_sprite_white != undefined)
 					{
 						carbasa_draw("creatures", $"{creature_id}:white{index}", image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 					}
 				}
-			
+                
 				var _on_draw = _data.on_draw;
-			
+                
 				if (_on_draw != undefined)
 				{
 					_on_draw(x, y, image_xscale, image_yscale, image_angle, image_blend, _image_alpha);
@@ -149,13 +149,13 @@ function render_entity(_surface_index_offset)
 			with (obj_Boss)
 			{
 				draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, __get_alpha(image_alpha, immunity_frame, _immunity_alpha));
-			
+                
 				var _length = array_length(explosion);
-			
+                
 				for (var i = 0; i < _length; ++i)
 				{
 					var _piece = explosion[i];
-				
+                    
 					if (_piece.timer <= 0) continue;
 					
 					draw_sprite_ext(_piece.sprite, _piece.index, _piece.x, _piece.y, 1, 1, 0, image_blend, 1);
@@ -408,26 +408,7 @@ function render_entity(_surface_index_offset)
 				}
 			}
 			
-			with (obj_Lightning)
-			{
-				random_set_seed(seed);
-				draw_primitive_begin(pr_linestrip);
-                
-				var _x = xfrom;
-				var _y = yfrom;
-				
-				var _max = min(1, life / 4);
-                
-				for (var i = 0; i <= _max; i += 1 / WEATHER_LIGHTING_SPLIT)
-				{
-					draw_vertex(lerp(_x, x, i), lerp(_y, y, i));
-                    
-					_x += random_range(-WEATHER_LIGHTNING_OFFSET, WEATHER_LIGHTNING_OFFSET);
-					_y += random_range(-WEATHER_LIGHTNING_OFFSET, WEATHER_LIGHTNING_OFFSET);
-				}
-                
-				draw_primitive_end();
-			}
+			render_lightning();
 			
 			#endregion
 		}
