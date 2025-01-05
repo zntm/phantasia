@@ -43,18 +43,24 @@
 		"passive_spawn_chance": 0.02,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
-			"phantasia:fox": {
+			"phantasia:capybara": {
 				"weight": 1
 			},
-			"phantasia:bunny": {
+			"phantasia:toad": {
 				"weight": 1
 			},
-			"phantasia:penguin": {
+			"phantasia:cow": {
+				"weight": 1
+			},
+			"phantasia:chicken": {
+				"weight": 1
+			},
+			"phantasia:parrot": {
 				"weight": 1
 			}
 		},
 		"hostile_spawn_chance": 0,
-		"hostile_spawn_amount": [ 1, 4 ],
+		"hostile_spawn_amount": [ 1, 2 ],
 		"hostile": {}
 	},
 	"structures": [

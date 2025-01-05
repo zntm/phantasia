@@ -299,10 +299,6 @@ new CreatureData("Turkey", CREATURE_HOSTILITY_TYPE.PASSIVE, 8)
 	.add_drop("phantasia:feather", 1, 4, 1)
 	.add_drop("phantasia:raw_whole_turkey", 1, 1, 1);
 
-new CreatureData("Ostrich", CREATURE_HOSTILITY_TYPE.PASSIVE, 24)
-	.set_attributes(new Attributes())
-	.add_drop("phantasia:feather", 1, 3, 1);
-
 new CreatureData("Squirrel", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
 	.set_attributes(new Attributes());
 
@@ -353,11 +349,7 @@ new CreatureData("Crab", CREATURE_HOSTILITY_TYPE.PASSIVE, 10)
 
 new CreatureData("Vulture", CREATURE_HOSTILITY_TYPE.PASSIVE, 14)
 	.set_attributes(new Attributes())
-	.set_move_type(CREATURE_MOVE_TYPE.FLY);
-
-new CreatureData("Tortoise", CREATURE_HOSTILITY_TYPE.PASSIVE, 36)
-	.set_attributes(new Attributes())
-	.add_drop("phantasia:turtle_shell", 1, 2, 0.75);
+	.set_move_type(CREATURE_MOVE_TYPE.FLY); ;
 
 new CreatureData("Platypus", CREATURE_HOSTILITY_TYPE.PASSIVE, 14)
 	.set_attributes(new Attributes());
@@ -369,10 +361,6 @@ new CreatureData("Ghost", CREATURE_HOSTILITY_TYPE.HOSTILE, 24)
 	.set_yspeed(1)
 	.set_damage(10)
 	.set_effect_immune("phantasia:ghastly");
-
-new CreatureData("Scorpion", CREATURE_HOSTILITY_TYPE.HOSTILE, 10)
-	.set_attributes(new Attributes())
-	.set_damage(6);
 
 new CreatureData("Beetle", CREATURE_HOSTILITY_TYPE.PASSIVE, 4)
 	.set_attributes(new Attributes());

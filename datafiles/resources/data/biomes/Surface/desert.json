@@ -43,9 +43,6 @@
 		"passive_spawn_chance": 0.02,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
-			"phantasia:ostrich": {
-				"weight": 1
-			},
 			"phantasia:camel": {
 				"weight": 1
 			},
