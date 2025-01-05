@@ -82,4 +82,6 @@ if (global.world_settings.spawn_structures) && ((_camera_x_real != _camera_x) ||
 	control_structures(_camera_x_real, _camera_y_real, _camera_width, _camera_height);
 }
 
-global.delta_time = ((DEVELOPER_MODE) && (!global.debug_settings.delta_time) ? 1 : global.world_settings.tick_speed * (global.settings_data.refresh_rate.values[global.settings_value.refresh_rate] / display_get_frequency()) * (delta_time / 1_000_000));
+global.delta_time = ((DEVELOPER_MODE) && (!global.debug_settings.delta_time) ?
+    1 :
+    global.world_settings.tick_speed * (delta_time / 1_000_000));
