@@ -30,7 +30,7 @@ function ctrl_chunk_generate()
 			if (_ychunk < 0) || (_ychunk > _world_height_tile_size) continue;
 			
 			var _ystart = floor(_ychunk / CHUNK_SIZE_HEIGHT);
-		
+            
 			var _inst = instance_place(_xchunk, _ychunk, obj_Chunk);
 			
 			if (!instance_exists(_inst))
@@ -58,7 +58,7 @@ function ctrl_chunk_generate()
 					if ((surface_display & _zbit) == 0) || ((connected & _zbit) == 0) continue;
 					
 					var _index_z = _z << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
-						
+					
 					for (var _y = CHUNK_SIZE_Y - 1; _y >= 0; --_y)
 					{
 						var _ypos = chunk_ystart + _y;
@@ -90,7 +90,7 @@ function ctrl_chunk_generate()
 									(tile_condition_connected(_xpos, _ypos - 1, _z, _item_id, _type, _item_data, _world_height) << 3) |
 									(tile_condition_connected(_xpos + 1, _ypos, _z, _item_id, _type, _item_data, _world_height) << 2) |
 									(tile_condition_connected(_xpos, _ypos + 1, _z, _item_id, _type, _item_data, _world_height) << 1) |
-									(tile_condition_connected(_xpos - 1, _ypos, _z, _item_id, _type, _item_data, _world_height))
+									(tile_condition_connected(_xpos - 1, _ypos, _z, _item_id, _type, _item_data, _world_height) << 0)
 								];
 							}
 							else
@@ -99,7 +99,7 @@ function ctrl_chunk_generate()
 									(tile_condition_connected_to_self(_xpos, _ypos - 1, _z, _item_id, _world_height) << 3) |
 									(tile_condition_connected_to_self(_xpos + 1, _ypos, _z, _item_id, _world_height) << 2) |
 									(tile_condition_connected_to_self(_xpos, _ypos + 1, _z, _item_id, _world_height) << 1) |
-									(tile_condition_connected_to_self(_xpos - 1, _ypos, _z, _item_id, _world_height))
+									(tile_condition_connected_to_self(_xpos - 1, _ypos, _z, _item_id, _world_height) << 0)
 								];
 							}
 							

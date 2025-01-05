@@ -326,8 +326,8 @@ for (var i = _delta_time; i > 0; --i)
 {
 	var _speed = min(1, i);
 	
-	if ((DEVELOPER_MODE) && (global.debug_settings.creature)) || (global.world_settings.spawn_creatures)
-	{
+    if ((DEVELOPER_MODE) ? (global.debug_settings.creature) : (global.world_settings.spawn_creatures))
+    {
 		ctrl_creature_spawn(_biome_data, _creature_data, _item_data, _world_height, _camera_x, _camera_y, _camera_width, _camera_height, _speed);
 	}
 	
@@ -348,9 +348,9 @@ for (var i = _delta_time; i > 0; --i)
 	
 	timer_chunk_update += _speed;
 	
-	if (timer_chunk_update >= 60)
+	if (timer_chunk_update >= GAME_FPS)
 	{
-		timer_chunk_update -= 60;
+		timer_chunk_update -= GAME_FPS;
 		
 		chunk_update(_speed);
 	}

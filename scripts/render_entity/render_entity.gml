@@ -22,7 +22,7 @@ function render_entity(_surface_index_offset)
 	{
 		if (!is_array(_sprite))
 		{
-			draw_sprite_ext(_sprite, image_index, _x, _y, image_xscale, image_yscale, _index, c_white, 1);
+			draw_sprite_ext(_sprite, image_index, _x, _y, image_xscale, image_yscale, image_angle, c_white, 1);
             
             exit;
 		}
@@ -31,7 +31,7 @@ function render_entity(_surface_index_offset)
         
         for (var i = 0; i < _length; ++i)
         {
-            draw_sprite_ext(_sprite[i], image_index, _x, _y, image_xscale, image_yscale, _index, c_white, 1);
+            draw_sprite_ext(_sprite[i], image_index, _x, _y, image_xscale, image_yscale, image_angle, c_white, 1);
         }
 	}
 	
