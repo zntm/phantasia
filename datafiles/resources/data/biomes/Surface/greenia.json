@@ -40,7 +40,7 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:grass_block_greenia", "phantasia:dirt" ],
-		"passive_spawn_chance": 0.02,
+		"passive_spawn_chance": 0.03,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
 			"phantasia:chicken": {
@@ -54,6 +54,9 @@
 			},
 			"phantasia:snail": {
 				"weight": 1
+			},
+			"phantasia:cow": {
+				"weight": 2
 			}
 		},
 		"hostile_spawn_chance": 0,

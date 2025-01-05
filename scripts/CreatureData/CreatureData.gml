@@ -273,11 +273,6 @@ new CreatureData("Bird", CREATURE_HOSTILITY_TYPE.PASSIVE, 4)
 	.set_yspeed(1)
 	.add_drop("phantasia:feather", 1, 3, 1);
 
-new CreatureData("Cow", CREATURE_HOSTILITY_TYPE.PASSIVE, 24)
-	.set_attributes(new Attributes())
-	.add_drop("phantasia:raw_beef", 1, 2, 1)
-	.add_drop("phantasia:leather", 1, 3, 0.9);
-
 new CreatureData("Frog", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
 	.set_attributes(new Attributes())
 	.add_drop("phantasia:raw_frog_leg", 1, 1, 1);
@@ -286,9 +281,6 @@ new CreatureData("Toad", CREATURE_HOSTILITY_TYPE.PASSIVE, 10)
 	.set_attributes(new Attributes());
 
 new CreatureData("Raccoon", CREATURE_HOSTILITY_TYPE.PASSIVE, 10)
-	.set_attributes(new Attributes());
-
-new CreatureData("Capybara", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
 	.set_attributes(new Attributes());
 
 new CreatureData("Nightwalker", CREATURE_HOSTILITY_TYPE.PASSIVE, 20)
@@ -318,22 +310,10 @@ new CreatureData("Penguin", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
 	.set_attributes(new Attributes())
 	.add_drop("phantasia:feather", 1, 2, 0.8);
 
-new CreatureData("Zombie", CREATURE_HOSTILITY_TYPE.HOSTILE, 12)
-	.set_attributes(new Attributes())
-	.set_xspeed(2)
-	.add_drop("phantasia:zombie_flesh", 1, 4, 1)
-	.set_damage(6);
-
 new CreatureData("Rat", CREATURE_HOSTILITY_TYPE.PASSIVE, 6)
 	.set_attributes(new Attributes())
 	.set_xspeed(5)
 	.set_sfx("phantasia.~.rat");
-
-new CreatureData("Mummy", CREATURE_HOSTILITY_TYPE.HOSTILE, 12)
-	.set_attributes(new Attributes())
-	.add_drop("phantasia:zombie_flesh", 1, 3, 1)
-	.add_drop("phantasia:mummy_wrap", 1, 1, 0.2)
-	.set_damage(8);
 
 new CreatureData("Toucan", CREATURE_HOSTILITY_TYPE.PASSIVE, 6)
 	.set_attributes(new Attributes())
@@ -358,15 +338,6 @@ new CreatureData("Horse", CREATURE_HOSTILITY_TYPE.PASSIVE, 30)
 
 new CreatureData("Meerkat", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
 	.set_attributes(new Attributes());
-
-new CreatureData("Miner Zombie", CREATURE_HOSTILITY_TYPE.HOSTILE, 20)
-	.set_attributes(new Attributes())
-	.add_drop("phantasia:zombie_flesh", 1, 3, 1)
-	.add_drop("phantasia:torch", 2, 8, 1)
-	.add_drop("phantasia:coal", 1, 2, 0.6)
-	.add_drop("phantasia:raw_weathered_copper", 1, 2, 0.3)
-	.add_drop("phantasia:raw_iron", 1, 2, 0.15)
-	.set_damage(8);
 
 new CreatureData("Owl", CREATURE_HOSTILITY_TYPE.PASSIVE, 8)
 	.set_attributes(new Attributes())

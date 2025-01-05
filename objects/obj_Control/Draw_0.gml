@@ -35,11 +35,11 @@ if (global.camera.direction)
 else
 {
 	var _chunk_force_refresh_right = round((_camera_x + _camera_width) / CHUNK_SIZE_WIDTH_H);
-
+    
 	if (_chunk_force_refresh_right != chunk_force_refresh_right)
 	{
 		chunk_force_refresh_right = _chunk_force_refresh_right;
-	
+        
 		chunk_force_transfer(_chunk_force_refresh_right * CHUNK_SIZE_WIDTH_H, _camera_y, _camera_height);
 	}
 }
