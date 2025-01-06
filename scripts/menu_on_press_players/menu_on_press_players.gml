@@ -6,7 +6,7 @@ enum GAMEMODE_TYPE {
 function menu_on_press_players(_x, _y, _id)
 {
 	global.player = _id.data;
-			
+	
 	// spawn creature, spawn structure, gamemode, difficulty, command level, world type
 	// 0b0_0_0000_0000_0000_0000
 	global.world = {
@@ -28,6 +28,25 @@ function menu_on_press_players(_x, _y, _id)
 		cycle_time: true,
 		cycle_weather: true
 	}
+    
+    global.inventory_length = {
+        base: 50,
+        armor_helmet: 1,
+        armor_breastplate: 1,
+        armor_leggings: 1,
+        accessory: 0,
+        craftable: 0,
+        container: 0
+    }
+    
+    global.inventory = {}
+    global.inventory_instances = {}
+    
+    struct_foreach(global.inventory_length, function(_name, _value)
+    {
+        global.inventory[$ _name] = array_create(_value, INVENTORY_EMPTY);
+        global.inventory_instances[$ _name] = array_create(_value, noone);
+    });
 	
 	menu_goto_blur(rm_Menu_List_Worlds, true);
 }

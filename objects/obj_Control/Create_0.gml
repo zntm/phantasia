@@ -105,8 +105,6 @@ file_load_world_realm_environment(global.world.realm);
 
 lights_length = 0;
 
-global.container_size = 0;
-
 global.container_tile_position_x = undefined;
 global.container_tile_position_y = undefined;
 global.container_tile_position_z = undefined;
@@ -274,7 +272,7 @@ if (DEVELOPER_MODE)
 		var _names  = struct_get_names(_item_data);
 		var _length = array_length(_names) - 1;
         
-		for (var i = 0; i < INVENTORY_LENGTH.BASE; ++i)
+		for (var i = 0; i < global.inventory_length.base; ++i)
 		{
 			var _item_id = _names[irandom(_length)];
             
@@ -288,7 +286,7 @@ if (DEVELOPER_MODE)
 	dbg_same_line();
 	dbg_button("Clear Inventory", function()
 	{
-		global.inventory.base = array_create(INVENTORY_LENGTH.BASE, INVENTORY_EMPTY);
+		global.inventory.base = array_create(global.inventory_length.base, INVENTORY_EMPTY);
 		obj_Control.surface_refresh_inventory = true;
 	});
 	

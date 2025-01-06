@@ -60,16 +60,6 @@ tool = -1;
 
 #region Inventory
 
-global.inventory = {
-	base:              array_create(INVENTORY_LENGTH.BASE, INVENTORY_EMPTY),
-	armor_helmet:      array_create(1, INVENTORY_EMPTY),
-	armor_breastplate: array_create(1, INVENTORY_EMPTY),
-	armor_leggings:    array_create(1, INVENTORY_EMPTY),
-	accessory:         array_create(INVENTORY_LENGTH.ACCESSORY, INVENTORY_EMPTY),
-	container:         [],
-	craftable:         []
-}
-
 file_load_player_inventory(_uuid);
 
 #endregion

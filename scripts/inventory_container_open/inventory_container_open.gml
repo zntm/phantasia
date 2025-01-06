@@ -34,23 +34,20 @@ function inventory_container_open(_x, _y, _inst = noone)
 	obj_Control.is_opened_container = true;
 	obj_Control.is_opened_inventory = true;
 	
-	global.container_size = _size;
-	
 	global.container_tile_position_x = _px;
 	global.container_tile_position_y = _py;
 	global.container_tile_position_z = _pz;
 	
 	var _container_length = array_length(_container_inventory);
 	
-	var _inventory_row_height = floor(array_length(global.inventory.base) / INVENTORY_LENGTH.ROW) * INVENTORY_SLOT_SCALE * INVENTORY_SLOT_HEIGHT;
+	var _inventory_row_height = floor(global.global.inventory_length.base / INVENTORY_LENGTH.ROW) * INVENTORY_SLOT_SCALE * INVENTORY_SLOT_HEIGHT;
 	
 	var _camera = global.camera;
 
 	var _xscale = (INVENTORY_SLOT_SCALE / _camera.gui_width)  * _camera.width;
 	var _yscale = (INVENTORY_SLOT_SCALE / _camera.gui_height) * _camera.height;
 	
-	array_resize(global.inventory.container, _size);
-	array_resize(global.inventory_instances.container, _size);
+    inventory_resize("container", _size);
 	
 	for (var i = 0; i < _size; ++i)
 	{

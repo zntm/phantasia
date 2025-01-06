@@ -16,18 +16,8 @@ enum INVENTORY_LENGTH {
 
 function load_inventory()
 {
-	global.inventory_instances = {
-		base:              array_create(INVENTORY_LENGTH.BASE, INVENTORY_EMPTY),
-		armor_helmet:      array_create(1, INVENTORY_EMPTY),
-		armor_breastplate: array_create(1, INVENTORY_EMPTY),
-		armor_leggings:    array_create(1, INVENTORY_EMPTY),
-		accessory:         array_create(INVENTORY_LENGTH.ACCESSORY, INVENTORY_EMPTY),
-		container:         [],
-		craftable:         []
-	}
-	
 	var _camera = global.camera;
-
+    
 	var _gui_width  = _camera.gui_width;
 	var _gui_height = _camera.gui_height;
 	

@@ -1,4 +1,5 @@
 global.crafting_data = {}
+global.crafting_data_length = {}
 
 function init_recipes(_directory, _prefix = "phantasia", _type = 0)
 {
@@ -35,11 +36,12 @@ function init_recipes(_directory, _prefix = "phantasia", _type = 0)
 			array_push(global.crafting_names, _item_id);
 			
 			global.crafting_data[$ _item_id] = [];
+			global.crafting_data_length[$ _item_id] = 0;
 		}
 		
-		array_push(global.crafting_data[$ _item_id], new CraftingRecipe(_item_id, _data[$ "amount"], _data[$ "index_offset"], _data[$ "state"])
+		global.crafting_data[$ _item_id][@ global.crafting_data_length[$ _item_id]++] = new CraftingRecipe(_item_id, _data[$ "amount"], _data[$ "index_offset"], _data[$ "state"])
 			.set_stations(_data[$ "stations"])
-			.set_ingredients(_data.ingredients));
+			.set_ingredients(_data.ingredients);
 	}
 	
 	delete _json;

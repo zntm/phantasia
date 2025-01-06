@@ -8,28 +8,34 @@ function inventory_refresh_craftable(_force = false)
 {
 	if (!obj_Control.is_opened_inventory) exit;
 	
-	static __inventory = function(_name, _data, _index, _inventory, _ystart, _offset, _xscale, _yscale)
+	static __inventory = function(_name, _data, _index, _inventory, _length, _ystart, _offset, _xscale, _yscale)
 	{
+        var _inventory_base = _inventory.base;
+        var _inventory_container = _inventory.container;
+        
+        var _length_base = _length.base;
+        var _length_container = _length.container;
+        
 		var _ingredients = _data.ingredients;
 		var _ingredients_length = array_length(_ingredients);
 		
 		var _craftable = true;
 		var _is_grimoire = false;
-		
+        
 		for (var l = 0; l < _ingredients_length; ++l)
 		{
 			var _ingredient = _ingredients[l];
 			
 			var _item_id = _ingredient.item_id;
 			
-			if (!inventory_includes(_item_id, 1, "container", _inventory)) && (!inventory_includes(_item_id, 1, "base", _inventory)) exit;
+			if (!inventory_includes(_item_id, 1, _inventory_base, _length_base)) && (!inventory_includes(_item_id, 1, _inventory_container, _length_container)) exit;
 			
 			if (_ingredient.unlock_grimoire)
 			{
 				_is_grimoire = true;
 			}
 			
-			if (!inventory_includes(_item_id, _ingredient.amount, "container", _inventory)) && (!inventory_includes(_item_id, _ingredient.amount, "base", _inventory))
+			if (!inventory_includes(_item_id, _ingredient.amount, _inventory_base, _length_base)) && (!inventory_includes(_item_id, _ingredient.amount, _inventory_container, _length_container))
 			{
 				_craftable = false;
 				
@@ -133,12 +139,13 @@ function inventory_refresh_craftable(_force = false)
 		instance_destroy();
 	}
 	
-	global.inventory.craftable = [];
-	global.inventory_instances.craftable = [];
-	
+    inventory_resize("craftable", 0);
+    
 	var _inventory = global.inventory;
+    var _inventory_length = global.inventory_length;
 	
 	var _crafting_data = global.crafting_data;
+    var _crafting_data_length = global.crafting_data_length;
 	
 	var _names = global.crafting_names;
 	var _names_length = array_length(_names);
@@ -152,7 +159,7 @@ function inventory_refresh_craftable(_force = false)
 		var _name = _names[i];
 		var _data = _crafting_data[$ _name];
 		
-		var _length = array_length(_data);
+		var _length = _crafting_data_length[$ _name];
 		
 		for (var j = 0; j < _length; ++j)
 		{
@@ -181,7 +188,7 @@ function inventory_refresh_craftable(_force = false)
 				else if (!array_contains(__distance, _station, 0, _distance_length)) continue;
 			}
 			
-			if (__inventory(_name, _data2, j, _inventory, _ystart, _offset, _xscale, _yscale))
+			if (__inventory(_name, _data2, j, _inventory, _inventory_length, _ystart, _offset, _xscale, _yscale))
 			{
 				++_offset;
 			}

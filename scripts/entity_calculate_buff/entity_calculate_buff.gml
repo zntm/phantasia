@@ -21,7 +21,7 @@ function entity_calculate_buff(_type, _object = id, _attributes = undefined)
         
 		var _accessories = _inventory.accessory;
 		
-		for (var i = 0; i < INVENTORY_LENGTH.ACCESSORY; ++i)
+		for (var i = 0; i < global.inventory_length.accessory; ++i)
 		{
 			_value += __get_buff(_accessories[i], _type, _item_data);
 		}

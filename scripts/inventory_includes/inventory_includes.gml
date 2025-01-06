@@ -1,13 +1,10 @@
-function inventory_includes(_item, _amount = 1, _type = "base", _inventory = global.inventory)
+function inventory_includes(_item, _amount, _inventory, _length)
 {
 	var _count = 0;
 	
-	var _ = _inventory[$ _type];
-	var _length = array_length(_);
-	
 	for (var i = 0; i < _length; ++i)
 	{
-		var _slot = _[i];
+		var _slot = _inventory[i];
 		
 		if (_slot == INVENTORY_EMPTY) continue;
 		

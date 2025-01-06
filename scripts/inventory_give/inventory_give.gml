@@ -7,7 +7,7 @@ function inventory_give(_x, _y, _item_id, _amount, _index, _index_offset, _state
 	
 	var i = 0;
 	
-	repeat (INVENTORY_LENGTH.BASE)
+	repeat (global.inventory_length.base)
 	{
 		if (_amount <= 0) break;
 		
@@ -21,10 +21,10 @@ function inventory_give(_x, _y, _item_id, _amount, _index, _index_offset, _state
 					.set_index(_index)
 					.set_index_offset(_index_offset)
 					.set_state(_state);
-			
+                
 				_pickup += _amount;
 				_amount = 0;
-			
+                
 				break;
 			}
 			
@@ -54,7 +54,7 @@ function inventory_give(_x, _y, _item_id, _amount, _index, _index_offset, _state
 				
 				_pickup += _amount;
 				_amount = 0;
-			
+                
 				break;
 			}
 			

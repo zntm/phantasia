@@ -12,7 +12,7 @@ function inventory_shortcut_shift(_from_type, _from_index, _to_type)
     
     var _slots = _inventory[$ _to_type];
     
-    for (var i = 0; i < INVENTORY_LENGTH.BASE; ++i)
+    for (var i = 0; i < global.inventory_length.base; ++i)
     {
         var _slot = _slots[i];
         
@@ -48,7 +48,7 @@ function inventory_shortcut_shift(_from_type, _from_index, _to_type)
         
         var j = i;
         
-        while (_v <= 0 || i >= INVENTORY_LENGTH.BASE)
+        while (_v <= 0 || i >= global.inventory_length.base)
         {
             var _h = global.inventory[$ _to_type][j];
             

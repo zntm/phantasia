@@ -1320,6 +1320,7 @@
     {"id":{"name":"inventory_item_decrement","path":"scripts/inventory_item_decrement/inventory_item_decrement.yy",},},
     {"id":{"name":"inventory_open","path":"scripts/inventory_open/inventory_open.yy",},},
     {"id":{"name":"inventory_refresh_craftable","path":"scripts/inventory_refresh_craftable/inventory_refresh_craftable.yy",},},
+    {"id":{"name":"inventory_resize","path":"scripts/inventory_resize/inventory_resize.yy",},},
     {"id":{"name":"inventory_scroll","path":"scripts/inventory_scroll/inventory_scroll.yy",},},
     {"id":{"name":"inventory_shortcut_shift","path":"scripts/inventory_shortcut_shift/inventory_shortcut_shift.yy",},},
     {"id":{"name":"Inventory","path":"scripts/Inventory/Inventory.yy",},},

@@ -23,10 +23,7 @@ function inventory_container_close()
 	obj_Control.is_opened_container = false;
 	obj_Control.surface_refresh_inventory = true;
 	
-	array_resize(global.inventory.container, 0);
-	array_resize(global.inventory_instances.container, 0);
-	
-	global.container_size = 0;
+	inventory_resize("container", 0);
 	
 	with (obj_Inventory)
 	{

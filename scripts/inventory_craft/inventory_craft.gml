@@ -70,7 +70,7 @@ function inventory_craft(_player_x, _player_y, _inst)
 		
 		if (_continue) continue;
 		
-		for (var j = 0; j < INVENTORY_LENGTH.BASE; ++j)
+		for (var j = 0; j < global.inventory_length.base; ++j)
 		{
 			var _ = global.inventory.base[j];
 			

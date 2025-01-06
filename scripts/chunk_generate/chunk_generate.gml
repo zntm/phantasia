@@ -291,7 +291,7 @@ function chunk_generate(_world, _seed, _world_data)
 				
 				if ((_skip_layer & 2) == 0) && ((_chunk_data & _ybit) == 0)
 				{
-                    var _ = __base[@ _index_xy];
+                    var _ = __base[_index_xy];
                     
 					if (_ != TILE_EMPTY)
 					{
