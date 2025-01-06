@@ -126,11 +126,8 @@ function player_place(_x, _y, _world_height)
     
 	if (!_is_deployable) || (_item_id != _data.give_back) || (_data.get_inventory_max() != 1)
 	{
-		if (--global.inventory.base[_inventory_selected_hotbar].amount <= 0)
-		{
-			global.inventory.base[@ _inventory_selected_hotbar] = INVENTORY_EMPTY;
-		}
-			
+		inventory_item_decrement("base", _inventory_selected_hotbar);
+        
 		if (_give_back != undefined)
 		{
 			spawn_drop(x, y, _give_back, 1, 0, 0, undefined, undefined, false);

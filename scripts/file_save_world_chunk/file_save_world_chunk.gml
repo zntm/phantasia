@@ -14,11 +14,11 @@ function file_save_world_chunk(_inst)
 	if (surface_display)
 	{
 		var _chunk = _inst.chunk;
-	
+        
 		for (var i = 0; i < CHUNK_SIZE_Z; ++i)
 		{
 			if ((surface_display & (1 << i)) == 0) continue;
-                
+            
 			var j = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
             
 			repeat (CHUNK_SIZE_X * CHUNK_SIZE_Y)

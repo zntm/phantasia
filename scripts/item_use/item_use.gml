@@ -65,10 +65,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			
 			cooldown_projectile = _data.get_ammo_cooldown();
 			
-			if (--global.inventory.base[i].amount <= 0)
-			{
-				global.inventory.base[@ i] = INVENTORY_EMPTY;
-			}
+            inventory_item_decrement("base", i);
 			
 			var _x = mouse_x - x;
 			var _y = mouse_y - y;
@@ -175,10 +172,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
             }
         }
 		
-		if (--global.inventory.base[_inventory_selected_hotbar].amount <= 0)
-		{
-			global.inventory.base[@ _inventory_selected_hotbar] = INVENTORY_EMPTY;
-		}
+		inventory_item_decrement("base", _inventory_selected_hotbar);
 		
 		sfx_play("phantasia:action.consume", global.settings_value.sfx);
 		
@@ -245,10 +239,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			
 			if (_type & ITEM_TYPE_BIT.THROWABLE)
 			{
-				if (--global.inventory.base[_inventory_selected_hotbar].amount <= 0)
-				{
-					global.inventory.base[@ _inventory_selected_hotbar] = INVENTORY_EMPTY;
-				}
+				inventory_item_decrement("base", _inventory_selected_hotbar);
                 
 				var _multiplier = _data.max_throw_multiplier;
 				

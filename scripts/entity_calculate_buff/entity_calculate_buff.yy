@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"accessory_get_buff",
+  "%Name":"entity_calculate_buff",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"accessory_get_buff",
+  "name":"entity_calculate_buff",
   "parent":{
-    "name":"Inventory",
-    "path":"folders/Scripts/Phantasia/Inventory.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

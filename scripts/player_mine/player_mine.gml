@@ -186,7 +186,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
             
 			if (--global.inventory.base[_inventory_selected_hotbar].durability <= 0)
 			{
-				global.inventory.base[@ _inventory_selected_hotbar] = INVENTORY_EMPTY;
+                inventory_delete("base", _inventory_selected_hotbar);
 			}
 		}
 	}

@@ -1,7 +1,5 @@
 function chunk_update_near_light()
 {
-    static __inst = [ obj_Player, obj_Projectile, obj_Creature ];
-    
     with (obj_Chunk)
     {
         var _x1 = xcenter - CHUNK_SIZE_WIDTH;

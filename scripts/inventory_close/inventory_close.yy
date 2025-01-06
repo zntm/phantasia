@@ -6,7 +6,7 @@
   "name":"inventory_close",
   "parent":{
     "name":"Inventory",
-    "path":"folders/Scripts/Phantasia/Inventory.yy",
+    "path":"folders/Scripts/Inventory.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

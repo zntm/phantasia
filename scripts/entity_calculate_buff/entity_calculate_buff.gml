@@ -1,4 +1,4 @@
-function accessory_get_buff(_type, _object = id, _attributes = undefined)
+function entity_calculate_buff(_type, _object = id, _attributes = undefined)
 {
 	static __get_buff = function(_item, _type, _item_data)
 	{
@@ -60,14 +60,14 @@ function accessory_get_buff(_type, _object = id, _attributes = undefined)
 		var _min = _attributes_minmax[$ "min"];
 		var _max = _attributes_minmax[$ "max"];
 		
-		if (_min != undefined)
+		if (_min != undefined) && (_value < _min)
 		{
-			_value = max(_value, _min);
+			_value = _min;
 		}
 		
-		if (_max != undefined)
+		if (_max != undefined) && (_value > _max)
 		{
-			_value = min(_value, _max);
+			_value = _max;
 		}
 	}
 	

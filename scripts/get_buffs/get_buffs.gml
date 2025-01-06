@@ -7,6 +7,6 @@ function get_buffs(_attributes = attributes, _id = id)
 	{
 		var _name = _names[i];
 		
-		_id.buffs[$ _name] = accessory_get_buff(_name, _id, _attributes);
+		_id.buffs[$ _name] = entity_calculate_buff(_name, _id, _attributes);
 	}
 }

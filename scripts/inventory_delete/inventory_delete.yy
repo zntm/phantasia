@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"refresh_craftables",
+  "%Name":"inventory_delete",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"refresh_craftables",
+  "name":"inventory_delete",
   "parent":{
     "name":"Inventory",
     "path":"folders/Scripts/Inventory.yy",

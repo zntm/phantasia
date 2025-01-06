@@ -131,7 +131,8 @@ function control_inventory()
                         if (_ab_amount <= _inventory_max)
                         {
                             global.inventory[$ _switch_type][@ _slot_a].amount = _ab_amount;
-                            global.inventory[$ type][@ inventory_placement] = INVENTORY_EMPTY;
+                            
+                            inventory_delete(type, inventory_placement);
                             
                             break;
                         }

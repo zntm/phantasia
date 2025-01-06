@@ -55,7 +55,7 @@ function inventory_craft(_player_x, _player_y, _inst)
 					break;
 				}
 				
-				global.inventory.container[@ j] = INVENTORY_EMPTY;
+                inventory_delete("container", j);
 				
 				if (_amount2 == _amount)
 				{
@@ -73,11 +73,11 @@ function inventory_craft(_player_x, _player_y, _inst)
 		for (var j = 0; j < INVENTORY_LENGTH.BASE; ++j)
 		{
 			var _ = global.inventory.base[j];
-				
+			
 			if (_ == INVENTORY_EMPTY) || (is_array(_item_id) ? (!array_contains(_item_id, _.item_id)) : (_item_id != _.item_id)) continue;
-				
+			
 			var _amount2 = _.amount;
-				
+			
 			if (_amount2 > _amount)
 			{
 				global.inventory.base[@ j].amount -= _amount;
@@ -85,10 +85,10 @@ function inventory_craft(_player_x, _player_y, _inst)
 				break;
 			}
 			
-			global.inventory.base[@ j] = INVENTORY_EMPTY;
+			inventory_delete("base", j);
 			
 			if (_amount2 == _amount) break;
-				
+			
 			_amount -= _amount2;
 		}
 	}
