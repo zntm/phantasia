@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"control_weather_update",
   "parent":{
-    "name":"Controls",
-    "path":"folders/Scripts/Phantasia/Controls.yy",
+    "name":"Control",
+    "path":"folders/Scripts/Control.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -142,7 +142,7 @@ global.command_data[$ "effect"] = new CommandData()
 global.command_data[$ "hp"] = new CommandData()
     .add_subcommand("add", new CommandData()
         .add_parameter(new CommandParameter("user", COMMAND_PARAMETER_TYPE.USER))
-        .add_parameter(new CommandParameter("value", COMMAND_PARAMETER_TYPE.USER))
+        .add_parameter(new CommandParameter("value", COMMAND_PARAMETER_TYPE.INTEGER))
         .set_description("Adds HP")
         .set_permissions(CHAT_COMMAND_PERMISSION.MANAGE_ENTITY_HP)
         .set_function(function(_user, _value)
@@ -151,12 +151,45 @@ global.command_data[$ "hp"] = new CommandData()
         }))
     .add_subcommand("set", new CommandData()
         .add_parameter(new CommandParameter("user", COMMAND_PARAMETER_TYPE.USER))
-        .add_parameter(new CommandParameter("value", COMMAND_PARAMETER_TYPE.USER))
+        .add_parameter(new CommandParameter("value", COMMAND_PARAMETER_TYPE.INTEGER))
         .set_description("Sets HP")
         .set_permissions(CHAT_COMMAND_PERMISSION.MANAGE_ENTITY_HP)
         .set_function(function(_user, _value)
         {
             hp_set(_user, _value);
+        }));
+
+global.command_data[$ "summon"] = new CommandData()
+    .add_subcommand("boss", new CommandData()
+        .add_parameter(new CommandParameter("id", COMMAND_PARAMETER_TYPE.STRING))
+        .set_description("Summons a boss")
+        .set_function(function(_id)
+        {
+            chat_add(undefined, "WIP");
+        }))
+    .add_subcommand("creature", new CommandData()
+        .add_parameter(new CommandParameter("id", COMMAND_PARAMETER_TYPE.STRING))
+        .set_description("Summons a creature")
+        .set_permissions(CHAT_COMMAND_PERMISSION.MANAGE_ENTITY_HP)
+        .set_function(function(_id)
+        {
+            var _creature_data = global.creature_data;
+            
+            if (_creature_data[$ _id] == undefined)
+            {
+                var _id2 = $"phantasia:{_id}";
+                
+                if (_creature_data[$ _id2] == undefined)
+                {
+                    chat_add(undefined, $"Creature '{_id}' does not exist");
+                    
+                    exit;
+                }
+                
+                _id = _id2;
+            }
+            
+            spawn_creature(obj_Player.x, obj_Player.y, _id);
         }));
 
 global.command_data[$ "time"] = new CommandData()

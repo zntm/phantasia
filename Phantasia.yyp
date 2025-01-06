@@ -157,6 +157,7 @@
     {"$GMFolder":"","%Name":"Functions","folderPath":"folders/Scripts/Functions.yy","name":"Functions","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Cuteify","folderPath":"folders/Scripts/Functions/Cuteify.yy","name":"Cuteify","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Delta","folderPath":"folders/Scripts/Functions/Delta.yy","name":"Delta","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Control","folderPath":"folders/Scripts/Control.yy","name":"Control","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"GUI","folderPath":"folders/Scripts/GUI.yy","name":"GUI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Chat","folderPath":"folders/Scripts/GUI/Chat.yy","name":"Chat","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Menu","folderPath":"folders/Scripts/Menu.yy","name":"Menu","resourceType":"GMFolder","resourceVersion":"2.0",},

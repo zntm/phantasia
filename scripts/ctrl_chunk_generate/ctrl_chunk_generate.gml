@@ -40,7 +40,10 @@ function ctrl_chunk_generate()
 			
 			with (_inst)
 			{
-                is_in_view = true;
+                if (surface_display)
+                {
+                    is_in_view = true;
+                }
                 
                 if (is_generated) break;
                 
@@ -103,22 +106,30 @@ function ctrl_chunk_generate()
 								];
 							}
 							
-							_inst.chunk[@ _index_xyz].set_index(_index);
-							
 							var _bit = 1 << _index;
 							
 							if (_bit & 0b0_00_0000_1111_0000_00)
 							{
-								_inst.chunk[@ _index_xyz].set_scale(1, 1);
+								_inst.chunk[@ _index_xyz]
+                                    .set_index(_index)
+                                    .set_scale(1, 1);
 							}
 							else if (_bit & 0b0_00_1010_1111_1010_00)
 							{
-								_inst.chunk[@ _index_xyz].set_xscale(1); 
+								_inst.chunk[@ _index_xyz]
+                                    .set_index(_index)
+                                    .set_xscale(1); 
 							}
 							else if (_bit & 0b0_00_0101_1111_0101_00)
 							{
-								_inst.chunk[@ _index_xyz].set_yscale(1); 
+								_inst.chunk[@ _index_xyz]
+                                    .set_index(_index)    
+                                    .set_yscale(1); 
 							}
+                            else
+                            {
+                                _inst.chunk[@ _index_xyz].set_index(_index);
+                            }
 						}
 					}
 				}

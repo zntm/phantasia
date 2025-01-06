@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"control_structures",
   "parent":{
-    "name":"Phantasia",
-    "path":"folders/Scripts/Phantasia.yy",
+    "name":"Control",
+    "path":"folders/Scripts/Control.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
