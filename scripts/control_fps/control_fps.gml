@@ -3,7 +3,7 @@ enum FPS_REDUCTION {
 	NO_FOCUS = 16
 }
 
-#macro FPS_REDUCTION_TIME_THRESHOLD (60 * 15)
+#macro FPS_REDUCTION_TIME_THRESHOLD (GAME_FPS * 15)
 
 function control_fps()
 {

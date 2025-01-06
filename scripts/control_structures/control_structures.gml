@@ -21,8 +21,8 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
 		
 		var _structure = is_array_choose(_structure_data[$ structure]);
 		
-		var _left = round((bbox_left + TILE_SIZE_H) / TILE_SIZE);
-		var _top  = round((bbox_top  + TILE_SIZE_H) / TILE_SIZE);
+		var _left = floor(bbox_left / TILE_SIZE) + 1;
+		var _top  = floor(bbox_top  / TILE_SIZE) + 1;
 		
 		if (natural)
 		{
