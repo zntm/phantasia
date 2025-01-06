@@ -34,7 +34,7 @@ function menu_on_press_players(_x, _y, _id)
         armor_helmet: 1,
         armor_breastplate: 1,
         armor_leggings: 1,
-        accessory: 0,
+        accessory: 6,
         craftable: 0,
         container: 0
     }
