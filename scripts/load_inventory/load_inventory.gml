@@ -8,10 +8,10 @@
 #macro INVENTORY_EMPTY -1
 
 enum INVENTORY_LENGTH {
-	BASE        = 50,
-	ROW         = 10,
-	ARMOR       = 3,
-	ACCESSORIES = 6,
+	BASE      = 50,
+	ROW       = 10,
+	ARMOR     = 3,
+	ACCESSORY = 6,
 }
 
 function load_inventory()
@@ -21,7 +21,7 @@ function load_inventory()
 		armor_helmet:      array_create(1, INVENTORY_EMPTY),
 		armor_breastplate: array_create(1, INVENTORY_EMPTY),
 		armor_leggings:    array_create(1, INVENTORY_EMPTY),
-		accessory:         array_create(INVENTORY_LENGTH.ACCESSORIES, INVENTORY_EMPTY),
+		accessory:         array_create(INVENTORY_LENGTH.ACCESSORY, INVENTORY_EMPTY),
 		container:         [],
 		craftable:         []
 	}
@@ -117,7 +117,7 @@ function load_inventory()
                 
 				type = _inventory_name;
 				slot_type = _slot_type;
-			
+                
 				image_index = _index;
 				image_alpha = 0.95;
 				

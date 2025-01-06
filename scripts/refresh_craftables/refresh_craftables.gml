@@ -66,15 +66,15 @@ function refresh_craftables(_force = false)
 			
 			index_offset = _index_offset;
 			state = _state;
-					
+			
 			xoffset = GUI_SAFE_ZONE_X + INVENTORY_BACKPACK_XOFFSET + INVENTORY_CRAFTABLE_XOFFSET;
 			yoffset = GUI_SAFE_ZONE_Y + INVENTORY_BACKPACK_YOFFSET + INVENTORY_CRAFTABLE_YOFFSET + (_offset * INVENTORY_SLOT_SCALE * INVENTORY_SLOT_HEIGHT) + _ystart;
 			
 			grimoire = (!_craftable) && (_is_grimoire);
-					
+			
 			type = "craftable";
 			slot_type = SLOT_TYPE.CRAFTABLE;
-					
+			
 			item_id = _name;
 			amount = _amount;
 			

@@ -13,12 +13,7 @@ function file_load_player_inventory_old(_uuid, _buffer2, _name)
 	{
 		var _item_id = buffer_read(_buffer2, buffer_string);
 		
-		if (_item_id == "")
-		{
-			inventory_delete(_name, j);
-			
-			continue;
-		}
+		if (_item_id == "") continue;
 		
 		global.inventory[$ _name][@ j] = new Inventory(_item_id, buffer_read(_buffer2, buffer_u16))
 			.set_index(buffer_read(_buffer2, buffer_s8))

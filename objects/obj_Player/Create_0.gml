@@ -65,7 +65,7 @@ global.inventory = {
 	armor_helmet:      array_create(1, INVENTORY_EMPTY),
 	armor_breastplate: array_create(1, INVENTORY_EMPTY),
 	armor_leggings:    array_create(1, INVENTORY_EMPTY),
-	accessory:         array_create(INVENTORY_LENGTH.ACCESSORIES, INVENTORY_EMPTY),
+	accessory:         array_create(INVENTORY_LENGTH.ACCESSORY, INVENTORY_EMPTY),
 	container:         [],
 	craftable:         []
 }
