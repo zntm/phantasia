@@ -282,7 +282,7 @@ if (DEVELOPER_MODE)
 		}
         
 		obj_Control.surface_refresh_inventory = true;
-		refresh_craftables(true);
+		inventory_refresh_craftable(true);
 	});
 	
 	dbg_same_line();

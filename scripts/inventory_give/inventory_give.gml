@@ -71,7 +71,7 @@ function inventory_give(_x, _y, _item_id, _amount, _index, _index_offset, _state
 	
 	obj_Control.surface_refresh_inventory = true;
 	
-	refresh_craftables(true);
+	inventory_refresh_craftable(true);
 	
 	if (_text) && (_pickup > 0)
 	{

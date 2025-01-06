@@ -4,7 +4,7 @@
 #macro INVENTORY_CRAFTABLE_XOFFSET 0
 #macro INVENTORY_CRAFTABLE_YOFFSET GUI_SAFE_ZONE_Y
 
-function refresh_craftables(_force = false)
+function inventory_refresh_craftable(_force = false)
 {
 	if (!obj_Control.is_opened_inventory) exit;
 	
@@ -15,7 +15,7 @@ function refresh_craftables(_force = false)
 		
 		var _craftable = true;
 		var _is_grimoire = false;
-				
+		
 		for (var l = 0; l < _ingredients_length; ++l)
 		{
 			var _ingredient = _ingredients[l];

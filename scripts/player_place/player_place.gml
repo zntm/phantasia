@@ -122,7 +122,7 @@ function player_place(_x, _y, _world_height)
 	
 	cooldown_build = buffs[$ "build_cooldown"];
 	
-	refresh_craftables(true);
+	inventory_refresh_craftable(true);
     
 	if (!_is_deployable) || (_item_id != _data.give_back) || (_data.get_inventory_max() != 1)
 	{

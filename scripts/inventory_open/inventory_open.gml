@@ -6,5 +6,5 @@ function inventory_open()
 	
 	instance_activate_object(obj_Inventory);
 	
-	refresh_craftables(true);
+	inventory_refresh_craftable(true);
 }

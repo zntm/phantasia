@@ -93,7 +93,7 @@ function inventory_craft(_player_x, _player_y, _inst)
 		}
 	}
 	
-	refresh_craftables(true);
+	inventory_refresh_craftable(true);
 	
 	obj_Control.surface_refresh_inventory = true;
 }

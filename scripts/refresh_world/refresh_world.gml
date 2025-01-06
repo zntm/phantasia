@@ -1,6 +1,6 @@
 function refresh_world()
 {
-	refresh_craftables();
+	inventory_refresh_craftable();
     chunk_update_near_light();
 	// chunk_refresh(x, y, 4, true, true);
 	
