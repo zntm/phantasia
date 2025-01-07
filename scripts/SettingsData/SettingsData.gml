@@ -267,6 +267,8 @@ add_setting("accessibility", "clear_text", new SettingsData(0, SETTINGS_TYPE.SWI
 
 add_setting("accessibility", "camera_shake", new SettingsData(1, SETTINGS_TYPE.SLIDER));
 
+add_setting("accessibility", "blur_strength", new SettingsData(1, SETTINGS_TYPE.SLIDER));
+
 #endregion
 
 if (file_exists("Global.json")) && (file_exists("Settings.dat"))

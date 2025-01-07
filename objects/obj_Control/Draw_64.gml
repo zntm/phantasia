@@ -33,21 +33,30 @@ if (is_exiting)
 	{
 		blur_value = min(2, blur_value + (0.06 * _delta_time));
 	}
+    
+    var _blur_strength = global.settings_value.blur_strength;
 	
-	shader_set(shd_Blur);
-	
-	var _surface = surface_get_texture(application_surface);
-	
-	shader_set_uniform_f(
-		global.shader_blur_size,
-		texture_get_texel_height(_surface),
-		texture_get_texel_width(_surface),
-		blur_value * 0.0000016
-	);
-	
-	draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
-	
-	shader_reset();
+    if (_blur_strength <= 0)
+    {
+        draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+    }
+    else
+    {
+        shader_set(shd_Blur);
+        
+        var _surface = surface_get_texture(application_surface);
+        
+        shader_set_uniform_f(
+            global.shader_blur_size,
+            texture_get_texel_height(_surface),
+            texture_get_texel_width(_surface),
+            _blur_strength * blur_value * 0.0000016
+        );
+        
+        draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+        
+        shader_reset();
+    }
 	
 	// TODO: Make it look good
 	draw_set_align(fa_center, fa_middle);
@@ -80,20 +89,29 @@ else if (blur_value > 0)
 
 if (blur_value > 0)
 {
-	shader_set(shd_Blur);
-	
 	var _surface = surface_get_texture(application_surface);
 	
-	shader_set_uniform_f(
-		global.shader_blur_size,
-		texture_get_texel_height(_surface),
-		texture_get_texel_width(_surface),
-		blur_value * 0.0000016
-	);
-	
-	draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
-	
-	shader_reset();
+    var _blur_strength = global.settings_value.blur_strength;
+    
+    if (_blur_strength <= 0)
+    {
+        draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+    }
+    else
+    {
+        shader_set(shd_Blur);
+        
+        shader_set_uniform_f(
+            global.shader_blur_size,
+            texture_get_texel_height(_surface),
+            texture_get_texel_width(_surface),
+            _blur_strength * blur_value * 0.0000016
+        );
+        
+        draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+        
+        shader_reset();
+    }
 }
 else
 {

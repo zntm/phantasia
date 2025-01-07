@@ -44,12 +44,21 @@ if (_blur <= 0)
 	exit;
 }
 
+var _blur_strength = global.settings_value.blur_strength;
+
+if (_blur_strength <= 0)
+{
+    draw_surface(surface, 0, 0);
+    
+    exit;
+}
+
 shader_set(shd_Blur);
 
 var _texel_width  = 1 / surface_get_height(surface);
 var _texel_height = 1 / surface_get_width(surface);
 
-shader_set_uniform_f(global.shader_blur, _texel_width, _texel_height, 0.000016 * animcurve_channel_evaluate(global.menu_animcurve, _blur));
+shader_set_uniform_f(global.shader_blur, _texel_width, _texel_height, _blur_strength * 0.000016 * animcurve_channel_evaluate(global.menu_animcurve, _blur));
 
 draw_surface(surface, 0, 0);
 
