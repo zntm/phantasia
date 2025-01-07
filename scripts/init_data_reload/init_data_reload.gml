@@ -46,6 +46,20 @@ function init_data_reload(_directory, _prefix, _type)
 		if (_debug_reload.creature)
 		{
 			__init(init_creatures, $"{_directory}/creatures", _prefix, _type);
+            
+            if (room == rm_World)
+            {
+                var _creature_data = global.creature_data;
+                
+                with (obj_Creature)
+                {
+                    var _data = _creature_data[$ creature_id];
+                    var _bbox = _data.bbox;
+                    
+                    image_xscale = _bbox.width  / 8;
+                    image_yscale = _bbox.height / 8;
+                }
+            }
 		}
 		
 		if (_debug_reload.loot)
