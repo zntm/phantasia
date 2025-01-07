@@ -2851,8 +2851,24 @@
 		{
 			"ingredients": [
 				{
+					"item_id": "phantasia:twig",
+					"amount": 3,
+					"unlock_grimoire": true
+				},
+				{
+					"item_id": "phantasia:rope",
+					"amount": 2,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:combat_stick"
+		},
+		{
+			"ingredients": [
+				{
 					"item_id": "phantasia:rocks",
-					"amount": 2
+					"amount": 2,
+					"unlock_grimoire": true
 				},
 				{
 					"item_id": "phantasia:twig",
