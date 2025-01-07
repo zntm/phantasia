@@ -122,7 +122,7 @@ function render_entity(_surface_index_offset)
                 var _sprite = ((xvelocity == 0) ? _data.sprite_idle : _data.sprite_moving);
                 
                 draw_sprite_ext(((is_array(_sprite)) ? _sprite[index] : _sprite), image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
-            
+                
                 var _sprite_white = _data.sprite_white;
                 
                 if (_sprite_white != undefined)

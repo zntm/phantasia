@@ -18,7 +18,7 @@ function chat_add(_name, _message, _colour = undefined, _sprite_prefix = "emote_
     {
         delete global.chat_history[_length - 1];
         
-        array_pop(global.chat_history[_length - 1]);
+        array_resize(global.chat_history, CHAT_HISTORY_MAX);
     }
 	
 	file_save_message_history();

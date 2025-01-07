@@ -3,7 +3,7 @@ function chat_command_parameter_parse(_value, _parameter, _index, _user, _return
 	// TODO: FIX BOUNDARY ISSUES
 	static __parse_position = function(_value, _type, _index, _user, _return)
 	{
-		static __filter = function(_value, _index)
+		static __filter = function(_value)
 		{
 			return (_value != "") && (string_digits(_value) != "");
 		}
@@ -113,8 +113,8 @@ function chat_command_parameter_parse(_value, _parameter, _index, _user, _return
 	{
 		var _length = string_length(_value);
 		
-		var _parameter_min = _parameter.get_input_length_min();
-		var _parameter_max = _parameter.get_input_length_max();
+		var _parameter_min = _parameter.get_paramter_length_min();
+		var _parameter_max = _parameter.get_paramter_length_max();
 		
 		if (_length < _parameter_min) || (_length >= _parameter_max)
 		{

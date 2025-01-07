@@ -52,19 +52,19 @@ function CommandParameter(_name, _type, _default_value = undefined) constructor
         return self[$ "__description"];
     }
 	
-	static set_input_length = function(_min, _max)
+	static set_paramter_length = function(_min, _max)
 	{
 		__value = (__value & 0x1_ff_0000_0000) | (_max << 16) | _min;
 		
 		return self;
 	}
 	
-	static get_input_length_min = function()
+	static get_paramter_length_min = function()
 	{
 		return __value & 0xffff;
 	}
 	
-	static get_input_length_max = function()
+	static get_paramter_length_max = function()
 	{
 		return (__value >> 16) & 0xffff;
 	}
