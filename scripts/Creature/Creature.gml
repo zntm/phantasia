@@ -9,6 +9,9 @@ function Creature(_id, _is_passive) constructor
 	
 	image_xscale = _bbox.width  / 8;
 	image_yscale = _bbox.height / 8;
+    
+    xscale = 1;
+    yscale = 1;
 	
 	xdirection = choose(-1, 0, 1);
 	ydirection = choose(-1, 1);

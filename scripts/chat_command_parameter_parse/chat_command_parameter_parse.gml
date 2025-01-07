@@ -113,8 +113,8 @@ function chat_command_parameter_parse(_value, _parameter, _index, _user, _return
 	{
 		var _length = string_length(_value);
 		
-		var _parameter_min = _parameter.get_parameter_length_min();
-		var _parameter_max = _parameter.get_parameter_length_max();
+		var _parameter_min = _parameter.get_input_length_min();
+		var _parameter_max = _parameter.get_input_length_max();
 		
 		if (_length < _parameter_min) || (_length >= _parameter_max)
 		{

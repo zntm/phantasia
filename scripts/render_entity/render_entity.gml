@@ -121,27 +121,20 @@ function render_entity(_surface_index_offset)
 				
                 var _sprite = ((xvelocity == 0) ? _data.sprite_idle : _data.sprite_moving);
                 
-				if (!is_array(_sprite))
-				{
-					draw_sprite_ext(_sprite, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-				}
-				else
-				{
-					draw_sprite_ext(_sprite[index], image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-				}
+                draw_sprite_ext(((is_array(_sprite)) ? _sprite[index] : _sprite), image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
             
                 var _sprite_white = _data.sprite_white;
                 
                 if (_sprite_white != undefined)
                 {
-                    draw_sprite_ext(((xvelocity == 0) || (!is_array(_sprite_white)) ? _sprite_white : _sprite_white[index]), image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                    draw_sprite_ext(((xvelocity == 0) || (!is_array(_sprite_white)) ? _sprite_white : _sprite_white[index]), image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
                 }
                 
 				var _on_draw = _data.on_draw;
                 
 				if (_on_draw != undefined)
 				{
-					_on_draw(x, y, image_xscale, image_yscale, image_angle, image_blend, _image_alpha);
+					_on_draw(x, y, xscale, yscale, image_angle, image_blend, _image_alpha);
 				}
 			}
 			
