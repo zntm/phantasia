@@ -78,7 +78,7 @@ function render_entity(_surface_index_offset)
 				continue;
 			}
 			
-			draw_sprite_ext(_data, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, alpha);
+			draw_sprite_ext(_data.sprite, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, alpha);
 		}
 		
 		if (_particle_additive)
@@ -91,7 +91,7 @@ function render_entity(_surface_index_offset)
                 
 				if ((_data.boolean & 8) == 0) continue;
 				
-				draw_sprite_ext(_data, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, alpha);
+				draw_sprite_ext(_data.sprite, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, alpha);
 			}
 			
 			gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_src_alpha, bm_one);
@@ -115,26 +115,29 @@ function render_entity(_surface_index_offset)
             
 			with (obj_Creature)
 			{
+                var _xscale = sign(image_xscale) * xscale;
+                var _yscale = sign(image_yscale) * yscale;
+                
 				var _image_alpha = __get_alpha(image_alpha, immunity_frame, _immunity_alpha);
 				
 				var _data = _creature_data[$ creature_id];
 				
                 var _sprite = ((xvelocity == 0) ? _data.sprite_idle : _data.sprite_moving);
                 
-                draw_sprite_ext(((is_array(_sprite)) ? _sprite[index] : _sprite), image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
+                draw_sprite_ext(((is_array(_sprite)) ? _sprite[index] : _sprite), image_index, x, y, _xscale, _yscale, image_angle, image_blend, image_alpha);
                 
                 var _sprite_white = _data.sprite_white;
                 
                 if (_sprite_white != undefined)
                 {
-                    draw_sprite_ext(((xvelocity == 0) || (!is_array(_sprite_white)) ? _sprite_white : _sprite_white[index]), image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
+                    draw_sprite_ext(((xvelocity == 0) || (!is_array(_sprite_white)) ? _sprite_white : _sprite_white[index]), image_index, x, y, _xscale, ysc_yscaleale, image_angle, image_blend, image_alpha);
                 }
                 
 				var _on_draw = _data.on_draw;
                 
 				if (_on_draw != undefined)
 				{
-					_on_draw(x, y, xscale, yscale, image_angle, image_blend, _image_alpha);
+					_on_draw(x, y, _xscale, _yscale, image_angle, image_blend, _image_alpha);
 				}
 			}
 			

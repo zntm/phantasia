@@ -23,6 +23,7 @@ function entity_init(_id, _hp, _hp_max, _attributes, _colour_offset = 0, _effect
 		entity_init_sprite(sprite_index);
 		
 		jump_count = 0;
+        jump_time = 0;
 		
 		effects = {}
 	}

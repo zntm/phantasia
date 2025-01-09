@@ -1,6 +1,6 @@
 function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GRAVITY, _nudge = true, _collision = true, _step = -1, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
 {
-	yvelocity = clamp(yvelocity + (yvelocity > 0 ? (_gravity * _multiplier) : (PHYSICS_GLOBAL_GRAVITY * _multiplier)), -PHYSICS_GLOBAL_YVELOCITY_MAX, PHYSICS_GLOBAL_YVELOCITY_MAX);
+	yvelocity = clamp(yvelocity + (_gravity * _multiplier), -PHYSICS_GLOBAL_YVELOCITY_MAX, PHYSICS_GLOBAL_YVELOCITY_MAX);
 	
 	var _yvelocity = yvelocity;
 	

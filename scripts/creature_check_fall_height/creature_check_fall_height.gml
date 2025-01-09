@@ -6,7 +6,7 @@ function creature_check_fall_height(_x, _y, _direction, _max, _world_height)
 
 	repeat (_max)
 	{
-		if (tile_meeting(_x, _y + ((_fall_amount + 1) * _tile_size), undefined, undefined, _world_height) != -1) break;
+		if (tile_meeting(_x, _y + ((_fall_amount + 1) * _tile_size), undefined, undefined, _world_height)) break;
 		
 		++_fall_amount;
 	}

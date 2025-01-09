@@ -68,9 +68,9 @@ function handler_damage(_id, _speed)
 	hp_add(id, -_damage, _damage_type);
 	
 	spawn_particle(x, y, CHUNK_DEPTH_DEFAULT + 1, "phantasia:damage", irandom_range(4, 8));
-		
-	yvelocity = -3;
+	
+	yvelocity = -buffs[$ "jump_height"];
 	immunity_frame = IMMUNITY_FRAME_MAX - _speed;
-		
+	
 	return true;
 }

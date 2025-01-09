@@ -141,37 +141,48 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		var _move_type = _data.get_move_type();
 		
 		if (_move_type == CREATURE_MOVE_TYPE.DEFAULT)
-		{
-			physics_y(_delta_time, buffs[$ "gravity"], undefined, undefined, undefined, _world_height);
-			
-			if (tile_meeting(x, y + 1, undefined, undefined, _world_height))
+        {
+            physics_y(_delta_time, buffs[$ "gravity"], undefined, undefined, undefined, _world_height);
+            
+            if (tile_meeting(x, y + 1, undefined, undefined, _world_height))
+            {
+                entity_fall(undefined, _world_height);
+                
+                if (hp <= 0)
+                {
+                    creature_handle_death(_sfx, _data.drops);
+                    
+                    continue;
+                }
+                
+                coyote_time = 0;
+                jump_count = 0;
+                jump_time = 0;
+            }
+            else
+            {
+                coyote_time += _delta_time;
+            }
+            
+            if (jump_time > 0)
+            {
+                if (jump_time < buffs[$ "jump_time"])
+                {
+                    jump_time += _delta_time;
+                    
+                    yvelocity = -buffs[$ "jump_height"];
+                }
+            }
+			else if (tile_meeting(x, y + 1, undefined, undefined, _world_height)) && (tile_meeting(_xto, y, undefined, undefined, _world_height)) && (_fall_amount < 3) && (jump_count < buffs[$ "jump_count_max"]) && (coyote_time <= buffs[$ "coyote_time"]) /*((_is_passive && effects[$ "phantasia:rabid"] == undefined) || (instance_exists(player) && y > player.y)) && */
 			{
-				entity_fall(undefined, _world_height);
-				
-				if (hp <= 0)
-				{
-					creature_handle_death(_sfx, _data.drops);
-					
-					continue;
-				}
-				
-				coyote_time = 0;
-				jump_count = 0;
-			}
-			else
-			{
-				coyote_time += _delta_time;
-			}
-			
-			if (_fall_amount > 3) && (jump_count < buffs[$ "jump_count_max"]) && (coyote_time <= buffs[$ "coyote_time_max"]) /*((_is_passive && effects[$ "phantasia:rabid"] == undefined) || (instance_exists(player) && y > player.y)) && */
-			{
-				if (jump_count == 0) ? (creature_check_fall_height(_xto, y, -1, 3, _world_height) >= 3) : (chance(_chance_jump_default))
+				if (creature_check_fall_height(_xto, y - (TILE_SIZE * 2), -1, 2, _world_height) >= 2)
 				{
 					yvelocity = -buffs[$ "jump_height"];
 					
 					++jump_count;
+                    jump_time += _delta_time;
 				}
-			}
+            }
 		}
 		else if (_move_type == CREATURE_MOVE_TYPE.FLY) || (_move_type == CREATURE_MOVE_TYPE.SWIM && tile_meeting(x, y, CHUNK_DEPTH_LIQUID, ITEM_TYPE_BIT.LIQUID, _world_height))
 		{
