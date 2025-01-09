@@ -161,6 +161,8 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                 
                 jump_count = 0;
                 jump_time = 0;
+                
+                knockback_time = 0;
             }
             else
             {

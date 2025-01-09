@@ -44,5 +44,8 @@ function spawn_drop(_x, _y, _item, _amount, _xvelocity, _direction, _yvelocity =
 		
 		timer = _timer;
 		show_text = _show_text;
+        
+        knockback_time = 0;
+        knockback_direction = 0;
 	}
 }

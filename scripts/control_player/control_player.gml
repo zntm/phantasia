@@ -96,6 +96,8 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
 				jump_count = 0;
                 
 				coyote_time = 0;
+                
+                knockback_time = 0;
 			}
 			else if (!_key_jump)
 			{
