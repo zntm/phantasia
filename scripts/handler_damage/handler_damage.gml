@@ -9,11 +9,17 @@ enum DAMAGE_TYPE {
 }
 
 #macro IMMUNITY_FRAME_MAX 60
+#macro KNOCKBACK_MAX 60
 
 function handler_damage(_id, _speed)
 {
 	static __inst = [ obj_Projectile, obj_Tool ];
 	
+	if (knockback_time > 0)
+	{
+		knockback_time = max(knockback_time - _speed, 0);
+    }
+    
 	if (immunity_frame > 0)
 	{
 		immunity_frame = max(immunity_frame - _speed, 0);
@@ -70,7 +76,10 @@ function handler_damage(_id, _speed)
 	spawn_particle(x, y, CHUNK_DEPTH_DEFAULT + 1, "phantasia:damage", irandom_range(4, 8));
 	
 	yvelocity = -buffs[$ "jump_height"];
+    
 	immunity_frame = IMMUNITY_FRAME_MAX - _speed;
+    knockback_time = KNOCKBACK_MAX - _speed;
+    knockback_direction = sign(x - _inst.x);
 	
 	return true;
 }

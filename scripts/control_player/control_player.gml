@@ -7,15 +7,15 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
 	
 	var _key_left    = false;
 	var _key_right   = false;
-
+    
 	var _key_jump    = false;
-
+    
 	if (!_is_opened_chat) && (!_is_opened_menu)
 	{
-		_key_left    = get_control("left");
-		_key_right   = get_control("right");
-
-		_key_jump    = get_control("jump");
+		_key_left  = get_control("left");
+		_key_right = get_control("right");
+        
+		_key_jump  = get_control("jump");
 	}
 	
 	with (obj_Player)

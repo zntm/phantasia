@@ -26,5 +26,8 @@ function entity_init(_id, _hp, _hp_max, _attributes, _colour_offset = 0, _effect
         jump_time = 0;
 		
 		effects = {}
+        
+        knockback_time = 0;
+        knockback_direction = 0; 
 	}
 }

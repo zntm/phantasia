@@ -2,7 +2,14 @@
 
 function physics_x(_speed, _collision = true, _step = -1, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
 {
-	var _xvelocity = abs(xvelocity);
+    var _ = xvelocity;
+    
+    if (knockback_time > 0)
+    {
+        _ += buffs[$ "knockback"] * knockback_direction;
+    }
+    
+	var _xvelocity = abs(_);
 	
 	if (_xvelocity <= 0.03)
 	{
@@ -11,7 +18,7 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
 		return false;
 	}
 	
-	var _sign = sign(xvelocity);
+	var _sign = sign(_);
 	
 	if (tile_meeting(x + _sign, y, undefined, undefined, _world_height))
 	{
@@ -22,7 +29,7 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
 	
 	if (!_collision)
 	{
-		x += xvelocity;
+		x += _;
 		
 		return false;
 	}
@@ -37,19 +44,19 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
 		{
 			for (var j = _size; j > 0; --j)
 			{
-				var _ = min(j, 1) * _sign;
-					
-				if (tile_meeting(x + _, y, undefined, undefined, _world_height))
+				var _offset = min(j, 1) * _sign;
+				
+				if (tile_meeting(x + _offset, y, undefined, undefined, _world_height))
 				{
 					return true;
 				}
 				
-				x += _;
+				x += _offset;
 			}
-				
+			
 			break;
 		}
-			
+		
 		x += _direction;
 	}
 	

@@ -1,3 +1,13 @@
+#macro PHYSICS_PLAYER_WALK_SPEED 3
+
+#macro PHYSICS_PLAYER_JUMP_AMOUNT_MAX 1
+#macro PHYSICS_PLAYER_JUMP_HEIGHT 4.8
+
+#macro PHYSICS_PLAYER_KNOCKBACK 64
+#macro PHYSICS_PLAYER_KNOCKBACK_TIME 8
+
+#macro PHYSICS_PLAYER_THRESHOLD_COYOTE 2
+
 function Attributes() constructor
 {
 	movement_speed = PHYSICS_PLAYER_WALK_SPEED;
@@ -68,6 +78,17 @@ function Attributes() constructor
 		
 		return self;
 	}
+    
+    knockback = PHYSICS_PLAYER_KNOCKBACK;
+    knockback_time = PHYSICS_PLAYER_KNOCKBACK_TIME;
+    
+    static set_knockback = function(_knockback, _time)
+    {
+        knockback = _knockback;
+        knockback_time = _time;
+        
+        return self;
+    }
 	
 	jump_count_max = 1;
 	jump_height = PHYSICS_PLAYER_JUMP_HEIGHT;
