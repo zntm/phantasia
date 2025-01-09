@@ -144,7 +144,9 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
         {
             physics_y(_delta_time, buffs[$ "gravity"], undefined, undefined, undefined, _world_height);
             
-            if (tile_meeting(x, y + 1, undefined, undefined, _world_height))
+            var _is_on_ground = tile_meeting(x, y + 1, undefined, undefined, _world_height);
+            
+            if (_is_on_ground)
             {
                 entity_fall(undefined, _world_height);
                 
@@ -156,6 +158,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                 }
                 
                 coyote_time = 0;
+                
                 jump_count = 0;
                 jump_time = 0;
             }
@@ -173,18 +176,16 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                     yvelocity = -buffs[$ "jump_height"];
                 }
             }
-			else if (tile_meeting(x, y + 1, undefined, undefined, _world_height)) && (tile_meeting(_xto, y, undefined, undefined, _world_height)) && (_fall_amount < 3) && (jump_count < buffs[$ "jump_count_max"]) && (coyote_time <= buffs[$ "coyote_time"]) /*((_is_passive && effects[$ "phantasia:rabid"] == undefined) || (instance_exists(player) && y > player.y)) && */
+			else if (_is_on_ground) && (_fall_amount < 3) && (jump_count < buffs[$ "jump_count_max"]) && (coyote_time <= buffs[$ "coyote_time"]) && (tile_meeting(_xto, y, undefined, undefined, _world_height)) && (creature_check_fall_height(_xto, y - (TILE_SIZE * 2), -1, 2, _world_height) >= 2)
 			{
-				if (creature_check_fall_height(_xto, y - (TILE_SIZE * 2), -1, 2, _world_height) >= 2)
-				{
-					yvelocity = -buffs[$ "jump_height"];
-					
-					++jump_count;
-                    jump_time += _delta_time;
-				}
+                ++jump_count;
+                
+                jump_time += _delta_time;
+                
+                yvelocity = -buffs[$ "jump_height"];
             }
 		}
-		else if (_move_type == CREATURE_MOVE_TYPE.FLY) || (_move_type == CREATURE_MOVE_TYPE.SWIM && tile_meeting(x, y, CHUNK_DEPTH_LIQUID, ITEM_TYPE_BIT.LIQUID, _world_height))
+		else if (_move_type == CREATURE_MOVE_TYPE.FLY) || ((_move_type == CREATURE_MOVE_TYPE.SWIM) && (tile_meeting(x, y, CHUNK_DEPTH_LIQUID, ITEM_TYPE_BIT.LIQUID, _world_height)))
 		{
 			image_angle = lerp_delta(image_angle, (xdirection != 0 ? xdirection * -12 : 0), 0.1, _delta_time);
             
