@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"chat_command_resolve_id",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"chat_command_resolve_id",
+  "parent":{
+    "name":"Command",
+    "path":"folders/Scripts/Chat/Command.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

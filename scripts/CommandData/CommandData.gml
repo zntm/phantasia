@@ -173,21 +173,9 @@ global.command_data[$ "summon"] = new CommandData()
         .set_permissions(CHAT_COMMAND_PERMISSION.MANAGE_ENTITY_HP)
         .set_function(function(_id)
         {
-            var _creature_data = global.creature_data;
+            _id = chat_command_resolve_id(_id, global.creature_data, "Creature");
             
-            if (_creature_data[$ _id] == undefined)
-            {
-                var _id2 = $"phantasia:{_id}";
-                
-                if (_creature_data[$ _id2] == undefined)
-                {
-                    chat_add(undefined, $"Creature '{_id}' does not exist");
-                    
-                    exit;
-                }
-                
-                _id = _id2;
-            }
+            if (_id == undefined) exit;
             
             spawn_creature(obj_Player.x, obj_Player.y, _id);
         }));
