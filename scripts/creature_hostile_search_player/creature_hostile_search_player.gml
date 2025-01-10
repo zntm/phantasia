@@ -14,7 +14,7 @@ function creature_hostile_search_player(_fall_amount, _chance_switch_direction_f
 		return false;
 	}
 	
-	var _xdirection = sign(_searching_x - x);
+	var _xdirection = sign(x - _searching_x);
 	
 	if (_fall_amount > round(AI_CREATURE_FALL_CHECK / 2))
 	{

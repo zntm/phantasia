@@ -1241,6 +1241,7 @@
     {"id":{"name":"EffectData","path":"scripts/EffectData/EffectData.yy",},},
     {"id":{"name":"EmoteData","path":"scripts/EmoteData/EmoteData.yy",},},
     {"id":{"name":"entity_calculate_buff","path":"scripts/entity_calculate_buff/entity_calculate_buff.yy",},},
+    {"id":{"name":"entity_damage_knockback","path":"scripts/entity_damage_knockback/entity_damage_knockback.yy",},},
     {"id":{"name":"entity_damage","path":"scripts/entity_damage/entity_damage.yy",},},
     {"id":{"name":"entity_fall","path":"scripts/entity_fall/entity_fall.yy",},},
     {"id":{"name":"entity_init_sprite","path":"scripts/entity_init_sprite/entity_init_sprite.yy",},},

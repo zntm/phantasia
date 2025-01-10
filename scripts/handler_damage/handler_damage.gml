@@ -75,11 +75,9 @@ function handler_damage(_id, _speed)
 	
 	spawn_particle(x, y, CHUNK_DEPTH_DEFAULT + 1, "phantasia:damage", irandom_range(4, 8));
 	
-	yvelocity = -buffs[$ "jump_height"];
+    immunity_frame = IMMUNITY_FRAME_MAX - _speed;
     
-	immunity_frame = IMMUNITY_FRAME_MAX - _speed;
-    knockback_time = KNOCKBACK_MAX - _speed;
-    knockback_direction = sign(x - _inst.x);
+    entity_damage_knockback(sign(x - _inst.x), _delta_time);
 	
 	return true;
 }

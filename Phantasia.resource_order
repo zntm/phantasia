@@ -308,6 +308,7 @@
     {"name":"effect_on_death","order":1,"path":"scripts/effect_on_death/effect_on_death.yy",},
     {"name":"effect_set","order":2,"path":"scripts/effect_set/effect_set.yy",},
     {"name":"entity_calculate_buff","order":6,"path":"scripts/entity_calculate_buff/entity_calculate_buff.yy",},
+    {"name":"entity_damage_knockback","order":2,"path":"scripts/entity_damage_knockback/entity_damage_knockback.yy",},
     {"name":"entity_damage","order":1,"path":"scripts/entity_damage/entity_damage.yy",},
     {"name":"entity_init_sprite","order":8,"path":"scripts/entity_init_sprite/entity_init_sprite.yy",},
     {"name":"entity_init","order":7,"path":"scripts/entity_init/entity_init.yy",},

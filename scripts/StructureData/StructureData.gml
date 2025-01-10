@@ -175,8 +175,9 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
         if (string_ends_with(_file, ".json"))
         {
             if (!string_ends_with(_file, ".dat.json"))
-            
-            global.structure_data[$ $"{_prefix}:{string_delete(_file, string_length(_file) - 4, 5)}"] = __init_json(_prefix, _file, $"{_directory}/{_file}");
+            {
+                global.structure_data[$ $"{_prefix}:{string_delete(_file, string_length(_file) - 4, 5)}"] = __init_json(_prefix, _file, $"{_directory}/{_file}");
+            }
             
             continue;
         }
