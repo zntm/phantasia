@@ -77,7 +77,7 @@ function handler_damage(_id, _speed)
 	
     immunity_frame = IMMUNITY_FRAME_MAX - _speed;
     
-    entity_damage_knockback(sign(x - _inst.x), _delta_time);
+    entity_damage_knockback(id, sign(x - _inst.x), _speed);
 	
 	return true;
 }

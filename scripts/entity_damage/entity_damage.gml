@@ -11,5 +11,5 @@ function entity_damage(_direction, _damage, _delta_time, _type = DAMAGE_TYPE.DEF
 		sfx_play("phantasia:action.damage", global.settings_value.sfx);
 	}
     
-    entity_damage_knockback(_direction, _delta_time);
+    entity_damage_knockback(id, _direction, _delta_time);
 }

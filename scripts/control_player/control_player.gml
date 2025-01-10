@@ -64,15 +64,15 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
             
 			physics_dash(_key_left, _key_right, _dash, _delta_time);
             
-			if (dash_speed > 0) && (_dash > 0)
+			if (knockback_time > 0) || (dash_speed <= 0) || (_dash <= 0)
+            {
+                physics_slow_down(_direction, _delta_time);
+                physics_x(buffs[$ "movement_speed"] * _delta_time, undefined, undefined, _world_height);
+            }
+            else
 			{
 				physics_slow_down(dash_facing, _delta_time);
 				physics_x((dash_speed + buffs[$ "movement_speed"]) * _delta_time, undefined, undefined, _world_height);
-			}
-			else
-			{
-				physics_slow_down(_direction, _delta_time);
-				physics_x(buffs[$ "movement_speed"] * _delta_time, undefined, undefined, _world_height);
 			}
 			
 			if (_direction != 0)

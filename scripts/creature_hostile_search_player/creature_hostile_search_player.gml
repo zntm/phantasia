@@ -2,7 +2,7 @@
 
 function creature_hostile_search_player(_fall_amount, _chance_switch_direction_fall)
 {
-	if (!instance_exists(player))
+	if (!instance_exists(player)) || (player.hp <= 0)
 	{
 		return false;
 	}

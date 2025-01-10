@@ -20,7 +20,6 @@ function CreatureData(_type, _hp) constructor
 	
 	hp = _hp;
     
-    
 	static set_move_type = function(_type)
 	{
 		type = (type & 0xf0) | _type;

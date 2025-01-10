@@ -6,7 +6,7 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
     
     if (knockback_time > 0)
     {
-        _ = abs(_) * knockback_direction;
+        _ = max(1, abs(_)) * knockback_direction;
         
         _speed = buffs[$ "knockback"];
     }
