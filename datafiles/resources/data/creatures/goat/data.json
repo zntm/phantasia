@@ -2,23 +2,20 @@
     "eye_level": 3,
     "frames": {
         "idle": 1,
-        "moving": 6
+        "moving": 1
     },
     "bbox": {
         "width": 8,
         "height": 8
     },
-    "hp": 16,
+    "hp": 26,
     "type": {
         "hostility": "passive",
         "movement": "ground"
     },
+    "sfx": "phantasia:creature.goat",
+    "drops": [],
     "attributes": {
-        "movement_speed": 1.2
-    },
-    "sprite_index": {
-        "default": [ 0, 1, 2 ],
-        "phantasia:tundra": 1,
-        "phantasia:snowy_borealis": 2
+        "movement_speed": 0.68
     }
 }

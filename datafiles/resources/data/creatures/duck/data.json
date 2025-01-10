@@ -18,8 +18,8 @@
         "jump_height": 0.55
     },
     "sprite_index": {
-        "default": [ 0, 1, 2, 3 ],
-        "phantasia:borealis": [ 0, 3 ],
-        "phantasia:snowy_tundra": [ 1, 2 ]
+        "default": 0,
+        "phantasia:borealis": 1,
+        "phantasia:tundra": 1
     }
 }

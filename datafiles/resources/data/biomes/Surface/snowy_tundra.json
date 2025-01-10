@@ -62,13 +62,16 @@
 		"passive_spawn_chance": 0.02,
 		"passive_spawn_amount": [
 			1,
-			4
+			2
 		],
 		"passive": {
 			"phantasia:fox": {
 				"weight": 1
 			},
 			"phantasia:bunny": {
+				"weight": 1
+			},
+			"phantasia:goat": {
 				"weight": 1
 			}
 		},

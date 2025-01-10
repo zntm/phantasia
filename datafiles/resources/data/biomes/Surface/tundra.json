@@ -76,6 +76,9 @@
 			},
 			"phantasia:ladybug": {
 				"weight": 1
+			},
+			"phantasia:duck": {
+				"weight": 1
 			}
 		},
 		"hostile_spawn_chance": 0,
