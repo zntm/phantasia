@@ -63,7 +63,7 @@
 	"structures": [
 		{
 			"id": "phantasia:moss_clump",
-			"chance": 0.006
+			"chance": 0.004
 		},
 		{
 			"id": "phantasia:tree_cherry",
@@ -71,7 +71,11 @@
 		},
 		{
 			"id": "phantasia:tree_cherry_blonde",
-			"chance": 0.008
+			"chance": 0.01
+		},
+		{
+			"id": "phantasia:bamboo",
+			"chance": 0.007
 		}
 	],
 	"foliage": {

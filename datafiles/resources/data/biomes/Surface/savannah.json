@@ -63,7 +63,16 @@
 		"hostile_spawn_amount": [ 1, 4 ],
 		"hostile": {}
 	},
-	"structures": [],
+	"structures": [
+		{
+			"id": "phantasia:shrine_empty",
+			"chance": 0.0007
+		},
+		{
+			"id": "phantasia:tree_acacia",
+			"chance": 0.008
+		}
+	],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:grass_block_savannah" ],
 		"chance": 0.8,

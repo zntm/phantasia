@@ -71,6 +71,10 @@
 		{
 			"id": "phantasia:cattail",
 			"chance": 0.07
+		},
+		{
+			"id": "phantasia:moss_clump",
+			"chance": 0.008
 		}
 	],
 	"foliage": {

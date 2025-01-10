@@ -71,6 +71,10 @@
 		{
 			"id": "phantasia:bamboo",
 			"chance": 0.09
+		},
+		{
+			"id": "phantasia:moss_clump",
+			"chance": 0.008
 		}
 	],
 	"foliage": {
