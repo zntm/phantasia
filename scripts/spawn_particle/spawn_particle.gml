@@ -6,7 +6,9 @@ function spawn_particle(_x, _y, _z, _id, _amount = 1, _colour = c_white)
 	
 	var _setting = global.settings_value.particles;
 	
-	if (_setting == 0) || ((chance(0.5) ? floor(_amount / 2) : ceil(_amount / 2)) <= 0) exit;
+	if (_setting == 0) exit;
+    
+    if (_setting == 1) && (chance(0.5)) exit;
 	
 	var _particle = global.particle_data[$ _id];
 	
