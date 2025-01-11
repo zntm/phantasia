@@ -70,15 +70,22 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		if (!_is_passive)
 		{
 			_searching = creature_hostile_search_player(_fall_amount, _chance_switch_direction_fall);
+            
+            if (chance(_chance_switch_direction_default))
+            {
+                xdirection = choose(-1, 0, 0, 0, 1);
+            }
 		}
-		else if (panic_time > 0) && (chance(_chance_switch_direction_panic))
+		else
 		{
-			xdirection = sign(x - player.x);
-		}
-		
-		if (!_searching) && (chance(_chance_switch_direction_default))
-		{
-			xdirection = choose(-1, 0, 0, 0, 1);
+            if (panic_time > 0) && (chance(_chance_switch_direction_panic))
+            {
+                xdirection = sign(x - player.x);
+            }
+			else if (chance(_chance_switch_direction_default))
+            {
+                xdirection = choose(-1, 0, 0, 0, 1);
+            }
 		}
         
         #region Sound Effects
@@ -98,14 +105,14 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                     {
                         if (chance(_chance_sfx_idle))
                         {
-                            sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
+                            sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
                             
                             sfx_time = _sfx_time;
                         }
                     }
                     else if (chance(_chance_sfx_panic))
                     {
-                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, _volume_hostile, _world_height) ?? -1;
+                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
                         
                         sfx_time = _sfx_time;
                     }
@@ -117,14 +124,14 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                 {
                     if (chance(_chance_sfx_search))
                     {
-                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.search", undefined, _volume_hostile, _world_height) ?? -1;
+                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.search", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
                         
                         sfx_time = _sfx_time;
                     }
                 }
                 else if (chance(_chance_sfx_idle))
                 {
-                    sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
+                    sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
                     
                     sfx_time = _sfx_time;
                 }
