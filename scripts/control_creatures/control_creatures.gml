@@ -67,7 +67,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		
 		var _searching = false;
 		
-		if (!_is_passive)
+		if (_type == CREATURE_HOSTILITY_TYPE.HOSTILE)
 		{
 			_searching = creature_hostile_search_player(_fall_amount, _chance_switch_direction_fall);
             
@@ -155,7 +155,10 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
             
             if (_is_on_ground)
             {
-                entity_fall(undefined, _world_height);
+                if (buffs[$ "is_fall_damage_resistant"] > 0)
+                {
+                    entity_fall(undefined, _world_height);
+                }
                 
                 if (hp <= 0)
                 {
@@ -182,7 +185,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                 {
                     jump_time += _delta_time;
                     
-                    yvelocity = -buffs[$ "jump_height"];
+                    yvelocity = -buffs[$ "jump_height"] * _delta_time;
                 }
             }
 			else if (_is_on_ground) && (_fall_amount < 3) && (jump_count < buffs[$ "jump_count_max"]) && (coyote_time <= buffs[$ "coyote_time"]) && (tile_meeting(_xto, y, undefined, undefined, _world_height)) && (creature_check_fall_height(_xto, y - (TILE_SIZE * 2), -1, 2, _world_height) >= 2)
@@ -191,7 +194,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                 
                 jump_time += _delta_time;
                 
-                yvelocity = -buffs[$ "jump_height"];
+                yvelocity = -buffs[$ "jump_height"] * _delta_time;
             }
 		}
 		else if (_move_type == CREATURE_MOVE_TYPE.FLY) || ((_move_type == CREATURE_MOVE_TYPE.SWIM) && (tile_meeting(x, y, CHUNK_DEPTH_LIQUID, ITEM_TYPE_BIT.LIQUID, _world_height)))

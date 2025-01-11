@@ -29,6 +29,7 @@
     "attributes": {
         "movement_speed": 0.5,
         "gravity": 0.1,
-        "jump_height": 1.1
+        "jump_height": 1.1,
+        "is_fall_damage_resistant": 1
     }
 }

@@ -110,7 +110,9 @@ function Attributes() constructor
 		return self;
 	}
 	
-	invisibility = 0;
+	is_invisible = 0;
+    
+    is_fall_damage_resistant = 0;
 }
 
 global.attributes_player = new Attributes()
