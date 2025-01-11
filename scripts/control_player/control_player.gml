@@ -62,7 +62,34 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
             
 			var _dash = buffs[$ "dash_power"];
             
-			physics_dash(_key_left, _key_right, _dash, _delta_time);
+            if (_dash > 0)
+            {
+                if (dash_speed > 0)
+                {
+                    _key_left = false;
+                    _key_right = false;
+                    
+                    dash_speed = max(0, dash_speed - _delta_time);
+                }
+                
+                if (dash_timer < buffs[$ "dash_cooldown"])
+                {
+                    physics_dash(_key_left, _key_right, _dash, _delta_time);
+                }
+            }
+            
+            if (dash_timer > 0)
+            {
+                dash_timer += _delta_time;
+                
+                if (dash_timer >= buffs[$ "dash_cooldown"])
+                {
+                    dash_timer = 0;
+                    
+                    dash_facing = 0;
+                    dash_speed = 0;
+                }
+            }
             
 			if (knockback_time > 0) || (dash_speed <= 0) || (_dash <= 0)
             {
@@ -113,8 +140,8 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
 					++jump_count;
 				}
                 
-				if ((jump_count < buffs[$ "jump_count_max"]) || (coyote_time <= buffs[$ "coyote_time"])) && (jump_pressed < buffs[$ "jump_time"])
-				{
+				if (jump_pressed < buffs[$ "jump_time"]) && ((jump_count < buffs[$ "jump_count_max"]) || (coyote_time <= buffs[$ "coyote_time"])) 
+				{ 
 					yvelocity = -buffs[$ "jump_height"] * _delta_time;
                     
 					jump_pressed += _delta_time;
