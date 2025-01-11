@@ -1,4 +1,4 @@
-function entity_damage_knockback(_id, _direction, _delta_time)
+function entity_knockback(_id, _direction, _delta_time)
 {
     _id.yvelocity = -_id.buffs[$ "jump_height"];
     

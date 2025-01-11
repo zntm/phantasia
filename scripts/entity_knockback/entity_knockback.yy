@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"entity_damage_knockback",
+  "%Name":"entity_knockback",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"entity_damage_knockback",
+  "name":"entity_knockback",
   "parent":{
     "name":"Entity",
     "path":"folders/Scripts/Entity.yy",

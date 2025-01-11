@@ -9,20 +9,22 @@ Are you up for the challenge of survival? Thrive with the vast resources, harves
 
 ## Authors
 ### Developers
-- [Zhen](https://twitter.com/zhntm)
+- [Zhen](https://bsky.app/profile/zntm.bsky.social)
 
 ## Contributors
 ### Artists
-- [lettucenotcabb1](https://twitter.com/lettucenotcabb1)
-- [NetBa](https://twitter.com/NetBa_Art)
-- [NHJ](https://twitter.com/NHJ__NHJ)
+- [cyanflower](https://bsky.app/profile/cyanflower.bsky.social)
+- [KazooTheChat](https://bsky.app/profile/claireverywhere.bsky.social)
+- [lettucenotcabb1](https://x.com/lettucenotcabb1)
+- [NetBa](https://x.com/NetBa_Art)
+- [NHJ](https://x.com/NHJ__NHJ)
 ### Composers
-- [GlydeGameDev](https://twitter.com/GlydeGameDev)
-- [LonelyChicken12](https://twitter.com/LonelyChicken12)
+- [GlydeGameDev](https://x.com/GlydeGameDev)
+- [LonelyChicken12](https://x.com/LonelyChicken12)
 - [Skies](https://open.spotify.com/artist/5DgNMSlcQgjzpzILh3M2LL)
 
 ## License
-Phantasia © 2024 by Zhen is licensed under Attribution 4.0 International - see the LICENSE.md file for details
+Phantasia © 2025 by Zhen is licensed under Attribution 4.0 International - see the LICENSE.md file for details
 
 ## Acknowledgements
 [NekoPresence](https://github.com/nkrapivin/NekoPresence)

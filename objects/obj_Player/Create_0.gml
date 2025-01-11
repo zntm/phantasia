@@ -67,8 +67,8 @@ file_load_player_inventory(_uuid);
 var _world_settings = global.world_settings;
 
 access_level = {
-	command_permission: _world_settings.default_command_permission,
-	gamemode: _world_settings.default_gamemode
+    command_permission: _world_settings.default_command_permission,
+    gamemode: _world_settings.default_gamemode
 }
 
 entity_init(id, _player.hp, _player.hp_max, undefined, #382624);

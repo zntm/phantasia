@@ -17,7 +17,7 @@
         "movement_speed": 1.2
     },
     "sprite_index": {
-        "default": [ 0, 1, 2 ],
+        "default": 0,
         "phantasia:tundra": 1,
         "phantasia:snowy_borealis": 2
     }
