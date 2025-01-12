@@ -10,7 +10,7 @@ if (immunity_frame == 0)
     {
         var _data = global.creature_data[$ _inst.creature_id];
         
-        if (_data.get_type() == CREATURE_HOSTILITY_TYPE.HOSTILE)
+        if (_data.get_hostility_type() == CREATURE_HOSTILITY_TYPE.HOSTILE)
         {
             entity_damage(sign(x - _inst.x), round(global.difficulty_multiplier_damage[global.world_settings.difficulty] * _inst.buffs[$ "attack_damage"] * random_range(0.9, 1.1) * (1 - (buffs[$ "defense"] / 80))), DAMAGE_TYPE.MELEE);
         }

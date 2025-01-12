@@ -5,7 +5,7 @@ function spawn_creature(_x, _y, _id, _amount = 1)
 	var _data = global.creature_data[$ _id];
 	var _type = _data.type;
 	
-	var _is_passive = (_type == CREATURE_HOSTILITY_TYPE.PASSIVE);
+	var _is_passive = (_data.get_hostility_type() == CREATURE_HOSTILITY_TYPE.PASSIVE);
 	
 	var _sprite = _data.sprite_idle;
 	

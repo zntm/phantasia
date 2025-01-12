@@ -36,7 +36,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		
 		var _data = _creature_data[$ creature_id];
 		
-		var _type = _data.type;
+		var _type = _data.get_hostility_type();
 		
 		var _is_passive = (_type == CREATURE_HOSTILITY_TYPE.PASSIVE);
 		
@@ -61,14 +61,14 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		
 		player = instance_nearest(x, y, obj_Player);
 		
-		var _xto = x + (xdirection * abs(image_xscale * 8));
-		
-		var _fall_amount = creature_check_fall_height(_xto, y, 1, AI_CREATURE_FALL_CHECK, _world_height);
-		
+        var _direction_offset = xdirection * abs(image_xscale * 8);
+        
 		var _searching = false;
 		
 		if (_type == CREATURE_HOSTILITY_TYPE.HOSTILE)
 		{
+            var _fall_amount = creature_check_fall_height(x + _direction_offset, y, 1, AI_CREATURE_FALL_CHECK, _world_height);
+            
 			_searching = creature_hostile_search_player(_fall_amount, _chance_switch_direction_fall);
             
             if (chance(_chance_switch_direction_default))
@@ -87,6 +87,10 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                 xdirection = choose(-1, 0, 0, 0, 1);
             }
 		}
+        
+        var _xto = x + _direction_offset;
+        
+        var _fall_amount = creature_check_fall_height(_xto, y, 1, AI_CREATURE_FALL_CHECK, _world_height);
         
         #region Sound Effects
         
@@ -201,7 +205,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		{
 			image_angle = lerp_delta(image_angle, (xdirection != 0 ? xdirection * -12 : 0), 0.1, _delta_time);
             
-			if (_fall_amount > 3)
+			if (_fall_amount > 1)
 			{
 				if (chance(0.04 * _delta_time))
 				{
@@ -209,7 +213,12 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 				}
 				else
 				{
-					var _direction = tile_meeting(x - 1, y, undefined, undefined, _world_height) - tile_meeting(x + 1, y, undefined, undefined, _world_height);
+                    if (chance(0.04 * _delta_time))
+                    {
+                        ydirection = choose(-1, 0, 1);
+                    }
+                    
+					var _direction = tile_meeting(x - _direction_offset, y, undefined, undefined, _world_height) - tile_meeting(x + _direction_offset, y, undefined, undefined, _world_height);
                     
 					if (_direction != 0)
 					{
@@ -221,12 +230,15 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 			}
 			else
 			{
-				ydirection = -1;
+                if (chance(0.04 * _delta_time))
+                {
+                    ydirection = choose(-1, 0, 1);
+                }
                 
 				physics_y(_delta_time, 0, undefined, undefined, undefined, _world_height);
 			}
 			
-			yvelocity = lerp_delta(yvelocity, ydirection * _data.get_yspeed(), 0.2, _delta_time);
+			yvelocity = lerp_delta(yvelocity, ydirection * buffs[$ "movement_speed"], 0.2, _delta_time);
 		}
 		
 		physics_slow_down(xdirection, _delta_time, _item_data, _world_height);

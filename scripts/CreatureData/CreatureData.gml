@@ -13,9 +13,9 @@ function CreatureData(_type, _hp) constructor
 {
 	type = (_type << 4) | CREATURE_MOVE_TYPE.DEFAULT;
 	
-	static get_type = function()
+	static get_hostility_type = function()
 	{
-		return type >> 4;
+		return (type >> 4) & 0xf;
 	}
 	
 	hp = _hp;
