@@ -233,8 +233,6 @@ else if (is_opened_chat)
 if (DEVELOPER_MODE)
 {
 	debug_text =
-		"F3 to enable/disable debug overlay\n\n" +
-		
 		"Performance:\n" +
 		$"FPS: {fps}/{fps_real} ({1000 / fps_real}ms)\n" +
 		$"Delta Time: {_delta_time}\n" +
@@ -298,6 +296,7 @@ with (obj_Chunk)
 #endregion
 
 ctrl_chunk_generate();
+ctrl_chunk_generate_1();
 
 var _timestamp = datetime_to_unix();
 

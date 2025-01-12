@@ -31,7 +31,7 @@ function ctrl_chunk_generate()
 			
 			var _ystart = floor(_ychunk / CHUNK_SIZE_HEIGHT);
             
-			var _inst = instance_place(_xchunk, _ychunk, obj_Chunk);
+			var _inst = instance_position(_xchunk, _ychunk, obj_Chunk);
 			
 			if (!instance_exists(_inst))
 			{
@@ -44,95 +44,6 @@ function ctrl_chunk_generate()
                 {
                     is_in_view = true;
                 }
-                
-                if (is_generated) break;
-                
-				var _x1 = x - TILE_SIZE_H - CHUNK_SIZE_WIDTH;
-				var _y1 = y - TILE_SIZE_H - CHUNK_SIZE_HEIGHT;
-				var _x2 = x - TILE_SIZE_H + CHUNK_SIZE_WIDTH;
-				var _y2 = y - TILE_SIZE_H + CHUNK_SIZE_HEIGHT;
-                
-				is_generated = true;
-				
-				for (var _z = CHUNK_SIZE_Z - 1; _z >= 0; --_z)
-				{
-					var _zbit = 1 << _z;
-					
-					if ((surface_display & _zbit) == 0) || ((connected & _zbit) == 0) continue;
-					
-					var _index_z = _z << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
-					
-					for (var _y = CHUNK_SIZE_Y - 1; _y >= 0; --_y)
-					{
-						var _ypos = chunk_ystart + _y;
-						var _index_yz = (_y << CHUNK_SIZE_X_BIT) | _index_z;
-						
-						var _connected_type = connected_type[_y];
-						
-						for (var _x = CHUNK_SIZE_X - 1; _x >= 0; --_x)
-						{
-							var _xpos = chunk_xstart + _x;
-							var _index_xyz = _x | _index_yz;
-							
-							var _tile = chunk[_index_xyz];
-							
-							if (_tile == TILE_EMPTY) continue;
-							
-							var _connection_type = (_connected_type >> (_x << 1)) & 0b11;
-							
-							if (!_connection_type) continue;
-							
-							var _item_id = _tile.item_id;
-							var _index;
-							
-							if (_connection_type == 1)
-							{
-								var _type = _item_data[$ _item_id].type;
-								
-								_index = __index[
-									(tile_condition_connected(_xpos, _ypos - 1, _z, _item_id, _type, _item_data, _world_height) << 3) |
-									(tile_condition_connected(_xpos + 1, _ypos, _z, _item_id, _type, _item_data, _world_height) << 2) |
-									(tile_condition_connected(_xpos, _ypos + 1, _z, _item_id, _type, _item_data, _world_height) << 1) |
-									(tile_condition_connected(_xpos - 1, _ypos, _z, _item_id, _type, _item_data, _world_height) << 0)
-								];
-							}
-							else
-							{
-								_index = __index[
-									(tile_condition_connected_to_self(_xpos, _ypos - 1, _z, _item_id, _world_height) << 3) |
-									(tile_condition_connected_to_self(_xpos + 1, _ypos, _z, _item_id, _world_height) << 2) |
-									(tile_condition_connected_to_self(_xpos, _ypos + 1, _z, _item_id, _world_height) << 1) |
-									(tile_condition_connected_to_self(_xpos - 1, _ypos, _z, _item_id, _world_height) << 0)
-								];
-							}
-							
-							var _bit = 1 << _index;
-							
-							if (_bit & 0b0_00_0000_1111_0000_00)
-							{
-								_inst.chunk[@ _index_xyz]
-                                    .set_index(_index)
-                                    .set_scale(1, 1);
-							}
-							else if (_bit & 0b0_00_1010_1111_1010_00)
-							{
-								_inst.chunk[@ _index_xyz]
-                                    .set_index(_index)
-                                    .set_xscale(1); 
-							}
-							else if (_bit & 0b0_00_0101_1111_0101_00)
-							{
-								_inst.chunk[@ _index_xyz]
-                                    .set_index(_index)    
-                                    .set_yscale(1); 
-							}
-                            else
-                            {
-                                _inst.chunk[@ _index_xyz].set_index(_index);
-                            }
-						}
-					}
-				}
 			}
 		}
 	}

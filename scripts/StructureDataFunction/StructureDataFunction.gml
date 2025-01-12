@@ -179,7 +179,7 @@ enum STRUCTURE_FUNCTION_INDEX_TREE_DEFAULT {
     INDEX_WOOD_STUMP
 }
 
-global.structure_data_function[$ "tree:default"] = function(_x, _y, _width, _height, _seed, _arguments)
+global.structure_data_function[$ "phantasia:tree/default"] = function(_x, _y, _width, _height, _seed, _arguments)
 {
     var _item_data = global.item_data;
     

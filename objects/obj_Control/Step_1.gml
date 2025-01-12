@@ -43,6 +43,9 @@ if (_cx == infinity) || (_cy == infinity)
 	
 	global.camera.x = _camera_x;
 	global.camera.y = _camera_y;
+    
+    global.camera.x_real = _camera_x;
+    global.camera.y_real = _camera_y;
 	
 	var _directory2 = $"{global.world_directory}/Worlds";
 

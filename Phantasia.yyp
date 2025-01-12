@@ -1231,6 +1231,7 @@
     {"id":{"name":"CreatureData","path":"scripts/CreatureData/CreatureData.yy",},},
     {"id":{"name":"ctrl_camera","path":"scripts/ctrl_camera/ctrl_camera.yy",},},
     {"id":{"name":"ctrl_chat","path":"scripts/ctrl_chat/ctrl_chat.yy",},},
+    {"id":{"name":"ctrl_chunk_generate_1","path":"scripts/ctrl_chunk_generate_1/ctrl_chunk_generate_1.yy",},},
     {"id":{"name":"ctrl_chunk_generate","path":"scripts/ctrl_chunk_generate/ctrl_chunk_generate.yy",},},
     {"id":{"name":"ctrl_creature_spawn","path":"scripts/ctrl_creature_spawn/ctrl_creature_spawn.yy",},},
     {"id":{"name":"ctrl_effects","path":"scripts/ctrl_effects/ctrl_effects.yy",},},

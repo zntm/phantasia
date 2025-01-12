@@ -6,7 +6,7 @@
 		"y": 0
 	},
 	"data": {
-		"function": "tree:default",
+		"function": "phantasia:tree/default",
 		"arguments": [
 			true,
 			"phantasia:mangrove_wood",

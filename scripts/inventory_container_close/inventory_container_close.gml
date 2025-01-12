@@ -3,8 +3,8 @@ function inventory_container_close()
 	if (obj_Control.is_opened_container)
 	{
 		var _container = [];
-	
-		array_copy(_container, 0, global.inventory.container, 0, global.container_size);
+        
+		array_copy(_container, 0, global.inventory.container, 0, global.inventory_length.container);
 		
 		var _x = global.container_tile_position_x;
 		var _y = global.container_tile_position_y;

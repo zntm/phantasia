@@ -192,6 +192,10 @@ if (DEVELOPER_MODE)
 {
 	debug_view = dbg_view("Debug", true, -1, -1, 800, 600);
 	debug_text = "";
+    
+    debug_overlay = "F3 to enable/disable debug overlay";
+    
+    dbg_text(ref_create(id, "debug_overlay"));
 	
 	dbg_text_separator("Reload");
 	dbg_button("Reload", function()
