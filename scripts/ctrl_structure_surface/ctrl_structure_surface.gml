@@ -42,8 +42,7 @@ function ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_hei
             break;
         }
     }
-
-
+    
     if (_) exit;
     
     if (_length2 > 1)
@@ -118,7 +117,7 @@ function ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_hei
         {
             var _structure = _structures[j];
             
-            // if (_structure[0] < random(1)) || (i % _structure[1]) continue;
+            if (_structure[0] < random(1)) || (i % _structure[1]) continue;
             
             var _name = _structure[2];
             
