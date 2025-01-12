@@ -5,6 +5,7 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 {
 	var _chance_switch_direction_default = 0.01 * _delta_time;
 	var _chance_switch_direction_fall    = 0.25 * _delta_time;
+	var _chance_switch_direction_flight  = 0.35 * _delta_time;
 	var _chance_switch_direction_panic   = 0.35 * _delta_time;
 	
 	var _chance_jump_default = 0.30 * _delta_time;
@@ -207,13 +208,13 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
             
 			if (_fall_amount > 1)
 			{
-				if (chance(0.04 * _delta_time))
+				if (chance(_chance_switch_direction_flight))
 				{
 					ydirection = choose(-1, 0);
 				}
 				else
 				{
-                    if (chance(0.04 * _delta_time))
+                    if (chance(_chance_switch_direction_flight))
                     {
                         ydirection = choose(-1, 0, 1);
                     }
@@ -230,9 +231,9 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 			}
 			else
 			{
-                if (chance(0.04 * _delta_time))
+                if (chance(_chance_switch_direction_flight))
                 {
-                    ydirection = choose(-1, 0, 1);
+                    ydirection = choose(-1, -1, -1, -1, 0, 0, 1);
                 }
                 
 				physics_y(_delta_time, 0, undefined, undefined, undefined, _world_height);
