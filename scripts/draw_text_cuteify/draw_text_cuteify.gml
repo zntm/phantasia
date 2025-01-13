@@ -276,7 +276,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
             if (_type == CUTEIFY_TYPE.SPRITE)
             {
                 var _x2 = (sprite_get_xoffset(_text) * _xscale) + _xoffset;
-                var _y2 = (sprite_get_yoffset(_text) * _yscale) + _yoffset - (sprite_get_height(_text) * _yscale / 2);
+                var _y2 = (sprite_get_yoffset(_text) * _yscale) + _yoffset + (sprite_get_height(_text) * _yscale / 2);
                 
                 draw_sprite_ext(
                     _text,
