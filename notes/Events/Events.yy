@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"Events",
+  "name":"Events",
+  "parent":{
+    "name":"Phantasia",
+    "path":"Phantasia.yyp",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

@@ -191,6 +191,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"Extension2","order":1,"path":"extensions/Extension2/Extension2.yy",},
+    {"name":"Events","order":461,"path":"notes/Events/Events.yy",},
     {"name":"obj_Background","order":4,"path":"objects/obj_Background/obj_Background.yy",},
     {"name":"obj_Chunk","order":1,"path":"objects/obj_Chunk/obj_Chunk.yy",},
     {"name":"obj_Control","order":3,"path":"objects/obj_Control/obj_Control.yy",},

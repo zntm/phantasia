@@ -1103,6 +1103,7 @@
     {"id":{"name":"Extension2","path":"extensions/Extension2/Extension2.yy",},},
     {"id":{"name":"NekoPresence","path":"extensions/NekoPresence/NekoPresence.yy",},},
     {"id":{"name":"fnt_Main","path":"fonts/fnt_Main/fnt_Main.yy",},},
+    {"id":{"name":"Events","path":"notes/Events/Events.yy",},},
     {"id":{"name":"obj_Background","path":"objects/obj_Background/obj_Background.yy",},},
     {"id":{"name":"obj_Boss","path":"objects/obj_Boss/obj_Boss.yy",},},
     {"id":{"name":"obj_Chunk","path":"objects/obj_Chunk/obj_Chunk.yy",},},

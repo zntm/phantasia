@@ -307,7 +307,7 @@ if (is_opened_gui)
 	var _text_y = _box_y - (string_height(chat_message) / 2) + GUI_CHAT_TEXT_YOFFSET;
 
 	var _history_ystart = _gui_height - (_height * _yscale) + GUI_CHAT_YOFFSET;
-	var _history_height = string_height("Message");
+	var _history_height = string_height("I");
 	
 	var _length = array_length(_chat_history);
 
