@@ -8,7 +8,7 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
     {
         _ = max(1, abs(_)) * knockback_direction;
         
-        _speed = buffs[$ "knockback"];
+        _speed = buffs[$ "knockback"] * (knockback_time / buffs[$ "knockback_time"]);
     }
     
     var _xvelocity = abs(_);

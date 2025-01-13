@@ -4,12 +4,13 @@ function creature_check_fall_height(_x, _y, _direction, _max, _world_height)
 	
 	var _fall_amount = 0;
 
-	repeat (_max)
+	for (var i = 0; i < _max; ++i)
 	{
-		if (tile_meeting(_x, _y + ((_fall_amount + 1) * _tile_size), undefined, undefined, _world_height)) break;
-		
-		++_fall_amount;
+		if (tile_meeting(_x, _y + ((_fall_amount + 1) * _tile_size), undefined, undefined, _world_height))
+        {
+            return i;
+        }
 	}
 	
-	return _fall_amount;
+	return _max;
 }

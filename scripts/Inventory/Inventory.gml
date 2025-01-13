@@ -7,18 +7,18 @@ function Inventory(_item, _amount = 1) constructor
 	
 	index = _data.get_inventory_index();
 	
-	static set_index = function(_index)
+	static set_index = function(_index = 0)
 	{
-		index = _index ?? 0;
+		index = _index;
 		
 		return self;
 	}
 	
 	index_offset = _data.get_index_offset();
 	
-	static set_index_offset = function(_index)
+	static set_index_offset = function(_index_offset = 0)
 	{
-		index_offset = _index ?? 0;
+		index_offset = _index_offset;
 		
 		return self;
 	}
