@@ -146,8 +146,6 @@ if (!DEVELOPER_MODE) || (global.debug_settings.lighting)
 
 draw_set_align(fa_left, fa_top);
 
-var _cuteify_emote = global.cuteify_emote;
-
 #region Draw Surfaces
 
 #region Draw HP
@@ -338,13 +336,13 @@ if (is_opened_gui)
 		
 		draw_set_align(fa_left, fa_top);
         
-		draw_text_cuteify(_text_x, _text_y, chat_message, GUI_CHAT_TEXT_XSCALE, GUI_CHAT_TEXT_YSCALE, undefined, undefined, undefined, _cuteify_emote);
+		draw_text_cuteify(_text_x, _text_y, chat_message, GUI_CHAT_TEXT_XSCALE, GUI_CHAT_TEXT_YSCALE, undefined, undefined, undefined, "emote_");
 		
 		if (floor(global.timer / (GAME_FPS)) % 2)
 		{
-			var _colour = cuteify_get_colour(chat_message, _cuteify_emote);
+			var _colour = cuteify_get_colour(chat_message, "emote_");
             
-			draw_text_transformed_color(_text_x + (cuteify_get_width(chat_message, _cuteify_emote) * GUI_CHAT_TEXT_XSCALE), _text_y, "|", GUI_CHAT_TEXT_XSCALE, GUI_CHAT_TEXT_YSCALE, 0, _colour, _colour, _colour, _colour, 0.5);
+			draw_text_transformed_color(_text_x + (cuteify_get_width(chat_message, "emote_") * GUI_CHAT_TEXT_XSCALE), _text_y, "|", GUI_CHAT_TEXT_XSCALE, GUI_CHAT_TEXT_YSCALE, 0, _colour, _colour, _colour, _colour, 0.5);
 		}
 	}
 

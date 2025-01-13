@@ -70,9 +70,6 @@ blur_value = 0;
 
 craftable_scroll_offset = 0;
 
-global.cuteify_emote = new Cuteify()
-	.set_sprite_prefix("emote_");
-
 #region Load World Data
 
 // global.achievement_unlocks = {}

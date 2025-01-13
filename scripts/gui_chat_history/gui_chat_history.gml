@@ -43,8 +43,7 @@ function gui_chat_history(_x, _y, _height)
 		}
         
         var _colour = _chat.get_colour();
-        var _data = _chat.get_data();
 		
-		draw_text_cuteify(_x, _y - ((i + 1) * _height), _message, undefined, undefined, undefined, _colour, _alpha, _data);
+		draw_text_cuteify(_x, _y - ((i + 1) * _height), _message, undefined, undefined, undefined, _colour, _alpha, "emote_");
 	}
 }

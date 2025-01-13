@@ -2,33 +2,33 @@ function Chat(_name, _message) constructor
 {
     if (_name != undefined)
     {
-        __name = _name;
+        ___name = _name;
     }
     
-    __message = _message;
+    ___message = _message;
     
     static get_name = function()
     {
-        return self[$ "__name"];
+        return self[$ "___name"];
     }
     
     static get_message = function()
     {
-        return __message;
+        return ___message;
     }
     
-    __timer = GAME_FPS * 8;
+    ___timer = GAME_FPS * 8;
     
     static add_timer = function(_value)
     {
-        __timer += _value;
+        ___timer += _value;
         
         return self;
     }
     
     static get_timer = function()
     {
-        return __timer;
+        return ___timer;
     }
     
     static set_colour = function(_colour)
@@ -38,25 +38,25 @@ function Chat(_name, _message) constructor
             return self;
         }
         
-        __colour = _colour;
+        ___colour = _colour;
         
         return self;
     }
     
     static get_colour = function()
     {
-        return self[$ "__colour"];
+        return self[$ "___colour"];
     }
     
     static set_data = function(_data)
     {
-        __data = _data;
+        ___data = _data;
         
         return self;
     }
     
     static get_data = function()
     {
-        return __data;
+        return self[$ "___data"];
     }
 }

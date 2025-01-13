@@ -1,7 +1,12 @@
-function hex_parse(_string)
+function hex_parse(_string, _throw = true)
 {
 	if (!string_starts_with(_string, "#")) || (string_length(_string) != 7)
 	{
+        if (!_throw)
+        {
+            return undefined;
+        }
+        
 		throw $"'{_string}' is not a valid color";
 	}
 	
