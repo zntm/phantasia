@@ -9,8 +9,22 @@ enum CREATURE_MOVE_TYPE {
 	SWIM
 }
 
-function CreatureData(_type, _hp) constructor
+function CreatureData(_id, _type, _hp) constructor
 {
+    ___namespace = "phantasia";
+    
+    static get_namespace = function()
+    {
+        return ___namespace;
+    }
+    
+    ___id = _id;
+    
+    static get_id = function()
+    {
+        return ___id;
+    }
+    
 	type = (_type << 4) | CREATURE_MOVE_TYPE.DEFAULT;
 	
 	static get_hostility_type = function()
@@ -176,7 +190,7 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 		
 		var _t = _.type;
 		
-		var _data = new CreatureData(__hostility_type[$ _t.hostility], _.hp);
+		var _data = new CreatureData(_file, __hostility_type[$ _t.hostility], _.hp);
 		
 		var _a = new Attributes();
 		var _attributes = _.attributes;
