@@ -42,6 +42,13 @@ function loca_setup(_namespace, _langauge)
     {
         var _name = _names[i];
         
+        if (string_starts_with(_name, "*"))
+        {
+            global.language[$ string_delete(_name, 1, 1)] = _json[$ _name];
+            
+            continue;
+        }
+        
         global.language[$ $"{_namespace}:{_name}"] = _json[$ _name];
     }
     
