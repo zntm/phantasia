@@ -449,6 +449,22 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self;
     }
     
+    static set_charm = function(_type, _length)
+    {
+        ___charm_type = _type;
+        ___charm_length = _length;
+    }
+    
+    static get_charm_type = function()
+    {
+        return self[$ "___charm_type"];
+    }
+    
+    static get_charm_length = function()
+    {
+        return self[$ "___charm_length"] ?? 3;
+    }
+    
     static get_mining_hardness = function()
     {
         return (mining_stats >> 24) & 0xffff;
@@ -487,14 +503,14 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static set_ammo_type = function(_type)
     {
-        __ammo_type = _type;
+        ___ammo_type = _type;
         
         return self;
     }
     
     static get_ammo_type = function()
     {
-        return self[$ "__ammo_type"] ?? "phantasia:bow";
+        return self[$ "___ammo_type"] ?? "phantasia:bow";
     }
     
     if (type & ITEM_TYPE_BIT.BOW)
@@ -506,14 +522,14 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         static set_ammo_cooldown = function(_cooldown)
         {
-            __ammo_cooldown = _cooldown;
+            ___ammo_cooldown = _cooldown;
             
             return self;
         }
         
         static get_ammo_cooldown = function()
         {
-            return self[$ "__ammo_cooldown"] ?? 12;
+            return self[$ "___ammo_cooldown"] ?? 12;
         }
         
         set_durability(1);
@@ -524,35 +540,35 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         set_inventory_scale(INVENTORY_SCALE.TOOL);
         set_inventory_max(1);
         
-        __fishing_value = (1 << 32) | (8 << 24) | c_black;
+        ___fishing_value = (1 << 32) | (8 << 24) | c_black;
         
         static set_fishing_line = function(_colour = c_black, _detail = 8)
         {
-            __fishing_value = (__fishing_value & 0xff_00_000000) | (_detail << 24) | _colour;
+            ___fishing_value = (___fishing_value & 0xff_00_000000) | (_detail << 24) | _colour;
             
             return self;
         }
         
         static get_fishing_line_colour = function()
         {
-            return __fishing_value & 0xfffff;
+            return ___fishing_value & 0xfffff;
         }
         
         static get_fishing_line_detail = function()
         {
-            return (__fishing_value >> 24) & 0xff;
+            return (___fishing_value >> 24) & 0xff;
         }
         
         static set_fishing_power = function(_power)
         {
-            __fishing_value = (__fishing_value & 0x00_ff_ffffff) | (_power << 32);
+            ___fishing_value = (___fishing_value & 0x00_ff_ffffff) | (_power << 32);
             
             return self;
         }
         
         static get_fishing_power = function()
         {
-            return (__fishing_value >> 32) & 0xff;
+            return (___fishing_value >> 32) & 0xff;
         }
         
         set_durability(1);
@@ -560,7 +576,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     if (type & ITEM_TYPE_BIT.AMMO)
     {
-        __ammo_type = "phantasia:arrow";
+        ___ammo_type = "phantasia:arrow";
     }
     
     if (type & ITEM_TYPE_BIT.THROWABLE)
@@ -585,11 +601,11 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             return self;
         }
         
-        __rotation = (0x8000 << 16) | 0x8000;
+        ___rotation = (0x8000 << 16) | 0x8000;
         
         static set_rotation = function(_min, _max)
         {
-            __rotation = ((_max + 0x8000) << 16) | (_min + 0x8000);
+            ___rotation = ((_max + 0x8000) << 16) | (_min + 0x8000);
         }
         
         static get_random_rotation = function()
@@ -602,12 +618,12 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         static get_min_rotation = function()
         {
-            return (__rotation & 0xffff) - 0x8000;
+            return (___rotation & 0xffff) - 0x8000;
         }
         
         static get_max_rotation = function()
         {
-            return ((__rotation >> 16) & 0xffff) - 0x8000;
+            return ((___rotation >> 16) & 0xffff) - 0x8000;
         }
     }
     
@@ -637,33 +653,33 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     {
         static set_on_consume = function(_function)
         {
-            __on_consume = _function;
+            ___on_consume = _function;
             
             return self;
         }
         
         static get_on_consume = function()
         {
-            return self[$ "__on_consume"];
+            return self[$ "___on_consume"];
         }
         
         static set_consumption_hp = function(_hp)
         {
-            __on_consumption_hp = _hp;
+            ___on_consumption_hp = _hp;
             
             return self;
         }
         
         static get_consumption_hp = function()
         {
-            return self[$ "__on_consumption_hp"];
+            return self[$ "___on_consumption_hp"];
         }
         
         static set_consumption_return = function(_item_id, _amount)
         {
-            self[$ "__on_consumption_return"] ??= [];
+            self[$ "___on_consumption_return"] ??= [];
             
-            array_push(__on_consumption_return, {
+            array_push(___on_consumption_return, {
                 item_id: _item_id,
                 amount: _amount
             });
@@ -673,17 +689,17 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         static get_consumption_return = function()
         {
-            return self[$ "__on_consumption_return"];
+            return self[$ "___on_consumption_return"];
         }
         
         static set_consumption_effect = function(_name, _chance, _level, _time, _particle = true)
         {
-            self[$ "__on_consumption_effect"] ??= {}
-            self[$ "__on_consumption_effect_names"] ??= [];
+            self[$ "___on_consumption_effect"] ??= {}
+            self[$ "___on_consumption_effect_names"] ??= [];
             
-            array_push(__on_consumption_effect_names, _name);
+            array_push(___on_consumption_effect_names, _name);
             
-            __on_consumption_effect[$ _name] = {
+            ___on_consumption_effect[$ _name] = {
                 chance: _chance,
                 value: (_particle << 24) | (_level << 16) | _time
             }
@@ -693,14 +709,14 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         static get_consumption_effect = function(_name)
         {
-            var _effect = self[$ "__on_consumption_effect"];
+            var _effect = self[$ "___on_consumption_effect"];
             
             return ((_effect != undefined) ? _effect[$ _name] : undefined);
         }
         
         static get_consumption_effect_names = function()
         {
-            return self[$ "__on_consumption_effect_names"];
+            return self[$ "___on_consumption_effect_names"];
         }
     }
     
@@ -718,79 +734,77 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         }
         else if (type & ITEM_TYPE_BIT.CONTAINER)
         {
-            __container_size = 40;
-            
             static set_container_size = function(_size)
             {
-                __container_size = _size;
+                ___container_size = _size;
                 
                 return self;
             }
             
             static get_container_size = function()
             {
-                return self[$ "__container_size"];
+                return self[$ "___container_size"] ?? 40;
             }
             
             static set_container_sfx = function(_name)
             {
-                __container_sfx = _name;
+                ___container_sfx = _name;
                 
                 return self;
             }
             
             static get_container_sfx = function(_name)
             {
-                return self[$ "__container_sfx"];
+                return self[$ "___container_sfx"];
             }
         }
         
         static set_place_requirement = function(_requirement)
         {
-            __place_requirement = _requirement;
+            ___place_requirement = _requirement;
             
             return self;
         }
         
         static get_place_requirement = function(_requirement)
         {
-            return self[$ "__place_requirement"];
+            return self[$ "___place_requirement"];
         }
         
-        __sprite_value = (0 << 57) | (0 << 56) | (0 << 48) | (0 << 40) | (TILE_ANIMATION_TYPE.NONE << 32) | ((sprite_get_number(_sprite) - 1 + 0x80) << 24) | ((1 + 0x80) << 16) | (1 << 8) | 1;
+        ___sprite_value = (0 << 57) | (0 << 56) | (0 << 48) | (0 << 40) | (TILE_ANIMATION_TYPE.NONE << 32) | ((sprite_get_number(_sprite) - 1 + 0x80) << 24) | ((1 + 0x80) << 16) | (1 << 8) | 1;
         
         static set_flip_on = function(_x = false, _y = false)
         {
-            __sprite_value = (__sprite_value & 0x0_ff_ff_ff_ff_ff_ff_ff) | (_x << 56) | (_y << 57);
+            ___sprite_value = (___sprite_value & 0x0_ff_ff_ff_ff_ff_ff_ff) | (_x << 56) | (_y << 57);
             
             return self;
         }
         
         static get_flip_on_x = function()
         {
-            return (__sprite_value >> 56) & 1;
+            return (___sprite_value >> 56) & 1;
         }
         
         static get_flip_on_y = function()
         {
-            return (__sprite_value >> 57) & 1;
+            return (___sprite_value >> 57) & 1;
         }
         
         static set_random_index = function(_min = 1, _max = 1)
         {
-            __sprite_value = (__sprite_value & 0x3_00_00_ff_ff_ff_ff_ff) | ((_min + 0x80) << 40) | ((_max + 0x80) << 48);
+            ___sprite_value = (___sprite_value & 0x3_00_00_ff_ff_ff_ff_ff) | ((_min + 0x80) << 40) | ((_max + 0x80) << 48);
             
             return self;
         }
         
         static get_random_index_min = function()
         {
-            return ((__sprite_value >> 40) & 0xff) - 0x80;
+            return ((___sprite_value >> 40) & 0xff) - 0x80;
         }
         
         static get_random_index_max = function()
         {
-            return ((__sprite_value >> 48) & 0xff) - 0x80;
+            return ((___sprite_value >> 48) & 0xff) - 0x80;
         }
         
         static set_animation_type = function(_type)
@@ -800,46 +814,46 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
                 boolean |= ITEM_BOOLEAN.IS_ANIMATED;
             }
             
-            __sprite_value = (__sprite_value & 0x3_ff_ff_00_ff_ff_ff_ff) | (_type << 32);
+            ___sprite_value = (___sprite_value & 0x3_ff_ff_00_ff_ff_ff_ff) | (_type << 32);
             
             return self;
         }
         
         static get_animation_type = function()
         {
-            return (__sprite_value >> 32) & 0xff;
+            return (___sprite_value >> 32) & 0xff;
         }
         
         static set_animation_index = function(_min = 1, _max = 1)
         {
-            __sprite_value = (__sprite_value & 0x3_ff_ff_ff_00_00_ff_ff) | ((_min + 0x80) << 16) | ((_max + 0x80) << 24);
+            ___sprite_value = (___sprite_value & 0x3_ff_ff_ff_00_00_ff_ff) | ((_min + 0x80) << 16) | ((_max + 0x80) << 24);
             
             return self;
         }
         
         static get_animation_index_min = function()
         {
-            return ((__sprite_value >> 16) & 0xff) - 0x80;
+            return ((___sprite_value >> 16) & 0xff) - 0x80;
         }
         
         static get_animation_index_max = function()
         {
-            return ((__sprite_value >> 24) & 0xff) - 0x80;
+            return ((___sprite_value >> 24) & 0xff) - 0x80;
         }
         
         static set_drops = function()
         {
             if (argument_count == 1)
             {
-                __drops = argument[0];
+                ___drops = argument[0];
             }
             else
             {
-                __drops = array_create(argument_count);
+                ___drops = array_create(argument_count);
                 
                 for (var i = 0; i < argument_count; ++i)
                 {
-                    __drops[@ i] = argument[i];
+                    ___drops[@ i] = argument[i];
                 }
             }
         
@@ -848,47 +862,47 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         static get_drops = function()
         {
-            return self[$ "__drops"];
+            return self[$ "___drops"];
         }
         
         static set_sfx = function(_sfx)
         {
-            __sfx = _sfx;
+            ___sfx = _sfx;
             
             return self;
         }
         
         static get_sfx = function(_sfx)
         {
-            return self[$ "__sfx"];
+            return self[$ "___sfx"];
         }
         
         static set_colour_offset = function(_r = 0, _g = 0, _b = 0)
         {
-            self[$ "__colour_offset_bloom"] ??= 0;
+            self[$ "___colour_offset_bloom"] ??= 0;
             
-            __colour_offset_bloom = (__colour_offset_bloom & 0x00000000_ffffff);
+            ___colour_offset_bloom = (___colour_offset_bloom & 0x00000000_ffffff);
             
             return self;
         }
         
         static get_colour_offset = function()
         {
-            return (self[$ "__colour_offset_bloom"] ?? 0) & 0xffffff;
+            return (self[$ "___colour_offset_bloom"] ?? 0) & 0xffffff;
         }
         
         static set_bloom = function(_colour)
         {
-            self[$ "__colour_offset_bloom"] ??= 0;
+            self[$ "___colour_offset_bloom"] ??= 0;
             
-            __colour_offset_bloom = (__colour_offset_bloom & 0xffffffff_000000) | _colour;
+            ___colour_offset_bloom = (___colour_offset_bloom & 0xffffffff_000000) | _colour;
             
             return self;
         }
         
         static get_bloom = function()
         {
-            return ((self[$ "__colour_offset_bloom"] ?? 0) >> 24) & 0xffffffff;
+            return ((self[$ "___colour_offset_bloom"] ?? 0) >> 24) & 0xffffffff;
         }
         
         static add_collision_box = function(_left, _top, _right, _bottom)
@@ -946,14 +960,14 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         static set_slipperiness = function(_val)
         {
-            __slipperiness = _val;
+            ___slipperiness = _val;
             
             return self;
         }
         
         static get_slipperiness = function()
         {
-            return self[$ "__slipperiness"] ?? PHYSICS_GLOBAL_SLIPPERINESS;
+            return self[$ "___slipperiness"] ?? PHYSICS_GLOBAL_SLIPPERINESS;
         }
         
         static set_instance = function(_instance)
@@ -972,14 +986,14 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         {
             static set_sfx_craft = function(_sfx)
             {
-                __sfx_craft = _sfx;
+                ___sfx_craft = _sfx;
                 
                 return self;
             }
             
             static get_sfx_craft = function()
             {
-                return self[$ "__sfx_craft"] ?? "phantasia:menu.inventory.press";
+                return self[$ "___sfx_craft"] ?? "phantasia:menu.inventory.press";
             }
         }
         
@@ -995,59 +1009,62 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             
             static set_crop_values = function(_maturity_limit, _wither_limit, _heat_peak, _heat_falloff, _humidity_peak, _humidity_falloff)
             {
-                __crop_maturity_limit = _maturity_limit;
-                __crop_wither_limit   = _wither_limit;
+                ___crop_maturity_limit = _maturity_limit;
+                ___crop_wither_limit   = _wither_limit;
                 
-                __crop_condition_heat_peak    = _heat_peak;
-                __crop_condition_heat_falloff = _heat_falloff;
+                ___crop_condition_heat_peak    = _heat_peak;
+                ___crop_condition_heat_falloff = _heat_falloff;
                 
-                __crop_condition_humidity_peak    = _humidity_peak;
-                __crop_condition_humidity_falloff = _humidity_falloff;
+                ___crop_condition_humidity_peak    = _humidity_peak;
+                ___crop_condition_humidity_falloff = _humidity_falloff;
                 
                 return self;
             }
             
             static get_crop_maturity_limit = function()
             {
-                return self[$ "__crop_maturity_limit"];
+                return self[$ "___crop_maturity_limit"];
             }
             
             static get_crop_wither_limit = function()
             {
-                return self[$ "__crop_wither_limit"];
+                return self[$ "___crop_wither_limit"];
             }
             
             static get_crop_condition_heat_peak = function()
             {
-                return self[$ "__crop_condition_heat_peak"];
+                return self[$ "___crop_condition_heat_peak"];
             }  
             
             static get_crop_condition_heat_falloff = function()
             {
-                return self[$ "__crop_condition_heat_falloff"];
+                return self[$ "___crop_condition_heat_falloff"];
             }
             
             static get_crop_condition_humidity_peak = function()
             {
-                return self[$ "__crop_condition_humidity_peak"];
+                return self[$ "___crop_condition_humidity_peak"];
             }
             
             static get_crop_condition_humidity_falloff = function()
             {
-                return self[$ "__crop_condition_humidity_falloff"];
+                return self[$ "___crop_condition_humidity_falloff"];
             }
         }
     }
     
     if (type & ITEM_TYPE_BIT.MENU)
     {
-        menu = undefined;
-        
         static set_menu = function(_menu)
         {
-            menu = _menu;
+            ___menu = _menu;
             
             return self;
+        }
+        
+        static get_menu = function()
+        {
+            return self[$ "___menu"];
         }
     }
 }

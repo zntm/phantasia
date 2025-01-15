@@ -162,7 +162,7 @@ function inventory_interaction()
 		
 		if (!obj_Control.is_opened_menu) && (_data.type & ITEM_TYPE_BIT.MENU)
 		{
-			var _menu = _data.menu;
+			var _menu = _data.get_menu();
 			
 			if (_menu != undefined)
 			{
@@ -287,13 +287,13 @@ function inventory_interaction()
 				exit;
 			}
 		}
-					
+		
 		var _interaction = _data.on_interaction;
-					
+		
 		if (_interaction == undefined) continue;
-				
+		
 		_interaction(_x, _y, _z);
-				
+		
 		exit;
 	}
 }
