@@ -80,7 +80,7 @@ function Attributes() constructor
 	}
     
     knockback = PHYSICS_PLAYER_KNOCKBACK;
-    knockback_time = PHYSICS_PLAYER_KNOCKBACK_TIME;
+    knockback_time = KNOCKBACK_TIME_MAX;
     
     static set_knockback = function(_knockback, _time)
     {

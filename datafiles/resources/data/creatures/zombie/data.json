@@ -27,7 +27,7 @@
     ],
     "attributes": {
         "movement_speed": 0.4,
-        "attack_damage": 6
+        "attack_damage": 18
     },
     "sprite_index": {
         "default": 0,

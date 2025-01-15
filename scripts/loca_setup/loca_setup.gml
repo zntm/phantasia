@@ -1,7 +1,7 @@
 global.language = {}
 global.font_current = fnt_Main;
 
-function loca_setup(_langauge)
+function loca_setup(_namespace, _langauge)
 {
 	if (global.font_current != fnt_Main)
 	{
@@ -30,8 +30,22 @@ function loca_setup(_langauge)
 	}
 	
 	loca_effect();
-	
-	global.language = json_parse(buffer_load_text($"{_directory}\\loca.json"));
-	
+    
+    global.language = {}
+    
+    var _json = json_parse(buffer_load_text($"{_directory}\\loca.json"));
+    
+    var _names = struct_get_names(_json);
+    var _length = array_length(_names);
+    
+    for (var i = 0; i < _length; ++i)
+    {
+        var _name = _names[i];
+        
+        global.language[$ $"{_namespace}:{_name}"] = _json[$ _name];
+    }
+    
+    delete _json;
+    
 	debug_log($"[Init] Loading Language: '{string_split(_langauge, " ")[1]}'");
 }
