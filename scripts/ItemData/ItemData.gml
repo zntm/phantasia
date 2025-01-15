@@ -79,24 +79,24 @@ enum TILE_ANIMATION_TYPE {
 }
 
 enum ITEM_BOOLEAN {
-    IS_MATERIAL = 1,
-    IS_OBSTRUCTING = 2,
-    IS_OBSTRUCTABLE = 4,
-    IS_PLANT_REPLACEABLE = 8,
-    IS_PLANT_WAVEABLE = 16,
-    IS_ANIMATED = 32,
-    CAN_ALWAYS_CONSUME = 64,
+    IS_MATERIAL          = 1 << 0,
+    IS_OBSTRUCTING       = 1 << 1,
+    IS_OBSTRUCTABLE      = 1 << 2,
+    IS_PLANT_REPLACEABLE = 1 << 3,
+    IS_PLANT_WAVEABLE    = 1 << 4,
+    IS_ANIMATED          = 1 << 5,
+    CAN_ALWAYS_CONSUME   = 1 << 6,
 }
 
 global.item_data = {}
 
 function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 {
-    __namespace = _namespace;
+    ___namespace = _namespace;
     
     static get_namespace = function()
     {
-        return self[$ "__namespace"];
+        return self[$ "___namespace"];
     }
     
     name = string_lower(string_delete(sprite_get_name(_sprite), 1, 5));
@@ -108,14 +108,14 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static set_rarity = function(_rarity)
     {
-        __rarity = _rarity;
+        ___rarity = _rarity;
         
         return self;
     }
     
     static get_rarity = function()
     {
-        return self[$ "__rarity"];
+        return self[$ "___rarity"];
     }
     
     #region Boolean
@@ -179,30 +179,30 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         TOOL
     }
     
-    __inventory_value = (5 << 56) | (DAMAGE_TYPE.DEFAULT << 52) | (1 << 36) | (INVENTORY_SCALE.DEFAULT << 32) | (0 << 24) | (0 << 16) | 999;
+    ___inventory_value = (5 << 56) | (DAMAGE_TYPE.DEFAULT << 52) | (1 << 36) | (INVENTORY_SCALE.DEFAULT << 32) | (0 << 24) | (0 << 16) | 999;
     
     static set_inventory_max = function(_max)
     {
-        __inventory_value = (__inventory_value & 0xff_f_ffff_f_ff_ff_0000) | clamp(_max, 1, 0xffff);
+        ___inventory_value = (___inventory_value & 0xff_f_ffff_f_ff_ff_0000) | clamp(_max, 1, 0xffff);
         
         return self;
     }
     
     static get_inventory_max = function()
     {
-        return __inventory_value & 0xffff;
+        return ___inventory_value & 0xffff;
     }
     
     static set_inventory_scale = function(_scale)
     {
-        __inventory_value = (__inventory_value & 0xff_f_ffff_0_ff_ff_0000) | (_scale << 32);
+        ___inventory_value = (___inventory_value & 0xff_f_ffff_0_ff_ff_0000) | (_scale << 32);
         
         return self;
     }
     
     static get_inventory_scale = function()
     {
-        var _scale = (__inventory_value >> 32) & 0xf;
+        var _scale = (___inventory_value >> 32) & 0xf;
         
         if (_scale == INVENTORY_SCALE.TOOL)
         {
@@ -214,51 +214,51 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static set_inventory_index = function(_min, _max)
     {
-        __inventory_value = (__inventory_value & 0xff_f_ffff_f_00_00_0000) | ((_max + 0x80) << 24) | ((_min + 0x80) << 16);
+        ___inventory_value = (___inventory_value & 0xff_f_ffff_f_00_00_0000) | ((_max + 0x80) << 24) | ((_min + 0x80) << 16);
         
         return self;
     }
     
     static get_inventory_index = function()
     {
-        var _min = ((__inventory_value >> 16) & 0xff) - 0x80;
-        var _max = ((__inventory_value >> 24) & 0xff) - 0x80;
+        var _min = ((___inventory_value >> 16) & 0xff) - 0x80;
+        var _max = ((___inventory_value >> 24) & 0xff) - 0x80;
         
         return irandom_range(_min, _max);
     }
     
     static set_damage = function(_damage = 0, _damage_type = DAMAGE_TYPE.DEFAULT, _critical_chance = 5)
     {
-        __inventory_value = (__inventory_value & 0x00_0_0000_f_ff_ff_ffff) | (clamp(_critical_chance, 0, 100) << 56) | (_damage_type << 52) | (_damage << 36);
+        ___inventory_value = (___inventory_value & 0x00_0_0000_f_ff_ff_ffff) | (clamp(_critical_chance, 0, 100) << 56) | (_damage_type << 52) | (_damage << 36);
         
         return self;
     }
     
     static get_damage = function()
     {
-        return (__inventory_value >> 36) & 0xffff;
+        return (___inventory_value >> 36) & 0xffff;
     }
     
     static get_damage_type = function()
     {
-        return (__inventory_value >> 52) & 0xf;
+        return (___inventory_value >> 52) & 0xf;
     }
         
     static get_damage_critical_chance = function()
     {
-        return ((__inventory_value >> 56) & 0xff) / 100;
+        return ((___inventory_value >> 56) & 0xff) / 100;
     }
     
     static set_durability = function(_durability)
     {
-        __durability = _durability;
+        ___durability = _durability;
         
         return self;
     }
         
     static get_durability = function()
     {
-        return self[$ "__durability"] ?? 0;
+        return self[$ "___durability"] ?? 0;
     }
     
     enum SLOT_TYPE {
@@ -331,38 +331,38 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static set_on_swing_interact = function(_function)
     {
-        __on_swing_interact = _function;
+        ___on_swing_interact = _function;
         
         return self;
     }
     
     static get_on_swing_interact = function(_function)
     {
-        return self[$ "__on_swing_interact"];
+        return self[$ "___on_swing_interact"];
     }
     
     static set_on_swing_attack = function(_function)
     {
-        __on_swing_attack = _function;
+        ___on_swing_attack = _function;
         
         return self;
     }
     
     static get_on_swing_attack = function(_function)
     {
-        return self[$ "__on_swing_attack"];
+        return self[$ "___on_swing_attack"];
     }
     
     static set_on_interaction_inventory = function(_function)
     {
-        __on_interaction_inventory = _function;
+        ___on_interaction_inventory = _function;
         
         return self;
     }
     
     static get_on_interaction_inventory = function(_function)
     {
-        return self[$ "__on_interaction_inventory"];
+        return self[$ "__o_n_interaction_inventory"];
     }
     
     variable = undefined;
@@ -385,7 +385,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static set_sfx_swing = function(_sfx)
     {
-        __sfx_swing = _sfx;
+        ___sfx_swing = _sfx;
         
         return self;
     }
@@ -394,15 +394,15 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     {
         if (type & ITEM_TYPE_BIT.SWORD)
         {
-            return self[$ "__sfx_swing"] ?? "phantasia:action.swing.default_weapon";
+            return self[$ "___sfx_swing"] ?? "phantasia:action.swing.default_weapon";
         }
         
         if (type & (ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER))
         {
-            return self[$ "__sfx_swing"] ?? "phantasia:action.swing.default_tool";
+            return self[$ "___sfx_swing"] ?? "phantasia:action.swing.default_tool";
         }
         
-        return self[$ "__sfx_swing"] ?? "phantasia:action.swing.default";
+        return self[$ "___sfx_swing"] ?? "phantasia:action.swing.default";
     }
     
     if (type & ITEM_TYPE_BIT.ARMOR_HELMET)
@@ -734,16 +734,16 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         }
         else if (type & ITEM_TYPE_BIT.CONTAINER)
         {
-            static set_container_size = function(_size)
+            static set_container_length = function(_size)
             {
-                ___container_size = _size;
+                ___container_length = _size;
                 
                 return self;
             }
             
-            static get_container_size = function()
+            static get_container_length = function()
             {
-                return self[$ "___container_size"] ?? 40;
+                return self[$ "___container_length"] ?? 40;
             }
             
             static set_container_sfx = function(_name)
@@ -4930,7 +4930,7 @@ new ItemData("phantasia", item_Caltrops, ITEM_TYPE_BIT.THROWABLE);
 new ItemData("phantasia", item_Boomerang, ITEM_TYPE_BIT.THROWABLE);
 
 new ItemData("phantasia", item_Piggy_Bank, ITEM_TYPE_BIT.CONTAINER)
-    .set_container_size(5)
+    .set_container_length(5)
     .set_container_sfx("phantasia:tile.container.~.chest");
 
 new ItemData("phantasia", item_Copper_Helmet, ITEM_TYPE_BIT.ARMOR_HELMET)

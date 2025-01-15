@@ -85,14 +85,14 @@ function inventory_interaction()
 				else
 				{
 					var _value_max = _id.value_max;
-				
+                    
 					if (_ >= _value_max)
 					{
 						_string = string(_value_max);
 					}
 					else
 					{
-						_string = string(_);
+						_string = _text_after;
 					}
 				}
 				

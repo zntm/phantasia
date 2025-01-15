@@ -120,9 +120,9 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
 			_inventory = _tile.set_loot_inventory(_inventory).inventory;
 		}
 		
-		var _container_size = _data.get_container_size();
+		var _container_length = _data.get_container_length();
 		
-		for (var i = 0; i < _container_size; ++i)
+		for (var i = 0; i < _container_length; ++i)
 		{
 			var _item = _inventory[i];
 			

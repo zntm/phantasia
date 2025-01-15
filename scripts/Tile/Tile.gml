@@ -187,7 +187,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 	}
 	else if (_type & ITEM_TYPE_BIT.CONTAINER)
 	{
-		inventory = array_create(_data.get_container_size(), INVENTORY_EMPTY);
+		inventory = array_create(_data.get_container_length(), INVENTORY_EMPTY);
 		
 		static set_loot = function(_loot)
 		{
@@ -200,7 +200,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 		{
 			var _loot_data = global.loot_data;
 			
-			var _size = global.item_data[$ item_id].get_container_size();
+			var _size = global.item_data[$ item_id].get_container_length();
 			var _size_1 = _size - 1;
 			
 			inventory = array_create(_size, INVENTORY_EMPTY);

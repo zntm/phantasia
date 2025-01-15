@@ -50,4 +50,28 @@ function Inventory(_item, _amount = 1) constructor
 	{
 		durability = _data.get_durability();
 	}
+    
+    var _charm_length = _data.get_charm_length();
+    
+    if (_charm_length > 0)
+    {
+        ___charms = array_create(_charm_length, undefined);
+    }
+    
+    static get_charms = function()
+    {
+        return self[$ "___charms"];
+    }
+    
+    static get_charm = function(_index)
+    {
+        var _charms = self[$ "___charms"];
+        
+        if (_charms != undefined)
+        {
+            return undefined;
+        }
+        
+        return _charms[_index];
+    }
 }

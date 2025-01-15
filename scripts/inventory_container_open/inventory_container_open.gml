@@ -29,7 +29,7 @@ function inventory_container_open(_x, _y, _inst = noone)
 		sfx_play(string_replace(_container_sfx, "~", "open"), global.settings_value.sfx);
 	}
 	
-	var _size = _data.get_container_size();
+	var _size = _data.get_container_length();
 	
 	obj_Control.is_opened_container = true;
 	obj_Control.is_opened_inventory = true;
