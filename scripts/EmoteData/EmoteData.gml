@@ -1,18 +1,13 @@
 global.emote_data = {}
+global.emote_data_header = [];
+global.emote_data_sorted = {}
 
-function EmoteData(_header) constructor
+function EmoteData(_sprite) constructor
 {
-	global.emote_data[$ _header] ??= [];
-	
-	type = _header;
-	
-	static add_emote = function(_emote)
-	{
-		array_push(global.emote_data[$ type], {
-			name: sprite_get_name(_emote),
-			value: _emote
-		});
-		
-		return self;
-	}
+    ___sprite = _sprite;
+    
+    static get_sprite = function()
+    {
+        return ___sprite;
+    }
 }

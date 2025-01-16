@@ -42,6 +42,11 @@ function init_data_reload(_directory, _prefix, _type)
 		{
 			__init(init_effects, $"{_directory}/effects", _prefix, _type);
 		}
+        
+        if (_debug_reload.emote)
+        {
+            __init(init_emote, $"{_directory}/emote", _prefix, _type);
+        }
 		
 		if (_debug_reload.creature)
 		{
@@ -115,6 +120,7 @@ function init_data_reload(_directory, _prefix, _type)
 		__init(init_attire, $"{_directory}/attires", _prefix, _type);
 		__init(init_backgrounds, $"{_directory}/backgrounds", _prefix, _type);
 		__init(init_effects, $"{_directory}/effects", _prefix, _type);
+		__init(init_emote, $"{_directory}/emote", _prefix, _type);
 		__init(init_creatures, $"{_directory}/creatures", _prefix, _type);
 		__init(init_loot, $"{_directory}/loots", _prefix, _type);
 		__init(init_music, $"{_directory}/music", _prefix, _type);

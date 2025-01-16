@@ -24,6 +24,8 @@ enum CUTEIFY_TYPE {
 
 function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0, _colour = c_white, _alpha = 1, _asset_prefix = "")
 {
+    var _emote_data = global.emote_data;
+    
     static __data = function(_text, _type = CUTEIFY_TYPE.STRING)
     {
         return [ _text, _type ];
@@ -140,14 +142,15 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
                 }
                 else
                 {
+                    var _emote = _emote_data[$ _string_part];
                     var _asset = asset_get_index($"{_asset_prefix}{_string_part}");
                     
-                    if (sprite_exists(_asset))
+                    if (_emote != undefined)
                     {
-                        _string_part = _asset;
+                        _string_part = _emote;
                         _type = CUTEIFY_TYPE.SPRITE;
                         
-                        _string_width[@ _index2] += sprite_get_width(_asset);
+                        _string_width[@ _index2] += sprite_get_width(_emote);
                     }
                     else if (font_exists(_asset))
                     {
@@ -276,7 +279,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
             if (_type == CUTEIFY_TYPE.SPRITE)
             {
                 var _x2 = (sprite_get_xoffset(_text) * _xscale) + _xoffset;
-                var _y2 = (sprite_get_yoffset(_text) * _yscale) + _yoffset - (sprite_get_height(_text) * _yscale / 2);
+                var _y2 = (sprite_get_yoffset(_text) * _yscale) + _yoffset + (sprite_get_height(_text) * _yscale / 2);
                 
                 draw_sprite_ext(
                     _text,

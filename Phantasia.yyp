@@ -1377,6 +1377,7 @@
     {"id":{"name":"init_data_reload","path":"scripts/init_data_reload/init_data_reload.yy",},},
     {"id":{"name":"init_data_reset","path":"scripts/init_data_reset/init_data_reset.yy",},},
     {"id":{"name":"init_datafixer","path":"scripts/init_datafixer/init_datafixer.yy",},},
+    {"id":{"name":"init_emote","path":"scripts/init_emote/init_emote.yy",},},
     {"id":{"name":"init_global_menu","path":"scripts/init_global_menu/init_global_menu.yy",},},
     {"id":{"name":"init_global_world","path":"scripts/init_global_world/init_global_world.yy",},},
     {"id":{"name":"init_global","path":"scripts/init_global/init_global.yy",},},

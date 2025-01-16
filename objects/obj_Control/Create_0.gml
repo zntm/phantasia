@@ -258,6 +258,7 @@ if (DEVELOPER_MODE)
 	{
 		return (global.biome_data[$ _value].type == BIOME_TYPE.SURFACE);
 	})));
+    
 	dbg_slider(ref_create(global.debug_settings, "fly_speed"), 0.5, 64, "Fly Speed");
 	
 	dbg_drop_down(ref_create(global.debug_settings, "force_cave"), array_concat([ "-1" ], array_filter(struct_get_names(global.biome_data), function(_value)

@@ -1,5 +1,7 @@
 function cuteify_get_height(_string, _asset_prefix = "")
 {
+    var _emote_data = global.emote_data;
+    
     static __data = function(_text, _type = CUTEIFY_TYPE.STRING)
     {
         return [ _text, _type ];
@@ -74,12 +76,15 @@ function cuteify_get_height(_string, _asset_prefix = "")
                 }
                 else
                 {
+                    var _emote = _emote_data[$ _string_part];
                     var _asset = asset_get_index($"{_asset_prefix}{_string_part}");
                     
-                    if (sprite_exists(_asset))
+                    if (_emote != undefined)
                     {
-                        _string_part = _asset;
+                        _string_part = _emote;
                         _type = CUTEIFY_TYPE.SPRITE;
+                        
+                        _string_width[@ _index2] += sprite_get_width(_emote);
                     }
                     else if (font_exists(_asset))
                     {

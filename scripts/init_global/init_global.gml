@@ -59,7 +59,8 @@ if (DEVELOPER_MODE)
 		world: true,
 		loca: true,
 		player_colour: true,
-		splash: true
+		splash: true,
+        emote: true
 	}
 	
 	global.debug_resource_counts = {}
