@@ -164,6 +164,8 @@ function cuteify_get_width(_string, _asset_prefix = "")
             var _text = _[0];
             var _type = _[1];
             
+            if (_type == CUTEIFY_TYPE.COLOUR) continue;
+            
             if (_type == CUTEIFY_TYPE.SPRITE)
             {
                 _xoffset += sprite_get_width(_text);

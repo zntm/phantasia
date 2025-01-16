@@ -70,6 +70,7 @@ function cuteify_get_colour(_string, _asset_prefix = "")
                     _string_part = _string_colour;
                     _type = CUTEIFY_TYPE.COLOUR;
                 }
+                /*
                 else
                 {
                     var _emote = _emote_data[$ _string_part];
@@ -100,6 +101,7 @@ function cuteify_get_colour(_string, _asset_prefix = "")
                         _string_part += CUTEIFY_BRACKET_CLOSE;
                     }
                 }
+                */
                 
                 if (_index > 0) && (_type != CUTEIFY_TYPE.STRING)
                 {
