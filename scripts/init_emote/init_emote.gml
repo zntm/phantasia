@@ -1,3 +1,6 @@
+#macro EMOTE_WIDTH 16
+#macro EMOTE_HEIGHT 16
+
 function init_emote(_directory, _prefix = "phantasia", _type = 0)
 {
     if (_type & INIT_TYPE.RESET)
@@ -39,7 +42,7 @@ function init_emote(_directory, _prefix = "phantasia", _type = 0)
         {
             var _file2 = _files2[j];
             
-            var _sprite = sprite_add($"{_directory}/{_file}/{_file2}", 1, false, false, 8, 8);
+            var _sprite = sprite_add($"{_directory}/{_file}/{_file2}", 1, false, false, (EMOTE_WIDTH / 2), (EMOTE_HEIGHT / 2));
             
             var _ = string_delete(_file2, string_length(_file2) - 3, 4);
             
@@ -47,7 +50,4 @@ function init_emote(_directory, _prefix = "phantasia", _type = 0)
             global.emote_data_sorted[$ _name][$ _] = _sprite;
         }
     }
-    
-    show_debug_message(json_stringify(global.emote_data_sorted, true));
-    show_debug_message(global.emote_data_header);
 }

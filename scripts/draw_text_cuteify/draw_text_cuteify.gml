@@ -62,7 +62,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
             
             if (string_length(_string_part) > 0)
             {
-                if (array_length(_data[_index2]) < _index)
+                if (array_length(_data) < _index2)
                 {
                     _data[@ _index2] = array_create(2);
                 }
@@ -78,7 +78,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
             {
                 _opened = !_opened;
                 
-                if (array_length(_data[_index2]) < _index)
+                if (array_length(_data) < _index2)
                 {
                     _data[@ _index2] = array_create(2);
                 }
@@ -100,7 +100,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
         {
             if (string_length(_string_part) > 0)
             {
-                if (array_length(_data[_index2]) < _index)
+                if (array_length(_data) < _index2)
                 {
                     _data[@ _index2] = array_create(2);
                 }
@@ -124,7 +124,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
         
         if (_char == CUTEIFY_BRACKET_CLOSE) && (_index >= 1) && (string_ends_with(_data[_index2][_index - 1][0], CUTEIFY_BRACKET_OPEN))
         {
-            if (array_length(_data[_index2]) < _index)
+            if (array_length(_data) < _index2)
             {
                 _data[@ _index2] = array_create(2);
             }
@@ -142,7 +142,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
                 }
                 else
                 {
-                    var _emote = _emote_data[$ _string_part];
+                    var _emote = _emote_data[$ $"{_asset_prefix}{_string_part}"];
                     var _asset = asset_get_index($"{_asset_prefix}{_string_part}");
                     
                     if (_emote != undefined)
@@ -206,7 +206,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
     
     if (string_length(_string_part) > 0)
     {
-        if (array_length(_data[_index2]) < _index)
+        if (array_length(_data) < _index2)
         {
             _data[@ _index2] = array_create(2);
         }
@@ -218,8 +218,6 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
         
         _string_width[@ _index2] += string_width(_string_part);
     }
-    
-    show_debug_message(_data);
     
     var _cos =  dcos(_angle);
     var _sin = -dsin(_angle);
@@ -419,4 +417,6 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
     draw_set_font(_current_font);
     
     _string_width[0] = 0;
+    
+    show_debug_message(_data);
 }

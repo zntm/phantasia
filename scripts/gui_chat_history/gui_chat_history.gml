@@ -44,6 +44,6 @@ function gui_chat_history(_x, _y, _height)
         
         var _colour = _chat.get_colour();
 		
-		draw_text_cuteify(_x, _y - ((i + 1) * _height), _message, undefined, undefined, undefined, _colour, _alpha, "emote_");
+		draw_text_cuteify(_x, _y - ((i + 1) * _height), _message, undefined, undefined, undefined, _colour, _alpha);
 	}
 }

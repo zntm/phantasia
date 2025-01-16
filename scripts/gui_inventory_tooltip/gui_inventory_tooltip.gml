@@ -140,7 +140,7 @@ function gui_inventory_tooltip()
         _description_string = string_delete(_description_string, string_length(_description_string), 1);
     }
 	
-	var _width	= max(_name_width, cuteify_get_width(_description_string, "emote_") * GUI_TOOLTIP_DESCRIPTION_XSCALE);
+	var _width	= max(_name_width, cuteify_get_width(_description_string) * GUI_TOOLTIP_DESCRIPTION_XSCALE);
 	var _height	= _name_height + (string_height(_description_string) * GUI_TOOLTIP_DESCRIPTION_YSCALE);
 	
 	__draw_tooltip(_x, _y, _width, _height, _name_loca, _data.get_rarity());
