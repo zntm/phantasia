@@ -344,6 +344,52 @@ if (is_opened_gui)
             
 			draw_text_transformed_color(_text_x + (cuteify_get_width(chat_message, "emote_") * GUI_CHAT_TEXT_XSCALE), _text_y, "|", GUI_CHAT_TEXT_XSCALE, GUI_CHAT_TEXT_YSCALE, 0, _colour, _colour, _colour, _colour, 0.5);
 		}
+        
+        var _chat_message_split = string_split(chat_message, CUTEIFY_BRACKET_OPEN);
+        var _chat_message_split_length = array_length(_chat_message_split);
+        
+        if (_chat_message_split_length > 0)
+        {
+            var _chat_message_split_end = _chat_message_split[_chat_message_split_length - 1];
+            
+            if (_chat_message_split_end != "")
+            {
+                var _hex = hex_parse(_chat_message_split_end, false);
+                
+                if (_hex != undefined)
+                {
+                    var _x = _text_x;
+                    var _y = _text_y - 64;
+                    
+                    draw_sprite_ext(spr_Square, 0, _text_x, _text_y - 64, 64, 32, 0, _hex, 1);
+                    
+                    draw_text_colour(_x, _y, $"TEST MESSAGE", _hex, _hex, _hex, _hex, 1);
+                }
+                else
+                {
+                    var _emote_data = global.emote_data;
+                    var _emote_data_names = struct_get_names(_emote_data);
+                    var _emote_data_length = array_length(_emote_data_names);
+                    
+                    array_sort(_emote_data_names, sort_alphabetical_descending);
+                    
+                    var _offset = 0;
+                    
+                    for (var i = 0; i < _emote_data_length; ++i)
+                    {
+                        var _ = _emote_data_names[i];
+                        
+                        if (!string_starts_with(_, _chat_message_split_end)) continue;
+                        
+                        var _x = _text_x;
+                        var _y = _text_y - 64 - (_offset++ * 24);
+                        
+                        draw_sprite(_emote_data[$ _], 0, _x, _y);
+                        draw_text(_x, _y, $"{CUTEIFY_BRACKET_OPEN}{_}{CUTEIFY_BRACKET_CLOSE}");
+                    }
+                }
+            }
+        }
 	}
 
 	if (surface_refresh_chat)
