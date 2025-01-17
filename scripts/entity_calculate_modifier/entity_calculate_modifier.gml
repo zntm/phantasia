@@ -1,4 +1,4 @@
-function entity_calculate_buff(_type, _object = id, _attributes = undefined)
+function entity_calculate_modifier(_type, _object = id, _attributes = undefined)
 {
 	static __get_buff = function(_item, _type, _item_data)
 	{

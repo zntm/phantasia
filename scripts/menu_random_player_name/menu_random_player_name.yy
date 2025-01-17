@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"entity_calculate_buff",
+  "%Name":"menu_random_player_name",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"entity_calculate_buff",
+  "name":"menu_random_player_name",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Menu",
+    "path":"folders/Scripts/Menu.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
