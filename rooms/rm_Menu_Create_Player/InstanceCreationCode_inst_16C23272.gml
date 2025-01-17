@@ -12,7 +12,7 @@ on_press = function()
     }
     
     var _directory = uuid_create(datetime_to_unix());
-        
+    
     while (directory_exists($"{DIRECTORY_PLAYERS}/{_directory}"))
     {
         _directory = uuid_create(datetime_to_unix());
