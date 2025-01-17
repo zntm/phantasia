@@ -13,7 +13,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 	var _animation_index_min = _data.get_random_index_min();
 	var _animation_index_max = _data.get_random_index_max();
 	
-	scale_rotation_index = ((8 << 44) | (8 << 40) | (9 << 36) | (9 << 32) | (0x8000 << 16) | 0x80) | ((irandom_range(_animation_index_min, _animation_index_max) + 0x80) << 8);
+	scale_rotation_index = ((0 << 49) | (0 << 48) | (8 << 44) | (8 << 40) | (9 << 36) | (9 << 32) | (0x8000 << 16) | 0x80) | ((irandom_range(_animation_index_min, _animation_index_max) + 0x80) << 8);
 	
 	if (_data.get_flip_on_x()) && (irandom(1))
 	{
@@ -259,4 +259,18 @@ function Tile(_item, _item_data = global.item_data) constructor
 			return self;
 		}
 	}
+    else if (_type & ITEM_TYPE_BIT.LIQUID)
+    {
+        static set_is_source = function()
+        {
+            scale_rotation_index |= 1 << 49;
+            
+            return self;
+        }
+        
+        static get_is_source = function()
+        {
+            return scale_rotation_index >> 49;
+        }
+    }
 }

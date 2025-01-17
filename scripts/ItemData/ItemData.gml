@@ -90,14 +90,9 @@ enum ITEM_BOOLEAN {
 
 global.item_data = {}
 
-function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
+function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) : GlobalData() constructor
 {
-    ___namespace = _namespace;
-    
-    static get_namespace = function()
-    {
-        return self[$ "___namespace"];
-    }
+    set_namespace(_namespace);
     
     name = string_lower(string_delete(sprite_get_name(_sprite), 1, 5));
     sprite = _sprite;
