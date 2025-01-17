@@ -231,18 +231,6 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 /*
 #region 0-49
 
-new CreatureData("Chicken", CREATURE_HOSTILITY_TYPE.PASSIVE, 4)
-	.set_attributes(new Attributes()
-		.set_movement_speed(1)
-		.set_gravity(0.2))
-	.add_drop("phantasia:raw_chicken", 1, 1, 1)
-	.add_drop("phantasia:feather", 1, 3, 1)
-	.set_sfx("phantasia.~.chicken");
-
-new CreatureData("Fox", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
-	.set_attributes(new Attributes()
-		.set_movement_speed(2));
-
 new CreatureData("Dragonfly", CREATURE_HOSTILITY_TYPE.PASSIVE, 4)
 	.set_attributes(new Attributes())
 	.set_move_type(CREATURE_MOVE_TYPE.FLY)
@@ -254,26 +242,11 @@ new CreatureData("Cod", CREATURE_HOSTILITY_TYPE.PASSIVE, 6)
 	.set_xspeed(3)
 	.add_drop("phantasia:raw_cod", 1, 3, 1);
 
-new CreatureData("Rabbit", CREATURE_HOSTILITY_TYPE.PASSIVE, 10)
-	.set_attributes(new Attributes()
-		.set_movement_speed(1.4))
-	.add_drop("phantasia:raw_rabbit", 1, 1, 1)
-	.add_drop("phantasia:rabbit_foot", 1, 1, 0.05)
-	.add_drop("phantasia:rabbit_hide", 1, 4, 0.8);
-
 new CreatureData("Bee", CREATURE_HOSTILITY_TYPE.PASSIVE, 4)
 	.set_attributes(new Attributes())
 	.set_move_type(CREATURE_MOVE_TYPE.FLY)
 	.set_xspeed(1)
 	.set_yspeed(2);
-
-new CreatureData("Chick", CREATURE_HOSTILITY_TYPE.PASSIVE, 2)
-	.set_attributes(new Attributes());
-
-new CreatureData("Snail", CREATURE_HOSTILITY_TYPE.PASSIVE, 2)
-	.set_attributes(new Attributes())
-	.set_xspeed(1)
-	.set_can_jump(false);
 
 new CreatureData("Bird", CREATURE_HOSTILITY_TYPE.PASSIVE, 4)
 	.set_attributes(new Attributes())
@@ -282,25 +255,11 @@ new CreatureData("Bird", CREATURE_HOSTILITY_TYPE.PASSIVE, 4)
 	.set_yspeed(1)
 	.add_drop("phantasia:feather", 1, 3, 1);
 
-new CreatureData("Frog", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
-	.set_attributes(new Attributes())
-	.add_drop("phantasia:raw_frog_leg", 1, 1, 1);
-
-new CreatureData("Toad", CREATURE_HOSTILITY_TYPE.PASSIVE, 10)
-	.set_attributes(new Attributes());
-
 new CreatureData("Raccoon", CREATURE_HOSTILITY_TYPE.PASSIVE, 10)
 	.set_attributes(new Attributes());
 
 new CreatureData("Nightwalker", CREATURE_HOSTILITY_TYPE.PASSIVE, 20)
 	.set_attributes(new Attributes());
-
-new CreatureData("Camel", CREATURE_HOSTILITY_TYPE.PASSIVE, 24)
-	.set_attributes(new Attributes());
-
-new CreatureData("Duck", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
-	.set_attributes(new Attributes())
-	.add_drop("phantasia:feather", 1, 3, 1);
 
 new CreatureData("Turkey", CREATURE_HOSTILITY_TYPE.PASSIVE, 8)
 	.set_attributes(new Attributes())
@@ -398,14 +357,6 @@ new CreatureData("Lumin Bat", CREATURE_HOSTILITY_TYPE.HOSTILE, 24)
 	.set_damage(9)
 	.set_sfx("phantasia.~.rat");
 
-new CreatureData("Goat", CREATURE_HOSTILITY_TYPE.PASSIVE, 12)
-	.set_attributes(new Attributes());
-
-new CreatureData("Skeleton", CREATURE_HOSTILITY_TYPE.HOSTILE, 24)
-	.set_attributes(new Attributes())
-	.add_drop("phantasia:bone", 2, 6, 1)
-	.set_damage(6);
-
 new CreatureData("Ladybug", CREATURE_HOSTILITY_TYPE.PASSIVE, 4)
 	.set_attributes(new Attributes())
 	.set_move_type(CREATURE_MOVE_TYPE.FLY)
@@ -461,10 +412,5 @@ new CreatureData("Beetlite", CREATURE_HOSTILITY_TYPE.HOSTILE, 14)
 	.set_attributes(new Attributes())
 	.set_xspeed(2)
 	.set_damage(4);
-
-new CreatureData("Slime", CREATURE_HOSTILITY_TYPE.HOSTILE, 8)
-	.set_attributes(new Attributes())
-	.set_xspeed(3)
-	.set_damage(6);
 
 #endregion

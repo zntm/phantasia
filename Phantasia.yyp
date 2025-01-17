@@ -210,6 +210,7 @@
     {"$GMFolder":"","%Name":"World Creation","folderPath":"folders/Sprites/Menu/World Creation.yy","name":"World Creation","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"execute_shell_simple_ext.html","CopyToMask":-1,"filePath":"datafiles","name":"execute_shell_simple_ext.html","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"LICENSE.md","CopyToMask":-1,"filePath":"datafiles","name":"LICENSE.md","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"README.md","CopyToMask":-1,"filePath":"datafiles","name":"README.md","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"colour.png","CopyToMask":-1,"filePath":"datafiles/resources/data/attires/eyes/0","name":"colour.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -1158,7 +1159,7 @@
   "name":"Phantasia",
   "resources":[
     {"id":{"name":"ac_Menu","path":"animcurves/ac_Menu/ac_Menu.yy",},},
-    {"id":{"name":"Extension2","path":"extensions/Extension2/Extension2.yy",},},
+    {"id":{"name":"execute_shell_simple_ext","path":"extensions/execute_shell_simple_ext/execute_shell_simple_ext.yy",},},
     {"id":{"name":"NekoPresence","path":"extensions/NekoPresence/NekoPresence.yy",},},
     {"id":{"name":"fnt_Main","path":"fonts/fnt_Main/fnt_Main.yy",},},
     {"id":{"name":"obj_Background","path":"objects/obj_Background/obj_Background.yy",},},

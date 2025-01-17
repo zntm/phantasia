@@ -28,3 +28,4 @@ Phantasia © 2025 by Zhen is licensed under Attribution 4.0 International - see 
 
 ## Acknowledgements
 [NekoPresence](https://github.com/nkrapivin/NekoPresence)
+[execute_shell_simple for GameMaker](https://yellowafterlife.itch.io/gamemaker-execute-shell-simple)
