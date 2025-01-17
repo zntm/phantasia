@@ -4,9 +4,9 @@ function menu_random_player_name()
     
     text = "";
     
-    if (chance(0.4))
+    if (chance(0.42))
     {
-        text = choose("b", "c", "d", "g", "j", "m", "s", "v", "z", "bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "pl", "pr", "sc", "sk", "sl", "sp", "st", "tr", "wr", "str", "shr");
+        text = choose("b", "c", "d", "g", "j", "m", "n", "s", "v", "z", "bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "pl", "pr", "sc", "sk", "sl", "sp", "st", "tr", "wr", "str", "shr");
     }
     
     var _last_vowel = "";
@@ -46,13 +46,13 @@ function menu_random_player_name()
             text += _vowel;
         }
         
-        var _consonant = choose("d", "l", "m", "n", "s", "p", "t", "c", "k", "sg", "sl", "mn", "pl", "st", "tr", "rr", "ck", "th", "nc", "nd", "ng", "nt", "mp", "lk", "rk", "ft", "sp", "ndr");
+        var _consonant = choose("d", "l", "m", "n", "s", "p", "t", "c", "k", "sg", "sl", "ld", "mn", "pl", "st", "tr", "rr", "ck", "th", "nc", "nd", "ng", "nt", "mp", "lk", "rk", "ft", "sp", "ndr");
         
         if (chance(0.22))
         {
             while (_consonant == _last_consonant)
             {
-                _consonant = choose("d", "l", "m", "n", "s", "p", "t", "c", "k", "sg", "sl", "mn", "pl", "st", "tr", "rr", "ck", "th", "nc", "nd", "ng", "nt", "mp", "lk", "rk", "ft", "sp", "ndr");
+                _consonant = choose("d", "l", "m", "n", "s", "p", "t", "c", "k", "sg", "sl", "ld", "mn", "pl", "st", "tr", "rr", "ck", "th", "nc", "nd", "ng", "nt", "mp", "lk", "rk", "ft", "sp", "ndr");
             }
         }
         
@@ -60,7 +60,7 @@ function menu_random_player_name()
         
         text += _consonant;
         
-        if (chance(0.98)) && (string_length(text) >= 8) break;
+        if (chance(0.99)) && (string_length(text) >= 8) break;
     }
     
     #region Cleanup
