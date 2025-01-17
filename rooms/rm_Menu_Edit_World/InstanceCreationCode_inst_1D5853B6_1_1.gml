@@ -5,5 +5,5 @@ icon_yscale = 2;
 
 on_press = function()
 {
-	menu_goto_blur(rm_Menu_List_Worlds, true);
+    menu_goto_blur(rm_Menu_List_Worlds, true);
 }

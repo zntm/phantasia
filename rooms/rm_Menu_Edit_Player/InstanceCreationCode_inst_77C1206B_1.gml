@@ -1,4 +1,4 @@
-placeholder = loca_translate("menu.create_player.enter_name");
+placeholder = loca_translate("menu.enter_name");
 text = global.player.name;
 
 text_length = 24;

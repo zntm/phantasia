@@ -1,4 +1,4 @@
-text = loca_translate("menu.create_world.open_folder");
+text = loca_translate("menu.open_folder");
 
 on_press = function()
 {
