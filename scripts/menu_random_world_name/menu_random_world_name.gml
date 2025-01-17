@@ -1,3 +1,5 @@
+#macro MENU_RANDOM_WORLD_NAME_PLACE_SYNONYM choose("Area", "Borough", "Dimension", "District", "Domain", "Edge", "Expanse", "Frontier", "Frontline", "Horizon", "Kingdom", "Land", "Lands", "Netherworld", "Outlands", "Outskirts", "Paradise", "Partition", "Periphery", "Place", "Plane", "Province", "Quarter", "Realm", "Region", "Rim", "Sanctuary", "Sector", "Sphere", "Territory", "Turf", "Universe", "Void", "Wilds", "World", "Zone")
+
 function menu_random_world_name()
 {
     randomize();
@@ -13,6 +15,7 @@ function menu_random_world_name()
         "Amazing",
         "Angry",
         "Annoyed",
+        "Arcane",
         "Average",
         "Awesome",
         "Bashful",
@@ -26,9 +29,11 @@ function menu_random_world_name()
         "Cheap",
         "Close",
         "Comedic",
+        "Colossal",
         "Confident",
         "Creepy",
         "Crowded",
+        "Cryptic",
         "Cubic",
         "Cute",
         "Dazzling",
@@ -39,6 +44,7 @@ function menu_random_world_name()
         "Echoing",
         "Enchanting",
         "Energetic",
+        "Enigmatic",
         "Exciting",
         "Extraordinary",
         "Fancy",
@@ -47,6 +53,7 @@ function menu_random_world_name()
         "Freezing",
         "Frozen",
         "Ghastly",
+        "Ghostly",
         "Generic",
         "Giant",
         "Gigantic",
@@ -60,6 +67,7 @@ function menu_random_world_name()
         "Healthy",
         "High",
         "Homely",
+        "Immense",
         "Inspiring",
         "Irresponsible",
         "Iridescent",
@@ -80,12 +88,14 @@ function menu_random_world_name()
         "Low",
         "Loving",
         "Majestic",
+        "Melancholic",
         "Melodic",
         "Mysterious",
         "Natural",
         "Neutral",
         "New",
         "Night",
+        "Nimble",
         "Old",
         "Open",
         "Optimistic",
@@ -106,9 +116,11 @@ function menu_random_world_name()
         "Quick",
         "Quiet",
         "Radiant",
+        "Raw",
         "Responsible",
         "Resting",
         "Rich",
+        "Robust",
         "Round",
         "Royal",
         "Rustling",
@@ -117,13 +129,16 @@ function menu_random_world_name()
         "Shameful",
         "Shimmering",
         "Shy",
+        "Sluggish",
         "Small",
+        "Somber",
         "Sparkling",
         "Stale",
         "Stable",
         "Streaming",
         "Suave",
         "Super",
+        "Supernatural",
         "Terrifying",
         "Tiny",
         "Ugly",
@@ -133,11 +148,33 @@ function menu_random_world_name()
         "Unlawful",
         "Unstable",
         "Vague",
+        "Veiled",
         "Villanous",
         "Wandering",
         "Wondrous",
         "Young"
     );
+    
+    if (chance(0.03))
+    {
+        text = $"{global.player.name}'";
+        
+        if (!string_ends_with(text, "s")) && (!string_ends_with(text, "z")) && (!string_ends_with(text, "x"))
+        {
+            text += "s";
+        }
+        
+        if (chance(0.4))
+        {
+            text += $" {_adjective}";
+        }
+        
+        text += $" {MENU_RANDOM_WORLD_NAME_PLACE_SYNONYM}";
+        
+        global.world.name = text;
+        
+        exit;
+    }
     
     #endregion
     
@@ -340,7 +377,7 @@ function menu_random_world_name()
     }
     else if (_v2 == 3)
     {
-        _name = $"{MENU_WORLD_NAME_RANDOM_START} {choose("Domain", "Frontier", "Kingdom", "Land", "Province", "Realm", "Territory", "World")} of {_name}";
+        _name = $"{MENU_WORLD_NAME_RANDOM_START} {MENU_RANDOM_WORLD_NAME_PLACE_SYNONYM} of {_name}";
     }
     else if (_v2 == 1) && (irandom(1))
     {
