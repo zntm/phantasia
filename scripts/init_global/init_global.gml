@@ -100,6 +100,7 @@ else
 
 #region Directory Initialization
 
+#macro DIRECTORY_APPDATA $"{environment_get_variable("LOCALAPPDATA")}/{game_project_name}"
 #macro DIRECTORY_CRASH_LOGS "Crash_Logs"
 #macro DIRECTORY_SNAPSHOTS  "Snapshots"
 #macro DIRECTORY_PLAYERS    "Players"
