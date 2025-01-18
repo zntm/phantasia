@@ -70,38 +70,6 @@ function cuteify_get_colour(_string, _asset_prefix = "")
                     _string_part = _string_colour;
                     _type = CUTEIFY_TYPE.COLOUR;
                 }
-                /*
-                else
-                {
-                    var _emote = _emote_data[$ _string_part];
-                    var _asset = asset_get_index($"{_asset_prefix}{_string_part}");
-                    
-                    if (_emote != undefined)
-                    {
-                        _string_part = _emote;
-                        _type = CUTEIFY_TYPE.SPRITE;
-                    }
-                    else if (font_exists(_asset))
-                    {
-                        _string_part = _asset;
-                        _type = CUTEIFY_TYPE.FONT;
-                    }
-                    else if (_string_part == CUTEIFY_BRACKET_OBSTRUCT)
-                    {
-                        _string_part = "";
-                        _type = CUTEIFY_TYPE.OBSTRUCT;
-                    }
-                    else if (_string_part == CUTEIFY_BRACKET_UNDERLINE)
-                    {
-                        _string_part = "";
-                        _type = CUTEIFY_TYPE.UNDERLINE;
-                    }
-                    else
-                    {
-                        _string_part += CUTEIFY_BRACKET_CLOSE;
-                    }
-                }
-                */
                 
                 if (_index > 0) && (_type != CUTEIFY_TYPE.STRING)
                 {
