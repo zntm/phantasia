@@ -10,7 +10,7 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 	var _cy = tile_inst_y(_y);
 	
 	var _inst = instance_position(_cx, _cy, obj_Chunk);
-		
+	
 	if (!instance_exists(_inst))
 	{
 		_inst = instance_create_layer(_cx, _cy, "Instances", obj_Chunk);
@@ -30,9 +30,7 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
     
     if (_on_neighbor_update != undefined)
     {
-        show_debug_message(_tile);
-        
-        _on_neighbor_update(_x, _y, _z, _item_id);
+        _on_neighbor_update(_x, _y, _z, _tile);
     }
     
     var _animation_type = _data.get_animation_type();

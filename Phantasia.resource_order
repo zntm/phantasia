@@ -486,6 +486,7 @@
     {"name":"surface_free_existing","order":20,"path":"scripts/surface_free_existing/surface_free_existing.yy",},
     {"name":"tile_condition_connected_to_self","order":12,"path":"scripts/tile_condition_connected_to_self/tile_condition_connected_to_self.yy",},
     {"name":"tile_condition_connected","order":11,"path":"scripts/tile_condition_connected/tile_condition_connected.yy",},
+    {"name":"tile_destroy_with_drop","order":17,"path":"scripts/tile_destroy_with_drop/tile_destroy_with_drop.yy",},
     {"name":"tile_get","order":2,"path":"scripts/tile_get/tile_get.yy",},
     {"name":"tile_index","order":15,"path":"scripts/tile_index/tile_index.yy",},
     {"name":"tile_inst_x","order":13,"path":"scripts/tile_inst_x/tile_inst_x.yy",},

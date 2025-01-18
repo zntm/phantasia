@@ -1,4 +1,4 @@
-#macro INVENTORY_DROP_XVELOCITY 10
+#macro INVENTORY_DROP_XVELOCITY 0.2
 #macro INVENTORY_DROP_YVELOCITY 3
 
 function inventory_drop()
