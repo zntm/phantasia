@@ -1531,11 +1531,7 @@ new ItemData("phantasia", item_Blue_Bells, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:blue_bells")
-    .set_sfx("phantasia:tile.leaves")  
-    .set_on_tile_interaction(function(_x, _y, _z)
-    {
-        tile_spawn_item_drop(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:platinum_sword");
-    });
+    .set_sfx("phantasia:tile.leaves");
 
 new ItemData("phantasia", item_Oak_Planks, ITEM_TYPE_BIT.SOLID)
     .set_flip_on(true, false)

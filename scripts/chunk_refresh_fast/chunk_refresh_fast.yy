@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"chunk_refresh_fast",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Chunks",
+    "path":"folders/Scripts/Phantasia/Chunks.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

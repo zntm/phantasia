@@ -1260,7 +1260,6 @@
     {"id":{"name":"chunk_generate","path":"scripts/chunk_generate/chunk_generate.yy",},},
     {"id":{"name":"chunk_iterate","path":"scripts/chunk_iterate/chunk_iterate.yy",},},
     {"id":{"name":"chunk_refresh_fast","path":"scripts/chunk_refresh_fast/chunk_refresh_fast.yy",},},
-    {"id":{"name":"chunk_refresh","path":"scripts/chunk_refresh/chunk_refresh.yy",},},
     {"id":{"name":"chunk_update_near_inst","path":"scripts/chunk_update_near_inst/chunk_update_near_inst.yy",},},
     {"id":{"name":"chunk_update_near_light","path":"scripts/chunk_update_near_light/chunk_update_near_light.yy",},},
     {"id":{"name":"chunk_update","path":"scripts/chunk_update/chunk_update.yy",},},
