@@ -9,9 +9,14 @@ enum CREATURE_MOVE_TYPE {
 	SWIM
 }
 
-function CreatureData(_id, _type, _hp) : GlobalData() constructor
+function CreatureData(_id, _type, _hp) constructor
 {
-    set_namespace("phantasia");
+    ___namespace = "phantasia";
+    
+    static get_namespace = function()
+    {
+        return ___namespace;
+    }
     
     ___id = _id;
     
