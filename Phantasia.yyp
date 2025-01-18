@@ -1535,6 +1535,7 @@
     {"id":{"name":"tile_place","path":"scripts/tile_place/tile_place.yy",},},
     {"id":{"name":"tile_set","path":"scripts/tile_set/tile_set.yy",},},
     {"id":{"name":"tile_spawn_item_drop","path":"scripts/tile_spawn_item_drop/tile_spawn_item_drop.yy",},},
+    {"id":{"name":"tile_spawn_structure","path":"scripts/tile_spawn_structure/tile_spawn_structure.yy",},},
     {"id":{"name":"tile_update_chunk_condition","path":"scripts/tile_update_chunk_condition/tile_update_chunk_condition.yy",},},
     {"id":{"name":"tile_update_neighbor","path":"scripts/tile_update_neighbor/tile_update_neighbor.yy",},},
     {"id":{"name":"tile_update","path":"scripts/tile_update/tile_update.yy",},},

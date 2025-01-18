@@ -2,6 +2,9 @@
 
 function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
 {
+    ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_height);
+    ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera_height);
+    
 	var _structure_data = global.structure_data;
 	var _structure_data_function = global.structure_data_function;
 	

@@ -33,74 +33,72 @@ if (hp <= 0)
         
         effect_on_death(x, y, id);
     }
-    else
+    
+    dead_timer -= _delta_time;
+    
+    if (dead_timer > 0) exit;
+    
+    sfx_play("phantasia:action.respawn", _settings_value.master * _settings_value.sfx);
+    
+    image_alpha = 1;
+    
+    hp = hp_max;
+    
+    knockback_time = 0;
+    knockback_direction = 0;
+    
+    var _sun_rays_y = global.sun_rays_y;
+    
+    var i = 0;
+    
+    while (true)
     {
-        dead_timer -= _delta_time;
+        var _index = string(i);
         
-        if (dead_timer > 0) exit;
+        var _y1 = _sun_rays_y[$ _index];
         
-        sfx_play("phantasia:action.respawn", _settings_value.master * _settings_value.sfx);
-        
-        image_alpha = 1;
-        
-        hp = hp_max;
-        
-        knockback_time = 0;
-        knockback_direction = 0;
-        
-        var _sun_rays_y = global.sun_rays_y;
-        
-        var i = 0;
-        
-        while (true)
+        if (_y1 != undefined)
         {
-            var _index = string(i);
+            x = i * TILE_SIZE;
+            y = (_y1 * TILE_SIZE) - TILE_SIZE;
             
-            var _y1 = _sun_rays_y[$ _index];
-            
-            if (_y1 != undefined)
-            {
-                x = i * TILE_SIZE;
-                y = (_y1 * TILE_SIZE) - TILE_SIZE;
-                
-                break;
-            }
-            
-            var _y2 = _sun_rays_y[$ $"-{_index}"];
-            
-            if (_y2 != undefined)
-            {
-                x = -i * TILE_SIZE;
-                y = (_y2 * TILE_SIZE) - TILE_SIZE;
-                
-                break;
-            }
-            
-            ++i;
+            break;
         }
         
-        ylast = y;
+        var _y2 = _sun_rays_y[$ $"-{_index}"];
         
-        xvelocity = 0;
-        yvelocity = 0;
+        if (_y2 != undefined)
+        {
+            x = -i * TILE_SIZE;
+            y = (_y2 * TILE_SIZE) - TILE_SIZE;
+            
+            break;
+        }
         
-        var _camera = global.camera;
-        
-        var _camera_x = x - (_camera.width  / 2);
-        var _camera_y = y - (_camera.height / 2);
-        
-        global.camera.x = _camera_x;
-        global.camera.y = _camera_y;
-        
-        global.camera.x_real = _camera_x;
-        global.camera.y_real = _camera_y;
-        
-        global.camera.shake = 0;
-        
-        obj_Control.surface_refresh_hp = true;
-        
-        camera_set_view_pos(view_camera[0], _camera_x, _camera_y);
+        ++i;
     }
+    
+    ylast = y;
+    
+    xvelocity = 0;
+    yvelocity = 0;
+    
+    var _camera = global.camera;
+    
+    var _camera_x = x - (_camera.width  / 2);
+    var _camera_y = y - (_camera.height / 2);
+    
+    global.camera.x = _camera_x;
+    global.camera.y = _camera_y;
+    
+    global.camera.x_real = _camera_x;
+    global.camera.y_real = _camera_y;
+    
+    global.camera.shake = 0;
+    
+    obj_Control.surface_refresh_hp = true;
+    
+    camera_set_view_pos(view_camera[0], _camera_x, _camera_y);
 }
 
 control_inventory();

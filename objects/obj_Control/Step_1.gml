@@ -16,13 +16,7 @@ if (_cx == infinity) || (_cy == infinity)
 	var _camera_x = _xplayer - (_camera_width / 2);
 	var _camera_y = obj_Player.y - (_camera_height / 2);
 	
-	if (global.world_settings.spawn_structures)
-	{
-		ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_height);
-		ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera_height);
-		
-		control_structures(_camera_x, _camera_y, _camera_width, _camera_height);
-	}
+	tile_spawn_structure(_camera_x, _camera_y);
 	
 	var _item_data = global.item_data;
 	
@@ -79,9 +73,6 @@ var _camera_y_real = obj_Player.y - (_camera_height / 2) + CAMERA_YOFFSET;
 
 if (global.world_settings.spawn_structures) && ((_camera_x_real != _camera_x) || (_camera_y_real != _camera_y))
 {
-	ctrl_structure_surface(_camera_x_real, _camera_y_real, _camera_width, _camera_height);
-	ctrl_structure_underground(_camera_x_real, _camera_y_real, _camera_width, _camera_height);
-	
 	control_structures(_camera_x_real, _camera_y_real, _camera_width, _camera_height);
 }
 

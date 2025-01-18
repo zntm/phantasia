@@ -497,6 +497,7 @@
     {"name":"tile_place","order":1,"path":"scripts/tile_place/tile_place.yy",},
     {"name":"tile_set","order":3,"path":"scripts/tile_set/tile_set.yy",},
     {"name":"tile_spawn_item_drop","order":2,"path":"scripts/tile_spawn_item_drop/tile_spawn_item_drop.yy",},
+    {"name":"tile_spawn_structure","order":3,"path":"scripts/tile_spawn_structure/tile_spawn_structure.yy",},
     {"name":"tile_update_chunk_condition","order":1,"path":"scripts/tile_update_chunk_condition/tile_update_chunk_condition.yy",},
     {"name":"tile_update_neighbor","order":25,"path":"scripts/tile_update_neighbor/tile_update_neighbor.yy",},
     {"name":"tile_update","order":5,"path":"scripts/tile_update/tile_update.yy",},

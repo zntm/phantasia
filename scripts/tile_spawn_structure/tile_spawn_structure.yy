@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"tile_spawn_structure",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tile_spawn_structure",
+  "parent":{
+    "name":"Tile",
+    "path":"folders/Scripts/Tile/Tile.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -18,21 +18,7 @@ function tile_get(_x, _y, _z, _attribute = "item_id", _world_height = global.wor
 	
 	if (!instance_exists(_inst))
 	{
-        if (global.world_settings.spawn_structures)
-        {
-            var _camera = global.camera;
-            
-            var _camera_width  = _camera.width;
-            var _camera_height = _camera.height;
-            
-            var _camera_x = (_x * TILE_SIZE) - (_camera_width  / 2);
-            var _camera_y = (_y * TILE_SIZE) - (_camera_height / 2);
-            
-            ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_height);
-            ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera_height);
-            
-            control_structures(_camera_x, _camera_y, _camera_width, _camera_height);
-        }
+        tile_spawn_structure(_x * TILE_SIZE, _y * TILE_SIZE);
         
 		_inst = instance_create_layer(_cx, _cy, "Instances", obj_Chunk);
 	}
