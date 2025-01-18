@@ -1974,6 +1974,7 @@ new ItemData("phantasia", item_Deadflower, ITEM_TYPE_BIT.PLANT)
 new ItemData("phantasia", item_Bamboo, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_flip_on(true, false)
     .set_mining_stats(undefined, undefined, 8)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:bamboo");
 
 new ItemData("phantasia", item_Sandstone_Wall, ITEM_TYPE_BIT.WALL)
@@ -4527,6 +4528,7 @@ new ItemData("phantasia", item_Pie_Crust);
 new ItemData("phantasia", item_Dark_Bamboo, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_flip_on(true, false)
     .set_mining_stats(undefined, undefined, 8)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:dark_bamboo");
 
 new ItemData("phantasia", item_Block_Of_Dark_Bamboo, ITEM_TYPE_BIT.SOLID)

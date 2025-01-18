@@ -1,6 +1,6 @@
-function item_update_destroy_floating_blow(_x, _y, _z, _item_id)
+function item_update_destroy_floating_below(_x, _y, _z, _item_id)
 {
-    if (tile_get(_x, _y + 1, _z) == _item_id) exit;
+    if (tile_get(_x, _y - 1, _z) == _item_id) exit;
     
     var _data = global.item_data[$ _item_id];
     
