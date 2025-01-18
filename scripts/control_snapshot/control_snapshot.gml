@@ -9,6 +9,20 @@ function control_snapshot(_camera_width, _camera_height)
 	
 	draw_surface_stretched(application_surface, 0, 0, _camera_width, _camera_height);
 	
+    if (surface_exists(surface_lighting))
+    {
+        draw_surface_stretched(surface_lighting, 0, 0, _camera_width, _camera_height);
+    }
+    
+    if (surface_exists(surface_lighting_pixel))
+    {
+        gpu_set_blendmode_ext(bm_dest_color, bm_zero);
+        
+        draw_surface_stretched(surface_lighting_pixel, 0, 0, _camera_width, _camera_height);
+        
+        gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_src_alpha, bm_one);
+    }
+    
 	if (is_opened_gui)
 	{
 		if (surface_exists(surface_inventory))
