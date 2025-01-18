@@ -145,15 +145,47 @@ if (!_mouse_left) || (_mouse_right)
 
 if (!_mouse_on_slot) && (rectangle_distance(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom) <= PLAYER_REACH_MAX + (TILE_SIZE * buffs[$ "build_reach"]))
 {
-    var _item_held = global.inventory.base[_inventory_selected_hotbar];
+    var _tile_interacted = false;
     
-    if (_mouse_right) && (cooldown_build <= 0) && (_item_held != INVENTORY_EMPTY)
+    if (mouse_check_button_pressed(mb_right))
     {
-        player_place(round(mouse_x / TILE_SIZE), round(mouse_y / TILE_SIZE), _world_height);
+        var _item_data = global.item_data;
+        
+        var _xtile = round(mouse_x / TILE_SIZE);
+        var _ytile = round(mouse_y / TILE_SIZE);
+        
+        for (var i = CHUNK_SIZE_Z - 1; i >= 0; --i)
+        {
+            var _tile = tile_get(_xtile, _ytile, i);
+            
+            if (_tile != TILE_EMPTY)
+            {
+                var _data = _item_data[$ _tile];
+                
+                var _on_tile_interaction = _data.get_on_tile_interaction();
+                
+                if (_on_tile_interaction != undefined)
+                {
+                    _on_tile_interaction(_xtile, _ytile, i);
+                    
+                    _tile_interacted = true;
+                }
+            }
+        }
     }
-    else if (_mouse_left) && (player_mine(mouse_x, mouse_y, _item_held, _world_height, _delta_time))
+    
+    if (!_tile_interacted)
     {
-        player_mine_value();
+        var _item_held = global.inventory.base[_inventory_selected_hotbar];
+        
+        if (_mouse_right) && (cooldown_build <= 0) && (_item_held != INVENTORY_EMPTY)
+        {
+            player_place(round(mouse_x / TILE_SIZE), round(mouse_y / TILE_SIZE), _world_height);
+        }
+        else if (_mouse_left) && (player_mine(mouse_x, mouse_y, _item_held, _world_height, _delta_time))
+        {
+            player_mine_value();
+        }
     }
 }
 else

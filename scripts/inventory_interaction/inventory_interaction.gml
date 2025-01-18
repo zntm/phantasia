@@ -287,12 +287,13 @@ function inventory_interaction()
 				exit;
 			}
 		}
+        
+		var _interaction = _data.get_on_inventory_interaction();
 		
-		var _interaction = _data.on_interaction;
-		
-		if (_interaction == undefined) continue;
-		
-		_interaction(_x, _y, _z);
+		if (_interaction != undefined)
+        {
+            _interaction(_x, _y, _z);
+        }
 		
 		exit;
 	}

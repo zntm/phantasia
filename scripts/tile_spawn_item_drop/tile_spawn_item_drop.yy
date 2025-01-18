@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"tile_destroy_with_drop",
+  "%Name":"tile_spawn_item_drop",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"tile_destroy_with_drop",
+  "name":"tile_spawn_item_drop",
   "parent":{
     "name":"Tile",
     "path":"folders/Scripts/Tile/Tile.yy",

@@ -956,13 +956,28 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) : GlobalDa
             return self;
         }
         
-        on_interaction = undefined;
-        
-        static set_on_interaction = function(on)
+        static set_on_inventory_interaction = function(_on_interaction)
         {
-            on_interaction = on;
+            ___on_inventory_interaction = _on_interaction;
             
             return self;
+        }
+        
+        static get_on_inventory_interaction = function()
+        {
+            return self[$ "___on_inventory_interaction"];
+        }
+        
+        static set_on_tile_interaction = function(_on_interaction)
+        {
+            ___on_tile_interaction = _on_interaction;
+            
+            return self;
+        }
+        
+        static get_on_tile_interaction = function()
+        {
+            return self[$ "___on_tile_interaction"];
         }
         
         static set_slipperiness = function(_val)
@@ -1516,7 +1531,11 @@ new ItemData("phantasia", item_Blue_Bells, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:blue_bells")
-    .set_sfx("phantasia:tile.leaves");
+    .set_sfx("phantasia:tile.leaves")  
+    .set_on_tile_interaction(function(_x, _y, _z)
+    {
+        tile_spawn_item_drop(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:platinum_sword");
+    });
 
 new ItemData("phantasia", item_Oak_Planks, ITEM_TYPE_BIT.SOLID)
     .set_flip_on(true, false)
@@ -2960,7 +2979,7 @@ new ItemData("phantasia", item_Birch_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData("phantasia", item_Birch_Door, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:birch_door")
-    .set_on_interaction(item_interaction_door);
+    .set_on_tile_interaction(item_interaction_door);
 
 new ItemData("phantasia", item_Birch_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -4283,7 +4302,7 @@ new ItemData("phantasia", item_Mangrove_Planks_Wall, ITEM_TYPE_BIT.WALL)
 new ItemData("phantasia", item_Cherry_Door, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:cherry_door")
-    .set_on_interaction(item_interaction_door)
+    .set_on_tile_interaction(item_interaction_door)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Glass, ITEM_TYPE_BIT.SOLID)
@@ -4497,7 +4516,7 @@ new ItemData("phantasia", item_Wysteria_Door, ITEM_TYPE_BIT.SOLID)
 new ItemData("phantasia", item_Oak_Door, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:oak_door")
-    .set_on_interaction(item_interaction_door)
+    .set_on_tile_interaction(item_interaction_door)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Oak_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)

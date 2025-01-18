@@ -6,9 +6,10 @@ function chunk_iterate(_function, _id = obj_Chunk)
 		
 		for (var _z = 0; _z < CHUNK_SIZE_Z; ++_z)
 		{
-			if ((surface_display & (1 << _z)) == 0) continue;
-			
-			_function(_z);
+			if (surface_display & (1 << _z))
+            {
+                _function(_z);
+            }
 		}
 	}
 }

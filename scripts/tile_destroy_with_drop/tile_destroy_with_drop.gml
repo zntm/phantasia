@@ -32,19 +32,7 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
     
     if (_drops != undefined)
     {
-        if (is_array(_drops))
-        {
-            _drops = choose_weighted(_drops);
-            
-            if (_drops != INVENTORY_EMPTY)
-            {
-                spawn_drop(_xinst, _yinst, _drops, 1, random(INVENTORY_DROP_XVELOCITY), choose(-1, 1));
-            }
-        }
-        else
-        {
-            spawn_drop(_xinst, _yinst, _drops, 1, random(INVENTORY_DROP_XVELOCITY), choose(-1, 1));
-        }
+        tile_spawn_item_drop(_x, _y, _drops);
     }
     
     var _inst = tile_place(_x, _y, _z, TILE_EMPTY);
