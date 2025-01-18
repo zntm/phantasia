@@ -40,7 +40,6 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
     
     tile_update_chunk_condition(_inst, _item_id, _z);
     
-    // chunk_refresh(mouse_x, mouse_y, 1, true, true);
     chunk_update_near_light();
     instance_cull(true);
     

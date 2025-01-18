@@ -225,7 +225,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			
 			_id.tool = id;
 		}
-			
+		
 		if (_mouse_left)
 		{
 			item_on_interaction(_data.get_on_swing_attack(), x, y, _id);

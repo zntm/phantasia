@@ -385,6 +385,7 @@
     {"name":"inventory_resize","order":12,"path":"scripts/inventory_resize/inventory_resize.yy",},
     {"name":"inventory_scroll","order":13,"path":"scripts/inventory_scroll/inventory_scroll.yy",},
     {"name":"inventory_shortcut_shift","order":14,"path":"scripts/inventory_shortcut_shift/inventory_shortcut_shift.yy",},
+    {"name":"inventory_switch","order":15,"path":"scripts/inventory_switch/inventory_switch.yy",},
     {"name":"is_array_choose","order":11,"path":"scripts/is_array_choose/is_array_choose.yy",},
     {"name":"is_array_contains","order":28,"path":"scripts/is_array_contains/is_array_contains.yy",},
     {"name":"is_array_irandom","order":12,"path":"scripts/is_array_irandom/is_array_irandom.yy",},

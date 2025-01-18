@@ -1399,6 +1399,7 @@
     {"id":{"name":"inventory_resize","path":"scripts/inventory_resize/inventory_resize.yy",},},
     {"id":{"name":"inventory_scroll","path":"scripts/inventory_scroll/inventory_scroll.yy",},},
     {"id":{"name":"inventory_shortcut_shift","path":"scripts/inventory_shortcut_shift/inventory_shortcut_shift.yy",},},
+    {"id":{"name":"inventory_switch","path":"scripts/inventory_switch/inventory_switch.yy",},},
     {"id":{"name":"Inventory","path":"scripts/Inventory/Inventory.yy",},},
     {"id":{"name":"is_array_choose","path":"scripts/is_array_choose/is_array_choose.yy",},},
     {"id":{"name":"is_array_contains","path":"scripts/is_array_contains/is_array_contains.yy",},},

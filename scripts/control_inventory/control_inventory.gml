@@ -116,8 +116,7 @@ function control_inventory()
                         
                         if (_item_a == INVENTORY_EMPTY) || (_item_a.item_id != _id)
                         {
-                            global.inventory[$ _switch_type][@ _slot_a] = _item_b;
-                            global.inventory[$ type][@ inventory_placement] = _item_a;
+                            inventory_switch(_switch_type, _slot_a, type, inventory_placement);
                             
                             break;
                         }
@@ -182,11 +181,7 @@ function control_inventory()
                         
                         var _slot_a = (i > 0 ? i - 1 : INVENTORY_LENGTH.ROW - 1);
                         
-                        var _item_a = global.inventory.base[_slot_a];
-                        var _item_b = global.inventory.base[inventory_placement];
-                        
-                        global.inventory.base[@ _slot_a] = _item_b;
-                        global.inventory.base[@ inventory_placement] = _item_a;
+                        inventory_switch("base", _slot_a, "base", inventory_placement);
                         
                         obj_Control.surface_refresh_inventory = true;
                         
