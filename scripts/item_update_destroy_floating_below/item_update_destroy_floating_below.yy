@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"item_update_destroy_floating_below",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"item_update_destroy_floating_below",
+  "parent":{
+    "name":"Update",
+    "path":"folders/Scripts/Tile/Attributes/Item/Update.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

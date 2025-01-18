@@ -8,7 +8,6 @@ function chunk_clear(_inst)
 	for (var i = 0; i < CHUNK_SIZE_Z * 2; ++i)
 	{
 		surface_free_existing(_inst.surface[i]);
-		buffer_delete_existing(_inst.surface_buffer[i]);
 	}
 	
 	instance_destroy(_inst);

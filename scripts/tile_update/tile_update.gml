@@ -25,7 +25,17 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 	var _item_data = global.item_data;
 	
 	var _data = _item_data[$ _item_id];
-	var _animation_type = _data.get_animation_type();
+	
+    var _on_neighbor_update = _data.get_on_neighbor_update();
+    
+    if (_on_neighbor_update != undefined)
+    {
+        show_debug_message(_tile);
+        
+        _on_neighbor_update(_x, _y, _z, _item_id);
+    }
+    
+    var _animation_type = _data.get_animation_type();
 	
 	if (_animation_type & (TILE_ANIMATION_TYPE.NONE | TILE_ANIMATION_TYPE.INCREMENT)) exit;
 	

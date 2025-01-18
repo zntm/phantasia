@@ -119,8 +119,8 @@ if (window_width != _window_width) || (window_height != _window_height)
 	surface_refresh_chat = true;
 	surface_refresh_hp = true;
 	surface_refresh_inventory = true;
-	
-	chunk_iterate(chunk_iter_buffer_to_surface);
+    
+    surface_refresh_lighting = true;
 }
 
 if (keyboard_check_pressed(vk_f11))
@@ -130,8 +130,6 @@ if (keyboard_check_pressed(vk_f11))
 	global.settings_value.fullscreen = _fullscreen;
 	
 	window_set_fullscreen(_fullscreen);
-	
-	chunk_iterate(chunk_iter_surface_to_buffer);
 }
 
 var _delta_time = global.delta_time;

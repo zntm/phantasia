@@ -860,6 +860,18 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) : GlobalDa
             return self[$ "___drops"];
         }
         
+        static set_on_neighbor_update = function(_function)
+        {
+            ___on_neighbor_update = _function;
+            
+            return self;
+        }
+        
+        static get_on_neighbor_update = function()
+        {
+            return self[$ "___on_neighbor_update"];
+        }
+        
         static set_sfx = function(_sfx)
         {
             ___sfx = _sfx;
@@ -1116,6 +1128,7 @@ new ItemData("phantasia", item_Grass_Block_Swamplands, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Oak_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:oak_wood")
     .set_sfx("phantasia:tile.wood");
   
@@ -1145,6 +1158,7 @@ new ItemData("phantasia", item_Honeycomb, ITEM_TYPE_BIT.CONSUMABLE)
 
 new ItemData("phantasia", item_Birch_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:birch_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -1438,6 +1452,7 @@ new ItemData("phantasia", item_Tall_Grass_Tundra, ITEM_TYPE_BIT.PLANT)
 
 new ItemData("phantasia", item_Cherry_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:cherry_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -1529,6 +1544,7 @@ new ItemData("phantasia", item_Icelea, ITEM_TYPE_BIT.PLANT)
 new ItemData("phantasia", item_Mangrove_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_flip_on(true, false)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:mangrove_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -1661,6 +1677,7 @@ new ItemData("phantasia", item_Bloom_Door, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Mahogany_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:mahogany_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -1914,6 +1931,7 @@ new ItemData("phantasia", item_Ice_Bricks_Wall, ITEM_TYPE_BIT.WALL)
 
 new ItemData("phantasia", item_Blizzard_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:blizzard_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -2119,6 +2137,7 @@ new ItemData("phantasia", item_Kyanite, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Pine_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:pine_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -2148,6 +2167,7 @@ new ItemData("phantasia", item_Kyanite_Bricks_Wall, ITEM_TYPE_BIT.WALL)
 
 new ItemData("phantasia", item_Palm_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:palm_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -2273,6 +2293,7 @@ new ItemData("phantasia", item_Tall_Grass_Savannah, ITEM_TYPE_BIT.PLANT)
 
 new ItemData("phantasia", item_Ashen_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:ashen_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -2316,6 +2337,7 @@ new ItemData("phantasia", item_Void_Cutlass, ITEM_TYPE_BIT.SWORD);
 
 new ItemData("phantasia", item_Acacia_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:acacia_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -2700,6 +2722,7 @@ new ItemData("phantasia", item_Acacia_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData("phantasia", item_Bloom_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:bloom_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -3099,6 +3122,7 @@ new ItemData("phantasia", item_Fried_Egg, ITEM_TYPE_BIT.CONSUMABLE)
 new ItemData("phantasia", item_Yucca_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:yucca_wood")
     .set_sfx("phantasia:tile.wood");
 
@@ -3575,6 +3599,7 @@ new ItemData("phantasia", item_Clay, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Wysteria_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 20)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:wisteria_wood")
     .set_sfx("phantasia:tile.wood");
 

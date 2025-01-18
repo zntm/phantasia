@@ -17,7 +17,19 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 	
 	with (obj_Chunk)
 	{
-		if (!is_in_view) || (!surface_display) || (!is_near_light) continue;
+        var _surface_bit = 0;
+        
+        for (var i = 0; i < CHUNK_SIZE_Z; ++i)
+        {
+            var _ = 1 << i;
+            
+            if (surface_display & _) && (surface_exists(surface[i])) && (surface_exists(surface[CHUNK_SIZE_Z + i]))
+            {
+                _surface_bit |= _;
+            }
+        }
+        
+		if ((!is_in_view) || (!surface_display) || (!is_near_light)) continue;
 		
         var _cx1 = xcenter - CHUNK_SIZE_WIDTH;
         var _cy1 = ycenter - CHUNK_SIZE_HEIGHT;
@@ -43,13 +55,20 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
             
             var _ = false;
             
-            if (chunk_z_refresh & _zbit)
+            if (_surface_bit & _zbit)
             {
-                chunk_z_refresh ^= _zbit;
-                
+                if (chunk_z_refresh & _zbit)
+                {
+                    chunk_z_refresh ^= _zbit;
+                    
+                    _ = true;
+                }
+                else if ((chunk_z_animated & _zbit) == 0) || (timer_surface[_z] < CHUNK_REFRESH_SURFACE) continue;
+            }
+            else
+            {
                 _ = true;
             }
-            else if ((chunk_z_animated & _zbit) == 0) || (timer_surface[_z] < CHUNK_REFRESH_SURFACE) continue;
             
             var _z2 = CHUNK_SIZE_Z + _z;
             var _surface_index = (_surface_index_offset ? _z2 : _z);

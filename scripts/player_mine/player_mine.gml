@@ -171,6 +171,9 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
 		_on_destroy(_x, _y, mine_position_z);
     }
     
+    tile_update_neighbor(_xtile, _ytile, undefined, undefined, _world_height);
+    chunk_refresh_fast(_xinst - CHUNK_SIZE_WIDTH_H, _yinst - CHUNK_SIZE_HEIGHT_H, _xinst + CHUNK_SIZE_WIDTH_H, _yinst + CHUNK_SIZE_HEIGHT_H);
+    
 	mining_current = 0;
 	mining_current_fixed = 0;
     
@@ -190,9 +193,6 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
 			}
 		}
 	}
-	
-	tile_update_neighbor(_xtile, _ytile, undefined, undefined, _world_height);
-	chunk_refresh_fast(_xinst - CHUNK_SIZE_WIDTH_H, _yinst - CHUNK_SIZE_HEIGHT_H, _xinst + CHUNK_SIZE_WIDTH_H, _yinst + CHUNK_SIZE_HEIGHT_H);
 	
 	if (!position_meeting(_xinst, _yinst - TILE_SIZE, obj_Parent_Light)) exit;
 	

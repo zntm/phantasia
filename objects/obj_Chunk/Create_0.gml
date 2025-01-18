@@ -11,7 +11,6 @@ connected_type = array_create(CHUNK_SIZE_X);
 is_on_draw_update = 0;
 
 surface = array_create(CHUNK_SIZE_Z * 2, -1);
-surface_buffer = array_create(CHUNK_SIZE_Z * 2, -1);
 
 timer_surface = array_create(CHUNK_SIZE_Z, 0);
 

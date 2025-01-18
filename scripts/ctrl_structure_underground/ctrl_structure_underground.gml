@@ -33,7 +33,7 @@ function ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera
     {
         _ystart = _structure_cave_checked_ymax;
     }
-    else exit;;
+    else exit;
     
 	var _world = global.world;
 	var _realm = _world.realm;
