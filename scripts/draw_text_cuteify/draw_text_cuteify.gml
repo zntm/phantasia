@@ -417,6 +417,4 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
     draw_set_font(_current_font);
     
     _string_width[0] = 0;
-    
-    show_debug_message(_data);
 }
