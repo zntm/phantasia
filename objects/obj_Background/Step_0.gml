@@ -43,16 +43,21 @@ if (_data.type == BIOME_TYPE.CAVE)
 
 #macro BACKGROUND_TRANSITION_SPEED 0.075
 
+var _ = false;
+
 if (background_transition_value <= 0)
 {
 	var _type = _data.type;
 	
 	if ((in_biome.type != _type) || (in_biome.biome != _biome)) && (_data.background != _biome_data[$ in_biome.biome].background)
 	{
+        _ = true;
+        
 		background_transition_value = BACKGROUND_TRANSITION_SPEED * _delta_time;
 		
 		in_biome_transition.biome = _biome;
 		in_biome_transition.type  = _type;
+		in_biome_transition.music = _data.music;
 		
 		global.menu_bg_index = _biome;
 	}
@@ -65,20 +70,33 @@ else
 	{
 		background_transition_value = 0;
 		
-		var _music = _biome_data[$ in_biome.biome].music;
-		
-		if (_music != undefined)
-		{
-			bg_music(_music, 0);
-		}
-		
 		if (!instance_exists(obj_Toast))
 		{
 			spawn_toast(GAME_FPS * 8, toast_biome);
 		}
-		
+        
+        var _music = in_biome.music;
+        
+        if (_music != undefined)
+        {
+            audio_sound_gain(_music, 0, BACKGROUND_MUSIC_FADE_SECONDS);
+        }
+        
+        var _music2 = in_biome_transition.music;
+        
+        if (_music2 != undefined)
+        {
+            _music2 = audio_play_sound(is_array_choose(_music2), 0, false);
+            
+            audio_sound_gain(_music2, 0, 0);
+            audio_sound_gain(_music2, global.settings_value.master * global.settings_value.music, BACKGROUND_MUSIC_FADE_SECONDS);
+        }
+        
 		in_biome.biome = in_biome_transition.biome;
 		in_biome.type  = in_biome_transition.type;
+        in_biome.music = _music2;
+        
+        in_biome_transition.music = undefined;
 	}
 }
 
@@ -98,11 +116,25 @@ with (obj_Light_Sun)
 	colour_offset = _colour;
 }
 
-var _music = _data.music;
+var _music = in_biome.music;
 
-if (_music != undefined)
+if (_music != undefined) && (!audio_is_playing(_music))
 {
-	bg_music(_music, global.settings_value.master * global.settings_value.music);
+    _music = _data.music;
+    
+    if (_music != undefined)
+    {
+        _music = audio_play_sound(is_array_choose(_music), 0, false);
+        
+        audio_sound_gain(_music, 0, 0);
+        audio_sound_gain(_music, global.settings_value.master * global.settings_value.music, BACKGROUND_MUSIC_FADE_SECONDS);
+        
+        in_biome.music = _music;
+    }
+    else
+    {
+        in_biome.music = undefined;
+    }
 }
 
 bg_clouds(_delta_time);

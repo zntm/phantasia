@@ -2,28 +2,24 @@
 
 function bg_music(_music, _gain)
 {
-	var _length = array_length(_music);
+    if (_music == undefined) exit;
+        
+    var _sound = audio_array_is_playing(_music);
+    
+    if (_gain <= 0)
+    {
+        audio_sound_gain(_sound, 0, BACKGROUND_MUSIC_FADE_SECONDS);
+        
+        exit;
+    }
+    
+	_sound = is_array_choose(_music);
 	
-	for (var i = 0; i < _length; ++i)
+	if (_sound != undefined)
 	{
-		var _current = _music[i];
+		audio_play_sound(_sound, 0, false);
 		
-		if (_current == undefined) || (!audio_is_playing(_current)) continue;
-		
-		audio_sound_gain(_current, _gain, BACKGROUND_MUSIC_FADE_SECONDS);
-		
-		exit;
-	}
-	
-	if (_gain <= 0) exit;
-	
-	var _current = is_array_choose(_music);
-	
-	if (_current != undefined)
-	{
-		audio_play_sound(_current, 0, false);
-		
-		audio_sound_gain(_current, 0, 0);
-		audio_sound_gain(_current, _gain, BACKGROUND_MUSIC_FADE_SECONDS);
+		audio_sound_gain(_sound, 0, 0);
+		audio_sound_gain(_sound, _gain, BACKGROUND_MUSIC_FADE_SECONDS);
 	}
 }

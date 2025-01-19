@@ -1,5 +1,10 @@
 function audio_array_is_playing(_audio)
 {
+    if (_audio == undefined)
+    {
+        return false;
+    }
+    
     if (!is_array(_audio))
     {
         return audio_is_playing(_audio);

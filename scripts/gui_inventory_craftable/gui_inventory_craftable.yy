@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"gui_inventory_craftable",
   "parent":{
-    "name":"GUI",
-    "path":"folders/Scripts/GUI.yy",
+    "name":"Inventory",
+    "path":"folders/Scripts/GUI/Inventory.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

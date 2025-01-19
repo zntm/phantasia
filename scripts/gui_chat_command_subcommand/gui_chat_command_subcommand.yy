@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"gui_chat_command_subcommand",
   "parent":{
-    "name":"GUI",
-    "path":"folders/Scripts/GUI.yy",
+    "name":"Chat",
+    "path":"folders/Scripts/GUI/Chat.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
