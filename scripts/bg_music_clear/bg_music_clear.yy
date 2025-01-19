@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bg_music_clear",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bg_music_clear",
+  "parent":{
+    "name":"Background",
+    "path":"folders/Scripts/Background.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

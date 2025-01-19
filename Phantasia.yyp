@@ -1229,6 +1229,7 @@
     {"id":{"name":"bg_draw_clouds","path":"scripts/bg_draw_clouds/bg_draw_clouds.yy",},},
     {"id":{"name":"bg_draw_parallax","path":"scripts/bg_draw_parallax/bg_draw_parallax.yy",},},
     {"id":{"name":"bg_get_biome","path":"scripts/bg_get_biome/bg_get_biome.yy",},},
+    {"id":{"name":"bg_music_clear","path":"scripts/bg_music_clear/bg_music_clear.yy",},},
     {"id":{"name":"bg_music","path":"scripts/bg_music/bg_music.yy",},},
     {"id":{"name":"bg_time_update","path":"scripts/bg_time_update/bg_time_update.yy",},},
     {"id":{"name":"BiomeData","path":"scripts/BiomeData/BiomeData.yy",},},

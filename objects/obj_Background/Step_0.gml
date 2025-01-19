@@ -49,8 +49,6 @@ if (background_transition_value <= 0)
 	
 	if ((in_biome.type != _type) || (in_biome.biome != _biome)) && (_data.background != _biome_data[$ in_biome.biome].background)
 	{
-        _ = true;
-        
 		background_transition_value = BACKGROUND_TRANSITION_SPEED * _delta_time;
 		
 		in_biome_transition.biome = _biome;
@@ -103,19 +101,7 @@ else
 	}
 }
 
-var _biome_volume_0_music_length = array_length(biome_volume_0_music);
-
-for (var i = 0; i < _biome_volume_0_music_length; ++i)
-{
-    var _ = biome_volume_0_music[i];
-    
-    if (audio_sound_get_gain(_) <= 0)
-    {
-        audio_stop_sound(_);
-        
-        array_delete(biome_volume_0_music, i, 1);
-    }
-}
+bg_music_clear();
 
 var _world = global.world;
 

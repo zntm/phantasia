@@ -41,12 +41,13 @@ var _directory = $"{global.world_directory}/Realms/{string_replace_all(_realm, "
 
 if (file_exists(_directory))
 {
-	file_load_world_chunk(id, _directory);
+    file_load_world_chunk(id, _directory);
 }
 else
 {
-	chunk_generate(_world, _seed, global.world_data[$ _realm]);
+    chunk_generate(_world, _seed, global.world_data[$ _realm]);
 }
+
 
 obj_Control.refresh_sun_ray = true;
 obj_Control.refresh_sun_position = infinity;
