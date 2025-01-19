@@ -111,7 +111,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
 		return false;
 	}
 	
-	tile_destroy_with_drop(_x, _y, _zcurrent, _tile);
+	tile_destroy_with_drop(_xtile, _ytile, _zcurrent, _tile);
     
 	mining_current = 0;
 	mining_current_fixed = 0;

@@ -1,7 +1,6 @@
-function control_item_drop(_xplayer, _yplayer, _item_data, _tick, _world_height, _entity_ymax, _delta_time)
+function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delta_time)
 {
     var _inventory = global.inventory;
-    var _drop_reach_max = 64 + (obj_Player.buffs[$ "item_drop_reach"] * TILE_SIZE);
     
     var _tick2 = _delta_time / _tick;
     
@@ -23,15 +22,20 @@ function control_item_drop(_xplayer, _yplayer, _item_data, _tick, _world_height,
             timer -= _delta_time;
         }
         
-        if (timer > 0) || (point_distance(x, y, _xplayer, _yplayer) >= _drop_reach_max)
+        var _inst = instance_nearest(x, y, obj_Player);
+        
+        var _xplayer = _inst.x;
+        var _yplayer = _inst.y;
+        
+        if (timer > 0) || (point_distance(x, y, _xplayer, _yplayer) >= 64 + (_inst.buffs[$ "item_drop_reach"] * TILE_SIZE))
         {
             if (tile_meeting(x, y + 1, undefined, undefined, _world_height))
             {
-                xdirection = 0;
+                physics_slow_down(0, _delta_time, _item_data, _world_height);
             }
             else
             {
-                physics_y(undefined, undefined, false, undefined, undefined, _world_height);
+                physics_y(undefined, PHYSICS_GLOBAL_GRAVITY / 2, false, undefined, undefined, _world_height);
                 
                 y = clamp(y, 0, _entity_ymax);
                 

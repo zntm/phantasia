@@ -8,11 +8,9 @@
 #macro WEATHER_RAIN_SPAWN_MIN 3
 #macro WEATHER_RAIN_SPAWN_MAX 28
 
-function control_weather()
+function control_weather(_delta_time)
 {
 	randomize();
-	
-	var _delta_time = global.delta_time;
 	
 	var _camera = global.camera;
 	

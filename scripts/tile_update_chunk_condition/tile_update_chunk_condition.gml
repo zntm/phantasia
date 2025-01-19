@@ -66,6 +66,8 @@ function tile_update_chunk_condition(_inst, _tile, _z, _condition = 0)
 			_inst.is_on_draw_update |= _zbit;
 		}
 	}
+    
+    if (!instance_exists(_inst)) exit;
 	
 	__update(_inst, _tile, _z, _condition);
 	

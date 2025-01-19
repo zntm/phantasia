@@ -36,18 +36,17 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
     }
     
     var _inst = tile_place(_x, _y, _z, TILE_EMPTY);
-    var _chunk = _inst.chunk;
     
     tile_update_chunk_condition(_inst, _item_id, _z);
     
     chunk_update_near_light();
     instance_cull(true);
     
-    var _on_destroy = _data.on_destroy;
+    var _on_tile_destroy = _data.get_on_tile_destroy();
     
-    if (_on_destroy != undefined)
+    if (_on_tile_destroy != undefined)
     {  
-        _on_destroy(_x, _y, _z);
+        _on_tile_destroy(_x, _y, _z);
     }
     
     tile_update_neighbor(_x, _y, undefined, undefined);

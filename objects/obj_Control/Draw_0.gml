@@ -24,11 +24,11 @@ var _bbox_h = _camera_y + _camera_height + (TILE_SIZE * 8);
 if (global.camera.direction)
 {
     var _chunk_force_refresh_left = round(_camera_x / CHUNK_SIZE_WIDTH_H);
-
+    
     if (_chunk_force_refresh_left != chunk_force_refresh_left)
     {
         chunk_force_refresh_left = _chunk_force_refresh_left;
-    
+        
         chunk_force_transfer(_chunk_force_refresh_left * CHUNK_SIZE_WIDTH_H, _camera_y, _camera_height);
     }
 }

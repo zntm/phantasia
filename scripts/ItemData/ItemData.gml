@@ -945,13 +945,16 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             return self;
         }
         
-        on_destroy = undefined;
-        
-        static set_on_destroy = function(_on_destroy)
+        static set_on_tile_destroy = function(_on_destroy)
         {
-            on_destroy = _on_destroy;
+            ___on_tile_destroy = _on_destroy;
             
             return self;
+        }
+        
+        static get_on_tile_destroy = function()
+        {
+            return self[$ "___on_tile_destroy"];
         }
         
         static set_on_draw_update = function(_on_draw_update)
@@ -1272,7 +1275,7 @@ new ItemData("phantasia", item_Gold_Hammer, ITEM_TYPE_BIT.HAMMER)
 
 new ItemData("phantasia", item_Sapking_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:sapking");
     });
@@ -1309,7 +1312,7 @@ new ItemData("phantasia", item_Brown_Mushroom, ITEM_TYPE_BIT.PLANT)
 
 new ItemData("phantasia", item_Larvelt_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:larvelt");
     });
@@ -1632,7 +1635,7 @@ new ItemData("phantasia", item_Moss, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Arachnos_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:arachnos");
     });
@@ -1672,7 +1675,7 @@ new ItemData("phantasia", item_Bloom_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYP
 
 new ItemData("phantasia", item_Vicuz_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:vicuz");
     });
@@ -1896,7 +1899,7 @@ new ItemData("phantasia", item_Dried_Mud, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Luminoso_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:luminoso");
     });
@@ -3562,14 +3565,14 @@ new ItemData("phantasia", item_Onyx);
 
 new ItemData("phantasia", item_Arid_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:arid");
     });
 
 new ItemData("phantasia", item_Toadtor_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:toadtor");
     });
@@ -4452,7 +4455,7 @@ new ItemData("phantasia", item_Cherry, ITEM_TYPE_BIT.CONSUMABLE)
 
 new ItemData("phantasia", item_Revenant_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:revenant");
     });
@@ -5143,14 +5146,14 @@ new ItemData("phantasia", item_Lantern, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData("phantasia", item_Monolithos_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:monolithos");
     });
 
 new ItemData("phantasia", item_Flora_And_Fauna_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:flora");
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:fauna");
@@ -5158,21 +5161,21 @@ new ItemData("phantasia", item_Flora_And_Fauna_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE
 
 new ItemData("phantasia", item_Glacia_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:glacia");
     });
 
 new ItemData("phantasia", item_Terra_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.GOLD, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:terra");
     });
     
 new ItemData("phantasia", item_Fantasia_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.PLATINUM, 148)
-    .set_on_destroy(function(_x, _y, _z)
+    .set_on_tile_destroy(function(_x, _y, _z)
     {
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:fantasia");
     });

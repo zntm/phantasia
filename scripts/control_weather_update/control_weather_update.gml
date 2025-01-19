@@ -1,6 +1,6 @@
 #macro WEATHER_WIND_OFFSET 0.25
 
-function control_update()
+function control_weather_update()
 {
     randomize();
     

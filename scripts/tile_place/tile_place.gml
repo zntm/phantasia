@@ -26,6 +26,7 @@ function tile_place(_x, _y, _z, _tile, _world_height = global.world_data[$ globa
     
     if (_inst.chunk[_index] != TILE_EMPTY)
     {
+        // Feather disable once GM1052
         delete _inst.chunk[_index];
     }
     

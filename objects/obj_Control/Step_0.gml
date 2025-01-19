@@ -196,27 +196,6 @@ var _camera_height = _camera.height;
 var _camera_x_real = _xplayer - (_camera_width  / 2);
 var _camera_y_real = _yplayer - (_camera_height / 2);
 
-if (global.world_settings.cycle_time)
-{
-    var _time = global.world.time + (global.world_settings.time_speed * _delta_time);
-    
-    if (_time >= 54_000)
-    {
-        ++global.world.day;
-        
-        _time %= 54_000;
-        
-        if (global.world_settings.cycle_weather)
-        {
-            control_update();
-        }
-    }
-    
-    global.world.time = _time;
-    
-    control_weather();
-}
-
 global.luck = clamp(obj_Player.buffs[$ "luck"], 0.2, 3);
 
 if (is_opened_gui)
@@ -296,9 +275,15 @@ with (obj_Chunk)
 ctrl_chunk_generate();
 ctrl_chunk_generate_1();
 
-var _timestamp = datetime_to_unix();
+var _world_settings = global.world_settings;
 
-var _tick = global.world_settings.tick_speed;
+var _cycle_time    = _world_settings.cycle_time;
+var _cycle_weather = _world_settings.cycle_weather;
+
+var _spawn_creatures = _world_settings.spawn_creatures;
+
+var _tick_speed = _world_settings.tick_speed;
+var _time_speed = _world_settings.time_speed;
 
 var _world_height = global.world_data[$ global.world.realm].value & 0xffff;
 
@@ -323,7 +308,28 @@ for (var i = _delta_time; i > 0; --i)
 {
     var _speed = min(1, i);
     
-    if ((DEVELOPER_MODE) ? (global.debug_settings.creature) : (global.world_settings.spawn_creatures))
+    if (_cycle_time)
+    {
+        var _world_time = global.world.time + (_time_speed * _speed);
+        
+        if (_world_time >= 54_000)
+        {
+            ++global.world.day;
+            
+            _world_time -= 54_000;
+            
+            if (_cycle_weather)
+            {
+                control_weather_update();
+            }
+        }
+        
+        global.world.time = _world_time;
+        
+        control_weather(_speed);
+    }
+    
+    if ((DEVELOPER_MODE) ? (global.debug_settings.creature) : (_spawn_creatures))
     {
         ctrl_creature_spawn(_biome_data, _creature_data, _item_data, _world_height, _camera_x, _camera_y, _camera_width, _camera_height, _speed);
     }
@@ -331,10 +337,10 @@ for (var i = _delta_time; i > 0; --i)
     control_tool(_speed);
     control_projectiles(_speed);
     
-    control_player(_item_data, _tick, _world_height, _entity_ymax, _speed);
-    control_creatures(_creature_data, _item_data, _tick, _world_height, _camera_x, _camera_y, _camera_width, _camera_height, _entity_ymax, _speed);
+    control_player(_item_data, _tick_speed, _world_height, _entity_ymax, _speed);
+    control_creatures(_creature_data, _item_data, _tick_speed, _world_height, _camera_x, _camera_y, _camera_width, _camera_height, _entity_ymax, _speed);
     
-    control_item_drop(obj_Player.x, obj_Player.y, _item_data, _tick, _world_height, _entity_ymax, _delta_time);
+    control_item_drop(_item_data, _tick_speed, _world_height, _entity_ymax, _delta_time);
     
     control_pets(_world_height, _delta_time);
     
