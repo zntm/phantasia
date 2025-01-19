@@ -34,6 +34,8 @@ in_biome_transition = {
     music: _music
 }
 
+biome_volume_0_music = [];
+
 background_transition_value = 0;
 
 colour_sky_base     = c_black;

@@ -43,8 +43,6 @@ if (_data.type == BIOME_TYPE.CAVE)
 
 #macro BACKGROUND_TRANSITION_SPEED 0.075
 
-var _ = false;
-
 if (background_transition_value <= 0)
 {
 	var _type = _data.type;
@@ -80,6 +78,11 @@ else
         if (_music != undefined)
         {
             audio_sound_gain(_music, 0, BACKGROUND_MUSIC_FADE_SECONDS);
+            
+            if (!array_contains(biome_volume_0_music, _music))
+            {
+                array_push(biome_volume_0_music, _music);
+            }
         }
         
         var _music2 = in_biome_transition.music;
@@ -98,6 +101,20 @@ else
         
         in_biome_transition.music = undefined;
 	}
+}
+
+var _biome_volume_0_music_length = array_length(biome_volume_0_music);
+
+for (var i = 0; i < _biome_volume_0_music_length; ++i)
+{
+    var _ = biome_volume_0_music[i];
+    
+    if (audio_sound_get_gain(_) <= 0)
+    {
+        audio_stop_sound(_);
+        
+        array_delete(biome_volume_0_music, i, 1);
+    }
 }
 
 var _world = global.world;
