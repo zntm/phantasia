@@ -15,9 +15,9 @@ var _bbox_h = _camera_y + _camera_height + CHUNK_SIZE_HEIGHT;
 
 if (refresh_sun_ray)
 {
-	refresh_sun_ray = false;
-	
-	light_clusterize();
+    refresh_sun_ray = false;
+    
+    light_clusterize();
 }
 
 timer_lighting += global.delta_time;
@@ -25,10 +25,10 @@ timer_lighting += global.delta_time;
 if (timer_lighting >= 4)
 {
     timer_lighting %= 4;
-	timer_lighting_refresh = true;
-	
-	render_lighting(_camera_x, _camera_y, _camera_width, _camera_height);
-	render_glow(_camera_x, _camera_y, _camera_width, _camera_height);
+    timer_lighting_refresh = true;
+    
+    render_lighting(_camera_x, _camera_y, _camera_width, _camera_height);
+    render_glow(_camera_x, _camera_y, _camera_width, _camera_height);
 }
 
 ++global.timer;
@@ -36,14 +36,14 @@ global.timer_delta += global.delta_time;
 
 if (DEVELOPER_MODE)
 {
-	var _data = debug_event("ResourceCounts", true);
-	var _names = struct_get_names(_data);
-	var _length = array_length(_names);
-	
-	for (var i = 0; i < _length; ++i)
-	{
-		var _name = _names[i];
-		
-		global.debug_resource_counts[$ _name] = _data[$ _name];
-	}
+    var _data = debug_event("ResourceCounts", true);
+    var _names = struct_get_names(_data);
+    var _length = array_length(_names);
+    
+    for (var i = 0; i < _length; ++i)
+    {
+        var _name = _names[i];
+        
+        global.debug_resource_counts[$ _name] = _data[$ _name];
+    }
 }

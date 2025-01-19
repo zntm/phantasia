@@ -91,9 +91,9 @@ global.structure_cave_checked_ymax = 0;
 
 if (directory_exists(_directory))
 {
-	file_load_world_values($"{_directory}/Values.dat");
-	
-	file_load_world_structures();
+    file_load_world_values($"{_directory}/Values.dat");
+    
+    file_load_world_structures();
 }
 
 file_load_world_realm_environment(global.world.realm);
@@ -140,20 +140,20 @@ var _gui_width  = real(_graphics_gui[0]);
 var _gui_height = real(_graphics_gui[1]);
 
 global.camera = {
-	x: infinity,
-	y: infinity,
-	
-	x_real:	_camera_x,
-	y_real:	_camera_y,
-	
-	width:  _camera_width,
-	height: _camera_height,
-	
-	gui_width:	_gui_width,
-	gui_height:	_gui_height,
-	
-	shake: 0,
-	direction: 0
+    x: infinity,
+    y: infinity,
+    
+    x_real:    _camera_x,
+    y_real:    _camera_y,
+    
+    width:  _camera_width,
+    height: _camera_height,
+    
+    gui_width:    _gui_width,
+    gui_height:    _gui_height,
+    
+    shake: 0,
+    direction: 0
 }
 
 camera_set_view_pos(view_camera[0], 0, 0);
@@ -176,9 +176,9 @@ time_source_rpc = -1;
 
 if (!time_source_exists(time_source_rpc)) && (global.settings_value.discord_rpc)
 {
-	time_source_rpc = time_source_create(time_source_game, 30, time_source_units_seconds, rpc_world);
-	
-	time_source_start(time_source_rpc);
+    time_source_rpc = time_source_create(time_source_game, 30, time_source_units_seconds, rpc_world);
+    
+    time_source_start(time_source_rpc);
 }
 
 #endregion
@@ -187,140 +187,140 @@ file_load_message_history();
 
 if (DEVELOPER_MODE)
 {
-	debug_view = dbg_view("Debug", true, -1, -1, 800, 600);
-	debug_text = "";
+    debug_view = dbg_view("Debug", true, -1, -1, 800, 600);
+    debug_text = "";
     
     debug_overlay = "F3 to enable/disable debug overlay";
     
     dbg_text(ref_create(id, "debug_overlay"));
-	
-	dbg_text_separator("Reload");
-	dbg_button("Reload", function()
-	{
-		init_data_reload($"{DATAFILES_RESOURCES}/data", "phantasia", INIT_TYPE.OVERRIDE | INIT_TYPE.RESET);
-		
-		chat_add("Debug", "Data Reloaded!");
-	});
-	
-	dbg_same_line();
-	dbg_button("Select All", function()
-	{
-		var _names = struct_get_names(global.debug_reload);
-		var _length = array_length(_names);
-		
-		for (var i = 0; i < _length; ++i)
-		{
-			global.debug_reload[$ _names[i]] = true;
-		}
-	});
-	
-	dbg_same_line();
-	dbg_button("Deselect All", function()
-	{
-		var _names = struct_get_names(global.debug_reload);
-		var _length = array_length(_names);
-		
-		for (var i = 0; i < _length; ++i)
-		{
-			global.debug_reload[$ _names[i]] = false;
-		}
-	});
-	
-	var _names = struct_get_names(global.debug_reload);
-	var _length = array_length(_names);
-	
-	array_sort(_names, sort_alphabetical_descending);
-	
-	for (var i = 0; i < _length; ++i)
-	{
-		dbg_checkbox(ref_create(global.debug_reload, _names[i]));
-	}
-	
-	dbg_text_separator("Controls");
-	
-	dbg_checkbox(ref_create(global.debug_settings, "delta_time"), "Delta Time");
-	
-	dbg_text_separator("Display");
-	dbg_checkbox(ref_create(global.debug_settings, "background"), "Display Background");
-	dbg_checkbox(ref_create(global.debug_settings, "chunk"),      "Display Chunk Information");
-	dbg_checkbox(ref_create(global.debug_settings, "instances"),  "Display Instances");
-	dbg_checkbox(ref_create(global.debug_settings, "sun_ray"),    "Display Sun Rays");
-	
-	dbg_text_separator("Config");
-	dbg_checkbox(ref_create(global.debug_settings, "creature"),   "Enable Creature Spawning");
-	dbg_checkbox(ref_create(global.debug_settings, "lighting"),   "Enable Lighting");
-	dbg_checkbox(ref_create(global.debug_settings, "physics"),    "Enable Physics");
-	
-	dbg_slider(ref_create(global.debug_settings, "camera_size"), 0.25, 2, "Camera Size", 0.25);
-	dbg_slider(ref_create(global.debug_settings, "fly_speed"), 0.5, 64, "Fly Speed");
-	
-	dbg_drop_down(ref_create(global.debug_settings, "force_surface"), array_concat([ "-1" ], array_filter(struct_get_names(global.biome_data), function(_value)
-	{
-		return (global.biome_data[$ _value].type == BIOME_TYPE.SURFACE);
-	})));
     
-	dbg_slider(ref_create(global.debug_settings, "fly_speed"), 0.5, 64, "Fly Speed");
-	
-	dbg_drop_down(ref_create(global.debug_settings, "force_cave"), array_concat([ "-1" ], array_filter(struct_get_names(global.biome_data), function(_value)
-	{
-		return (global.biome_data[$ _value].type == BIOME_TYPE.CAVE);
-	})));
-	
-	dbg_text_separator("Inventory");
-	dbg_button("Random Inventory", function()
-	{
-		var _item_data = global.item_data;
-		
-		var _names  = struct_get_names(_item_data);
-		var _length = array_length(_names) - 1;
+    dbg_text_separator("Reload");
+    dbg_button("Reload", function()
+    {
+        init_data_reload($"{DATAFILES_RESOURCES}/data", "phantasia", INIT_TYPE.OVERRIDE | INIT_TYPE.RESET);
         
-		for (var i = 0; i < global.inventory_length.base; ++i)
-		{
-			var _item_id = _names[irandom(_length)];
+        chat_add("Debug", "Data Reloaded!");
+    });
+    
+    dbg_same_line();
+    dbg_button("Select All", function()
+    {
+        var _names = struct_get_names(global.debug_reload);
+        var _length = array_length(_names);
+        
+        for (var i = 0; i < _length; ++i)
+        {
+            global.debug_reload[$ _names[i]] = true;
+        }
+    });
+    
+    dbg_same_line();
+    dbg_button("Deselect All", function()
+    {
+        var _names = struct_get_names(global.debug_reload);
+        var _length = array_length(_names);
+        
+        for (var i = 0; i < _length; ++i)
+        {
+            global.debug_reload[$ _names[i]] = false;
+        }
+    });
+    
+    var _names = struct_get_names(global.debug_reload);
+    var _length = array_length(_names);
+    
+    array_sort(_names, sort_alphabetical_descending);
+    
+    for (var i = 0; i < _length; ++i)
+    {
+        dbg_checkbox(ref_create(global.debug_reload, _names[i]));
+    }
+    
+    dbg_text_separator("Controls");
+    
+    dbg_checkbox(ref_create(global.debug_settings, "delta_time"), "Delta Time");
+    
+    dbg_text_separator("Display");
+    dbg_checkbox(ref_create(global.debug_settings, "background"), "Display Background");
+    dbg_checkbox(ref_create(global.debug_settings, "chunk"),      "Display Chunk Information");
+    dbg_checkbox(ref_create(global.debug_settings, "instances"),  "Display Instances");
+    dbg_checkbox(ref_create(global.debug_settings, "sun_ray"),    "Display Sun Rays");
+    
+    dbg_text_separator("Config");
+    dbg_checkbox(ref_create(global.debug_settings, "creature"),   "Enable Creature Spawning");
+    dbg_checkbox(ref_create(global.debug_settings, "lighting"),   "Enable Lighting");
+    dbg_checkbox(ref_create(global.debug_settings, "physics"),    "Enable Physics");
+    
+    dbg_slider(ref_create(global.debug_settings, "camera_size"), 0.25, 2, "Camera Size", 0.25);
+    dbg_slider(ref_create(global.debug_settings, "fly_speed"), 0.5, 64, "Fly Speed");
+    
+    dbg_drop_down(ref_create(global.debug_settings, "force_surface"), array_concat([ "-1" ], array_filter(struct_get_names(global.biome_data), function(_value)
+    {
+        return (global.biome_data[$ _value].type == BIOME_TYPE.SURFACE);
+    })));
+    
+    dbg_slider(ref_create(global.debug_settings, "fly_speed"), 0.5, 64, "Fly Speed");
+    
+    dbg_drop_down(ref_create(global.debug_settings, "force_cave"), array_concat([ "-1" ], array_filter(struct_get_names(global.biome_data), function(_value)
+    {
+        return (global.biome_data[$ _value].type == BIOME_TYPE.CAVE);
+    })));
+    
+    dbg_text_separator("Inventory");
+    dbg_button("Random Inventory", function()
+    {
+        var _item_data = global.item_data;
+        
+        var _names  = struct_get_names(_item_data);
+        var _length = array_length(_names) - 1;
+        
+        for (var i = 0; i < global.inventory_length.base; ++i)
+        {
+            var _item_id = _names[irandom(_length)];
             
-			global.inventory.base[@ i] = new Inventory(_item_id, _item_data[$ _item_id].get_inventory_max());
-		}
+            global.inventory.base[@ i] = new Inventory(_item_id, _item_data[$ _item_id].get_inventory_max());
+        }
         
-		obj_Control.surface_refresh_inventory = true;
-		inventory_refresh_craftable(true);
-	});
-	
-	dbg_same_line();
-	dbg_button("Clear Inventory", function()
-	{
-		global.inventory.base = array_create(global.inventory_length.base, INVENTORY_EMPTY);
-		obj_Control.surface_refresh_inventory = true;
-	});
-	
-	dbg_text_separator("Environment");
-	dbg_slider(ref_create(global.world, "time"), 0, 54_000, "Time");
-	dbg_slider(ref_create(global.world_settings, "time_speed"), 0, 24, "Time Speed", 0.25);
-	
-	dbg_slider(ref_create(global.world_environment, "wind"),  0, 1, "Wind");
-	dbg_slider(ref_create(global.world_environment, "storm"), 0, 1, "Storm");
-	
-	debug_section_resources = dbg_section("Resources", false);
-	
-	var _debug_resources = global.debug_resources;
-	var _names2 = global.debug_resources_names;
-	var _length2 = array_length(_names2);
-	
-	for (var i = 0; i < _length2; ++i)
-	{
-		var _name = _names2[i];
-		
-		dbg_text_separator(_name, 1);
-		
-		var _data = _debug_resources[$ _name];
-		var _length3 = array_length(_data);
-		
-		for (var j = 0; j < _length3; j += 2)
-		{
-			dbg_watch(ref_create(global.debug_resource_counts, $"{_data[j]}Count"), $"{_data[j + 1]} Count");
-		}
-	}
-	
-	debug_section_info = dbg_section("Information", false);
-	
-	dbg_text(ref_create(id, "debug_text"));
+        obj_Control.surface_refresh_inventory = true;
+        inventory_refresh_craftable(true);
+    });
+    
+    dbg_same_line();
+    dbg_button("Clear Inventory", function()
+    {
+        global.inventory.base = array_create(global.inventory_length.base, INVENTORY_EMPTY);
+        obj_Control.surface_refresh_inventory = true;
+    });
+    
+    dbg_text_separator("Environment");
+    dbg_slider(ref_create(global.world, "time"), 0, 54_000, "Time");
+    dbg_slider(ref_create(global.world_settings, "time_speed"), 0, 24, "Time Speed", 0.25);
+    
+    dbg_slider(ref_create(global.world_environment, "wind"),  0, 1, "Wind");
+    dbg_slider(ref_create(global.world_environment, "storm"), 0, 1, "Storm");
+    
+    debug_section_resources = dbg_section("Resources", false);
+    
+    var _debug_resources = global.debug_resources;
+    var _names2 = global.debug_resources_names;
+    var _length2 = array_length(_names2);
+    
+    for (var i = 0; i < _length2; ++i)
+    {
+        var _name = _names2[i];
+        
+        dbg_text_separator(_name, 1);
+        
+        var _data = _debug_resources[$ _name];
+        var _length3 = array_length(_data);
+        
+        for (var j = 0; j < _length3; j += 2)
+        {
+            dbg_watch(ref_create(global.debug_resource_counts, $"{_data[j]}Count"), $"{_data[j + 1]} Count");
+        }
+    }
+    
+    debug_section_info = dbg_section("Information", false);
+    
+    dbg_text(ref_create(id, "debug_text"));
 }
