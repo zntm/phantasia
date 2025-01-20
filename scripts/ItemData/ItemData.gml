@@ -1638,6 +1638,7 @@ new ItemData("phantasia", item_Polished_Sandstone, ITEM_TYPE_BIT.SOLID)
 new ItemData("phantasia", item_Cactus, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_flip_on(true, false)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, 8, 16)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_drops("phantasia:cactus");
 
 new ItemData("phantasia", item_Moss, ITEM_TYPE_BIT.SOLID)
