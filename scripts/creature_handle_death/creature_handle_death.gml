@@ -14,7 +14,7 @@ function creature_handle_death(_sfx, _drops)
         {
             var _index = _drop[$ "sprite_index"];
             
-            if (_index != undefined) && (_index != index) continue;
+            if (_index != undefined) && (is_array(_index) ? !array_contains(_index, index) : _index != index) continue;
         }
         
         spawn_drop(x, y, _drop.item_id, is_array_irandom(_drop.amount), random_range(-INVENTORY_DROP_XVELOCITY, INVENTORY_DROP_XVELOCITY), -random(INVENTORY_DROP_YVELOCITY));
