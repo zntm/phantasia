@@ -23,6 +23,11 @@
         {
             "item_id": "phantasia:zombie_arm",
             "chance": 0.08
+        },
+        {
+            "item_id": "phantasia:weathered_copper_pickaxe",
+            "chance": 0.01,
+            "sprite_index": 2
         }
     ],
     "attributes": {
