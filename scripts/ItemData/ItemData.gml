@@ -15,6 +15,7 @@ enum ITEM_TYPE {
     ACCESSORY,
     THROWABLE,
     SWORD,
+    SPEAR,
     PICKAXE,
     AXE,
     SHOVEL,
@@ -46,6 +47,7 @@ enum ITEM_TYPE_BIT {
     ACCESSORY         = 1 << ITEM_TYPE.ACCESSORY,
     THROWABLE         = 1 << ITEM_TYPE.THROWABLE,
     SWORD             = 1 << ITEM_TYPE.SWORD,
+    SPEAR             = 1 << ITEM_TYPE.SPEAR,
     PICKAXE           = 1 << ITEM_TYPE.PICKAXE,
     AXE               = 1 << ITEM_TYPE.AXE,
     SHOVEL            = 1 << ITEM_TYPE.SHOVEL,
@@ -490,7 +492,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         set_mining_stats();
     }
     
-    if (type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP))
+    if (type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP))
     {
         set_inventory_scale(INVENTORY_SCALE.TOOL);
         set_inventory_max(1);
@@ -499,6 +501,18 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         // 0xffff_ffff_ffff
         set_durability(1);
+    }
+    
+    static set_item_spear_swing_offset = function(_offset)
+    {
+        ___item_spear_swing_offset = _offset;
+        
+        return self;
+    }
+    
+    static get_item_spear_swing_offset = function()
+    {
+        return self[$ "___item_spear_swing_offset"] ?? 16;
     }
     
     static set_ammo_type = function(_type)
@@ -2181,7 +2195,7 @@ new ItemData("phantasia", item_Kyanite_Bricks, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:kyanite_bricks")
     .set_sfx("phantasia:tile.stone");
 
-new ItemData("phantasia", item_Courange_Glaive, ITEM_TYPE_BIT.SWORD)
+new ItemData("phantasia", item_Courange_Glaive, ITEM_TYPE_BIT.SPEAR)
     .set_damage(33);
 
 new ItemData("phantasia", item_Kyanite_Bricks_Wall, ITEM_TYPE_BIT.WALL)
@@ -2222,6 +2236,7 @@ new ItemData("phantasia", item_Cyan_Rose, ITEM_TYPE_BIT.PLANT)
 
 new ItemData("phantasia", item_Cattail, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(undefined, undefined, 8)
+    .set_on_neighbor_update(item_update_destroy_floating_above)
     .set_sfx("phantasia:tile.leaves")
     .set_drops("phantasia:cattail");
 
@@ -2446,7 +2461,8 @@ new ItemData("phantasia", item_Block_Of_Dried_Bamboo, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:block_of_dried_bamboo")
     .set_sfx("phantasia:tile.wood");
 
-new ItemData("phantasia", item_Lumin_Nub, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Lumin_Nub, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_on_neighbor_update(item_update_destroy_floating_above);
 
 new ItemData("phantasia", item_Jonathan, ITEM_TYPE_BIT.SWORD)
     .set_damage(5);

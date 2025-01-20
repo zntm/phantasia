@@ -222,8 +222,12 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			height_offset = _yoffset;
 			
 			damage_unable = _id;
+            
+            point_angle = point_direction(_id.x, _id.y, mouse_x, mouse_y);
 			
 			_id.tool = id;
+            
+            life = 0;
 		}
 		
 		if (_mouse_left)
