@@ -75,6 +75,7 @@ function render_entity_player(_immunity_alpha)
         var _colour_body = _colour_data[_attire.body.colour];
         
         var _tool_exists = instance_exists(tool);
+        var _tool_image_index_arm = tool[$ "image_index_arm"];
         
         surface_set_target(surface);
         draw_clear_alpha(DRAW_CLEAR_COLOUR, DRAW_CLEAR_ALPHA);
@@ -95,7 +96,7 @@ function render_entity_player(_immunity_alpha)
             
             if (_sprite_body != undefined)
             {
-                var _image_index_arm = ((_tool_exists) && (_element == "body_arm_left") ? tool.arm_index : image_index);
+                var _image_index_arm = ((_tool_exists) && (_element == "body_arm_left") ? _tool_image_index_arm : image_index);
                 
                 __draw_body(_sprite_body, _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, _colour_white, _colour_body);
                 
@@ -126,7 +127,7 @@ function render_entity_player(_immunity_alpha)
                 
                 if (_ == undefined) continue;
                 
-                var _image_index_arm = ((_tool_exists) && ((_element_name == "shirt") || (_element_name == "shirt_detail")) && (_element_index == 2) ? tool.arm_index : image_index);
+                var _image_index_arm = ((_tool_exists) && ((_element_name == "shirt") || (_element_name == "shirt_detail")) && (_element_index == 2) ? _tool_image_index_arm : image_index);
                 
                 var _sprite_colour = _.colour;
                 
@@ -158,7 +159,7 @@ function render_entity_player(_immunity_alpha)
             
             if (_ == undefined) continue;
             
-            var _image_index_arm = ((_tool_exists) && ((_element == "shirt") || (_element == "shirt_detail")) && (_element == 2) ? tool.arm_index : image_index);
+            var _image_index_arm = ((_tool_exists) && ((_element == "shirt") || (_element == "shirt_detail")) && (_element == 2) ? _tool_image_index_arm : image_index);
             
             var _sprite_colour = _.colour;
             
@@ -202,16 +203,16 @@ function render_entity_player(_immunity_alpha)
         {
             with (fishing_pole)
             {
-                var _xowner = owner.x;
-                var _sign = sign(x - _xowner);
+                var _sign = sign(x - _player_x);
                 
                 var _data = _item_data[$ item_id];
                 
-                var _detail = _data.get_fishing_line_detail();
-                var _colour = _data.get_fishing_line_colour();
+                var _fishing_line_detail = _data.get_fishing_line_detail();
+                var _fishing_line_colour = _data.get_fishing_line_colour();
                 
-                draw_curve(x, y, _xowner, owner.y, 0, _detail, _colour);
-                draw_sprite_ext(sprite_index, image_index, x, y, _sign, image_yscale, ((xvelocity != 0) && (yvelocity != 0) ? _sign * point_direction(x, y, x + abs(xvelocity), y + yvelocity) : 0), _image_blend, _image_alpha);
+                draw_curve(x, y, _player_x, _player_y, 0, _fishing_line_detail, _fishing_line_colour);
+                
+                draw_sprite_ext(sprite_index, image_index, x, y, _sign, image_yscale, ((xvelocity != 0) && (yvelocity != 0) ? (_sign * point_direction(x, y, x + abs(xvelocity), y + yvelocity)) : 0), _image_blend, _image_alpha);
             }
         }
         

@@ -18,7 +18,7 @@ function control_tool(_delta_time)
             x = owner.x + (dcos(point_angle) * _offset);
             y = owner.y - (dsin(point_angle) * _offset);
             
-            arm_index = 8;
+            image_index_arm = 8;
             
             image_angle = point_angle - 45;
         }
@@ -26,7 +26,7 @@ function control_tool(_delta_time)
         {
             image_angle = point_angle;
             
-            arm_index = 10;
+            image_index_arm = 10;
         }
         else
         {
@@ -35,7 +35,7 @@ function control_tool(_delta_time)
             x = owner.x + (lengthdir_x(distance, angle) * _xscale);
             y = owner.y + (lengthdir_y(distance, angle)) - height_offset - (height_offset * sin((life / 180) * pi));
             
-            arm_index = round(lerp(8, 13, angle / 180));
+            image_index_arm = round(lerp(8, 13, angle / 180));
             
             image_xscale = _xscale;
             image_angle  = (angle - 45) * _xscale;

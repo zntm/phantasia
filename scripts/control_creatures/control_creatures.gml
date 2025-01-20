@@ -41,12 +41,23 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		
 		var _is_passive = (_type == CREATURE_HOSTILITY_TYPE.PASSIVE);
 		
-		if (handler_damage(id, _delta_time)) && (_is_passive)
-		{
-			panic_time = _panic_time;
-		}
-        
         var _sfx = _data.sfx;
+        
+		if (handler_damage(id, $"{_sfx}.hurt", _delta_time))
+        {
+            if (_is_passive) 
+            {
+                sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.hurt", undefined, _volume_passive, _world_height) ?? -1;
+                
+                panic_time = _panic_time;
+            }
+            else
+            {
+                sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.hurt", undefined, _volume_hostile, _world_height) ?? -1;
+            }
+            
+            sfx_time = _sfx_time;
+        }
 		
 		if (hp <= 0)
 		{
@@ -160,16 +171,25 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
             
             if (_is_on_ground)
             {
-                if (buffs[$ "is_fall_damage_resistant"] > 0)
+                if (buffs[$ "is_fall_damage_resistant"] != 1)
                 {
-                    entity_fall(undefined, _world_height);
-                }
-                
-                if (hp <= 0)
-                {
-                    creature_handle_death(_sfx, _data.drops);
+                    var _fell = entity_fall(undefined, _world_height);
                     
-                    continue;
+                    if (_fell)
+                    {
+                        if (hp <= 0)
+                        {
+                            creature_handle_death(_sfx, _data.drops);
+                            
+                            continue;
+                        }
+                        
+                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.hurt", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
+                        
+                        sfx_time = _sfx_time;
+                        
+                        immunity_frame = IMMUNITY_FRAME_MAX - _delta_time;
+                    }
                 }
                 
                 coyote_time = 0;

@@ -227,7 +227,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			
 			_id.tool = id;
             
-            arm_index = 8;
+            image_index_arm = 8;
             
             life = 0;
 		}

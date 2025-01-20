@@ -36,8 +36,6 @@ function gui_chat_hint(_x, _y)
     {
         var _name = _emote_data_names[i];
         
-        show_debug_message($"{_name} {_chat_message_split_end} {_chat_message_split}")
-        
         if (!string_starts_with(_name, _chat_message_split_end)) continue;
         
         var _x2 = _x;

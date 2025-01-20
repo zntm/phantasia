@@ -103,4 +103,6 @@ function init_sfx(_directory, _prefix = "phantasia", _type = 0)
 			array_push(global.sfx_data[$ _name], audio_create_stream($"{_directory}/{_file}/{j}.ogg"));
 		}
 	}
+    
+    show_debug_message(json_stringify(global.sfx_data, true))
 }

@@ -114,9 +114,14 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
             
 			if (tile_meeting(x, y + 1, undefined, undefined, _world_height))
 			{
-				if (buffs[$ "is_fall_damage_resistant"] > 0) && (entity_fall(global.difficulty_multiplier_damage[global.world_settings.difficulty]))
+				if (buffs[$ "is_fall_damage_resistant"] != 1)
 				{
-					sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, "phantasia:action.damage");
+                    var _fell = entity_fall(global.difficulty_multiplier_damage[global.world_settings.difficulty]);
+                    
+                    if (_fell)
+                    {
+                        sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, "phantasia:action.damage");
+                    }
 				}
                 
 				jump_pressed = 0;
