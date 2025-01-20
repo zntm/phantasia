@@ -94,7 +94,5 @@ function sfx_diegetic_play(_x1, _y1, _x2, _y2, _id, _pitch_offset = 0.1, _volume
     
     audio_emitter_position(__audio_emitter, _x1 - _x2, _y1 - _y2, 0);
     
-    show_debug_message(__params);
-    
     return audio_play_sound_ext(__params);
 }

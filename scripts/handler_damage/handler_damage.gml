@@ -11,7 +11,7 @@ enum DAMAGE_TYPE {
 #macro IMMUNITY_FRAME_MAX 60
 #macro KNOCKBACK_TIME_MAX 60
 
-function handler_damage(_id, _sfx, _speed)
+function handler_damage(_id, _speed)
 {
 	static __inst = [ obj_Projectile, obj_Tool ];
 	

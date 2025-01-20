@@ -43,8 +43,15 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
 		
         var _sfx = _data.sfx;
         
-		if (handler_damage(id, $"{_sfx}.hurt", _delta_time))
+		if (handler_damage(id, _delta_time))
         {
+            if (hp <= 0)
+            {
+                creature_handle_death(_sfx, _data.drops);
+                
+                continue;
+            }
+            
             if (_is_passive) 
             {
                 sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.hurt", undefined, _volume_passive, _world_height) ?? -1;
@@ -58,13 +65,6 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
             
             sfx_time = _sfx_time;
         }
-		
-		if (hp <= 0)
-		{
-			creature_handle_death(_sfx, _data.drops);
-			
-			continue;
-		}
 		
 		if (_is_passive) && (panic_time > 0)
 		{
