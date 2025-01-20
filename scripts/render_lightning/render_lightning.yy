@@ -6,7 +6,7 @@
   "name":"render_lightning",
   "parent":{
     "name":"Render",
-    "path":"folders/Scripts/Phantasia/Render.yy",
+    "path":"folders/Scripts/Render.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

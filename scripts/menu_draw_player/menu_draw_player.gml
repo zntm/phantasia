@@ -62,12 +62,12 @@ function menu_draw_player(_x, _y, _id, _xmultiplier, _ymultiplier)
 	
 	if (is_blinking)
 	{
-		if (chance(PLAYER_BLINK_CHANCE_OPEN * global.delta_time))
+		if (chance(PLAYER_ANIMATION_BLINK_CHANCE_OPEN * global.delta_time))
 		{
 			is_blinking = false;
 		}
 	}
-	else if (chance(PLAYER_BLINK_CHANCE_CLOSE * global.delta_time))
+	else if (chance(PLAYER_ANIMATION_BLINK_CHANCE_CLOSE * global.delta_time))
 	{
 		is_blinking = true;
 	}

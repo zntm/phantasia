@@ -56,7 +56,7 @@ surface2 = -1;
 surface_xscale = 1;
 surface_yscale = 1;
 
-tool = -1;
+tool = noone;
 
 #region Inventory
 

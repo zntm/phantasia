@@ -186,7 +186,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 		var _damage = _id.buffs[$ "attack_damage"] * _data.get_damage();
 		var _distance;
 		
-		if (_type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW))
+		if (_type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW))
 		{
 			_distance = 24;
 		}
@@ -226,6 +226,8 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
             point_angle = point_direction(_id.x, _id.y, mouse_x, mouse_y);
 			
 			_id.tool = id;
+            
+            arm_index = 8;
             
             life = 0;
 		}

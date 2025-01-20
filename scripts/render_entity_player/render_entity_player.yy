@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"render_glow",
+  "%Name":"render_entity_player",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"render_glow",
+  "name":"render_entity_player",
   "parent":{
     "name":"Render",
     "path":"folders/Scripts/Render.yy",
