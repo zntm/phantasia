@@ -71,7 +71,7 @@ function handler_damage(_id, _speed)
 		instance_destroy(_inst);
 	}
 	
-	hp_add(id, -_damage, _damage_type);
+	hp_add(id, -_damage, _damage_type, true, _inst[$ "is_damage_critical"] ?? false);
 	
 	spawn_particle(x, y, CHUNK_DEPTH_DEFAULT + 1, "phantasia:damage", irandom_range(4, 8));
 	

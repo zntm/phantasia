@@ -181,7 +181,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         TOOL
     }
     
-    ___inventory_value = (5 << 56) | (DAMAGE_TYPE.DEFAULT << 52) | (1 << 36) | (INVENTORY_SCALE.DEFAULT << 32) | (0 << 24) | (0 << 16) | 999;
+    ___inventory_value = (0 << 56) | (DAMAGE_TYPE.DEFAULT << 52) | (1 << 36) | (INVENTORY_SCALE.DEFAULT << 32) | (0 << 24) | (0 << 16) | 999;
     
     static set_inventory_max = function(_max)
     {
@@ -487,7 +487,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static get_on_interaction_inventory = function(_function)
     {
-        return self[$ "__o_n_interaction_inventory"];
+        return self[$ "__on_interaction_inventory"];
     }
     
     variable = undefined;

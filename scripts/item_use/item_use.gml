@@ -185,9 +185,9 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 		
 		var _damage = _id.buffs[$ "attack_damage"] * _data.get_damage();
 		
-		var _damage_critical = chance(_id.buffs[$ "attack_critical"] * _data.get_damage_critical_chance());
+		var _is_damage_critical = chance(_id.buffs[$ "attack_critical"] + _data.get_damage_critical_chance());
 		
-		if (_damage_critical)
+		if (_is_damage_critical)
 		{
 			_damage *= 1.5;
 		}
@@ -204,7 +204,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			item_id = _item.item_id;
 			damage = _damage;
 			damage_type = _data.get_damage_type();
-			damage_critical = _damage_critical;
+			is_damage_critical = _is_damage_critical;
 			angle = 0;
 			owner = _id;
 			distance = _data.get_item_swing_distance();

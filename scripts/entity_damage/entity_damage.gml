@@ -2,7 +2,7 @@ function entity_damage(_inst, _direction, _damage, _delta_time, _type = DAMAGE_T
 {
 	if (immunity_frame > 0) || (_damage == 0) exit;
 	
-	hp_add(id, -_damage, _type);
+	hp_add(id, -_damage, _type, true, chance(_inst.buffs[$ "attack_critical"]));
 	
 	immunity_frame = 1;
     

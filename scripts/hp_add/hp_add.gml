@@ -1,7 +1,8 @@
 #macro HP_COLOUR_HEAL #30DB49
 #macro HP_COLOUR_DAMAGE #E1122D
+#macro HP_COLOUR_DAMAGE_CRITICAL #A81A30
 
-function hp_add(_obj, _val, _type = DAMAGE_TYPE.DEFAULT, _show_text = true)
+function hp_add(_obj, _val, _type = DAMAGE_TYPE.DEFAULT, _show_text = true, _is_critical = false)
 {
 	if (_val < 0.5) && (_val > -0.5) exit;
 	
@@ -21,7 +22,7 @@ function hp_add(_obj, _val, _type = DAMAGE_TYPE.DEFAULT, _show_text = true)
 	{
 		var _rotation = random_range(-2, 2);
 		
-		spawn_text(_obj.x, _obj.y, abs(_val), _rotation, random_range(-6, -4), -_rotation, (_val >= 0 ? HP_COLOUR_HEAL : HP_COLOUR_DAMAGE));
+		spawn_text(_obj.x, _obj.y, abs(_val), _rotation, random_range(-6, -4), -_rotation, (_val >= 0 ? HP_COLOUR_HEAL : (_is_critical ? HP_COLOUR_DAMAGE_CRITICAL : HP_COLOUR_DAMAGE)));
 	}
 	
 	if (_obj.hp > 0) || (_obj[$ "name"] == undefined) exit;

@@ -30,7 +30,7 @@ function Attributes() constructor
 	
 	attack_damage   = 1;
 	attack_speed    = 1;
-	attack_critical = 1;
+	attack_critical = 0.05;
 	
 	static set_attack = function(_damage = 1, _speed = 1, _critical = 1)
 	{
