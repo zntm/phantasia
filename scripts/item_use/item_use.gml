@@ -184,16 +184,6 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 		sfx_play(_data.get_sfx_swing(), global.settings_value.sfx, random_range(0.8, 1.2));
 		
 		var _damage = _id.buffs[$ "attack_damage"] * _data.get_damage();
-		var _distance;
-		
-		if (_type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW))
-		{
-			_distance = 24;
-		}
-		else
-		{
-			_distance = 12;
-		}
 		
 		var _damage_critical = chance(_id.buffs[$ "attack_critical"] * _data.get_damage_critical_chance());
 		
@@ -202,14 +192,14 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			_damage *= 1.5;
 		}
 		
-		var _attack_speed = _data.get_swing_speed() * _id.buffs[$ "attack_speed"];
+		var _attack_speed = _data.get_item_swing_speed() * _id.buffs[$ "attack_speed"];
 		
 		var _yoffset = sprite_get_height(sprite_index) / 6;
 		
 		with (instance_create_layer(0, -512, "Instances", obj_Tool))
 		{
 			sprite_index = _data.sprite;
-			swing_speed = _attack_speed;
+			item_swing_speed = _attack_speed;
 			
 			item_id = _item.item_id;
 			damage = _damage;
@@ -217,7 +207,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 			damage_critical = _damage_critical;
 			angle = 0;
 			owner = _id;
-			distance = _distance;
+			distance = _data.get_item_swing_distance();
 			
 			height_offset = _yoffset;
 			

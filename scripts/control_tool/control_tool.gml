@@ -4,7 +4,7 @@ function control_tool(_delta_time)
     
     with (obj_Tool)
     {
-        life = min(180, life + (swing_speed * _delta_time));
+        life = min(180, life + (item_swing_speed * _delta_time));
         
         var _data = _item_data[$ item_id];
         var _type = _data.type;

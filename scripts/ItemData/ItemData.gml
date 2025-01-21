@@ -274,7 +274,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     }
     
     // 0xff_ff_ff_ff_ff
-    v1 = (sprite_get_width(_sprite) << 32) | (sprite_get_height(_sprite) << 24) | (8 << 16) | (SLOT_TYPE.BASE | SLOT_TYPE.CONTAINER);
+    v1 = (sprite_get_width(_sprite) << 32) | (sprite_get_height(_sprite) << 24) | (0 << 16) | (SLOT_TYPE.BASE | SLOT_TYPE.CONTAINER);
     
     static get_sprite_width = function()
     {
@@ -317,13 +317,6 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return v1 & 0xff;
     }
     
-    static set_swing_speed = function(_speed)
-    {
-        v1 = (_speed << 16) | (v1 & 0xffff00ffff);
-        
-        return self;
-    }
-    
     static set_item_swing_type = function(_type)
     {
         ___item_swing_type = _type;
@@ -336,16 +329,18 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self[$ "___item_swing_type"];
     }
     
-    static set_item_swing_offset = function(_xoffset, _yoffset, _angle)
+    static set_item_swing_xoffset = function(_xoffset = 0)
     {
-        ___item_swing_offset = ((_yoffset + 0x8000) << 16) | ((_yoffset + 0x80) << 8) | (_xoffset + 0x80);
+        self[$ "___item_swing_value"] ??= 0;
+        
+        ___item_swing_value = (___item_swing_value & 0xff_ff_ffff_ff_00) | (_xoffset + 0x80);
         
         return self;
     }
     
     static get_item_swing_xoffset = function()
     {
-        var _ = self[$ "___item_swing_offset"];
+        var _ = self[$ "___item_swing_value"];
         
         if (_ == undefined)
         {
@@ -355,9 +350,18 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return (_ & 0xff) - 0x80;
     }
     
+    static set_item_swing_yoffset = function(_yoffset = 0)
+    {
+        self[$ "___item_swing_value"] ??= 0;
+        
+        ___item_swing_value = (___item_swing_value & 0xff_ff_ffff_00_ff) | ((_yoffset + 0x80) << 8);
+        
+        return self;
+    }
+    
     static get_item_swing_yoffset = function()
     {
-        var _ = self[$ "___item_swing_offset"];
+        var _ = self[$ "___item_swing_value"];
         
         if (_ == undefined)
         {
@@ -367,21 +371,85 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return ((_ >> 8) & 0xff) - 0x80;
     }
     
+    static set_item_swing_angle_offset = function(_angle = 0)
+    {
+        self[$ "___item_swing_value"] ??= 0;
+        
+        ___item_swing_value = (___item_swing_value & 0xff_ff_0000_ff_ff) | ((_angle + 0x8000) << 16);
+        
+        return self;
+    }
+    
     static get_item_swing_angle_offset = function()
     {
-        var _ = self[$ "___item_swing_offset"];
+        var _ = self[$ "___item_swing_value"];
         
         if (_ == undefined)
         {
-            return -45;
+            return 0;
         }
         
         return ((_ >> 16) & 0xffff) - 0x8000;
     }
     
-    static get_swing_speed = function()
+    static set_item_swing_distance = function(_distance = 0)
     {
-        return (v1 >> 16) & 0xff;
+        self[$ "___item_swing_value"] ??= 0;
+        
+        ___item_swing_value = (___item_swing_value & 0x00_ff_ffff_ff_ff) | ((_distance + 0x80) << 32);
+        
+        return self;
+    }
+    
+    static get_item_swing_distance = function()
+    {
+        var _ = self[$ "___item_swing_value"];
+        
+        if (_ == undefined)
+        {
+            return 0;
+        }
+        
+        return ((_ >> 32) & 0xff) - 0x80;
+    }
+    
+    static set_item_swing_speed = function(_speed = 0)
+    {
+        self[$ "___item_swing_value"] ??= 0;
+        
+        ___item_swing_value = (___item_swing_value & 0x00_ff_ffff_ff_ff) | (_speed << 40);
+        
+        return self;
+    }
+    
+    static get_item_swing_speed = function()
+    {
+        var _ = self[$ "___item_swing_value"];
+        
+        if (_ == undefined)
+        {
+            return 0;
+        }
+        
+        return (_ >> 40) & 0xff;
+    }
+    
+    if (type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER))
+    {
+        set_item_swing_angle_offset(-45);
+    }
+    else
+    {
+        set_item_swing_angle_offset(-90);
+    }
+    
+    if (type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW))
+    {
+        set_item_swing_distance(24);
+    }
+    else
+    {
+        set_item_swing_distance(16);
     }
     
     #endregion
@@ -1891,7 +1959,7 @@ new ItemData("phantasia", item_Anchor, ITEM_TYPE_BIT.ACCESSORY);
 
 new ItemData("phantasia", item_Hearthstone_Cleaver, ITEM_TYPE_BIT.SWORD)
     .set_damage(41)
-    .set_swing_speed(6)
+    .set_item_swing_speed(6)
     .set_on_swing_attack(function(_x, _y)
     {
         var _angle = point_direction(_x, _y, mouse_x, mouse_y);
@@ -2832,7 +2900,7 @@ new ItemData("phantasia", item_Bloom_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData("phantasia", item_Pine_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
@@ -2927,7 +2995,7 @@ new ItemData("phantasia", item_Maurice_Staff, ITEM_TYPE_BIT.TOOL)
 
 new ItemData("phantasia", item_Mahogany_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
@@ -3037,7 +3105,7 @@ new ItemData("phantasia", item_Banana_Peel, ITEM_TYPE_BIT.THROWABLE);
 
 new ItemData("phantasia", item_Pine_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
@@ -3106,7 +3174,7 @@ new ItemData("phantasia", item_Cooked_Bunny, ITEM_TYPE_BIT.CONSUMABLE)
 
 new ItemData("phantasia", item_Ashen_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
@@ -3117,43 +3185,43 @@ new ItemData("phantasia", item_Ashen_Shovel, ITEM_TYPE_BIT.SHOVEL)
 
 new ItemData("phantasia", item_Palm_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Palm_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
 new ItemData("phantasia", item_Acacia_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Acacia_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
 new ItemData("phantasia", item_Bloom_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Bloom_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
 new ItemData("phantasia", item_Cherry_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
@@ -3162,25 +3230,25 @@ new ItemData("phantasia", item_Prickly_Pear_Fruit, ITEM_TYPE_BIT.CONSUMABLE)
 
 new ItemData("phantasia", item_Yucca_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Yucca_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
 new ItemData("phantasia", item_Wysteria_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Wysteria_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
@@ -3710,13 +3778,13 @@ new ItemData("phantasia", item_Wysteria_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData("phantasia", item_Blizzard_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Blizzard_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
@@ -3883,30 +3951,30 @@ new ItemData("phantasia", item_Mangrove_Planks, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Copper_Sword, ITEM_TYPE_BIT.SWORD)
     .set_damage(13, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(6)
+    .set_item_swing_speed(6)
     .set_durability(162);
 
 new ItemData("phantasia", item_Copper_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(11, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(6)
+    .set_item_swing_speed(6)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(141);
 
 new ItemData("phantasia", item_Copper_Axe, ITEM_TYPE_BIT.AXE)
     .set_damage(10, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(6)
+    .set_item_swing_speed(6)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(133);
 
 new ItemData("phantasia", item_Copper_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(7, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(6)
+    .set_item_swing_speed(6)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(125);
 
 new ItemData("phantasia", item_Copper_Hammer, ITEM_TYPE_BIT.HAMMER)
     .set_damage(9, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(6)
+    .set_item_swing_speed(6)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(104);
 
@@ -3915,30 +3983,30 @@ new ItemData("phantasia", item_Copper_Fishing_Pole, ITEM_TYPE_BIT.FISHING_POLE)
 
 new ItemData("phantasia", item_Weathered_Copper_Sword, ITEM_TYPE_BIT.SWORD)
     .set_damage(11, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_durability(136);
 
 new ItemData("phantasia", item_Weathered_Copper_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(10, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(119);
 
 new ItemData("phantasia", item_Weathered_Copper_Axe, ITEM_TYPE_BIT.AXE)
     .set_damage(9, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(111);
 
 new ItemData("phantasia", item_Weathered_Copper_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(6, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(105);
 
 new ItemData("phantasia", item_Weathered_Copper_Hammer, ITEM_TYPE_BIT.HAMMER)
     .set_damage(8, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(87);
 
@@ -3947,30 +4015,30 @@ new ItemData("phantasia", item_Weathered_Copper_Fishing_Pole, ITEM_TYPE_BIT.FISH
 
 new ItemData("phantasia", item_Tarnished_Copper_Sword, ITEM_TYPE_BIT.SWORD)
     .set_damage(8, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(3)
+    .set_item_swing_speed(3)
     .set_durability(115);
 
 new ItemData("phantasia", item_Tarnished_Copper_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(7, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(3)
+    .set_item_swing_speed(3)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(100);
 
 new ItemData("phantasia", item_Tarnished_Copper_Axe, ITEM_TYPE_BIT.AXE)
     .set_damage(7, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(3)
+    .set_item_swing_speed(3)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(94);
 
 new ItemData("phantasia", item_Tarnished_Copper_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(3)
+    .set_item_swing_speed(3)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(89);
 
 new ItemData("phantasia", item_Tarnished_Copper_Hammer, ITEM_TYPE_BIT.HAMMER)
     .set_damage(6, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(3)
+    .set_item_swing_speed(3)
     .set_mining_stats(TOOL_POWER.COPPER, 4)
     .set_durability(80);
 
@@ -4107,7 +4175,7 @@ new ItemData("phantasia", item_Book);
 
 new ItemData("phantasia", item_Mahogany_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
@@ -4396,7 +4464,7 @@ new ItemData("phantasia", item_Aloe_Vera, ITEM_TYPE_BIT.PLANT)
 
 new ItemData("phantasia", item_Hatchet, ITEM_TYPE_BIT.AXE)
     .set_damage(2)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD)
     .set_durability(68);
 
@@ -4411,25 +4479,25 @@ new ItemData("phantasia", item_Floral_Fury, ITEM_TYPE_BIT.SWORD);
 
 new ItemData("phantasia", item_Birch_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Oak_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Birch_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
 new ItemData("phantasia", item_Oak_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
@@ -4503,13 +4571,13 @@ new ItemData("phantasia", item_Platinum_Bow, ITEM_TYPE_BIT.BOW)
 
 new ItemData("phantasia", item_Mangrove_Pickaxe, ITEM_TYPE_BIT.PICKAXE)
     .set_damage(5, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(73);
 
 new ItemData("phantasia", item_Mangrove_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_damage(3, DAMAGE_TYPE.MELEE)
-    .set_swing_speed(4)
+    .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD, 2)
     .set_durability(65);
 
@@ -5253,7 +5321,7 @@ new ItemData("phantasia", item_Fantasia_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     });
 
 new ItemData("phantasia", item_Combat_Stick, ITEM_TYPE_BIT.SWORD)
-    .set_swing_speed(7)
+    .set_item_swing_speed(7)
     .set_damage(5);
 
 new ItemData("phantasia", item_Adventure_Is_Out_There, ITEM_TYPE_BIT.SWORD)
