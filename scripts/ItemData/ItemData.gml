@@ -324,6 +324,61 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self;
     }
     
+    static set_item_swing_type = function(_type)
+    {
+        ___item_swing_type = _type;
+        
+        return self;
+    }
+    
+    static get_item_swing_type = function()
+    {
+        return self[$ "___item_swing_type"];
+    }
+    
+    static set_item_swing_offset = function(_xoffset, _yoffset, _angle)
+    {
+        ___item_swing_offset = ((_yoffset + 0x8000) << 16) | ((_yoffset + 0x80) << 8) | (_xoffset + 0x80);
+        
+        return self;
+    }
+    
+    static get_item_swing_xoffset = function()
+    {
+        var _ = self[$ "___item_swing_offset"];
+        
+        if (_ == undefined)
+        {
+            return 0;
+        }
+        
+        return (_ & 0xff) - 0x80;
+    }
+    
+    static get_item_swing_yoffset = function()
+    {
+        var _ = self[$ "___item_swing_offset"];
+        
+        if (_ == undefined)
+        {
+            return 0;
+        }
+        
+        return ((_ >> 8) & 0xff) - 0x80;
+    }
+    
+    static get_item_swing_angle_offset = function()
+    {
+        var _ = self[$ "___item_swing_offset"];
+        
+        if (_ == undefined)
+        {
+            return -45;
+        }
+        
+        return ((_ >> 16) & 0xffff) - 0x8000;
+    }
+    
     static get_swing_speed = function()
     {
         return (v1 >> 16) & 0xff;
@@ -2473,7 +2528,7 @@ new ItemData("phantasia", item_Short_Lumin_Growth, ITEM_TYPE_BIT.PLANT)
     .set_random_index(0, 5)
     .set_flip_on(true, false)
 
-new ItemData("phantasia", item_Spectrum_Glaive, ITEM_TYPE_BIT.SWORD)
+new ItemData("phantasia", item_Spectrum_Glaive, ITEM_TYPE_BIT.SPEAR)
     .set_damage(22);
 
 new ItemData("phantasia", item_Tall_Lumin_Growth, ITEM_TYPE_BIT.PLANT)
