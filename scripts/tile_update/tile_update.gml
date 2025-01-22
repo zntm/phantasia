@@ -6,15 +6,7 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 	
 	var _index = tile_index(_x, _y, _z);
 	
-	var _cx = tile_inst_x(_x);
-	var _cy = tile_inst_y(_y);
-	
-	var _inst = instance_position(_cx, _cy, obj_Chunk);
-	
-	if (!instance_exists(_inst))
-	{
-		_inst = instance_create_layer(_cx, _cy, "Instances", obj_Chunk);
-	}
+	var _inst = tile_get_inst(_x, _y, "update");
 	
 	var _tile = _inst.chunk[_index];
 	

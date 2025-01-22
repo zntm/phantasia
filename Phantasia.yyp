@@ -1519,6 +1519,7 @@
     {"id":{"name":"tile_condition_connected_to_self","path":"scripts/tile_condition_connected_to_self/tile_condition_connected_to_self.yy",},},
     {"id":{"name":"tile_condition_connected","path":"scripts/tile_condition_connected/tile_condition_connected.yy",},},
     {"id":{"name":"tile_destroy_with_drop","path":"scripts/tile_destroy_with_drop/tile_destroy_with_drop.yy",},},
+    {"id":{"name":"tile_get_inst","path":"scripts/tile_get_inst/tile_get_inst.yy",},},
     {"id":{"name":"tile_get","path":"scripts/tile_get/tile_get.yy",},},
     {"id":{"name":"tile_index","path":"scripts/tile_index/tile_index.yy",},},
     {"id":{"name":"tile_inst_x","path":"scripts/tile_inst_x/tile_inst_x.yy",},},

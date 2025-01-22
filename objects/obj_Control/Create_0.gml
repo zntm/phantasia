@@ -1,5 +1,17 @@
 // Feather disable GM1050
 
+global.tile_get_inst_x = undefined;
+global.tile_get_inst_y = undefined;
+
+global.tile_place_inst_x = undefined;
+global.tile_place_inst_y = undefined;
+
+global.tile_set_inst_x = undefined;
+global.tile_set_inst_y = undefined;
+
+global.tile_update_inst_x = undefined;
+global.tile_update_inst_y = undefined;
+
 global.chunk_camera_x = 0;
 global.chunk_camera_y = 0;
 

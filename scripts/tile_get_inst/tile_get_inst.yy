@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"tile_get_inst",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tile_get_inst",
+  "parent":{
+    "name":"Tile",
+    "path":"folders/Scripts/Tile.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

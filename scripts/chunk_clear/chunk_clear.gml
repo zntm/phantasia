@@ -9,6 +9,12 @@ function chunk_clear(_inst)
 	{
 		surface_free_existing(_inst.surface[i]);
 	}
-	
+    
+    if (_inst.x == global.tile_place_inst_x) && (_inst.y == global.tile_place_inst_y)
+    {
+        global.tile_place_inst_x = infinity;
+        global.tile_place_inst_y = infinity;
+    }
+    
 	instance_destroy(_inst);
 }

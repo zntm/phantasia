@@ -428,7 +428,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         if (_ == undefined)
         {
-            return 0;
+            return 4;
         }
         
         return (_ >> 40) & 0xff;
