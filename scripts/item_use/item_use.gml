@@ -181,7 +181,10 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
 	
 	if (!instance_exists(obj_Tool))
 	{
-		sfx_play(_data.get_sfx_swing(), global.settings_value.sfx, random_range(0.8, 1.2));
+        var _sfx_swing = _data.get_sfx_swing();
+        var _sfx_swing_pitch = _data.get_sfx_swing_pitch();
+        
+		sfx_play(_sfx_swing, global.settings_value.sfx, _sfx_swing_pitch);
 		
 		var _damage = _id.buffs[$ "attack_damage"] * _data.get_damage();
 		

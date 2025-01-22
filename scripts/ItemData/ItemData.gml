@@ -504,7 +504,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self;
     }
     
-    static set_sfx_swing = function(_sfx, _pitch_min = 0.9, _pitch_max = 1.2)
+    static set_sfx_swing = function(_sfx, _pitch_min = 0.9, _pitch_max = 1.1)
     {
         ___sfx_swing = _sfx;
         
@@ -527,6 +527,14 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         }
         
         return self[$ "___sfx_swing"] ?? "phantasia:action.swing.default";
+    }
+    
+    static get_sfx_swing_pitch = function()
+    {
+        var _min = self[$ "__sfx_swing_pitch_min"] ?? 0.9;
+        var _max = self[$ "__sfx_swing_pitch_max"] ?? 1.1;
+        
+        return random_range(_min, _max);
     }
     
     if (type & ITEM_TYPE_BIT.ARMOR_HELMET)
