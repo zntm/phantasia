@@ -52,7 +52,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
 	
 	if (_holding == INVENTORY_EMPTY)
 	{
-		if (_mining_type) || (_data.get_mining_power() != TOOL_POWER.ALL)
+		if (_mining_type != ITEM_TYPE_BIT.DEFAULT) || (_data.get_mining_power() != TOOL_POWER.ALL)
 		{
 			return true;
 		}
