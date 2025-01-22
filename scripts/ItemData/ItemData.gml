@@ -329,11 +329,11 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self[$ "___item_swing_type"];
     }
     
-    static set_item_swing_xoffset = function(_xoffset = 0)
+    static set_item_swing_offset = function(_xoffset = 0, _yoffset = 0)
     {
         self[$ "___item_swing_value"] ??= 0;
         
-        ___item_swing_value = (___item_swing_value & 0xff_ff_ffff_ff_00) | (_xoffset + 0x80);
+        ___item_swing_value = (___item_swing_value & 0xff_ff_ffff_ff_00) | ((_yoffset + 0x80) << 8) | (_xoffset + 0x80);
         
         return self;
     }
@@ -348,15 +348,6 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         }
         
         return (_ & 0xff) - 0x80;
-    }
-    
-    static set_item_swing_yoffset = function(_yoffset = 0)
-    {
-        self[$ "___item_swing_value"] ??= 0;
-        
-        ___item_swing_value = (___item_swing_value & 0xff_ff_ffff_00_ff) | ((_yoffset + 0x80) << 8);
-        
-        return self;
     }
     
     static get_item_swing_yoffset = function()
@@ -396,7 +387,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     {
         self[$ "___item_swing_value"] ??= 0;
         
-        ___item_swing_value = (___item_swing_value & 0x00_ff_ffff_ff_ff) | ((_distance + 0x80) << 32);
+        ___item_swing_value = (___item_swing_value & 0xff_00_ffff_ff_ff) | ((_distance + 0x80) << 32);
         
         return self;
     }
@@ -431,8 +422,13 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             return 4;
         }
         
+        show_debug_message(_)
+        
         return (_ >> 40) & 0xff;
     }
+    
+    set_item_swing_offset(0, 0);
+    set_item_swing_speed(4);
     
     if (type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER))
     {
@@ -508,9 +504,12 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self;
     }
     
-    static set_sfx_swing = function(_sfx)
+    static set_sfx_swing = function(_sfx, _pitch_min = 0.9, _pitch_max = 1.2)
     {
         ___sfx_swing = _sfx;
+        
+        ___sfx_swing_pitch_min = _pitch_min;
+        ___sfx_swing_pitch_max = _pitch_max;
         
         return self;
     }
