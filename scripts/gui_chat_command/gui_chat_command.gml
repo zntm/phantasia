@@ -149,7 +149,7 @@ function gui_chat_command(_x, _y, _height)
 			}
 			else
 			{
-				_string = $"[{_parameter.get_name()}: {__parameter_type[_parameter.get_type()]}{!_parameter.get_is_required() ? ("? " + _parameter.get_default_value()) : ""}]";
+				_string = $"[{_parameter.get_name()}: {__parameter_type[_parameter.get_type()]}{!_parameter.get_is_required() ? ("? " + string(_parameter.get_default_value())) : ""}]";
 				
 				draw_text_transformed_colour(_x2, _y, _string, 1, 1, 0, c_white, c_white, c_white, c_white, CHAT_COMMAND_SUBCOMMAND_ALPHA);
 			}

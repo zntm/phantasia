@@ -159,6 +159,55 @@ global.command_data[$ "hp"] = new CommandData()
             hp_set(_user, _value);
         }));
 
+global.command_data[$ "inventory"] = new CommandData()
+    .add_subcommand("clear", new CommandData()
+        .add_parameter(new CommandParameter("user", COMMAND_PARAMETER_TYPE.USER))
+        .set_description("Clears the inventory")
+        .set_function(function()
+        {
+            var _inventory = global.inventory;
+            var _inventory_length = global.inventory_length;
+            
+            var _names  = struct_get_names(_inventory);
+            var _length = array_length(_names);
+            
+            for (var i = 0; i < _length; ++i)
+            {
+                var _name = _names[i];
+                
+                var _inventory2 = _inventory[$ _name];
+                var _length2 = _inventory_length[$ _name];
+                
+                for (var j = 0; j < _length2; ++j)
+                {
+                    var _item = _inventory2[j];
+                    
+                    if (_item == INVENTORY_EMPTY) continue;
+                    
+                    inventory_delete(_name, j);
+                }
+            }
+            
+            if (obj_Control.is_opened_inventory)
+            {
+                inventory_close();
+                inventory_open();
+            }
+        }))
+    .add_subcommand("give", new CommandData()
+        .add_parameter(new CommandParameter("user", COMMAND_PARAMETER_TYPE.USER))
+        .add_parameter(new CommandParameter("id", COMMAND_PARAMETER_TYPE.STRING))
+        .add_parameter(new CommandParameter("amount", COMMAND_PARAMETER_TYPE.INTEGER, 1))
+        .set_description("Gives an item")
+        .set_function(function(_user, _id, _amount)
+        {
+            _id = chat_command_resolve_id(_id, global.item_data, "Item");
+            
+            if (_id == undefined) exit;
+            
+            spawn_drop(_user.x, _user.y, _id, _amount, 0, 0);
+        }));
+
 global.command_data[$ "summon"] = new CommandData()
     .add_subcommand("boss", new CommandData()
         .add_parameter(new CommandParameter("id", COMMAND_PARAMETER_TYPE.STRING))
