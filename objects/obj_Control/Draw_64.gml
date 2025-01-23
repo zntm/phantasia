@@ -389,6 +389,31 @@ if (is_opened_gui)
     {
         draw_surface(surface_chat, 0, 0);
     }
+    
+    var _camera_x = _camera.x;
+    var _camera_y = _camera.y;
+    
+    var _camera_width  = _camera.width;
+    var _camera_height = _camera.height;
+    
+    var _x = round(mouse_x / TILE_SIZE);
+    var _y = round(mouse_y / TILE_SIZE);
+    
+    var _item_data = global.item_data;
+    
+    for (var i = CHUNK_SIZE_Z - 1; i >= 0; --i)
+    {
+        var _tile = tile_get(_x, _y, i);
+        
+        if (_tile == TILE_EMPTY) continue;
+        
+        var _on_tile_hover = _item_data[$ _tile].get_on_tile_hover();
+        
+        if (_on_tile_hover != undefined)
+        {
+            _on_tile_hover(_x, _y, i, _tile, ((mouse_x - _camera_x) / _camera_width) * _gui_width, ((mouse_y - _camera_y) / _camera_height) * _gui_height);
+        }
+    }
 }
 
 draw_sprite_ext(spr_GUI_Edge, 0, _gui_width - GUI_SAFE_ZONE_X, _gui_height - GUI_SAFE_ZONE_Y, 2, -2, 0, c_white, 0.25);

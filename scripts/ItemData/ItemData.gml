@@ -1089,6 +1089,18 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             return self;
         }
         
+        static set_on_tile_hover = function(_on_hover)
+        {
+            ___on_tile_hover = _on_hover;
+            
+            return self;
+        }
+        
+        static get_on_tile_hover = function()
+        {
+            return self[$ "___on_tile_hover"];
+        }
+        
         static set_on_tile_destroy = function(_on_destroy)
         {
             ___on_tile_destroy = _on_destroy;
