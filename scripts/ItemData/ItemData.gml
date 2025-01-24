@@ -2591,11 +2591,13 @@ new ItemData("phantasia", item_Deadstone, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.stone");
 
 new ItemData("phantasia", item_Block_Of_Bamboo, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:block_of_bamboo")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Block_Of_Dried_Bamboo, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:block_of_dried_bamboo")
     .set_sfx("phantasia:tile.wood");
@@ -4695,11 +4697,13 @@ new ItemData("phantasia", item_Oak_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_
 new ItemData("phantasia", item_Salt, ITEM_TYPE_BIT.THROWABLE);
 
 new ItemData("phantasia", item_Salt_Bricks, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 60)
     .set_drops("phantasia:salt_bricks")
     .set_sfx("phantasia:tile.bricks");
 
 new ItemData("phantasia", item_Salt_Bricks_Wall, ITEM_TYPE_BIT.WALL)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 42)
     .set_drops("phantasia:salt_bricks_wall")
     .set_sfx("phantasia:tile.bricks");
@@ -4713,6 +4717,7 @@ new ItemData("phantasia", item_Dark_Bamboo, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_drops("phantasia:dark_bamboo");
 
 new ItemData("phantasia", item_Block_Of_Dark_Bamboo, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:block_of_dark_bamboo");
 
