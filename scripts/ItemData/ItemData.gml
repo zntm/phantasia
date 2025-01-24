@@ -25,7 +25,6 @@ enum ITEM_TYPE {
     WHIP,
     TOOL,
     AMMO,
-    MENU,
     CRAFTING_STATION, 
     CROP
 }
@@ -57,7 +56,6 @@ enum ITEM_TYPE_BIT {
     WHIP              = 1 << ITEM_TYPE.WHIP,
     TOOL              = 1 << ITEM_TYPE.TOOL,
     AMMO              = 1 << ITEM_TYPE.AMMO,
-    MENU              = 1 << ITEM_TYPE.MENU,
     CRAFTING_STATION  = 1 << ITEM_TYPE.CRAFTING_STATION,
     CROP              = 1 << ITEM_TYPE.CROP
 }
@@ -1238,20 +1236,17 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             }
         }
     }
-    
-    if (type & ITEM_TYPE_BIT.MENU)
+
+    static set_menu = function(_menu)
     {
-        static set_menu = function(_menu)
-        {
-            ___menu = _menu;
-            
-            return self;
-        }
+        ___menu = _menu;
         
-        static get_menu = function()
-        {
-            return self[$ "___menu"];
-        }
+        return self;
+    }
+    
+    static get_menu = function()
+    {
+        return self[$ "___menu"];
     }
 }
 
@@ -2640,7 +2635,7 @@ new ItemData("phantasia", item_Grass_Block_Obitus, ITEM_TYPE_BIT.SOLID)
     {
         item_update_grass(_x, _y, _z, "phantasia:dirt_obitus", "phantasia:grass_block_obitus", false);
     });
-new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.MENU)
+new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID)
     .set_instance({
         xscale: 1,
         yscale: 1,
@@ -2728,7 +2723,7 @@ new ItemData("phantasia", item_Short_Dead_Grass, ITEM_TYPE_BIT.PLANT)
         "phantasia:wheat_seeds", 1
     );
 
-new ItemData("phantasia", item_Structure_Loot, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.MENU)
+new ItemData("phantasia", item_Structure_Loot, ITEM_TYPE_BIT.SOLID)
     .set_tile_variable({
         loot_id: "Loot"
     })
@@ -2774,7 +2769,7 @@ new ItemData("phantasia", item_Vine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(undefined, undefined, 8)
     .set_drops("phantasia:vine");
 
-new ItemData("phantasia", item_Written_Book, ITEM_TYPE_BIT.MENU);
+new ItemData("phantasia", item_Written_Book);
 
 new ItemData("phantasia", item_Granite, ITEM_TYPE_BIT.SOLID)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
@@ -4683,6 +4678,31 @@ new ItemData("phantasia", item_Oak_Door, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Oak_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable({
+        text: "Text"
+    })
+    .set_menu([
+        new ItemMenu("button")
+            .set_icon(ico_Arrow_Left)
+            .set_position(32, 32)
+            .set_scale(2.5, 2.5),
+        new ItemMenu("anchor")
+            .set_text("Enter Text")
+            .set_position(480, 172 - 32),
+        new ItemMenu("textbox-string")
+            .set_position(480, 172)
+            .set_scale(32, 5)
+            .set_variable("text"),
+    ])
+    .set_on_tile_hover(function(_x, _y, _z, _tile, _gui_x, _gui_y, _gui_width, _gui_height)
+    {
+        var _text = _tile[$ "variable.text"];
+        
+        if (_text != undefined)
+        {
+            draw_text_transformed(_gui_x, _gui_y, _text, 4, 4, 0);
+        }
+    })
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:oak_sign")
     .set_sfx("phantasia:tile.wood");
@@ -5461,7 +5481,7 @@ new ItemData("phantasia", item_Palm_Door, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:palm_door");
 
-new ItemData("phantasia", item_Structure_Point, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.MENU)
+new ItemData("phantasia", item_Structure_Point, ITEM_TYPE_BIT.SOLID)
     .set_tile_variable({
         structure_id: "Structure",
         placement_xoffset: 0,

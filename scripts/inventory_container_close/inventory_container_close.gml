@@ -27,8 +27,13 @@ function inventory_container_close()
 	
 	with (obj_Inventory)
 	{
-		if (type != "container") continue;
-		
+		if (type != "container")
+        {
+            instance_deactivate_object(id);
+            
+            continue;
+        }
+        
 		instance_destroy();
 	}
 }

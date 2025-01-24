@@ -160,7 +160,7 @@ function inventory_interaction()
 		
 		var _data = global.item_data[$ _tile.item_id];
 		
-		if (!obj_Control.is_opened_menu) && (_data.type & ITEM_TYPE_BIT.MENU)
+		if (!obj_Control.is_opened_menu)
 		{
 			var _menu = _data.get_menu();
 			
@@ -169,17 +169,17 @@ function inventory_interaction()
 				obj_Control.is_opened_menu = true;
 				
 				inventory_close();
-				
+
 				var _length = array_length(_menu);
 				
 				for (var i = 0; i < _length; ++i)
 				{
 					var _ = _menu[i];
 					var _type = _.get_type();
-					
+                    
 					if (_type == "anchor")
 					{
-						with (instance_create_layer(_camera_x + _.x, _camera_y + _.y, "Instances", obj_Menu_Anchor))
+						with (instance_create_layer(_camera_x + _.get_position_x(), _camera_y + _.get_position_y(), "Instances", obj_Menu_Anchor))
 						{
 							text = _.get_text() ?? -1;
 							
@@ -193,7 +193,7 @@ function inventory_interaction()
 					{
 						var _function = _[$ "function"];
 						
-						with (instance_create_layer(_camera_x + _.x, _camera_y + _.y, "Instances", obj_Menu_Button))
+						with (instance_create_layer(_camera_x + _.get_position_x(), _camera_y + _.get_position_y(), "Instances", obj_Menu_Button))
 						{
 							text = _.get_text() ?? -1;
 							icon = _.get_icon() ?? -1;
@@ -206,7 +206,7 @@ function inventory_interaction()
 					}
 					else
 					{
-						with (instance_create_layer(_camera_x + _.x, _camera_y + _.y, "Instances", obj_Menu_Textbox))
+						with (instance_create_layer(_camera_x + _.get_position_x(), _camera_y + _.get_position_y(), "Instances", obj_Menu_Textbox))
 						{
 							variable = _.get_variable();
 							

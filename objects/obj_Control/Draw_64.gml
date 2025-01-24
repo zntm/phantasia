@@ -403,15 +403,15 @@ if (is_opened_gui)
     
     for (var i = CHUNK_SIZE_Z - 1; i >= 0; --i)
     {
-        var _tile = tile_get(_x, _y, i);
+        var _tile = tile_get(_x, _y, i, -1);
         
         if (_tile == TILE_EMPTY) continue;
         
-        var _on_tile_hover = _item_data[$ _tile].get_on_tile_hover();
+        var _on_tile_hover = _item_data[$ _tile.item_id].get_on_tile_hover();
         
         if (_on_tile_hover != undefined)
         {
-            _on_tile_hover(_x, _y, i, _tile, ((mouse_x - _camera_x) / _camera_width) * _gui_width, ((mouse_y - _camera_y) / _camera_height) * _gui_height);
+            _on_tile_hover(_x, _y, i, _tile, ((mouse_x - _camera_x) / _camera_width) * _gui_width, ((mouse_y - _camera_y) / _camera_height) * _gui_height, _gui_width, _gui_height);
         }
     }
 }
