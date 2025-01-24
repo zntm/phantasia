@@ -4678,31 +4678,9 @@ new ItemData("phantasia", item_Oak_Door, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Oak_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
-    .set_tile_variable({
-        text: "Text"
-    })
-    .set_menu([
-        new ItemMenu("button")
-            .set_icon(ico_Arrow_Left)
-            .set_position(32, 32)
-            .set_scale(2.5, 2.5),
-        new ItemMenu("anchor")
-            .set_text("Enter Text")
-            .set_position(480, 172 - 32),
-        new ItemMenu("textbox-string")
-            .set_position(480, 172)
-            .set_scale(32, 5)
-            .set_variable("text"),
-    ])
-    .set_on_tile_hover(function(_x, _y, _z, _tile, _gui_x, _gui_y, _gui_width, _gui_height)
-    {
-        var _text = _tile[$ "variable.text"];
-        
-        if (_text != undefined)
-        {
-            draw_text_transformed(_gui_x, _gui_y, _text, 4, 4, 0);
-        }
-    })
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:oak_sign")
     .set_sfx("phantasia:tile.wood");
@@ -5538,3 +5516,128 @@ new ItemData("phantasia", item_Basalt_Wall, ITEM_TYPE_BIT.WALL)
     .set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
     .set_drops("phantasia:basalt_wall")
     .set_sfx("phantasia:tile.stone");
+
+new ItemData("phantasia", item_Spruce_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:spruce_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Yucca_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:yucca_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Wysteria_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:wysteria_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Mahogany_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:mahogany_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Birch_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:birch_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Cherry_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:cherry_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Mangrove_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:mangrove_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Blizzard_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:blizzard_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Acacia_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:acacia_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Palm_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:oak_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Ashen_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:ashen_sign")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Bloom_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_tile_variable(global.tile_variable_sign)
+    .set_menu(global.tile_menu_sign)
+    .set_on_tile_hover(tile_hover_sign)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_drops("phantasia:bloom_sign")
+    .set_sfx("phantasia:tile.wood");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
