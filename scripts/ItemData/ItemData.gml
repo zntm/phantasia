@@ -1373,6 +1373,7 @@ new ItemData("phantasia", item_Basalt, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.stone");
 
 new ItemData("phantasia", item_Snow, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 11)
     .set_drops("phantasia:snow")
     .set_sfx("phantasia:tile.snow");
