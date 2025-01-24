@@ -12,14 +12,30 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"d6c823dc-58fe-4555-aff1-8106129658e7","name":"d6c823dc-58fe-4555-aff1-8106129658e7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"cf14b416-8194-4a4a-8c44-105f1bf40718","name":"cf14b416-8194-4a4a-8c44-105f1bf40718","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"086645ec-4225-4afc-ad9d-1c0f1a6711ff","name":"086645ec-4225-4afc-ad9d-1c0f1a6711ff","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"56be50ac-d599-4996-905d-7f3bcad9c3f1","name":"56be50ac-d599-4996-905d-7f3bcad9c3f1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"a3a310df-426c-4627-baad-1ff5b0b54aa0","name":"a3a310df-426c-4627-baad-1ff5b0b54aa0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"d9887cdb-1e8f-4cb8-b558-1769fd670e3f","name":"d9887cdb-1e8f-4cb8-b558-1769fd670e3f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"a237443b-e331-49b8-84bd-05da252fd68c","name":"a237443b-e331-49b8-84bd-05da252fd68c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"a0189756-fbcb-493d-bd05-f8d449d5b63c","name":"a0189756-fbcb-493d-bd05-f8d449d5b63c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c5d0684a-e1b7-47a2-a3ea-d55f89a92c5a","name":"c5d0684a-e1b7-47a2-a3ea-d55f89a92c5a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"20b43eab-cc07-4a30-bd68-65919e95a91f","name":"20b43eab-cc07-4a30-bd68-65919e95a91f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"863c4a19-82e2-49af-9b45-63ade615ddd9","name":"863c4a19-82e2-49af-9b45-63ade615ddd9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c8c5bde5-bd23-47c6-8f60-9bbd78247b36","name":"c8c5bde5-bd23-47c6-8f60-9bbd78247b36","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"990f2e90-4195-42b3-a9c6-2a3d87111adb","name":"990f2e90-4195-42b3-a9c6-2a3d87111adb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"7f0c1ab2-4369-4440-ba65-7cab343fc2cb","name":"7f0c1ab2-4369-4440-ba65-7cab343fc2cb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"71bfd98d-26d5-467e-a081-1bb73161e6f5","name":"71bfd98d-26d5-467e-a081-1bb73161e6f5","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"34d5bd14-025a-4b15-b6bc-e79b1b3100bb","name":"34d5bd14-025a-4b15-b6bc-e79b1b3100bb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"3675391a-60ea-45e5-9b75-c338af5e1fab","name":"3675391a-60ea-45e5-9b75-c338af5e1fab","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"fb7b8f3d-0f91-46d3-8115-4ff2249b7969","name":"fb7b8f3d-0f91-46d3-8115-4ff2249b7969","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"beefdaf3-9f55-4403-9eec-45636b800a28","blendMode":0,"displayName":"default","isLocked":false,"name":"beefdaf3-9f55-4403-9eec-45636b800a28","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"9a130a54-20ef-48f5-88ad-e83c3423b7db","blendMode":0,"displayName":"default","isLocked":false,"name":"9a130a54-20ef-48f5-88ad-e83c3423b7db","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"item_Salt_Bricks_Wall",
   "nineSlice":null,
@@ -49,7 +65,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":17.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -69,8 +85,56 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d6c823dc-58fe-4555-aff1-8106129658e7","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"e0bdb586-2563-4232-b9cf-6b948c0b0d08","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"cf14b416-8194-4a4a-8c44-105f1bf40718","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"21cd0eeb-8a4e-4fb9-8731-2fc137368664","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"086645ec-4225-4afc-ad9d-1c0f1a6711ff","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c4e37f59-f55d-4987-831c-eb46424cf100","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"56be50ac-d599-4996-905d-7f3bcad9c3f1","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"939e85de-2cb5-49ad-894d-4a98eb60e147","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a3a310df-426c-4627-baad-1ff5b0b54aa0","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"1eadb15d-403a-4f02-b0f0-fdeb630a3f73","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d9887cdb-1e8f-4cb8-b558-1769fd670e3f","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2321bf6d-1cbd-42b4-a01e-391045da6450","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a237443b-e331-49b8-84bd-05da252fd68c","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2e7ce1d5-1573-480e-9e4a-fb39272efac8","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a0189756-fbcb-493d-bd05-f8d449d5b63c","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"ec460f9a-1569-41fb-9652-b540708cab3e","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c5d0684a-e1b7-47a2-a3ea-d55f89a92c5a","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"1bf6be8b-3d7e-4cc0-a4ad-345eeb3ea271","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"20b43eab-cc07-4a30-bd68-65919e95a91f","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"e81e33c8-daaa-435d-bda5-b6ab3d46fd14","IsCreationKey":false,"Key":8.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"863c4a19-82e2-49af-9b45-63ade615ddd9","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"cf614e8e-e6a6-4a54-a9b6-6fa3e9032841","IsCreationKey":false,"Key":9.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c8c5bde5-bd23-47c6-8f60-9bbd78247b36","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6756f6b7-9826-4e7f-bc96-a96ca4d3e951","IsCreationKey":false,"Key":10.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"990f2e90-4195-42b3-a9c6-2a3d87111adb","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"76602a07-203b-4b5a-a52b-25557788a253","IsCreationKey":false,"Key":11.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7f0c1ab2-4369-4440-ba65-7cab343fc2cb","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6735491c-f0b1-4c83-ae0c-8862bcd8e2d5","IsCreationKey":false,"Key":12.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"71bfd98d-26d5-467e-a081-1bb73161e6f5","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2db9fabd-5a84-4039-89fa-3fced907525b","IsCreationKey":false,"Key":13.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"34d5bd14-025a-4b15-b6bc-e79b1b3100bb","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"93eea94b-8b9d-4ac8-abc6-443a388a756f","IsCreationKey":false,"Key":14.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3675391a-60ea-45e5-9b75-c338af5e1fab","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"75eda544-b197-4121-92d3-f77a75254cb8","IsCreationKey":false,"Key":15.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"fb7b8f3d-0f91-46d3-8115-4ff2249b7969","path":"sprites/item_Salt_Bricks_Wall/item_Salt_Bricks_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"305b58e8-e026-4ff8-a914-0f506d527157","IsCreationKey":false,"Key":16.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

@@ -2171,6 +2171,7 @@ new ItemData("phantasia", item_Cattails, ITEM_TYPE_BIT.PLANT)
     .set_sfx("phantasia:tile.leaves");
 
 new ItemData("phantasia", item_Rock_Path, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, false)
     .set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
     .set_drops("phantasia:dirt")
@@ -5612,32 +5613,3 @@ new ItemData("phantasia", item_Bloom_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:bloom_sign")
     .set_sfx("phantasia:tile.wood");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
