@@ -40,17 +40,15 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 		{
 			var _tile = tile_get(i, j, _z, -1, _world_height);
 			
-			if (_tile == TILE_EMPTY) continue;
-			
-			var _scale_rotation_index = _tile.scale_rotation_index;
-			
-			if (_scale_rotation_index & (1 << 49)) continue;
+			if (_tile == TILE_EMPTY) || (!_tile.get_collision()) continue;
 			
 			var _data = _item_data[$ _tile.item_id];
 			
 			if ((_data.type & _type) == 0) continue;
 			
 			var _xtile = i * TILE_SIZE;
+            
+            var _scale_rotation_index = _tile.scale_rotation_index;
 			
 			var _tile_xoffset = ((_scale_rotation_index >> 40) & 0xf) - 8 - 0x80;
 			var _tile_yoffset = ((_scale_rotation_index >> 44) & 0xf) - 8 - 0x80;
