@@ -5656,7 +5656,7 @@ new ItemData("phantasia", item_Basalt_Wall, ITEM_TYPE_BIT.WALL)
     .set_drops("phantasia:basalt_wall")
     .set_sfx("phantasia:tile.stone");
 
-new ItemData("phantasia", item_Spruce_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
+new ItemData("phantasia", item_Pine_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
