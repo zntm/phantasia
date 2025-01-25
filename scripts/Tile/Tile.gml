@@ -17,45 +17,50 @@ function Tile(_item, _item_data = global.item_data) constructor
 	
 	if (_data.get_flip_on_x()) && (irandom(1))
 	{
-		scale_rotation_index = (scale_rotation_index & 0xf_f_f_0_ffff_ff_ff) | (7 << 32);
+		scale_rotation_index = (scale_rotation_index & 0x3_f_f_f_0_ffff_ff_ff) | (7 << 32);
 	}
 	
 	if (_data.get_flip_on_y()) && (irandom(1))
 	{
-		scale_rotation_index = (scale_rotation_index & 0xf_f_0_f_ffff_ff_ff) | (7 << 36);
+		scale_rotation_index = (scale_rotation_index & 0x3_f_f_0_f_ffff_ff_ff) | (7 << 36);
 	}
+    
+    static set_collision = function(_collision = true)
+    {
+        scale_rotation_index = (scale_rotation_index & 0x1_f_f_f_f_ffff_ff_ff) | (_collision << 49);
+    }
 	
 	static set_offset = function(_xoffset = 0, _yoffset = 0)
 	{
-		scale_rotation_index = ((_yoffset + 8) << 44) | ((_xoffset + 8) << 40) | (scale_rotation_index & 0x0_0_f_f_ffff_ff_ff);
+		scale_rotation_index = ((_yoffset + 8) << 44) | ((_xoffset + 8) << 40) | (scale_rotation_index & 0x3_0_0_f_f_ffff_ff_ff);
 		
 		return self;
 	}
 	
 	static set_xoffset = function(_xoffset = 0)
 	{
-		scale_rotation_index = ((_xoffset + 8) << 40) | (scale_rotation_index & 0xf_0_f_f_ffff_ff_ff);
+		scale_rotation_index = ((_xoffset + 8) << 40) | (scale_rotation_index & 0x3_f_0_f_f_ffff_ff_ff);
 		
 		return self;
 	}
 	
 	static set_yoffset = function(_yoffset = 0)
 	{
-		scale_rotation_index = ((_yoffset + 8) << 44) | (scale_rotation_index & 0x0_f_f_f_ffff_ff_ff);
+		scale_rotation_index = ((_yoffset + 8) << 44) | (scale_rotation_index & 0x3_0_f_f_f_ffff_ff_ff);
 		
 		return self;
 	}
 	
 	static set_scale = function(_xscale = 1, _yscale = 1)
 	{
-		scale_rotation_index = ((_yscale + 8) << 36) | ((_xscale + 8) << 32) | (scale_rotation_index & 0xf_f_0_0_ffff_ff_ff);
+		scale_rotation_index = ((_yscale + 8) << 36) | ((_xscale + 8) << 32) | (scale_rotation_index & 0x3_f_f_0_0_ffff_ff_ff);
 		
 		return self;
 	}
 	
 	static set_xscale = function(_xscale = 1)
 	{
-		scale_rotation_index = ((_xscale + 8) << 32) | (scale_rotation_index & 0xf_f_f_0_ffff_ff_ff);
+		scale_rotation_index = ((_xscale + 8) << 32) | (scale_rotation_index & 0x3_f_f_f_0_ffff_ff_ff);
 		
 		return self;
 	}
@@ -67,7 +72,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 	
 	static set_yscale = function(_yscale = 1)
 	{
-		scale_rotation_index = ((_yscale + 8) << 36) | (scale_rotation_index & 0xf_f_0_f_ffff_ff_ff);
+		scale_rotation_index = ((_yscale + 8) << 36) | (scale_rotation_index & 0x3_f_f_0_f_ffff_ff_ff);
 		
 		return self;
 	}
@@ -79,7 +84,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 	
 	static set_rotation = function(_rotation = 0)
 	{
-		scale_rotation_index = ((_rotation + 0x8000) << 16) | (scale_rotation_index & 0xf_f_f_f_0000_ff_ff);
+		scale_rotation_index = ((_rotation + 0x8000) << 16) | (scale_rotation_index & 0x3_f_f_f_f_0000_ff_ff);
 		
 		return self;
 	}
@@ -91,7 +96,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 	
 	static set_index = function(_index = 1)
 	{
-		scale_rotation_index = ((_index + 0x80) << 8) | (scale_rotation_index & 0xf_f_f_f_ffff_00_ff);
+		scale_rotation_index = ((_index + 0x80) << 8) | (scale_rotation_index & 0x3_f_f_f_f_ffff_00_ff);
 		
 		return self;
 	}
@@ -103,7 +108,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 	
 	static set_index_offset = function(_index = 1)
 	{
-		scale_rotation_index = (_index + 0x80) | (scale_rotation_index & 0xf_f_f_f_ffff_ff_00);
+		scale_rotation_index = (_index + 0x80) | (scale_rotation_index & 0x3_f_f_f_f_ffff_ff_00);
 		
 		return self;
 	}

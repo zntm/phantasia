@@ -275,6 +275,25 @@ with (obj_Chunk)
 ctrl_chunk_generate();
 ctrl_chunk_generate_1();
 
+if (mouse_check_button_pressed(mb_right))
+{
+    var _inst = instance_position(mouse_x, mouse_y, obj_Tile_Instance);
+    
+    if (instance_exists(_inst))
+    {
+        var _on_interaction = _inst.on_interaction;
+        
+        if (_on_interaction != undefined)
+        {
+            var _x = _inst.position_x;
+            var _y = _inst.position_y;
+            var _z = _inst.position_z;
+            
+            _on_interaction(_x, _y, _z, tile_get(_x, _y, _z, -1));
+        }
+    }
+}
+
 var _world_settings = global.world_settings;
 
 var _cycle_time    = _world_settings.cycle_time;

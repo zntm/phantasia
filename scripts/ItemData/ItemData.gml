@@ -60,8 +60,6 @@ enum ITEM_TYPE_BIT {
     CROP              = 1 << ITEM_TYPE.CROP
 }
 
-global.item_data_on_draw = {}
-
 enum TOOL_POWER {
     ALL,
     WOOD,
@@ -89,6 +87,25 @@ enum ITEM_BOOLEAN {
 }
 
 global.item_data = {}
+global.item_data_on_draw = {}
+
+global.tile_variable_sign = {
+    text: "Text"
+}
+
+global.tile_menu_sign = [
+    new ItemMenu("button")
+        .set_icon(ico_Arrow_Left)
+        .set_position(32, 32)
+        .set_scale(2.5, 2.5),
+    new ItemMenu("anchor")
+        .set_text("Enter Text")
+        .set_position(480, 172 - 32),
+    new ItemMenu("textbox-string")
+        .set_position(480, 172)
+        .set_scale(32, 5)
+        .set_variable("text"),
+];
 
 function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructor
 {
@@ -3022,7 +3039,31 @@ new ItemData("phantasia", item_Egg, ITEM_TYPE_BIT.THROWABLE | ITEM_TYPE_BIT.AMMO
     .set_ammo_type("phantasia:egg");
 
 new ItemData("phantasia", item_Acacia_Door, ITEM_TYPE_BIT.SOLID)
+    .set_instance({
+        xscale: 1,
+        yscale: 1,
+        on_interaction: function(_x, _y, _z, _tile)
+        {
+            if (_tile.scale_rotation_index & (1 << 49))
+            {
+                _tile
+                    .set_index(2)
+                    .set_collision(false);
+                
+                show_debug_message("OPEN")
+            }
+            else
+            {
+                _tile
+                    .set_index(2)
+                    .set_collision(true);
+                
+                show_debug_message("CLOSE")
+            }
+        },
+    })
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_random_index(1, 1)
     .set_drops("phantasia:acacia_door");
 
 new ItemData("phantasia", item_Watermelon, ITEM_TYPE_BIT.CONSUMABLE)

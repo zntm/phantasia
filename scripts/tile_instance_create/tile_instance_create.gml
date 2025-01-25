@@ -51,6 +51,7 @@ function tile_instance_create(_x, _y, _z, _tile, _item_data = global.item_data)
             position_z = _z;
             
             on_draw = _instance[$ "on_draw"];
+            on_interaction = _instance[$ "on_interaction"];
             
             tile_set(_x, _y, _z, "instance.instance", id);
         }
