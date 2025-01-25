@@ -1909,6 +1909,7 @@ new ItemData("phantasia", item_Bloom_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Bloom_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -3089,6 +3090,7 @@ new ItemData("phantasia", item_Egg, ITEM_TYPE_BIT.THROWABLE | ITEM_TYPE_BIT.AMMO
     .set_ammo_type("phantasia:egg");
 
 new ItemData("phantasia", item_Acacia_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -3136,6 +3138,7 @@ new ItemData("phantasia", item_Ashen_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Ashen_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -3216,6 +3219,7 @@ new ItemData("phantasia", item_Birch_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_drops("phantasia:birch_table");
 
 new ItemData("phantasia", item_Birch_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -4544,6 +4548,7 @@ new ItemData("phantasia", item_Mangrove_Planks_Wall, ITEM_TYPE_BIT.WALL)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Cherry_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -4718,6 +4723,7 @@ new ItemData("phantasia", item_Stove, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.
     .set_sfx_craft("phantasia:tile.craft.furnace");
 
 new ItemData("phantasia", item_Yucca_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -4756,6 +4762,7 @@ new ItemData("phantasia", item_Oak_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Wysteria_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -4763,6 +4770,7 @@ new ItemData("phantasia", item_Wysteria_Door, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Oak_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -5486,6 +5494,7 @@ new ItemData("phantasia", item_Mangrove_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Mangrove_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -5509,6 +5518,7 @@ new ItemData("phantasia", item_Mahogany_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Mahogany_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -5532,6 +5542,7 @@ new ItemData("phantasia", item_Blizzard_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Blizzard_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -5555,6 +5566,7 @@ new ItemData("phantasia", item_Pine_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Pine_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
@@ -5578,6 +5590,7 @@ new ItemData("phantasia", item_Palm_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Palm_Door, ITEM_TYPE_BIT.SOLID)
+    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
