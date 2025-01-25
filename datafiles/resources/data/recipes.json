@@ -1171,8 +1171,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:acacia_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:acacia_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:acacia_sign"
 		},
 		{
 			"ingredients": [
@@ -1262,8 +1273,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:ashen_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:ashen_sign"
 		},
 		{
 			"ingredients": [
@@ -1353,8 +1375,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:birch_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:birch_sign"
 		},
 		{
 			"ingredients": [
@@ -1444,8 +1477,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:blizzard_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:blizzard_sign"
 		},
 		{
 			"ingredients": [
@@ -1535,8 +1579,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:bloom_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:bloom_sign"
 		},
 		{
 			"ingredients": [
@@ -1626,8 +1681,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:cherry_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:cherry_sign"
 		},
 		{
 			"ingredients": [
@@ -1717,8 +1783,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:mahogany_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:mahogany_sign"
 		},
 		{
 			"ingredients": [
@@ -1808,8 +1885,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:mangrove_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:mangrove_sign"
 		},
 		{
 			"ingredients": [
@@ -1899,8 +1987,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:oak_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:oak_sign"
 		},
 		{
 			"ingredients": [
@@ -1996,6 +2095,17 @@
 		{
 			"ingredients": [
 				{
+					"item_id": "phantasia:palm_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:sawmill",
+			"item_id": "phantasia:palm_sign"
+		},
+		{
+			"ingredients": [
+				{
 					"item_id": "phantasia:pine_wood",
 					"amount": 12,
 					"unlock_grimoire": true
@@ -2081,8 +2191,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:pine_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:pine_sign"
 		},
 		{
 			"ingredients": [
@@ -2172,8 +2293,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:wysteria_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:wysteria_sign"
 		},
 		{
 			"ingredients": [
@@ -2263,8 +2395,19 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:sawmill",
+			"stations": "phantasia:workbench",
 			"item_id": "phantasia:yucca_door"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_planks",
+					"amount": 5,
+					"unlock_grimoire": true
+				}
+			],
+			"stations": "phantasia:workbench",
+			"item_id": "phantasia:yucca_sign"
 		},
 		{
 			"ingredients": [

@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"item_Spruce_Sign",
+  "%Name":"item_Pine_Sign",
   "bboxMode":0,
   "bbox_bottom":15,
   "bbox_left":0,
@@ -26,7 +26,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"b7295133-c489-4249-9bc1-3ca3e37305f2","blendMode":0,"displayName":"default","isLocked":false,"name":"b7295133-c489-4249-9bc1-3ca3e37305f2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"item_Spruce_Sign",
+  "name":"item_Pine_Sign",
   "nineSlice":null,
   "origin":4,
   "parent":{
@@ -38,7 +38,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"item_Spruce_Sign",
+    "%Name":"item_Pine_Sign",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -62,7 +62,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"item_Spruce_Sign",
+    "name":"item_Pine_Sign",
     "playback":1,
     "playbackSpeed":0.0,
     "playbackSpeedType":0,
@@ -74,7 +74,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a4e85dbc-3961-4540-befe-25dacb716bb8","path":"sprites/item_Spruce_Sign/item_Spruce_Sign.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a4e85dbc-3961-4540-befe-25dacb716bb8","path":"sprites/item_Pine_Sign/item_Pine_Sign.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"c5364449-b72b-4210-85c5-ec17f51f9c91","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
