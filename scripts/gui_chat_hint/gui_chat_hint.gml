@@ -18,7 +18,7 @@ function gui_chat_hint(_x, _y)
             
             draw_sprite_ext(spr_Square, 0, _x2, _y2, 64, 32, 0, _hex, 1);
             
-            draw_text_colour(_x2, _y2, $"TEST MESSAGE", _hex, _hex, _hex, _hex, 1);
+            draw_text_colour(_x2, _y2, loca_translate("gui.chat.preview_colour"), _hex, _hex, _hex, _hex, 1);
             
             exit;
         }
@@ -43,6 +43,6 @@ function gui_chat_hint(_x, _y)
         
         draw_sprite(_emote_data[$ _name], 0, _x2, _y2 + EMOTE_HEIGHT);
         
-        draw_text_colour(_x2 + EMOTE_WIDTH, _y2, $"{CUTEIFY_BRACKET_OPEN}{_name}{CUTEIFY_BRACKET_CLOSE}", c_white, c_white, c_white, c_white, 0.5);
+        draw_text_colour(_x2 + EMOTE_WIDTH, _y2, CUTEIFY_BRACKET_OPEN + _name + CUTEIFY_BRACKET_CLOSE, c_white, c_white, c_white, c_white, 0.5);
     }
 }
