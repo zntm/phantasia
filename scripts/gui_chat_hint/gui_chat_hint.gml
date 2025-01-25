@@ -1,11 +1,11 @@
 function gui_chat_hint(_x, _y)
 {
+    if (chat_message == "") || (!string_contains(chat_message, CUTEIFY_BRACKET_OPEN)) exit;
+    
     var _chat_message_split = string_split(chat_message, CUTEIFY_BRACKET_OPEN);
     var _chat_message_split_length = array_length(_chat_message_split);
     
     var _chat_message_split_end = _chat_message_split[_chat_message_split_length - 1];
-    
-    if (_chat_message_split_length <= 0) exit;
     
     if (_chat_message_split_end != "")
     {

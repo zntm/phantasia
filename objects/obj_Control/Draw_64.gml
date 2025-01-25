@@ -167,10 +167,10 @@ if (_hp <= 0)
     draw_sprite_stretched_ext(spr_Vignette, 0, 0, 0, _gui_width, _gui_height, GUI_HP_VIGNETTE_COLOUR, 0.5);
     
     draw_set_align(fa_center, fa_middle);
-            
+    
     var _x = _gui_width  / 2;
     var _y = _gui_height / 2;
-        
+    
     draw_text_transformed(_x, _y - 40, loca_translate("gui.death.header"), 3, 3, 0);
     
     draw_text(_x, _y + 40, string_get_death(obj_Player));
@@ -304,7 +304,7 @@ if (is_opened_gui)
     var _box_y = _gui_height - (_height * _yscale / 2) + GUI_CHAT_YOFFSET;
     
     var _text_x = (_width * -GUI_CHAT_XSCALE_OFFSET) + GUI_CHAT_TEXT_XOFFSET;
-    var _text_y = _box_y - (string_height(chat_message) / 2) + GUI_CHAT_TEXT_YOFFSET;
+    var _text_y = _box_y - (string_height("I") / 2) + GUI_CHAT_TEXT_YOFFSET;
     
     var _history_ystart = _gui_height - (_height * _yscale) + GUI_CHAT_YOFFSET;
     var _history_height = string_height("I");
@@ -416,7 +416,10 @@ if (is_opened_gui)
     }
 }
 
-draw_sprite_ext(spr_GUI_Edge, 0, _gui_width - GUI_SAFE_ZONE_X, _gui_height - GUI_SAFE_ZONE_Y, 2, -2, 0, c_white, 0.25);
+if (!is_paused) && (!is_opened_inventory) && (!is_opened_chat)
+{
+    draw_sprite_ext(spr_GUI_Edge, 0, _gui_width - GUI_SAFE_ZONE_X, _gui_height - GUI_SAFE_ZONE_Y, 2, -2, 0, c_white, 0.25);
+}
 
 if (is_opened_fps)
 {

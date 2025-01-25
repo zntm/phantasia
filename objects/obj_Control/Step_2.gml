@@ -32,6 +32,7 @@ if (timer_lighting >= 4)
 }
 
 ++global.timer;
+
 global.timer_delta += global.delta_time;
 
 if (DEVELOPER_MODE)
@@ -46,4 +47,6 @@ if (DEVELOPER_MODE)
         
         global.debug_resource_counts[$ _name] = _data[$ _name];
     }
+    
+    delete _data;
 }

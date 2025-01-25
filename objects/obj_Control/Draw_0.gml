@@ -89,8 +89,3 @@ with (obj_Tile_Instance)
         on_draw(x, y, id);
     }
 }
-
-with (obj_Player)
-{
-    draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true)
-}
