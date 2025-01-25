@@ -12,14 +12,30 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"daceafc8-6049-4b60-b2c8-8a5f457feb21","name":"daceafc8-6049-4b60-b2c8-8a5f457feb21","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"911072cb-9f0a-45d5-90b3-fce99a41867c","name":"911072cb-9f0a-45d5-90b3-fce99a41867c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"85e8a8cc-b03e-4c88-a292-8e70161a9181","name":"85e8a8cc-b03e-4c88-a292-8e70161a9181","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"e33e8d49-9713-45cb-94e1-0d174d319409","name":"e33e8d49-9713-45cb-94e1-0d174d319409","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"e65303d0-8f6e-4218-bbf4-b4473888c055","name":"e65303d0-8f6e-4218-bbf4-b4473888c055","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"fede92ea-95a7-420d-8650-52ee9a5d6854","name":"fede92ea-95a7-420d-8650-52ee9a5d6854","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"854879b5-8f94-4a0e-892e-c7aaf98be33b","name":"854879b5-8f94-4a0e-892e-c7aaf98be33b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"2bc2d2cf-86ca-49df-952d-4d086183d99e","name":"2bc2d2cf-86ca-49df-952d-4d086183d99e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"9d439c26-13a2-4b04-a2d2-c1a15f84acb3","name":"9d439c26-13a2-4b04-a2d2-c1a15f84acb3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"bd8610f0-913c-4e32-9207-29b8bbfa5494","name":"bd8610f0-913c-4e32-9207-29b8bbfa5494","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"7b90ded8-198e-4fda-a1ac-480024e56ef4","name":"7b90ded8-198e-4fda-a1ac-480024e56ef4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"616f921d-bd3e-4f6f-8df5-4eb73cf24942","name":"616f921d-bd3e-4f6f-8df5-4eb73cf24942","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"5c489cf7-aae2-42df-b5bd-ab4488d309fd","name":"5c489cf7-aae2-42df-b5bd-ab4488d309fd","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"d1cb1464-956a-4952-9502-d01b3450f9cf","name":"d1cb1464-956a-4952-9502-d01b3450f9cf","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"b8183289-e78c-42c3-923d-48d95fd8a59d","name":"b8183289-e78c-42c3-923d-48d95fd8a59d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"931e23e8-c32a-471a-b956-443e2b0c1d03","name":"931e23e8-c32a-471a-b956-443e2b0c1d03","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"9cf0d8bc-c42e-40b9-9300-4f909b6ae25d","name":"9cf0d8bc-c42e-40b9-9300-4f909b6ae25d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"d00acdd1-6d1a-4375-b77d-89f7c963ffd7","name":"d00acdd1-6d1a-4375-b77d-89f7c963ffd7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"1d5fb9f1-94ed-4fd8-96d1-85b8a347fdfc","blendMode":0,"displayName":"default","isLocked":false,"name":"1d5fb9f1-94ed-4fd8-96d1-85b8a347fdfc","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"8d5dea2e-0f40-4c36-a549-218c3639f4c5","blendMode":0,"displayName":"default","isLocked":false,"name":"8d5dea2e-0f40-4c36-a549-218c3639f4c5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"item_Polished_Sandstone_Wall",
   "nineSlice":null,
@@ -49,7 +65,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":17.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -69,8 +85,56 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"daceafc8-6049-4b60-b2c8-8a5f457feb21","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"1b4076d2-380c-46ab-b67d-da7a712cfe33","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"911072cb-9f0a-45d5-90b3-fce99a41867c","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"71ced3a6-9e1b-4063-9e2a-d1dff0204f45","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"85e8a8cc-b03e-4c88-a292-8e70161a9181","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"eacecb9d-3bbc-49bb-bca9-5bf8f26fb536","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e33e8d49-9713-45cb-94e1-0d174d319409","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d5f0f8c5-6df2-4e7a-bf19-18ccd981ff41","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e65303d0-8f6e-4218-bbf4-b4473888c055","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"83913adf-5dc7-43e8-b656-ffdec28066f7","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"fede92ea-95a7-420d-8650-52ee9a5d6854","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"65be47d1-c33f-4d06-80ef-9db92995a36a","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"854879b5-8f94-4a0e-892e-c7aaf98be33b","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a9ed63cc-ee08-414b-ab7b-4fa97ef4cc51","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2bc2d2cf-86ca-49df-952d-4d086183d99e","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"517c3d12-2e8a-42cd-8b7b-8113d1a94d15","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9d439c26-13a2-4b04-a2d2-c1a15f84acb3","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"b8bdd7a1-41d6-41bb-9599-9fb8c21bdd26","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"bd8610f0-913c-4e32-9207-29b8bbfa5494","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"582ab63a-1dd5-4b60-95ef-a2581f365ef1","IsCreationKey":false,"Key":8.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7b90ded8-198e-4fda-a1ac-480024e56ef4","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8be117fb-55b1-44aa-b307-ece26bb80326","IsCreationKey":false,"Key":9.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"616f921d-bd3e-4f6f-8df5-4eb73cf24942","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6be42590-ab55-4927-b222-2471522a58ea","IsCreationKey":false,"Key":10.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5c489cf7-aae2-42df-b5bd-ab4488d309fd","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"762f02c3-e3f2-41db-897f-9974cacaf628","IsCreationKey":false,"Key":11.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d1cb1464-956a-4952-9502-d01b3450f9cf","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c243ee84-9172-4fd5-9ac6-e0d2ce1ccdd7","IsCreationKey":false,"Key":12.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b8183289-e78c-42c3-923d-48d95fd8a59d","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"716b4ea7-4426-49a1-9bdf-e3e9421a8b4d","IsCreationKey":false,"Key":13.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"931e23e8-c32a-471a-b956-443e2b0c1d03","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a93ba35f-6ea0-4d7f-bd86-759dd9c8d984","IsCreationKey":false,"Key":14.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9cf0d8bc-c42e-40b9-9300-4f909b6ae25d","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"cceb6a43-cb2c-4969-8501-8c7120b47846","IsCreationKey":false,"Key":15.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d00acdd1-6d1a-4375-b77d-89f7c963ffd7","path":"sprites/item_Polished_Sandstone_Wall/item_Polished_Sandstone_Wall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"40386ba9-ed99-4e6f-8400-40b04bed4fd9","IsCreationKey":false,"Key":16.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

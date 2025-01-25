@@ -12,14 +12,30 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"b61b830c-307a-457a-bb28-9b7c5475e61d","name":"b61b830c-307a-457a-bb28-9b7c5475e61d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"d160f370-0ec9-4fa1-a7a5-0bc5e2f3dc26","name":"d160f370-0ec9-4fa1-a7a5-0bc5e2f3dc26","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"5d053f3e-c156-4395-9615-e23069a33a1d","name":"5d053f3e-c156-4395-9615-e23069a33a1d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"45721791-68bc-43d7-832f-3c9512758e32","name":"45721791-68bc-43d7-832f-3c9512758e32","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c2021ed8-0117-43f8-ac28-d0344cd3a669","name":"c2021ed8-0117-43f8-ac28-d0344cd3a669","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"bd7c95e5-1b12-4707-a8a8-eb0cf00a5003","name":"bd7c95e5-1b12-4707-a8a8-eb0cf00a5003","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"5e9942bf-2ea6-468f-ba2b-33aee74167ae","name":"5e9942bf-2ea6-468f-ba2b-33aee74167ae","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c633c566-e79b-48b7-b20c-1136181b0a9b","name":"c633c566-e79b-48b7-b20c-1136181b0a9b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"d2316448-1a42-4f10-9cbb-6aa8afe77548","name":"d2316448-1a42-4f10-9cbb-6aa8afe77548","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"87c91a6c-3f4d-483a-969f-c3175b47bed6","name":"87c91a6c-3f4d-483a-969f-c3175b47bed6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"3952a835-a86b-49cc-836b-3d399bd40175","name":"3952a835-a86b-49cc-836b-3d399bd40175","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"9e4fc2cb-9e05-40cb-85c3-7eb5cecef879","name":"9e4fc2cb-9e05-40cb-85c3-7eb5cecef879","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"ea129d0a-05ec-4d38-9907-0718419ffc06","name":"ea129d0a-05ec-4d38-9907-0718419ffc06","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"36885688-a3d4-4765-b368-8c463d297fec","name":"36885688-a3d4-4765-b368-8c463d297fec","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"abac8b66-11e7-44ba-b112-19f7bd6c47b5","name":"abac8b66-11e7-44ba-b112-19f7bd6c47b5","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"6ff2a522-2706-4e82-a295-e973c1790753","name":"6ff2a522-2706-4e82-a295-e973c1790753","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"e683bd8c-09ef-48c2-9bc8-91b926944662","name":"e683bd8c-09ef-48c2-9bc8-91b926944662","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"3f126bd2-4c0f-494f-a7fc-0bd69a0473c2","name":"3f126bd2-4c0f-494f-a7fc-0bd69a0473c2","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"480dccf8-d1cd-42a4-b882-9b68f2089002","blendMode":0,"displayName":"default","isLocked":false,"name":"480dccf8-d1cd-42a4-b882-9b68f2089002","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"ebd7705d-2718-4ad1-a1f8-a8e7b0022b5b","blendMode":0,"displayName":"default","isLocked":false,"name":"ebd7705d-2718-4ad1-a1f8-a8e7b0022b5b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"item_Polished_Sandstone",
   "nineSlice":null,
@@ -49,7 +65,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":17.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -69,8 +85,56 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b61b830c-307a-457a-bb28-9b7c5475e61d","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"2b6ec486-2189-4215-92b9-c3448ae4c36c","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d160f370-0ec9-4fa1-a7a5-0bc5e2f3dc26","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"1fe30bb8-5f5b-4de3-9088-33d285e51a2e","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5d053f3e-c156-4395-9615-e23069a33a1d","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"5eee3741-56ea-4436-94ba-63c5103a6696","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"45721791-68bc-43d7-832f-3c9512758e32","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d5383e5d-742e-4e30-980e-b6f6bfd8f5f7","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c2021ed8-0117-43f8-ac28-d0344cd3a669","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"0f3244d5-405d-44c2-936b-32594fb1b4b7","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"bd7c95e5-1b12-4707-a8a8-eb0cf00a5003","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8fb85648-b9b7-4103-bc86-c4270120fe1f","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5e9942bf-2ea6-468f-ba2b-33aee74167ae","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"1719c7da-0240-4a4c-94dd-dda694fa3e7f","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c633c566-e79b-48b7-b20c-1136181b0a9b","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"4aade61b-9676-4017-a56c-d89257df515e","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d2316448-1a42-4f10-9cbb-6aa8afe77548","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"829732c3-5f77-4beb-b40c-96f865bbab89","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"87c91a6c-3f4d-483a-969f-c3175b47bed6","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"788c5e16-376e-4122-856e-d3517b8db5d1","IsCreationKey":false,"Key":8.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3952a835-a86b-49cc-836b-3d399bd40175","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2a6d9a1d-9de4-42c9-a1d7-0e713a70d82c","IsCreationKey":false,"Key":9.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9e4fc2cb-9e05-40cb-85c3-7eb5cecef879","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"e1248bbb-aa85-48e6-a5a0-6fd3a5cc53e3","IsCreationKey":false,"Key":10.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ea129d0a-05ec-4d38-9907-0718419ffc06","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"78915a38-7b48-4c8f-8ef5-51ad987e7e6d","IsCreationKey":false,"Key":11.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"36885688-a3d4-4765-b368-8c463d297fec","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a1be4b13-8f5f-4957-93a9-178c0f0f0c93","IsCreationKey":false,"Key":12.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"abac8b66-11e7-44ba-b112-19f7bd6c47b5","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a8eb7fcf-272e-402d-a184-1ece9737e27c","IsCreationKey":false,"Key":13.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6ff2a522-2706-4e82-a295-e973c1790753","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"17793b59-ea38-46cc-9be8-1cf6a3392821","IsCreationKey":false,"Key":14.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e683bd8c-09ef-48c2-9bc8-91b926944662","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"9eeca6fe-e084-44ba-86ea-0f3c090ea3a5","IsCreationKey":false,"Key":15.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3f126bd2-4c0f-494f-a7fc-0bd69a0473c2","path":"sprites/item_Polished_Sandstone/item_Polished_Sandstone.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"be7407da-1d3a-4472-bdff-f2d5beadd40b","IsCreationKey":false,"Key":16.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

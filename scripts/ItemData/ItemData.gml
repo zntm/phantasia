@@ -4423,6 +4423,7 @@ new ItemData("phantasia", item_Vial, ITEM_TYPE_BIT.UNTOUCHABLE);
 new ItemData("phantasia", item_Block_of_Brass, ITEM_TYPE_BIT.UNTOUCHABLE);
 
 new ItemData("phantasia", item_Block_Of_Salt, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, false)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 22)
     .set_drops("phantasia:block_of_salt")
