@@ -3089,7 +3089,6 @@ new ItemData("phantasia", item_Egg, ITEM_TYPE_BIT.THROWABLE | ITEM_TYPE_BIT.AMMO
     .set_ammo_type("phantasia:egg");
 
 new ItemData("phantasia", item_Acacia_Door, ITEM_TYPE_BIT.SOLID)
-    .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
