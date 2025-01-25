@@ -70,10 +70,10 @@ function render_lighting(_camera_x, _camera_y, _camera_width, _camera_height)
             var _xdraw = (_xstart - _camera_x) + TILE_SIZE_H;
             var _ydraw = (_ystart - _camera_y) + TILE_SIZE_H;
             
-            draw_sprite_ext(spr_Glow_Pixel, 0, _xdraw + TILE_SIZE, _ydraw, TILE_SIZE, TILE_SIZE, 0, colour_offset, _xnormalized * 0.5);
+            draw_sprite_ext(spr_Glow_Pixel, 0, _xdraw + TILE_SIZE, _ydraw, TILE_SIZE, TILE_SIZE, 0, colour_offset,     (_xnormalized) * 0.5);
             draw_sprite_ext(spr_Glow_Pixel, 0, _xdraw - TILE_SIZE, _ydraw, TILE_SIZE, TILE_SIZE, 0, colour_offset, (1 - _xnormalized) * 0.5);
             
-            draw_sprite_ext(spr_Glow_Pixel, 0, _xdraw, _ydraw + TILE_SIZE, TILE_SIZE, TILE_SIZE, 0, colour_offset, _ynormalized * 0.5);
+            draw_sprite_ext(spr_Glow_Pixel, 0, _xdraw, _ydraw + TILE_SIZE, TILE_SIZE, TILE_SIZE, 0, colour_offset,     (_ynormalized) * 0.5);
             draw_sprite_ext(spr_Glow_Pixel, 0, _xdraw, _ydraw - TILE_SIZE, TILE_SIZE, TILE_SIZE, 0, colour_offset, (1 - _ynormalized) * 0.5);
             
             continue;

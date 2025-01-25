@@ -1,5 +1,7 @@
 gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_src_alpha, bm_one);
 
+var _application_surface = application_surface;
+
 var _delta_time = global.delta_time;
 
 var _camera = global.camera;
@@ -24,7 +26,10 @@ if (_colourblind != 0)
     draw_surface_stretched(application_surface, 0, 0, _gui_width, _gui_height);
     
     shader_reset();
+    
     surface_reset_target();
+    
+    _application_surface = surface_colourblind;
 }
 
 if (is_exiting)
@@ -38,7 +43,7 @@ if (is_exiting)
     
     if (_blur_strength <= 0)
     {
-        draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+        draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
     }
     else
     {
@@ -53,7 +58,7 @@ if (is_exiting)
             _blur_strength * blur_value * 0.0000016
         );
         
-        draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+        draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
         
         shader_reset();
     }
@@ -89,13 +94,11 @@ else if (blur_value > 0)
 
 if (blur_value > 0)
 {
-    var _surface = surface_get_texture(application_surface);
-    
     var _blur_strength = global.settings_value.blur_strength;
     
     if (_blur_strength <= 0)
     {
-        draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+        draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
     }
     else
     {
@@ -103,19 +106,19 @@ if (blur_value > 0)
         
         shader_set_uniform_f(
             global.shader_blur_size,
-            texture_get_texel_height(_surface),
-            texture_get_texel_width(_surface),
+            surface_get_height(_application_surface) / _gui_height,
+            surface_get_width(_application_surface)  / _gui_width,
             _blur_strength * blur_value * 0.0000016
         );
         
-        draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+        draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
         
         shader_reset();
     }
 }
 else
 {
-    draw_surface_stretched((_colourblind != 0 ? surface_colourblind : application_surface), 0, 0, _gui_width, _gui_height);
+    draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
 }
 
 if (!DEVELOPER_MODE) || (global.debug_settings.lighting)
@@ -192,8 +195,6 @@ if (surface_refresh_hp)
     
 #endregion
 
-var _inventory = global.inventory;
-
 var _gui_mouse_x = (window_mouse_get_x() / window_get_width())  * _gui_width;
 var _gui_mouse_y = (window_mouse_get_y() / window_get_height()) * _gui_height;
 
@@ -212,6 +213,8 @@ if (surface_refresh_inventory)
     {
         surface_inventory = surface_create(_gui_width, _gui_height);
     }
+    
+    var _inventory = global.inventory;
     
     surface_set_target(surface_inventory);
     draw_clear_alpha(DRAW_CLEAR_COLOUR, DRAW_CLEAR_ALPHA);
