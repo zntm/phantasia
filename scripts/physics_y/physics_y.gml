@@ -68,7 +68,7 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
             if (_nudged) continue;
         }
         
-        for (var j = _size; j > 0; --j)
+        for (var j = _size; j > 0; j -= 1)
         {
             var _ = min(j, 1) * _sign;
             

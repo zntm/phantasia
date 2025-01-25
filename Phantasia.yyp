@@ -1186,6 +1186,7 @@
     {"id":{"name":"obj_Tile_Instance","path":"objects/obj_Tile_Instance/obj_Tile_Instance.yy",},},
     {"id":{"name":"obj_Tile_Light","path":"objects/obj_Tile_Light/obj_Tile_Light.yy",},},
     {"id":{"name":"obj_Tile_Station","path":"objects/obj_Tile_Station/obj_Tile_Station.yy",},},
+    {"id":{"name":"obj_Tile","path":"objects/obj_Tile/obj_Tile.yy",},},
     {"id":{"name":"obj_Toast","path":"objects/obj_Toast/obj_Toast.yy",},},
     {"id":{"name":"obj_Tool","path":"objects/obj_Tool/obj_Tool.yy",},},
     {"id":{"name":"obj_Warning","path":"objects/obj_Warning/obj_Warning.yy",},},

@@ -289,7 +289,7 @@ if (mouse_check_button_pressed(mb_right))
             var _y = _inst.position_y;
             var _z = _inst.position_z;
             
-            _on_interaction(_x, _y, _z, tile_get(_x, _y, _z, -1));
+            _on_interaction(_x, _y, _z, tile_get(_x, _y, _z, -1), id);
         }
     }
 }

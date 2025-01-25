@@ -15,6 +15,8 @@ global.tile_update_inst_y = undefined;
 global.chunk_camera_x = 0;
 global.chunk_camera_y = 0;
 
+global.tile_meeting_inst = instance_create_layer(0, -512, "Instances", obj_Tile);
+
 inventory_tooltip_inst = -1;
 
 var _world = global.world;

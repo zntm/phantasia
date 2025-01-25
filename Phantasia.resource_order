@@ -214,6 +214,7 @@
     {"name":"obj_Tile_Instance","order":1,"path":"objects/obj_Tile_Instance/obj_Tile_Instance.yy",},
     {"name":"obj_Tile_Light","order":2,"path":"objects/obj_Tile_Light/obj_Tile_Light.yy",},
     {"name":"obj_Tile_Station","order":3,"path":"objects/obj_Tile_Station/obj_Tile_Station.yy",},
+    {"name":"obj_Tile","order":12,"path":"objects/obj_Tile/obj_Tile.yy",},
     {"name":"obj_Toast","order":8,"path":"objects/obj_Toast/obj_Toast.yy",},
     {"name":"obj_Tool","order":9,"path":"objects/obj_Tool/obj_Tool.yy",},
     {"name":"obj_Whip","order":10,"path":"objects/obj_Whip/obj_Whip.yy",},

@@ -57,6 +57,16 @@ function Tile(_item, _item_data = global.item_data) constructor
 		
 		return self;
 	}
+    
+    static get_xoffset = function()
+    {
+        return ((scale_rotation_index >> 40) & 0xf) - 8;
+    }
+    
+    static get_yoffset = function()
+    {
+        return ((scale_rotation_index >> 44) & 0xf) - 8;
+    }
 	
 	static set_scale = function(_xscale = 1, _yscale = 1)
 	{

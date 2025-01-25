@@ -7,6 +7,7 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 	
 	var _item_data = global.item_data;
 	
+    /*
 	var _xscale = abs(image_xscale);
 	var _yscale = abs(image_yscale);
 	
@@ -20,12 +21,27 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 	var _y1 = (_ay1 < _ay2 ? _ay1 : _ay2) + abs(_yscale * sprite_bbox_top);
 	var _x2 = (_ax1 > _ax2 ? _ax1 : _ax2);
 	var _y2 = (_ay1 > _ay2 ? _ay1 : _ay2) + 1;
-	
+	*/
+    
+    var _ax = _x - sprite_get_xoffset(sprite_index);
+    var _ay = _y - sprite_get_yoffset(sprite_index);
+    
+    var _bx = _ax + sprite_get_width(sprite_index);
+    var _by = _ay + sprite_get_height(sprite_index);
+    
+    var _x1 = min(_ax, _bx);
+    var _y1 = min(_ay, _by);
+    
+    var _x2 = max(_ax, _bx);
+    var _y2 = max(_ay, _by);
+     
 	var _xstart = floor(_x1 / TILE_SIZE);
 	var _ystart = floor(_y1 / TILE_SIZE);
 	
 	var _xend = ceil(_x2 / TILE_SIZE);
 	var _yend = ceil(_y2 / TILE_SIZE);
+    
+    var _inst = global.tile_meeting_inst;
 	
 	for (var j = max(0, _ystart); j <= _yend; ++j)
 	{
@@ -48,6 +64,52 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 			
 			var _xtile = i * TILE_SIZE;
             
+            with (_inst)
+            {
+                sprite_index = _data.sprite;
+                image_index  = _tile.get_index() + _tile.get_index_offset();
+                
+                x = _xtile + _tile.get_xoffset();
+                y = _ytile + _tile.get_yoffset();
+                
+                image_xscale = _tile.get_xscale();
+                image_yscale = _tile.get_yscale();
+            }
+            
+            if (place_meeting(_x, _y, _inst))
+            {
+                return true;
+            }
+            /*
+            //*
+            var _collision_box_length = _data.collision_box_length;
+            
+            for (var l = 0; l < _collision_box_length; ++l)
+            {
+                var _x3 = _xtile + _data.get_collision_box_left(l);
+                var _y3 = _ytile + _data.get_collision_box_top(l);
+                
+                if (_tile.item_id == "phantasia:acacia_door")
+                {
+                    show_debug_message($"{_data.get_collision_box_left(l)} {_data.get_collision_box_top(l)} {_data.get_collision_box_right(l)} {_data.get_collision_box_bottom(l)}\nT: {_x1} {_y1} {_x2} {_y2}\n({_xtile} {_ytile}): {_x3} {_y3} {_x3 + _data.get_collision_box_right(l)} {_y3 + _data.get_collision_box_bottom(l)}");
+                }
+                
+                if (rectangle_in_rectangle(
+                    _x1,
+                    _y1,
+                    _x2,
+                    _y2,
+                    _x3,
+                    _y3,
+                    _x3 + _data.get_collision_box_right(l),
+                    _y3 + _data.get_collision_box_bottom(l)
+                ))
+                {
+                    return true;
+                }
+            }
+            /*/
+            /*
             var _scale_rotation_index = _tile.scale_rotation_index;
 			
 			var _tile_xoffset = ((_scale_rotation_index >> 40) & 0xf) - 8 - 0x80;
@@ -73,6 +135,7 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 				
 				return true;
 			}
+             * */
 		}
 	}
 	
