@@ -12,14 +12,30 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"daceafc8-6049-4b60-b2c8-8a5f457feb21","name":"daceafc8-6049-4b60-b2c8-8a5f457feb21","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"1679c329-f30b-4645-8a40-b996bbbaa4b6","name":"1679c329-f30b-4645-8a40-b996bbbaa4b6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"587faccf-c4f8-4f18-b3ea-719826a7d81b","name":"587faccf-c4f8-4f18-b3ea-719826a7d81b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"dc378b3b-9745-4490-bc48-5fadc8053072","name":"dc378b3b-9745-4490-bc48-5fadc8053072","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"a3e500bc-dfda-40aa-8c68-6f81d811694c","name":"a3e500bc-dfda-40aa-8c68-6f81d811694c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"f077cf47-75fa-49a9-b2f3-9bb3ea17f11f","name":"f077cf47-75fa-49a9-b2f3-9bb3ea17f11f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"b63169fd-18a2-4148-a00d-45747deb8552","name":"b63169fd-18a2-4148-a00d-45747deb8552","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"24078e41-c703-4a69-8061-09fc55ff6618","name":"24078e41-c703-4a69-8061-09fc55ff6618","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"1ad2c032-85a1-4b7b-ab5f-598e873ed015","name":"1ad2c032-85a1-4b7b-ab5f-598e873ed015","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"e3f41a5c-7b78-4703-ba43-6d273e2368d9","name":"e3f41a5c-7b78-4703-ba43-6d273e2368d9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"8a46e587-7a85-4fed-9027-3e14685ea759","name":"8a46e587-7a85-4fed-9027-3e14685ea759","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c2e97df0-2b2e-4989-b4af-350d3bc0d0d7","name":"c2e97df0-2b2e-4989-b4af-350d3bc0d0d7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"33a998bc-62f2-46cc-8ace-92ee46b9f179","name":"33a998bc-62f2-46cc-8ace-92ee46b9f179","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"3c1a41a7-c530-4952-be2f-f99bf3c85828","name":"3c1a41a7-c530-4952-be2f-f99bf3c85828","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"b789b470-15e0-4371-8387-68f9a3c3871f","name":"b789b470-15e0-4371-8387-68f9a3c3871f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"e4d5ffb6-5ad1-403a-b79c-b632f3da1bf0","name":"e4d5ffb6-5ad1-403a-b79c-b632f3da1bf0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"76683da4-d327-485c-b1f2-bc4235202fde","name":"76683da4-d327-485c-b1f2-bc4235202fde","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"589718dc-01f0-4ea6-a043-85238487ba15","name":"589718dc-01f0-4ea6-a043-85238487ba15","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"1d5fb9f1-94ed-4fd8-96d1-85b8a347fdfc","blendMode":0,"displayName":"default","isLocked":false,"name":"1d5fb9f1-94ed-4fd8-96d1-85b8a347fdfc","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"12751278-9a61-4b46-ab96-218c35c570c9","blendMode":0,"displayName":"default","isLocked":false,"name":"12751278-9a61-4b46-ab96-218c35c570c9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"item_Block_Of_Coal",
   "nineSlice":null,
@@ -49,7 +65,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":17.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -69,8 +85,56 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"daceafc8-6049-4b60-b2c8-8a5f457feb21","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"91b740c3-550e-494e-b81d-784fdd9f7937","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1679c329-f30b-4645-8a40-b996bbbaa4b6","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"e1142f5c-23e6-4aaf-8163-f6509bcd1507","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"587faccf-c4f8-4f18-b3ea-719826a7d81b","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"714beb1e-d1cf-4879-8668-a9d9dc931c09","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"dc378b3b-9745-4490-bc48-5fadc8053072","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c2b3bacc-9f9d-4ee4-9965-f610ceed3b3b","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a3e500bc-dfda-40aa-8c68-6f81d811694c","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"ef5d65fd-ada2-425e-9250-ae1cc257761e","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f077cf47-75fa-49a9-b2f3-9bb3ea17f11f","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"687fbaa2-6e85-43e3-a853-1b788461cc58","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b63169fd-18a2-4148-a00d-45747deb8552","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"e4b2c7ce-9948-4729-b050-33a74b05df89","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"24078e41-c703-4a69-8061-09fc55ff6618","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"353e50c3-2248-4c0d-b3c1-04b7a097ca2d","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1ad2c032-85a1-4b7b-ab5f-598e873ed015","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8957052b-2642-42fe-951c-4d27e1913be3","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e3f41a5c-7b78-4703-ba43-6d273e2368d9","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a3e280d9-c8a3-4f0d-b5d0-b65732c29ed8","IsCreationKey":false,"Key":8.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8a46e587-7a85-4fed-9027-3e14685ea759","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"edbe1b4d-4ab5-4462-a960-d8b7aa174c89","IsCreationKey":false,"Key":9.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c2e97df0-2b2e-4989-b4af-350d3bc0d0d7","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"639262a0-0c65-4618-a1e4-5d44cdbc62af","IsCreationKey":false,"Key":10.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"33a998bc-62f2-46cc-8ace-92ee46b9f179","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"10624edf-4730-4577-a4d3-19df384efc27","IsCreationKey":false,"Key":11.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3c1a41a7-c530-4952-be2f-f99bf3c85828","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"9552c718-db96-47a3-b39d-9f43da827261","IsCreationKey":false,"Key":12.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b789b470-15e0-4371-8387-68f9a3c3871f","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"624b0c2d-2f99-40c3-98e9-e5073e900799","IsCreationKey":false,"Key":13.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e4d5ffb6-5ad1-403a-b79c-b632f3da1bf0","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"b16d6cd8-c989-4b26-89a0-ef65ea710ac6","IsCreationKey":false,"Key":14.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"76683da4-d327-485c-b1f2-bc4235202fde","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"325c7e83-729b-42a6-bd2a-f34f93110406","IsCreationKey":false,"Key":15.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"589718dc-01f0-4ea6-a043-85238487ba15","path":"sprites/item_Block_Of_Coal/item_Block_Of_Coal.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"057501ca-037c-401e-8485-3626485dd5e7","IsCreationKey":false,"Key":16.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
