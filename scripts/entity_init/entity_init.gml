@@ -28,6 +28,8 @@ function entity_init(_id, _hp, _hp_max, _attributes, _colour_offset = 0, _effect
 		effects = {}
         
         knockback_time = 0;
-        knockback_direction = 0; 
+        knockback_direction = 0;
+        
+        item_swing_count = 0;
 	}
 }

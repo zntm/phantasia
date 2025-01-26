@@ -2509,7 +2509,9 @@ new ItemData("phantasia", item_Grass_Block_Savannah, ITEM_TYPE_BIT.SOLID)
         item_update_grass(_x, _y, _z, "phantasia:dirt", "phantasia:grass_block_savannah", false);
     });
 
-new ItemData("phantasia", item_Trident, ITEM_TYPE_BIT.SWORD);
+new ItemData("phantasia", item_Trident, ITEM_TYPE_BIT.SPEAR)
+    .set_item_swing_speed(7)
+    .set_damage(5);
 
 new ItemData("phantasia", item_Short_Grass_Savannah, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_replaceable()
@@ -2522,7 +2524,9 @@ new ItemData("phantasia", item_Short_Grass_Savannah, ITEM_TYPE_BIT.PLANT)
         "phantasia:wheat_seeds", 1
     );
 
-new ItemData("phantasia", item_Frosthaven, ITEM_TYPE_BIT.SWORD);
+new ItemData("phantasia", item_Frosthaven, ITEM_TYPE_BIT.SPEAR)
+    .set_item_swing_speed(7)
+    .set_damage(5);
 
 new ItemData("phantasia", item_Tall_Grass_Savannah, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_replaceable()
@@ -5751,3 +5755,11 @@ new ItemData("phantasia", item_Bloom_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:bloom_sign")
     .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Spear, ITEM_TYPE_BIT.SPEAR)
+    .set_item_swing_speed(7)
+    .set_damage(5);
+
+new ItemData("phantasia", item_Ancient_Lance, ITEM_TYPE_BIT.SPEAR)
+    .set_item_swing_speed(7)
+    .set_damage(5);

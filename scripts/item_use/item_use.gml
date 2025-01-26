@@ -186,16 +186,16 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
         
 		sfx_play(_sfx_swing, global.settings_value.sfx, _sfx_swing_pitch);
 		
-		var _damage = _id.buffs[$ "attack_damage"] * _data.get_damage();
+		var _damage = buffs[$ "attack_damage"] * _data.get_damage();
 		
-		var _is_damage_critical = chance(_id.buffs[$ "attack_critical"] + _data.get_damage_critical_chance());
+		var _is_damage_critical = chance(buffs[$ "attack_critical"] + _data.get_damage_critical_chance());
 		
 		if (_is_damage_critical)
 		{
 			_damage *= 1.5;
 		}
 		
-		var _attack_speed = _data.get_item_swing_speed() * _id.buffs[$ "attack_speed"];
+		var _attack_speed = _data.get_item_swing_speed() * buffs[$ "attack_speed"];
 		
 		var _yoffset = sprite_get_height(sprite_index) / 6;
 		
@@ -224,6 +224,8 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
             
             life = 0;
 		}
+        
+        ++item_swing_count;
 		
 		if (_mouse_left)
 		{

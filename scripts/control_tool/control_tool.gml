@@ -21,7 +21,7 @@ function control_tool(_delta_time)
             var _offset = sin((life / 180) * pi) * _data.get_item_spear_swing_offset();
             
             x = owner.x + _item_swing_xoffset + (dcos(point_angle) * _offset);
-            y = owner.y - _item_swing_yoffset + (dsin(point_angle) * _offset);
+            y = owner.y + _item_swing_yoffset - (dsin(point_angle) * _offset);
             
             image_index_arm = 8;
             
@@ -36,7 +36,12 @@ function control_tool(_delta_time)
         else
         {
             angle = 180 * ((sin(((life / 180) * pi) - (pi / 2)) + 1) / 2);
-            
+            /*
+            if (owner.item_swing_count % 2)
+            {
+                angle = 180 - angle;
+            }
+            */
             x = owner.x + _item_swing_xoffset + (lengthdir_x(distance, angle) * _xscale);
             y = owner.y + _item_swing_yoffset + (lengthdir_y(distance, angle)) - height_offset - (height_offset * sin((life / 180) * pi));
             
