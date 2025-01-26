@@ -1,0 +1,17 @@
+{
+	"frames": 4,
+	"gravity": 0,
+	"xspeed": {
+		"reference": "wind",
+		"offset": [ -0.1, 0.3 ],
+		"multiplier": [ 1.5, 3 ]
+	},
+	"yspeed": [ -0.2, -0.02 ],
+	"scale": [ 0.5, 1.5 ],
+	"rotation": [ 1, 6 ],
+	"lifetime": [ 40, 120 ],
+	"fade_out": true,
+	"stretch_animation": true,
+	"xspeed_on_collision": 0,
+	"yspeed_on_collision": 0
+}

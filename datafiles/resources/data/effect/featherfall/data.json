@@ -1,0 +1,16 @@
+{
+    "type": "constant",
+    "attribute": "gravity",
+    "calculation": [
+        {
+            "value": "phantasia:level",
+            "type": "phantasia:multiply"
+        }
+    ],
+    "base_value": -0.5,
+    "particle": {
+        "id": "phantasia:effect",
+        "chance": 0.1,
+        "colour": "#8F7BB2"
+    }
+}

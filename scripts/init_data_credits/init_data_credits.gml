@@ -1,8 +1,12 @@
+global.credits_data = {}
+
 function init_data_credits()
 {
+    delete global.credits_data;
+    
 	debug_log("[Init] Loading Credits...");
 	
-	var _json = json_parse(buffer_load_text($"{DATAFILES_RESOURCES}\\data\\credits\\data.json"));
+	var _json = json_parse(buffer_load_text($"{DATAFILES_RESOURCES}\\data\\credit\\data.json"));
 	
 	array_foreach(_json.data, method(_json, function(_value, _index)
 	{

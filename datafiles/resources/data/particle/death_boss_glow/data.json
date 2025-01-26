@@ -1,0 +1,8 @@
+{
+	"gravity": [ -2, 0 ],
+	"xspeed": [ -2, 2 ],
+	"yspeed": 0,
+	"scale": 1,
+	"lifetime": [ 24, 60 ],
+	"fade_out": true
+}

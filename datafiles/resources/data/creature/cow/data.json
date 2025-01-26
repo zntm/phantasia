@@ -1,0 +1,30 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 1,
+        "moving": 1
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 20,
+    "type": {
+        "hostility": "passive",
+        "movement": "ground"
+    },
+    "sfx": "phantasia:creature.cow",
+    "drops": [
+        {
+            "item_id": "phantasia:raw_beef",
+            "amount": [ 1, 2 ],
+            "chance": 1
+        },
+        {
+            "item_id": "phantasia:leather",
+            "amount": [ 1, 3 ],
+            "chance": 0.7
+        }
+    ],
+    "attributes": {}
+}

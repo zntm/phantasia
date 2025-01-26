@@ -30,17 +30,17 @@ function init_data_reload(_directory, _prefix, _type)
 		
 		if (_debug_reload.attire)
 		{
-			__init(init_attire, $"{_directory}/attires", _prefix, _type);
+			__init(init_attire, $"{_directory}/attire", _prefix, _type);
 		}
 		
 		if (_debug_reload.background)
 		{
-			__init(init_backgrounds, $"{_directory}/backgrounds", _prefix, _type);
+			__init(init_backgrounds, $"{_directory}/background", _prefix, _type);
 		}
 		
 		if (_debug_reload.effect)
 		{
-			__init(init_effects, $"{_directory}/effects", _prefix, _type);
+			__init(init_effects, $"{_directory}/effect", _prefix, _type);
 		}
         
         if (_debug_reload.emote)
@@ -50,7 +50,7 @@ function init_data_reload(_directory, _prefix, _type)
 		
 		if (_debug_reload.creature)
 		{
-			__init(init_creatures, $"{_directory}/creatures", _prefix, _type);
+			__init(init_creatures, $"{_directory}/creature", _prefix, _type);
             
             if (room == rm_World)
             {
@@ -69,7 +69,7 @@ function init_data_reload(_directory, _prefix, _type)
 		
 		if (_debug_reload.loot)
 		{
-			__init(init_loot, $"{_directory}/loots", _prefix, _type);
+			__init(init_loot, $"{_directory}/loot", _prefix, _type);
 		}
 		
 		if (_debug_reload.music)
@@ -79,7 +79,7 @@ function init_data_reload(_directory, _prefix, _type)
 		
 		if (_debug_reload.particle)
 		{
-			__init(init_particles, $"{_directory}/particles", _prefix, _type);
+			__init(init_particles, $"{_directory}/particle", _prefix, _type);
 		}
 		
 		if (_debug_reload.rarity)
@@ -94,7 +94,7 @@ function init_data_reload(_directory, _prefix, _type)
 		
 		if (_debug_reload.structure)
 		{
-			__init(init_structure, $"{_directory}/structures", _prefix, _type);
+			__init(init_structure, $"{_directory}/structure", _prefix, _type);
 		}
 		
 		if (_debug_reload.recipe)
@@ -104,12 +104,12 @@ function init_data_reload(_directory, _prefix, _type)
 		
 		if (_debug_reload.biome)
 		{
-			__init(init_biome, $"{_directory}/biomes", _prefix, _type);
+			__init(init_biome, $"{_directory}/biome", _prefix, _type);
 		}
 		
 		if (_debug_reload.world)
 		{
-			__init(init_world, $"{_directory}/worlds", _prefix, _type);
+			__init(init_world, $"{_directory}/world", _prefix, _type);
 		}
 	}
 	else

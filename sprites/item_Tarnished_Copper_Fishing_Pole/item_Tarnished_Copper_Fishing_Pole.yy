@@ -12,14 +12,15 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"254d5eab-3420-490e-8985-33f929a10e66","name":"254d5eab-3420-490e-8985-33f929a10e66","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"32023155-8861-4dbb-8759-024c673acea6","name":"32023155-8861-4dbb-8759-024c673acea6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"ee664422-3722-4b53-9644-eb75f49b7a57","name":"ee664422-3722-4b53-9644-eb75f49b7a57","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"a7eef1a2-b74a-49bb-9b0b-48863a02a00b","blendMode":0,"displayName":"default","isLocked":false,"name":"a7eef1a2-b74a-49bb-9b0b-48863a02a00b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"58ac1d49-357d-4684-baa6-cbaf6312ac27","blendMode":0,"displayName":"default","isLocked":false,"name":"58ac1d49-357d-4684-baa6-cbaf6312ac27","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"item_Tarnished_Copper_Fishing_Pole",
   "nineSlice":null,
@@ -49,7 +50,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":2.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -69,8 +70,11 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"254d5eab-3420-490e-8985-33f929a10e66","path":"sprites/item_Tarnished_Copper_Fishing_Pole/item_Tarnished_Copper_Fishing_Pole.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"cdf82206-451d-45a0-bd3e-b96821d07eaf","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"32023155-8861-4dbb-8759-024c673acea6","path":"sprites/item_Tarnished_Copper_Fishing_Pole/item_Tarnished_Copper_Fishing_Pole.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"202db441-d055-4bde-b2d7-2d8a47dad26f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ee664422-3722-4b53-9644-eb75f49b7a57","path":"sprites/item_Tarnished_Copper_Fishing_Pole/item_Tarnished_Copper_Fishing_Pole.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"7c7c707d-1407-4ed4-86ef-588f3c45e2a7","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

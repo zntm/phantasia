@@ -1,0 +1,14 @@
+{
+	"phantasia:agility": {
+		"colour": "#FFFFFF"
+	},
+	"phantasia:curse": {
+		"colour": "#0000FF"
+	},
+	"phantasia:persistance": {
+		"colour": "#00FF00"
+	},
+	"phantasia:vigor": {
+		"colour": "#FF0000"
+	}
+}

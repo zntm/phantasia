@@ -1,0 +1,358 @@
+{
+	"height": 1024,
+	"vignette": {
+		"start": 768,
+		"end": 1024,
+		"colour": "#000000"
+	},
+	"surface": {
+		"start": 512,
+		"octave": 220,
+		"offset": {
+			"min": 40,
+			"max": 96
+		}
+	},
+	"environmental": [
+		"wind"
+	],
+	"biome": {
+		"cave": {
+			"start": 12,
+			"default": [
+				{
+					"id": "phantasia:caverns",
+					"range": {
+						"min": 0,
+						"max": 768
+					},
+					"transition": {
+						"type": "random",
+						"amplitude": 12,
+						"octave": 64
+					}
+				},
+				{
+					"id": "phantasia:depths",
+					"range": {
+						"min": 752,
+						"max": 1024
+					},
+					"transition": {
+						"type": "linear",
+						"amplitude": 12,
+						"octave": 64
+					}
+				}
+			],
+			"id": [
+				"phantasia:araneae",
+				"phantasia:lumin",
+				"phantasia:obitus",
+				"phantasia:prisma",
+				"phantasia:verdant"
+			]
+		},
+		"sky": {},
+		"surface": {
+			"heat": 460,
+			"humidity": 542,
+			"default": "phantasia:greenia"
+		}
+	},
+	"caves": {
+		"start": 16,
+		"caves": [
+			{
+				"range": {
+					"min": 0,
+					"max": 1024
+				},
+				"noise": {
+					"octave": 255,
+					"threshold": {
+						"min": 122,
+						"max": 136
+					}
+				}
+			},
+			{
+				"range": {
+					"min": 544,
+					"max": 768
+				},
+				"noise": {
+					"octave": 180,
+					"threshold": {
+						"min": 88,
+						"max": 104
+					}
+				}
+			},
+			{
+				"range": {
+					"min": 640,
+					"max": 1024
+				},
+				"noise": {
+					"octave": 224,
+					"threshold": {
+						"min": 120,
+						"max": 124
+					}
+				}
+			}
+		]
+	},
+	"generation": [
+		{
+			"exclusive": "phantasia:caverns",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 54,
+				"threshold": {
+					"min": 172,
+					"max": 188
+				}
+			},
+			"range": {
+				"min": 512,
+				"max": 768
+			},
+			"replace": "phantasia:stone",
+			"tile": {
+				"item_id": "phantasia:coal_ore"
+			}
+		},
+		{
+			"exclusive": "phantasia:depths",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 54,
+				"threshold": {
+					"min": 172,
+					"max": 188
+				}
+			},
+			"range": {
+				"min": 512,
+				"max": 768
+			},
+			"replace": "phantasia:emustone",
+			"tile": {
+				"item_id": "phantasia:emustone_coal_ore"
+			}
+		},
+		{
+			"exclusive": "phantasia:caverns",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 32,
+				"threshold": {
+					"min": 136,
+					"max": 140
+				}
+			},
+			"range": {
+				"min": 512,
+				"max": 800
+			},
+			"replace": "phantasia:stone",
+			"tile": {
+				"item_id": {
+					"phantasia:copper_ore": 1,
+					"phantasia:weathered_copper_ore": 2,
+					"phantasia:tarnished_copper_ore": 4
+				}
+			}
+		},
+		{
+			"exclusive": "phantasia:depths",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 32,
+				"threshold": {
+					"min": 136,
+					"max": 140
+				}
+			},
+			"range": {
+				"min": 512,
+				"max": 800
+			},
+			"replace": "phantasia:emustone",
+			"tile": {
+				"item_id": {
+					"phantasia:emustone_copper_ore": 1,
+					"phantasia:emustone_weathered_copper_ore": 2,
+					"phantasia:emustone_tarnished_copper_ore": 8
+				}
+			}
+		},
+		{
+			"exclusive": "phantasia:caverns",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 66,
+				"threshold": {
+					"min": 134,
+					"max": 142
+				}
+			},
+			"range": {
+				"min": 560,
+				"max": 840
+			},
+			"replace": "phantasia:stone",
+			"tile": {
+				"item_id": "phantasia:iron_ore"
+			}
+		},
+		{
+			"exclusive": "phantasia:depths",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 66,
+				"threshold": {
+					"min": 134,
+					"max": 142
+				}
+			},
+			"range": {
+				"min": 560,
+				"max": 840
+			},
+			"replace": "phantasia:emustone",
+			"tile": {
+				"item_id": "phantasia:emustone_iron_ore"
+			}
+		},
+		{
+			"exclusive": "phantasia:caverns",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 48,
+				"threshold": {
+					"min": 132,
+					"max": 142
+				}
+			},
+			"range": {
+				"min": 764,
+				"max": 914
+			},
+			"replace": "phantasia:stone",
+			"tile": {
+				"item_id": "phantasia:gold_ore"
+			}
+		},
+		{
+			"exclusive": "phantasia:depths",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 48,
+				"threshold": {
+					"min": 132,
+					"max": 142
+				}
+			},
+			"range": {
+				"min": 764,
+				"max": 914
+			},
+			"replace": "phantasia:emustone",
+			"tile": {
+				"item_id": "phantasia:emustone_gold_ore"
+			}
+		},
+		{
+			"exclusive": "phantasia:caverns",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 42,
+				"threshold": {
+					"min": 132,
+					"max": 134
+				}
+			},
+			"range": {
+				"min": 880,
+				"max": 1024
+			},
+			"replace": "phantasia:stone",
+			"tile": {
+				"item_id": "phantasia:platinum_ore"
+			}
+		},
+		{
+			"exclusive": "phantasia:depths",
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 42,
+				"threshold": {
+					"min": 132,
+					"max": 134
+				}
+			},
+			"range": {
+				"min": 880,
+				"max": 1024
+			},
+			"replace": "phantasia:emustone",
+			"tile": {
+				"item_id": "phantasia:emustone_platinum_ore"
+			}
+		},
+		{
+			"exclusive": [
+				"phantasia:caverns",
+				"phantasia:depths"
+			],
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 64,
+				"threshold": {
+					"min": 162,
+					"max": 210
+				}
+			},
+			"tile": {
+				"item_id": "phantasia:granite"
+			}
+		},
+		{
+			"exclusive": [
+				"phantasia:caverns",
+				"phantasia:depths"
+			],
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 88,
+				"threshold": {
+					"min": 134,
+					"max": 142
+				}
+			},
+			"tile": {
+				"item_id": "phantasia:andesite"
+			}
+		},
+		{
+			"exclusive": [
+				"phantasia:caverns",
+				"phantasia:depths"
+			],
+			"type": "flipped_triangular",
+			"noise": {
+				"octave": 90,
+				"threshold": {
+					"min": 126,
+					"max": 134
+				}
+			},
+			"tile": {
+				"item_id": "phantasia:dirt"
+			}
+		}
+	]
+}

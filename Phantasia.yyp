@@ -837,7 +837,6 @@
     {"$GMIncludedFile":"","%Name":"recipes.json","CopyToMask":-1,"filePath":"datafiles/Resources/Data","name":"recipes.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"dungeon_crawler.ogg","CopyToMask":-1,"filePath":"datafiles/resources/data/records","name":"dungeon_crawler.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"dungeon_crawler.ogg","CopyToMask":-1,"filePath":"datafiles/Resources/Data/Records","name":"dungeon_crawler.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-    {"$GMIncludedFile":"","%Name":"first_session.ogg","CopyToMask":-1,"filePath":"datafiles/resources/data/records","name":"first_session.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"first_session.ogg","CopyToMask":-1,"filePath":"datafiles/Resources/Data/Records","name":"first_session.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"hourglass.ogg","CopyToMask":-1,"filePath":"datafiles/resources/data/records","name":"hourglass.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"hourglass.ogg","CopyToMask":-1,"filePath":"datafiles/Resources/Data/Records","name":"hourglass.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
