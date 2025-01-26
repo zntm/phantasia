@@ -2995,8 +2995,7 @@
 			"ingredients": [
 				{
 					"item_id": "phantasia:twig",
-					"amount": 3,
-					"unlock_grimoire": true
+					"amount": 3
 				},
 				{
 					"item_id": "phantasia:rope",

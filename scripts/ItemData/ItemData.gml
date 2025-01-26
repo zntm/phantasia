@@ -5763,3 +5763,11 @@ new ItemData("phantasia", item_Spear, ITEM_TYPE_BIT.SPEAR)
 new ItemData("phantasia", item_Ancient_Lance, ITEM_TYPE_BIT.SPEAR)
     .set_item_swing_speed(7)
     .set_damage(5);
+
+new ItemData("phantasia", item_Toxic_Fang, ITEM_TYPE_BIT.SPEAR)
+    .set_item_swing_speed(7)
+    .set_damage(5);
+
+new ItemData("phantasia", item_Shadewrath, ITEM_TYPE_BIT.SPEAR)
+    .set_item_swing_speed(7)
+    .set_damage(5);
