@@ -3010,6 +3010,21 @@
 			"ingredients": [
 				{
 					"item_id": "phantasia:rocks",
+					"amount": 6,
+					"unlock_grimoire": true
+				},
+				{
+					"item_id": "phantasia:twig",
+					"amount": 4,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:spear"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:rocks",
 					"amount": 2,
 					"unlock_grimoire": true
 				},
