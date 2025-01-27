@@ -32,11 +32,11 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 	var _x2 = (_ax1 > _ax2 ? _ax1 : _ax2);
 	var _y2 = (_ay1 > _ay2 ? _ay1 : _ay2) - 1;
     */
-	var _xstart = floor(_x1 / TILE_SIZE);
-	var _ystart = floor(_y1 / TILE_SIZE);
+	var _xstart = floor(_x1 / TILE_SIZE) - 1;
+	var _ystart = floor(_y1 / TILE_SIZE) - 1;
 	
-	var _xend = ceil(_x2 / TILE_SIZE);
-	var _yend = ceil(_y2 / TILE_SIZE);
+	var _xend = ceil(_x2 / TILE_SIZE) + 1;
+	var _yend = ceil(_y2 / TILE_SIZE) + 1;
 	
 	for (var j = max(0, _ystart); j <= _yend; ++j)
 	{
