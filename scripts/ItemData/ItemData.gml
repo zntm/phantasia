@@ -1,6 +1,7 @@
 enum ITEM_TYPE {
     DEFAULT,
     SOLID,
+    PLATFORM,
     UNTOUCHABLE,
     CONTAINER,
     PLANT,
@@ -32,6 +33,7 @@ enum ITEM_TYPE {
 enum ITEM_TYPE_BIT {
     DEFAULT           = 1 << ITEM_TYPE.DEFAULT,
     SOLID             = 1 << ITEM_TYPE.SOLID,
+    PLATFORM          = 1 << ITEM_TYPE.PLATFORM,
     UNTOUCHABLE       = 1 << ITEM_TYPE.UNTOUCHABLE,
     CONTAINER         = 1 << ITEM_TYPE.CONTAINER,
     PLANT             = 1 << ITEM_TYPE.PLANT,
@@ -4786,7 +4788,7 @@ new ItemData("phantasia", item_Oak_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:oak_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5664,7 +5666,7 @@ new ItemData("phantasia", item_Pine_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:spruce_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5672,7 +5674,7 @@ new ItemData("phantasia", item_Yucca_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:yucca_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5680,7 +5682,7 @@ new ItemData("phantasia", item_Wysteria_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:wysteria_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5688,7 +5690,7 @@ new ItemData("phantasia", item_Mahogany_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:mahogany_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5696,7 +5698,7 @@ new ItemData("phantasia", item_Birch_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:birch_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5704,7 +5706,7 @@ new ItemData("phantasia", item_Cherry_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:cherry_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5712,7 +5714,7 @@ new ItemData("phantasia", item_Mangrove_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:mangrove_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5720,7 +5722,7 @@ new ItemData("phantasia", item_Blizzard_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:blizzard_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5728,7 +5730,7 @@ new ItemData("phantasia", item_Acacia_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:acacia_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5736,15 +5738,15 @@ new ItemData("phantasia", item_Palm_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
-    .set_drops("phantasia:oak_sign")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
+    .set_drops("phantasia:palm_sign")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Ashen_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:ashen_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5752,7 +5754,7 @@ new ItemData("phantasia", item_Bloom_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_tile_variable(global.tile_variable_sign)
     .set_menu(global.tile_menu_sign)
     .set_on_tile_hover(tile_hover_sign)
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 14)
     .set_drops("phantasia:bloom_sign")
     .set_sfx("phantasia:tile.wood");
 
@@ -5771,3 +5773,73 @@ new ItemData("phantasia", item_Toxic_Fang, ITEM_TYPE_BIT.SPEAR)
 new ItemData("phantasia", item_Shadewrath, ITEM_TYPE_BIT.SPEAR)
     .set_item_swing_speed(7)
     .set_damage(5);
+
+new ItemData("phantasia", item_Oak_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:oak_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Pine_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:spruce_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Yucca_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:yucca_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Yucca_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:yucca_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Wysteria_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:wysteriplatformgn")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Mahogany_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:mahoganplatformgn")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Birch_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:birch_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Cherry_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:cherry_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Mangrove_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:mangrovplatformgn")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Blizzard_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:blizzarplatformgn")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Acacia_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:acacia_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Palm_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:palm_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Ashen_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:ashen_platform")
+    .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Bloom_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
+    .set_drops("phantasia:bloom_platform")
+    .set_sfx("phantasia:tile.wood");
