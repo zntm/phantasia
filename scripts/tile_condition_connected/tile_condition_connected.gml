@@ -14,5 +14,5 @@ function tile_condition_connected(_x, _y, _z, _item_id, _type, _item_data, _worl
     
     var _data = _item_data[$ _item_id2];
 	
-	return !!(_type & _data.type);
+	return (_type & _data.type) && (_data.boolean & ITEM_BOOLEAN.CAN_CONNECT);
 }

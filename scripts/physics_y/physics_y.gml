@@ -17,8 +17,8 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
         }
         
         return true;
-        
     }
+    
     yvelocity = clamp(yvelocity + (_gravity * _multiplier), -PHYSICS_GLOBAL_YVELOCITY_MAX, PHYSICS_GLOBAL_YVELOCITY_MAX);
     
     var _yvelocity = yvelocity;
@@ -32,13 +32,6 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
         return true;
     }
     
-    var _abs = abs(_yvelocity);
-    
-    if (_abs <= 0.03)
-    {
-        return false;
-    }
-    
     if (!_collision)
     {
         y += _yvelocity;
@@ -46,11 +39,13 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
         return false;
     }
     
-    var _size = max(1, sprite_bbox_bottom - sprite_bbox_top) * abs(image_yscale);
+    var _size = max(1, sprite_get_height(sprite_index)) * abs(image_yscale);
     
-    for (var i = _abs; i > 0; i -= _size)
+    for (var i = abs(yvelocity); i > 0; i -= _size)
     {
-        var _direction = _sign * min(i, _size);
+        var _ = min(i, _size);
+        
+        var _direction = _sign * _;
         
         if (!__tile_meeting(x, y + _direction, _sign, _world_height))
         {
@@ -81,29 +76,34 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
                     _nudged = true;
                     
                     break;
-                };
+                }
             }
             
             if (_nudged) continue;
         }
         
-        for (var j = _size; j > 0; j -= 1)
+        var _break = false;
+        
+        for (var j = _; j > 0; j -= 1)
         {
-            var _ = min(j, 1) * _sign;
+            var _2 = min(j, 1) * _sign;
             
-            if (__tile_meeting(x, y + _, _sign, _world_height)) break;
+            if (__tile_meeting(x, y + _2, _sign, _world_height))
+            {
+                _break = true;
+                
+                break;
+            }
             
-            y += _;
+            y += _2;
+        }
+        
+        if (_break)
+        {
+            yvelocity = 0;
         }
         
         break;
-    }
-    
-    if (__tile_meeting(x, y + 1, 1, _world_height)) || (__tile_meeting(x, y - 1, -1, _world_height))
-    {
-        yvelocity = 0;
-        
-        return true;
     }
     
     return false;

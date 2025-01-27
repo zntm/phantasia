@@ -58,6 +58,9 @@ surface_yscale = 1;
 
 tool = noone;
 
+a = 0;
+b = 0;
+
 #region Inventory
 
 file_load_player_inventory(_uuid);

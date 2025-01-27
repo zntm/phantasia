@@ -9,18 +9,29 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 	
 	var _xscale = abs(image_xscale);
 	var _yscale = abs(image_yscale);
-	
+    
+    var _x1 = _x - (_xscale * sprite_get_xoffset(sprite_index));
+    var _y1 = _y - (_yscale * sprite_get_yoffset(sprite_index));
+    
+    var _x2 = _x1 + (_xscale * sprite_get_width(sprite_index))  - 1;
+    var _y2 = _y1 + (_yscale * sprite_get_height(sprite_index)) - 1;
+    /*
+    var _x1 = (_ax1 < _ax2 ? _ax1 : _ax2);
+    var _y1 = (_ay1 < _ay2 ? _ay1 : _ay2);
+    var _x2 = (_ax1 > _ax2 ? _ax1 : _ax2);
+    var _y2 = (_ay1 > _ay2 ? _ay1 : _ay2) - 1;
+	/*
 	var _ax1 = _x - abs(_xscale * sprite_offset_x);
 	var _ay1 = _y - abs(_yscale * sprite_offset_y);
 	
 	var _ax2 = _ax1 + abs(_xscale * sprite_bbox_right);
 	var _ay2 = _ay1 + abs(_yscale * sprite_bbox_bottom);
 	
-	var _x1 = (_ax1 < _ax2 ? _ax1 : _ax2) + abs(_xscale * sprite_bbox_left);
-	var _y1 = (_ay1 < _ay2 ? _ay1 : _ay2) + abs(_yscale * sprite_bbox_top);
+	var _x1 = (_ax1 < _ax2 ? _ax1 : _ax2);
+	var _y1 = (_ay1 < _ay2 ? _ay1 : _ay2);
 	var _x2 = (_ax1 > _ax2 ? _ax1 : _ax2);
 	var _y2 = (_ay1 > _ay2 ? _ay1 : _ay2) - 1;
-     
+    */
 	var _xstart = floor(_x1 / TILE_SIZE);
 	var _ystart = floor(_y1 / TILE_SIZE);
 	
@@ -49,8 +60,6 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 			
 			var _xtile = i * TILE_SIZE;
             
-            var _scale_rotation_index = _tile.scale_rotation_index;
-			
 			var _tile_xoffset = _tile.get_xoffset();
 			var _tile_yoffset = _tile.get_yoffset();
 			
@@ -66,13 +75,6 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
                 
                 var _x4 = _x3 + (_data.get_collision_box_right(l)  * _tile_xscale);
                 var _y4 = _y3 + (_data.get_collision_box_bottom(l) * _tile_yscale);
-                
-                if (_type2 & ITEM_TYPE_BIT.PLATFORM) && (_x2 >= _x3) && (_x1 < _x4)
-                {
-                    if (_y2 > _y3) continue;
-                    
-                    return _tile;
-                }
                 
                 if (rectangle_in_rectangle(_x1, _y1, _x2, _y2, _x3, _y3, _x4, _y4))
                 {

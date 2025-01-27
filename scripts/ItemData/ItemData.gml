@@ -4788,7 +4788,7 @@ new ItemData("phantasia", item_Wysteria_Door, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Oak_Door, ITEM_TYPE_BIT.SOLID)
-    .set_collision_box(0, -8, -24, 4, 32)
+    // .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_random_index(1, 1)
