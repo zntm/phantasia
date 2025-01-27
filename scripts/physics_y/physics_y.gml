@@ -1,12 +1,31 @@
 function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GRAVITY, _nudge = true, _collision = true, _step = -1, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
 {
+    static __tile_meeting = function(_x, _y, _direction, _world_height)
+    {
+        var _tile = tile_meeting(_x, _y, undefined, undefined, _world_height);
+        
+        if (!_tile)
+        {
+            return false;
+        }
+        
+        var _data = global.item_data[$ _tile.item_id];
+        
+        if (_data.type & ITEM_TYPE_BIT.PLATFORM)
+        {
+            return (_direction >= 0);
+        }
+        
+        return true;
+        
+    }
     yvelocity = clamp(yvelocity + (_gravity * _multiplier), -PHYSICS_GLOBAL_YVELOCITY_MAX, PHYSICS_GLOBAL_YVELOCITY_MAX);
     
     var _yvelocity = yvelocity;
     
     var _sign = sign(_yvelocity);
     
-    if (tile_meeting(x, y + _sign, undefined, undefined, _world_height))
+    if (__tile_meeting(x, y + _sign, _sign, _world_height))
     {
         yvelocity = 0;
         
@@ -33,7 +52,7 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
     {
         var _direction = _sign * min(i, _size);
         
-        if (!tile_meeting(x, y + _direction, undefined, undefined, _world_height))
+        if (!__tile_meeting(x, y + _direction, _sign, _world_height))
         {
             y += _direction;
             
@@ -46,7 +65,7 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
             
             for (var j = 0; j < PHYSICS_GLOBAL_THRESHOLD_NUDGE; ++j)
             {
-                if (!tile_meeting(x + j, y, undefined, undefined, _world_height))
+                if (!__tile_meeting(x + j, y, 1, _world_height))
                 {
                     x += j;
                     
@@ -55,7 +74,7 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
                     break;
                 }
                 
-                if (!tile_meeting(x - j, y, undefined, undefined, _world_height))
+                if (!__tile_meeting(x - j, y, -1, _world_height))
                 {
                     x -= j;
                     
@@ -72,7 +91,7 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
         {
             var _ = min(j, 1) * _sign;
             
-            if (tile_meeting(x, y + _, undefined, undefined, _world_height)) break;
+            if (__tile_meeting(x, y + _, _sign, _world_height)) break;
             
             y += _;
         }
@@ -80,7 +99,7 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
         break;
     }
     
-    if (tile_meeting(x, y + 1, undefined, undefined, _world_height)) || (tile_meeting(x, y - 1, undefined, undefined, _world_height))
+    if (__tile_meeting(x, y + 1, 1, _world_height)) || (__tile_meeting(x, y - 1, -1, _world_height))
     {
         yvelocity = 0;
         

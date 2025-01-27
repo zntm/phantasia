@@ -1,4 +1,4 @@
-function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SOLID, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
 {
 	if (_y < 0) || (_y >= (_world_height * TILE_SIZE))
 	{
@@ -42,37 +42,43 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 			
 			if (_tile == TILE_EMPTY) || (!_tile.get_collision()) continue;
 			
-			var _data = _item_data[$ _tile.item_id];
-			
-			if ((_data.type & _type) == 0) continue;
+			var _data  = _item_data[$ _tile.item_id];
+			var _type2 = _data.type;
+            
+			if ((_type2 & _type) == 0) continue;
 			
 			var _xtile = i * TILE_SIZE;
             
             var _scale_rotation_index = _tile.scale_rotation_index;
 			
-			var _tile_xoffset = ((_scale_rotation_index >> 40) & 0xf) - 8 - 0x80;
-			var _tile_yoffset = ((_scale_rotation_index >> 44) & 0xf) - 8 - 0x80;
+			var _tile_xoffset = _tile.get_xoffset();
+			var _tile_yoffset = _tile.get_yoffset();
 			
-			var _tile_xscale = abs(((_scale_rotation_index >> 32) & 0xf) - 8);
-			var _tile_yscale = abs(((_scale_rotation_index >> 36) & 0xf) - 8);
+			var _tile_xscale = abs(_tile.get_xscale());
+			var _tile_yscale = abs(_tile.get_yscale());
 			
-			var _collision_box = _data.collision_box;
-			var _collision_box_length = _data.collision_box_length;
-			
-			for (var l = 0; l < _collision_box_length; ++l)
-			{
-				var _ = _collision_box[l];
-				
-				var _x3 = _xtile + (((_ & 0xff) + _tile_xoffset) * _tile_xscale);
-				
-				if (_x2 <= _x3) || (_x1 > _x3 + ((((_ >> 16) & 0xff) + _tile_xoffset) * _tile_xscale)) continue;
-				
-				var _y3 = _ytile + ((((_ >> 8) & 0xff) + _tile_yoffset) * _tile_yscale);
-				
-				if (_y2 <= _y3) || (_y1 > _y3 + ((((_ >> 24) & 0xff) + _tile_yoffset) * _tile_yscale)) continue;
-				
-				return true;
-			}
+            var _collision_box_length = _data.collision_box_length;
+            
+            for (var l = 0; l < _collision_box_length; ++l)
+            {
+                var _x3 = _xtile + ((_data.get_collision_box_left(l) + _tile_xoffset) * _tile_xscale);
+                var _y3 = _ytile + ((_data.get_collision_box_top(l)  + _tile_yoffset) * _tile_yscale);
+                
+                var _x4 = _x3 + (_data.get_collision_box_right(l)  * _tile_xscale);
+                var _y4 = _y3 + (_data.get_collision_box_bottom(l) * _tile_yscale);
+                
+                if (_type2 & ITEM_TYPE_BIT.PLATFORM) && (_x2 >= _x3) && (_x1 < _x4)
+                {
+                    if (_y2 > _y3) continue;
+                    
+                    return _tile;
+                }
+                
+                if (rectangle_in_rectangle(_x1, _y1, _x2, _y2, _x3, _y3, _x4, _y4))
+                {
+                    return _tile;
+                }
+            }
 		}
 	}
 	

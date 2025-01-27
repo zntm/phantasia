@@ -12,7 +12,7 @@ function worldgen_get_surface_biome(_x, _y, _seed, _ysurface, _world_data, _real
 	
 	if (__array[$ _realm] == undefined)
 	{
-		var _sprite = sprite_add($"{DATAFILES_RESOURCES}\\data\\worlds\\{string_split(_realm, ":")[1]}\\map.png", 1, false, false, 0, 0);
+		var _sprite = sprite_add($"{DATAFILES_RESOURCES}\\data\\world\\{string_split(_realm, ":")[1]}\\map.png", 1, false, false, 0, 0);
 		var _surface = surface_create(32, 32);
 		
 		__array[$ _realm] = array_create(32 * 32, 0);
