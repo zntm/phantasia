@@ -378,6 +378,14 @@ for (var i = _delta_time; i > 0; --i)
     }
 }
 
+var _input_names = struct_get_names(global.input_check_pressed);
+var _input_length = array_length(_input_names);
+
+for (var i = 0; i < _input_length; ++i)
+{
+    global.input_check_pressed[$ _input_names[i]] = false;
+}
+
 ctrl_camera();
 
 #region Toast

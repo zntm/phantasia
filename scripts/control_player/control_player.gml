@@ -12,10 +12,10 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
     
 	if (!_is_opened_chat) && (!_is_opened_menu)
 	{
-		_key_left  = get_control("left");
-		_key_right = get_control("right");
+		_key_left  = input_check(_settings_value.left);
+		_key_right = input_check(_settings_value.right);
         
-		_key_jump  = get_control("jump");
+		_key_jump  = input_check(_settings_value.jump);
 	}
 	
 	with (obj_Player)
@@ -49,7 +49,7 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
         
 		if (!DEVELOPER_MODE) || (global.debug_settings.physics)
 		{
-			if (!is_climbing) && (_tile_on != TILE_EMPTY) && (keyboard_check(_settings_value.climb_up) || keyboard_check(_settings_value.climb_down)) && (_item_data[$ _tile_on].type & ITEM_TYPE_BIT.CLIMBABLE)
+			if (!is_climbing) && (_tile_on != TILE_EMPTY) && (input_check(_settings_value.climb_up) || input_check(_settings_value.climb_down)) && (_item_data[$ _tile_on].type & ITEM_TYPE_BIT.CLIMBABLE)
 			{
 				is_climbing = true;
 				
@@ -138,7 +138,7 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
             
 			if (_key_jump)
 			{
-				if (keyboard_check_pressed(_settings_value.jump))
+				if (input_check_pressed(_settings_value.jump))
 				{
 					jump_pressed = 0;
                     

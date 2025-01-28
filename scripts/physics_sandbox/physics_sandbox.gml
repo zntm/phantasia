@@ -1,8 +1,9 @@
 function physics_sandbox(_key_left, _key_right, _world_height, _delta_time = global.delta_time)
 {
-	if (keyboard_check(global.settings_value.climb_up))
+	if (input_check(global.settings_value.climb_up))
 	{
 		instance_cull(true);
+        
         chunk_update_near_light();
         chunk_update_near_inst();
 		
@@ -13,6 +14,7 @@ function physics_sandbox(_key_left, _key_right, _world_height, _delta_time = glo
 	if (_key_left)
 	{
 		instance_cull(true);
+        
         chunk_update_near_light();
         chunk_update_near_inst();
 		
@@ -20,9 +22,10 @@ function physics_sandbox(_key_left, _key_right, _world_height, _delta_time = glo
 		x -= global.debug_settings.fly_speed * _delta_time;
 	}
 
-	if (keyboard_check(global.settings_value.climb_down))
+	if (input_check(global.settings_value.climb_down))
 	{
 		instance_cull(true);
+        
         chunk_update_near_light();
         chunk_update_near_inst();
 		
@@ -33,6 +36,7 @@ function physics_sandbox(_key_left, _key_right, _world_height, _delta_time = glo
 	if (_key_right)
 	{
 		instance_cull(true);
+        
         chunk_update_near_light();
         chunk_update_near_inst();
 		

@@ -37,16 +37,17 @@ global.timer_delta += global.delta_time;
 
 if (DEVELOPER_MODE)
 {
-    var _data = debug_event("ResourceCounts", true);
-    var _names = struct_get_names(_data);
+    var _resource = debug_event("ResourceCounts", true);
+    
+    var _names  = struct_get_names(_resource);
     var _length = array_length(_names);
     
     for (var i = 0; i < _length; ++i)
     {
         var _name = _names[i];
         
-        global.debug_resource_counts[$ _name] = _data[$ _name];
+        global.debug_resource_counts[$ _name] = _resource[$ _name];
     }
     
-    delete _data;
+    delete _resource;
 }
