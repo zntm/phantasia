@@ -35,6 +35,8 @@ function spawn_pet(_x, _y, _id)
 		
 		xvelocity = 0;
 		yvelocity = 0;
+        
+        owner = obj_Player;
 		
 		array_insert(global.pets, 0, id);
 	}
