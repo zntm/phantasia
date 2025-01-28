@@ -1,0 +1,24 @@
+{
+    "type": "phantasia:flight",
+    "sprite": {
+        "idle_frame": 1,
+        "movement_frame": 1
+    },
+    "follow_distance": {
+        "stop": 128,
+        "start": 256
+    },
+    "speed": {
+        "near": 0.025,
+        "far": 0.035
+    },
+    "rotation": {
+        "min": -45,
+        "max": 45,
+        "speed": 0.45
+    },
+    "offset": {
+        "x": 24,
+        "y": -32
+    }
+}

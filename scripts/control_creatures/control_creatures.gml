@@ -121,14 +121,14 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                     {
                         if (chance(_chance_sfx_idle))
                         {
-                            sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
+                            sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_passive, _world_height) ?? -1;
                             
                             sfx_time = _sfx_time;
                         }
                     }
                     else if (chance(_chance_sfx_panic))
                     {
-                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
+                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.panic", undefined, _volume_passive, _world_height) ?? -1;
                         
                         sfx_time = _sfx_time;
                     }
@@ -140,14 +140,14 @@ function control_creatures(_creature_data, _item_data, _tick, _world_height, _ca
                 {
                     if (chance(_chance_sfx_search))
                     {
-                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.search", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
+                        sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.search", undefined, _volume_hostile, _world_height) ?? -1;
                         
                         sfx_time = _sfx_time;
                     }
                 }
                 else if (chance(_chance_sfx_idle))
                 {
-                    sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, (_is_passive ? _volume_passive : _volume_hostile), _world_height) ?? -1;
+                    sfx = sfx_diegetic_play(obj_Player.x, obj_Player.y, x, y, $"{_sfx}.idle", undefined, _volume_hostile, _world_height) ?? -1;
                     
                     sfx_time = _sfx_time;
                 }

@@ -603,6 +603,7 @@
     {"$GMIncludedFile":"","%Name":"sprite.png","CopyToMask":-1,"filePath":"datafiles/resources/data/particle/sparkle","name":"sprite.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"data.json","CopyToMask":-1,"filePath":"datafiles/resources/data/particle/tile","name":"data.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"sprite.png","CopyToMask":-1,"filePath":"datafiles/resources/data/particle/tile","name":"sprite.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"data.json","CopyToMask":-1,"filePath":"datafiles/resources/data/pet/maurice","name":"data.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"player_colour.png","CopyToMask":-1,"filePath":"datafiles/resources/data","name":"player_colour.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"player_colour.png","CopyToMask":-1,"filePath":"datafiles/Resources/Data","name":"player_colour.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"rarity.json","CopyToMask":-1,"filePath":"datafiles/resources/data","name":"rarity.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
