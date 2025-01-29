@@ -18,15 +18,19 @@ function file_save_world_structures()
 		buffer_write(_buffer, buffer_string, structure);
 	}
     
-    buffer_write(_buffer, buffer_s32, global.structure_surface_checked_min);
-    buffer_write(_buffer, buffer_s32, global.structure_surface_checked_max);
+    var _structure_surface_checked = global.structure_surface_checked;
+    var _structure_surface_checked_length = array_length(_structure_surface_checked);
     
-    buffer_write(_buffer, buffer_s32, global.structure_cave_checked_xmin);
-    buffer_write(_buffer, buffer_s32, global.structure_cave_checked_xmax);
+    buffer_write(_buffer, buffer_u64, _structure_surface_checked_length);
     
-    buffer_write(_buffer, buffer_s32, global.structure_cave_checked_ymin);
-    buffer_write(_buffer, buffer_s32, global.structure_cave_checked_ymax);
-	
+    for (var i = 0; i < _structure_surface_checked_length; ++i)
+    {
+        var _ = _structure_surface_checked[i];
+        
+        buffer_write(_buffer, buffer_f64, _[0]);
+        buffer_write(_buffer, buffer_f64, _[1]);
+    }
+    
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
 	
 	buffer_save(_buffer2, $"{global.world_directory}/Realms/{string_replace_all(global.world.realm, ":", "/")}/Structures.dat");

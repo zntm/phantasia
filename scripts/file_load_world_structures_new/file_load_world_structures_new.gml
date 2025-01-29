@@ -20,7 +20,7 @@ function file_load_world_structures_new(_buffer)
 		var _count = _v >> 32;
 		
 		var _xscale = (_v >> 8) & 0xff;
-		var _yscale = _v & 0xff;
+		var _yscale = (_v >> 0) & 0xff;
 		
 		var _rectangle = _xscale * _yscale;
 		
@@ -37,12 +37,20 @@ function file_load_world_structures_new(_buffer)
 		}
     }
     
-    global.structure_surface_checked_min = buffer_read(_buffer, buffer_s32);
-    global.structure_surface_checked_max = buffer_read(_buffer, buffer_s32);
+    var _structure_surface_checked_length = buffer_read(_buffer, buffer_u64);
     
-    global.structure_cave_checked_xmin = buffer_read(_buffer, buffer_s32);
-    global.structure_cave_checked_xmax = buffer_read(_buffer, buffer_s32);
+    global.structure_surface_checked_index = array_create(_structure_surface_checked_length);
     
-    global.structure_cave_checked_ymin = buffer_read(_buffer, buffer_s32);
-    global.structure_cave_checked_ymax = buffer_read(_buffer, buffer_s32);
+    buffer_write(_buffer, buffer_u64, _structure_surface_checked_length);
+    
+    for (var i = 0; i < _structure_surface_checked_length; ++i)
+    {
+        var _min = buffer_read(_buffer, buffer_f64);
+        var _max = buffer_read(_buffer, buffer_f64);
+        
+        global.structure_surface_checked[@ i] = [
+            _min,
+            _max
+        ];
+    }
 }
