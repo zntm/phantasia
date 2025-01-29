@@ -2159,16 +2159,19 @@ new ItemData("phantasia", item_Tarnished_Block_Of_Copper, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.metal");
 
 new ItemData("phantasia", item_Magma, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 82)
     .set_drops("phantasia:magma")
     .set_sfx("phantasia:tile.stone");
 
 new ItemData("phantasia", item_Snow_Bricks, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 52)
     .set_drops("phantasia:snow_bricks")
     .set_sfx("phantasia:tile.snow");
 
 new ItemData("phantasia", item_Snow_Bricks_Wall, ITEM_TYPE_BIT.WALL)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 44)
     .set_drops("phantasia:snow_bricks_wall")
     .set_sfx("phantasia:tile.snow");
