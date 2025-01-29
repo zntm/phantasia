@@ -63,6 +63,12 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             _yend = _min;
             
+            if (!_generate)
+            {
+                _xstart = max(_xstart, _structure[0]);
+                _xend = min(_xend, _structure[2]);
+            }
+            
             _generate = true;
             
             break;
@@ -74,6 +80,12 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             global.structure_checked[@ j][@ 3] = _yend;
             
             _ystart = _max;
+            
+            if (!_generate)
+            {
+                _xstart = max(_xstart, _structure[0]);
+                _xend = min(_xend, _structure[2]);
+            }
             
             _generate = true;
             
