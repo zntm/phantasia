@@ -46,8 +46,6 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 			
 			if (_y2 <= _ysurface2) continue;
 			
-			var _index = $"{i},{j}";
-			
 			var _cave = worldgen_get_cave_biome(_x2, _y2, _seed, _ysurface, _world_data);
 			
 			if (_cave == -1) || (worldgen_carve_cave(_x2, _y2, _seed_cave, _world_value, _world_caves, _ysurface)) || (!worldgen_carve_cave(_x2, _y2 - 1, _seed_cave, _world_value, _world_caves, _ysurface)) continue;
