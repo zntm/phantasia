@@ -12,9 +12,16 @@ function inventory_container_close()
 		
 		tile_set(_x, _y, _z, "inventory", _container);
         
+        var _tile = tile_get(_x, _y, _z, -1);
+        
         _tile.set_index(0);
-		
-		var _sfx = global.item_data[$ tile_get(_x, _y, _z)].get_container_sfx();
+        
+        with (tile_get_inst(_x, _y, "get"))
+        {
+            chunk_z_refresh |= surface_display;
+        }
+        
+		var _sfx = global.item_data[$ _tile.item_id].get_container_sfx();
 		
 		if (_sfx != undefined)
 		{

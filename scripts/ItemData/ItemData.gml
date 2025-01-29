@@ -1896,7 +1896,7 @@ new ItemData("phantasia", item_Toast, ITEM_TYPE_BIT.CONSUMABLE)
     .set_consumption_hp(12);
 
 new ItemData("phantasia", item_Bloom_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:bloom_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -2948,7 +2948,7 @@ new ItemData("phantasia", item_Lumin_Rock, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_drops("phantasia:lumin_shard");
 
 new ItemData("phantasia", item_Acacia_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:acacia_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -3141,7 +3141,7 @@ new ItemData("phantasia", item_Bottle_Of_Orange_Juice, ITEM_TYPE_BIT.CONSUMABLE)
     .set_consumption_return("phantasia:bottle", 1);
 
 new ItemData("phantasia", item_Ashen_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:ashen_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -3229,7 +3229,7 @@ new ItemData("phantasia", item_Pine_Shovel, ITEM_TYPE_BIT.SHOVEL)
 new ItemData("phantasia", item_Bowl);
 
 new ItemData("phantasia", item_Birch_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:birch_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -3256,7 +3256,7 @@ new ItemData("phantasia", item_Cookie, ITEM_TYPE_BIT.CONSUMABLE)
     .set_consumption_hp(9);
 
 new ItemData("phantasia", item_Yucca_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:yucca_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -3277,7 +3277,7 @@ new ItemData("phantasia", item_Pumpkin_Pie, ITEM_TYPE_BIT.CONSUMABLE)
 new ItemData("phantasia", item_Sugar);
 
 new ItemData("phantasia", item_Cherry_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:cherry_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -4632,7 +4632,7 @@ new ItemData("phantasia", item_Oak_Shovel, ITEM_TYPE_BIT.SHOVEL)
     .set_durability(65);
 
 new ItemData("phantasia", item_Wysteria_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:wysteria_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -4811,7 +4811,7 @@ new ItemData("phantasia", item_Oak_Sign, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Oak_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:oak_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -5504,7 +5504,7 @@ new ItemData("phantasia", item_Hardened_Aphide_Wall, ITEM_TYPE_BIT.WALL)
     .set_sfx("phantasia:tile.stone");
 
 new ItemData("phantasia", item_Mangrove_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:mangrove_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -5529,7 +5529,7 @@ new ItemData("phantasia", item_Mangrove_Door, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Mahogany_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:mahogany_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -5578,7 +5578,7 @@ new ItemData("phantasia", item_Blizzard_Door, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Pine_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:pine_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
@@ -5603,7 +5603,7 @@ new ItemData("phantasia", item_Pine_Door, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Palm_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
-    .set_random_index(0)
+    .set_random_index(0, 0)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:palm_chest")
     .set_container_sfx("phantasia:tile.container.~.chest")
