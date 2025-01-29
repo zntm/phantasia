@@ -3963,7 +3963,7 @@ new ItemData("phantasia", item_Blonde_Cherry_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
     });
 
 new ItemData("phantasia", item_Snow_Pile, ITEM_TYPE_BIT.PLANT)
-    .set_random_index(0, 5)
+    .set_random_index(0, 3)
     .set_flip_on(true, false)
     .set_mining_stats(undefined, undefined, 2)
     .set_sfx("phantasia:tile.snow");
