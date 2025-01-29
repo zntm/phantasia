@@ -1,4 +1,4 @@
-#macro WORLDGEN_STRUCTURE_OFFSET (CHUNK_SIZE_X * 16)
+#macro WORLDGEN_STRUCTURE_OFFSET (CHUNK_SIZE_X * 8)
 
 function ctrl_structure_surface(_xstart, _xend)
 {

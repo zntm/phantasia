@@ -83,6 +83,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     
     if (_generate)
     {
+        /*
         if (_structure_checked_length > 1) && (j < _structure_checked_length)
         {
             for (var j = 0; j < _structure_checked_length; ++j)
@@ -123,6 +124,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
                 }
             }
         }
+        */
         
         _xstart *= CHUNK_SIZE_X;
         _xend   *= CHUNK_SIZE_X;
