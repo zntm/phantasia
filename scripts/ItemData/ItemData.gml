@@ -1546,7 +1546,11 @@ new ItemData("phantasia", item_Larvelt_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData("phantasia", item_Steel);
 
-new ItemData("phantasia", item_Block_Of_Steel, ITEM_TYPE_BIT.SOLID);
+new ItemData("phantasia", item_Block_Of_Steel, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 116)
+    .set_drops("phantasia:block_of_platinum")
+    .set_sfx("phantasia:tile.metal");
 
 new ItemData("phantasia", item_Pot, ITEM_TYPE_BIT.UNTOUCHABLE);
 
@@ -2582,16 +2586,19 @@ new ItemData("phantasia", item_Mushroom_Stem_Block, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18);
 
 new ItemData("phantasia", item_Red_Mushroom_Block, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, true)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:red_mushroom");
 
 new ItemData("phantasia", item_Blue_Mushroom_Block, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, false)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:blue_mushroom");
 
 new ItemData("phantasia", item_Brown_Mushroom_Block, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, false)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
     .set_drops("phantasia:brown_mushroom");
