@@ -1,91 +1,7 @@
 #macro WORLDGEN_STRUCTURE_OFFSET (CHUNK_SIZE_X * 16)
 
-function ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_height)
+function ctrl_structure_surface(_xstart, _xend)
 {
-    var _structure_surface_checked = global.structure_surface_checked;
-    
-    var _length2 = array_length(_structure_surface_checked);
-    
-    var _ = true;
-    
-    var _x = round((_camera_x + (_camera_width / 2)) / TILE_SIZE);
-    var _xstart = _x - WORLDGEN_STRUCTURE_OFFSET;
-    var _xend   = _x + WORLDGEN_STRUCTURE_OFFSET;
-    
-    var i = 0;
-    
-    for (; i < _length2; ++i)
-    {
-        var _structure = _structure_surface_checked[i];
-        
-        var _min = _structure[0];
-        var _max = _structure[1];
-        
-        if (_xstart < _min)
-        {
-            global.structure_surface_checked[@ i][@ 0] = _xstart;
-            
-            _xend = _xstart;
-            
-            _ = false;
-            
-            break;
-        }
-        else if (_xend > _max)
-        {
-            global.structure_surface_checked[@ i][@ 1] = _xend;
-            
-            _xstart = _max;
-            
-            _ = false;
-            
-            break;
-        }
-    }
-    
-    if (_) exit;
-    
-    if (_length2 > 1)
-    {
-        for (var j = 0; j < _length2; ++j)
-        {
-            if (i == j) continue;
-            
-            var _a = _structure_surface_checked[j];
-            
-            var _min = _a[0];
-            var _max = _a[1];
-            
-            if (_min >= _xend)
-            {
-                global.structure_surface_checked[@ i][@ 1] = _max;
-                
-                if (global.structure_surface_checked_index == j)
-                {
-                    global.structure_surface_checked_index = i;
-                }
-                
-                array_delete(global.structure_surface_checked, j, 1);
-                
-                break;
-            }
-            
-            if (_max >= _xstart)
-            {
-                global.structure_surface_checked[@ i][@ 0] = _min;
-                
-                array_delete(global.structure_surface_checked, j, 1);
-                
-                if (global.structure_surface_checked_index == j)
-                {
-                    global.structure_surface_checked_index = i;
-                }
-                
-                break;
-            }
-        }
-    }
-    
     var _world = global.world;
     var _realm = _world.realm;
     
@@ -96,6 +12,8 @@ function ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_hei
     var _structure_data_function = global.structure_data_function;
     
     var _seed = _world.seed;
+    
+    show_debug_message($"T: {_xstart} {_xend}");
     
     for (var i = _xstart; i <= _xend; ++i)
     {

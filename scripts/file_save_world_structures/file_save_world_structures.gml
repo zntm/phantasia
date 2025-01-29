@@ -18,14 +18,14 @@ function file_save_world_structures()
 		buffer_write(_buffer, buffer_string, structure);
 	}
     
-    var _structure_surface_checked = global.structure_surface_checked;
-    var _structure_surface_checked_length = array_length(_structure_surface_checked);
+    var _structure_checked = global.structure_checked;
+    var _structure_checked_length = array_length(_structure_checked);
     
-    buffer_write(_buffer, buffer_u64, _structure_surface_checked_length);
+    buffer_write(_buffer, buffer_u64, _structure_checked_length);
     
-    for (var i = 0; i < _structure_surface_checked_length; ++i)
+    for (var i = 0; i < _structure_checked_length; ++i)
     {
-        var _ = _structure_surface_checked[i];
+        var _ = _structure_checked[i];
         
         buffer_write(_buffer, buffer_f64, _[0]);
         buffer_write(_buffer, buffer_f64, _[1]);

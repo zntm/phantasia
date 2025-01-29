@@ -2,8 +2,102 @@
 
 function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
 {
-    ctrl_structure_surface(_camera_x, _camera_y, _camera_width, _camera_height);
-    ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera_height);
+    var _structure_checked = global.structure_checked;
+    var _structure_checked_length = array_length(_structure_checked);
+    
+    var i = 0;
+    
+    var _generate = false;
+    
+    var _x = round((_camera_x + (_camera_width / 2)) / TILE_SIZE);
+    
+    var _xstart = round((_x - WORLDGEN_STRUCTURE_OFFSET) / CHUNK_SIZE_X);
+    var _xend   = round((_x + WORLDGEN_STRUCTURE_OFFSET) / CHUNK_SIZE_X);
+    
+    for (; i < _structure_checked_length; ++i)
+    {
+        var _structure = _structure_checked[i];
+        
+        var _min = _structure[0];
+        var _max = _structure[1];
+        
+        if (_xstart < _min)
+        {
+            global.structure_checked[@ i][@ 0] = _xstart;
+            
+            var _temp = _xstart;
+            
+            // _xstart = _min;
+            _xend = _min;
+            
+            _generate = true;
+            
+            break;
+        }
+        
+        if (_xend > _max)
+        {
+            global.structure_checked[@ i][@ 1] = _xend;
+            
+            _xstart = _max;
+            
+            _generate = true;
+            
+            break;
+        }
+    }
+    
+    if (_generate)
+    {
+        show_debug_message(global.structure_checked);
+        
+        if (_structure_checked_length > 1)
+        {
+            for (var j = 0; j < _structure_checked_length; ++j)
+            {
+                if (i == j) continue;
+                
+                var _a = _structure_checked[j];
+                
+                var _min = _a[0];
+                var _max = _a[1];
+                
+                if (_min >= _xend)
+                {
+                    global.structure_checked[@ i][@ 1] = _max;
+                    
+                    if (global.structure_checked_index == j)
+                    {
+                        global.structure_checked_index = i;
+                    }
+                    
+                    array_delete(global.structure_checked, j, 1);
+                    
+                    break;
+                }
+                
+                if (_max >= _xstart)
+                {
+                    global.structure_checked[@ i][@ 0] = _min;
+                    
+                    if (global.structure_checked_index == j)
+                    {
+                        global.structure_checked_index = i;
+                    }
+                    
+                    array_delete(global.structure_checked, j, 1);
+                    
+                    break;
+                }
+            }
+        }
+        
+        _xstart *= CHUNK_SIZE_X;
+        _xend   *= CHUNK_SIZE_X;
+        
+        ctrl_structure_surface(_xstart, _xend);
+        ctrl_structure_underground(_xstart, _xend);
+    }
     
 	var _structure_data = global.structure_data;
 	var _structure_data_function = global.structure_data_function;

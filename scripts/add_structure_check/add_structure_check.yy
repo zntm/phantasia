@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"add_structure_surface_check",
+  "%Name":"add_structure_check",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"add_structure_surface_check",
+  "name":"add_structure_check",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

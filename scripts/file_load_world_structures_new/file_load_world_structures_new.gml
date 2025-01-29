@@ -37,18 +37,18 @@ function file_load_world_structures_new(_buffer)
 		}
     }
     
-    var _structure_surface_checked_length = buffer_read(_buffer, buffer_u64);
+    var _structure_checked_length = buffer_read(_buffer, buffer_u64);
     
-    global.structure_surface_checked_index = array_create(_structure_surface_checked_length);
+    global.structure_checked_index = array_length(_structure_checked_length);
     
-    buffer_write(_buffer, buffer_u64, _structure_surface_checked_length);
+    buffer_write(_buffer, buffer_u64, _structure_checked_length);
     
-    for (var i = 0; i < _structure_surface_checked_length; ++i)
+    for (var i = 0; i < _structure_checked_length; ++i)
     {
         var _min = buffer_read(_buffer, buffer_f64);
         var _max = buffer_read(_buffer, buffer_f64);
         
-        global.structure_surface_checked[@ i] = [
+        global.structure_checked[@ i] = [
             _min,
             _max
         ];

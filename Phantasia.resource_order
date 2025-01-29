@@ -236,7 +236,7 @@
     {"name":"rm_Warning","order":3,"path":"rooms/rm_Warning/rm_Warning.yy",},
     {"name":"rm_World","order":5,"path":"rooms/rm_World/rm_World.yy",},
     {"name":"AchievementID","order":1,"path":"scripts/AchievementID/AchievementID.yy",},
-    {"name":"add_structure_surface_check","order":42,"path":"scripts/add_structure_surface_check/add_structure_surface_check.yy",},
+    {"name":"add_structure_check","order":42,"path":"scripts/add_structure_check/add_structure_check.yy",},
     {"name":"array_choose","order":2,"path":"scripts/array_choose/array_choose.yy",},
     {"name":"Attributes","order":23,"path":"scripts/Attributes/Attributes.yy",},
     {"name":"audio_array_is_playing","order":43,"path":"scripts/audio_array_is_playing/audio_array_is_playing.yy",},

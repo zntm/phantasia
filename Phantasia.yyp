@@ -951,7 +951,7 @@
     {"id":{"name":"achievement_unlock","path":"scripts/achievement_unlock/achievement_unlock.yy",},},
     {"id":{"name":"AchievementData","path":"scripts/AchievementData/AchievementData.yy",},},
     {"id":{"name":"AchievementID","path":"scripts/AchievementID/AchievementID.yy",},},
-    {"id":{"name":"add_structure_surface_check","path":"scripts/add_structure_surface_check/add_structure_surface_check.yy",},},
+    {"id":{"name":"add_structure_check","path":"scripts/add_structure_check/add_structure_check.yy",},},
     {"id":{"name":"array_choose","path":"scripts/array_choose/array_choose.yy",},},
     {"id":{"name":"array_instance_sun_rays","path":"scripts/array_instance_sun_rays/array_instance_sun_rays.yy",},},
     {"id":{"name":"AttireData","path":"scripts/AttireData/AttireData.yy",},},

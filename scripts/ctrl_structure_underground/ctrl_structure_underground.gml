@@ -1,40 +1,5 @@
-function ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera_height)
+function ctrl_structure_underground(_xstart, _xend)
 {
-    var _structure_cave_checked_xmin = global.structure_cave_checked_xmin;
-    var _structure_cave_checked_xmax = global.structure_cave_checked_xmax;
-    
-    var _x = round((_camera_x + (_camera_width / 2)) / TILE_SIZE);
-    
-    var _xstart = round((_x - WORLDGEN_STRUCTURE_OFFSET) / CHUNK_SIZE_X);
-    var _xend   = round((_x + WORLDGEN_STRUCTURE_OFFSET) / CHUNK_SIZE_X);
-    
-    if (_xstart < _structure_cave_checked_xmin)
-    {
-        _xend = _structure_cave_checked_xmin;
-    }
-    else if (_xend > _structure_cave_checked_xmax)
-    {
-        _xstart = _structure_cave_checked_xmax;
-    }
-    else exit;
-    
-    var _structure_cave_checked_ymin = global.structure_cave_checked_ymin;
-    var _structure_cave_checked_ymax = global.structure_cave_checked_ymax;
-    
-    var _y = round((_camera_y + (_camera_height / 2)) / TILE_SIZE);
-    var _ystart = round((_y - WORLDGEN_STRUCTURE_OFFSET) / CHUNK_SIZE_Y);
-    var _yend   = round((_y + WORLDGEN_STRUCTURE_OFFSET) / CHUNK_SIZE_Y);
-    
-    if (_ystart < _structure_cave_checked_ymin)
-    {
-        _yend = _structure_cave_checked_ymin;
-    }
-    else if (_yend > _structure_cave_checked_ymax)
-    {
-        _ystart = _structure_cave_checked_ymax;
-    }
-    else exit;
-    
 	var _world = global.world;
 	var _realm = _world.realm;
 	
@@ -63,7 +28,7 @@ function ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera
 		var _ysurface  = worldgen_get_ysurface(_x2, _seed, _world_data);
 		var _ysurface2 = _ysurface + _start;
 		
-		for (var j = _ystart; j <= _yend; ++j)
+		for (var j = _ysurface2; j <= _world_data.value & 0xffff; ++j)
 		{
 			var _y2 = j * 16;
 			var _yoffset = ((_seed + _y2) ^ 0x82af416f) * 1077.25;
@@ -118,10 +83,4 @@ function ctrl_structure_underground(_camera_x, _camera_y, _camera_width, _camera
 			}
 		}
 	}
-    
-    global.structure_cave_checked_xmin = min(_structure_cave_checked_xmin, _xstart);
-    global.structure_cave_checked_xmax = max(_structure_cave_checked_xmax, _xend);
-    
-    global.structure_cave_checked_ymin = min(_structure_cave_checked_ymin, _ystart);
-    global.structure_cave_checked_ymax = max(_structure_cave_checked_ymax, _yend);
 }

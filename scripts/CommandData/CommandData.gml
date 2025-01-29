@@ -287,7 +287,8 @@ global.command_data[$ "tp"] = new CommandData()
 		
 		#endregion
         
-        add_structure_surface_check();
+        add_structure_check();
+        
         chunk_update_near_light();
         chunk_update_near_inst();
 		

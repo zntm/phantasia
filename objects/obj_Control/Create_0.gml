@@ -107,10 +107,8 @@ if (directory_exists(_directory))
 }
 else
 {
-    add_structure_surface_check();
-    
-    global.structure_surface_checked[@ 0] = [ 0, 0 ];
-    global.structure_surface_checked_index = 0;
+    global.structure_checked[@ 0] = [ 0, 0 ];
+    global.structure_checked_index = 0;
 }
 
 file_load_world_realm_environment(global.world.realm);
