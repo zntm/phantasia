@@ -84,7 +84,7 @@ function gui_inventory_tooltip()
 	
 	if (_type & (ITEM_TYPE_BIT.ARMOR_HELMET | ITEM_TYPE_BIT.ARMOR_BREASTPLATE | ITEM_TYPE_BIT.ARMOR_LEGGINGS | ITEM_TYPE_BIT.ACCESSORY))
 	{
-		var _defense = _data.buffs[$ "phantasia:safeguard"];
+		var _defense = _data.buffs[$ "defense"];
 		
 		if (_defense != -1)
 		{
