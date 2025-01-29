@@ -93,12 +93,6 @@ afk_time = 0;
 
 world_spawn_player(_directory, _seed, obj_Player);
 
-global.structure_cave_checked_xmin = 0;
-global.structure_cave_checked_xmax = 0;
-
-global.structure_cave_checked_ymin = 0;
-global.structure_cave_checked_ymax = 0;
-
 if (directory_exists(_directory))
 {
     file_load_world_values($"{_directory}/Values.dat");
@@ -107,7 +101,7 @@ if (directory_exists(_directory))
 }
 else
 {
-    global.structure_checked[@ 0] = [ 0, 0 ];
+    global.structure_checked[@ 0] = [ 0, 0, 0, 0 ];
     global.structure_checked_index = 0;
 }
 

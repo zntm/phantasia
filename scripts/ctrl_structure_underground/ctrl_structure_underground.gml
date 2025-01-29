@@ -1,4 +1,4 @@
-function ctrl_structure_underground(_xstart, _xend)
+function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 {
 	var _world = global.world;
 	var _realm = _world.realm;
@@ -6,10 +6,17 @@ function ctrl_structure_underground(_xstart, _xend)
 	var _biome_data = global.biome_data;
 	var _structure_data = global.structure_data;
 	var _world_data = global.world_data[$ _realm];
-	
+    
 	var _world_value = _world_data.value;
 	var _world_caves = _world_data.caves;
-	
+    
+    var _world_height = _world_value & 0xffff;
+    
+    if (_yend > _world_height)
+    {
+        _yend = _world_height;
+    }
+    
 	var _start = _world_data.biome.cave.start;
 	
 	var _structure_data_function = global.structure_data_function;
@@ -27,8 +34,10 @@ function ctrl_structure_underground(_xstart, _xend)
 		
 		var _ysurface  = worldgen_get_ysurface(_x2, _seed, _world_data);
 		var _ysurface2 = _ysurface + _start;
+        
+        if (_ystart < _ysurface2) continue;
 		
-		for (var j = _ysurface2; j <= _world_data.value & 0xffff; ++j)
+		for (var j = _ystart; j <= _yend; ++j)
 		{
 			var _y2 = j * 16;
 			var _yoffset = ((_seed + _y2) ^ 0x82af416f) * 1077.25;

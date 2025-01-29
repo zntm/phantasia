@@ -29,6 +29,8 @@ function file_save_world_structures()
         
         buffer_write(_buffer, buffer_f64, _[0]);
         buffer_write(_buffer, buffer_f64, _[1]);
+        buffer_write(_buffer, buffer_f64, _[2]);
+        buffer_write(_buffer, buffer_f64, _[3]);
     }
     
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));

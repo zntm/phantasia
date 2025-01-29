@@ -13,8 +13,6 @@ function ctrl_structure_surface(_xstart, _xend)
     
     var _seed = _world.seed;
     
-    show_debug_message($"T: {_xstart} {_xend}");
-    
     for (var i = _xstart; i <= _xend; ++i)
     {
         var _ysurface = worldgen_get_ysurface(i, _seed, _world_data);

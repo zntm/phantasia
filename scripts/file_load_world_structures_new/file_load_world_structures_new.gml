@@ -45,12 +45,16 @@ function file_load_world_structures_new(_buffer)
     
     for (var i = 0; i < _structure_checked_length; ++i)
     {
-        var _min = buffer_read(_buffer, buffer_f64);
-        var _max = buffer_read(_buffer, buffer_f64);
+        var _x1 = buffer_read(_buffer, buffer_f64);
+        var _y1 = buffer_read(_buffer, buffer_f64);
+        var _x2 = buffer_read(_buffer, buffer_f64);
+        var _y2 = buffer_read(_buffer, buffer_f64);
         
         global.structure_checked[@ i] = [
-            _min,
-            _max
+            _x1,
+            _y1,
+            _x2,
+            _y2
         ];
     }
 }
