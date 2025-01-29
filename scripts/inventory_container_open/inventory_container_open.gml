@@ -38,6 +38,8 @@ function inventory_container_open(_x, _y, _inst = noone)
 	global.container_tile_position_y = _py;
 	global.container_tile_position_z = _pz;
 	
+    _tile.set_index(1);
+    
 	var _container_length = array_length(_container_inventory);
 	
 	var _inventory_row_height = floor(global.inventory_length.base / INVENTORY_LENGTH.ROW) * INVENTORY_SLOT_SCALE * INVENTORY_SLOT_HEIGHT;

@@ -11,6 +11,8 @@ function inventory_container_close()
 		var _z = global.container_tile_position_z;
 		
 		tile_set(_x, _y, _z, "inventory", _container);
+        
+        _tile.set_index(0);
 		
 		var _sfx = global.item_data[$ tile_get(_x, _y, _z)].get_container_sfx();
 		
