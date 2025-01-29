@@ -1,6 +1,6 @@
 function item_update_destroy_floating_above(_x, _y, _z, _tile)
 {
-    var _ = tile_get(_x, _y + 1, _z, -1);
+    var _ = tile_get(_x, _y + 1, CHUNK_DEPTH_DEFAULT, -1);
     
     if (_ != TILE_EMPTY)
     {
