@@ -1,16 +1,16 @@
-function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer)
+function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer, _instance_create = true)
 {
     var _item_id = buffer_read(_buffer, buffer_string);
-
+    
     if (_item_id == "")
     {
         return undefined;
     }
     
     var _seek = buffer_read(_buffer, buffer_u32);
-
+    
     var _data = _item_data[$ _item_id];
-
+    
     if (_data == undefined)
     {
         _item_id = _datafixer[$ _item_id];
@@ -30,7 +30,10 @@ function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer)
     _tile.state_id = buffer_read(_buffer, buffer_u32);
     _tile.scale_rotation_index = buffer_read(_buffer, buffer_u64);
     
-    tile_instance_create(_x, _y, _z, _tile);
+    if (_instance_create)
+    {
+        tile_instance_create(_x, _y, _z, _tile);
+    }
     
     if (_data.type & ITEM_TYPE_BIT.CONTAINER)
     {

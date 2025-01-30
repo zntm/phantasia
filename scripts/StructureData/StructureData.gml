@@ -76,7 +76,7 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
                 
                 for (var l = CHUNK_SIZE_Z - 1; l >= 0; --l)
                 {
-                    var _tile = file_load_snippet_tile(_buffer, j, i, l, _item_data, _datafixer);
+                    var _tile = file_load_snippet_tile(_buffer, j, i, l, _item_data, _datafixer, false);
                     
                     if (_tile != undefined)
                     {
