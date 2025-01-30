@@ -85,7 +85,7 @@ function gui_inventory(_name, _value)
 		
 		if (_data.type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
 		{
-			var _d1 = _item.durability;
+			var _d1 = _item.get_durability();
 			var _d2 = _data.get_durability();
 			
 			if (_d1 < _d2)

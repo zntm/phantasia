@@ -71,7 +71,7 @@ function file_load_world_chunk_old(_inst, _buffer2)
 							
 							if (_item_data[$ _item_id2].type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
 							{
-								_tile.inventory[@ l].durability = buffer_read(_buffer2, buffer_u16);
+								_tile.inventory[@ l].set_durability(buffer_read(_buffer2, buffer_u16));
 							}
 						}
 					}

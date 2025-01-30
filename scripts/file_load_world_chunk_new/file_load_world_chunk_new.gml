@@ -55,7 +55,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
 		{
 			_item_id = _datafixer_item[$ _item_id];
 			_data = _item_data[$ _item_id];
-					
+			
 			if (_data == undefined)
 			{
 				buffer_seek(_buffer2, buffer_seek_start, _next);
