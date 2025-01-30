@@ -58,6 +58,23 @@ function Inventory(_item, _amount = 1) constructor
         ___charms = array_create(_charm_length, undefined);
     }
     
+    static set_charm = function(_index, _id, _level)
+    {
+        ___charms[@ _index] = {
+            id: _id,
+            level: _level,
+            taint: undefined
+        }
+    }
+    
+    static set_charm_taint = function(_index, _id, _level)
+    {
+        ___charms[@ _index].taint = {
+            id: _id,
+            level: _level
+        }
+    }
+    
     static get_charms = function()
     {
         return self[$ "___charms"];

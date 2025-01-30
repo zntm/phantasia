@@ -72,44 +72,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
 					{
 						var _length = buffer_read(_buffer2, buffer_u8);
 						
-						for (var l = 0; l < _length; ++l)
-						{
-							var _item_id2 = buffer_read(_buffer2, buffer_string);
-							
-							if (_item_id2 == "") continue;
-							
-							var _next2 = buffer_read(_buffer2, buffer_u32);
-							
-							var _data2 = _item_data[$ _item_id2];
-							
-							if (_data2 == undefined)
-							{
-								_item_id2 = _datafixer_item[$ _item_id2];
-								_data2 = _item_data[$ _item_id2];
-					
-								if (_data2 == undefined)
-								{
-									buffer_seek(_buffer2, buffer_seek_start, _next2);
-									
-									continue;
-								}
-							}
-							
-							var _amount       = buffer_read(_buffer2, buffer_u16);
-							var _index        = buffer_read(_buffer2, buffer_s8);
-							var _index_offset = buffer_read(_buffer2, buffer_s8);
-							var _state        = buffer_read(_buffer2, buffer_u16);
-							
-							_tile.inventory[@ l] = new Inventory(_item_id2, _amount)
-								.set_index(_index)
-								.set_index_offset(_index_offset)
-								.set_state(_state);
-							
-							if (_data2.type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
-							{
-								_tile.inventory[@ l].durability = buffer_read(_buffer2, buffer_u16);
-							}
-						}
+                        _tile.inventory = file_load_snippet_inventory(_buffer2, _length, _item_data, _datafixer);
 					}
 				}
 				

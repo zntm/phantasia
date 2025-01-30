@@ -47,13 +47,14 @@ function file_save_snippet_tile(_buffer, _tile, _item_data)
     if (_variable_names != undefined)
     {
         var _variable = _data.variable;
+        
         var _length = array_length(_variable_names);
         
         buffer_write(_buffer, buffer_u8, _length);
         
-        for (var l = 0; l < _length; ++l)
+        for (var i = 0; i < _length; ++i)
         {
-            var _name = _variable_names[l];
+            var _name = _variable_names[i];
             
             buffer_write(_buffer, buffer_string, _name);
             buffer_write(_buffer, (is_string(_variable[$ _name]) ? buffer_string : buffer_f32), _tile[$ $"variable.{_name}"]);

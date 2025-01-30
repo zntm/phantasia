@@ -1,7 +1,5 @@
-function file_save_snippet_inventory(_buffer, _inventory, _length)
+function file_save_snippet_inventory(_buffer, _inventory, _length, _item_data)
 {
-    var _item_data = global.item_data;
-    
     for (var i = 0; i < _length; ++i)
     {
         var _item = _inventory[i];
@@ -37,39 +35,34 @@ function file_save_snippet_inventory(_buffer, _inventory, _length)
         
         buffer_write(_buffer, buffer_u8, _charm_length);
         
-        if (_charm_length > 0)
+        for (var j = 0; j < _charm_length; ++j)
         {
-            var _charms = _item.get_charms();
+            var _charm = _item.get_charm(j);
             
-            for (var l = 0; l < _charm_length; ++l)
+            if (_charm == undefined)
             {
-                var _charm = _item.get_charm(l);
+                buffer_write(_buffer, buffer_bool, false);
                 
-                if (_charm == undefined)
-                {
-                    buffer_write(_buffer, buffer_bool, false);
-                    
-                    continue;
-                }
-                
+                continue;
+            }
+            
+            buffer_write(_buffer, buffer_bool, true);
+            
+            buffer_write(_buffer, buffer_string, _charm.id);
+            buffer_write(_buffer, buffer_u8, _charm.level);
+            
+            var _taint = _charm[$ "taint"];
+            
+            if (_taint != undefined)
+            {
                 buffer_write(_buffer, buffer_bool, true);
                 
-                buffer_write(_buffer, buffer_string, _charm.name);
-                buffer_write(_buffer, buffer_u8, _charm.level);
-                
-                var _taint = _charm[$ "taint"];
-                
-                if (_taint != undefined)
-                {
-                    buffer_write(_buffer, buffer_bool, true);
-                    
-                    buffer_write(_buffer, buffer_string, _taint.name);
-                    buffer_write(_buffer, buffer_u8, _taint.level);
-                }
-                else
-                {
-                    buffer_write(_buffer, buffer_bool, false);
-                }
+                buffer_write(_buffer, buffer_string, _taint.id);
+                buffer_write(_buffer, buffer_u8, _taint.level);
+            }
+            else
+            {
+                buffer_write(_buffer, buffer_bool, false);
             }
         }
         
