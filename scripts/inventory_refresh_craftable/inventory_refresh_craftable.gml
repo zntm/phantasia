@@ -116,6 +116,20 @@ function inventory_refresh_craftable(_force = false)
 	{
 		var _station = _crafting_stations[i];
 		
+        if (string_starts_with(_station, "#"))
+        {
+            with (obj_Tile_Station)
+            {
+                if (tag == undefined) || (!array_contains(tag, _station)) || (point_distance(x, y, _player_x, _player_y) > _distance) continue;
+                
+                __distance[@ _distance_length++] = _station;
+                
+                break;
+            }
+            
+            continue;
+        }
+        
 		with (obj_Tile_Station)
 		{
 			if (_station != item_id) || (point_distance(x, y, _player_x, _player_y) > _distance) continue;

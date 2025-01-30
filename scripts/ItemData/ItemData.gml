@@ -475,8 +475,6 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             return 4;
         }
         
-        show_debug_message(_)
-        
         return (_ >> 40) & 0xff;
     }
     
@@ -1253,6 +1251,23 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             static get_sfx_craft = function()
             {
                 return self[$ "___sfx_craft"] ?? "phantasia:menu.inventory.press";
+            }
+            
+            static add_tag_tile_crafting_station = function()
+            {
+                self[$ "___tag_tile_crafting_station"] ??= [];
+                
+                for (var i = 0; i < argument_count; ++i)
+                {
+                    array_push(___tag_tile_crafting_station, argument[i]);
+                }
+                
+                return self;
+            }
+            
+            static get_tag_tile_crafting_station = function()
+            {
+                return self[$ "___tag_tile_crafting_station"];
             }
         }
         
@@ -3465,9 +3480,10 @@ new ItemData("phantasia", item_Anvil, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.
     .set_sfx("phantasia:tile.metal")
     .set_sfx_craft("phantasia:tile.craft.anvil");
 
-new ItemData("phantasia", item_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+new ItemData("phantasia", item_Oak_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
-    .set_drops("phantasia:workbench")
+    .set_drops("phantasia:oak_workbench")
     .set_sfx("phantasia:tile.wood")
     .set_sfx_craft("phantasia:tile.craft.workbench");
 

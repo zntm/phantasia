@@ -26,7 +26,7 @@ function init_recipes(_directory, _prefix = "phantasia", _type = 0)
 		
 		if (_item_data[$ _item_id] == undefined)
 		{
-			show_debug_message($"[WARNING] : Item \'{_item_id}\' does not exist!");
+			debug_log($"Item \'{_item_id}\' does not exist!");
 			
 			continue;
 		}

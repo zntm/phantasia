@@ -261,7 +261,7 @@
 					"amount": 2
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:flower_crown"
 		},
         {
@@ -287,7 +287,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:anvil"
 		},
         {
@@ -309,7 +309,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:furnace"
 		},
 		{
@@ -334,7 +334,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"item_id": "phantasia:workbench"
+			"item_id": "phantasia:oak_workbench"
 		},
 		{
 			"ingredients": [
@@ -363,7 +363,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:sawmill"
 		},
 		{
@@ -379,7 +379,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:stove"
 		},
 		{
@@ -395,7 +395,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:stonecutter"
 		},
 		{
@@ -406,7 +406,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:block_of_coal"
 		},
 		{
@@ -1091,7 +1091,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:acacia_pickaxe"
 		},
 		{
@@ -1102,7 +1102,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:acacia_shovel"
 		},
 		{
@@ -1171,7 +1171,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:acacia_door"
 		},
 		{
@@ -1182,7 +1182,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:acacia_sign"
 		},
 		{
@@ -1193,7 +1193,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:ashen_pickaxe"
 		},
 		{
@@ -1204,7 +1204,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:ashen_shovel"
 		},
 		{
@@ -1273,7 +1273,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:ashen_door"
 		},
 		{
@@ -1284,7 +1284,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:ashen_sign"
 		},
 		{
@@ -1295,7 +1295,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:birch_pickaxe"
 		},
 		{
@@ -1306,7 +1306,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:birch_shovel"
 		},
 		{
@@ -1375,7 +1375,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:birch_door"
 		},
 		{
@@ -1386,7 +1386,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:birch_sign"
 		},
 		{
@@ -1397,7 +1397,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:blizzard_pickaxe"
 		},
 		{
@@ -1408,7 +1408,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:blizzard_shovel"
 		},
 		{
@@ -1477,7 +1477,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:blizzard_door"
 		},
 		{
@@ -1488,7 +1488,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:blizzard_sign"
 		},
 		{
@@ -1499,7 +1499,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:bloom_pickaxe"
 		},
 		{
@@ -1510,7 +1510,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:bloom_shovel"
 		},
 		{
@@ -1579,7 +1579,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:bloom_door"
 		},
 		{
@@ -1590,7 +1590,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:bloom_sign"
 		},
 		{
@@ -1601,7 +1601,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:cherry_pickaxe"
 		},
 		{
@@ -1612,7 +1612,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:cherry_shovel"
 		},
 		{
@@ -1681,7 +1681,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:cherry_door"
 		},
 		{
@@ -1692,7 +1692,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:cherry_sign"
 		},
 		{
@@ -1703,7 +1703,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:mahogany_pickaxe"
 		},
 		{
@@ -1714,7 +1714,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:mahogany_shovel"
 		},
 		{
@@ -1783,7 +1783,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:mahogany_door"
 		},
 		{
@@ -1794,7 +1794,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:mahogany_sign"
 		},
 		{
@@ -1805,7 +1805,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:mangrove_pickaxe"
 		},
 		{
@@ -1816,7 +1816,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:mangrove_shovel"
 		},
 		{
@@ -1885,7 +1885,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:mangrove_door"
 		},
 		{
@@ -1896,7 +1896,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:mangrove_sign"
 		},
 		{
@@ -1907,7 +1907,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:oak_pickaxe"
 		},
 		{
@@ -1918,7 +1918,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:oak_shovel"
 		},
 		{
@@ -1987,7 +1987,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:oak_door"
 		},
 		{
@@ -1998,7 +1998,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:oak_sign"
 		},
 		{
@@ -2009,7 +2009,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:palm_pickaxe"
 		},
 		{
@@ -2020,7 +2020,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:palm_shovel"
 		},
 		{
@@ -2111,7 +2111,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:pine_pickaxe"
 		},
 		{
@@ -2122,7 +2122,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:pine_shovel"
 		},
 		{
@@ -2191,7 +2191,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:pine_door"
 		},
 		{
@@ -2202,7 +2202,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:pine_sign"
 		},
 		{
@@ -2213,7 +2213,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:wysteria_pickaxe"
 		},
 		{
@@ -2224,7 +2224,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:wysteria_shovel"
 		},
 		{
@@ -2293,7 +2293,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:wysteria_door"
 		},
 		{
@@ -2304,7 +2304,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:wysteria_sign"
 		},
 		{
@@ -2315,7 +2315,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:yucca_pickaxe"
 		},
 		{
@@ -2326,7 +2326,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:yucca_shovel"
 		},
 		{
@@ -2395,7 +2395,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:yucca_door"
 		},
 		{
@@ -2406,7 +2406,7 @@
 					"unlock_grimoire": true
 				}
 			],
-			"stations": "phantasia:workbench",
+			"stations": "#phantasia:workbench",
 			"item_id": "phantasia:yucca_sign"
 		},
 		{

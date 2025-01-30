@@ -45,6 +45,11 @@ function Inventory(_item, _amount = 1) constructor
 		
 		return self;
 	}
+    
+    static get_durability = function()
+    {
+        return durability;
+    }
 	
 	if (_type & ITEM_TYPE_BIT.FISHING_POLE)
 	{
