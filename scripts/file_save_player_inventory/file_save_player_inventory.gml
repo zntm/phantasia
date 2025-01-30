@@ -27,7 +27,7 @@ function file_save_player_inventory(_id)
         buffer_write(_buffer, buffer_u8, VERSION_NUMBER.PATCH);
         buffer_write(_buffer, buffer_u8, VERSION_NUMBER.TYPE);
         
-        file_save_snippet_inventory(_buffer, _v, _l);
+        file_save_snippet_inventory(_buffer, _v, _l, _item_data);
         
         var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
         
