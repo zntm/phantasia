@@ -323,6 +323,7 @@
     {"name":"file_load_player_inventory_new","order":6,"path":"scripts/file_load_player_inventory_new/file_load_player_inventory_new.yy",},
     {"name":"file_load_player_inventory_old","order":7,"path":"scripts/file_load_player_inventory_old/file_load_player_inventory_old.yy",},
     {"name":"file_load_player_inventory","order":5,"path":"scripts/file_load_player_inventory/file_load_player_inventory.yy",},
+    {"name":"file_load_snippet_tile","order":1,"path":"scripts/file_load_snippet_tile/file_load_snippet_tile.yy",},
     {"name":"file_load_world_chunk_new","order":9,"path":"scripts/file_load_world_chunk_new/file_load_world_chunk_new.yy",},
     {"name":"file_load_world_chunk_old","order":10,"path":"scripts/file_load_world_chunk_old/file_load_world_chunk_old.yy",},
     {"name":"file_load_world_chunk","order":8,"path":"scripts/file_load_world_chunk/file_load_world_chunk.yy",},

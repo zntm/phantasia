@@ -10,14 +10,15 @@ function file_load_snippet_inventory(_buffer, _length, _item_data, _datafixer)
         
         var _seek = buffer_read(_buffer, buffer_u32);
         
-        var _data2 = _item_data[$ _item_id];
+        var _data = _item_data[$ _item_id];
         
-        if (_data2 == undefined)
+        if (_data == undefined)
         {
             _item_id = _datafixer[$ _item_id];
-            _data2 = _item_data[$ _item_id];
             
-            if (_data2 == undefined)
+            _data = _item_data[$ _item_id];
+            
+            if (_data == undefined)
             {
                 buffer_seek(_buffer, buffer_seek_start, _seek);
                 
@@ -30,12 +31,12 @@ function file_load_snippet_inventory(_buffer, _length, _item_data, _datafixer)
         var _index_offset = buffer_read(_buffer, buffer_s8);
         var _state        = buffer_read(_buffer, buffer_u16);
         
-        var _item = new Inventory(_item_id2, _amount)
+        var _item = new Inventory(_item_id, _amount)
             .set_index(_index)
             .set_index_offset(_index_offset)
             .set_state(_state);
         
-        if (_data2.type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
+        if (_data.type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
         {
             _item.set_durability(buffer_read(_buffer, buffer_u16));
         }

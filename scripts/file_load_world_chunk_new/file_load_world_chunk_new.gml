@@ -14,89 +14,28 @@ function file_load_world_chunk_new(_inst, _buffer2)
 	
 	if (_surface_display)
 	{
+        var _chunk_xstart = _inst.chunk_xstart;
+        var _chunk_ystart = _inst.chunk_ystart;
+        
 		for (var i = 0; i < CHUNK_SIZE_Z; ++i)
 		{
 			if ((_surface_display & (1 << i)) == 0) continue;
-		
+            
 			var j = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
-	
+            
 			repeat (CHUNK_SIZE_X * CHUNK_SIZE_Y)
 			{
-				var _item_id = buffer_read(_buffer2, buffer_string);
-		
-				if (_item_id == "")
-				{
-					++j;
-			
-					continue;
-				}
-				
-				var _next = buffer_read(_buffer2, buffer_u32);
-		
-				var _data = _item_data[$ _item_id];
-		
-				if (_data == undefined)
-				{
-					_item_id = _datafixer_item[$ _item_id];
-					_data = _item_data[$ _item_id];
-					
-					if (_data == undefined)
-					{
-						buffer_seek(_buffer2, buffer_seek_start, _next);
-						
-						++j;
-						
-						continue;
-					}
-				}
-		
-				var _tile = new Tile(_item_id, _item_data);
-		
-				_tile.state_id = buffer_read(_buffer2, buffer_u32);
-				_tile.scale_rotation_index = buffer_read(_buffer2, buffer_u64);
-		
-				var _xtile = _inst.chunk_xstart + (j & (CHUNK_SIZE_X - 1));
-				var _ytile = _inst.chunk_ystart + ((j >> CHUNK_SIZE_X_BIT) & (CHUNK_SIZE_Y - 1));
-		
-				tile_instance_create(_xtile, _ytile, i, _tile);
-				
-				if (_data.type & ITEM_TYPE_BIT.CONTAINER)
-				{
-					var _is_loot = buffer_read(_buffer2, buffer_bool);
-					
-					if (_is_loot)
-					{
-						_tile.set_loot(buffer_read(_buffer2, buffer_string));
-					}
-					else
-					{
-						var _length = buffer_read(_buffer2, buffer_u8);
-						
-                        _tile.inventory = file_load_snippet_inventory(_buffer2, _length, _item_data, _datafixer);
-					}
-				}
-				
-				var _variable_names = _data.variable_names;
-				
-				if (_variable_names != undefined)
-				{
-					var _variable = _data.variable;
-					var _length = buffer_read(_buffer2, buffer_u8);
-					
-					repeat (_length)
-					{
-						var _name = buffer_read(_buffer2, buffer_string);
-						
-						var _v = _variable[$ _name];
-						
-						if (_v != undefined)
-						{
-							_tile[$ $"variable.{_name}"] = buffer_read(_buffer2, (is_string(_v) ? buffer_string : buffer_f32));
-						}
-					}
-				}
-				
-				chunk[@ j++] = _tile;
+                var _xtile = _chunk_xstart + (j & (CHUNK_SIZE_X - 1));
+                var _ytile = _chunk_ystart + ((j >> CHUNK_SIZE_X_BIT) & (CHUNK_SIZE_Y - 1));
+                
+                var _tile = file_load_snippet_tile(_buffer2, _xtile, _ytile, i, _item_data, _datafixer_item);
+                
+                if (_tile != undefined)
+                {
+                    chunk[@ j] = _tile;
+                }
+                
+                ++j;
 			}
 		}
 	}
@@ -195,7 +134,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
 		{
 			_creature_id = _datafixer_creature[$ _creature_id];
 			_data = _creature_data[$ _creature_id];
-					
+			
 			if (_data == undefined)
 			{
 				buffer_seek(_buffer2, buffer_seek_start, _next);
