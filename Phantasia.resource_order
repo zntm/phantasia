@@ -134,6 +134,7 @@
     {"name":"Events","order":6,"path":"folders/Scripts/Events.yy",},
     {"name":"File","order":7,"path":"folders/Scripts/File.yy",},
     {"name":"Load","order":1,"path":"folders/Scripts/File/Load.yy",},
+    {"name":"Snippets","order":11,"path":"folders/Scripts/File/Save/Snippets.yy",},
     {"name":"Functions","order":15,"path":"folders/Scripts/Functions.yy",},
     {"name":"Delta","order":1,"path":"folders/Scripts/Functions/Delta.yy",},
     {"name":"GUI","order":8,"path":"folders/Scripts/GUI.yy",},

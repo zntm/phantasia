@@ -63,36 +63,7 @@ function file_save_world_chunk(_inst)
                         
 						buffer_write(_buffer, buffer_u8, _inventory_length);
 						
-						for (var l = 0; l < _inventory_length; ++l)
-						{
-							var _item = _inventory[l];
-                            
-							if (_item == INVENTORY_EMPTY)
-							{
-								buffer_write(_buffer, buffer_string, "");
-                                
-								continue;
-							}
-							
-							var _item_id2 = _item.item_id;
-							
-							buffer_write(_buffer, buffer_string, _item_id2);
-							
-							var _next2 = buffer_tell(_buffer);
-							buffer_write(_buffer, buffer_u32, 0);
-							
-							buffer_write(_buffer, buffer_u16, _item.amount);
-							buffer_write(_buffer, buffer_s8, _item.index);
-							buffer_write(_buffer, buffer_s8, _item.index_offset);
-							buffer_write(_buffer, buffer_u16, _item.state);
-                            
-							if (_item_data[$ _item_id2].type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
-							{
-								buffer_write(_buffer, buffer_u16, _item.durability);
-							}
-							
-							buffer_poke(_buffer, _next2, buffer_u32, buffer_tell(_buffer));
-						}
+                        file_save_snippet_inventory(_buffer, _inventory, _inventory_length);
 					}
 				}
 				

@@ -27,36 +27,7 @@ function file_save_player_inventory(_id)
         buffer_write(_buffer, buffer_u8, VERSION_NUMBER.PATCH);
         buffer_write(_buffer, buffer_u8, VERSION_NUMBER.TYPE);
         
-        for (var j = 0; j < _l; ++j)
-        {
-            var _item = _v[j];
-            
-            if (_item == INVENTORY_EMPTY)
-            {
-                buffer_write(_buffer, buffer_string, "");
-                
-                continue;
-            }
-            
-            var _item_id = _item.item_id;
-            
-            buffer_write(_buffer, buffer_string, _item_id);
-            
-            var _next2 = buffer_tell(_buffer);
-            buffer_write(_buffer, buffer_u32, 0);
-            
-            buffer_write(_buffer, buffer_u16, _item.amount);
-            buffer_write(_buffer, buffer_s8, _item.index);
-            buffer_write(_buffer, buffer_s8, _item.index_offset);
-            buffer_write(_buffer, buffer_u16, _item.state);
-            
-            if (_item_data[$ _item_id].type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
-            {
-                buffer_write(_buffer, buffer_u16, _item.durability);
-            }
-            
-            buffer_poke(_buffer, _next2, buffer_u32, buffer_tell(_buffer));
-        }
+        file_save_snippet_inventory(_buffer, _v, _l);
         
         var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
         
