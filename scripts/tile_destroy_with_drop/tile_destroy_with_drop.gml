@@ -13,7 +13,15 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
         
         if (is_string(_inventory))
         {
-            _inventory = _tile.set_loot_inventory(_inventory).inventory;
+            _inventory = _tile
+                .generate_inventory_loot(_inventory)
+                .get_inventory();
+        }
+        else
+        {
+            _inventory = _tile
+                .generate_inventory()
+                .get_inventory();
         }
         
         var _container_length = _data.get_container_length();

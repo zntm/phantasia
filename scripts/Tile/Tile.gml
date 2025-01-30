@@ -209,24 +209,33 @@ function Tile(_item, _item_data = global.item_data) constructor
 	}
 	else if (_type & ITEM_TYPE_BIT.CONTAINER)
 	{
-		inventory = array_create(_data.get_container_length(), INVENTORY_EMPTY);
+		___inventory = undefined;
 		
-		static set_loot = function(_loot)
+		static set_inventory = function(_loot)
 		{
-			inventory = _loot;
+			___inventory = _loot;
 			
 			return self;
 		}
+        
+        static generate_inventory = function()
+        {
+            var _container_length = global.item_data[$ item_id].get_container_length();
+            
+            ___inventory = array_create(_container_length, INVENTORY_EMPTY);
+            
+            return self;
+        }
 		
-		static set_loot_inventory = function(_loot1)
+		static generate_inventory_loot = function(_loot1)
 		{
 			var _loot_data = global.loot_data;
 			
 			var _size = global.item_data[$ item_id].get_container_length();
 			var _size_1 = _size - 1;
 			
-			inventory = array_create(_size, INVENTORY_EMPTY);
-			
+			generate_inventory();
+            
 			var _data = _loot_data[$ _loot1];
 			
 			var _guaranteed = _data.guaranteed;
@@ -253,7 +262,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 						_index = irandom(_size_1);
 					}
 					
-					inventory[@ _index] = new Inventory(is_array_choose(_item_id), (_amount_max == 0 ? _amount_min : irandom_range(_amount_min, _amount_max)));
+					___inventory[@ _index] = new Inventory(is_array_choose(_item_id), (_amount_max == 0 ? _amount_min : irandom_range(_amount_min, _amount_max)));
 				}
 			}
 			
@@ -262,7 +271,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 			
 			for (var i = 0; i < _size; ++i)
 			{
-				if (inventory[i] != INVENTORY_EMPTY) continue;
+				if (___inventory[i] != INVENTORY_EMPTY) continue;
 				
 				var _ = choose_weighted(_loot);
 				
@@ -275,11 +284,16 @@ function Tile(_item, _item_data = global.item_data) constructor
 				var _amount_min = (_value >> 0)  & 0xffff;
 				var _amount_max = (_value >> 16) & 0xffff;
 				
-				inventory[@ i] = new Inventory(is_array_choose(_item_id), (_amount_max == 0 ? _amount_min : irandom_range(_amount_min, _amount_max)));
+				___inventory[@ i] = new Inventory(is_array_choose(_item_id), (_amount_max == 0 ? _amount_min : irandom_range(_amount_min, _amount_max)));
 			}
 			
 			return self;
 		}
+        
+        static get_inventory = function()
+        {
+            return self[$ "___inventory"];
+        }
 	}
     else if (_type & ITEM_TYPE_BIT.LIQUID)
     {

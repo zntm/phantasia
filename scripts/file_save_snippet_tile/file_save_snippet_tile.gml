@@ -22,7 +22,7 @@ function file_save_snippet_tile(_buffer, _tile, _item_data)
     
     if (_data.type & ITEM_TYPE_BIT.CONTAINER)
     {
-        var _inventory = _tile.inventory;
+        var _inventory = _tile.get_inventory();
         
         var _is_loot = is_string(_inventory);
         
@@ -34,11 +34,20 @@ function file_save_snippet_tile(_buffer, _tile, _item_data)
         }
         else
         {
-            var _inventory_length = array_length(_inventory);
-            
-            buffer_write(_buffer, buffer_u8, _inventory_length);
-            
-            file_save_snippet_inventory(_buffer, _inventory, _inventory_length, _item_data);
+            if (_inventory == undefined)
+            {
+                buffer_write(_buffer, buffer_bool, false);
+            }
+            else
+            {
+                buffer_write(_buffer, buffer_bool, true);
+                
+                var _inventory_length = array_length(_inventory);
+                
+                buffer_write(_buffer, buffer_u8, _inventory_length);
+                
+                file_save_snippet_inventory(_buffer, _inventory, _inventory_length, _item_data);
+            }
         }
     }
     

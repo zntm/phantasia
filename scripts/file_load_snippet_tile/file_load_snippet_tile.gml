@@ -41,13 +41,32 @@ function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer, _in
         
         if (_is_loot)
         {
-            _tile.set_loot(buffer_read(_buffer, buffer_string));
+            _tile.set_inventory(buffer_read(_buffer, buffer_string));
         }
         else
         {
-            var _length = buffer_read(_buffer, buffer_u8);
+            var _inventory_exists = buffer_read(_buffer, buffer_bool);
             
-            _tile.inventory = file_load_snippet_inventory(_buffer, _length, _item_data, _datafixer);
+            if (_inventory_exists)
+            {
+                var _container_length = _data.get_container_length();
+                
+                var _length = buffer_read(_buffer, buffer_u8);
+                
+                var _inventory = file_load_snippet_inventory(_buffer, _length, _item_data, _datafixer);
+                
+                if (_container_length != _length)
+                {
+                    array_resize(_inventory, _container_length);
+                    
+                    for (var i = _length; i < _container_length; ++i)
+                    {
+                        _inventory[@ i] = INVENTORY_EMPTY;
+                    }
+                }
+                
+                _tile.set_inventory(_inventory);
+            }
         }
     }
     

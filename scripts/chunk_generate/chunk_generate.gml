@@ -205,7 +205,7 @@ function chunk_generate(_world, _seed, _world_data)
                             
                             if (_item_data[$ _container_id].type & ITEM_TYPE_BIT.CONTAINER)
                             {
-                                _tile2.set_loot(_loot_id);
+                                _tile2.set_inventory(_loot_id);
                             }
                             
                             delete _tile;

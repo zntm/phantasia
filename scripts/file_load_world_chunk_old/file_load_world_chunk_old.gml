@@ -47,7 +47,7 @@ function file_load_world_chunk_old(_inst, _buffer2)
 					
 					if (_is_loot)
 					{
-						_tile.set_loot(buffer_read(_buffer2, buffer_string));
+						_tile.set_inventory(buffer_read(_buffer2, buffer_string));
 					}
 					else
 					{
