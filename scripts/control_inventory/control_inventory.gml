@@ -2,7 +2,7 @@ function control_inventory()
 {
     var _delta_time = global.delta_time;
     
-    if (obj_Control.is_opened_container) && (point_distance(x, y, global.container_tile_position_x * TILE_SIZE, global.container_tile_position_y * TILE_SIZE) > buffs[$ "distance_container"] * TILE_SIZE)
+    if (obj_Control.is_opened_container) && (point_distance(x, y, global.tile_container_x * TILE_SIZE, global.tile_container_y * TILE_SIZE) > buffs[$ "distance_container"] * TILE_SIZE)
     {
         inventory_container_close();
     }

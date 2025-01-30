@@ -6,9 +6,9 @@ function inventory_container_close()
         
 		array_copy(_container, 0, global.inventory.container, 0, global.inventory_length.container);
 		
-		var _x = global.container_tile_position_x;
-		var _y = global.container_tile_position_y;
-		var _z = global.container_tile_position_z;
+		var _x = global.tile_container_x;
+		var _y = global.tile_container_y;
+		var _z = global.tile_container_z;
 		
 		tile_set(_x, _y, _z, "inventory", _container);
         

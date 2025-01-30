@@ -40,9 +40,9 @@ function inventory_container_open(_x, _y, _inst = noone)
 	obj_Control.is_opened_container = true;
 	obj_Control.is_opened_inventory = true;
 	
-	global.container_tile_position_x = _px;
-	global.container_tile_position_y = _py;
-	global.container_tile_position_z = _pz;
+	global.tile_container_x = _px;
+	global.tile_container_y = _py;
+	global.tile_container_z = _pz;
 	
     _tile.set_index(1);
     

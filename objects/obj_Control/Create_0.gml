@@ -111,9 +111,9 @@ file_load_world_realm_environment(global.world.realm);
 
 lights_length = 0;
 
-global.container_tile_position_x = undefined;
-global.container_tile_position_y = undefined;
-global.container_tile_position_z = undefined;
+global.tile_container_x = undefined;
+global.tile_container_y = undefined;
+global.tile_container_z = undefined;
 
 surface_refresh_chat      = true;
 surface_refresh_inventory = true;
