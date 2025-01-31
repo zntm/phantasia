@@ -8,6 +8,11 @@
   "bbox_top":8,
   "collisionKind":1,
   "collisionTolerance":0,
+  "ConfigValues":{
+    "Developer":{
+      "textureGroupId":"{ \"name\":\"Game_Tiles\", \"path\":\"texturegroups/Game_Tiles\" }",
+    },
+  },
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
