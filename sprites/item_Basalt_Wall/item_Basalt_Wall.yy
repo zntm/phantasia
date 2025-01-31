@@ -10,7 +10,7 @@
   "collisionTolerance":0,
   "ConfigValues":{
     "Developer":{
-      "textureGroupId":"{ \"name\":\"Default\", \"path\":\"texturegroups/Default\" }",
+      "textureGroupId":"{ \"name\":\"Game_Tiles\", \"path\":\"texturegroups/Game_Tiles\" }",
     },
   },
   "DynamicTexturePage":false,

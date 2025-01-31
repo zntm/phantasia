@@ -5841,12 +5841,6 @@ new ItemData("phantasia", item_Yucca_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_B
     .set_drops("phantasia:yucca_platform")
     .set_sfx("phantasia:tile.wood");
 
-new ItemData("phantasia", item_Yucca_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
-    .set_tile_can_not_connect()
-    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
-    .set_drops("phantasia:yucca_platform")
-    .set_sfx("phantasia:tile.wood");
-
 new ItemData("phantasia", item_Wysteria_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
@@ -5906,3 +5900,87 @@ new ItemData("phantasia", item_Bloom_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_B
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:bloom_platform")
     .set_sfx("phantasia:tile.wood");
+
+new ItemData("phantasia", item_Pine_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:Pine_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Yucca_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:Yucca_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Wysteria_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:wysteria_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Mahogany_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:mahogany_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Birch_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:birch_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Cherry_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:cherry_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Mangrove_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:mangrove_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Blizzard_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:blizzard_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Acacia_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:acacia_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Palm_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:palm_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Ashen_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:ashen_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Bloom_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .add_tag_tile_crafting_station("#phantasia:workbench")
+    .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 22)
+    .set_drops("phantasia:bloom_workbench")
+    .set_sfx("phantasia:tile.wood")
+    .set_sfx_craft("phantasia:tile.craft.workbench");
