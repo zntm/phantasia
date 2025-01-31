@@ -315,26 +315,132 @@
 		{
 			"ingredients": [
 				{
-					"item_id": [
-						"phantasia:acacia_wood",
-						"phantasia:ashen_wood",
-						"phantasia:birch_wood",
-						"phantasia:blizzard_wood",
-						"phantasia:bloom_wood",
-						"phantasia:cherry_wood",
-						"phantasia:mahogany_wood",
-						"phantasia:mangrove_wood",
-						"phantasia:oak_wood",
-						"phantasia:palm_wood",
-						"phantasia:pine_wood",
-						"phantasia:wysteria_wood",
-						"phantasia:yucca_wood"
-					],
+					"item_id": "phantasia:acacia_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:acacia_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:ashen_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:ashen_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:birch_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:birch_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:blizzard_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:blizzard_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:bloom_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:bloom_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:cherry_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:cherry_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mahogany_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:mahogany_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:mangrove_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:mangrove_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:oak_wood",
 					"amount": 3,
 					"unlock_grimoire": true
 				}
 			],
 			"item_id": "phantasia:oak_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:palm_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:palm_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:pine_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:pine_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:wysteria_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:wysteria_workbench"
+		},
+		{
+			"ingredients": [
+				{
+					"item_id": "phantasia:yucca_wood",
+					"amount": 3,
+					"unlock_grimoire": true
+				}
+			],
+			"item_id": "phantasia:yucca_workbench"
 		},
 		{
 			"ingredients": [
