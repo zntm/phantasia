@@ -6,7 +6,7 @@
 		"y": 0
 	},
 	"data": {
-		"function": "generic:tall_plant",
+		"function": "phantasia:tall_plant/generic",
 		"arguments": {
 			"use_structure_void": true,
 			"tile": "phantasia:cactus",

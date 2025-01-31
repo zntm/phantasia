@@ -19,7 +19,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
     
 	var _start = _world_data.biome.cave.start;
 	
-	var _structure_data_function = global.structure_data_function;
+	var _natural_structure_data = global.natural_structure_data;
 	
 	var _seed = _world.seed;
 	
@@ -74,7 +74,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 				
 				if (_structure[4])
 				{
-					structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _structure_data_function, _world_data, false);
+					structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _natural_structure_data, _world_data, false);
 					
 					break;
 				}
@@ -83,7 +83,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 				
 				for (var m = 0; m < _length; ++m)
 				{
-					structure_create(_xstructure, _ystructure, _name[m], _seed, _seed2, _structure_data, _structure_data_function, _world_data, false);
+					structure_create(_xstructure, _ystructure, _name[m], _seed, _seed2, _structure_data, _natural_structure_data, _world_data, false);
 				}
 				
 				break;

@@ -6,7 +6,7 @@
 		"y": [ 2, 6 ]
 	},
 	"data": {
-		"function": "generic:pile",
+		"function": "phantasia:pile",
 		"arguments": {
 			"use_structure_void": true,
 			"tile": "phantasia:block_of_salt",

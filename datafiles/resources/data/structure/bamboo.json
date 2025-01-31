@@ -6,7 +6,7 @@
 		"y": 0
 	},
 	"data": {
-		"function": "plant:bamboo",
+		"function": "phantasia:tall_plant/bamboo",
 		"arguments": {
 			"use_structure_void": true,
 			"tile": "phantasia:bamboo",

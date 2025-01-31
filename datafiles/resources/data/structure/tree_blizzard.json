@@ -6,7 +6,7 @@
 		"y": 0
 	},
 	"data": {
-		"function": "phantasia:tree/default",
+		"function": "phantasia:tree/generic",
 		"arguments": [
 			true,
 			"phantasia:blizzard_wood",

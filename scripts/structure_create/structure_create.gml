@@ -1,4 +1,4 @@
-function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.structure_data, _structure_data_function = global.structure_data_function, _world_data = global.world_data[global.world.realm], _force_surface = false, _level = 0)
+function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.structure_data, _natural_structure_data = global.natural_structure_data, _world_data = global.world_data[global.world.realm], _force_surface = false, _level = 0)
 {
     if (_level > 10) exit;
     

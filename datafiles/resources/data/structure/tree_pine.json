@@ -6,7 +6,7 @@
 		"y": 0
 	},
 	"data": {
-		"function": "tree:cone",
+		"function": "phantasia:tree/pine",
 		"arguments": {
 			"use_structure_void": true,
 			"tile_wood": "phantasia:pine_wood",
