@@ -16,7 +16,7 @@ function file_load_player_inventory(_uuid)
 		
 		var _name = string_replace(_file, ".dat", "");
 		
-		var _buffer = buffer_load_decompressed($"{DIRECTORY_PLAYERS}/{_uuid}/Inventory/{_file}");
+		var _buffer = buffer_load_decompressed($"{DIRECTORY_PLAYERS}/{_uuid}/inventory/{_file}");
 		
 		var _version_major = buffer_read(_buffer, buffer_u8);
 		var _version_minor = buffer_read(_buffer, buffer_u8);

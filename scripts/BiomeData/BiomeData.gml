@@ -138,7 +138,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 	
 	debug_log("[Init] Loading Cave Biomes...");
 	
-	var _files_cave = file_read_directory($"{_directory}/Cave");
+	var _files_cave = file_read_directory($"{_directory}/cave");
 	var _files_cave_length = array_length(_files_cave);
 	
 	for (var i = 0; i < _files_cave_length; ++i)
@@ -147,7 +147,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 		
 		debug_timer("init_data_biome_cave");
 		
-		var _data = json_parse(buffer_load_text($"{_directory}/Cave/{_file}"));
+		var _data = json_parse(buffer_load_text($"{_directory}/cave/{_file}"));
 		
 		_file = string_delete(_file, string_length(_file) - 4, 5);
 		
@@ -193,7 +193,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 	
 	debug_log("[Init] Loading Sky Biomes...");
 	
-	var _files_sky = file_read_directory($"{_directory}/Sky");
+	var _files_sky = file_read_directory($"{_directory}/sky");
 	var _files_sky_length = array_length(_files_sky);
 	
 	for (var i = 0; i < _files_sky_length; ++i)
@@ -202,7 +202,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 		
 		debug_timer("init_data_biome_sky");
 		
-		var _data = json_parse(buffer_load_text($"{_directory}/Sky/{_file}"));
+		var _data = json_parse(buffer_load_text($"{_directory}/sky/{_file}"));
 		
 		_file = string_delete(_file, string_length(_file) - 4, 5);
 		
@@ -248,7 +248,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 	
 	debug_log("[Init] Loading Surface Biomes...");
 	
-	var _files_surface = file_read_directory($"{_directory}/Surface");
+	var _files_surface = file_read_directory($"{_directory}/surface");
 	var _files_surface_length = array_length(_files_surface);
 	
 	for (var i = 0; i < _files_surface_length; ++i)
@@ -257,7 +257,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 		
 		debug_timer("init_data_biome_surface");
 		
-		var _data = json_parse(buffer_load_text($"{_directory}/Surface/{_file}"));
+		var _data = json_parse(buffer_load_text($"{_directory}/surface/{_file}"));
 		
 		_file = string_delete(_file, string_length(_file) - 4, 5);
 		

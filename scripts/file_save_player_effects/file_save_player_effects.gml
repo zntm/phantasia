@@ -38,7 +38,7 @@ function file_save_player_effects(_inst)
 	
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
 	
-	buffer_save(_buffer2, $"{DIRECTORY_PLAYERS}/{_inst.uuid}/Effects.dat");
+	buffer_save(_buffer2, $"{DIRECTORY_PLAYERS}/{_inst.uuid}/effect.dat");
 	
 	buffer_delete(_buffer);
 	buffer_delete(_buffer2);

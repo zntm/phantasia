@@ -95,7 +95,7 @@ world_spawn_player(_directory, _seed, obj_Player);
 
 if (directory_exists(_directory))
 {
-    file_load_world_values($"{_directory}/Values.dat");
+    file_load_world_values($"{_directory}/value.dat");
     
     file_load_world_structures();
 }

@@ -29,7 +29,7 @@ function file_save_world_values()
 	
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
 
-	buffer_save(_buffer2, $"{global.world_directory}/Values.dat");
+	buffer_save(_buffer2, $"{global.world_directory}/value.dat");
 	
 	buffer_delete(_buffer);
 	buffer_delete(_buffer2);

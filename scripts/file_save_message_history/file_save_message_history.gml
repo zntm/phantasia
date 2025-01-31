@@ -20,7 +20,7 @@ function file_save_message_history()
 	
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
 	
-	buffer_save(_buffer2, "Message_History.dat");
+	buffer_save(_buffer2, "message_history.dat");
 	
 	buffer_delete(_buffer);
 	buffer_delete(_buffer2);

@@ -23,7 +23,7 @@ function save_settings()
 	
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
 	
-	buffer_save(_buffer2, "Settings.dat");
+	buffer_save(_buffer2, "setting.dat");
 	
 	buffer_delete(_buffer);
 	buffer_delete(_buffer2);

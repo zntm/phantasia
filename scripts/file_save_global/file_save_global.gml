@@ -4,7 +4,7 @@ function file_save_global()
 	
 	buffer_write(_buffer, buffer_text, json_stringify(global.global_data));
 	
-	buffer_save(_buffer, "Global.json");
+	buffer_save(_buffer, "global.json");
 	
 	buffer_delete(_buffer);
 }

@@ -197,7 +197,7 @@ function file_save_world_chunk(_inst)
 	
 	debug_log($"Chunk saved at ({_x}, {_y})");
 	
-	buffer_save(_buffer2, $"{global.world_directory}/Realms/{string_replace_all(global.world.realm, ":", "/")}/{_x} {_y}.dat");
+	buffer_save(_buffer2, $"{global.world_directory}/realm/{string_replace_all(global.world.realm, ":", "/")}/{_x} {_y}.dat");
 	
 	buffer_delete(_buffer);
 	buffer_delete(_buffer2);

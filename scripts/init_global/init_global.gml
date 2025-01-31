@@ -101,22 +101,22 @@ else
 #region Directory Initialization
 
 #macro DIRECTORY_APPDATA $"{environment_get_variable("LOCALAPPDATA")}/{game_project_name}"
-#macro DIRECTORY_CRASH_LOGS "Crash_Logs"
-#macro DIRECTORY_SNAPSHOTS  "Snapshots"
-#macro DIRECTORY_PLAYERS    "Players"
-#macro DIRECTORY_WORLDS     "Worlds"
-#macro DIRECTORY_STRUCTURES "Structures"
+#macro DIRECTORY_CRASH_LOGS "crash_log"
+#macro DIRECTORY_SCREENSHOTS  "screenshot"
+#macro DIRECTORY_PLAYERS    "player"
+#macro DIRECTORY_WORLDS     "world"
+#macro DIRECTORY_STRUCTURES "structure"
 
 if (!file_exists("Global.json"))
 {
-	if (file_exists("Settings.dat"))
+	if (file_exists("setting.dat"))
 	{
-		file_delete("Settings.dat");
+		file_delete("setting.dat");
 	}
 
-	if (file_exists("Message_History.dat"))
+	if (file_exists("message_history.dat"))
 	{
-		file_delete("Message_History.dat");
+		file_delete("message_history.dat");
 	}
 }
 
@@ -132,9 +132,9 @@ if (!directory_exists(DIRECTORY_PLAYERS))
 	directory_create(DIRECTORY_PLAYERS);
 }
 
-if (!directory_exists(DIRECTORY_SNAPSHOTS))
+if (!directory_exists(DIRECTORY_SCREENSHOTS))
 {
-	directory_create(DIRECTORY_SNAPSHOTS);
+	directory_create(DIRECTORY_SCREENSHOTS);
 }
 
 if (!directory_exists(DIRECTORY_WORLDS))

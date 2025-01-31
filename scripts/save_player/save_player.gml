@@ -36,7 +36,7 @@ function save_player(_directory, _name, _hp, _hp_max, _hotbar, _parts)
 	
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
 	
-	buffer_save(_buffer2, $"{DIRECTORY_PLAYERS}/{_directory}/Info.dat");
+	buffer_save(_buffer2, $"{DIRECTORY_PLAYERS}/{_directory}/info.dat");
 	
 	buffer_delete(_buffer);
 	buffer_delete(_buffer2);

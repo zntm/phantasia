@@ -1,8 +1,8 @@
 function file_load_world_settings()
 {
-	if (!directory_exists($"{global.world_directory}/Settings.dat")) exit;
+	if (!directory_exists($"{global.world_directory}/setting.dat")) exit;
 	
-	var _buffer = buffer_load_decompressed($"{global.world_directory}/Settings.dat");
+	var _buffer = buffer_load_decompressed($"{global.world_directory}/setting.dat");
 	
 	var _version_major = buffer_read(_buffer, buffer_u8);
 	var _version_minor = buffer_read(_buffer, buffer_u8);

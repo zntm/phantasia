@@ -271,9 +271,9 @@ add_setting("accessibility", "blur_strength", new SettingsData(1, SETTINGS_TYPE.
 
 #endregion
 
-if (file_exists("Global.json")) && (file_exists("Settings.dat"))
+if (file_exists("Global.json")) && (file_exists("setting.dat"))
 {
-    var _buffer = buffer_load_decompressed("Settings.dat");
+    var _buffer = buffer_load_decompressed("setting.dat");
     
     var _version_major = buffer_read(_buffer, buffer_u8);
     var _version_minor = buffer_read(_buffer, buffer_u8);

@@ -1,6 +1,6 @@
 function load_grimoire(_directory)
 {
-	var _buffer = buffer_load_decompressed($"{DIRECTORY_PLAYERS}/{_directory}/Grimoire.dat");
+	var _buffer = buffer_load_decompressed($"{DIRECTORY_PLAYERS}/{_directory}/grimoire.dat");
 	
 	var _version_major = buffer_read(_buffer, buffer_u8);
 	var _version_minor = buffer_read(_buffer, buffer_u8);

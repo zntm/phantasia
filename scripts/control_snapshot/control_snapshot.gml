@@ -38,12 +38,12 @@ function control_snapshot(_camera_width, _camera_height)
 	
 	surface_reset_target();
 	
-	surface_save(surface_snapshot, $"{DIRECTORY_SNAPSHOTS}/{datetime_to_unix()}.png");
+	surface_save(surface_snapshot, $"{DIRECTORY_SCREENSHOTS}/{datetime_to_unix()}.png");
 	
 	sfx_play("phantasia:generic.snapshot", global.settings_value.sfx);
     
     if (keyboard_check(vk_shift))
     {
-        execute_shell_simple($"{DIRECTORY_APPDATA}/{DIRECTORY_SNAPSHOTS}/{datetime_to_unix()}.png")
+        execute_shell_simple($"{DIRECTORY_APPDATA}/{DIRECTORY_SCREENSHOTS}/{datetime_to_unix()}.png")
     }
 }

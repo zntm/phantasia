@@ -15,7 +15,7 @@ function inventory_craft(_player_x, _player_y, _inst)
 	
 	if (_station != undefined)
 	{
-		sfx_play(global.item_data[$ _station].get_sfx_craft(), global.settings_value.blocks);
+		// sfx_play(global.item_data[$ _station].get_sfx_craft(), global.settings_value.blocks);
 	}
 	else
 	{
