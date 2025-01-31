@@ -39,7 +39,8 @@ function file_load_world_structures_new(_buffer)
     
     var _structure_checked_length = buffer_read(_buffer, buffer_u64);
     
-    global.structure_checked_index = array_length(_structure_checked_length);
+    global.structure_checked = array_create(_structure_checked_length);
+    global.structure_checked_index = _structure_checked_length;
     
     buffer_write(_buffer, buffer_u64, _structure_checked_length);
     

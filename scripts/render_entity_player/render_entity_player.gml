@@ -133,14 +133,28 @@ function render_entity_player(_immunity_alpha)
                 
                 if (_sprite_colour != undefined)
                 {
-                    __draw_body(_sprite_colour[_element_index], _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, _colour_white, _colour_data[_part_colour]);
+                    if (!is_array(_sprite_colour))
+                    {
+                        __draw_body(_sprite_colour, _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, _colour_white, _colour_data[_part_colour]);
+                    }
+                    else if (_element_index < _.get_sprite_colour_length())
+                    {
+                        __draw_body(_sprite_colour[_element_index], _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, _colour_white, _colour_data[_part_colour]);
+                    }
                 }
                 
                 var _sprite_white = _.white;
                 
                 if (_sprite_white != undefined)
                 {
-                    draw_sprite_ext(_sprite_white[_element_index], _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, c_white, 1);
+                    if (!is_array(_sprite_white))
+                    {
+                        draw_sprite_ext(_sprite_white, _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, _colour_white, 1);
+                    }
+                    else if (_element_index < _.get_sprite_white_length())
+                    {
+                        draw_sprite_ext(_sprite_white[_element_index], _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, _colour_white, 1);
+                    }
                 }
                 
                 continue;
@@ -159,20 +173,18 @@ function render_entity_player(_immunity_alpha)
             
             if (_ == undefined) continue;
             
-            var _image_index_arm = ((_tool_exists) && ((_element == "shirt") || (_element == "shirt_detail")) && (_element == 2) ? _tool_image_index_arm : image_index);
-            
             var _sprite_colour = _.colour;
             
             if (_sprite_colour != undefined)
             {
-                __draw_body(_sprite_colour, _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, _colour_white, _colour_data[_part_colour]);
+                __draw_body(_sprite_colour, image_index, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, _colour_white, _colour_data[_part_colour]);
             }
             
             var _sprite_white = _.white;
             
             if (_sprite_white != undefined)
             {
-                draw_sprite_ext(_sprite_white, _image_index_arm, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, c_white, 1);
+                draw_sprite_ext(_sprite_white, image_index, _surface_x, _surface_y, image_xscale, image_yscale, image_angle, c_white, 1);
             }
         }
         

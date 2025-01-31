@@ -12,14 +12,34 @@ function AttireData(_name, _index, _type, _icon) constructor
 	static set_colour = function(_sprite)
 	{
 		colour = _sprite;
+        
+        if (is_array(_sprite))
+        {
+            ___sprite_colour_length = array_length(_sprite);
+        }
 		
 		return self;
 	}
+    
+    static get_sprite_colour_length = function()
+    {
+        return self[$ "___sprite_colour_length"];
+    }
 	
 	static set_white = function(_sprite)
 	{
 		white = _sprite;
 		
+        if (is_array(_sprite))
+        {
+            ___sprite_white_length = array_length(_sprite);
+        }
+        
 		return self;
 	}
+    
+    static get_sprite_white_length = function()
+    {
+        return self[$ "___sprite_white_length"];
+    }
 }

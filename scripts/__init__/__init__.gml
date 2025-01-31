@@ -125,7 +125,7 @@ exception_unhandled_handler(function(_exception)
 });
 
 #macro ATTIRE_ELEMENTS_LENGTH 9
-#macro ATTIRE_ELEMENTS_ORDERED_LENGTH 17
+#macro ATTIRE_ELEMENTS_ORDERED_LENGTH 16
 
 global.attire_elements = [ "body", "headwear", "hair", "eyes", "face", "shirt", "shirt_detail", "pants", "footwear" ];
 
@@ -145,6 +145,5 @@ global.attire_elements_ordered = [
 	"body_arm_left",
 	[ "shirt", 2 ],
 	[ "shirt_detail", 2 ],
-	"shirt_detail",
 	"footwear"
 ];
