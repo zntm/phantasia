@@ -12,14 +12,30 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"5981eeff-ffd0-4e8e-8057-83705ed685d4","name":"5981eeff-ffd0-4e8e-8057-83705ed685d4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"fa704840-ffd2-477a-9679-7411327ace3b","name":"fa704840-ffd2-477a-9679-7411327ace3b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"b5ee5f83-ecf5-496f-bbcf-c453dbdff94c","name":"b5ee5f83-ecf5-496f-bbcf-c453dbdff94c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"8dd08e79-d7a4-418a-b4fc-2c2d9598f414","name":"8dd08e79-d7a4-418a-b4fc-2c2d9598f414","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"be75727c-3506-4f2d-8556-a3ab4f2e3d48","name":"be75727c-3506-4f2d-8556-a3ab4f2e3d48","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"3f56053b-67a9-49db-8690-da6e33b4c5f6","name":"3f56053b-67a9-49db-8690-da6e33b4c5f6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"5a1b3693-294a-449f-a25c-ff9b5519c2d1","name":"5a1b3693-294a-449f-a25c-ff9b5519c2d1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"ccd99417-e33b-4816-8ce7-aa65dbdb50bc","name":"ccd99417-e33b-4816-8ce7-aa65dbdb50bc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"64410d25-3e94-400a-8fa5-f5314bbbbe53","name":"64410d25-3e94-400a-8fa5-f5314bbbbe53","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"7d78934d-d9ff-41f9-82c9-e98c1fb9c8b8","name":"7d78934d-d9ff-41f9-82c9-e98c1fb9c8b8","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"1dcc81ae-1200-4aa6-87fe-6bb8e23bb59b","name":"1dcc81ae-1200-4aa6-87fe-6bb8e23bb59b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"0ab5f24b-48c1-4ef5-bef0-72d95b9084cf","name":"0ab5f24b-48c1-4ef5-bef0-72d95b9084cf","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"5904899b-434d-4cf1-9e36-2c0fadf1ab82","name":"5904899b-434d-4cf1-9e36-2c0fadf1ab82","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"3b193b5a-d701-41ac-8071-b9f97836a0eb","name":"3b193b5a-d701-41ac-8071-b9f97836a0eb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"61d04be9-4818-43a0-bb65-e8794b2cea73","name":"61d04be9-4818-43a0-bb65-e8794b2cea73","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"1c6bccba-f1d6-4d53-a921-59329f6b7319","name":"1c6bccba-f1d6-4d53-a921-59329f6b7319","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"9b53da19-d365-4721-b49d-9b9e1930e13e","name":"9b53da19-d365-4721-b49d-9b9e1930e13e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"d0e04879-d56b-48e7-8d40-1e3601c4d1e3","name":"d0e04879-d56b-48e7-8d40-1e3601c4d1e3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"480dccf8-d1cd-42a4-b882-9b68f2089002","blendMode":0,"displayName":"default","isLocked":false,"name":"480dccf8-d1cd-42a4-b882-9b68f2089002","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"ed3816b8-aab9-42a2-b138-c3dc1c4edcff","blendMode":0,"displayName":"default","isLocked":false,"name":"ed3816b8-aab9-42a2-b138-c3dc1c4edcff","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"item_Honey_Bricks",
   "nineSlice":null,
@@ -49,7 +65,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":17.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -69,8 +85,56 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5981eeff-ffd0-4e8e-8057-83705ed685d4","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"e0234610-2f77-4131-a440-a16bdf71fdaa","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"fa704840-ffd2-477a-9679-7411327ace3b","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"3504aa8a-baf1-498d-9ceb-ab8049f48125","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b5ee5f83-ecf5-496f-bbcf-c453dbdff94c","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"86ba6fed-3eca-44dc-8236-f65aee7a0fde","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8dd08e79-d7a4-418a-b4fc-2c2d9598f414","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"fe411c15-cdd2-4354-a4a8-f40b2c370b76","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"be75727c-3506-4f2d-8556-a3ab4f2e3d48","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"22763229-5e19-4a30-8f49-1ab95cf6600d","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3f56053b-67a9-49db-8690-da6e33b4c5f6","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f30e22f6-4d78-47d1-98e6-5ef7bb5d22b1","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5a1b3693-294a-449f-a25c-ff9b5519c2d1","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6fa5e128-1c3d-4367-8c0e-6b0a99127bf1","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ccd99417-e33b-4816-8ce7-aa65dbdb50bc","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d92f5de4-79da-4743-b82b-331bf086366e","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"64410d25-3e94-400a-8fa5-f5314bbbbe53","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"fcdb235d-f317-454c-90a1-a94b2f59b7a3","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7d78934d-d9ff-41f9-82c9-e98c1fb9c8b8","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f2d67b4f-e58a-40bd-b2ea-29bcbc79d8f2","IsCreationKey":false,"Key":8.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1dcc81ae-1200-4aa6-87fe-6bb8e23bb59b","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c9bffd2c-f389-42aa-b67a-62b8b3b18797","IsCreationKey":false,"Key":9.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0ab5f24b-48c1-4ef5-bef0-72d95b9084cf","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"1accc8a2-f163-4c45-8a55-27d675f59a05","IsCreationKey":false,"Key":10.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5904899b-434d-4cf1-9e36-2c0fadf1ab82","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"4aa999ce-4f98-4e50-b88e-c55446361a8f","IsCreationKey":false,"Key":11.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3b193b5a-d701-41ac-8071-b9f97836a0eb","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"5bef4232-3853-499d-9732-ad275679525b","IsCreationKey":false,"Key":12.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"61d04be9-4818-43a0-bb65-e8794b2cea73","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f9cdf8f5-6f78-4394-868d-4c5676777369","IsCreationKey":false,"Key":13.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1c6bccba-f1d6-4d53-a921-59329f6b7319","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c50183f8-95cb-41d8-b348-06c5b847f5ca","IsCreationKey":false,"Key":14.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9b53da19-d365-4721-b49d-9b9e1930e13e","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"26f02bbf-4b6b-4404-b1b4-33d60a36feb8","IsCreationKey":false,"Key":15.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d0e04879-d56b-48e7-8d40-1e3601c4d1e3","path":"sprites/item_Honey_Bricks/item_Honey_Bricks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"ccdb5783-dfed-45cc-86f6-4ed5abbf3230","IsCreationKey":false,"Key":16.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

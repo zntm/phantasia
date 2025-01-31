@@ -2674,6 +2674,7 @@ new ItemData("phantasia", item_Yucca, ITEM_TYPE_BIT.PLANT)
     .set_flip_on(true, false);
 
 new ItemData("phantasia", item_Honey_Bricks, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
     .set_flip_on(true, true)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 64)
     .set_drops("phantasia:honey_bricks");
@@ -3104,6 +3105,8 @@ new ItemData("phantasia", item_Cloud, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:cloud");
 
 new ItemData("phantasia", item_Honey_Bricks_Wall, ITEM_TYPE_BIT.WALL)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
+    .set_flip_on(true, true)
     .set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 52)
     .set_drops("phantasia:honey_bricks_wall");
 
