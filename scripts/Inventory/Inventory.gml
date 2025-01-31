@@ -2,6 +2,13 @@ function Inventory(_item, _amount = 1) constructor
 {
 	item_id = _item;
 	amount  = _amount;
+    
+    static set_amount = function(_amount)
+    {
+        amount = _amount;
+        
+        return self;
+    }
 	
 	var _data = global.item_data[$ _item];
 	
