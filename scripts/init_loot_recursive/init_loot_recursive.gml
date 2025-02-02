@@ -25,6 +25,13 @@ function init_loot_recursive(_namespace, _directory, _id)
         
         var _name = $"{_id}/{string_delete(_file, string_length(_file) - 4, 5)}";
         
+        if (_id != undefined)
+        {
+            global.loot_data[$ _id] ??= [];
+            
+            array_push(global.loot_data[$ _id], _name);
+        }
+        
         debug_timer("init_data_loot");
         
         var _data = json_parse(buffer_load_text($"{_directory}/{_file}"));

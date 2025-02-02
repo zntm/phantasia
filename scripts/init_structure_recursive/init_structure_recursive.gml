@@ -24,6 +24,15 @@ function init_structure_recursive(_namespace, _directory, _id)
         {
             if (!string_ends_with(_, ".dat.json"))
             {
+                debug_timer("init_data_structure");
+                
+                if (_id != undefined)
+                {
+                    global.structure_data[$ _id] ??= [];
+                    
+                    array_push(global.structure_data[$ _id], _name);
+                }
+                
                 var _json = json_parse(buffer_load_text(_));
                 var _data = _json.data;
                 
@@ -32,6 +41,8 @@ function init_structure_recursive(_namespace, _directory, _id)
                     .set_data(_data[$ "function"]);
                 
                 delete _json;
+                
+                debug_timer("init_data_structure", $"[Init] Loaded Natural Structure: \'{_name}\'");
             }
             
             continue;
@@ -39,6 +50,15 @@ function init_structure_recursive(_namespace, _directory, _id)
         
         if (string_ends_with(_, ".dat"))
         {
+            debug_timer("init_data_structure");
+            
+            if (_id != undefined)
+            {
+                global.structure_data[$ _id] ??= [];
+                
+                array_push(global.structure_data[$ _id], _name);
+            }
+            
             var _buffer = buffer_load_decompressed(_directory);
             
             var _version_major = buffer_read(_buffer, buffer_u8);
@@ -90,6 +110,8 @@ function init_structure_recursive(_namespace, _directory, _id)
             global.structure_data[$ $"{_namespace}:{string_delete(_name, string_length(_name) - 3, 4)}"] = new StructureData(true, _width, _height, _json.placement_offset, false).set_data(_data);
             
             delete _json;
+            
+            debug_timer("init_data_structure", $"[Init] Loaded Structure: \'{_name}\'");
             
             continue;
         }
