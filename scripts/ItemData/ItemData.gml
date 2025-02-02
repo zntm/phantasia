@@ -1597,7 +1597,7 @@ new ItemData("phantasia", item_Pot, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CO
         {
             var _item_id = _item.item_id;
             
-            if (_item_id != _inventory_item) exit;
+            if (_item_id != _inventory_item.item_id) exit;
             
             var _amount = _inventory_item.get_amount();
             
