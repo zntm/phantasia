@@ -4,7 +4,7 @@
 function gui_inventory_craftable(_gui_width, _gui_height)
 {
 	static __timer = 0;
-	
+    
 	var _timer_delta = round(global.timer_delta / 60);
 	
 	var _force = false;

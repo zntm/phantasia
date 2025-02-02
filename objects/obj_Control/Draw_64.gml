@@ -271,7 +271,7 @@ if (_hp > 0) && (is_opened_gui) && (!is_opened_menu)
         draw_surface(surface_inventory, 0, 0);
     }
     
-    if (surface_exists(surface_craftable))
+    if (is_opened_inventory) && (surface_exists(surface_craftable))
     {
         draw_surface(surface_craftable, 0, 0);
     }

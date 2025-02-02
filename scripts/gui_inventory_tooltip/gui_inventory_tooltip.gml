@@ -18,11 +18,21 @@ function gui_inventory_tooltip()
 		var _yscale = (_height / __sprite_height) + 1;
 		
 		draw_sprite_ext(spr_Menu_Tooltip, 0, _x2, _y2, _xscale, _yscale, 0, c_white, 1);
-		draw_sprite_ext(spr_Menu_Tooltip_Border, 0, _x2, _y2, _xscale, _yscale, 0, c_white, 1);
-		
-		var _colour = global.rarity_data[$ (_rarity ?? "phantasia:common")];
-		
-		draw_text_transformed_colour(_x, _y, _string, 1, 1, 0, _colour, _colour, _colour, _colour, 1);
+        
+        if (_rarity == undefined)
+        {
+            var _colour = global.rarity_data[$ "phantasia:common"];
+            
+            draw_sprite_ext(spr_Menu_Tooltip_Border, 0, _x2, _y2, _xscale, _yscale, 0, c_white, 1);
+            draw_text_transformed_colour(_x, _y, _string, 1, 1, 0, _colour, _colour, _colour, _colour, 1);
+        }
+        else
+        {
+            var _colour = global.rarity_data[$ _rarity];
+            
+            draw_sprite_ext(spr_Menu_Tooltip_Border, 1, _x2, _y2, _xscale, _yscale, 0, _colour, 1);
+            draw_text_transformed_colour(_x, _y, _string, 1, 1, 0, _colour, _colour, _colour, _colour, 1);
+        }
 	}
 	
 	var _inst = global.inventory_selected_backpack;
