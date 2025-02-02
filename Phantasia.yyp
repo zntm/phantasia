@@ -554,8 +554,8 @@
     {"$GMIncludedFile":"","%Name":"data.json","CopyToMask":-1,"filePath":"datafiles/Resources/Data/Items/dirt","name":"data.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"data.json","CopyToMask":-1,"filePath":"datafiles/resources/data/items/grass_block","name":"data.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"data.json","CopyToMask":-1,"filePath":"datafiles/Resources/Data/Items/grass_block","name":"data.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-    {"$GMIncludedFile":"","%Name":"abandoned_campsite.json","CopyToMask":-1,"filePath":"datafiles/resources/data/loot","name":"abandoned_campsite.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-    {"$GMIncludedFile":"","%Name":"underground_campsite.json","CopyToMask":-1,"filePath":"datafiles/resources/data/loot","name":"underground_campsite.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"abandoned.json","CopyToMask":-1,"filePath":"datafiles/resources/data/loot/campsite","name":"abandoned.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"underground.json","CopyToMask":-1,"filePath":"datafiles/resources/data/loot/campsite","name":"underground.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"12_hours_at_ease.ogg","CopyToMask":-1,"filePath":"datafiles/resources/data/music","name":"12_hours_at_ease.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"12_hours_at_ease.ogg","CopyToMask":-1,"filePath":"datafiles/Resources/Data/Music","name":"12_hours_at_ease.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"and_so_it_begins.ogg","CopyToMask":-1,"filePath":"datafiles/resources/data/music","name":"and_so_it_begins.ogg","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -1147,6 +1147,7 @@
     {"id":{"name":"init_global_world","path":"scripts/init_global_world/init_global_world.yy",},},
     {"id":{"name":"init_global","path":"scripts/init_global/init_global.yy",},},
     {"id":{"name":"init_loca","path":"scripts/init_loca/init_loca.yy",},},
+    {"id":{"name":"init_loot_recursive","path":"scripts/init_loot_recursive/init_loot_recursive.yy",},},
     {"id":{"name":"init_player_colour","path":"scripts/init_player_colour/init_player_colour.yy",},},
     {"id":{"name":"init_splash","path":"scripts/init_splash/init_splash.yy",},},
     {"id":{"name":"init_structure_recursive","path":"scripts/init_structure_recursive/init_structure_recursive.yy",},},
@@ -2603,5 +2604,19 @@
           "autocrop":"false",
         },
       },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Items","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Game_Foliage","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
+        "Developer":{
+          "groupParent":"null",
+          "compressFormat":"bz2",
+          "loadType":"default",
+        },
+      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Foliage","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Game_Liquid","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
+        "Developer":{
+          "groupParent":"null",
+          "compressFormat":"bz2",
+          "loadType":"default",
+        },
+      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Liquid","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
   ],
 }

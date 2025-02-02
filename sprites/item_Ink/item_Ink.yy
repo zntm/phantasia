@@ -8,6 +8,11 @@
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
+  "ConfigValues":{
+    "Developer":{
+      "textureGroupId":"{ \"name\":\"Game_Liquid\", \"path\":\"texturegroups/Game_Liquid\" }",
+    },
+  },
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,

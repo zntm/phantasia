@@ -8,6 +8,11 @@
   "bbox_top":7,
   "collisionKind":1,
   "collisionTolerance":0,
+  "ConfigValues":{
+    "Developer":{
+      "textureGroupId":"{ \"name\":\"Game_Foliage\", \"path\":\"texturegroups/Game_Foliage\" }",
+    },
+  },
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,

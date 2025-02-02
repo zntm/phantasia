@@ -39,7 +39,5 @@ function init_structure(_directory, _prefix = "phantasia", _type = 0)
         init_data_reset("structure_data");
     }
     
-    var _item_data = global.item_data;
-    
     init_structure_recursive(_prefix, _directory, undefined);
 }

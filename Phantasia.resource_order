@@ -373,6 +373,7 @@
     {"name":"init_global_menu","order":1,"path":"scripts/init_global_menu/init_global_menu.yy",},
     {"name":"init_global_world","order":2,"path":"scripts/init_global_world/init_global_world.yy",},
     {"name":"init_loca","order":20,"path":"scripts/init_loca/init_loca.yy",},
+    {"name":"init_loot_recursive","order":1,"path":"scripts/init_loot_recursive/init_loot_recursive.yy",},
     {"name":"init_player_colour","order":17,"path":"scripts/init_player_colour/init_player_colour.yy",},
     {"name":"init_splash","order":18,"path":"scripts/init_splash/init_splash.yy",},
     {"name":"init_structure_recursive","order":2,"path":"scripts/init_structure_recursive/init_structure_recursive.yy",},
