@@ -154,17 +154,17 @@ if (!_mouse_on_slot) && (rectangle_distance(mouse_x, mouse_y, bbox_left, bbox_to
         
         for (var i = CHUNK_SIZE_Z - 1; i >= 0; --i)
         {
-            var _tile = tile_get(_xtile, _ytile, i);
+            var _tile = tile_get(_xtile, _ytile, i, -1);
             
             if (_tile != TILE_EMPTY)
             {
-                var _data = _item_data[$ _tile];
+                var _data = _item_data[$ _tile.item_id];
                 
                 var _on_tile_interaction = _data.get_on_tile_interaction();
                 
                 if (_on_tile_interaction != undefined)
                 {
-                    _on_tile_interaction(_xtile, _ytile, i);
+                    _on_tile_interaction(_xtile, _ytile, i, _tile);
                     
                     _tile_interacted = true;
                 }

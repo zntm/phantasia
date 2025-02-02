@@ -11,22 +11,11 @@ function inventory_container_open(_x, _y, _inst = noone)
 	
 	var _tile = tile_get(_px, _py, _pz, -1);
 	
-	var _container_inventory = _tile.get_inventory();
-	
-	if (is_string(_container_inventory))
-	{
-		_container_inventory = _tile
-            .generate_inventory_loot(_container_inventory)
-            .get_inventory();
-	}
-    else
-    {
-        _container_inventory = _tile
-            .generate_inventory()
-            .get_inventory();
-    }
+	var _container_inventory = tile_get_inventory(_tile);
 	
 	var _data = global.item_data[$ _tile.item_id];
+    
+    if (!_data.get_container_openable()) exit;
 	
 	var _container_sfx = _data.get_container_sfx();
 	

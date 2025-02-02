@@ -496,6 +496,7 @@
     {"name":"tile_condition_connected_to_self","order":13,"path":"scripts/tile_condition_connected_to_self/tile_condition_connected_to_self.yy",},
     {"name":"tile_condition_connected","order":12,"path":"scripts/tile_condition_connected/tile_condition_connected.yy",},
     {"name":"tile_destroy_with_drop","order":1,"path":"scripts/tile_destroy_with_drop/tile_destroy_with_drop.yy",},
+    {"name":"tile_get_inventory","order":18,"path":"scripts/tile_get_inventory/tile_get_inventory.yy",},
     {"name":"tile_get","order":3,"path":"scripts/tile_get/tile_get.yy",},
     {"name":"tile_index","order":16,"path":"scripts/tile_index/tile_index.yy",},
     {"name":"tile_inst_x","order":14,"path":"scripts/tile_inst_x/tile_inst_x.yy",},

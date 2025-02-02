@@ -9,20 +9,7 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
     
     if (_data.type & ITEM_TYPE_BIT.CONTAINER)
     {
-        var _inventory = _tile.inventory;
-        
-        if (is_string(_inventory))
-        {
-            _inventory = _tile
-                .generate_inventory_loot(_inventory)
-                .get_inventory();
-        }
-        else
-        {
-            _inventory = _tile
-                .generate_inventory()
-                .get_inventory();
-        }
+        var _inventory = tile_get_inventory(_tile);
         
         var _container_length = _data.get_container_length();
         
@@ -32,7 +19,9 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
             
             if (_item == INVENTORY_EMPTY) continue;
             
-            spawn_drop(_xinst, _yinst, _item.item_id, _item.amount, random(INVENTORY_DROP_XVELOCITY), choose(-1, 1), -random(INVENTORY_DROP_YVELOCITY), GAME_FPS * 6, undefined, _item.index, _item.index_offset, _item[$ "durability"], _item.state);
+            spawn_drop(_xinst, _yinst, _item.item_id, _item.amount, random(INVENTORY_DROP_XVELOCITY), choose(-1, 1), -random(INVENTORY_DROP_YVELOCITY), undefined, undefined, _item.index, _item.index_offset, _item[$ "durability"], _item.state);
+            
+            delete _item;
         }
     }
     

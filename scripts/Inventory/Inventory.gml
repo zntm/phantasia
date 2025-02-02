@@ -9,6 +9,11 @@ function Inventory(_item, _amount = 1) constructor
         
         return self;
     }
+    
+    static get_amount = function()
+    {
+        return self[$ "amount"];
+    }
 	
 	var _data = global.item_data[$ _item];
 	

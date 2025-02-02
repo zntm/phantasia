@@ -218,6 +218,13 @@ function Tile(_item, _item_data = global.item_data) constructor
 			return self;
 		}
         
+        static set_inventory_slot = function(_index, _item)
+        {
+            ___inventory[@ _index] = _item;
+            
+            return self;
+        }
+        
         static generate_inventory = function()
         {
             var _container_length = global.item_data[$ item_id].get_container_length();

@@ -952,6 +952,18 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             {
                 return self[$ "___container_sfx"];
             }
+            
+            static set_container_openable = function(_openable)
+            {
+                ___container_openable = _openable;
+                
+                return self;
+            }
+            
+            static get_container_openable = function()
+            {
+                return self[$ "___container_openable"] ?? true;
+            }
         }
         
         static set_place_requirement = function(_requirement)
@@ -1567,7 +1579,43 @@ new ItemData("phantasia", item_Block_Of_Steel, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:block_of_platinum")
     .set_sfx("phantasia:tile.metal");
 
-new ItemData("phantasia", item_Pot, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Pot, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
+    .set_flip_on(true, false)
+    .set_container_length(1)
+    .set_container_openable(false)
+    .set_on_tile_interaction(function(_x, _y, _z, _tile)
+    {
+        var _inventory_selected_hotbar = global.inventory_selected_hotbar;
+        
+        var _item = global.inventory.base[_inventory_selected_hotbar];
+        
+        if (_item == INVENTORY_EMPTY) exit;
+        
+        var _inventory_item = tile_get_inventory(_tile)[0];
+        
+        if (_inventory_item != INVENTORY_EMPTY)
+        {
+            var _item_id = _item.item_id;
+            
+            if (_item_id != _inventory_item) exit;
+            
+            var _amount = _inventory_item.get_amount();
+            
+            if (_amount >= global.item_data[$ _item_id].get_inventory_max()) exit;
+            
+            _tile.set_inventory_slot(0, _inventory_item.set_amount(_amount + 1));
+        }
+        else
+        {
+            _tile.set_inventory_slot(0, variable_clone(_item).set_amount(1));
+        }
+        
+        obj_Control.surface_refresh_inventory = true;
+        
+        inventory_item_decrement("base", _inventory_selected_hotbar);
+    })
+    .set_drops("phantasia:pot")
+    .set_sfx("phantasia:tile.bricks");
 
 new ItemData("phantasia", item_Coral_Tube, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(undefined, undefined, 10)
