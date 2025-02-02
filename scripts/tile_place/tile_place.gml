@@ -9,13 +9,43 @@ function tile_place(_x, _y, _z, _tile, _world_height = global.world_data[$ globa
     if (_y < 0) || (_y >= _world_height) exit;
     
     var _inst = tile_get_inst(_x, _y, "place");
-    
-    tile_instance_destroy(_x, _y, _z);
 
     var _index = tile_index(_x, _y, _z);
     
-    if (_inst.chunk[_index] != TILE_EMPTY)
+    var _ = _inst.chunk[_index];
+    
+    if (_ != TILE_EMPTY)
     {
+        var _light = _[$ "instance.light"];
+        
+        if (instance_exists(_light))
+        {
+            instance_destroy(_light);
+        }
+        
+        var _station = _[$ "instance.station"];
+        
+        if (instance_exists(_station))
+        {
+            instance_destroy(_station);
+        }
+        
+        var _instance = _[$ "instance.instance"];
+        
+        if (instance_exists(_instance))
+        {
+            instance_destroy(_instance);
+        }
+        
+        var _container = _[$ "instance.container"];
+        
+        if (instance_exists(_container))
+        {
+            instance_destroy(_container);
+        }
+        
+        // tile_instance_destroy(_x, _y, _z);
+        
         // Feather disable once GM1052
         delete _inst.chunk[_index];
     }

@@ -136,7 +136,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
 	var _camera_x2 = _camera_x + (CHUNK_SIZE_WIDTH  * CHUNK_STRUCTURE_DISTANCE) + _camera_width;
 	var _camera_y2 = _camera_y + (CHUNK_SIZE_HEIGHT * CHUNK_STRUCTURE_DISTANCE) + _camera_height;
 	
-    var _item_data = global.item_da
+    var _item_data = global.item_data;
     
 	with (obj_Structure)
 	{

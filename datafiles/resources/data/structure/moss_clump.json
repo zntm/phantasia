@@ -6,7 +6,7 @@
 		"y": 2
 	},
 	"data": {
-		"function": "generic:clump",
+		"function": "phantasia:clump",
 		"arguments": [
 			true,
 			"phantasia:moss",

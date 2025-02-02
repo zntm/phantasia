@@ -4,7 +4,7 @@ function menu_control_textbox()
 	// NOTE: This feels like a quick fix, however it suits the current needs of the game.
 	static __filter = function(_character)
 	{
-		static __string = "qwertyuiopasdfghjklzxcvbnm1234567890-=!@#$%^&*()_+[]\\;',./{}|:\"<>?";
+		static __string = "qwertyuiopasdfghjklzxcvbnm1234567890-=!@#$%^&*()_+[]\\;',./{}|:\"<>? ";
 		
 		return string_contains(__string, string_lower(_character));
 	}

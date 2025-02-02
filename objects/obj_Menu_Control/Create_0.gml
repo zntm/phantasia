@@ -1,10 +1,10 @@
 if (room != rm_World)
 {
-	var _handle = call_later(1, time_source_units_frames, menu_init_button_depth);
+    var _handle = call_later(1, time_source_units_frames, menu_init_button_depth);
 }
 else
 {
-	game_set_speed(settings_get_refresh_rate(), gamespeed_fps);
+    game_set_speed(settings_get_refresh_rate(), gamespeed_fps);
 }
 
 offset = 1;
