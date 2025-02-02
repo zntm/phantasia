@@ -374,6 +374,7 @@
     {"name":"init_loca","order":20,"path":"scripts/init_loca/init_loca.yy",},
     {"name":"init_player_colour","order":17,"path":"scripts/init_player_colour/init_player_colour.yy",},
     {"name":"init_splash","order":18,"path":"scripts/init_splash/init_splash.yy",},
+    {"name":"init_structure_recursive","order":2,"path":"scripts/init_structure_recursive/init_structure_recursive.yy",},
     {"name":"init_window","order":19,"path":"scripts/init_window/init_window.yy",},
     {"name":"input_check_pressed","order":1,"path":"scripts/input_check_pressed/input_check_pressed.yy",},
     {"name":"instance_cull","order":21,"path":"scripts/instance_cull/instance_cull.yy",},

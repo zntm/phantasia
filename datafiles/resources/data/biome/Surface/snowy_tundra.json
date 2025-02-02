@@ -85,11 +85,11 @@
 			"chance": 0.0007
 		},
 		{
-			"id": "phantasia:tree_pine",
+			"id": "phantasia:tree/pine",
 			"chance": 0.009
 		},
 		{
-			"id": "phantasia:tree_blizzard",
+			"id": "phantasia:tree/blizzard",
 			"chance": 0.004
 		}
 	],

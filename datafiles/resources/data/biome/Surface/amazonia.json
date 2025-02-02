@@ -65,7 +65,7 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:tree_mahogany",
+			"id": "phantasia:tree/mahogany",
 			"chance": 0.21
 		},
 		{
@@ -73,7 +73,7 @@
 			"chance": 0.09
 		},
 		{
-			"id": "phantasia:moss_clump",
+			"id": "phantasia:clump/moss",
 			"chance": 0.008
 		}
 	],

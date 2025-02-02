@@ -68,15 +68,15 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:tree_mangrove",
+			"id": "phantasia:tree/mangrove",
 			"chance": 0.09
 		},
 		{
-			"id": "phantasia:cattail",
+			"id": "phantasia:tall_plant/cattail",
 			"chance": 0.07
 		},
 		{
-			"id": "phantasia:moss_clump",
+			"id": "phantasia:clump/moss",
 			"chance": 0.008
 		}
 	],

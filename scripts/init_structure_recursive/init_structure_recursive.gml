@@ -1,0 +1,105 @@
+function init_structure_recursive(_namespace, _directory, _id)
+{
+    static __init_dat = function(_prefix, _file, _directory)
+    {
+        var _item_data = global.item_data;
+        var _datafixer = global.datafixer.item;
+        
+        var _buffer = buffer_load_decompressed(_directory);
+        
+        var _version_major = buffer_read(_buffer, buffer_u8);
+        var _version_minor = buffer_read(_buffer, buffer_u8);
+        var _version_patch = buffer_read(_buffer, buffer_u8);
+        var _version_type  = buffer_read(_buffer, buffer_u8);
+        
+        var _json = json_parse(buffer_load_text($"{_directory}.json"));
+        
+        var _width  = buffer_read(_buffer, buffer_s32);
+        var _height = buffer_read(_buffer, buffer_s32);
+        
+        var _rectangle = _width * _height;
+        
+        var _structure = new StructureData(true, _width, _height, _json.placement_offset, false);
+        
+        var _data = array_create(_rectangle * CHUNK_SIZE_Z, TILE_EMPTY);
+        
+        for (var j = 0; j < _height; ++j)
+        {
+            var _index_y = j * _width;
+            
+            for (var i = 0; i < _width; ++i)
+            {
+                var _index_xy = i + _index_y;
+                
+                if (buffer_read(_buffer, buffer_bool))
+                {
+                    for (var l = CHUNK_SIZE_Z - 1; l >= 0; --l)
+                    {
+                        _data[@ _index_xy + (l * _rectangle)] = STRUCTURE_VOID;
+                    }
+                    
+                    continue;
+                }
+                
+                for (var l = CHUNK_SIZE_Z - 1; l >= 0; --l)
+                {
+                    var _tile = file_load_snippet_tile(_buffer, j, i, l, _item_data, _datafixer, false);
+                    
+                    if (_tile != undefined)
+                    {
+                        _data[@ _index_xy + (l * _rectangle)] = _tile;
+                    }
+                }
+            }
+        }
+        
+        buffer_delete(_buffer);
+        
+        return _structure.set_data(_data);
+    }
+    
+    static __init_json = function(_prefix, _file, _directory)
+    {
+        var _json = json_parse(buffer_load_text(_directory));
+        var _data = _json.data;
+        
+        return new StructureData(false, _json.width, _json.height, _json.placement_offset, true)
+            .set_arguments(_data[$ "arguments"])
+            .set_data(_data[$ "function"]);
+    }
+    
+    var _files = file_read_directory(_directory);
+    var _files_length = array_length(_files);
+    
+    for (var i = 0; i < _files_length; ++i)
+    {
+        var _file = _files[i];
+        var _ = $"{_directory}/{_file}";
+        
+        if (directory_exists(_))
+        {
+            init_structure_recursive(_namespace, _, (_id == undefined ? _file : $"{_id}/{_file}"));
+            
+            continue;
+        }
+        
+        var _name = $"{_id}/{_file}";
+        
+        if (string_ends_with(_file, ".json"))
+        {
+            if (!string_ends_with(_name, ".dat.json"))
+            {
+                global.structure_data[$ $"{_namespace}:{string_delete(_name, string_length(_name) - 4, 5)}"] = __init_json(_namespace, _name, _);
+            }
+            
+            continue;
+        }
+        
+        if (string_ends_with(_file, ".dat"))
+        {
+            global.structure_data[$ $"{_namespace}:{string_delete(_name, string_length(_name) - 3, 4)}"] = __init_dat(_namespace, _name, _);
+            
+            continue;
+        }
+    }
+}

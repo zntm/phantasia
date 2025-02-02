@@ -65,11 +65,11 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:bamboo",
+			"id": "phantasia:bamboo/generic",
 			"chance": 0.19
 		},
 		{
-			"id": "phantasia:bamboo_dark",
+			"id": "phantasia:bamboo/dark",
 			"chance": 0.05
 		}
 	],

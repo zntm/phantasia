@@ -71,7 +71,7 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:tree_pine",
+			"id": "phantasia:tree/pine",
 			"chance": 0.09
 		},
 		{

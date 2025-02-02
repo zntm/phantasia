@@ -69,19 +69,19 @@
 			"chance": 0.006
 		},
 		{
-			"id": "phantasia:moss_clump",
+			"id": "phantasia:clump/moss",
 			"chance": 0.01
 		},
 		{
-			"id": "phantasia:tree_birch",
+			"id": "phantasia:tree/birch/generic",
 			"chance": 0.03
 		},
 		{
-			"id": "phantasia:tree_cherry",
+			"id": "phantasia:tree/cherry/generic",
 			"chance": 0.01
 		},
 		{
-			"id": "phantasia:tree_oak",
+			"id": "phantasia:tree/oak",
 			"chance": 0.04
 		},
 		{
