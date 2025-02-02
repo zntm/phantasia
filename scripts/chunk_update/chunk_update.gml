@@ -32,9 +32,9 @@ function chunk_update(_delta_time)
 				
 				var _tile = chunk[_index];
 				
-				if (_tile == TILE_EMPTY) || ((_tile.scale_rotation_index & (1 << 48)) == 0) || (_item_data_on_draw[$ _tile.item_id] == undefined) continue;
+				if (_tile == TILE_EMPTY) || (!_tile.get_updated()) || (_item_data_on_draw[$ _tile.item_id] == undefined) continue;
 				
-				chunk[@ _index].scale_rotation_index &= 0xf_f_f_f_ffff_ff_ff;
+				chunk[@ _index].set_updated(false);
 			}
 			
 			for (var _y = CHUNK_SIZE_Y - 1; _y >= 0; --_y)
@@ -48,13 +48,13 @@ function chunk_update(_delta_time)
 					
 					var _tile = chunk[_xyzindex];
 					
-					if (_tile == TILE_EMPTY) || (_tile.scale_rotation_index & (1 << 48)) continue;
+					if (_tile == TILE_EMPTY) || (_tile.get_updated()) continue;
 					
 					var _function = _item_data_on_draw[$ _tile.item_id];
 					
 					if (_function == undefined) continue;
 					
-					chunk[@ _xyzindex].scale_rotation_index |= 1 << 48;
+					chunk[@ _xyzindex].set_updated(true);
 					
 					_function(chunk_xstart + _x, _y2, _z, _tile, _delta_time);
 				}

@@ -36,6 +36,18 @@ function Tile(_item, _item_data = global.item_data) constructor
     {
         return scale_rotation_index & (1 << 49);
     }
+    
+    static set_updated = function(_updated = true)
+    {
+        scale_rotation_index = (scale_rotation_index & 0x2_f_f_f_f_ffff_ff_ff) | (_updated << 48);
+        
+        return self;
+    }
+    
+    static get_updated = function()
+    {
+        return scale_rotation_index & (1 << 48);
+    }
 	
 	static set_offset = function(_xoffset = 0, _yoffset = 0)
 	{
@@ -306,14 +318,14 @@ function Tile(_item, _item_data = global.item_data) constructor
     {
         static set_is_source = function()
         {
-            scale_rotation_index |= 1 << 49;
+            scale_rotation_index |= 1 << 50;
             
             return self;
         }
         
         static get_is_source = function()
         {
-            return scale_rotation_index >> 49;
+            return scale_rotation_index >> 50;
         }
     }
 }

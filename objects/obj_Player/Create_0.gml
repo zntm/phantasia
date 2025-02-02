@@ -69,6 +69,6 @@ access_level = {
 
 entity_init(id, _player.hp, _player.hp_max, undefined, #382624);
 
-load_effects(id);
+file_load_player_effects(id);
 
 get_buffs(global.attributes_player);

@@ -1,6 +1,6 @@
-function load_effects(_id)
+function file_load_player_effects(_id)
 {
-	var _directory = $"{DIRECTORY_PLAYERS}/{_id.uuid}/Effects.dat";
+	var _directory = $"{DIRECTORY_PLAYERS}/{_id.uuid}/effect.dat";
 	
 	if (!file_exists(_directory)) exit;
 	

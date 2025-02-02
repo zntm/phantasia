@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"load_effects",
+  "%Name":"file_load_player_effects",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"load_effects",
+  "name":"file_load_player_effects",
   "parent":{
     "name":"Load",
-    "path":"folders/Scripts/Phantasia/Load.yy",
+    "path":"folders/Scripts/File/Load.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

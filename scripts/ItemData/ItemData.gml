@@ -4670,6 +4670,7 @@ new ItemData("phantasia", item_Aloe_Vera, ITEM_TYPE_BIT.PLANT)
     .set_sfx("phantasia:tile.leaves");
 
 new ItemData("phantasia", item_Hatchet, ITEM_TYPE_BIT.AXE)
+    .set_rarity("phantasia:epic")
     .set_damage(2)
     .set_item_swing_speed(4)
     .set_mining_stats(TOOL_POWER.WOOD)
