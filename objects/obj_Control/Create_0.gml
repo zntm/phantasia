@@ -93,16 +93,14 @@ afk_time = 0;
 
 world_spawn_player(_directory, _seed, obj_Player);
 
+global.structure_checked[@ 0] = [ 0, 0, 0, 0 ];
+global.structure_checked_index = 0;
+
 if (directory_exists(_directory))
 {
     file_load_world_values($"{_directory}/value.dat");
     
     file_load_world_structures();
-}
-else
-{
-    global.structure_checked[@ 0] = [ 0, 0, 0, 0 ];
-    global.structure_checked_index = 0;
 }
 
 file_load_world_realm_environment(global.world.realm);

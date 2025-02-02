@@ -42,7 +42,7 @@ function init_structure_recursive(_namespace, _directory, _id)
                 
                 delete _json;
                 
-                debug_timer("init_data_structure", $"[Init] Loaded Natural Structure: \'{_name}\'");
+                debug_timer("init_data_structure", $"[Init] Loaded Natural Structure: \'{string_delete(_name, string_length(_name) - 4, 5)}\'");
             }
             
             continue;
@@ -111,7 +111,7 @@ function init_structure_recursive(_namespace, _directory, _id)
             
             delete _json;
             
-            debug_timer("init_data_structure", $"[Init] Loaded Structure: \'{_name}\'");
+            debug_timer("init_data_structure", $"[Init] Loaded Structure: \'{string_delete(_name, string_length(_name) - 3, 4)}\'");
             
             continue;
         }

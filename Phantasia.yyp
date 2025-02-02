@@ -2539,6 +2539,7 @@
           "groupParent":"null",
           "compressFormat":"bz2",
           "loadType":"default",
+          "autocrop":"false",
         },
       },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Menu","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Icons","autocrop":false,"border":0,"compressFormat":"bz2","ConfigValues":{
@@ -2586,6 +2587,7 @@
           "groupParent":"null",
           "compressFormat":"bz2",
           "loadType":"default",
+          "autocrop":"false",
         },
       },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Prisma","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Tools","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
@@ -2609,6 +2611,7 @@
           "groupParent":"null",
           "compressFormat":"bz2",
           "loadType":"default",
+          "autocrop":"false",
         },
       },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Foliage","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Liquid","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
@@ -2616,6 +2619,7 @@
           "groupParent":"null",
           "compressFormat":"bz2",
           "loadType":"default",
+          "autocrop":"false",
         },
       },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Liquid","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
   ],

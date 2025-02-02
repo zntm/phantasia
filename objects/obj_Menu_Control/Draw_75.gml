@@ -356,7 +356,7 @@ for (var i = 0; i < _length; ++i)
         }
         else
         {
-            var _ = text + _underscore;
+            var _ = string(text) + _underscore;
             
             var _scale = menu_textbox_text_scale(_, _display_width);
             

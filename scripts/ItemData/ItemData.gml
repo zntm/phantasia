@@ -2328,6 +2328,7 @@ new ItemData("phantasia", item_Rock_Path, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.dirt");
 
 new ItemData("phantasia", item_Tent, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_random_index(1, 1)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, 0, 0)
     .set_drops("phantasia:tent");
 
@@ -2833,12 +2834,14 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID)
             .set_placeholder("X")
             .set_position(416, 236)
             .set_scale(16, 5)
-            .set_instance_link("x"),
+            .set_instance_link("x")
+            .set_variable("xoffset"),
         new ItemMenu("textbox-number")
             .set_placeholder("Y")
             .set_position(544, 236)
             .set_scale(16, 5)
-            .set_instance_link("y"),
+            .set_instance_link("y")
+            .set_variable("yoffset"),
         new ItemMenu("anchor")
             .set_text("Scale")
             .set_position(480, 364 - 32),
@@ -2846,7 +2849,8 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID)
             .set_placeholder("X")
             .set_position(416, 364)
             .set_scale(16, 5)
-            .set_instance_link("xscale"),
+            .set_instance_link("xscale")
+            .set_variable("xscale"),
         new ItemMenu("textbox-number")
             .set_placeholder("Y")
             .set_position(544, 364)
@@ -5708,8 +5712,8 @@ new ItemData("phantasia", item_Palm_Door, ITEM_TYPE_BIT.SOLID)
 new ItemData("phantasia", item_Structure_Point, ITEM_TYPE_BIT.SOLID)
     .set_tile_variable({
         structure_id: "Structure",
-        placement_xoffset: 0,
-        placement_yoffset: 0,
+        xoffset: 0,
+        yoffset: 0,
     })
     .set_menu([
         new ItemMenu("button")
@@ -5731,12 +5735,12 @@ new ItemData("phantasia", item_Structure_Point, ITEM_TYPE_BIT.SOLID)
             .set_placeholder("X")
             .set_position(480 - 64, 172 + 64)
             .set_scale(16, 5)
-            .set_variable("placement_xoffset"),
+            .set_variable("xoffset"),
         new ItemMenu("textbox-number")
             .set_placeholder("Y")
             .set_position(480 + 64, 172 + 64)
             .set_scale(16, 5)
-            .set_variable("placement_yoffset"),
+            .set_variable("yoffset"),
     ]);
 
 new ItemData("phantasia", item_Record_Disc_Permit);

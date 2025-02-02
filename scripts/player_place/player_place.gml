@@ -112,6 +112,11 @@ function player_place(_x, _y, _world_height)
     
     var _inst = tile_place(_x, _y, _z, _tile, _world_height);
     
+    if (_data.boolean & ITEM_BOOLEAN.IS_ANIMATED)
+    {
+        _inst.chunk_z_animated |= 1 << _z;
+    }
+    
     tile_update_neighbor(_x, _y, undefined, undefined, _world_height);
     
     sfx_diegetic_play(obj_Player.x, obj_Player.y, _x * TILE_SIZE, _y * TILE_SIZE, $"{_data.get_sfx()}.place", undefined, global.settings_value.blocks);
