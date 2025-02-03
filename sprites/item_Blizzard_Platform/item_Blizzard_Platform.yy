@@ -17,14 +17,17 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"78cd6aa1-9d95-4718-8ccc-d3c8978c1169","name":"78cd6aa1-9d95-4718-8ccc-d3c8978c1169","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"26464ccb-5184-4ec9-a68d-c52177621301","name":"26464ccb-5184-4ec9-a68d-c52177621301","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c0d21e03-0b30-4fd6-a1e2-261472f03e5a","name":"c0d21e03-0b30-4fd6-a1e2-261472f03e5a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"96e2d3cf-e51e-4db7-9936-da38c58d0a67","name":"96e2d3cf-e51e-4db7-9936-da38c58d0a67","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"9d7836bc-1380-4d7b-abad-768363df25f9","name":"9d7836bc-1380-4d7b-abad-768363df25f9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":8,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"82a32272-c0bb-46db-a5d0-0fa3debfd67c","blendMode":0,"displayName":"default","isLocked":false,"name":"82a32272-c0bb-46db-a5d0-0fa3debfd67c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"09f98dc1-57d1-4d5c-a2e1-7ddce7a380ee","blendMode":0,"displayName":"default","isLocked":false,"name":"09f98dc1-57d1-4d5c-a2e1-7ddce7a380ee","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"item_Blizzard_Platform",
   "nineSlice":null,
@@ -54,7 +57,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":4.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -74,8 +77,17 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"78cd6aa1-9d95-4718-8ccc-d3c8978c1169","path":"sprites/item_Blizzard_Platform/item_Blizzard_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"1b0201cb-2acd-4cbb-b5a2-010c2e519397","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"26464ccb-5184-4ec9-a68d-c52177621301","path":"sprites/item_Blizzard_Platform/item_Blizzard_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"4efcec10-d97c-480c-957f-08f15aed5b00","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c0d21e03-0b30-4fd6-a1e2-261472f03e5a","path":"sprites/item_Blizzard_Platform/item_Blizzard_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"37dacad1-7f20-4f0f-9ec9-1d942ec01765","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"96e2d3cf-e51e-4db7-9936-da38c58d0a67","path":"sprites/item_Blizzard_Platform/item_Blizzard_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8f33d7e1-26e1-440b-99cf-a2072f0fd65a","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9d7836bc-1380-4d7b-abad-768363df25f9","path":"sprites/item_Blizzard_Platform/item_Blizzard_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"3ffc2512-bf87-4867-b8b2-a7606e421662","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

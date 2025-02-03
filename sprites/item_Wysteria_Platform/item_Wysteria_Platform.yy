@@ -17,14 +17,17 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"09af26c2-71c6-45c9-9a38-c2079207c804","name":"09af26c2-71c6-45c9-9a38-c2079207c804","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"60bef5ec-228c-4924-9cf6-d3f3aa651e7e","name":"60bef5ec-228c-4924-9cf6-d3f3aa651e7e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"b1ad4fa3-7269-4653-9907-366f2f9f025f","name":"b1ad4fa3-7269-4653-9907-366f2f9f025f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"ae57d1f7-9d61-4a4e-8e72-c9280694f40c","name":"ae57d1f7-9d61-4a4e-8e72-c9280694f40c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"648ef1d2-af00-4552-8613-286a8c494dc2","name":"648ef1d2-af00-4552-8613-286a8c494dc2","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":8,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"fbd3b0dc-3edd-44cb-b520-6d8d93812ce6","blendMode":0,"displayName":"default","isLocked":false,"name":"fbd3b0dc-3edd-44cb-b520-6d8d93812ce6","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"d741eddd-bf09-4def-bc9a-9e91dcda5fb5","blendMode":0,"displayName":"default","isLocked":false,"name":"d741eddd-bf09-4def-bc9a-9e91dcda5fb5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"item_Wysteria_Platform",
   "nineSlice":null,
@@ -54,7 +57,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":4.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -74,8 +77,17 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"09af26c2-71c6-45c9-9a38-c2079207c804","path":"sprites/item_Wysteria_Platform/item_Wysteria_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"f3e0c3c0-4ed3-4187-8f7b-d236d2c68bb6","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"60bef5ec-228c-4924-9cf6-d3f3aa651e7e","path":"sprites/item_Wysteria_Platform/item_Wysteria_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c0dbb797-be0c-4a5b-87e5-e58cea8a8841","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b1ad4fa3-7269-4653-9907-366f2f9f025f","path":"sprites/item_Wysteria_Platform/item_Wysteria_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"554ee6ad-58e9-46c8-b6e4-26110b6c48d8","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ae57d1f7-9d61-4a4e-8e72-c9280694f40c","path":"sprites/item_Wysteria_Platform/item_Wysteria_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6d6a70f9-b5be-468b-a324-00118d8d91fa","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"648ef1d2-af00-4552-8613-286a8c494dc2","path":"sprites/item_Wysteria_Platform/item_Wysteria_Platform.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"7f7f3225-661c-4488-a60c-d51458495cb9","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
