@@ -1,4 +1,4 @@
-function tile_inst_y(_y)
+function tile_get_inst_y(_y)
 {
 	gml_pragma("forceinline");
 	

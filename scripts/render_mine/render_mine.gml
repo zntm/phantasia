@@ -23,8 +23,8 @@ function render_mine(_camera_x, _camera_y, _camera_width, _camera_height, _minin
 	var _xstart = (_mine_position_x * TILE_SIZE) - _camera_x + random_range(-_offset, _offset);
 	var _ystart = (_mine_position_y * TILE_SIZE) - _camera_y + random_range(-_offset, _offset);
 	
-	var _xinst = tile_inst_x(_mine_position_x);
-	var _yinst = tile_inst_y(_mine_position_y);
+	var _xinst = tile_get_inst_x(_mine_position_x);
+	var _yinst = tile_get_inst_y(_mine_position_y);
 	
 	var _xindex = _mine_position_x & (CHUNK_SIZE_X - 1);
 	

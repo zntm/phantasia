@@ -28,14 +28,14 @@ function worldgen_get_cave_biome(_x, _y, _seed, _ysurface, _world_data)
 			return _data[1];
 		}
 		
-		if (_value & (WORLD_CAVE_TRANSITION.LINEAR << 48))
+		if (_value & (WORLD_CAVE_TRANSITION_TYPE.LINEAR << 48))
 		{
 			if (_y >= _max + (noise(_x, _y, (_value >> 40) & 0xff, _seed - (1024 * i)) * ((_value >> 32) & 0xff))) continue;
 			
 			return _data[1];
 		}
 		
-		if (_value & (WORLD_CAVE_TRANSITION.RANDOM << 48))
+		if (_value & (WORLD_CAVE_TRANSITION_TYPE.RANDOM << 48))
 		{
 			if (_y >= _max + abs((((_seed + _x) * 4615.25) ^ ((_y - _seed) * 9182.5)) % ((_value >> 32) & 0xff))) continue;
 			

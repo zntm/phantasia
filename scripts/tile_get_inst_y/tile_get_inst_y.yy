@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"tile_inst_x",
+  "%Name":"tile_get_inst_y",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"tile_inst_x",
+  "name":"tile_get_inst_y",
   "parent":{
     "name":"Tile",
     "path":"folders/Scripts/Tile.yy",

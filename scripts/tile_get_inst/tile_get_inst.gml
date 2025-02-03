@@ -1,7 +1,7 @@
 function tile_get_inst(_x, _y, _name)
 {
-    var _cx = tile_inst_x(_x);
-    var _cy = tile_inst_y(_y);
+    var _cx = tile_get_inst_x(_x);
+    var _cy = tile_get_inst_y(_y);
 
     if (_cx == global[$ $"tile_{_name}_inst_x"]) && (_cx == global[$ $"tile_{_name}_inst_y"])
     {

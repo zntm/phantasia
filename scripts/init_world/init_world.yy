@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"tile_instance_destroy",
+  "%Name":"init_world",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"tile_instance_destroy",
+  "name":"init_world",
   "parent":{
-    "name":"Tile",
-    "path":"folders/Scripts/Tile.yy",
+    "name":"World Data",
+    "path":"folders/Game Data/World Data.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

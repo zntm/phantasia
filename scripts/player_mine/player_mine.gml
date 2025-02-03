@@ -149,11 +149,11 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
     
     if (i == _yinst) && (_mining_type & ITEM_TYPE_BIT.SOLID)
     {
-        var _cx = tile_inst_x(_x);
+        var _cx = tile_get_inst_x(_x);
         
         while (true)
         {
-            if (!instance_exists(instance_position(_cx, tile_inst_y(i), obj_Chunk)))
+            if (!instance_exists(instance_position(_cx, tile_get_inst_y(i), obj_Chunk)))
             {
                 global.sun_rays_y[$ _string_x] = _world_height;
                 

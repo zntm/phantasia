@@ -44,10 +44,8 @@ function tile_place(_x, _y, _z, _tile, _world_height = global.world_data[$ globa
             instance_destroy(_container);
         }
         
-        // tile_instance_destroy(_x, _y, _z);
-        
         // Feather disable once GM1052
-        delete _inst.chunk[_index];
+        delete _;
     }
     
     _inst.chunk[@ _index] = _tile;
