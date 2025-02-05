@@ -304,7 +304,7 @@ var _spawn_creatures = _world_settings.spawn_creatures;
 var _tick_speed = _world_settings.tick_speed;
 var _time_speed = _world_settings.time_speed;
 
-var _world_height = global.world_data[$ global.world.realm].value & 0xffff;
+var _world_height = global.world_data[$ global.world.realm].get_world_height();
 
 var _biome_data = global.biome_data;
 

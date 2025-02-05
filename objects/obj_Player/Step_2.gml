@@ -103,7 +103,7 @@ if (hp <= 0)
 
 control_inventory();
 
-var _world_height = global.world_data[$ global.world.realm].value & 0xffff;
+var _world_height = global.world_data[$ global.world.realm].get_world_height();
 
 var _is_opened_chat = obj_Control.is_opened_chat;
 var _is_opened_menu = obj_Control.is_opened_menu;

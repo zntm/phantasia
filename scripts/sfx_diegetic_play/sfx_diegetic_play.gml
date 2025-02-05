@@ -7,7 +7,7 @@ enum SFX_DIEGETIC_EFFECT_INDEX {
     LPF
 }
 
-function sfx_diegetic_play(_x1, _y1, _x2, _y2, _id, _pitch_offset = 0.1, _volume = global.settings_value.sfx, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function sfx_diegetic_play(_x1, _y1, _x2, _y2, _id, _pitch_offset = 0.1, _volume = global.settings_value.sfx, _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
     var _sfx = global.sfx_data[$ _id];
     

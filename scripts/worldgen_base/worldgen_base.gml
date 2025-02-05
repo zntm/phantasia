@@ -7,14 +7,10 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
         var _tile_solid = _biome_data[$ _cave_biome].tiles_solid;
         var _tile_solid_id = _tile_solid[0];
         
-        var _generation = _world_data.generation;
         var _length = _world_data.get_generation_length();
         
         for (var i = 0; i < _length; ++i)
         {
-            var _ = _generation[i];
-            var _value = _[0];
-            
             var _range_min = _world_data.get_generation_range_min(i);
             var _range_max = _world_data.get_generation_range_max(i);
             
@@ -43,7 +39,7 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
                 
                 if (_replace == undefined) || (_replace == _tile_solid_id)
                 {
-                    return ((_value & (1 << 60)) ? choose_weighted(_[3], _[4]) : _[3]);
+                    return _world_data.get_generation_tile(i);
                 }
             }
         }

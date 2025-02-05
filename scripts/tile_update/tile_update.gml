@@ -1,4 +1,4 @@
-function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
 	static __index = [ 1, 11, 10, 6, 13, 15, 9, 2, 12, 7, 14, 3, 8, 4, 5, 16 ];
 	

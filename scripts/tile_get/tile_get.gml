@@ -4,7 +4,7 @@
 /// @arg {Real} y The y position the _tile will be collected at
 /// @arg {Real} z The z position the _tile will be collected at
 /// @arg {String} attribute The attribute of the tile will be collected at (-1 for whole data)
-function tile_get(_x, _y, _z, _attribute = "item_id", _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function tile_get(_x, _y, _z, _attribute = "item_id", _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
 	if (_y < 0) || (_y >= _world_height)
 	{

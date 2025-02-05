@@ -7,18 +7,8 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 	var _structure_data = global.structure_data;
 	var _world_data = global.world_data[$ _realm];
     
-	var _world_value = _world_data.value;
-	var _world_caves = _world_data.caves;
+    _yend = min(_yend, _world_data.get_world_height());
     
-    var _world_height = _world_value & 0xffff;
-    
-    if (_yend > _world_height)
-    {
-        _yend = _world_height;
-    }
-    
-	var _start = _world_data.biome.cave.start;
-	
 	var _natural_structure_data = global.natural_structure_data;
 	
 	var _seed = _world.seed;
@@ -33,7 +23,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 		_x2 += (_xoffset & 7) * (((_xoffset ^ 0x71b0ef9) & 128) ? -1 : 1);
 		
 		var _ysurface  = worldgen_get_ysurface(_x2, _seed, _world_data);
-		var _ysurface2 = _ysurface + _start;
+		var _ysurface2 = _ysurface + _world_data.get_cave_ystart();
         
         if (_ystart < _ysurface2) continue;
 		
@@ -48,7 +38,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 			
 			var _cave = worldgen_get_cave_biome(_x2, _y2, _seed, _ysurface, _world_data);
 			
-			if (_cave == -1) || (worldgen_carve_cave(_x2, _y2, _seed_cave, _world_data, _world_value, _world_caves, _ysurface)) || (!worldgen_carve_cave(_x2, _y2 - 1, _seed_cave, _world_data, _world_value, _world_caves, _ysurface)) continue;
+			if (_cave == -1) || (worldgen_carve_cave(_x2, _y2, _seed_cave, _world_data, _ysurface)) || (!worldgen_carve_cave(_x2, _y2 - 1, _seed_cave, _world_data, _ysurface)) continue;
 			
 			var _structures = _biome_data[$ _cave].structures;
 			var _structures_length = array_length(_structures);

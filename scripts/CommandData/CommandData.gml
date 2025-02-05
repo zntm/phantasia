@@ -274,7 +274,7 @@ global.command_data[$ "tp"] = new CommandData()
 		var _camera_width  = _camera.width;
 		var _camera_height = _camera.height;
 		
-		var _world_height_tile_size = ((global.world_data[$ global.world.realm].value & 0xffff) * TILE_SIZE) - _camera_height - TILE_SIZE_H;
+		var _world_height_tile_size = ((global.world_data[$ global.world.realm].get_world_height()) * TILE_SIZE) - _camera_height - TILE_SIZE_H;
 		
 		var _camera_x = _x2 - (_camera_width / 2) + CAMERA_XOFFSET;
 		var _camera_y = clamp(_y2 - (_camera_height / 2) + CAMERA_YOFFSET, 0, _world_height_tile_size);

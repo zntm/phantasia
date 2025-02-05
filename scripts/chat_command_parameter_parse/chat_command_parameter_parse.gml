@@ -58,7 +58,7 @@ function chat_command_parameter_parse(_value, _parameter, _index, _user, _return
             {
                 var _position = round(_user.y / TILE_SIZE);
                 
-                if (_position < 0) || (_position >= global.world_data[$ global.world.realm].value & 0xffff)
+                if (_position < 0) || (_position >= global.world_data[$ global.world.realm].get_world_height())
                 {
                     if (_return)
                     {

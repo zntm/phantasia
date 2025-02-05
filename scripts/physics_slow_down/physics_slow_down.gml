@@ -1,4 +1,4 @@
-function physics_slow_down(_direction, _delta_time = global.delta_time, _item_data = global.item_data, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function physics_slow_down(_direction, _delta_time = global.delta_time, _item_data = global.item_data, _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
     if (xvelocity == 0) && (_direction == 0) exit;
     

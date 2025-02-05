@@ -20,7 +20,7 @@ function ctrl_camera()
 
 	var _delta_time = global.delta_time;
 	
-	var _world_height_tile_size = ((global.world_data[$ global.world.realm].value & 0xffff) * TILE_SIZE) - _camera_height - TILE_SIZE_H;
+	var _world_height_tile_size = ((global.world_data[$ global.world.realm].get_world_height()) * TILE_SIZE) - _camera_height - TILE_SIZE_H;
 	
 	_camera_x = lerp_delta(_camera_x, _camera_x_real, CAMERA_SPEED, _delta_time);
 	_camera_y = clamp(lerp_delta(_camera_y, _camera_y_real, CAMERA_SPEED, _delta_time), 0, _world_height_tile_size);

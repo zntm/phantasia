@@ -1,4 +1,4 @@
-function physics_bury(_threshold = TILE_SIZE_H - 1, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function physics_bury(_threshold = TILE_SIZE_H - 1, _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
     if (!tile_meeting(x, y, undefined, undefined, _world_height)) exit;
     

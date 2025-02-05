@@ -1,4 +1,4 @@
-function tile_update_neighbor(_x, _y, _xsize = 1, _ysize = 1, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function tile_update_neighbor(_x, _y, _xsize = 1, _ysize = 1, _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
 	var _xstart = _x - _xsize;
 	var _ystart = _y - _ysize;

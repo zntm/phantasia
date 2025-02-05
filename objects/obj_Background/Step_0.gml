@@ -45,31 +45,31 @@ if (_data.type == BIOME_TYPE.CAVE)
 
 if (background_transition_value <= 0)
 {
-	var _type = _data.type;
-	
-	if ((in_biome.type != _type) || (in_biome.biome != _biome)) && (_data.background != _biome_data[$ in_biome.biome].background)
-	{
-		background_transition_value = BACKGROUND_TRANSITION_SPEED * _delta_time;
-		
-		in_biome_transition.biome = _biome;
-		in_biome_transition.type  = _type;
-		in_biome_transition.music = _data.music;
-		
-		global.menu_bg_index = _biome;
-	}
+    var _type = _data.type;
+    
+    if ((in_biome.type != _type) || (in_biome.biome != _biome)) && (_data.background != _biome_data[$ in_biome.biome].background)
+    {
+        background_transition_value = BACKGROUND_TRANSITION_SPEED * _delta_time;
+        
+        in_biome_transition.biome = _biome;
+        in_biome_transition.type  = _type;
+        in_biome_transition.music = _data.music;
+        
+        global.menu_bg_index = _biome;
+    }
 }
 else
 {
-	background_transition_value += BACKGROUND_TRANSITION_SPEED * _delta_time;
-	
-	if (background_transition_value >= 1)
-	{
-		background_transition_value = 0;
-		
-		if (!instance_exists(obj_Toast))
-		{
-			spawn_toast(GAME_FPS * 8, toast_biome);
-		}
+    background_transition_value += BACKGROUND_TRANSITION_SPEED * _delta_time;
+    
+    if (background_transition_value >= 1)
+    {
+        background_transition_value = 0;
+        
+        if (!instance_exists(obj_Toast))
+        {
+            spawn_toast(GAME_FPS * 8, toast_biome);
+        }
         
         var _music = in_biome.music;
         
@@ -93,12 +93,12 @@ else
             audio_sound_gain(_music2, global.settings_value.master * global.settings_value.music, BACKGROUND_MUSIC_FADE_SECONDS);
         }
         
-		in_biome.biome = in_biome_transition.biome;
-		in_biome.type  = in_biome_transition.type;
+        in_biome.biome = in_biome_transition.biome;
+        in_biome.type  = in_biome_transition.type;
         in_biome.music = _music2;
         
         in_biome_transition.music = undefined;
-	}
+    }
 }
 
 bg_music_clear();
@@ -116,7 +116,7 @@ var _colour = colour_offset;
 
 with (obj_Light_Sun)
 {
-	colour_offset = _colour;
+    colour_offset = _colour;
 }
 
 var _music = in_biome.music;

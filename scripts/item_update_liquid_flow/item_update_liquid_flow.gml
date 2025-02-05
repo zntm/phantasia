@@ -88,7 +88,7 @@ function item_update_liquid_flow(_x, _y, _z, _liquid, _frame_amount)
 	}
 	
 	var _item_data = global.item_data;
-	var _world_height = global.world_data[$ global.world.realm].value & 0xffff;
+	var _world_height = global.world_data[$ global.world.realm].get_world_height();
 	
 	__flow(_x, _y, _liquid, 0, 1, _frame_amount, _item_data, _world_height, 0, 1, 2);
 	

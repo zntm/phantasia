@@ -1,4 +1,4 @@
-function worldgen_carve_cave(_x, _y, _seed, _world_data, _world_value, _world_caves, _ysurface)
+function worldgen_carve_cave(_x, _y, _seed, _world_data, _ysurface)
 {
 	if (_y <= _ysurface + _world_data.get_cave_ystart())
 	{

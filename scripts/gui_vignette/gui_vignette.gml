@@ -2,10 +2,8 @@ function gui_vignette(_gui_width, _gui_height)
 {
 	var _data = global.world_data[$ global.world.realm];
 	
-	var _vignette = _data.vignette;
-	
-	var _ystart = _data.get_vignette_min();
-	var _yend   = _data.get_vignette_max();
+	var _ystart = _data.get_vignette_range_min();
+	var _yend   = _data.get_vignette_range_max();
 	
 	if (_ystart < 0) exit;
 	

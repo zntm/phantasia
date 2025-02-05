@@ -1,4 +1,4 @@
-function entity_fall(_multiplier = 1, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function entity_fall(_multiplier = 1, _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
     if (y > ylast)
     {

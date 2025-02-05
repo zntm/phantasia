@@ -1,5 +1,5 @@
 var _camera = global.camera;
-		
+        
 var _camera_x = _camera.x;
 var _camera_y = _camera.y;
 
@@ -11,10 +11,10 @@ var _camera_half_height = _camera_height / 2;
 
 if (!global.settings_value.background)
 {
-	draw_sprite_ext(spr_Square, 0, _camera_x, _camera_y, _camera_width, _camera_height, 0, colour_sky_base, 1);
-	draw_sprite_ext(spr_Glow, 0, _camera_x + _camera_half_width, _camera_y + _camera_height, _camera_width, 4, 0, colour_sky_gradient, 1);
+    draw_sprite_ext(spr_Square, 0, _camera_x, _camera_y, _camera_width, _camera_height, 0, colour_sky_base, 1);
+    draw_sprite_ext(spr_Glow, 0, _camera_x + _camera_half_width, _camera_y + _camera_height, _camera_width, 4, 0, colour_sky_gradient, 1);
 
-	exit;
+    exit;
 }
 
 draw_sprite_ext(spr_Square, 0, _camera_x, _camera_y, _camera_width, _camera_height, 0, colour_sky_base, 1);
@@ -50,31 +50,31 @@ var _time = _world.time % 54_000;
 
 bg_draw_celestial(_time, -128, _camera_width + 128);
 
-var _bg_y = _camera_y + _camera_height + ((1 - clamp(((_camera_y + _camera_half_height) / TILE_SIZE) / ((global.world_data[$ _world.realm].value & 0xffff) * 0.75), 0, 1)) * 256);
+var _bg_y = _camera_y + _camera_height + ((1 - clamp(((_camera_y + _camera_half_height) / TILE_SIZE) / (global.world_data[$ _world.realm].get_world_height() * 0.75), 0, 1)) * 256);
 
 if (!DEVELOPER_MODE) || (global.debug_settings.background)
 {
-	for (var i = 0; i < BACKGROUND_CLOUD_DEPTH; ++i)
-	{
-		var _lerp = 1 - background_transition_value;
-	
-		if (_type == BIOME_TYPE.SURFACE)
-		{
-			bg_draw_clouds(_camera_x, _camera_y, i, colour_offset, (_transition_type == BIOME_TYPE.SURFACE ? 1 : _lerp));
-		}
-		else if (_transition_type == BIOME_TYPE.SURFACE)
-		{ 
-			bg_draw_clouds(_camera_x, _camera_y, i, colour_offset, background_transition_value);
-		}
-	
-		if (i < _bg_length)
-		{
-			bg_draw_parallax(_background, i, _type, _camera_x, _bg_y, _player_x, _player_y, _camera_width, _camera_height, colour_offset, _lerp);
-		}
-	
-		if (i < _bg_transition_length)
-		{
-			bg_draw_parallax(_transition_background, i, _transition_type, _camera_x, _bg_y, _player_x, _player_y, _camera_width, _camera_height, colour_offset, background_transition_value);
-		}
-	}
+    for (var i = 0; i < BACKGROUND_CLOUD_DEPTH; ++i)
+    {
+        var _lerp = 1 - background_transition_value;
+        
+        if (_type == BIOME_TYPE.SURFACE)
+        {
+            bg_draw_clouds(_camera_x, _camera_y, i, colour_offset, (_transition_type == BIOME_TYPE.SURFACE ? 1 : _lerp));
+        }
+        else if (_transition_type == BIOME_TYPE.SURFACE)
+        { 
+            bg_draw_clouds(_camera_x, _camera_y, i, colour_offset, background_transition_value);
+        }
+        
+        if (i < _bg_length)
+        {
+            bg_draw_parallax(_background, i, _type, _camera_x, _bg_y, _player_x, _player_y, _camera_width, _camera_height, colour_offset, _lerp);
+        }
+        
+        if (i < _bg_transition_length)
+        {
+            bg_draw_parallax(_transition_background, i, _transition_type, _camera_x, _bg_y, _player_x, _player_y, _camera_width, _camera_height, colour_offset, background_transition_value);
+        }
+    }
 }

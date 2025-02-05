@@ -10,7 +10,7 @@ function render_lighting(_camera_x, _camera_y, _camera_width, _camera_height)
 	draw_sprite_ext(spr_Square, 0, 0, 0, _camera_width, _camera_height, 0, c_black, 1);
 	gpu_set_blendmode(bm_subtract);
 	
-	var _world_height = (global.world_data[$ global.world.realm].value & 0xffff) * TILE_SIZE;
+	var _world_height = (global.world_data[$ global.world.realm].get_world_height()) * TILE_SIZE;
 	
 	with (obj_Parent_Light)
 	{

@@ -48,11 +48,8 @@ function chunk_generate(_world, _seed, _world_data)
     var _item_data = global.item_data;
     var _loot_data = global.loot_data;
     var _structure_data = global.structure_data;
-    
-    var _world_value = _world_data.value;
-    var _world_caves = _world_data.caves;
-    
-    var _ysurface_offset = (_world_value >> 16) & 0xff;
+
+    var _ysurface_offset = _world_data.get_cave_ystart();
     
     static __surface_biome = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Y);
     static __cave_biome    = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Y);
@@ -74,7 +71,7 @@ function chunk_generate(_world, _seed, _world_data)
             {
                 var _ypos = chunk_ystart + j;
                 
-                if (_ypos > _ymin) && (worldgen_carve_cave(_xpos, _ypos, _seed_cave, _world_data, _world_value, _world_caves, _ysurface))
+                if (_ypos > _ymin) && (worldgen_carve_cave(_xpos, _ypos, _seed_cave, _world_data, _ysurface))
                 {
                     _chunk_data |= 1 << j;
                 }

@@ -1,6 +1,6 @@
 #macro PHYSICS_GLOBAL_SLIPPERINESS 0.2
 
-function physics_x(_speed, _collision = true, _step = -1, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function physics_x(_speed, _collision = true, _step = -1, _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
     static __tile_meeting = function(_x, _y, _world_height)
     {

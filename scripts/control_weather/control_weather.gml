@@ -47,7 +47,7 @@ function control_weather(_delta_time)
 			
 			with (instance_create_layer(_x, _y, "Instances", obj_Lightning))
 			{
-				image_yscale = global.world_data[$ global.world.realm].value & 0xffff;
+				image_yscale = global.world_data[$ global.world.realm].get_world_height();
 				
 				life = 0;
                 

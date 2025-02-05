@@ -2,7 +2,7 @@ function ctrl_chunk_generate()
 {
 	static __index = [ 1, 11, 10, 6, 13, 15, 9, 2, 12, 7, 14, 3, 8, 4, 5, 16 ];
 	
-	var _world_height = global.world_data[$ global.world.realm].value & 0xffff;
+	var _world_height = global.world_data[$ global.world.realm].get_world_height();
 	var _world_height_tile_size = (_world_height * TILE_SIZE) - CHUNK_SIZE_HEIGHT;
 	
 	var _item_data = global.item_data;

@@ -4,7 +4,7 @@
 /// @arg {Real} y The y position the tile will be placed at
 /// @arg {Real} z The z position the tile will be placed at
 /// @arg {Any} tile A structure that is created using the Tile() constructor function
-function tile_place(_x, _y, _z, _tile, _world_height = global.world_data[$ global.world.realm].value & 0xffff)
+function tile_place(_x, _y, _z, _tile, _world_height = global.world_data[$ global.world.realm].get_world_height())
 {
     if (_y < 0) || (_y >= _world_height) exit;
     

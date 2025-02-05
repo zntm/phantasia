@@ -23,14 +23,14 @@ if (_music != undefined)
 }
 
 in_biome = {
-	biome: _biome,
-	type:  _type,
+    biome: _biome,
+    type:  _type,
     music: _music
 }
 
 in_biome_transition = {
-	biome: _biome,
-	type:  _type,
+    biome: _biome,
+    type:  _type,
     music: _music
 }
 

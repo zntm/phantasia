@@ -52,8 +52,8 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
             .set_world_height(_world_height)
             .set_surface_octave(_surface.octave)
             .set_surface_height_start(_surface.start)
-            .set_surface_height_offset(_surface_offset._min, _surface_offset.max)
-            .set_vigenette(_vignette.start, _vignette[$ "end"], hex_parse(_vignette.colour));
+            .set_surface_height_offset(_surface_offset.min, _surface_offset.max)
+            .set_vignette(_vignette.start, _vignette[$ "end"], hex_parse(_vignette.colour));
 		
         var _biome = _json.biome;
         
@@ -74,7 +74,7 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
             _data.add_default_cave(_cave.id, _range.min, _range.max, _transition.amplitude, _transition.octave, _transition.type);
         }
         
-        _data.set_default_cave_length(_cave_default);
+        _data.set_default_cave_length(_cave_default_length);
         
         #endregion
         
@@ -89,9 +89,9 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         {
             var _cave = _caves2[j];
             
-            var _range = _data.range;
+            var _range = _cave.range;
             
-            var _noise = _data.noise;
+            var _noise = _cave.noise;
             var _noise_threshold = _noise.threshold;
             
             _data.add_cave(_range.min, _range.max, _noise_threshold.min, _noise_threshold.max, _noise.octave);
@@ -108,7 +108,7 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         
         var _surface2 = _biome.surface;
         
-        _data.set_surface_biome_octave(_surface2.heat, _surface2.humidity, _surface2[$ "default"]);
+        _data.set_surface_biome(_surface2.heat, _surface2.humidity, _surface2[$ "default"]);
         
         #endregion
         
@@ -121,18 +121,26 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         {
             var _ = _generation[j];
             
-            var _range = _data[$ "range"];
-            var _range2 = (_range == undefined ? (_world_height << 16) : ((_range.max << 16) | _range.min));
+            var _range = _[$ "range"];
             
-            var _noise = _data.noise;
+            var _noise = _.noise;
             var _noise_threshold = _noise.threshold;
             
-            var _2 = _.generation[j];
+            var _range_min;
+            var _range_max;
             
-            var _range_min = _range.min;
-            var _range_max = _range.max;
+            if (_range == undefined)
+            {
+                _range_min = 0;
+                _range_max = _world_height;
+            }
+            else
+            {
+                _range_min = _range[$ "min"] ?? 0;
+                _range_max = _range[$ "max"] ?? _world_height;
+            }
             
-            _data.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise.octave, _data[$ "type"] ?? "phantasia:linear", _data.tile, _2[$ "exclusive"], _2[$ "replace"]);
+            _data.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise.octave, _[$ "type"] ?? "phantasia:linear", _.tile, _[$ "exclusive"], _[$ "replace"]);
         }
         
         #endregion

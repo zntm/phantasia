@@ -6,7 +6,7 @@
 function item_update_grass(_x, _y, _z, _dirt, _grass, _spread = true)
 {
     var _item_data = global.item_data;
-    var _world_height = global.world_data[$ global.world.realm].value & 0xffff;
+    var _world_height = global.world_data[$ global.world.realm].get_world_height();
     
 	var _delta_time = global.delta_time;
 	

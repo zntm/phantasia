@@ -238,6 +238,14 @@ function WorldData(_namespace) constructor
     {
         self[$ "___generation"] ??= [];
         
+        if (is_struct(_tile))
+        {
+            _tile = [
+                _tile.id,
+                _tile[$ "index_offset"]
+            ];
+        }
+        
         array_push(___generation, (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave, _type, _tile, _exclusive, _replace);
     }
     
