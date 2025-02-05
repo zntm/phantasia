@@ -7,7 +7,7 @@
 	},
 	"surface": {
 		"start": 512,
-		"octave": 220,
+		"octave": 0.75,
 		"offset": {
 			"min": 40,
 			"max": 96
@@ -29,7 +29,7 @@
 					"transition": {
 						"type": "random",
 						"amplitude": 12,
-						"octave": 64
+						"octave": 0.5
 					}
 				},
 				{
@@ -41,7 +41,7 @@
 					"transition": {
 						"type": "linear",
 						"amplitude": 12,
-						"octave": 64
+						"octave": 0.5
 					}
 				}
 			],
@@ -69,7 +69,7 @@
 					"max": 1024
 				},
 				"noise": {
-					"octave": 255,
+					"octave": 0.5,
 					"threshold": {
 						"min": 122,
 						"max": 136
@@ -82,7 +82,7 @@
 					"max": 768
 				},
 				"noise": {
-					"octave": 180,
+					"octave": 0.5,
 					"threshold": {
 						"min": 88,
 						"max": 104
@@ -95,7 +95,7 @@
 					"max": 1024
 				},
 				"noise": {
-					"octave": 224,
+					"octave": 0.5,
 					"threshold": {
 						"min": 120,
 						"max": 124
@@ -109,7 +109,7 @@
 			"exclusive": "phantasia:caverns",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 54,
+				"octave": 0.5,
 				"threshold": {
 					"min": 172,
 					"max": 188
@@ -128,7 +128,7 @@
 			"exclusive": "phantasia:depths",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 54,
+				"octave": 0.5,
 				"threshold": {
 					"min": 172,
 					"max": 188
@@ -147,7 +147,7 @@
 			"exclusive": "phantasia:caverns",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 32,
+				"octave": 0.5,
 				"threshold": {
 					"min": 136,
 					"max": 140
@@ -170,7 +170,7 @@
 			"exclusive": "phantasia:depths",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 32,
+				"octave": 0.5,
 				"threshold": {
 					"min": 136,
 					"max": 140
@@ -193,7 +193,7 @@
 			"exclusive": "phantasia:caverns",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 66,
+				"octave": 0.5,
 				"threshold": {
 					"min": 134,
 					"max": 142
@@ -212,7 +212,7 @@
 			"exclusive": "phantasia:depths",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 66,
+				"octave": 0.5,
 				"threshold": {
 					"min": 134,
 					"max": 142
@@ -231,7 +231,7 @@
 			"exclusive": "phantasia:caverns",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 48,
+				"octave": 0.5,
 				"threshold": {
 					"min": 132,
 					"max": 142
@@ -250,7 +250,7 @@
 			"exclusive": "phantasia:depths",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 48,
+				"octave": 0.5,
 				"threshold": {
 					"min": 132,
 					"max": 142
@@ -269,7 +269,7 @@
 			"exclusive": "phantasia:caverns",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 42,
+				"octave": 0.5,
 				"threshold": {
 					"min": 132,
 					"max": 134
@@ -288,7 +288,7 @@
 			"exclusive": "phantasia:depths",
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 42,
+				"octave": 0.5,
 				"threshold": {
 					"min": 132,
 					"max": 134
@@ -310,7 +310,7 @@
 			],
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 64,
+				"octave": 0.5,
 				"threshold": {
 					"min": 162,
 					"max": 210
@@ -327,7 +327,7 @@
 			],
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 88,
+				"octave": 0.5,
 				"threshold": {
 					"min": 134,
 					"max": 142
@@ -344,7 +344,7 @@
 			],
 			"type": "flipped_triangular",
 			"noise": {
-				"octave": 90,
+				"octave": 0.5,
 				"threshold": {
 					"min": 126,
 					"max": 134

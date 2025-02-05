@@ -907,6 +907,7 @@
     {"$GMIncludedFile":"","%Name":"Loca.json","CopyToMask":-1,"filePath":"datafiles/Resources/Languages/2. Español","name":"Loca.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"noise.dat","CopyToMask":-1,"filePath":"datafiles/resources","name":"noise.dat","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"noise.dat","CopyToMask":-1,"filePath":"datafiles/Resources","name":"noise.dat","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"noise.png","CopyToMask":-1,"filePath":"datafiles/resources","name":"noise.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"poem.txt","CopyToMask":-1,"filePath":"datafiles/resources","name":"poem.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"Poem.txt","CopyToMask":-1,"filePath":"datafiles/Resources","name":"Poem.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"splash.json","CopyToMask":-1,"filePath":"datafiles/resources","name":"splash.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},

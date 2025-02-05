@@ -19,7 +19,7 @@
 		},
 		"value": {
 			"amplitude": 8,
-			"octave": 64,
+			"octave": 0.5,
 			"threshold": 5
 		}
 	},

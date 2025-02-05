@@ -53,7 +53,8 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
 		
 		var _min = _surface_offset.min;
 		
-		_.surface = ((_min + _surface_offset.max) << 32) | (_min << 24) | (_surface.octave << 16) | _surface.start;
+		_.surface = ((_min + _surface_offset.max) << 32) | (_min << 24) | _surface.start;
+        _.surface_octave = _surface.octave;
 		
 		#endregion
         /*
