@@ -140,7 +140,7 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
                 _range_max = _range[$ "max"] ?? _world_height;
             }
             
-            _data.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise.octave, _[$ "type"] ?? "phantasia:linear", _.tile, _[$ "exclusive"], _[$ "replace"]);
+            _data.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise[$ "condition_length"] ?? 1, _noise.octave, _[$ "type"] ?? "phantasia:linear", _.tile, _[$ "exclusive"], _[$ "replace"]);
         }
         
         #endregion
@@ -151,74 +151,6 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         
         delete _json;
         
-        /*
-		#region Surface
-		
-		var _surface2 = _biome.surface;
-		
-		_.biome.surface = (_surface2.humidity << 16) | _surface2.heat;
-		
-		#endregion
-		
-		#region Generation
-		
-		var _generation = _.generation;
-		var _generation_length = array_length(_generation);
-		
-		for (var j = 0; j < _generation_length; ++j)
-		{
-			var _data = _generation[j];
-			
-			var _range = _data[$ "range"];
-			var _range2 = (_range == undefined ? (_world_height << 16) : ((_range.max << 16) | _range.min));
-			
-			var _noise = _data.noise;
-			var _noise_threshold = _noise.threshold;
-			
-			var _2 = _.generation[j];
-			
-			var _exclusive = _2[$ "exclusive"];
-			var _exclusive_undefined = (_exclusive != undefined);
-			
-			var _tile = _data.tile;
-			var _item_id = _tile.item_id;
-			
-			var _is_struct = is_struct(_item_id);
-			
-			_.generation[@ j] = [
-				(_is_struct << 60) | (((_exclusive_undefined) && (is_array(_exclusive))) << 59) | (_exclusive_undefined << 58) | (__cave_type[$ _data[$ "type"] ?? "linear"] << 56) | (_noise_threshold.max << 48) | (_noise_threshold.min << 40) | (_noise.octave << 32) | _range2,
-				_exclusive,
-				_2[$ "replace"]
-			];
-			
-			if (_is_struct)
-			{
-				var _names = struct_get_names(_item_id);
-				var _names_length = array_length(_names);
-				
-				_.generation[@ j][@ 3] = [];
-				_.generation[@ j][@ 4] = _names_length;
-				
-				for (var l = 0; l < _names_length; ++l)
-				{
-					var _name2 = _names[l];
-					
-					array_push(_.generation[j][3], [ _name2, _tile[$ "index_offset"] ?? 0 ], _item_id[$ _name2]);
-				}
-			}
-			else
-			{
-				_.generation[@ j][@ 3] = [ _tile.item_id, _tile[$ "index_offset"] ?? 0 ];
-			}
-		}
-		
-		#endregion
-		
-		_.surface_biome_map = array_create(32 * 32);
-        */
-        
         debug_timer("init_data_world", $"[Init] Loaded World: \'{_file}\'");
 	}
-    
-    show_debug_message(json_stringify(global.world_data, true))
 }

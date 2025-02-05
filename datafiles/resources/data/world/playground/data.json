@@ -106,14 +106,15 @@
 	},
 	"generation": [
 		{
-			"exclusive": "phantasia:caverns",
+			"exclusive": [ "phantasia:caverns" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 172,
 					"max": 188
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 512,
@@ -125,14 +126,15 @@
 			}
 		},
 		{
-			"exclusive": "phantasia:depths",
+			"exclusive": [ "phantasia:depths" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 172,
 					"max": 188
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 512,
@@ -144,14 +146,15 @@
 			}
 		},
 		{
-			"exclusive": "phantasia:caverns",
+			"exclusive": [ "phantasia:caverns" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 136,
 					"max": 140
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 512,
@@ -159,22 +162,19 @@
 			},
 			"replace": [ "phantasia:stone" ],
 			"tile": {
-				"id": {
-					"phantasia:copper_ore": 1,
-					"phantasia:weathered_copper_ore": 2,
-					"phantasia:tarnished_copper_ore": 4
-				}
+				"id": "phantasia:tarnished_copper_ore"
 			}
 		},
 		{
-			"exclusive": "phantasia:depths",
+			"exclusive": [ "phantasia:depths" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 136,
 					"max": 140
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 512,
@@ -182,22 +182,19 @@
 			},
 			"replace": [ "phantasia:emustone" ],
 			"tile": {
-				"id": {
-					"phantasia:emustone_copper_ore": 1,
-					"phantasia:emustone_weathered_copper_ore": 2,
-					"phantasia:emustone_tarnished_copper_ore": 8
-				}
+				"id": "phantasia:emustone_tarnished_copper_ore"
 			}
 		},
 		{
-			"exclusive": "phantasia:caverns",
+			"exclusive": [ "phantasia:caverns" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 134,
 					"max": 142
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 560,
@@ -209,14 +206,15 @@
 			}
 		},
 		{
-			"exclusive": "phantasia:depths",
+			"exclusive": [ "phantasia:depths" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 134,
 					"max": 142
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 560,
@@ -228,14 +226,15 @@
 			}
 		},
 		{
-			"exclusive": "phantasia:caverns",
+			"exclusive": [ "phantasia:caverns" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 132,
 					"max": 142
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 764,
@@ -247,14 +246,15 @@
 			}
 		},
 		{
-			"exclusive": "phantasia:depths",
+			"exclusive": [ "phantasia:depths" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 132,
 					"max": 142
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 764,
@@ -266,14 +266,15 @@
 			}
 		},
 		{
-			"exclusive": "phantasia:caverns",
+			"exclusive": [ "phantasia:caverns" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 132,
 					"max": 134
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 880,
@@ -285,14 +286,15 @@
 			}
 		},
 		{
-			"exclusive": "phantasia:depths",
+			"exclusive": [ "phantasia:depths" ],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
 					"min": 132,
 					"max": 134
-				}
+				},
+				"condition_length": 3
 			},
 			"range": {
 				"min": 880,
@@ -310,10 +312,10 @@
 			],
 			"type": "phantasia:flipped_triangular",
 			"noise": {
-				"octave": 0.5,
+				"octave": 0.3,
 				"threshold": {
-					"min": 162,
-					"max": 210
+					"min": 80,
+					"max": 133
 				}
 			},
 			"tile": {

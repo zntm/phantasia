@@ -20,24 +20,42 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
             
             if (_exclusive != undefined) && (!array_contains(_exclusive, _cave_biome)) continue;
             
-            var _noise = noise(_x, _y, _world_data.get_generation_threshold_octave(i), _seed - (i << 8)) * 255;
-            
             var _type = _world_data.get_generation_type(i);
             
-            if (_type == "phantasia:triangular")
+            var _threshold_min = _world_data.get_generation_threshold_min(i);
+            var _threshold_max = _world_data.get_generation_threshold_max(i);
+            
+            var _threshold_octave = _world_data.get_generation_threshold_octave(i);
+            
+            var _generate = true;
+            
+            var _condition_length = _world_data.get_generation_condition_length(i);
+            
+            for (var j = 0; j < _condition_length; ++j)
             {
-                _noise *= normalize(_y, _range_min, _range_max);
-            }
-            else if (_type == "phantasia:flipped_triangular")
-            {
-                _noise *= 1 - normalize(_y, _range_min, _range_max);
+                var _noise = noise(_x, _y, _world_data.get_generation_threshold_octave(i), _seed - (i << 8) + (j << 16)) * 255;
+                
+                if (_type == "phantasia:triangular")
+                {
+                    _noise *= normalize(_y, _range_min, _range_max);
+                }
+                else if (_type == "phantasia:flipped_triangular")
+                {
+                    _noise *= 1 - normalize(_y, _range_min, _range_max);
+                }
+                
+                if (_noise >= _world_data.get_generation_threshold_min(i)) && (_noise < _world_data.get_generation_threshold_max(i)) continue;
+                
+                _generate = false;
+                
+                break;
             }
             
-            if (_noise >= _world_data.get_generation_threshold_min(i)) && (_noise < _world_data.get_generation_threshold_max(i))
+            if (_generate)
             {
                 var _replace = _world_data.get_generation_replace(i);
                 
-                if (_replace == undefined) || (_replace == _tile_solid_id)
+                if (_replace == undefined) || (array_contains(_replace, _tile_solid_id))
                 {
                     return _world_data.get_generation_tile(i);
                 }

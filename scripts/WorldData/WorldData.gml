@@ -131,7 +131,7 @@ function WorldData(_namespace) constructor
         return (self[$ "___vignette_value"] >> 16) & 0xffff;
     }
     
-    static get_vignette_range_colour = function()
+    static get_vignette_colour = function()
     {
         return (self[$ "___vignette_value"] >> 32) & 0xffffff;
     }
@@ -234,19 +234,16 @@ function WorldData(_namespace) constructor
         return ___surface_biome_default;
     }
     
-    static add_generation = function(_range_min, _range_max, _threshold_min, _threshold_max, _threshold_octave, _type, _tile, _exclusive, _replace)
+    static add_generation = function(_range_min, _range_max, _threshold_min, _threshold_max, _condition_length, _threshold_octave, _type, _tile, _exclusive, _replace)
     {
         self[$ "___generation"] ??= [];
         
-        if (is_struct(_tile))
-        {
-            _tile = [
-                _tile.id,
-                _tile[$ "index_offset"]
-            ];
-        }
+        _tile = [
+            _tile.id,
+            _tile[$ "index_offset"] ?? 0
+        ];
         
-        array_push(___generation, (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave, _type, _tile, _exclusive, _replace);
+        array_push(___generation, (_condition_length << 48) | (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave, _type, _tile, _exclusive, _replace);
     }
     
     static get_generation_range_min = function(_index)
@@ -267,6 +264,11 @@ function WorldData(_namespace) constructor
     static get_generation_threshold_max = function(_index)
     {
         return (___generation[_index * 6] >> 40) & 0xff;
+    }
+    
+    static get_generation_condition_length = function(_index)
+    {
+        return (___generation[_index * 6] >> 48) & 0xff;
     }
     
     static get_generation_threshold_octave = function(_index)
