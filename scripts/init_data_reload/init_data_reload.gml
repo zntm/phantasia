@@ -139,17 +139,26 @@ function init_data_reload(_directory, _prefix, _type)
 		var _attributes = global.world_data[$ global.world.realm];
 		
 		var _biome = bg_get_biome(obj_Player.x, obj_Player.y);
-		var _biome_type = global.biome_data[$ _biome].type;
+		
+        var _data = global.biome_data[$ _biome];
+        
+        var _biome_type = _data.type;
 
 		obj_Background.in_biome = {
 			biome: _biome,
-			type:  _biome_type
+			type:  _biome_type,
+            music: _data.music
 		}
 
 		obj_Background.in_biome_transition = {
 			biome: _biome,
-			type:  _biome_type
+			type:  _biome_type,
+            music: _data.music
 		}
+        
+        audio_stop_all();
+        
+        array_resize(obj_Background.biome_volume_0_music, 0);
 	}
 	
 	if (DEVELOPER_MODE)

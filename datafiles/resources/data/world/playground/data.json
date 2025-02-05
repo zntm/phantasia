@@ -55,7 +55,7 @@
 		},
 		"sky": {},
 		"surface": {
-			"heat": 0.5,
+			"heat": 0.7,
 			"humidity": 0.5,
 			"default": "phantasia:greenia"
 		}
@@ -69,10 +69,10 @@
 					"max": 1024
 				},
 				"noise": {
-					"octave": 0.5,
+					"octave": 0.88,
 					"threshold": {
 						"min": 122,
-						"max": 136
+						"max": 144
 					}
 				}
 			},
@@ -82,10 +82,10 @@
 					"max": 768
 				},
 				"noise": {
-					"octave": 0.5,
+					"octave": 0.64,
 					"threshold": {
 						"min": 88,
-						"max": 104
+						"max": 110
 					}
 				}
 			},
@@ -95,10 +95,10 @@
 					"max": 1024
 				},
 				"noise": {
-					"octave": 0.5,
+					"octave": 0.46,
 					"threshold": {
-						"min": 120,
-						"max": 124
+						"min": 116,
+						"max": 130
 					}
 				}
 			}

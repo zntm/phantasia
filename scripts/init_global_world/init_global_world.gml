@@ -3,10 +3,10 @@
 #macro FORCE_CAVE_BIOME    -1
 
 enum WORLDGEN_SALT {
-	CAVE           =  0x81CFA386D,
+    CAVE           =  0x81CFA386D,
     
     WALL           =  0xFF0BD9144,
-	BASE           = -0x17E8FD1A9,
+    BASE           = -0x17E8FD1A9,
     FOLIAGE        = -0x02D81BAC5,
     
     BIOME_HEAT     =  0x7F33A10A2,
