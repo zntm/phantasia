@@ -27,7 +27,7 @@
 						"max": 768
 					},
 					"transition": {
-						"type": "random",
+						"type": "phantasia:random",
 						"amplitude": 12,
 						"octave": 0.5
 					}
@@ -39,7 +39,7 @@
 						"max": 1024
 					},
 					"transition": {
-						"type": "linear",
+						"type": "phantasia:linear",
 						"amplitude": 12,
 						"octave": 0.5
 					}
@@ -55,8 +55,8 @@
 		},
 		"sky": {},
 		"surface": {
-			"heat": 460,
-			"humidity": 542,
+			"heat": 0.5,
+			"humidity": 0.5,
 			"default": "phantasia:greenia"
 		}
 	},

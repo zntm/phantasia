@@ -46,11 +46,11 @@ with (obj_Menu_Button)
 }
 
 var _goto;
-var _surface_offset;
+var _surface_height_offset;
 
 if (room == rm_World)
 {
-    _surface_offset = 0;
+    _surface_height_offset = 0;
     _goto = false;
 }
 else
@@ -80,7 +80,7 @@ else
                 room_goto(goto);
             }
             
-            _surface_offset = -animcurve_channel_evaluate(global.menu_animcurve, offset) * _display_width;
+            _surface_height_offset = -animcurve_channel_evaluate(global.menu_animcurve, offset) * _display_width;
         }
         else
         {
@@ -94,12 +94,12 @@ else
                 global.menu_bg_blur_value = offset;
             }
             
-            _surface_offset = animcurve_channel_evaluate(global.menu_animcurve, offset) * _display_width;
+            _surface_height_offset = animcurve_channel_evaluate(global.menu_animcurve, offset) * _display_width;
         }
     }
     else
     {
-        _surface_offset = 0;
+        _surface_height_offset = 0;
         
         var _menu_bg_fade_old = _menu_bg_fade;
         _menu_bg_fade -= global.delta_time * MENU_TRANSITION_SPEED_FADE;
@@ -130,7 +130,7 @@ else
 
 if (on_draw != -1)
 {
-    on_draw(_xmultiplier, _ymultiplier, _display_width, _display_height, xoffset + _surface_offset, yoffset);
+    on_draw(_xmultiplier, _ymultiplier, _display_width, _display_height, xoffset + _surface_height_offset, yoffset);
 }
 
 draw_set_align(fa_center, fa_middle);
@@ -169,7 +169,7 @@ for (var i = 0; i < _length; ++i)
             
             if (surface_index != i) || (!rectangle_in_rectangle(_xoffset + bbox_left, _yoffset + bbox_top, _xoffset + bbox_right, _yoffset + bbox_bottom, -16, -16, room_width + 16, room_height + 16)) break;
             
-            var _in_rectangle = (!_goto) && (_surface_offset <= 0) && (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom));
+            var _in_rectangle = (!_goto) && (_surface_height_offset <= 0) && (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom));
             
             if (_in_rectangle)
             {
@@ -296,7 +296,7 @@ for (var i = 0; i < _length; ++i)
     {
         if (surface_index != i) || (!rectangle_in_rectangle(_xoffset + bbox_left, _yoffset + bbox_top, _xoffset + bbox_right, _yoffset + bbox_bottom, -16, -16, room_width + 16, room_height + 16)) continue;
         
-        var _in_rectangle = (!_goto) && (_surface_offset <= 0) && (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom));
+        var _in_rectangle = (!_goto) && (_surface_height_offset <= 0) && (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom));
         
         if (_in_rectangle)
         {
@@ -372,7 +372,7 @@ for (var i = 0; i < _length; ++i)
     {
         if (surface_index != i) || (on_draw == -1) continue;
         
-        on_draw(_xoffset + x + _surface_offset, _yoffset + y, id, _xmultiplier, _ymultiplier);
+        on_draw(_xoffset + x + _surface_height_offset, _yoffset + y, id, _xmultiplier, _ymultiplier);
     }
     
     surface_reset_target();
@@ -390,13 +390,13 @@ for (var i = 0; i < _length; ++i)
             _shader_function(_xoffset + x, _yoffset + y, id, _xmultiplier, _ymultiplier);
         }
         
-        draw_surface(surface[i], _surface_offset, 0);
+        draw_surface(surface[i], _surface_height_offset, 0);
         
         shader_reset();
     }
     else
     {
-        draw_surface(surface[i], _surface_offset, 0);
+        draw_surface(surface[i], _surface_height_offset, 0);
     }
 }
 

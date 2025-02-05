@@ -36,35 +36,65 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
 	{
 		var _file = _files[i];
 		
-		var _name = $"{_prefix}:{_file}";
-		
         debug_timer("init_data_world");
 		
 		var _ = json_parse(buffer_load_text($"{_directory}/{_file}/data.json"));
 		
-		var _height = _.height;
-		
-		delete _.height;
-		
-		#region Surface
-		
-		var _surface = _.surface;
-		var _surface_offset = _surface.offset;
-		
-		var _min = _surface_offset.min;
-		
-		_.surface = ((_min + _surface_offset.max) << 32) | (_min << 24) | _surface.start;
-        _.surface_octave = _surface.octave;
-		
-		#endregion
-        /*
+		var _world_height = _.height;
+		var _vignette = _.vignette;
+        
         var _data = new WorldData(_prefix);
         
+        var _surface = _.surface;
+        var _surface_offset = _surface.offset;
+        
         _data
-            .set_surface_start(_surface.start)
+            .set_world_height(_world_height)
             .set_surface_octave(_surface.octave)
-            .set_surface_offset(_min, _surface_offset.max);
-		*/
+            .set_surface_height_start(_surface.start)
+            .set_surface_height_offset(_surface_offset._min, _surface_offset.max)
+            .set_vigenette(_vignette.start, _vignette[$ "end"], hex_parse(_vignette.colour));
+		
+        var _biome = _.biome;
+        
+        #region Cave
+        
+        var _caves = _biome.cave;
+        
+        var _cave_default = _caves[$ "default"];
+        var _cave_default_length = array_length(_cave_default);
+        
+        for (var j = 0; j < _cave_default_length; ++j)
+        {
+            var _cave = _cave_default[j];
+            
+            var _range = _cave.range;
+            var _transition = _cave.transition;
+            
+            _data.add_default_cave(_cave.id, _range.min, _range.max, _transition.amplitude, _transition.octave, _transition.type);
+        }
+        
+        _data
+            .set_default_cave_length(_cave_default)
+            .set_cave_ystart(_caves.start);
+        
+        #endregion
+        
+        global.world_data[$ $"{_prefix}:{_file}"] = _data;
+        
+        /*
+        #region Surface
+        
+        var _surface = _.surface;
+        var _surface_offset = _surface.offset;
+        
+        var _min = _surface_offset.min;
+        
+        _.surface = ((_min + _surface_offset.max) << 32) | (_min << 24) | _surface.start;
+        _.surface_octave = _surface.octave;
+        
+        #endregion
+        
 		#region Biome
 		
 		var _biome = _.biome;
@@ -131,7 +161,7 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
 			var _data = _generation[j];
 			
 			var _range = _data[$ "range"];
-			var _range2 = (_range == undefined ? (_height << 16) : ((_range.max << 16) | _range.min));
+			var _range2 = (_range == undefined ? (_world_height << 16) : ((_range.max << 16) | _range.min));
 			
 			var _noise = _data.noise;
 			var _noise_threshold = _noise.threshold;
@@ -175,17 +205,8 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
 		
 		#endregion
 		
-		_.value = (_default_length << 40) | (_generation_length << 32) | (_caves_length << 24) | (_caves.start << 16) | _height;
-		
-		var _vignette = _.vignette;
-		
-		_.vignette = (hex_parse(_vignette.colour) << 32) | (_vignette[$ "end"] << 16) | _vignette.start;
-		
-		delete _.vigenette;
-		
 		_.surface_biome_map = array_create(32 * 32);
-		
-		global.world_data[$ _name] = _;
+        */
         
         debug_timer("init_data_world", $"[Init] Loaded World: \'{_file}\'");
 	}

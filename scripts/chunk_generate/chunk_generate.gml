@@ -74,7 +74,7 @@ function chunk_generate(_world, _seed, _world_data)
             {
                 var _ypos = chunk_ystart + j;
                 
-                if (_ypos > _ymin) && (worldgen_carve_cave(_xpos, _ypos, _seed_cave, _world_value, _world_caves, _ysurface))
+                if (_ypos > _ymin) && (worldgen_carve_cave(_xpos, _ypos, _seed_cave, _world_data, _world_value, _world_caves, _ysurface))
                 {
                     _chunk_data |= 1 << j;
                 }
