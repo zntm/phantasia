@@ -38,14 +38,14 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
 		
         debug_timer("init_data_world");
 		
-		var _ = json_parse(buffer_load_text($"{_directory}/{_file}/data.json"));
+		var _json = json_parse(buffer_load_text($"{_directory}/{_file}/data.json"));
 		
-		var _world_height = _.height;
-		var _vignette = _.vignette;
+		var _world_height = _json.height;
+		var _vignette = _json.vignette;
         
         var _data = new WorldData(_prefix);
         
-        var _surface = _.surface;
+        var _surface = _json.surface;
         var _surface_offset = _surface.offset;
         
         _data
@@ -55,13 +55,13 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
             .set_surface_height_offset(_surface_offset._min, _surface_offset.max)
             .set_vigenette(_vignette.start, _vignette[$ "end"], hex_parse(_vignette.colour));
 		
-        var _biome = _.biome;
+        var _biome = _json.biome;
         
-        #region Cave
+        #region Cave Biomes
         
-        var _caves = _biome.cave;
+        var _caves_default = _biome.cave;
         
-        var _cave_default = _caves[$ "default"];
+        var _cave_default = _caves_default[$ "default"];
         var _cave_default_length = array_length(_cave_default);
         
         for (var j = 0; j < _cave_default_length; ++j)
@@ -74,80 +74,81 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
             _data.add_default_cave(_cave.id, _range.min, _range.max, _transition.amplitude, _transition.octave, _transition.type);
         }
         
-        _data
-            .set_default_cave_length(_cave_default)
-            .set_cave_ystart(_caves.start);
+        _data.set_default_cave_length(_cave_default);
         
         #endregion
+        
+        #region Noise Cave
+        
+        var _caves = _json.caves;
+        var _caves2 = _caves.caves;
+        
+        var _caves_length = array_length(_caves2);
+        
+        for (var j = 0; j < _caves_length; ++j)
+        {
+            var _cave = _caves2[j];
+            
+            var _range = _data.range;
+            
+            var _noise = _data.noise;
+            var _noise_threshold = _noise.threshold;
+            
+            _data.add_cave(_range.min, _range.max, _noise_threshold.min, _noise_threshold.max, _noise.octave);
+        }
+        
+        _data
+            .set_cave_ystart(_caves.start)
+            .set_cave_length(_caves_length);
+        
+        
+        #endregion
+        
+        #region Surface
+        
+        var _surface2 = _biome.surface;
+        
+        _data.set_surface_biome_octave(_surface2.heat, _surface2.humidity, _surface2[$ "default"]);
+        
+        #endregion
+        
+        #region Generation
+        
+        var _generation = _json.generation;
+        var _generation_length = array_length(_generation);
+        
+        for (var j = 0; j < _generation_length; ++j)
+        {
+            var _ = _generation[j];
+            
+            var _range = _data[$ "range"];
+            var _range2 = (_range == undefined ? (_world_height << 16) : ((_range.max << 16) | _range.min));
+            
+            var _noise = _data.noise;
+            var _noise_threshold = _noise.threshold;
+            
+            var _2 = _.generation[j];
+            
+            var _range_min = _range.min;
+            var _range_max = _range.max;
+            
+            _data.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise.octave, _data[$ "type"] ?? "phantasia:linear", _data.tile, _2[$ "exclusive"], _2[$ "replace"]);
+        }
+        
+        #endregion
+        
+        _data.set_generation_length(_generation_length);
         
         global.world_data[$ $"{_prefix}:{_file}"] = _data;
         
+        delete _json;
+        
         /*
-        #region Surface
-        
-        var _surface = _.surface;
-        var _surface_offset = _surface.offset;
-        
-        var _min = _surface_offset.min;
-        
-        _.surface = ((_min + _surface_offset.max) << 32) | (_min << 24) | _surface.start;
-        _.surface_octave = _surface.octave;
-        
-        #endregion
-        
-		#region Biome
-		
-		var _biome = _.biome;
-		
-		#region Cave
-		
-		var _cave = _biome.cave;
-		
-		var _default = _cave[$ "default"];
-		var _default_length = array_length(_default);
-		
-		for (var j = 0; j < _default_length; ++j)
-		{
-			var _data = _default[j];
-			var _range = _data.range;
-			var _transition = _data.transition;
-			
-			_.biome.cave[$ "default"][@ j] = [
-				(__cave_transition[$ _transition.type] << 48) | (_transition.octave << 40) | (_transition.amplitude << 32) | (_range.max << 16) | _range.min,
-				_data.id
-			];
-		}
-		
-		#endregion
-		
 		#region Surface
 		
 		var _surface2 = _biome.surface;
 		
 		_.biome.surface = (_surface2.humidity << 16) | _surface2.heat;
-		
-		#endregion
-		
-		#endregion
-		
-		#region Caves
-		
-		var _caves = _.caves;
-		var _caves2 = _caves.caves;
-		
-		var _caves_length = array_length(_caves2);
-		
-		for (var j = 0; j < _caves_length; ++j)
-		{
-			var _data = _caves2[j];
-			
-			var _range = _data.range;
-			
-			var _noise = _data.noise;
-			var _noise_threshold = _noise.threshold;
-			
-			_.caves[@ j] = (_noise_threshold.max << 48) | (_noise_threshold.min << 40) | (_noise.octave << 32) | (_range.max << 16) | _range.min;
-		}
 		
 		#endregion
 		

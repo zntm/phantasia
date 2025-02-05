@@ -7,13 +7,11 @@ function worldgen_carve_cave(_x, _y, _seed, _world_data, _world_value, _world_ca
 	
 	for (var i = _world_data.get_cave_length() - 1; i >= 0; --i)
 	{
-		var _cave = _world_caves[i];
+		if (_y > _world_data.get_cave_range_max(i)) || (_y <= _world_data.get_cave_range_min(i)) continue;
 		
-		if (_y > ((_cave >> 16) & 0xffff)) || (_y <= (_cave & 0xffff)) continue;
+		var _noise = noise(_x, _y, _world_data.get_cave_threshold_octave(i), _seed - (i << 8)) * 255;
 		
-		var _noise = noise(_x, _y, (_cave >> 32) & 0xff, _seed - (i << 8)) * 255;
-		
-		if (_noise > ((_cave >> 48) & 0xff)) || (_noise <= ((_cave >> 40) & 0xff)) continue;
+		if (_noise > _world_data.get_cave_threshold_max(i)) || (_noise <= _world_data.get_cave_threshold_min(i)) continue;
 		
 		return true;
 	}

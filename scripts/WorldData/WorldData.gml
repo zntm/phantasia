@@ -11,7 +11,7 @@ function WorldData(_namespace) constructor
     
     static set_world_height = function(_world_height)
     {
-        __set_value("___world_value", 0xff_ffff_0000, _world_height, 0);
+        __set_value("___world_value", 0xff_ff_ff_ffff_0000, _world_height, 0);
         
         return self;
     }
@@ -23,7 +23,7 @@ function WorldData(_namespace) constructor
     
     static set_cave_ystart = function(_ystart)
     {
-        __set_value("___world_value", 0xff_0000_ffff, _ystart, 16);
+        __set_value("___world_value", 0xff_ff_ff_0000_ffff, _ystart, 16);
         
         return self;
     }
@@ -35,7 +35,7 @@ function WorldData(_namespace) constructor
     
     static set_default_cave_length = function(_length)
     {
-        __set_value("___world_value", 0xff_0000_ffff, _length, 32);
+        __set_value("___world_value", 0xff_ff_00_ffff_ffff, _length, 32);
         
         return self;
     }
@@ -44,6 +44,30 @@ function WorldData(_namespace) constructor
     {
         return (self[$ "___world_value"] >> 32) & 0xff;
     }
+    
+    static set_cave_length = function(_length)
+    {
+        __set_value("___world_value", 0xff_00_ff_ffff_ffff, _length, 40);
+        
+        return self;
+    }
+    
+    static get_cave_length = function()
+    {
+        return (self[$ "___world_value"] >> 40) & 0xff;
+    }
+    
+    static set_generation_length = function(_length)
+    {
+        __set_value("___world_value", 0x00_ff_ff_ffff_ffff, _length, 48);
+        
+        return self;
+    }
+    
+    static get_generation_length = function()
+    {
+        return (self[$ "___world_value"] >> 48) & 0xff;
+    }    
     
     static set_surface_octave = function(_octave)
     {
@@ -87,11 +111,38 @@ function WorldData(_namespace) constructor
         return (self[$ "___surface_value"] >> 24) & 0xff;
     }
     
+    static set_vignette = function(_start, _end, _colour)
+    {
+        __set_value("___vignette_value", 0xffffff_ffff_0000, _start, 0);
+        __set_value("___vignette_value", 0xffffff_0000_ffff, _end, 16);
+        
+        __set_value("___vignette_value", 0x000000_ffff_ffff, _colour, 32);
+        
+        return self;
+    }
+    
+    static get_vignette_range_min = function()
+    {
+        return self[$ "___vignette_value"] & 0xffff;
+    }
+    
+    static get_vignette_range_max = function()
+    {
+        return (self[$ "___vignette_value"] >> 16) & 0xffff;
+    }
+    
+    static get_vignette_range_colour = function()
+    {
+        return (self[$ "___vignette_value"] >> 32) & 0xffffff;
+    }
+    
     static add_default_cave = function(_id, _min, _max, _amplitude, _octave, _type)
     {
         self[$ "___cave_default"] ??= [];
         
         array_push(___cave_default, _id, ((_amplitude << 32) | (_max << 16) | _min), _octave, _type);
+        
+        return self;
     }
     
     static get_default_cave_id = function(_index)
@@ -124,13 +175,114 @@ function WorldData(_namespace) constructor
         return ___cave_default[(_index * 4) + 3];
     }
     
-    static set_vignette = function(_start, _end, _colour)
+    static add_cave = function(_range_min, _range_max, _threshold_min, _threshold_max, _threshold_octave)
     {
-        __set_value("___vignette_value", 0xffffff_ffff_0000, _start, 0);
-        __set_value("___vignette_value", 0xffffff_0000_ffff, _end, 16);
+        self[$ "___cave"] ??= [];
         
-        __set_value("___vignette_value", 0x000000_ffff_ffff, _colour, 32);
+        array_push(___cave, (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave);
         
         return self;
+    }
+    
+    static get_cave_range_min = function(_index)
+    {
+        return ___cave[_index * 2] & 0xffff;
+    }
+    
+    static get_cave_range_max = function(_index)
+    {
+        return (___cave[_index * 2] >> 16) & 0xffff;
+    }
+    
+    static get_cave_threshold_min = function(_index)
+    {
+        return (___cave[_index * 2] >> 32) & 0xff;
+    }
+    
+    static get_cave_threshold_max = function(_index)
+    {
+        return (___cave[_index * 2] >> 40) & 0xff;
+    }
+    
+    static get_cave_threshold_octave = function(_index)
+    {
+        return ___cave[(_index * 2) + 1];
+    }
+    
+    static set_surface_biome = function(_heat, _humidity, _default)
+    {
+        ___surface_biome_heat = _heat;
+        ___surface_biome_humidity = _humidity;
+        
+        ___surface_biome_default = _default;
+        
+        return self;
+    }
+    
+    static get_surface_biome_heat = function()
+    {
+        return ___surface_biome_heat;
+    }
+    
+    static get_surface_biome_humidity = function()
+    {
+        return ___surface_biome_humidity;
+    }
+    
+    static get_surface_biome_default = function()
+    {
+        return ___surface_biome_default;
+    }
+    
+    static add_generation = function(_range_min, _range_max, _threshold_min, _threshold_max, _threshold_octave, _type, _tile, _exclusive, _replace)
+    {
+        self[$ "___generation"] ??= [];
+        
+        array_push(___generation, (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave, _type, _tile, _exclusive, _replace);
+    }
+    
+    static get_generation_range_min = function(_index)
+    {
+        return ___generation[_index * 6] & 0xffff;
+    }
+    
+    static get_generation_range_max = function(_index)
+    {
+        return (___generation[_index * 6] >> 16) & 0xffff;
+    }
+    
+    static get_generation_threshold_min = function(_index)
+    {
+        return (___generation[_index * 6] >> 32) & 0xff;
+    }
+    
+    static get_generation_threshold_max = function(_index)
+    {
+        return (___generation[_index * 6] >> 40) & 0xff;
+    }
+    
+    static get_generation_threshold_octave = function(_index)
+    {
+        return ___generation[(_index * 6) + 1];
+    }
+    
+    static get_generation_type = function(_index)
+    {
+        return ___generation[(_index * 6) + 1];
+    }
+    
+    static get_generation_tile = function(_index)
+    {
+        return ___generation[(_index * 6) + 2];
+    }
+    
+    static get_generation_exclusive = function(_index)
+    {
+        return ___generation[(_index * 6) + 3];
+    }
+    
+    static get_generation_replace = function(_index)
+    {
+        return ___generation[(_index * 6) + 4];
     }
 }

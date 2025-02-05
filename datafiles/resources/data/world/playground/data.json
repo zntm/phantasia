@@ -107,7 +107,7 @@
 	"generation": [
 		{
 			"exclusive": "phantasia:caverns",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -119,14 +119,14 @@
 				"min": 512,
 				"max": 768
 			},
-			"replace": "phantasia:stone",
+			"replace": [ "phantasia:stone" ],
 			"tile": {
-				"item_id": "phantasia:coal_ore"
+				"id": "phantasia:coal_ore"
 			}
 		},
 		{
 			"exclusive": "phantasia:depths",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -138,14 +138,14 @@
 				"min": 512,
 				"max": 768
 			},
-			"replace": "phantasia:emustone",
+			"replace": [ "phantasia:emustone" ],
 			"tile": {
-				"item_id": "phantasia:emustone_coal_ore"
+				"id": "phantasia:emustone_coal_ore"
 			}
 		},
 		{
 			"exclusive": "phantasia:caverns",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -157,9 +157,9 @@
 				"min": 512,
 				"max": 800
 			},
-			"replace": "phantasia:stone",
+			"replace": [ "phantasia:stone" ],
 			"tile": {
-				"item_id": {
+				"id": {
 					"phantasia:copper_ore": 1,
 					"phantasia:weathered_copper_ore": 2,
 					"phantasia:tarnished_copper_ore": 4
@@ -168,7 +168,7 @@
 		},
 		{
 			"exclusive": "phantasia:depths",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -180,9 +180,9 @@
 				"min": 512,
 				"max": 800
 			},
-			"replace": "phantasia:emustone",
+			"replace": [ "phantasia:emustone" ],
 			"tile": {
-				"item_id": {
+				"id": {
 					"phantasia:emustone_copper_ore": 1,
 					"phantasia:emustone_weathered_copper_ore": 2,
 					"phantasia:emustone_tarnished_copper_ore": 8
@@ -191,7 +191,7 @@
 		},
 		{
 			"exclusive": "phantasia:caverns",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -203,14 +203,14 @@
 				"min": 560,
 				"max": 840
 			},
-			"replace": "phantasia:stone",
+			"replace": [ "phantasia:stone" ],
 			"tile": {
-				"item_id": "phantasia:iron_ore"
+				"id": "phantasia:iron_ore"
 			}
 		},
 		{
 			"exclusive": "phantasia:depths",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -222,14 +222,14 @@
 				"min": 560,
 				"max": 840
 			},
-			"replace": "phantasia:emustone",
+			"replace": [ "phantasia:emustone" ],
 			"tile": {
-				"item_id": "phantasia:emustone_iron_ore"
+				"id": "phantasia:emustone_iron_ore"
 			}
 		},
 		{
 			"exclusive": "phantasia:caverns",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -241,14 +241,14 @@
 				"min": 764,
 				"max": 914
 			},
-			"replace": "phantasia:stone",
+			"replace": [ "phantasia:stone" ],
 			"tile": {
-				"item_id": "phantasia:gold_ore"
+				"id": "phantasia:gold_ore"
 			}
 		},
 		{
 			"exclusive": "phantasia:depths",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -260,14 +260,14 @@
 				"min": 764,
 				"max": 914
 			},
-			"replace": "phantasia:emustone",
+			"replace": [ "phantasia:emustone" ],
 			"tile": {
-				"item_id": "phantasia:emustone_gold_ore"
+				"id": "phantasia:emustone_gold_ore"
 			}
 		},
 		{
 			"exclusive": "phantasia:caverns",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -279,14 +279,14 @@
 				"min": 880,
 				"max": 1024
 			},
-			"replace": "phantasia:stone",
+			"replace": [ "phantasia:stone" ],
 			"tile": {
-				"item_id": "phantasia:platinum_ore"
+				"id": "phantasia:platinum_ore"
 			}
 		},
 		{
 			"exclusive": "phantasia:depths",
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -298,9 +298,9 @@
 				"min": 880,
 				"max": 1024
 			},
-			"replace": "phantasia:emustone",
+			"replace": [ "phantasia:emustone" ],
 			"tile": {
-				"item_id": "phantasia:emustone_platinum_ore"
+				"id": "phantasia:emustone_platinum_ore"
 			}
 		},
 		{
@@ -308,7 +308,7 @@
 				"phantasia:caverns",
 				"phantasia:depths"
 			],
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -317,7 +317,7 @@
 				}
 			},
 			"tile": {
-				"item_id": "phantasia:granite"
+				"id": "phantasia:granite"
 			}
 		},
 		{
@@ -325,7 +325,7 @@
 				"phantasia:caverns",
 				"phantasia:depths"
 			],
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -334,7 +334,7 @@
 				}
 			},
 			"tile": {
-				"item_id": "phantasia:andesite"
+				"id": "phantasia:andesite"
 			}
 		},
 		{
@@ -342,7 +342,7 @@
 				"phantasia:caverns",
 				"phantasia:depths"
 			],
-			"type": "flipped_triangular",
+			"type": "phantasia:flipped_triangular",
 			"noise": {
 				"octave": 0.5,
 				"threshold": {
@@ -351,7 +351,7 @@
 				}
 			},
 			"tile": {
-				"item_id": "phantasia:dirt"
+				"id": "phantasia:dirt"
 			}
 		}
 	]

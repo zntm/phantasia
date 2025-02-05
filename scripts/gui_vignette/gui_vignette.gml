@@ -4,8 +4,8 @@ function gui_vignette(_gui_width, _gui_height)
 	
 	var _vignette = _data.vignette;
 	
-	var _ystart = (_vignette >> 0)  & 0xffff;
-	var _yend   = (_vignette >> 16) & 0xffff;
+	var _ystart = _data.get_vignette_min();
+	var _yend   = _data.get_vignette_max();
 	
 	if (_ystart < 0) exit;
 	
@@ -13,6 +13,6 @@ function gui_vignette(_gui_width, _gui_height)
 	
 	if (_alpha > 0)
 	{
-		draw_sprite_stretched_ext(spr_Vignette, 0, 0, 0, _gui_width, _gui_height, (_vignette >> 32) & 0xffffff, _alpha);
+		draw_sprite_stretched_ext(spr_Vignette, 0, 0, 0, _gui_width, _gui_height, _data.get_vignette_colour(), _alpha);
 	}
 }

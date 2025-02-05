@@ -52,12 +52,10 @@ function worldgen_get_surface_biome(_x, _y, _seed, _ysurface, _world_data, _real
 	
 	_y = max(_y, _ysurface + 8);
     
-    var _surface3 = _world_data.biome.surface;
-    
     var _biome = __array[$ _realm][
-        round(worldgen_get_heat(_x, _y, (_surface3 >> 16) & 0xffff, _seed) * (WORLDGEN_SIZE_HEAT - 1)) |
-        round((worldgen_get_humidity(_x, _y, _surface3 & 0xffff, _seed) * (WORLDGEN_SIZE_HUMIDITY - 1)) << 5)
+        round(worldgen_get_heat(_x, _y, _world_data.get_surface_biome_heat(), _seed) * (WORLDGEN_SIZE_HEAT - 1)) |
+        round((worldgen_get_humidity(_x, _y, _world_data.get_surface_biome_humidity(), _seed) * (WORLDGEN_SIZE_HUMIDITY - 1)) << 5)
     ];
 	
-	return (_biome != 0 ? _biome : _surface3[$ "default"]);
+	return (_biome != 0 ? _biome : _world_data.get_surface_biome_default());
 }
