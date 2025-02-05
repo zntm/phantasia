@@ -38,7 +38,7 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
 		
 		var _name = $"{_prefix}:{_file}";
 		
-		show_debug_message($"[Init] : [World] * Loading '{_name}'...");
+        debug_timer("init_data_world");
 		
 		var _ = json_parse(buffer_load_text($"{_directory}/{_file}/data.json"));
 		
@@ -56,7 +56,14 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
 		_.surface = ((_min + _surface_offset.max) << 32) | (_min << 24) | (_surface.octave << 16) | _surface.start;
 		
 		#endregion
-		
+        /*
+        var _data = new WorldData(_prefix);
+        
+        _data
+            .set_surface_start(_surface.start)
+            .set_surface_octave(_surface.octave)
+            .set_surface_offset(_min, _surface_offset.max);
+		*/
 		#region Biome
 		
 		var _biome = _.biome;
@@ -178,5 +185,7 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
 		_.surface_biome_map = array_create(32 * 32);
 		
 		global.world_data[$ _name] = _;
+        
+        debug_timer("init_data_world", $"[Init] Loaded World: \'{_file}\'");
 	}
 }
