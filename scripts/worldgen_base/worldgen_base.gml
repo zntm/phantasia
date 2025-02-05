@@ -20,6 +20,8 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
             
             if (_exclusive != undefined) && (!array_contains(_exclusive, _cave_biome)) continue;
             
+            var _seed_generation = _seed - (i * 213);
+            
             var _type = _world_data.get_generation_type(i);
             
             var _threshold_min = _world_data.get_generation_threshold_min(i);
@@ -33,7 +35,7 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
             
             for (var j = 0; j < _condition_length; ++j)
             {
-                var _noise = noise(_x, _y, _world_data.get_generation_threshold_octave(i), _seed - (i << 8) + (j << 16)) * 255;
+                var _noise = noise(_x, _y, _world_data.get_generation_threshold_octave(i), _seed_generation + (j * 143)) * 255;
                 
                 if (_type == "phantasia:triangular")
                 {

@@ -114,7 +114,7 @@
 					"min": 172,
 					"max": 188
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 512,
@@ -134,7 +134,7 @@
 					"min": 172,
 					"max": 188
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 512,
@@ -154,7 +154,7 @@
 					"min": 136,
 					"max": 140
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 512,
@@ -174,7 +174,7 @@
 					"min": 136,
 					"max": 140
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 512,
@@ -194,7 +194,7 @@
 					"min": 134,
 					"max": 142
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 560,
@@ -214,7 +214,7 @@
 					"min": 134,
 					"max": 142
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 560,
@@ -234,7 +234,7 @@
 					"min": 132,
 					"max": 142
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 764,
@@ -254,7 +254,7 @@
 					"min": 132,
 					"max": 142
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 764,
@@ -274,7 +274,7 @@
 					"min": 132,
 					"max": 134
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 880,
@@ -294,7 +294,7 @@
 					"min": 132,
 					"max": 134
 				},
-				"condition_length": 3
+				"condition_length": 2
 			},
 			"range": {
 				"min": 880,
