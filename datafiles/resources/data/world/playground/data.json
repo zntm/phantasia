@@ -55,8 +55,8 @@
 		},
 		"sky": {},
 		"surface": {
-			"heat": 0.7,
-			"humidity": 0.5,
+			"heat": 21.89,
+			"humidity": 34.56,
 			"default": "phantasia:greenia"
 		}
 	},
