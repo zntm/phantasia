@@ -22,7 +22,7 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
             
             var _noise = noise(_x, _y, _world_data.get_generation_threshold_octave(i), _seed - (i << 8)) * 255;
             
-            var _type = _world_data.get_generation_type();
+            var _type = _world_data.get_generation_type(i);
             
             if (_type == "phantasia:triangular")
             {

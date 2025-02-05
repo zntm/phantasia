@@ -276,21 +276,21 @@ function WorldData(_namespace) constructor
     
     static get_generation_type = function(_index)
     {
-        return ___generation[(_index * 6) + 1];
+        return ___generation[(_index * 6) + 2];
     }
     
     static get_generation_tile = function(_index)
     {
-        return ___generation[(_index * 6) + 2];
+        return ___generation[(_index * 6) + 3];
     }
     
     static get_generation_exclusive = function(_index)
     {
-        return ___generation[(_index * 6) + 3];
+        return ___generation[(_index * 6) + 4];
     }
     
     static get_generation_replace = function(_index)
     {
-        return ___generation[(_index * 6) + 4];
+        return ___generation[(_index * 6) + 5];
     }
 }

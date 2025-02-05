@@ -219,4 +219,6 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         
         debug_timer("init_data_world", $"[Init] Loaded World: \'{_file}\'");
 	}
+    
+    show_debug_message(json_stringify(global.world_data, true))
 }
