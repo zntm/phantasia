@@ -1,0 +1,19 @@
+{
+	"width": 1,
+	"height": [ 3, 10 ],
+	"placement": {
+		"type": "phantasia:ceiling",
+		"offset": {
+			"x": 0,
+			"y": 0
+		}
+	},
+	"data": {
+		"function": "phantasia:vine",
+		"arguments": {
+			"use_structure_void": true,
+			"tile": "phantasia:vine",
+			"index": [ 1, 2 ]
+		}
+	}
+}

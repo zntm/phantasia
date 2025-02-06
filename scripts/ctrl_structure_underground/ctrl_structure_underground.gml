@@ -17,45 +17,35 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
     
 	for (var i = _xstart; i <= _xend; ++i)
 	{
-		var _x2 = i * 16;
-		var _xoffset = ((_seed + _x2) ^ 0x82af416f) * 1554.25;
-		
-		_x2 += (_xoffset & 7) * (((_xoffset ^ 0x71b0ef9) & 128) ? -1 : 1);
-		
-		var _ysurface  = worldgen_get_ysurface(_x2, _seed, _world_data);
+		var _ysurface  = worldgen_get_ysurface(i, _seed, _world_data);
 		var _ysurface2 = _ysurface + _world_data.get_cave_ystart();
         
         if (_ystart < _ysurface2) continue;
 		
 		for (var j = _ystart; j <= _yend; ++j)
 		{
-			var _y2 = j * 16;
-			var _yoffset = ((_seed + _y2) ^ 0x82af416f) * 1077.25;
+			if (j <= _ysurface2) continue;
+			
+			var _cave = worldgen_get_cave_biome(i, j, _seed, _ysurface, _world_data);
+			
+			if (_cave == -1) || (worldgen_carve_cave(i, j, _seed_cave, _world_data, _ysurface)) continue;
+			
+            var _empty_above = worldgen_carve_cave(i, j - 1, _seed_cave, _world_data, _ysurface);
+            var _empty_below = worldgen_carve_cave(i, j + 1, _seed_cave, _world_data, _ysurface);
             
-			_y2 += (_yoffset & 7) * (((_yoffset ^ 0x7ab04d81) & 256) ? -1 : 1);
-			
-			if (_y2 <= _ysurface2) continue;
-			
-			var _cave = worldgen_get_cave_biome(_x2, _y2, _seed, _ysurface, _world_data);
-			
-			if (_cave == -1) || (worldgen_carve_cave(_x2, _y2, _seed_cave, _world_data, _ysurface)) continue;
-			
-            var _empty_above = worldgen_carve_cave(_x2, _y2 - 1, _seed_cave, _world_data, _ysurface);
-            var _empty_below = worldgen_carve_cave(_x2, _y2 + 1, _seed_cave, _world_data, _ysurface);
-            
-            if (_empty_above) && (_empty_below) continue;
+            if (_empty_above == _empty_below) continue;
             
 			var _structures = _biome_data[$ _cave].structures;
 			var _structures_length = array_length(_structures);
 			
 			if (_structures_length <= 0) continue;
             
-			var _seed2 = _seed + _x2 + _y2;
+			var _seed2 = _seed + i + j;
             
 			random_set_seed(_seed2);
 			
-			var _xstructure = _x2 * TILE_SIZE;
-			var _ystructure = _y2 * TILE_SIZE;
+			var _xstructure = i * TILE_SIZE;
+			var _ystructure = j * TILE_SIZE;
             
 			for (var l = 0; l < _structures_length; ++l)
 			{

@@ -35,12 +35,7 @@
 		"hostile_spawn_amount": [ 1, 4 ],
 		"hostile": {}
 	},
-	"structures": [
-		{
-			"id": "phantasia:pile_basalt",
-			"chance": 0.4
-		}
-	],
+	"structures": [],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:emustone" ],
 		"chance": 0.1,

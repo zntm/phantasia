@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"StructureDataFunction",
+  "%Name":"NaturalStructureData",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"StructureDataFunction",
+  "name":"NaturalStructureData",
   "parent":{
     "name":"Structure Data",
     "path":"folders/Game Data/Structure Data.yy",

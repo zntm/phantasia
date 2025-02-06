@@ -346,3 +346,20 @@ global.natural_structure_data[$ "phantasia:pile"] = function(_x, _y, _width, _he
     
     return _data;
 }
+
+global.natural_structure_data[$ "phantasia:vine"] = function(_x, _y, _width, _height, _seed, _arguments, _item_data)
+{
+    var _rectangle = _width * _height;
+    var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_arguments.use_structure_void ? STRUCTURE_VOID : TILE_EMPTY));
+    
+    var _depth = CHUNK_DEPTH_PLANT * _rectangle;
+    
+    var _tile = _arguments.tile;
+    
+    for (var i = 0; i < _height; ++i)
+    {
+        _data[@ (i * _width) + _depth] = new Tile(_tile);
+    }
+    
+    return _data;
+}

@@ -1,6 +1,6 @@
 function file_load_world_realm_environment(_realm)
 {
-	var _directory = $"{global.world_directory}/Realms/{string_replace_all(_realm, ":", "/")}/Environment.dat";
+	var _directory = $"{global.world_directory}/realm/{string_replace_all(_realm, ":", "/")}/Environment.dat";
 	
 	if (!directory_exists(_directory))
 	{

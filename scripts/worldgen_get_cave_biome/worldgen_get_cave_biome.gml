@@ -38,4 +38,6 @@ function worldgen_get_cave_biome(_x, _y, _seed, _ysurface, _world_data)
 			return _world_data.get_default_cave_id(i);
 		}
 	}
+    
+    return -1;
 }

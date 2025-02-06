@@ -9,7 +9,7 @@ on_press = function()
         exit;
     }
     
-    save_info($"{DIRECTORY_WORLDS}/{global.edit_world_directory}/Info.dat");
+    save_info($"{DIRECTORY_WORLDS}/{global.edit_world_directory}/info.dat");
     
     menu_goto_blur(rm_Menu_List_Worlds, true);
 }

@@ -42,7 +42,16 @@
 		"hostile_spawn_amount": [ 1, 4 ],
 		"hostile": {}
 	},
-	"structures": [],
+	"structures": [
+		{
+			"id": "phantasia:campsite/generic",
+			"chance": 0.02
+		},
+		{
+			"id": "phantasia:vine/generic",
+			"chance": 0.1
+		}
+	],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:stone" ],
 		"chance": 0.14,

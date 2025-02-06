@@ -1,6 +1,6 @@
 function file_load_world_structures()
 {
-	var _directory = $"{global.world_directory}/{string_replace_all(global.world.realm, ":", "/")}/Structures.dat";
+	var _directory = $"{global.world_directory}/{string_replace_all(global.world.realm, ":", "/")}/structure.dat";
 	
 	if (!file_exists(_directory)) exit;
 	

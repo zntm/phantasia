@@ -41,7 +41,7 @@ if (is_exiting)
 
     var _uuid = global.player.uuid;
 
-    save_info($"{global.world_directory}/Info.dat");
+    save_info($"{global.world_directory}/info.dat");
     save_player(_uuid, obj_Player.name, obj_Player.hp, obj_Player.hp_max, global.inventory_selected_hotbar, global.player.attire);
     save_player_data(obj_Player);
     save_grimoire(_uuid, global.unlocked_grimoire);

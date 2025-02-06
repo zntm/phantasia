@@ -19,7 +19,7 @@ function menu_call_worlds()
 	
 	if (room != rm_Menu_List_Worlds) exit;
 	
-	var _buffer = buffer_load_decompressed($"{DIRECTORY_WORLDS}/{directory}/Info.dat");
+	var _buffer = buffer_load_decompressed($"{DIRECTORY_WORLDS}/{directory}/info.dat");
 	
 	try
 	{

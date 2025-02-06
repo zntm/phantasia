@@ -41,7 +41,7 @@ if (_cx == infinity) || (_cy == infinity)
     global.camera.x_real = _camera_x;
     global.camera.y_real = _camera_y;
     
-    var _directory2 = $"{global.world_directory}/Worlds";
+    var _directory2 = $"{global.world_directory}/realm";
 
     if (!directory_exists(_directory2))
     {
@@ -55,7 +55,7 @@ if (_cx == infinity) || (_cy == infinity)
         directory_create(_directory3);
     }
     
-    save_info($"{global.world_directory}/Info.dat");
+    save_info($"{global.world_directory}/info.dat");
     
     camera_set_view_pos(view_camera[0], _camera_x, _camera_y);
 }

@@ -2,7 +2,7 @@ function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.s
 {
     if (_level > 10) exit;
     
-    var _structure = is_array_choose(_structure_data[$ _id]);
+    var _structure = _structure_data[$ is_array_choose(_id)];
     
     if (_structure == undefined) exit;
     
@@ -25,7 +25,7 @@ function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.s
     
     var _placement_type = _structure.get_placement_type();
     
-    if ((_placement_type == "phantasia:floor") && (!_empty_above)) || (_placement_type == "phantasia:ceiling") && (!_empty_below) exit;
+    if ((_placement_type == "phantasia:floor") && (!_empty_above)) || ((_placement_type == "phantasia:ceiling") && (!_empty_below)) exit;
     
     var _xscale = __get_scale(_structure.width);
     var _yscale = __get_scale(_structure.height);
