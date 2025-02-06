@@ -256,6 +256,11 @@ function Tile(_item, _item_data = global.item_data) constructor
 			generate_inventory();
             
 			var _data = _loot_data[$ _loot1];
+            
+            if (is_array(_data))
+            {
+                _data = _loot_data[$ is_array_choose(_data)];
+            }
 			
 			var _guaranteed = _data.guaranteed;
 			var _guaranteed_length = _data.guaranteed_length;
