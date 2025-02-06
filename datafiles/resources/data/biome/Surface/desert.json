@@ -79,7 +79,7 @@
 	],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:sand" ],
-		"chance": 0.14,
+		"chance": 0.17,
 		"tiles": [
 			{
 				"item_id": "phantasia:yucca",
