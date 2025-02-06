@@ -4514,7 +4514,11 @@ new ItemData("phantasia", item_Sherd, ITEM_TYPE_BIT.UNTOUCHABLE);
 
 new ItemData("phantasia", item_Forge, ITEM_TYPE_BIT.UNTOUCHABLE);
 
-new ItemData("phantasia", item_Brewing_Pot, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Silt, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
+    .set_drops("phantasia:silt");
 
 new ItemData("phantasia", item_Brush, ITEM_TYPE_BIT.UNTOUCHABLE);
 
@@ -6040,3 +6044,9 @@ new ItemData("phantasia", item_Bloom_Workbench, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM
     .set_drops("phantasia:bloom_workbench")
     .set_sfx("phantasia:tile.wood")
     .set_sfx_craft("phantasia:tile.craft.workbench");
+
+new ItemData("phantasia", item_Schist, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
+    .set_drops("phantasia:schist");
