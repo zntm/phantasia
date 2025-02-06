@@ -918,6 +918,7 @@
     {"name":"item_Carrot_Seeds","order":28,"path":"sprites/item_Carrot_Seeds/item_Carrot_Seeds.yy",},
     {"name":"item_Cattail","order":91,"path":"sprites/item_Cattail/item_Cattail.yy",},
     {"name":"item_Cattails","order":50,"path":"sprites/item_Cattails/item_Cattails.yy",},
+    {"name":"item_Cave_Fern","order":82,"path":"sprites/item_Cave_Fern/item_Cave_Fern.yy",},
     {"name":"item_Chain_Whip","order":38,"path":"sprites/item_Chain_Whip/item_Chain_Whip.yy",},
     {"name":"item_Chain","order":84,"path":"sprites/item_Chain/item_Chain.yy",},
     {"name":"item_Cherry_Chair","order":73,"path":"sprites/item_Cherry_Chair/item_Cherry_Chair.yy",},

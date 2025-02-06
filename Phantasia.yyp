@@ -1731,6 +1731,7 @@
     {"id":{"name":"item_Carrot","path":"sprites/item_Carrot/item_Carrot.yy",},},
     {"id":{"name":"item_Cattail","path":"sprites/item_Cattail/item_Cattail.yy",},},
     {"id":{"name":"item_Cattails","path":"sprites/item_Cattails/item_Cattails.yy",},},
+    {"id":{"name":"item_Cave_Fern","path":"sprites/item_Cave_Fern/item_Cave_Fern.yy",},},
     {"id":{"name":"item_Chain_Whip","path":"sprites/item_Chain_Whip/item_Chain_Whip.yy",},},
     {"id":{"name":"item_Chain","path":"sprites/item_Chain/item_Chain.yy",},},
     {"id":{"name":"item_Cherry_Chair","path":"sprites/item_Cherry_Chair/item_Cherry_Chair.yy",},},

@@ -6070,3 +6070,9 @@ new ItemData("phantasia", item_Schist, ITEM_TYPE_BIT.SOLID)
     .set_flip_on(true, true)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
     .set_drops("phantasia:schist");
+
+new ItemData("phantasia", item_Cave_Fern, ITEM_TYPE_BIT.PLANT)
+    .set_is_plant_replaceable()
+    .set_is_plant_waveable()
+    .set_random_index(0, 5)
+    .set_flip_on(true, false);
