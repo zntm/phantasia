@@ -1847,6 +1847,7 @@ new ItemData("phantasia", item_Snowball, ITEM_TYPE_BIT.THROWABLE | ITEM_TYPE_BIT
     .set_ammo_type("phantasia:snowball");
 
 new ItemData("phantasia", item_Ice, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_slipperiness(0.95)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 8)
     .set_drops("phantasia:ice")
@@ -2244,12 +2245,14 @@ new ItemData("phantasia", item_Snow_Bricks_Wall, ITEM_TYPE_BIT.WALL)
     .set_sfx("phantasia:tile.snow");
 
 new ItemData("phantasia", item_Ice_Bricks, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_slipperiness(0.85)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 52)
     .set_drops("phantasia:ice_bricks")
     .set_sfx("phantasia:tile.glass");
 
 new ItemData("phantasia", item_Ice_Bricks_Wall, ITEM_TYPE_BIT.WALL)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 44)
     .set_drops("phantasia:ice_bricks_wall")
     .set_sfx("phantasia:tile.glass");
@@ -2451,7 +2454,7 @@ new ItemData("phantasia", item_Dead_Coral_Horn_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_drops("phantasia:dead_coral_horn_fan");
 
 new ItemData("phantasia", item_Grass_Block_Tundra, ITEM_TYPE_BIT.SOLID)
-    .set_is_plant_waveable()
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, false)
     .set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
     .set_drops("phantasia:dirt_wall")
@@ -4503,16 +4506,30 @@ new ItemData("phantasia", item_Venus_Fly_Trap, ITEM_TYPE_BIT.PLANT)
 new ItemData("phantasia", item_Tumbleweed, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
-    .set_drops("phantasia:tumbleweed")
+    .set_drops("phantasia:twig")
     .set_sfx("phantasia:tile.stick");
 
-new ItemData("phantasia", item_Kiln, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Kiln, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 22)
+    .set_drops("phantasia:kiln")
+    .set_sfx("phantasia:tile.stone")
+    .set_sfx_craft("phantasia:tile.craft.furnace");
 
-new ItemData("phantasia", item_Sprinkler, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Sprinkler, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 32)
+    set_drops("phantasia:sprinkler");
 
-new ItemData("phantasia", item_Sherd, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Brewing_Pot, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 32)
+    .set_drops("phantasia:brewing_pot")
+    .set_sfx("phantasia:tile.stone")
+    .set_sfx_craft("phantasia:tile.craft.furnace");
 
-new ItemData("phantasia", item_Forge, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Forge, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
+    .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 32)
+    .set_drops("phantasia:forge")
+    .set_sfx("phantasia:tile.metal")
+    .set_sfx_craft("phantasia:tile.craft.anvil");
 
 new ItemData("phantasia", item_Silt, ITEM_TYPE_BIT.SOLID)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
@@ -4520,13 +4537,15 @@ new ItemData("phantasia", item_Silt, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
     .set_drops("phantasia:silt");
 
-new ItemData("phantasia", item_Brush, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Brush, ITEM_TYPE_BIT.DEFAULT);
 
-new ItemData("phantasia", item_Spawner, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Spawner, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 800)
+    .set_sfx("phantasia:tile.metal");
 
-new ItemData("phantasia", item_Potion, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Potion, ITEM_TYPE_BIT.CONSUMABLE);
 
-new ItemData("phantasia", item_Vial, ITEM_TYPE_BIT.UNTOUCHABLE);
+new ItemData("phantasia", item_Vial, ITEM_TYPE_BIT.CONSUMABLE);
 
 new ItemData("phantasia", item_Block_of_Brass, ITEM_TYPE_BIT.UNTOUCHABLE);
 
@@ -4965,7 +4984,8 @@ new ItemData("phantasia", item_Sandstone_Bricks_Wall, ITEM_TYPE_BIT.WALL)
 new ItemData("phantasia", item_Desert_Grass, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_replaceable()
     .set_random_index(0, 1)
-    .set_flip_on(true, false);
+    .set_flip_on(true, false)
+    .set_sfx("phantasia:tile.leaves");
 
 new ItemData("phantasia", item_Yarrow, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_waveable()
