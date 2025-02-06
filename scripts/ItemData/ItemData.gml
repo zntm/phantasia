@@ -6074,5 +6074,5 @@ new ItemData("phantasia", item_Schist, ITEM_TYPE_BIT.SOLID)
 new ItemData("phantasia", item_Cave_Fern, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
-    .set_random_index(0, 5)
+    .set_random_index(0, 2)
     .set_flip_on(true, false);

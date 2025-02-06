@@ -2,7 +2,7 @@
   "$GMSprite":"",
   "%Name":"item_Cave_Fern",
   "bboxMode":0,
-  "bbox_bottom":6,
+  "bbox_bottom":9,
   "bbox_left":0,
   "bbox_right":8,
   "bbox_top":0,
@@ -18,10 +18,12 @@
   "For3D":false,
   "frames":[
     {"$GMSpriteFrame":"","%Name":"c9871570-5616-4143-b80a-81cc4f1e1797","name":"c9871570-5616-4143-b80a-81cc4f1e1797","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"1c5a1b72-a8b6-441d-8932-420394ef9555","name":"1c5a1b72-a8b6-441d-8932-420394ef9555","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"dd140b6a-8040-4de1-ad29-eb91e40ca36a","name":"dd140b6a-8040-4de1-ad29-eb91e40ca36a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":7,
+  "height":10,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"77dd10c3-eacf-404d-8ba1-151c02d418fe","blendMode":0,"displayName":"default","isLocked":false,"name":"77dd10c3-eacf-404d-8ba1-151c02d418fe","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -54,7 +56,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":3.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -76,12 +78,18 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c9871570-5616-4143-b80a-81cc4f1e1797","path":"sprites/item_Cave_Fern/item_Cave_Fern.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"63b05bb9-19c1-4322-b57c-2441200df0fd","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1c5a1b72-a8b6-441d-8932-420394ef9555","path":"sprites/item_Cave_Fern/item_Cave_Fern.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"473d0ea1-1df3-4bea-9b9d-0311a309f739","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"dd140b6a-8040-4de1-ad29-eb91e40ca36a","path":"sprites/item_Cave_Fern/item_Cave_Fern.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"0f7ba2e5-0ed5-487b-a1b6-59fde31aa91d","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
     "xorigin":4,
-    "yorigin":-1,
+    "yorigin":2,
   },
   "swatchColours":null,
   "swfPrecision":2.525,

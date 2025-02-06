@@ -45,7 +45,7 @@
 	"structures": [],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:stone" ],
-		"chance": 0.11,
+		"chance": 0.14,
 		"tiles": [
 			{
 				"item_id": "phantasia:rocks",
@@ -57,7 +57,7 @@
 			},
 			{
 				"item_id": "phantasia:cave_fern",
-				"weight": 2
+				"weight": 4
 			}
 		]
 	}
