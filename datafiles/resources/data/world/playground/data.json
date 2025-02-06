@@ -431,14 +431,14 @@
 			"noise": {
 				"octave": 0.34,
 				"threshold": {
-					"min": 200,
-					"max": 201
+					"min": 92,
+					"max": 99
 				},
 				"condition_length": 2
 			},
 			"range": {
 				"min": 800,
-				"max": 934
+				"max": 1024
 			},
 			"replace": [ "phantasia:emustone" ],
 			"tile": {

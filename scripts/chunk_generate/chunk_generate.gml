@@ -67,7 +67,7 @@ function chunk_generate(_world, _seed, _world_data)
         
         if (_ymin <= chunk_ystart + CHUNK_SIZE_Y)
         {
-            for (var j = 0; j < CHUNK_SIZE_Y; ++j)
+            for (var j = 0; j < CHUNK_SIZE_Y + 1; ++j)
             {
                 var _ypos = chunk_ystart + j;
                 
