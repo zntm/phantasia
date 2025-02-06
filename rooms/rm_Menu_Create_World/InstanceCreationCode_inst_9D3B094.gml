@@ -17,7 +17,7 @@ on_press = function()
         try
         {
             _seed = real(_seed_string);
-        
+            
             if (_seed != floor(_seed)) || (string_contains(_seed_string, "."))
             {
                 _seed = string_get_seed(_seed_string);
@@ -34,7 +34,7 @@ on_press = function()
     }
     
     var _directory = uuid_create(datetime_to_unix());
-        
+    
     while (directory_exists($"{DIRECTORY_WORLDS}/{_directory}"))
     {
         _directory = uuid_create(datetime_to_unix());

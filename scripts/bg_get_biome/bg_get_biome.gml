@@ -26,5 +26,5 @@ function bg_get_biome(_x, _y)
         return _sky_biome;
     }
     
-    return worldgen_get_surface_biome(_x2, 0, _seed, _ysurface, _world_data, _realm);
+    return worldgen_get_surface_biome(_x2, _y2, _seed, _ysurface, _world_data, _realm);
 }
