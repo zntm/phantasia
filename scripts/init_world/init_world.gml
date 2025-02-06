@@ -13,17 +13,6 @@ enum WORLD_CAVE_TRANSITION_TYPE {
 
 function init_world(_directory, _prefix = "phantasia", _type = 0)
 {
-	static __cave_type = {
-		"linear": WORLD_CAVE_TYPE.LINEAR,
-		"triangular": WORLD_CAVE_TYPE.TRIANGULAR,
-		"flipped_triangular": WORLD_CAVE_TYPE.FLIPPED_TRIANGULAR,
-	}
-	
-	static __cave_transition = {
-		"random": WORLD_CAVE_TRANSITION_TYPE.RANDOM,
-		"linear": WORLD_CAVE_TRANSITION_TYPE.LINEAR,
-	}
-	
 	if (_type & INIT_TYPE.RESET)
 	{
 		init_data_reset("world_data");
