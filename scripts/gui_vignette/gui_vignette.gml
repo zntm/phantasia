@@ -5,7 +5,7 @@ function gui_vignette(_gui_width, _gui_height)
 	var _ystart = _data.get_vignette_range_min();
 	var _yend   = _data.get_vignette_range_max();
 	
-	if (_ystart < 0) exit;
+	if (_ystart == 0) && (_yend == 0) exit;
 	
 	var _alpha = normalize((obj_Player.y / TILE_SIZE), _ystart, _yend);
 	

@@ -2873,8 +2873,8 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID)
                 
                 structure_export(
                     _tile[$ "variable.structure_id"],
-                    floor(_instance.bbox_left  / TILE_SIZE),
-                    floor(_instance.bbox_top   / TILE_SIZE),
+                    round(_instance.bbox_left  / TILE_SIZE),
+                    round(_instance.bbox_top   / TILE_SIZE),
                     ceil(_instance.bbox_right  / TILE_SIZE),
                     ceil(_instance.bbox_bottom / TILE_SIZE)
                 );
@@ -4517,7 +4517,7 @@ new ItemData("phantasia", item_Kiln, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.C
 
 new ItemData("phantasia", item_Sprinkler, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.COPPER, 32)
-    set_drops("phantasia:sprinkler");
+    .set_drops("phantasia:sprinkler");
 
 new ItemData("phantasia", item_Brewing_Pot, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CRAFTING_STATION)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 32)

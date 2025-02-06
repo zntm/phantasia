@@ -1,7 +1,7 @@
 {
 	"height": 1024,
 	"vignette": {
-		"start": -1,
+		"start": 0,
 		"end": 0,
 		"colour": "#000000"
 	},
@@ -27,7 +27,7 @@
 						"max": 1024
 					},
 					"transition": {
-						"type": "random",
+						"type": "phantasia:random",
 						"amplitude": 1,
 						"octave": 1
 					}

@@ -65,7 +65,7 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:abandoned_campsite",
+			"id": "phantasia:campsite/generic",
 			"chance": 0.006
 		},
 		{

@@ -1,5 +1,7 @@
 // Feather disable GM1050
 
+global.sfx_diegetic_floodfill_position = {}
+
 global.tile_get_inst_x = undefined;
 global.tile_get_inst_y = undefined;
 

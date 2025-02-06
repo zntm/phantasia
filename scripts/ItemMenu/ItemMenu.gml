@@ -139,4 +139,9 @@ function ItemMenu(_type) constructor
         
         return self;
     }
+    
+    static get_function = function()
+    {
+        return self[$ "___function"];
+    }
 }

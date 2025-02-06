@@ -2,17 +2,15 @@
 	"container": [
 		{
 			"item_id": "phantasia:oak_chest",
-			"weight": 1
+			"weight": 3
 		},
 		{
 			"item_id": "phantasia:pine_chest",
-			"weight": 1
-		}
-	],
-	"guaranteed": [
+			"weight": 2
+		},
 		{
-			"item_id": [ "phantasia:thorned_pendant", "phantasia:wooden_cane" ],
-			"amount": 1
+			"item_id": "phantasia:pot",
+			"weight": 1
 		}
 	],
 	"loot": [

@@ -1,5 +1,3 @@
-global.sfx_diegetic_floodfill_position = {}
-
 #macro SFX_DIEGETIC_PADDING TILE_SIZE_H
 
 enum SFX_DIEGETIC_EFFECT_INDEX {

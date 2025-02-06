@@ -59,7 +59,7 @@ function init_structure_recursive(_namespace, _directory, _id)
                 array_push(global.structure_data[$ _id], _name);
             }
             
-            var _buffer = buffer_load_decompressed(_directory);
+            var _buffer = buffer_load_decompressed(_);
             
             var _version_major = buffer_read(_buffer, buffer_u8);
             var _version_minor = buffer_read(_buffer, buffer_u8);

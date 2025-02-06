@@ -36,7 +36,7 @@ function init_loot_recursive(_namespace, _directory, _id)
         
         var _data = json_parse(buffer_load_text($"{_directory}/{_file}"));
         
-        var _guaranteed = _data.guaranteed;
+        var _guaranteed = _data[$ "guaranteed"];
         var _guaranteed_length = array_length(_guaranteed);
         
         var _loots = _data.loot;
@@ -73,7 +73,7 @@ function init_loot_recursive(_namespace, _directory, _id)
         
         _loot.loot = choose_weighted_parse(_loot.loot);
         
-        global.loot_data[$ $"{_namespace}:{_name}"] = _;
+        global.loot_data[$ $"{_namespace}:{_name}"] = _loot;
         
         debug_timer("init_data_loot", $"[Init] Loaded Loot: \'{_name}\'");
         

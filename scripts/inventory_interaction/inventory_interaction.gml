@@ -191,7 +191,7 @@ function inventory_interaction()
                     }
                     else if (_type == "button")
                     {
-                        var _function = _[$ "function"];
+                        var _function = _.get_function();
                         
                         with (instance_create_layer(_camera_x + _.get_position_x(), _camera_y + _.get_position_y(), "Instances", obj_Menu_Button))
                         {

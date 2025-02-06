@@ -10,13 +10,15 @@ function inventory_container_open(_x, _y, _inst = noone)
 	var _pz = _inst.position_z;
 	
 	var _tile = tile_get(_px, _py, _pz, -1);
-	
-	var _container_inventory = tile_get_inventory(_tile);
+    
+    if (_tile == TILE_EMPTY) exit;
 	
 	var _data = global.item_data[$ _tile.item_id];
     
     if (!_data.get_container_openable()) exit;
 	
+    var _container_inventory = tile_get_inventory(_tile);
+    
 	var _container_sfx = _data.get_container_sfx();
 	
 	if (_container_sfx != undefined)
