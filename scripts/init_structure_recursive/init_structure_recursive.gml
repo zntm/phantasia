@@ -36,7 +36,7 @@ function init_structure_recursive(_namespace, _directory, _id)
                 var _json = json_parse(buffer_load_text(_));
                 var _data = _json.data;
                 
-                global.structure_data[$ $"{_namespace}:{string_delete(_name, string_length(_name) - 4, 5)}"] = new StructureData(false, _json.width, _json.height, _json.placement_offset, true)
+                global.structure_data[$ $"{_namespace}:{string_delete(_name, string_length(_name) - 4, 5)}"] = new StructureData(false, _json.width, _json.height, _json.placement, true)
                     .set_arguments(_data[$ "arguments"])
                     .set_data(_data[$ "function"]);
                 
@@ -107,7 +107,7 @@ function init_structure_recursive(_namespace, _directory, _id)
             
             buffer_delete(_buffer);
             
-            global.structure_data[$ $"{_namespace}:{string_delete(_name, string_length(_name) - 3, 4)}"] = new StructureData(true, _width, _height, _json.placement_offset, false).set_data(_data);
+            global.structure_data[$ $"{_namespace}:{string_delete(_name, string_length(_name) - 3, 4)}"] = new StructureData(true, _width, _height, _json.placement, false).set_data(_data);
             
             delete _json;
             

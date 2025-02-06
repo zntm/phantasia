@@ -1,4 +1,4 @@
-function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.structure_data, _natural_structure_data = global.natural_structure_data, _world_data = global.world_data[global.world.realm], _force_surface = false, _level = 0)
+function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.structure_data, _natural_structure_data = global.natural_structure_data, _world_data = global.world_data[global.world.realm], _empty_above = false, _empty_below = false, _force_surface = false, _level = 0)
 {
     if (_level > 10) exit;
     
@@ -22,6 +22,10 @@ function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.s
         
         return array_choose(_scale);
     }
+    
+    var _placement_type = _structure.get_placement_type();
+    
+    if ((_placement_type == "phantasia:floor") && (!_empty_above)) || (_placement_type == "phantasia:ceiling") && (!_empty_below) exit;
     
     var _xscale = __get_scale(_structure.width);
     var _yscale = __get_scale(_structure.height);

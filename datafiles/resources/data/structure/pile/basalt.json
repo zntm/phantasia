@@ -1,9 +1,12 @@
 {
 	"width": [ 12, 26 ],
 	"height": [ 4, 14 ],
-	"placement_offset": {
-		"x": 0,
-		"y": [ 3, 7 ]
+	"placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": [ 3, 7 ]
+		}
 	},
 	"data": {
 		"function": "phantasia:pile",

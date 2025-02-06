@@ -38,8 +38,13 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 			
 			var _cave = worldgen_get_cave_biome(_x2, _y2, _seed, _ysurface, _world_data);
 			
-			if (_cave == -1) || (worldgen_carve_cave(_x2, _y2, _seed_cave, _world_data, _ysurface)) || (!worldgen_carve_cave(_x2, _y2 - 1, _seed_cave, _world_data, _ysurface)) continue;
+			if (_cave == -1) || (worldgen_carve_cave(_x2, _y2, _seed_cave, _world_data, _ysurface)) continue;
 			
+            var _empty_above = worldgen_carve_cave(_x2, _y2 - 1, _seed_cave, _world_data, _ysurface);
+            var _empty_below = worldgen_carve_cave(_x2, _y2 + 1, _seed_cave, _world_data, _ysurface);
+            
+            if (_empty_above) && (_empty_below) continue;
+            
 			var _structures = _biome_data[$ _cave].structures;
 			var _structures_length = array_length(_structures);
 			
@@ -64,7 +69,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 				
 				if (_structure[4])
 				{
-					structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _natural_structure_data, _world_data, false);
+					structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _natural_structure_data, _world_data, _empty_above, _empty_below, false);
 					
 					break;
 				}
@@ -73,7 +78,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 				
 				for (var m = 0; m < _length; ++m)
 				{
-					structure_create(_xstructure, _ystructure, _name[m], _seed, _seed2, _structure_data, _natural_structure_data, _world_data, false);
+					structure_create(_xstructure, _ystructure, _name[m], _seed, _seed2, _structure_data, _natural_structure_data, _world_data, _empty_above, _empty_below, false);
 				}
 				
 				break;

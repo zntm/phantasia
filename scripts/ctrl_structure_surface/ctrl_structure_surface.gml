@@ -39,7 +39,7 @@ function ctrl_structure_surface(_xstart, _xend)
             
             if (_structure[3])
             {
-                structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _natural_structure_data, _world_data, true);
+                structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _natural_structure_data, _world_data, true, false, true);
                 
                 break;
             }
@@ -48,7 +48,7 @@ function ctrl_structure_surface(_xstart, _xend)
             
             for (var l = 0; l < _length; ++l)
             {
-                structure_create(_xstructure, _ystructure, _name[l], _seed, _seed2, _structure_data, _natural_structure_data, _world_data, true);
+                structure_create(_xstructure, _ystructure, _name[l], _seed, _seed2, _structure_data, _natural_structure_data, _world_data, true, false, true);
             }
             
             break;

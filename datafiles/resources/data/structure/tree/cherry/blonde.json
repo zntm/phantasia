@@ -1,9 +1,12 @@
 {
 	"width": 5,
 	"height": [ 6, 9 ],
-	"placement_offset": {
-		"x": 0,
-		"y": 0
+	"placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": 0
+		}
 	},
 	"data": {
 		"function": "phantasia:tree/generic",

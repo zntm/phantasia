@@ -1,10 +1,19 @@
-function StructureData(_persistent, _width, _height, _placement_offset, _natural) constructor
+function StructureData(_persistent, _width, _height, _placement, _natural) constructor
 {
     persistent = _persistent;
     natural = _natural;
     
     width  = _width;
     height = _height;
+    
+    ___placement_type = _placement.type;
+    
+    static get_placement_type = function()
+    {
+        return ___placement_type;
+    }
+    
+    var _placement_offset = _placement.offset;
     
     placement_xoffset = _placement_offset.x;
     placement_yoffset = _placement_offset.y;
