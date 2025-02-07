@@ -1,5 +1,7 @@
 function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 {
+    static __carve_cave = [];
+    
 	var _world = global.world;
 	var _realm = _world.realm;
 	
@@ -22,23 +24,70 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
         
         if (_ystart < _ysurface2) continue;
 		
+        var _generated = false;
+        
+        var _index = 0;
+        
 		for (var j = _ystart; j <= _yend; ++j)
 		{
-			if (j <= _ysurface2) continue;
+			if (j <= _ysurface2)
+            {
+                ++_index;
+                
+                continue;
+            }
 			
 			var _cave = worldgen_get_cave_biome(i, j, _seed, _ysurface, _world_data);
 			
-			if (_cave == -1) || (worldgen_carve_cave(i, j, _seed_cave, _world_data, _ysurface)) continue;
-			
-            var _empty_above = worldgen_carve_cave(i, j - 1, _seed_cave, _world_data, _ysurface);
-            var _empty_below = worldgen_carve_cave(i, j + 1, _seed_cave, _world_data, _ysurface);
+			if (_cave == -1)
+            {
+                ++_index;
+                
+                continue;
+            }
             
-            if (_empty_above == _empty_below) continue;
+            if (!_generated)
+            {
+                _generated = true;
+                
+                var _index2 = 0;
+                
+                for (var l = _ystart - 1; l <= _yend + 1; ++l)
+                {
+                    __carve_cave[@ _index2++] = worldgen_carve_cave(i, l, _seed_cave, _world_data, _ysurface);
+                }
+            }
+            
+            // if (worldgen_carve_cave(i, j, _seed_cave, _world_data, _ysurface))
+            if (__carve_cave[_index + 1])
+            {
+                ++_index;
+                
+                continue;
+            }
+			
+            // var _empty_above = worldgen_carve_cave(i, j - 1, _seed_cave, _world_data, _ysurface);
+            // var _empty_below = worldgen_carve_cave(i, j + 1, _seed_cave, _world_data, _ysurface);
+            
+            var _empty_above = __carve_cave[_index + 0];
+            var _empty_below = __carve_cave[_index + 2];
+            
+            if (_empty_above == _empty_below)
+            {
+                ++_index;
+                
+                continue;
+            }
             
 			var _structures = _biome_data[$ _cave].structures;
 			var _structures_length = array_length(_structures);
 			
-			if (_structures_length <= 0) continue;
+			if (_structures_length <= 0)
+            {
+                ++_index;
+                
+                continue;
+            }
             
 			var _seed2 = _seed + i + j;
             
