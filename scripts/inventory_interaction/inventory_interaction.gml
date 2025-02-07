@@ -198,8 +198,8 @@ function inventory_interaction()
                             text = _.get_text() ?? -1;
                             icon = _.get_icon() ?? -1;
                             
-                            xscale = _.get_xscale();
-                            yscale = _.get_yscale();
+                            image_xscale = _.get_xscale();
+                            image_yscale = _.get_yscale();
                             
                             on_press = (_function == "exit" ? tile_menu_close : _function);
                         }
