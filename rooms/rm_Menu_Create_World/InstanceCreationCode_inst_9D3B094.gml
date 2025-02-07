@@ -45,7 +45,4 @@ on_press = function()
     global.world.directory = _directory;
     
     room_goto(rm_World);
-    
-    show_debug_message(global.world);
-    show_debug_message(global.player);
 }

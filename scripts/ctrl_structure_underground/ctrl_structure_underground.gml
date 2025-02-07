@@ -58,7 +58,6 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                 }
             }
             
-            // if (worldgen_carve_cave(i, j, _seed_cave, _world_data, _ysurface))
             if (__carve_cave[_index + 1])
             {
                 ++_index;
@@ -66,9 +65,6 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                 continue;
             }
 			
-            // var _empty_above = worldgen_carve_cave(i, j - 1, _seed_cave, _world_data, _ysurface);
-            // var _empty_below = worldgen_carve_cave(i, j + 1, _seed_cave, _world_data, _ysurface);
-            
             var _empty_above = __carve_cave[_index + 0];
             var _empty_below = __carve_cave[_index + 2];
             
@@ -89,7 +85,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                 continue;
             }
             
-			var _seed2 = _seed + i + j;
+			var _seed2 = round(round(_seed + (i * 331.25)) + (j * 1104.125));
             
 			random_set_seed(_seed2);
 			
