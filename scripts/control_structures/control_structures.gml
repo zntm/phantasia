@@ -152,14 +152,14 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
 		
 		random_set_seed(seed);
 		
-		var _structure = is_array_choose(_structure_data[$ structure]);
+		var _structure = _structure_data[$ is_array_choose(structure)];
 		
-		var _left = floor(bbox_left / TILE_SIZE) + 1;
-		var _top  = floor(bbox_top  / TILE_SIZE) + 1;
+		var _left = round(bbox_left / TILE_SIZE);
+		var _top  = round(bbox_top  / TILE_SIZE);
 		
 		if (natural)
 		{
-			data = _natural_structure_data[$ is_array_choose(_structure.data)](_left, _top, image_xscale, image_yscale, seed, _structure.arguments, _item_data);
+			data = _natural_structure_data[$ _structure.data](_left, _top, image_xscale, image_yscale, seed, _structure.arguments, _item_data);
 			
 			continue;
 		}

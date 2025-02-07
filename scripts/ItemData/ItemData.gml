@@ -2925,7 +2925,7 @@ new ItemData("phantasia", item_Dead_Rose, ITEM_TYPE_BIT.PLANT)
     .set_flip_on(true, false)
     .set_drops("phantasia:dead_rose");
 
-new ItemData("phantasia", item_Vine, ITEM_TYPE_BIT.UNTOUCHABLE)
+new ItemData("phantasia", item_Vine, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CLIMBABLE)
     .set_mining_stats(undefined, undefined, 8)
     .set_on_neighbor_update(item_update_destroy_floating_below);
 

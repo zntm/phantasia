@@ -413,7 +413,7 @@ global.natural_structure_data[$ "phantasia:vine"] = function(_x, _y, _width, _he
     
     for (var i = 1; i < _height; ++i)
     {
-        if (!worldgen_carve_cave(_x, _y + 1, _seed_cave, _world_data, 0)) break;
+        if (!worldgen_carve_cave(_x, _y + i, _seed_cave, _world_data, 0)) break;
          
         ++_size;
     }
@@ -422,9 +422,9 @@ global.natural_structure_data[$ "phantasia:vine"] = function(_x, _y, _width, _he
     
     var _tile = _arguments.tile;
     
-    for (var i = 1; i < _height; ++i)
+    for (var i = 1; i < _size; ++i)
     {
-        _data[@ (i * _size) + _depth] = new Tile(_tile);
+        _data[@ (i * _width) + _depth] = new Tile(_tile, _item_data);
     }
     
     return _data;

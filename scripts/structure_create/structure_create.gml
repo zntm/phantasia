@@ -40,8 +40,16 @@ function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.s
         _y -= TILE_SIZE_H;
     }
     
-    _x = _x - (round(_xscale / 2) * TILE_SIZE);
-    _y = _y - (round(_yscale / 2) * TILE_SIZE);
+    if (_force_surface)
+    {
+        _x = _x - (round(_xscale / 2) * TILE_SIZE);
+        _y = _y - (round(_yscale / 2) * TILE_SIZE);
+    }
+    else
+    {
+        _x = _x + (round(_xscale / 2) * TILE_SIZE);
+        _y = _y + (round(_yscale / 2) * TILE_SIZE);
+    }
     
     with (instance_create_layer(_x, _y, "Instances", obj_Structure))
     {
