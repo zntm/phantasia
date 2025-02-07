@@ -38,15 +38,19 @@
 	"structures": [],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:emustone" ],
-		"chance": 0.1,
+		"chance": 0.14,
 		"tiles": [
 			{
 				"item_id": "phantasia:rocks",
-				"weight": 11
+				"weight": 12
 			},
 			{
 				"item_id": "phantasia:twig",
-				"weight": 6
+				"weight": 5
+			},
+			{
+				"item_id": "phantasia:brown_mushroom",
+				"weight": 1
 			}
 		]
 	}

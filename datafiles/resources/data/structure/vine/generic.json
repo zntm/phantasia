@@ -1,6 +1,6 @@
 {
 	"width": 1,
-	"height": [ 3, 10 ],
+	"height": [ 1, 6 ],
 	"placement": {
 		"type": "phantasia:ceiling",
 		"offset": {
@@ -13,7 +13,7 @@
 		"arguments": {
 			"use_structure_void": true,
 			"tile": "phantasia:vine",
-			"index": [ 1, 2 ]
+			"index": 0
 		}
 	}
 }
