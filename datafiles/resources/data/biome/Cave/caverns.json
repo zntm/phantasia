@@ -45,7 +45,11 @@
 	"structures": [
 		{
 			"id": "phantasia:vine/generic",
-			"chance": 0.003
+			"chance": 0.006
+		},
+		{
+			"id": "phantasia:geode/generic",
+			"chance": 0.001
 		}
 	],
 	"foliage": {

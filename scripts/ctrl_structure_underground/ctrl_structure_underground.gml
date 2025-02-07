@@ -104,19 +104,28 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 				
 				if (_structure[4])
 				{
-					structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _natural_structure_data, _world_data, _empty_above, _empty_below, false);
-					
-					break;
+					var _inst = structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _natural_structure_data, _world_data, _empty_above, _empty_below, false);
+                    
+                    if (instance_exists(_inst)) break;
 				}
-				
-				var _length = _structure[5];
-				
-				for (var m = 0; m < _length; ++m)
-				{
-					structure_create(_xstructure, _ystructure, _name[m], _seed, _seed2, _structure_data, _natural_structure_data, _world_data, _empty_above, _empty_below, false);
-				}
-				
-				break;
+                else
+                {
+                    var _exists = false;
+                    
+                    var _length = _structure[5];
+                    
+                    for (var m = 0; m < _length; ++m)
+                    {
+                        var _inst = structure_create(_xstructure, _ystructure, _name[m], _seed, _seed2, _structure_data, _natural_structure_data, _world_data, _empty_above, _empty_below, false);
+                        
+                        if (instance_exists(_exists))
+                        {
+                            _exists = true;
+                        }
+                    }
+                    
+                    if (_exists) break;
+                }
 			}
 		}
 	}

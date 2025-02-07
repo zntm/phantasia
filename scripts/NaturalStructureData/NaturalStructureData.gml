@@ -51,6 +51,46 @@ global.natural_structure_data[$ "phantasia:clump"] = function(_x, _y, _width, _h
     return _data;
 }
 
+global.natural_structure_data[$ "phantasia:geode"] = function(_x, _y, _width, _height, _seed, _arguments, _item_data)
+{
+    var _rectangle = _width * _height;
+    var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_arguments.use_structure_void ? STRUCTURE_VOID : TILE_EMPTY));
+    
+    var _depth = _rectangle * CHUNK_DEPTH_DEFAULT;
+    
+    var _x_mid = _width  / 2;
+    var _y_mid = _height / 2;
+    
+    // Geode parameters
+    var _radius = min(_width, _height) * 0.4; // Adjust radius size (0.4 = 40% of smaller dimension)
+    var _smoothness = 1.2; // Makes edges smoother (higher = smoother)
+    
+    for (var i = 0; i < _width; ++i)
+    {
+        for (var j = 0; j < _height; ++j)
+        {
+            // Calculate distance from center
+            var _dx = i - _x_mid;
+            var _dy = j - _y_mid;
+            
+            var _distance_squared = _dx * _dx + _dy * _dy;
+            
+            var max_distance = _radius * _radius;
+            
+            // Add some variation to create organic shape
+            var noise_value = noise(_x + (i/5), _y + (j/5), 4, _seed); // Using Perlin-type noise
+            var modified_radius = max_distance * (1 + (noise_value - 0.5) * 0.3); // ±15% variation
+            
+            if (_distance_squared <= modified_radius)
+            {
+                _data[@ i + (j * _width) + _depth] = new Tile("phantasia:block_of_iron");
+            }
+        }
+    }
+    
+    return _data;
+}
+
 global.natural_structure_data[$ "phantasia:tall_plant/generic"] = function(_x, _y, _width, _height, _seed, _arguments, _item_data)
 {
     var _rectangle = _width * _height;
@@ -233,7 +273,7 @@ global.natural_structure_data[$ "phantasia:tree/generic"] = function(_x, _y, _wi
     return _data;
 }
 
-global.natural_structure_data[$ "tree:yucca"] = function(_x, _y, _width, _height, _seed, _arguments, _item_data)
+global.natural_structure_data[$ "phantasia:tree/yucca"] = function(_x, _y, _width, _height, _seed, _arguments, _item_data)
 {
     var _rectangle = _width * _height;
     var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_arguments.use_structure_void ? STRUCTURE_VOID : TILE_EMPTY));
@@ -352,13 +392,25 @@ global.natural_structure_data[$ "phantasia:vine"] = function(_x, _y, _width, _he
     var _rectangle = _width * _height;
     var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_arguments.use_structure_void ? STRUCTURE_VOID : TILE_EMPTY));
     
+    var _size = 1;
+    
+    var _world_data = global.world_data[$ global.world.realm];
+    var _seed_cave = _seed + WORLDGEN_SALT.CAVE;
+    
+    for (var i = 1; i < _height; ++i)
+    {
+        if (!worldgen_carve_cave(_x, _y + 1, _seed_cave, _world_data, 0)) break;
+         
+        ++_size;
+    }
+    
     var _depth = CHUNK_DEPTH_PLANT * _rectangle;
     
     var _tile = _arguments.tile;
     
-    for (var i = 0; i < _height; ++i)
+    for (var i = 1; i < _height; ++i)
     {
-        _data[@ (i * _width) + _depth] = new Tile(_tile);
+        _data[@ (i * _size) + _depth] = new Tile(_tile);
     }
     
     return _data;
