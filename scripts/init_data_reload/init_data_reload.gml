@@ -9,6 +9,8 @@ function init_data_reload(_directory, _prefix, _type)
     {
         if (!file_exists(_directory)) && (!directory_exists(_directory)) exit;
         
+        debug_log($"[Init] Opening File/Directory: '{_directory}'")
+        
         _function(_directory, _prefix, _type);
     }
     
@@ -198,7 +200,6 @@ function init_data_reload(_directory, _prefix, _type)
     }
     
     gc_collect();
-    
 }
 
 call_later(1, time_source_units_frames, function()

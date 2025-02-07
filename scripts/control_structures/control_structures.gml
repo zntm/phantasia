@@ -116,12 +116,20 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
         
         if (_generate_surface)
         {
+            debug_timer("timer_structure_surface");
+            
             ctrl_structure_surface(_xstart, _xend);
+            
+            debug_timer("timer_structure_surface", "Generate Surface Structures");
         }
         
         if (_generate_cave)
         {
+            debug_timer("timer_structure_cave");
+            
             ctrl_structure_underground(_xstart, _xend, _ystart, _yend);
+            
+            debug_timer("timer_structure_cave", "Generate Cave Structures");
         }
     }
     
