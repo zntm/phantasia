@@ -2885,11 +2885,7 @@ new ItemData("phantasia", item_Short_Dead_Grass, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
-    .set_flip_on(true, false)
-    .set_drops(
-        INVENTORY_EMPTY, 3,
-        "phantasia:wheat_seeds", 1
-    );
+    .set_flip_on(true, false);
 
 new ItemData("phantasia", item_Structure_Loot, ITEM_TYPE_BIT.SOLID)
     .set_tile_variable({
@@ -2915,11 +2911,7 @@ new ItemData("phantasia", item_Tall_Dead_Grass, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
-    .set_flip_on(true, false)
-    .set_drops(
-        INVENTORY_EMPTY, 1,
-        "phantasia:wheat_seeds", 1
-    );
+    .set_flip_on(true, false);
 
 new ItemData("phantasia", item_Bone, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_random_index(1, 2);
@@ -2935,7 +2927,7 @@ new ItemData("phantasia", item_Dead_Rose, ITEM_TYPE_BIT.PLANT)
 
 new ItemData("phantasia", item_Vine, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_mining_stats(undefined, undefined, 8)
-    .set_drops("phantasia:vine");
+    .set_on_neighbor_update(item_update_destroy_floating_below);
 
 new ItemData("phantasia", item_Written_Book);
 
