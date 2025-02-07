@@ -877,6 +877,7 @@
     {"$GMIncludedFile":"","%Name":"generic.dat","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/campsite","name":"generic.dat","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"generic.dat.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/campsite","name":"generic.dat.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"moss.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/clump","name":"moss.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"generic.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/geode","name":"generic.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"basalt.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/pile","name":"basalt.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"salt.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/pile","name":"salt.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"cactus.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/tall_plant","name":"cactus.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},

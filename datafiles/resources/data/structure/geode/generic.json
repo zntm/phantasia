@@ -1,0 +1,18 @@
+{
+	"width": 15,
+	"height": 15,
+	"placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": 0
+		}
+	},
+	"data": {
+		"function": "phantasia:geode",
+		"arguments": {
+			"use_structure_void": true,
+			"tile": "phantasia:block_of_salt"
+		}
+	}
+}
