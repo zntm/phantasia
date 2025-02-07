@@ -65,6 +65,9 @@ global.natural_structure_data[$ "phantasia:geode"] = function(_x, _y, _width, _h
     var _radius = min(_width, _height) * 0.4; // Adjust radius size (0.4 = 40% of smaller dimension)
     var _smoothness = 1.2; // Makes edges smoother (higher = smoother)
     
+    var _tiles = _arguments.tiles;
+    var _tiles_length = array_length(_tiles);
+    
     for (var i = 0; i < _width; ++i)
     {
         for (var j = 0; j < _height; ++j)
@@ -78,12 +81,23 @@ global.natural_structure_data[$ "phantasia:geode"] = function(_x, _y, _width, _h
             var max_distance = _radius * _radius;
             
             // Add some variation to create organic shape
-            var noise_value = noise(_x + (i/5), _y + (j/5), 4, _seed); // Using Perlin-type noise
+            var noise_value = noise(_x + i, _y + j, 0.2, _seed); // Using Perlin-type noise
             var modified_radius = max_distance * (1 + (noise_value - 0.5) * 0.3); // ±15% variation
             
-            if (_distance_squared <= modified_radius)
+            if (_distance_squared > modified_radius) continue;
+            
+            for (var l = 0; l < _tiles_length; ++l)
             {
-                _data[@ i + (j * _width) + _depth] = new Tile("phantasia:block_of_iron");
+                var _ = _tiles[l];
+                
+                if (_distance_squared <= modified_radius * _.distance)
+                {
+                    var _id = _.id;
+                    
+                    _data[@ i + (j * _width) + _depth] = (_id == -1 ? TILE_EMPTY : new Tile(_id, _item_data));
+                    
+                    break;
+                }
             }
         }
     }

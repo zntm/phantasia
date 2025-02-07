@@ -85,7 +85,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                 continue;
             }
             
-			var _seed2 = round(round(_seed + (i * 331.25)) + (j * 1104.125));
+			var _seed2 = round(round(_seed + (i * 31.25)) - (j * 14.125));
             
 			random_set_seed(_seed2);
 			
@@ -96,7 +96,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 			{
 				var _structure = _structures[l];
 				
-				if (_structure[0] < random(1))
+				if (!chance(_structure[0])) continue;
 				
 				if (i % _structure[1]) || (j % _structure[2]) continue;
 				

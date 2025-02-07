@@ -1,6 +1,6 @@
 {
-	"width": 15,
-	"height": 15,
+	"width": 17,
+	"height": 17,
 	"placement": {
 		"type": "phantasia:floor",
 		"offset": {
@@ -12,7 +12,24 @@
 		"function": "phantasia:geode",
 		"arguments": {
 			"use_structure_void": true,
-			"tile": "phantasia:block_of_salt"
+			"tiles": [
+				{
+					"id": -1,
+					"distance": 0.3
+				},
+				{
+					"id": "phantasia:pink_amethyst",
+					"distance": 0.5
+				},
+				{
+					"id": "phantasia:white_marble",
+					"distance": 0.7
+				},
+				{
+					"id": "phantasia:black_marble",
+					"distance": 1
+				}
+			]
 		}
 	}
 }
