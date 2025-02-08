@@ -65,14 +65,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 			
             var _empty_above = __carve_cave[_index - 1];
             var _empty_below = __carve_cave[_index + 1];
-            /*
-            if (!_empty_above) && (!_empty_below)
-            {
-                ++_index;
-                
-                continue;
-            }
-            */
+            
 			var _structures = _biome_data[$ _cave].structures;
 			var _structures_length = array_length(_structures);
 			

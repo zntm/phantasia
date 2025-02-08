@@ -95,7 +95,7 @@ afk_time = 0;
 
 world_spawn_player(_directory, _seed, obj_Player);
 
-global.structure_checked[@ 0] = [ 0, 0, 0, 0 ];
+global.structure_checked[@ 0] = [ infinity, infinity, infinity, infinity ];
 global.structure_checked_index = 0;
 
 if (directory_exists(_directory))

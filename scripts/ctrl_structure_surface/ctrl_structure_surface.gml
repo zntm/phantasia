@@ -1,5 +1,3 @@
-#macro WORLDGEN_STRUCTURE_OFFSET (CHUNK_SIZE_X * 8)
-
 function ctrl_structure_surface(_xstart, _xend)
 {
     var _world = global.world;
@@ -31,7 +29,7 @@ function ctrl_structure_surface(_xstart, _xend)
         {
             var _structure = _structures[j];
             
-            if (_structure[0] < random(1)) || (i % _structure[1]) continue;
+            if (!chance(_structure[0])) || (i % _structure[1]) continue;
             
             var _name = _structure[2];
             

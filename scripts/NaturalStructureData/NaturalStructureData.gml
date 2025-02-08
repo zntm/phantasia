@@ -578,7 +578,7 @@ enum NATURAL_STRUCTURE_VINE {
 global.natural_structure_data[$ "phantasia:vine"] = new NaturalStructureData()
     .set_parser(function(_parameter)
     {
-        var _item_data = global.item_data
+        var _item_data = global.item_data;
         
         var _data = array_create(NATURAL_STRUCTURE_VINE.LENGTH);
         
@@ -590,6 +590,8 @@ global.natural_structure_data[$ "phantasia:vine"] = new NaturalStructureData()
     })
     .set_function(function(_x, _y, _width, _height, _seed, _parameter, _item_data)
     {
+        show_debug_message(_parameter);
+        
         var _rectangle = _width * _height;
         var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_parameter[NATURAL_STRUCTURE_VINE.USE_STRUCTURE_VOID] ? STRUCTURE_VOID : TILE_EMPTY));
         
