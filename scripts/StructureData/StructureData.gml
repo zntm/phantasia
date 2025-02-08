@@ -18,11 +18,9 @@ function StructureData(_persistent, _width, _height, _placement, _natural) const
     placement_xoffset = _placement_offset.x;
     placement_yoffset = _placement_offset.y;
     
-    arguments = undefined;
-    
     static set_arguments = function(_array)
     {
-        arguments = _array;
+        parameter = _array;
         
         return self;
     }

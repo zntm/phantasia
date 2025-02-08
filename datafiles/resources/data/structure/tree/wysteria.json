@@ -1,6 +1,6 @@
 {
-	"width": 5,
-	"height": [ 6, 9 ],
+	"width": 7,
+	"height": [ 7, 10 ],
 	"placement": {
 		"type": "phantasia:floor",
 		"offset": {
@@ -10,13 +10,12 @@
 	},
 	"data": {
 		"function": "phantasia:tree/generic",
-		"parameter": [
-			true,
-			"phantasia:wysteria_wood",
-			"phantasia:wysteria_leaves",
-			1,
-			2,
-			1
-		]
+		"parameter": {
+			"tile_wood": "phantasia:wysteria_wood",
+			"tile_leaves": "phantasia:wysteria_leaves",
+			"index": 1,
+			"index_top": 2,
+			"index_bottom": 3
+		}
 	}
 }

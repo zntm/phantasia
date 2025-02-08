@@ -152,21 +152,23 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
 		
 		random_set_seed(seed);
 		
-		var _structure = _structure_data[$ is_array_choose(structure)];
+		var _data = _structure_data[$ is_array_choose(structure)];
 		
 		var _left = round(bbox_left / TILE_SIZE);
 		var _top  = round(bbox_top  / TILE_SIZE);
 		
 		if (natural)
 		{
-			data = _natural_structure_data[$ _structure.data].get_function()(_left, _top, image_xscale, image_yscale, seed, _structure.arguments, _item_data);
+            var _function = _natural_structure_data[$ _data.data].get_function();
+            
+			data = _function(_left, _top, image_xscale, image_yscale, seed, _data.parameter, _item_data);
 			
 			continue;
 		}
         
         var _z = CHUNK_DEPTH_DEFAULT * image_xscale * image_yscale;
-		
-		var _data = _structure.data;
+        
+        _data = _data.data;
 		
 		for (var j = 0; j < image_yscale; ++j)
 		{

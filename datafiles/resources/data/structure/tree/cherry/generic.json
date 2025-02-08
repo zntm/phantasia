@@ -10,13 +10,12 @@
 	},
 	"data": {
 		"function": "phantasia:tree/generic",
-		"parameter": [
-			true,
-			"phantasia:cherry_wood",
-			"phantasia:cherry_leaves",
-			1,
-			2,
-			1
-		]
+		"parameter": {
+			"tile_wood": "phantasia:cherry_wood",
+			"tile_leaves": "phantasia:cherry_leaves",
+			"index": 1,
+			"index_top": 2,
+			"index_bottom": 1
+		}
 	}
 }

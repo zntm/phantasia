@@ -11,12 +11,11 @@
 	"data": {
 		"function": "phantasia:tree/pine",
 		"parameter": {
-			"use_structure_void": true,
 			"tile_wood": "phantasia:pine_wood",
 			"tile_leaves": "phantasia:pine_leaves",
-			"index_wood": 1,
-			"index_wood_top": 2,
-			"index_wood_stump": 1
+			"index": 1,
+			"index_top": 2,
+			"index_bottom": 1
 		}
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"width": 5,
-	"height": [ 6, 9 ],
+	"height": [ 6, 11 ],
 	"placement": {
 		"type": "phantasia:floor",
 		"offset": {
@@ -10,13 +10,12 @@
 	},
 	"data": {
 		"function": "phantasia:tree/generic",
-		"parameter": [
-			true,
-			"phantasia:acacia_wood",
-			"phantasia:acacia_leaves",
-			1,
-			2,
-			1
-		]
+		"parameter": {
+			"tile_wood": "phantasia:acacia_wood",
+			"tile_leaves": "phantasia:acacia_leaves",
+			"index": 1,
+			"index_top": 2,
+			"index_bottom": 1
+		}
 	}
 }

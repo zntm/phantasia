@@ -10,13 +10,12 @@
 	},
 	"data": {
 		"function": "phantasia:tree/generic",
-		"parameter": [
-			true,
-			"phantasia:mangrove_wood",
-			"phantasia:mangrove_leaves",
-			[ 1, 4 ],
-			6,
-			5
-		]
+		"parameter": {
+			"tile_wood": "phantasia:mangrove_wood",
+			"tile_leaves": "phantasia:mangrove_leaves",
+			"index": 1,
+			"index_top": 2,
+			"index_bottom": 3
+		}
 	}
 }
