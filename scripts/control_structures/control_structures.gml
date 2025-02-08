@@ -168,17 +168,24 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
 		
 		var _data = _structure.data;
 		
-		for (var i = 0; i < image_yscale; ++i)
+		for (var j = 0; j < image_yscale; ++j)
 		{
-			var _yzindex = (i * image_xscale) + _z;
+            var _y2 = _top + j;
             
-			for (var j = 0; j < image_xscale; ++j)
+			var _yzindex = (j * image_xscale) + _z;
+            
+			for (var l = 0; l < image_xscale; ++l)
 			{
-				var _tile = _data[j + _yzindex];
+                var _x2 = _left + l;
+                
+				var _tile = _data[l + _yzindex];
                 
 				if (_tile == TILE_EMPTY) || (_tile == STRUCTURE_VOID) || (_tile.item_id != "phantasia:structure_point") continue;
                 
-				structure_create((_left + j + _tile[$ "variable.placement_xoffset"]) * TILE_SIZE, (_top + i + _tile[$ "variable.placement_yoffset"]) * TILE_SIZE, _tile[$ "variable.structure_id"], seed, _structure_data, _natural_structure_data, _world_data, undefined, level + 1);
+                var _placement_xoffset = _tile[$ "variable.placement_xoffset"];
+                var _placement_yoffset = _tile[$ "variable.placement_yoffset"];
+                
+				structure_create((_x2 + _placement_xoffset) * TILE_SIZE, (_y2 + _placement_yoffset) * TILE_SIZE, _tile[$ "variable.structure_id"], seed, _structure_data, _natural_structure_data, _world_data, undefined, level + 1);
 			}
 		}
 		
