@@ -7,8 +7,6 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     
     var i;
     
-    var _generate = false;
-    
     var _x = round((_camera_x + (_camera_width / 2)) / TILE_SIZE);
     
     var _xstart = _x - (CHUNK_SIZE_X * WORLDGEN_STRUCTURE_OFFSET);
@@ -29,8 +27,8 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             global.structure_checked[@ i][@ 0] = _xstart;
             global.structure_checked[@ i][@ 2] = _xend;
             
-            _generate = true;
             _generate_surface = true;
+            _generate_cave = true;
             
             break;
         }
@@ -41,8 +39,8 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             _xend = _min;
             
-            _generate = true;
             _generate_surface = true;
+            _generate_cave = true;
             
             break;
         }
@@ -53,12 +51,14 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             _xstart = _max;
             
-            _generate = true;
             _generate_surface = true;
+            _generate_cave = true;
             
             break;
         }
     }
+    
+    show_debug_message(global.structure_checked);
     
     var _y = round((_camera_y + (_camera_height / 2)) / TILE_SIZE);
     
@@ -77,13 +77,18 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             global.structure_checked[@ j][@ 1] = _ystart;
             global.structure_checked[@ j][@ 3] = _yend;
             
-            if (!_generate)
+            if (!_generate_surface)
             {
-                _xstart = max(_xstart, _structure[0]);
-                _xend = min(_xend, _structure[2]);
+                if (_structure[0] > _xstart)
+                {
+                    _xend = _structure[0];
+                }
+                else
+                {
+                    _xstart = _structure[2];
+                }
             }
             
-            _generate = true;
             _generate_cave = true;
             
             break;
@@ -95,13 +100,18 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             _yend = _min;
             
-            if (!_generate)
+            if (!_generate_surface)
             {
-                _xstart = max(_xstart, _structure[0]);
-                _xend = min(_xend, _structure[2]);
+                if (_structure[0] > _xstart)
+                {
+                    _xend = _structure[0];
+                }
+                else
+                {
+                    _xstart = _structure[2];
+                }
             }
             
-            _generate = true;
             _generate_cave = true;
             
             break;
@@ -113,42 +123,44 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             _ystart = _max;
             
-            if (!_generate)
+            if (!_generate_surface)
             {
-                _xstart = max(_xstart, _structure[0]);
-                _xend = min(_xend, _structure[2]);
+                if (_structure[0] > _xstart)
+                {
+                    _xend = _structure[0];
+                }
+                else
+                {
+                    _xstart = _structure[2];
+                }
             }
             
-            _generate = true;
             _generate_cave = true;
             
             break;
         }
     }
     
-    if (_generate)
+    if (_generate_surface)
     {
-        if (_generate_surface)
-        {
-            debug_timer("timer_structure_surface");
-            
-            show_debug_message($"S: {_xstart} {_xend}");
-            
-            ctrl_structure_surface(_xstart, _xend);
-            
-            debug_timer("timer_structure_surface", "Generate Surface Structures");
-        }
+        debug_timer("timer_structure_surface");
         
-        if (_generate_cave)
-        {
-            debug_timer("timer_structure_cave");
-            
-            show_debug_message($"U: {_xstart} {_xend} {_ystart} {_yend}");
-            
-            ctrl_structure_underground(_xstart, _xend, _ystart, _yend);
-            
-            debug_timer("timer_structure_cave", "Generate Cave Structures");
-        }
+        show_debug_message($"S: {_xstart} {_xend}");
+        
+        ctrl_structure_surface(_xstart, _xend);
+        
+        debug_timer("timer_structure_surface", "Generate Surface Structures");
+    }
+    
+    if (_generate_cave)
+    {
+        debug_timer("timer_structure_cave");
+        
+        show_debug_message($"U: {_xstart} {_xend} {_ystart} {_yend}");
+        
+        ctrl_structure_underground(_xstart, _xend, _ystart, _yend);
+        
+        debug_timer("timer_structure_cave", "Generate Cave Structures");
     }
     
     var _structure_data = global.structure_data;

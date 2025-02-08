@@ -15,7 +15,7 @@ function tile_get_inst(_x, _y, _name)
     
     if (!instance_exists(_inst))
     {
-        tile_spawn_structure(_x * TILE_SIZE, _y * TILE_SIZE);
+        tile_spawn_structure(_cx, _cy);
         
         _inst = instance_create_layer(_cx, _cy, "Instances", obj_Chunk);
     }

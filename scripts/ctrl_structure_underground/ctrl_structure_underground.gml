@@ -9,32 +9,30 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 	var _structure_data = global.structure_data;
 	var _world_data = global.world_data[$ _realm];
     
+    var _cave_ystart = _world_data.get_cave_ystart();
+    
     _yend = min(_yend, _world_data.get_world_height());
     
 	var _seed = _world.seed;
+    var _seed_half = round(_seed / 2);
 	
 	var _seed_cave = _seed + WORLDGEN_SALT.CAVE;
     
 	for (var i = _xstart; i <= _xend; ++i)
 	{
 		var _ysurface  = worldgen_get_ysurface(i, _seed, _world_data);
-		var _ysurface2 = _ysurface + _world_data.get_cave_ystart();
+		var _ysurface2 = _ysurface + _cave_ystart;
         
-        if (_ystart < _ysurface2) continue;
+        if (_yend < _ysurface2) continue;
 		
+        var _ystart3 = _ysurface2;
+        
         var _generated = false;
         
         var _index = 1;
         
-		for (var j = _ystart; j <= _yend; ++j)
+		for (var j = _ystart3; j <= _yend; ++j)
 		{
-			if (j <= _ysurface2)
-            {
-                ++_index;
-                
-                continue;
-            }
-			
 			var _cave = worldgen_get_cave_biome(i, j, _seed, _ysurface, _world_data);
 			
 			if (_cave == -1)
@@ -50,7 +48,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                 
                 var _index2 = 0;
                 
-                for (var l = _ystart - 1; l <= _yend + 1; ++l)
+                for (var l = _ystart3 - 1; l <= _yend + 1; ++l)
                 {
                     __carve_cave[@ _index2++] = worldgen_carve_cave(i, l, _seed_cave, _world_data, _ysurface);
                 }
@@ -76,7 +74,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                 continue;
             }
             
-			var _seed2 = round(round(_seed + (i * 31.25)) - (j * 14.125));
+			var _seed2 = round(round(_seed_half + (i * 312.25)) - (j * 140.125));
             
 			random_set_seed(_seed2);
 			
