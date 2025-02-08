@@ -57,11 +57,18 @@ function file_load_snippet_inventory(_buffer, _length, _item_data, _datafixer)
             var _taint_exists = buffer_read(_buffer, buffer_bool);
             
             if (!_taint_exists) continue;
-                
+            
             var _taint_name  = buffer_read(_buffer, buffer_string);
             var _taint_level = buffer_read(_buffer, buffer_u8);
             
             _item.set_charm_taint(j, _taint_name, _taint_level);
+        }
+        
+        var _inventory_length = buffer_read(_buffer, buffer_u8);
+        
+        if (_inventory_length > 0)
+        {
+            _item.___inventory = file_load_snippet_inventory(_buffer, _inventory_length, _item_data, _datafixer);
         }
         
         _inventory[@ i] = _item;

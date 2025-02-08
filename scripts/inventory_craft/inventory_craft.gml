@@ -25,8 +25,8 @@ function inventory_craft(_player_x, _player_y, _inst)
 	var _ingredients = _data.ingredients;
 	var _length = array_length(_ingredients);
 	
-	var _container_length = array_length(global.inventory.container);
-	var _container_opened = (_container_length > 0);
+	var _tile_container_length = array_length(global.inventory.container);
+	var _container_opened = (_tile_container_length > 0);
 	
 	for (var i = 0; i < _length; ++i)
 	{
@@ -38,7 +38,7 @@ function inventory_craft(_player_x, _player_y, _inst)
 		
 		if (_container_opened)
 		{
-			for (var j = 0; j < _container_length; ++j)
+			for (var j = 0; j < _tile_container_length; ++j)
 			{
 				var _ = global.inventory.container[j];
 				

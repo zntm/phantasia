@@ -108,4 +108,11 @@ function Inventory(_item, _amount = 1) constructor
         
         return _charms[_index];
     }
+    
+    var _inventory_length = _data.get_inventory_container_length();
+    
+    if (_inventory_length > 0)
+    {
+        ___inventory = array_create(_inventory_length, INVENTORY_EMPTY);
+    }
 }

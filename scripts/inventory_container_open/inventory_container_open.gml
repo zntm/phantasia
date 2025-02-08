@@ -19,14 +19,14 @@ function inventory_container_open(_x, _y, _inst = noone)
 	
     var _container_inventory = tile_get_inventory(_tile);
     
-	var _container_sfx = _data.get_container_sfx();
+	var _tile_container_sfx = _data.get_tile_container_sfx();
 	
-	if (_container_sfx != undefined)
+	if (_tile_container_sfx != undefined)
 	{
-		sfx_play(string_replace(_container_sfx, "~", "open"), global.settings_value.sfx);
+		sfx_play(string_replace(_tile_container_sfx, "~", "open"), global.settings_value.sfx);
 	}
 	
-	var _size = _data.get_container_length();
+	var _size = _data.get_tile_container_length();
 	
 	obj_Control.is_opened_container = true;
 	obj_Control.is_opened_inventory = true;
@@ -42,7 +42,7 @@ function inventory_container_open(_x, _y, _inst = noone)
         chunk_z_refresh |= surface_display;
     }
     
-	var _container_length = array_length(_container_inventory);
+	var _tile_container_length = array_length(_container_inventory);
 	
 	var _inventory_row_height = floor(global.inventory_length.base / INVENTORY_LENGTH.ROW) * INVENTORY_SLOT_SCALE * INVENTORY_SLOT_HEIGHT;
 	
@@ -55,7 +55,7 @@ function inventory_container_open(_x, _y, _inst = noone)
 	
 	for (var i = 0; i < _size; ++i)
 	{
-		global.inventory.container[@ i] = (i >= _container_length ? INVENTORY_EMPTY : _container_inventory[i]);
+		global.inventory.container[@ i] = (i >= _tile_container_length ? INVENTORY_EMPTY : _container_inventory[i]);
 		
 		with (instance_create_layer(0, 0, "Instances", obj_Inventory))
 		{

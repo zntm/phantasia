@@ -66,6 +66,15 @@ function file_save_snippet_inventory(_buffer, _inventory, _length, _item_data)
             }
         }
         
+        var _inventory_length = _data.get_inventory_container_length();
+        
+        buffer_write(_buffer, buffer_u8, _inventory_length);
+        
+        if (_inventory_length > 0)
+        {
+            file_save_snippet_inventory(_buffer, _item.___inventory, _inventory_length, _item_data);
+        }
+        
         buffer_poke(_buffer, _seek, buffer_u32, buffer_tell(_buffer));
     }
 }

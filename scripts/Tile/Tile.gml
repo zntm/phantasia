@@ -239,9 +239,9 @@ function Tile(_item, _item_data = global.item_data) constructor
         
         static generate_inventory = function()
         {
-            var _container_length = global.item_data[$ item_id].get_container_length();
+            var _tile_container_length = global.item_data[$ item_id].get_tile_container_length();
             
-            ___inventory = array_create(_container_length, INVENTORY_EMPTY);
+            ___inventory = array_create(_tile_container_length, INVENTORY_EMPTY);
             
             return self;
         }
@@ -250,7 +250,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 		{
 			var _loot_data = global.loot_data;
 			
-			var _size = global.item_data[$ item_id].get_container_length();
+			var _size = global.item_data[$ item_id].get_tile_container_length();
 			var _size_1 = _size - 1;
 			
 			generate_inventory();

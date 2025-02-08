@@ -21,7 +21,7 @@ function inventory_container_close()
             chunk_z_refresh |= surface_display;
         }
         
-		var _sfx = global.item_data[$ _tile.item_id].get_container_sfx();
+		var _sfx = global.item_data[$ _tile.item_id].get_tile_container_sfx();
 		
 		if (_sfx != undefined)
 		{

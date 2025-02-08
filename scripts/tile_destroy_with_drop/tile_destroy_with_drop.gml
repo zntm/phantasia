@@ -11,9 +11,9 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
     {
         var _inventory = tile_get_inventory(_tile);
         
-        var _container_length = _data.get_container_length();
+        var _tile_container_length = _data.get_tile_container_length();
         
-        for (var i = 0; i < _container_length; ++i)
+        for (var i = 0; i < _tile_container_length; ++i)
         {
             var _item = _inventory[i];
             
