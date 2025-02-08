@@ -62,8 +62,11 @@ global.natural_structure_data[$ "phantasia:geode"] = function(_x, _y, _width, _h
     var _y_mid = _height / 2;
     
     // Geode parameters
-    var _radius = min(_width, _height) * 0.4; // Adjust radius size (0.4 = 40% of smaller dimension)
-    var _smoothness = 1.2; // Makes edges smoother (higher = smoother)
+    var _radius = min(_width, _height) * _arguments.radius; // Adjust radius size (0.4 = 40% of smaller dimension)
+    var _smoothness = _arguments.smoothness;
+    
+    var _radius_variation = _arguments.radius_variation;
+    var _octave = _arguments.octave;
     
     var _tiles = _arguments.tiles;
     var _tiles_length = array_length(_tiles);
@@ -72,7 +75,6 @@ global.natural_structure_data[$ "phantasia:geode"] = function(_x, _y, _width, _h
     {
         for (var j = 0; j < _height; ++j)
         {
-            // Calculate distance from center
             var _dx = i - _x_mid;
             var _dy = j - _y_mid;
             
@@ -80,9 +82,7 @@ global.natural_structure_data[$ "phantasia:geode"] = function(_x, _y, _width, _h
             
             var max_distance = _radius * _radius;
             
-            // Add some variation to create organic shape
-            var noise_value = noise(_x + i, _y + j, 0.2, _seed); // Using Perlin-type noise
-            var modified_radius = max_distance * (1 + (noise_value - 0.5) * 0.3); // ±15% variation
+            var modified_radius = max_distance * (1 + ((noise(_x + i, _y + j, _octave, _seed) - 0.5) * _radius_variation));
             
             if (_distance_squared > modified_radius) continue;
             

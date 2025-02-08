@@ -12,6 +12,10 @@
 		"function": "phantasia:geode",
 		"arguments": {
 			"use_structure_void": true,
+			"smoothness": 1.2,
+			"radius": 0.4,
+			"radius_variation": 0.3,
+			"octave": 0.15,
 			"tiles": [
 				{
 					"id": -1,
