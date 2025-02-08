@@ -61,8 +61,9 @@ global.natural_structure_data[$ "phantasia:geode"] = function(_x, _y, _width, _h
     var _x_mid = _width  / 2;
     var _y_mid = _height / 2;
     
-    // Geode parameters
-    var _radius = min(_width, _height) * _arguments.radius; // Adjust radius size (0.4 = 40% of smaller dimension)
+    var _radius = min(_width, _height) * _arguments.radius;
+    var _radius_squared = _radius * _radius;
+    
     var _smoothness = _arguments.smoothness;
     
     var _radius_variation = _arguments.radius_variation;
@@ -73,24 +74,25 @@ global.natural_structure_data[$ "phantasia:geode"] = function(_x, _y, _width, _h
     
     for (var i = 0; i < _width; ++i)
     {
+        var _dx = i - _x_mid;
+        var _dx_squared = _dx * _dx;
+        
         for (var j = 0; j < _height; ++j)
         {
-            var _dx = i - _x_mid;
             var _dy = j - _y_mid;
+            var _dy_squared = _dy * _dy;
             
-            var _distance_squared = _dx * _dx + _dy * _dy;
+            var _distance_squared = _dx_squared + _dy_squared;
             
-            var max_distance = _radius * _radius;
+            var _radius_modified = _radius_squared * (1 + ((noise(_x + i, _y + j, _octave, _seed) - 0.5) * _radius_variation));
             
-            var modified_radius = max_distance * (1 + ((noise(_x + i, _y + j, _octave, _seed) - 0.5) * _radius_variation));
-            
-            if (_distance_squared > modified_radius) continue;
+            if (_distance_squared > _radius_modified) continue;
             
             for (var l = 0; l < _tiles_length; ++l)
             {
                 var _ = _tiles[l];
                 
-                if (_distance_squared <= modified_radius * _.distance)
+                if (_distance_squared <= _radius_modified * _.distance)
                 {
                     var _id = _.id;
                     
