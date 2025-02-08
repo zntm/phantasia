@@ -69,7 +69,7 @@
 					"max": 1024
 				},
 				"noise": {
-					"octave": 0.88,
+					"octave": 0.78,
 					"threshold": {
 						"min": 122,
 						"max": 144
@@ -82,7 +82,7 @@
 					"max": 768
 				},
 				"noise": {
-					"octave": 0.64,
+					"octave": 0.54,
 					"threshold": {
 						"min": 88,
 						"max": 110
@@ -95,7 +95,7 @@
 					"max": 1024
 				},
 				"noise": {
-					"octave": 0.46,
+					"octave": 0.26,
 					"threshold": {
 						"min": 116,
 						"max": 130

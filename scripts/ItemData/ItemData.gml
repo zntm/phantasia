@@ -924,7 +924,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static get_inventory_container_length = function()
     {
-        return self[$ "___inventory_container_length"];
+        return self[$ "___inventory_container_length"] ?? 0;
     }
     
     if (type & (ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.WALL | ITEM_TYPE_BIT.PLANT | ITEM_TYPE_BIT.CONTAINER | ITEM_TYPE_BIT.LIQUID))

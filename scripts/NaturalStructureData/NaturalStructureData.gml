@@ -236,19 +236,22 @@ global.natural_structure_data[$ "phantasia:tall_plant/bamboo"] = new NaturalStru
     })
     .set_function(function(_x, _y, _width, _height, _seed, _parameter, _item_data)
     {
+        show_debug_message(_parameter);
+        show_debug_message(instanceof(_parameter[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.TILE]));
+        
         var _rectangle = _width * _height;
         var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_parameter[NATURAL_STRUCTURE_TALL_PLANT_GENERIC.USE_STRUCTURE_VOID] ? STRUCTURE_VOID : TILE_EMPTY));
         
         var _depth = _rectangle * CHUNK_DEPTH_PLANT;
         
-        var _tile = _data[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.TILE];
+        var _tile = _parameter[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.TILE];
         
-        var _index = _data[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.INDEX];
+        var _index = _parameter[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.INDEX];
         
-        var _index_top    = _data[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.INDEX_TOP];
-        var _index_sheath = _data[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.INDEX_SHEATH];
+        var _index_top    = _parameter[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.INDEX_TOP];
+        var _index_sheath = _parameter[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.INDEX_SHEATH];
         
-        var _sheath_length = is_array_irandom(_data[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.SHEATH_LENGTH]);
+        var _sheath_length = is_array_irandom(_parameter[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.SHEATH_LENGTH]);
         
         for (var i = 0; i < _height; ++i)
         {
@@ -371,7 +374,6 @@ global.natural_structure_data[$ "phantasia:tree/generic"] = new NaturalStructure
         
         var _depth_wood   = _rectangle * CHUNK_DEPTH_TREE;
         var _depth_leaves = _depth_wood + _rectangle;
-        
         
         var _tile_leaves = _parameter[NATURAL_STRUCTURE_TREE_GENERIC.TILE_LEAVES];
         
