@@ -1075,7 +1075,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
                     ___drops[@ i] = argument[i];
                 }
             }
-        
+            
             return self;
         }
         
