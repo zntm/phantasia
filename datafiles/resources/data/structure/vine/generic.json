@@ -10,7 +10,7 @@
 	},
 	"data": {
 		"function": "phantasia:vine",
-		"arguments": {
+		"parameter": {
 			"use_structure_void": true,
 			"tile": "phantasia:vine",
 			"index": 0

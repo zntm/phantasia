@@ -11,8 +11,6 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
     
     _yend = min(_yend, _world_data.get_world_height());
     
-	var _natural_structure_data = global.natural_structure_data;
-	
 	var _seed = _world.seed;
 	
 	var _seed_cave = _seed + WORLDGEN_SALT.CAVE;
@@ -104,7 +102,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 				
 				if (_structure[4])
 				{
-					var _inst = structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _natural_structure_data, _world_data, _empty_above, _empty_below, false);
+					var _inst = structure_create(_xstructure, _ystructure, _name, _seed, _seed2, _structure_data, _world_data, _empty_above, _empty_below, false);
                     
                     if (instance_exists(_inst)) break;
 				}
@@ -116,7 +114,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                     
                     for (var m = 0; m < _length; ++m)
                     {
-                        var _inst = structure_create(_xstructure, _ystructure, _name[m], _seed, _seed2, _structure_data, _natural_structure_data, _world_data, _empty_above, _empty_below, false);
+                        var _inst = structure_create(_xstructure, _ystructure, _name[m], _seed, _seed2, _structure_data, _world_data, _empty_above, _empty_below, false);
                         
                         if (instance_exists(_exists))
                         {

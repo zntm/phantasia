@@ -10,7 +10,7 @@
 	},
 	"data": {
 		"function": "phantasia:tree/generic",
-		"arguments": [
+		"parameter": [
 			true,
 			"phantasia:cherry_wood",
 			"phantasia:blonde_cherry_leaves",

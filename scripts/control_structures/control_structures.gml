@@ -159,7 +159,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
 		
 		if (natural)
 		{
-			data = _natural_structure_data[$ _structure.data](_left, _top, image_xscale, image_yscale, seed, _structure.arguments, _item_data);
+			data = _natural_structure_data[$ _structure.data].get_function()(_left, _top, image_xscale, image_yscale, seed, _structure.arguments, _item_data);
 			
 			continue;
 		}

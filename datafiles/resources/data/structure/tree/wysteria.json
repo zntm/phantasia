@@ -10,7 +10,7 @@
 	},
 	"data": {
 		"function": "phantasia:tree/generic",
-		"arguments": [
+		"parameter": [
 			true,
 			"phantasia:wysteria_wood",
 			"phantasia:wysteria_leaves",

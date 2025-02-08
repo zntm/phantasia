@@ -10,8 +10,7 @@
 	},
 	"data": {
 		"function": "phantasia:tall_plant/generic",
-		"arguments": {
-			"use_structure_void": true,
+		"parameter": {
 			"tile": "phantasia:cactus",
 			"index": [ 0, 4 ],
 			"index_top": [ 5, 6 ]

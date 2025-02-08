@@ -10,13 +10,12 @@
 	},
 	"data": {
 		"function": "phantasia:tall_plant/bamboo",
-		"arguments": {
-			"use_structure_void": true,
+		"parameter": {
 			"tile": "phantasia:dark_bamboo",
 			"index": [ 1, 2 ],
-			"index_mid": 3,
+			"index_sheath": 3,
 			"index_top": 4,
-			"mid_height": [ 2, 6 ]
+			"sheath_length": [ 2, 6 ]
 		}
 	}
 }

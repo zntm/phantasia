@@ -10,7 +10,7 @@
 	},
 	"data": {
 		"function": "phantasia:pile",
-		"arguments": {
+		"parameter": {
 			"use_structure_void": true,
 			"tile": "phantasia:block_of_salt",
             "height_random_offset": 0.3,

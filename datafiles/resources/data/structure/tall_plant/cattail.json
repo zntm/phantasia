@@ -10,8 +10,7 @@
 	},
 	"data": {
 		"function": "phantasia:tall_plant/generic",
-		"arguments": {
-			"use_structure_void": true,
+		"parameter": {
 			"tile": "phantasia:cattail",
 			"index": 0,
 			"index_top": 1

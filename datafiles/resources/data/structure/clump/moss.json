@@ -10,10 +10,9 @@
 	},
 	"data": {
 		"function": "phantasia:clump",
-		"arguments": [
-			true,
-			"phantasia:moss",
-			"phantasia:moss_wall"
-		]
+		"parameter": {
+			"tile_default": "phantasia:moss",
+			"tile_wall": "phantasia:moss_wall"
+		}
 	}
 }

@@ -10,7 +10,7 @@
 	},
 	"data": {
 		"function": "phantasia:tree/pine",
-		"arguments": {
+		"parameter": {
 			"use_structure_void": true,
 			"tile_wood": "phantasia:pine_wood",
 			"tile_leaves": "phantasia:pine_leaves",

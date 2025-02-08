@@ -10,7 +10,7 @@
 	},
 	"data": {
 		"function": "phantasia:tree/yucca",
-		"arguments": {
+		"parameter": {
 			"use_structure_void": true,
 			"tile_wood": "phantasia:yucca_wood",
 			"tile_leaves": "phantasia:yucca_leaves",
