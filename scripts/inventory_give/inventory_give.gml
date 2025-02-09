@@ -20,7 +20,7 @@ function inventory_give(_x, _y, _item_id, _amount, _index, _index_offset, _state
                 .set_index_offset(_index_offset)
                 .set_state(_state);
             
-            if (_durability != undefined) && (_data.type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
+            if (_durability != undefined) && (_data.type & ITEM_TYPE_HAS_DURABILITY)
             {
                 global.inventory.base[@ i].set_durability(_durability);
             }

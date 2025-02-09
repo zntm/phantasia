@@ -1,6 +1,6 @@
 function file_load_global()
 {
-	if (!file_exists("Global.json"))
+	if (!file_exists("global.json"))
 	{
 		global.global_data = {
 			version_type:  VERSION_NUMBER.TYPE,

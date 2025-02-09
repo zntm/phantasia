@@ -36,7 +36,7 @@ function file_load_snippet_inventory(_buffer, _length, _item_data, _datafixer)
             .set_index_offset(_index_offset)
             .set_state(_state);
         
-        if (_data.type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
+        if (_data.type & ITEM_TYPE_HAS_DURABILITY)
         {
             _item.set_durability(buffer_read(_buffer, buffer_u16));
         }

@@ -15,26 +15,26 @@
 	"tiles": {
 		"crust_top": {
 			"solid": {
-				"id": "phantasia:sand"
+				"id": "phantasia:dirt"
 			},
 			"wall": {
-				"id": "phantasia:sandstone_wall"
+				"id": "phantasia:dirt_wall"
 			}
 		},
 		"crust_bottom": {
 			"solid": {
-				"id": "phantasia:sand"
+				"id": "phantasia:dirt"
 			},
 			"wall": {
-				"id": "phantasia:sandstone_wall"
+				"id": "phantasia:dirt_wall"
 			}
 		},
 		"stone": {
 			"solid": {
-				"id": "phantasia:sandstone"
+				"id": "phantasia:stone"
 			},
 			"wall": {
-				"id": "phantasia:sandstone_wall"
+				"id": "phantasia:stone_wall"
 			}
 		}
 	},

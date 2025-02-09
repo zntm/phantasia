@@ -1,13 +1,13 @@
 function file_load_player_inventory(_uuid)
 {
-	if (!directory_exists($"{DIRECTORY_PLAYERS}/{_uuid}/Inventory")) exit;
+	if (!directory_exists($"{DIRECTORY_PLAYERS}/{_uuid}/inventory")) exit;
 	
 	var _datafixer = global.datafixer.item;
 	
 	var _item_data = global.item_data;
 	var _inventory = global.inventory;
 	
-	var _files = file_read_directory($"{DIRECTORY_PLAYERS}/{_uuid}/Inventory/");
+	var _files = file_read_directory($"{DIRECTORY_PLAYERS}/{_uuid}/inventory/");
 	var _files_length = array_length(_files);
 	
 	for (var i = 0; i < _files_length; ++i)

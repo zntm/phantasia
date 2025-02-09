@@ -236,9 +236,6 @@ global.natural_structure_data[$ "phantasia:tall_plant/bamboo"] = new NaturalStru
     })
     .set_function(function(_x, _y, _width, _height, _seed, _parameter, _item_data)
     {
-        show_debug_message(_parameter);
-        show_debug_message(instanceof(_parameter[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.TILE]));
-        
         var _rectangle = _width * _height;
         var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_parameter[NATURAL_STRUCTURE_TALL_PLANT_GENERIC.USE_STRUCTURE_VOID] ? STRUCTURE_VOID : TILE_EMPTY));
         
@@ -590,8 +587,6 @@ global.natural_structure_data[$ "phantasia:vine"] = new NaturalStructureData()
     })
     .set_function(function(_x, _y, _width, _height, _seed, _parameter, _item_data)
     {
-        show_debug_message(_parameter);
-        
         var _rectangle = _width * _height;
         var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_parameter[NATURAL_STRUCTURE_VINE.USE_STRUCTURE_VOID] ? STRUCTURE_VOID : TILE_EMPTY));
         

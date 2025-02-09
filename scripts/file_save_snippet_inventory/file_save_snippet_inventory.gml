@@ -26,7 +26,7 @@ function file_save_snippet_inventory(_buffer, _inventory, _length, _item_data)
         
         var _data = _item_data[$ _item_id];
         
-        if (_data.type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
+        if (_data.type & ITEM_TYPE_HAS_DURABILITY)
         {
             buffer_write(_buffer, buffer_u16, _item.get_durability());
         }

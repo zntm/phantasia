@@ -58,8 +58,6 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
         }
     }
     
-    show_debug_message(global.structure_checked);
-    
     var _y = round((_camera_y + (_camera_height / 2)) / TILE_SIZE);
     
     var _ystart = _y - (CHUNK_SIZE_Y * WORLDGEN_STRUCTURE_OFFSET);
@@ -145,8 +143,6 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     {
         debug_timer("timer_structure_surface");
         
-        show_debug_message($"S: {_xstart} {_xend}");
-        
         ctrl_structure_surface(_xstart, _xend);
         
         debug_timer("timer_structure_surface", "Generate Surface Structures");
@@ -155,8 +151,6 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     if (_generate_cave)
     {
         debug_timer("timer_structure_cave");
-        
-        show_debug_message($"U: {_xstart} {_xend} {_ystart} {_yend}");
         
         ctrl_structure_underground(_xstart, _xend, _ystart, _yend);
         

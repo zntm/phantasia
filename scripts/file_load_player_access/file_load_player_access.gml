@@ -1,6 +1,6 @@
 function file_load_player_access(_inst)
 {
-	var _directory = $"{global.world_directory}/Players/{_inst.uuid}/Access_Level.dat";
+	var _directory = $"{global.world_directory}/player/{_inst.uuid}/access_level.dat";
 	
 	if (!file_exists(_directory)) exit;
 	

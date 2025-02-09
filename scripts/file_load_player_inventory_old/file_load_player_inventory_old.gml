@@ -1,6 +1,6 @@
 function file_load_player_inventory_old(_uuid, _buffer2, _name)
 {
-	if (!directory_exists($"{DIRECTORY_PLAYERS}/{_uuid}/Inventory")) exit;
+	if (!directory_exists($"{DIRECTORY_PLAYERS}/{_uuid}/inventory")) exit;
 	
 	var _datafixer = global.datafixer.item;
 	

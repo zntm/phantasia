@@ -15,7 +15,7 @@
 	"tiles": {
 		"crust_top": {
 			"solid": {
-				"id": "phantasia:grass_block_swamplands"
+				"id": "phantasia:mud"
 			},
 			"wall": {
 				"id": "phantasia:dirt_wall"
@@ -23,7 +23,7 @@
 		},
 		"crust_bottom": {
 			"solid": {
-				"id": "phantasia:dirt"
+				"id": "phantasia:mud"
 			},
 			"wall": {
 				"id": "phantasia:dirt_wall"
