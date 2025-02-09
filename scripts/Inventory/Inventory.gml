@@ -63,11 +63,6 @@ function Inventory(_item, _amount = 1) constructor
         return self[$ "___durability"];
     }
     
-    if (_type & ITEM_TYPE_BIT.FISHING_POLE)
-    {
-        durability = _data.get_durability();
-    }
-    
     var _charm_length = _data.get_charm_length();
     
     if (_charm_length > 0)

@@ -967,16 +967,28 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
                 return self[$ "___tile_container_sfx"];
             }
             
-            static set_container_openable = function(_openable)
+            static set_tile_container_openable = function(_openable)
             {
-                ___container_openable = _openable;
+                ___tile_container_openable = _openable;
                 
                 return self;
             }
             
-            static get_container_openable = function()
+            static get_tile_container_openable = function()
             {
-                return self[$ "___container_openable"] ?? true;
+                return self[$ "___tile_container_openable"] ?? true;
+            }
+            
+            static add_tile_container_restricted = function(_id)
+            {
+                self[$ "___tile_container_restricted"] ??= _id;
+                
+                array_push(___tile_container_restricted, _id);
+            }
+            
+            static get_tile_container_restricted = function()
+            {
+                return self[$ "___tile_container_restricted"];
             }
         }
         
@@ -1596,7 +1608,7 @@ new ItemData("phantasia", item_Block_Of_Steel, ITEM_TYPE_BIT.SOLID)
 new ItemData("phantasia", item_Pot, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER)
     .set_flip_on(true, false)
     .set_tile_container_length(1)
-    .set_container_openable(false)
+    .set_tile_container_openable(false)
     .set_on_tile_interaction(function(_x, _y, _z, _tile)
     {
         var _inventory_selected_hotbar = global.inventory_selected_hotbar;

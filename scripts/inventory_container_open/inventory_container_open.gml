@@ -15,7 +15,7 @@ function inventory_container_open(_x, _y, _inst = noone)
 	
 	var _data = global.item_data[$ _tile.item_id];
     
-    if (!_data.get_container_openable()) exit;
+    if (!_data.get_tile_container_openable()) exit;
 	
     var _container_inventory = tile_get_inventory(_tile);
     
