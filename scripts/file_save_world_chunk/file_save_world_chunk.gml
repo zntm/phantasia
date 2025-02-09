@@ -92,7 +92,7 @@ function file_save_world_chunk(_inst)
 		
 		if (_item_data[$ _item_id].type & ITEM_TYPE_HAS_DURABILITY)
 		{
-			buffer_write(_buffer, buffer_u16, _.durability);
+			buffer_write(_buffer, buffer_u16, _.get_durability());
 		}
 		
 		buffer_write(_buffer, buffer_f16, _.life);

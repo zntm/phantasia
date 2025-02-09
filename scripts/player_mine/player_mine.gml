@@ -126,7 +126,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
             
             var _inventory_selected_hotbar = global.inventory_selected_hotbar;
             
-            if (--global.inventory.base[_inventory_selected_hotbar].durability <= 0)
+            if (--global.inventory.base[_inventory_selected_hotbar].___durability <= 0)
             {
                 inventory_delete("base", _inventory_selected_hotbar);
             }

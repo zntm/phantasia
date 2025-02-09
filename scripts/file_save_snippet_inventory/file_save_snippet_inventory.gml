@@ -72,7 +72,7 @@ function file_save_snippet_inventory(_buffer, _inventory, _length, _item_data)
         
         if (_inventory_length > 0)
         {
-            file_save_snippet_inventory(_buffer, _item.___inventory, _inventory_length, _item_data);
+            file_save_snippet_inventory(_buffer, _item.get_inventory(), _inventory_length, _item_data);
         }
         
         buffer_poke(_buffer, _seek, buffer_u32, buffer_tell(_buffer));

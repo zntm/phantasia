@@ -68,7 +68,7 @@ function file_load_snippet_inventory(_buffer, _length, _item_data, _datafixer)
         
         if (_inventory_length > 0)
         {
-            _item.___inventory = file_load_snippet_inventory(_buffer, _inventory_length, _item_data, _datafixer);
+            _item.set_inventory(file_load_snippet_inventory(_buffer, _inventory_length, _item_data, _datafixer));
         }
         
         _inventory[@ i] = _item;
