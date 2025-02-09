@@ -87,7 +87,7 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:shrine_empty",
+			"id": "phantasia:shrine/empty",
 			"chance": 0.0007
 		},
 		{

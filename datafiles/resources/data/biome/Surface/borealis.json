@@ -75,7 +75,7 @@
 			"chance": 0.09
 		},
 		{
-			"id": "phantasia:shrine_empty",
+			"id": "phantasia:shrine/empty",
 			"chance": 0.0003
 		},
 		{

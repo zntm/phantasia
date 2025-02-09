@@ -1,6 +1,6 @@
 {
 	"background": "phantasia:greenia",
-	"map_colour": "#FF0000",
+	"map_colour": "#EEFFA3",
 	"sky_colour": {
 		"base": [ "#180738", "#5F91FE", "#C4502D", "#000019" ],
 		"gradient": [ "#2A1504", "#244FE9", "#DA651C", "#020008" ]
@@ -65,10 +65,6 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:campsite/generic",
-			"chance": 0.006
-		},
-		{
 			"id": "phantasia:clump/moss",
 			"chance": 0.01
 		},
@@ -77,8 +73,8 @@
 			"chance": 0.03
 		},
 		{
-			"id": "phantasia:tree/cherry/generic",
-			"chance": 0.01
+			"id": "phantasia:tree/birch/golden",
+			"chance": 0.008
 		},
 		{
 			"id": "phantasia:tree/oak",
@@ -86,7 +82,7 @@
 		},
 		{
 			"id": "phantasia:shrine/empty",
-			"chance": 0.0009
+			"chance": 0.0006
 		},
 		{
 			"id": "phantasia:well_empty",
@@ -95,7 +91,7 @@
 	],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:grass_block_greenia" ],
-		"chance": 0.8,
+		"chance": 0.7,
 		"tiles": [
 			{
 				"item_id": "phantasia:short_grass_greenia",
@@ -114,51 +110,15 @@
 				"weight": 3
 			},
 			{
-				"item_id": "phantasia:rose",
-				"weight": 1
+				"item_id": "phantasia:sunflower",
+				"weight": 7
 			},
 			{
-				"item_id": "phantasia:yellow_growler",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:daisy",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:blue_bells",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:persian_speedwell",
+				"item_id": "phantasia:dandelion",
 				"weight": 2
 			},
 			{
-				"item_id": "phantasia:purple_dendrobium",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:small_sweet_pea",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:sweet_pea",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:lily_of_the_valley",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:high_society",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:violets",
-				"weight": 1
-			},
-			{
-				"item_id": "phantasia:petunia",
+				"item_id": "phantasia:daisy",
 				"weight": 1
 			}
 		]
