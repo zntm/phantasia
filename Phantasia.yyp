@@ -883,6 +883,7 @@
     {"$GMIncludedFile":"","%Name":"generic.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/geode","name":"generic.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"basalt.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/pile","name":"basalt.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"salt.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/pile","name":"salt.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"stone.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/pile","name":"stone.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"cactus.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/tall_plant","name":"cactus.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"cattail.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/tall_plant","name":"cattail.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"acacia.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/tree","name":"acacia.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},

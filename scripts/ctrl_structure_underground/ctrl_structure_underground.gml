@@ -2,6 +2,8 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 {
     debug_timer("timer_structure_cave");
     
+    show_debug_message(global.structure_checked_y);
+    
     static __carve_cave = [];
     
 	var _world = global.world;
@@ -13,7 +15,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
     
     var _cave_ystart = _world_data.get_cave_ystart();
     
-    _yend = min(_yend, _world_data.get_world_height());
+    _yend = min(_yend, _world_data.get_world_height() - 1);
     
 	var _seed = _world.seed;
     var _seed_half = round(_seed / 2);

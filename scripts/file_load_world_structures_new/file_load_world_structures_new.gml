@@ -59,12 +59,6 @@ function file_load_world_structures_new(_buffer)
     {
         var _name = string(buffer_read(_buffer, buffer_s32));
         
-        var _y1 = buffer_read(_buffer, buffer_u16);
-        var _y2 = buffer_read(_buffer, buffer_u16);
-        
-        global.structure_checked_y[$ _name] = [
-            _y1,
-            _y2
-        ];
+        global.structure_checked_y[$ _name] = buffer_read(_buffer, buffer_u32);
     }
 }

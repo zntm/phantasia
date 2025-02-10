@@ -64,8 +64,8 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     
     var _structure_checked_y = global.structure_checked_y;
     
-    var _xstart2 = floor(_xstart / CHUNK_SIZE_WIDTH);
-    var _xend2 = ceil(_xend / CHUNK_SIZE_WIDTH);
+    var _xstart2 = round(_xstart / CHUNK_SIZE_X);
+    var _xend2 = round(_xend / CHUNK_SIZE_X);
     
     for (var j = _xstart2; j < _xend2; ++j)
     {
@@ -74,10 +74,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
         
         if (_range == undefined)
         {
-            global.structure_checked_y[$ _name] = [
-                _ystart,
-                _yend
-            ];
+            global.structure_checked_y[$ _name] = (_yend << 16) | _ystart;
             
             var _x2 = j * CHUNK_SIZE_X;
             
@@ -86,16 +83,17 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             continue;
         }
         
-        var _min = _range[0];
-        var _max = _range[1];
+        var _min = _range & 0xffff;
+        var _max = (_range >> 16) & 0xffff;
         
         var _min2 = (_ystart < _min);
         var _max2 = (_yend > _max);
         
+        var _generate = false;
+        
         if (_min2) && (_max2)
         {
-            global.structure_checked_y[$ _name][@ 0] = _ystart;
-            global.structure_checked_y[$ _name][@ 1] = _yend;
+            global.structure_checked_y[$ _name] = (_yend << 16) | _ystart;
             
             var _x2 = j * CHUNK_SIZE_X;
             
@@ -106,7 +104,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
         
         if (_min2)
         {
-            global.structure_checked_y[$ _name][@ 0] = _ystart;
+            global.structure_checked_y[$ _name] = (_range & 0xffff_0000) | _ystart;
             
             var _x2 = j * CHUNK_SIZE_X;
             
@@ -117,7 +115,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
         
         if (_max2)
         {
-            global.structure_checked_y[$ _name][@ 1] = _yend;
+            global.structure_checked_y[$ _name] = (_range & 0x0000_ffff) | (_yend << 16);
             
             var _x2 = j * CHUNK_SIZE_X;
             

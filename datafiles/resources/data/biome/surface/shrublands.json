@@ -15,7 +15,7 @@
 	"tiles": {
 		"crust_top": {
 			"solid": {
-				"id": "phantasia:dirt"
+				"id": "phantasia:grass_block_savannah"
 			},
 			"wall": {
 				"id": "phantasia:dirt_wall"
@@ -39,7 +39,7 @@
 		}
 	},
 	"creatures": {
-		"can_spawn_on": [ "phantasia:dirt" ],
+		"can_spawn_on": [ "phantasia:grass_block_savannah", "phantasia:dirt" ],
 		"passive_spawn_chance": 0.02,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
@@ -74,7 +74,7 @@
 		}
 	],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:dirt" ],
+		"can_spawn_on": [ "phantasia:grass_block_savannah", "phantasia:dirt" ],
 		"chance": 0.19,
 		"tiles": [
 			{

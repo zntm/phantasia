@@ -41,13 +41,9 @@ function file_save_world_structures()
     for (var i = 0; i < _length; ++i)
     {
         var _name = _names[i];
-         
-        var _ = _structure_checked_y[$ _name];
         
         buffer_write(_buffer, buffer_s32, real(_name));
-        
-        buffer_write(_buffer, buffer_u16, _[0]);
-        buffer_write(_buffer, buffer_u16, _[1]);
+        buffer_write(_buffer, buffer_u32, _structure_checked_y[$ _name]);
     }
     
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
