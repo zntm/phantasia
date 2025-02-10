@@ -67,15 +67,15 @@
 		},
 		{
 			"id": "phantasia:tree/cherry/generic",
-			"chance": 0.14
+			"chance": 0.11
 		},
 		{
 			"id": "phantasia:tree/cherry/blonde",
-			"chance": 0.01
+			"chance": 0.02
 		},
 		{
 			"id": "phantasia:bamboo/generic",
-			"chance": 0.007
+			"chance": 0.008
 		}
 	],
 	"foliage": {

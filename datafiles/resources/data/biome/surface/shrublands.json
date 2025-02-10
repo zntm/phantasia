@@ -66,11 +66,11 @@
 	"structures": [
 		{
 			"id": "phantasia:pile/stone",
-			"chance": 0.008
+			"chance": 0.012
 		},
 		{
 			"id": "phantasia:tree/oak",
-			"chance": 0.001
+			"chance": 0.003
 		}
 	],
 	"foliage": {

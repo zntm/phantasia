@@ -63,15 +63,19 @@
 	"structures": [
 		{
 			"id": "phantasia:clump/moss",
-			"chance": 0.006
+			"chance": 0.007
 		},
 		{
 			"id": "phantasia:tree/birch/generic",
-			"chance": 0.12
+			"chance": 0.1
 		},
 		{
 			"id": "phantasia:tree/birch/gold",
-			"chance": 0.03
+			"chance": 0.02
+		},
+		{
+			"id": "phantasia:pile/stone",
+			"chance": 0.003
 		}
 	],
 	"foliage": {

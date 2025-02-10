@@ -91,6 +91,10 @@
 		{
 			"id": "phantasia:tree/blizzard",
 			"chance": 0.004
+		},
+		{
+			"id": "phantasia:pile/stone",
+			"chance": 0.005
 		}
 	],
 	"foliage": {

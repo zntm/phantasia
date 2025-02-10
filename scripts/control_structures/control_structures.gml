@@ -64,8 +64,8 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     
     var _structure_checked_y = global.structure_checked_y;
     
-    var _xstart2 = round(_xstart / CHUNK_SIZE_X);
-    var _xend2 = round(_xend / CHUNK_SIZE_X);
+    var _xstart2 = round(_camera_x / CHUNK_SIZE_WIDTH) - WORLDGEN_STRUCTURE_OFFSET;
+    var _xend2 = round((_camera_x + _camera_width) / CHUNK_SIZE_WIDTH) + WORLDGEN_STRUCTURE_OFFSET;
     
     for (var j = _xstart2; j < _xend2; ++j)
     {
