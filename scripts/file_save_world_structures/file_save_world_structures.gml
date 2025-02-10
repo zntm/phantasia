@@ -29,8 +29,25 @@ function file_save_world_structures()
         
         buffer_write(_buffer, buffer_f64, _[0]);
         buffer_write(_buffer, buffer_f64, _[1]);
-        buffer_write(_buffer, buffer_f64, _[2]);
-        buffer_write(_buffer, buffer_f64, _[3]);
+    }
+    
+    var _structure_checked_y = global.structure_checked_y;
+    
+    var _names = struct_get_names(_structure_checked_y);
+    var _length = array_length(_names);
+    
+    buffer_write(_buffer, buffer_u64, _length);
+    
+    for (var i = 0; i < _length; ++i)
+    {
+        var _name = _names[i];
+         
+        var _ = _structure_checked_y[$ _name];
+        
+        buffer_write(_buffer, buffer_s32, real(_name));
+        
+        buffer_write(_buffer, buffer_u16, _[0]);
+        buffer_write(_buffer, buffer_u16, _[1]);
     }
     
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));

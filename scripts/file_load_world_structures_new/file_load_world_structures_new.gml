@@ -42,20 +42,26 @@ function file_load_world_structures_new(_buffer)
     global.structure_checked = array_create(_structure_checked_length);
     global.structure_checked_index = _structure_checked_length;
     
-    buffer_write(_buffer, buffer_u64, _structure_checked_length);
-    
     for (var i = 0; i < _structure_checked_length; ++i)
     {
         var _x1 = buffer_read(_buffer, buffer_f64);
         var _y1 = buffer_read(_buffer, buffer_f64);
-        var _x2 = buffer_read(_buffer, buffer_f64);
-        var _y2 = buffer_read(_buffer, buffer_f64);
         
         global.structure_checked[@ i] = [
             _x1,
             _y1,
-            _x2,
-            _y2
         ];
+    }
+    
+    var _structure_checked_y_length = buffer_read(_buffer, buffer_u64);
+    
+    for (var i = 0; i < _structure_checked_length; ++i)
+    {
+        var _name = string(buffer_read(_buffer, buffer_s32));
+        
+        var _y1 = buffer_read(_buffer, buffer_u16);
+        var _y2 = buffer_read(_buffer, buffer_u16);
+        
+        global.structure_checked_y[$ _name] = [ _y1, _y2 ];
     }
 }

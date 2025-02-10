@@ -82,6 +82,7 @@ if (is_exiting)
     delete global.player;
     delete global.sun_rays_y;
     delete global.sfx_diegetic_floodfill_position;
+    delete global.structure_checked_y;
     
     global.menu_bg_blur_value = 0;
     
