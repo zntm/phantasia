@@ -55,6 +55,7 @@ if (is_exiting)
     surface_free_existing(surface_hp);
     surface_free_existing(surface_inventory);
     surface_free_existing(surface_lighting);
+    surface_free_existing(surface_lighting_pixel);
     surface_free_existing(surface_mine);
     surface_free_existing(surface_snapshot);
     

@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"save_sun_rays",
+  "%Name":"file_load_world_sun_ray",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"save_sun_rays",
+  "name":"file_load_world_sun_ray",
   "parent":{
-    "name":"Saves",
-    "path":"folders/Scripts/Phantasia/Saves.yy",
+    "name":"Load",
+    "path":"folders/Scripts/File/Load.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

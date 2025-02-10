@@ -1,10 +1,10 @@
 #macro LIGHT_STRECTCH_AMOUNT 8
 
-function load_sun_rays(_camera_width)
+function file_load_world_sun_ray(_camera_width)
 {
 	global.sun_rays = array_create_ext(ceil(_camera_width / TILE_SIZE) + (LIGHT_STRECTCH_AMOUNT * 2), array_instance_sun_rays);
 	
-	var _directory = $"{global.world_directory}/{string_replace_all(global.world.realm, ":", "/")}/Sun_Rays.dat";
+	var _directory = $"{global.world_directory}/realm/{string_replace_all(global.world.realm, ":", "/")}/sun_ray.dat";
 	
 	if (!file_exists(_directory))
 	{

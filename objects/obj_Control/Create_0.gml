@@ -179,7 +179,7 @@ room_set_viewport(room, 0, true, 0, 0, _camera_width, _camera_height);
 #endregion
 
 load_inventory();
-load_sun_rays(_camera_width);
+file_load_world_sun_ray(_camera_width);
 
 #region Rich Presence
 

@@ -1,4 +1,4 @@
-function save_sun_rays(_camera_x, _camera_width)
+function file_save_world_sun_ray(_camera_x, _camera_width)
 {
 	var _buffer = buffer_create(0xffff, buffer_grow, 1);
 	
@@ -22,7 +22,7 @@ function save_sun_rays(_camera_x, _camera_width)
 	
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
 	
-	buffer_save(_buffer2, $"{global.world_directory}/realm/{string_replace_all(global.world.realm, ":", "/")}/Sun_Rays.dat");
+	buffer_save(_buffer2, $"{global.world_directory}/realm/{string_replace_all(global.world.realm, ":", "/")}/sun_ray.dat");
 	
 	buffer_delete(_buffer);
 	buffer_delete(_buffer2);

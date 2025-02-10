@@ -1,5 +1,7 @@
 function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 {
+    debug_timer("timer_structure_cave");
+    
     static __carve_cave = [];
     
 	var _world = global.world;
@@ -120,4 +122,6 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
             ++_index;
 		}
 	}
+    
+    debug_timer("timer_structure_cave", "Generated Cave Structures");
 }

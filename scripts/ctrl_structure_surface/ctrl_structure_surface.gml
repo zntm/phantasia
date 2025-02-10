@@ -1,5 +1,7 @@
 function ctrl_structure_surface(_xstart, _xend)
 {
+    debug_timer("timer_structure_surface");
+    
     var _world = global.world;
     var _realm = _world.realm;
     
@@ -50,4 +52,6 @@ function ctrl_structure_surface(_xstart, _xend)
             break;
         }
     }
+    
+    debug_timer("timer_structure_surface", "Generated Surface Structures");
 }

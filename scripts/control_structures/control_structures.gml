@@ -29,11 +29,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             global.structure_checked[@ i][@ 0] = _xstart;
             global.structure_checked[@ i][@ 1] = _xend;
             
-            debug_timer("timer_structure_surface");
-            
             ctrl_structure_surface(_xstart, _xend);
-            
-            debug_timer("timer_structure_surface", "Generate Surface Structures");
             
             break;
         }
@@ -44,11 +40,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             _xend = _min;
             
-            debug_timer("timer_structure_surface");
-            
             ctrl_structure_surface(_xstart, _xend);
-            
-            debug_timer("timer_structure_surface", "Generate Surface Structures");
             
             break;
         }
@@ -59,11 +51,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             _xstart = _max;
             
-            debug_timer("timer_structure_surface");
-            
             ctrl_structure_surface(_xstart, _xend);
-            
-            debug_timer("timer_structure_surface", "Generate Surface Structures");
             
             break;
         }
@@ -82,9 +70,9 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     for (var j = _xstart2; j < _xend2; ++j)
     {
         var _name = string(j);
-        var _checked = _structure_checked_y[$ _name];
+        var _range = _structure_checked_y[$ _name];
         
-        if (_checked == undefined)
+        if (_range == undefined)
         {
             global.structure_checked_y[$ _name] = [
                 _ystart,
@@ -93,17 +81,13 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             var _x2 = j * CHUNK_SIZE_X;
             
-            debug_timer("timer_structure_cave");
-            
             ctrl_structure_underground(_x2, _x2 + (CHUNK_SIZE_X - 1), _ystart, _yend);
-            
-            debug_timer("timer_structure_surface", "Generate Surface Structures");
             
             continue;
         }
         
-        var _min = _checked[0];
-        var _max = _checked[1];
+        var _min = _range[0];
+        var _max = _range[1];
         
         var _min2 = (_ystart < _min);
         var _max2 = (_yend > _max);
@@ -115,11 +99,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             var _x2 = j * CHUNK_SIZE_X;
             
-            debug_timer("timer_structure_cave");
-            
             ctrl_structure_underground(_x2, _x2 + (CHUNK_SIZE_X - 1), _ystart, _yend);
-            
-            debug_timer("timer_structure_cave", "Generate Cave Structures");
             
             continue;
         }
@@ -130,11 +110,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             var _x2 = j * CHUNK_SIZE_X;
             
-            debug_timer("timer_structure_cave");
-            
             ctrl_structure_underground(_x2, _x2 + (CHUNK_SIZE_X - 1), _ystart, _min);
-            
-            debug_timer("timer_structure_cave", "Generate Cave Structures");
             
             continue;
         }
@@ -145,11 +121,7 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
             
             var _x2 = j * CHUNK_SIZE_X;
             
-            debug_timer("timer_structure_cave");
-            
             ctrl_structure_underground(_x2, _x2 + (CHUNK_SIZE_X - 1), _max, _yend);
-            
-            debug_timer("timer_structure_cave", "Generate Cave Structures");
         }
     }
     
