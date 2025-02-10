@@ -25,9 +25,19 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:emustone" ],
-		"passive_spawn_chance": 0,
+		"passive_spawn_chance": 0.2,
+		"passive_spawn_amount": [ 1, 2 ],
 		"passive": {
 			"phantasia:bat": {
+				"weight": 4
+			},
+			"phantasia:zombie": {
+				"weight": 1
+			},
+			"phantasia:skeleton": {
+				"weight": 2
+			},
+			"phantasia:slime": {
 				"weight": 1
 			}
 		},

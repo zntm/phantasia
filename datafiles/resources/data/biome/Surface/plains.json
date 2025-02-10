@@ -68,6 +68,10 @@
 		{
 			"id": "phantasia:clump/moss",
 			"chance": 0.003
+		},
+		{
+			"id": "phantasia:pile/stone",
+			"chance": 0.004
 		}
 	],
 	"foliage": {

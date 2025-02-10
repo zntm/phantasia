@@ -25,17 +25,20 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:stone" ],
-		"passive_spawn_chance": 0,
-		"passive_spawn_amount": 1,
+		"passive_spawn_chance": 0.2,
+		"passive_spawn_amount": [ 1, 2 ],
 		"passive": {
 			"phantasia:bat": {
-				"weight": 1
+				"weight": 5
 			},
 			"phantasia:zombie": {
 				"weight": 1
 			},
 			"phantasia:skeleton": {
 				"weight": 1
+			},
+			"phantasia:slime": {
+				"weight": 2
 			}
 		},
 		"hostile_spawn_chance": 0,

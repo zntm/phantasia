@@ -63,7 +63,16 @@
 		"hostile_spawn_amount": [ 1, 4 ],
 		"hostile": {}
 	},
-	"structures": [],
+	"structures": [
+		{
+			"id": "phantasia:pile/stone",
+			"chance": 0.008
+		},
+		{
+			"id": "phantasia:tree/oak",
+			"chance": 0.001
+		}
+	],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:dirt" ],
 		"chance": 0.19,

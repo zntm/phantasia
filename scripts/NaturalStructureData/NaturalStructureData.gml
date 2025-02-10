@@ -202,6 +202,59 @@ global.natural_structure_data[$ "phantasia:geode"] = new NaturalStructureData()
         return _data;
     });
 
+enum NATURAL_STRUCTURE_PILE {
+    USE_STRUCTURE_VOID,
+    TILE,
+    HEIGHT_RANDOM_OFFSET,
+    START_OFFSET,
+    LENGTH
+}
+
+global.natural_structure_data[$ "phantasia:pile"] = new NaturalStructureData()
+    .set_parser(function(_parameter)
+    {
+        var _item_data = global.item_data;
+        
+        var _data = array_create(NATURAL_STRUCTURE_PILE.LENGTH);
+        
+        _data[@ NATURAL_STRUCTURE_PILE.USE_STRUCTURE_VOID] = _parameter[$ "use_structure_void"] ?? true;
+        
+        _data[@ NATURAL_STRUCTURE_PILE.TILE] = new Tile(_parameter.tile, _item_data);
+        
+        _data[@ NATURAL_STRUCTURE_PILE.HEIGHT_RANDOM_OFFSET] = _parameter.height_random_offset;
+        _data[@ NATURAL_STRUCTURE_PILE.START_OFFSET] = _parameter.start_offset;
+        
+        return _data;
+    })
+    .set_function(function(_x, _y, _width, _height, _seed, _parameter, _item_data)
+    {
+        var _rectangle = _width * _height;
+        var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_parameter[NATURAL_STRUCTURE_PILE.USE_STRUCTURE_VOID] ? STRUCTURE_VOID : TILE_EMPTY));
+        
+        var _depth = CHUNK_DEPTH_DEFAULT * _rectangle;
+        
+        var _tile = _parameter[NATURAL_STRUCTURE_PILE.TILE];
+        
+        var _height_random_offset = _parameter[NATURAL_STRUCTURE_PILE.HEIGHT_RANDOM_OFFSET];
+        
+        var _min = 1 - _height_random_offset;
+        var _max = 1 + _height_random_offset;
+        
+        var _start_offset = _parameter[NATURAL_STRUCTURE_PILE.START_OFFSET];
+        
+        for (var i = 0; i < _width; ++i)
+        {
+            var _ = min(_height, round(cos((i / _width) * pi) * _height * random_range(_min, _max)));
+            
+            for (var j = is_array_irandom(_start_offset); j < _; ++j)
+            {
+                _data[@ i + ((_height - 1 - j) * _width) + _depth] = variable_clone(_tile);
+            }
+        }
+        
+        return _data;
+    });
+
 enum NATURAL_STRUCTURE_TALL_PLANT_BAMBOO {
     USE_STRUCTURE_VOID,
     TILE,
@@ -507,59 +560,6 @@ global.natural_structure_data[$ "phantasia:tree/pine"] = new NaturalStructureDat
             else
             {
                 _data[@ _width_half + (i * _width) + _depth_wood] = variable_clone(_tile_wood).set_index(is_array_irandom(_index));
-            }
-        }
-        
-        return _data;
-    });
-
-enum NATURAL_STRUCTURE_PILE {
-    USE_STRUCTURE_VOID,
-    TILE,
-    HEIGHT_RANDOM_OFFSET,
-    START_OFFSET,
-    LENGTH
-}
-
-global.natural_structure_data[$ "phantasia:pile"] = new NaturalStructureData()
-    .set_parser(function(_parameter)
-    {
-        var _item_data = global.item_data;
-        
-        var _data = array_create(NATURAL_STRUCTURE_PILE.LENGTH);
-        
-        _data[@ NATURAL_STRUCTURE_PILE.USE_STRUCTURE_VOID] = _parameter[$ "use_structure_void"] ?? true;
-        
-        _data[@ NATURAL_STRUCTURE_PILE.TILE] = new Tile(_parameter.tile, _item_data);
-        
-        _data[@ NATURAL_STRUCTURE_PILE.HEIGHT_RANDOM_OFFSET] = _parameter.height_random_offset;
-        _data[@ NATURAL_STRUCTURE_PILE.START_OFFSET] = _parameter.start_offset;
-        
-        return _data;
-    })
-    .set_function(function(_x, _y, _width, _height, _seed, _parameter, _item_data)
-    {
-        var _rectangle = _width * _height;
-        var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_parameter[NATURAL_STRUCTURE_PILE.USE_STRUCTURE_VOID] ? STRUCTURE_VOID : TILE_EMPTY));
-        
-        var _depth = CHUNK_DEPTH_DEFAULT * _rectangle;
-        
-        var _tile = _parameter[NATURAL_STRUCTURE_PILE.TILE];
-        
-        var _height_random_offset = _parameter[NATURAL_STRUCTURE_PILE.HEIGHT_RANDOM_OFFSET];
-        
-        var _min = 1 - _height_random_offset;
-        var _max = 1 + _height_random_offset;
-        
-        var _start_offset = _parameter[NATURAL_STRUCTURE_PILE.START_OFFSET];
-        
-        for (var i = 0; i < _width; ++i)
-        {
-            var _ = min(_height, round(cos((i / _width) * pi) * _height * random_range(_min, _max)));
-            
-            for (var j = is_array_irandom(_start_offset); j < _; ++j)
-            {
-                _data[@ i + ((_height - 1 - j) * _width) + _depth] = variable_clone(_tile);
             }
         }
         
