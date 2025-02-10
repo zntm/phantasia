@@ -2,8 +2,6 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 {
     debug_timer("timer_structure_cave");
     
-    show_debug_message(global.structure_checked_y);
-    
     static __carve_cave = [];
     
 	var _world = global.world;
