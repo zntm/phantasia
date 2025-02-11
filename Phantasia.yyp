@@ -1,5 +1,5 @@
 {
-  "$GMProject":"",
+  "$GMProject":"v1",
   "%Name":"Phantasia",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
@@ -214,6 +214,7 @@
     {"$GMFolder":"","%Name":"Settings","folderPath":"folders/Sprites/Menu/Settings.yy","name":"Settings","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"World Creation","folderPath":"folders/Sprites/Menu/World Creation.yy","name":"World Creation","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
+  "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"LICENSE.md","CopyToMask":-1,"filePath":"datafiles","name":"LICENSE.md","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"README.md","CopyToMask":-1,"filePath":"datafiles","name":"README.md","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -921,7 +922,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.1300.0.739",
   },
   "name":"Phantasia",
   "resources":[
@@ -1325,6 +1326,8 @@
     {"id":{"name":"toast_recipe","path":"scripts/toast_recipe/toast_recipe.yy",},},
     {"id":{"name":"unix_to_datetime","path":"scripts/unix_to_datetime/unix_to_datetime.yy",},},
     {"id":{"name":"uuid_create","path":"scripts/uuid_create/uuid_create.yy",},},
+    {"id":{"name":"value_get","path":"scripts/value_get/value_get.yy",},},
+    {"id":{"name":"value_parse","path":"scripts/value_parse/value_parse.yy",},},
     {"id":{"name":"world_init_bg_clouds","path":"scripts/world_init_bg_clouds/world_init_bg_clouds.yy",},},
     {"id":{"name":"world_spawn_player","path":"scripts/world_spawn_player/world_spawn_player.yy",},},
     {"id":{"name":"WorldData","path":"scripts/WorldData/WorldData.yy",},},
@@ -2537,99 +2540,99 @@
   "TextureGroups":[
     {"$GMTextureGroup":"","%Name":"Default","autocrop":true,"border":8,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
-          "compressFormat":"bz2",
-          "loadType":"default",
           "autocrop":"false",
+          "compressFormat":"bz2",
+          "groupParent":"null",
+          "loadType":"default",
         },
       },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Default","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Menu","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
-          "compressFormat":"bz2",
-          "loadType":"default",
           "autocrop":"false",
+          "compressFormat":"bz2",
+          "groupParent":"null",
+          "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Menu","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Menu","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Icons","autocrop":false,"border":0,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
           "compressFormat":"bz2",
+          "groupParent":"null",
           "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Icons","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Icons","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Tiles","autocrop":false,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
           "compressFormat":"bz2",
+          "groupParent":"null",
           "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Tiles","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMTextureGroup":"","%Name":"Boss_Surface_Greenia","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Surface_Greenia","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Tiles","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Boss_Surface_Greenia","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Surface_Greenia","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Boss_Cave_Lumin","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
           "compressFormat":"bz2",
+          "groupParent":"null",
           "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Lumin","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMTextureGroup":"","%Name":"Boss_Surface_Swamplands","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Surface_Swamplands","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Lumin","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Boss_Surface_Swamplands","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Surface_Swamplands","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Pets","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
           "compressFormat":"bz2",
+          "groupParent":"null",
           "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Pets","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Pets","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Creatures","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
           "compressFormat":"bz2",
+          "groupParent":"null",
           "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Creatures","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMTextureGroup":"","%Name":"Boss_Cave_Verdant","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Verdant","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMTextureGroup":"","%Name":"Boss_Cave_Obitus","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Obitus","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMTextureGroup":"","%Name":"Boss_Cave_Araneae","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Araneae","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Creatures","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Boss_Cave_Verdant","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Verdant","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Boss_Cave_Obitus","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Obitus","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Boss_Cave_Araneae","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Araneae","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Boss_Cave_Prisma","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
-          "compressFormat":"bz2",
-          "loadType":"default",
           "autocrop":"false",
+          "compressFormat":"bz2",
+          "groupParent":"null",
+          "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Prisma","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Boss_Cave_Prisma","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Tools","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
-          "compressFormat":"bz2",
-          "loadType":"default",
           "autocrop":"false",
+          "compressFormat":"bz2",
+          "groupParent":"null",
+          "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Tools","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Tools","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Items","autocrop":false,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
-          "compressFormat":"bz2",
-          "loadType":"default",
           "autocrop":"false",
+          "compressFormat":"bz2",
+          "groupParent":"null",
+          "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Items","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Items","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Foliage","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
-          "compressFormat":"bz2",
-          "loadType":"default",
           "autocrop":"false",
+          "compressFormat":"bz2",
+          "groupParent":"null",
+          "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Foliage","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Foliage","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Liquid","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
-          "groupParent":"null",
-          "compressFormat":"bz2",
-          "loadType":"default",
           "autocrop":"false",
+          "compressFormat":"bz2",
+          "groupParent":"null",
+          "loadType":"default",
         },
-      },"customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Liquid","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+      },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Liquid","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
   ],
 }

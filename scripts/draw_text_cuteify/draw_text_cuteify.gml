@@ -234,7 +234,7 @@ function draw_text_cuteify(_x, _y, _string, _xscale = 1, _yscale = 1, _angle = 0
     
     var _yoffset = 0;
     
-    if (_valign == fa_center)
+    if (_valign == fa_middle)
     {
         _yoffset -= (_string_height * (_index2 + 1)) / 2;
     }

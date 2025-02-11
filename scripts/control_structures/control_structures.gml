@@ -10,14 +10,14 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     var _structure_checked = global.structure_checked;
     var _structure_checked_length = array_length(_structure_checked);
     
-    var i;
+    var i = 0;
     
     var _x = round((_camera_x + (_camera_width / 2)) / TILE_SIZE);
     
     var _xstart = _x - (CHUNK_SIZE_X * WORLDGEN_STRUCTURE_OFFSET);
     var _xend   = _x + (CHUNK_SIZE_X * WORLDGEN_STRUCTURE_OFFSET);
 
-    for (i = 0; i < _structure_checked_length; ++i)
+    for (; i < _structure_checked_length; ++i)
     {
         var _structure = _structure_checked[i];
         
@@ -59,8 +59,8 @@ function control_structures(_camera_x, _camera_y, _camera_width, _camera_height)
     
     var _y = round((_camera_y + (_camera_height / 2)) / TILE_SIZE);
     
-    var _ystart = max(0, _y - (CHUNK_SIZE_Y * WORLDGEN_STRUCTURE_OFFSET));
-    var _yend   = min(_world_data.get_world_height() - 1, _y + (CHUNK_SIZE_Y * WORLDGEN_STRUCTURE_OFFSET));
+    var _ystart = max(_y - (CHUNK_SIZE_Y * WORLDGEN_STRUCTURE_OFFSET), 0);
+    var _yend   = min(_y + (CHUNK_SIZE_Y * WORLDGEN_STRUCTURE_OFFSET), _world_data.get_world_height() - 1);
     
     var _structure_checked_y = global.structure_checked_y;
     

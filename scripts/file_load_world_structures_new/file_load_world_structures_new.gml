@@ -2,7 +2,7 @@ function file_load_world_structures_new(_buffer)
 {
 	var _structure_data = global.structure_data;
 	
-	var _length = buffer_read(_buffer, buffer_u64);
+	var _length = buffer_read(_buffer, buffer_u32);
 	
 	repeat (_length)
 	{
@@ -37,15 +37,15 @@ function file_load_world_structures_new(_buffer)
 		}
     }
     
-    var _structure_checked_length = buffer_read(_buffer, buffer_u64);
+    var _structure_checked_length = buffer_read(_buffer, buffer_u32);
     
     global.structure_checked = array_create(_structure_checked_length);
     global.structure_checked_index = _structure_checked_length;
     
     for (var i = 0; i < _structure_checked_length; ++i)
     {
-        var _x1 = buffer_read(_buffer, buffer_f64);
-        var _x2 = buffer_read(_buffer, buffer_f64);
+        var _x1 = buffer_read(_buffer, buffer_s32);
+        var _x2 = buffer_read(_buffer, buffer_s32);
         
         global.structure_checked[@ i] = [
             _x1,
@@ -53,7 +53,7 @@ function file_load_world_structures_new(_buffer)
         ];
     }
     
-    var _structure_checked_y_length = buffer_read(_buffer, buffer_u64);
+    var _structure_checked_y_length = buffer_read(_buffer, buffer_u32);
     
     for (var i = 0; i < _structure_checked_length; ++i)
     {

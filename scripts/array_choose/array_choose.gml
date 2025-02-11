@@ -1,6 +1,8 @@
-function array_choose(_array)
+function array_choose(_array, _length = undefined)
 {
 	gml_pragma("forceinline");
+    
+    _length ??= array_length(_array);
 	
-	return _array[irandom(array_length(_array) - 1)];
+	return _array[irandom(_length - 1)];
 }

@@ -7,7 +7,7 @@ function file_save_world_structures()
 	buffer_write(_buffer, buffer_u8, VERSION_NUMBER.PATCH);
 	buffer_write(_buffer, buffer_u8, VERSION_NUMBER.TYPE);
 	
-	buffer_write(_buffer, buffer_u64, instance_number(obj_Structure));
+	buffer_write(_buffer, buffer_u32, instance_number(obj_Structure));
 	
 	with (obj_Structure)
 	{
@@ -21,14 +21,14 @@ function file_save_world_structures()
     var _structure_checked = global.structure_checked;
     var _structure_checked_length = array_length(_structure_checked);
     
-    buffer_write(_buffer, buffer_u64, _structure_checked_length);
+    buffer_write(_buffer, buffer_u32, _structure_checked_length);
     
     for (var i = 0; i < _structure_checked_length; ++i)
     {
         var _ = _structure_checked[i];
         
-        buffer_write(_buffer, buffer_f64, _[0]);
-        buffer_write(_buffer, buffer_f64, _[1]);
+        buffer_write(_buffer, buffer_s32, _[0]);
+        buffer_write(_buffer, buffer_s32, _[1]);
     }
     
     var _structure_checked_y = global.structure_checked_y;
@@ -36,7 +36,7 @@ function file_save_world_structures()
     var _names = struct_get_names(_structure_checked_y);
     var _length = array_length(_names);
     
-    buffer_write(_buffer, buffer_u64, _length);
+    buffer_write(_buffer, buffer_u32, _length);
     
     for (var i = 0; i < _length; ++i)
     {

@@ -517,6 +517,8 @@
     {"name":"toast_recipe","order":1,"path":"scripts/toast_recipe/toast_recipe.yy",},
     {"name":"unix_to_datetime","order":26,"path":"scripts/unix_to_datetime/unix_to_datetime.yy",},
     {"name":"uuid_create","order":22,"path":"scripts/uuid_create/uuid_create.yy",},
+    {"name":"value_get","order":46,"path":"scripts/value_get/value_get.yy",},
+    {"name":"value_parse","order":45,"path":"scripts/value_parse/value_parse.yy",},
     {"name":"world_init_bg_clouds","order":32,"path":"scripts/world_init_bg_clouds/world_init_bg_clouds.yy",},
     {"name":"world_spawn_player","order":33,"path":"scripts/world_spawn_player/world_spawn_player.yy",},
     {"name":"WorldData","order":1,"path":"scripts/WorldData/WorldData.yy",},
