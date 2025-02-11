@@ -1,0 +1,21 @@
+{
+	"width": [ 7, 9, 11 ],
+	"height": [ 8, 12 ],
+	"placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": 0
+		}
+	},
+	"data": {
+		"function": "phantasia:tree/generic",
+		"parameter": {
+			"tile_wood": "phantasia:blizzard_wood",
+			"tile_leaves": "phantasia:blizzard_leaves",
+			"index": 1,
+			"index_top": 2,
+			"index_bottom": 3
+		}
+	}
+}

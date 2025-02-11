@@ -1,0 +1,166 @@
+{
+	"background": "phantasia:greenia",
+	"map_colour": "#FF0000",
+	"sky_colour": {
+		"base": [ "#180738", "#5F91FE", "#C4502D", "#000019" ],
+		"gradient": [ "#2A1504", "#244FE9", "#DA651C", "#020008" ]
+	},
+	"light_colour": [
+		"#374A91",
+		"#FFFFFF",
+		"#C68B69",
+		"#141B35"
+	],
+	"music": [ "phantasia:another_day", "phantasia:the_other_day", "phantasia:and_so_it_begins", "phantasia:hocus_pocus", "phantasia:liminality", "phantasia:soliloquy" ],
+	"tiles": {
+		"crust_top": {
+			"solid": {
+				"id": "phantasia:grass_block_greenia"
+			},
+			"wall": {
+				"id": "phantasia:dirt_wall"
+			}
+		},
+		"crust_bottom": {
+			"solid": {
+				"id": "phantasia:dirt"
+			},
+			"wall": {
+				"id": "phantasia:dirt_wall"
+			}
+		},
+		"stone": {
+			"solid": {
+				"id": "phantasia:dirt"
+			},
+			"wall": {
+				"id": "phantasia:dirt_wall"
+			}
+		}
+	},
+	"creatures": {
+		"can_spawn_on": [ "phantasia:grass_block_greenia", "phantasia:dirt" ],
+		"passive_spawn_chance": 1,
+		"passive_spawn_amount": [ 1, 4 ],
+		"passive": {
+			"phantasia:chicken": {
+				"weight": 2
+			},
+			"phantasia:fox": {
+				"weight": 1
+			},
+			"phantasia:bunny": {
+				"weight": 3
+			},
+			"phantasia:snail": {
+				"weight": 1
+			},
+			"phantasia:cow": {
+				"weight": 2
+			}
+		},
+		"hostile_spawn_chance": 0,
+		"hostile_spawn_amount": [ 1, 4 ],
+		"hostile": {}
+	},
+	"structures": [
+		{
+			"id": "phantasia:campsite/generic",
+			"chance": 0.006
+		},
+		{
+			"id": "phantasia:clump/moss",
+			"chance": 0.01
+		},
+		{
+			"id": "phantasia:tree/birch/generic",
+			"chance": 0.03
+		},
+		{
+			"id": "phantasia:tree/cherry/generic",
+			"chance": 0.01
+		},
+		{
+			"id": "phantasia:tree/oak",
+			"chance": 0.04
+		},
+		{
+			"id": "phantasia:shrine/empty",
+			"chance": 0.0009
+		},
+		{
+			"id": "phantasia:well_empty",
+			"chance": 0.0001
+		}
+	],
+	"foliage": {
+		"can_spawn_on": [ "phantasia:grass_block_greenia" ],
+		"chance": 0.8,
+		"tiles": [
+			{
+				"item_id": "phantasia:short_grass_greenia",
+				"weight": 3
+			},
+			{
+				"item_id": "phantasia:tall_grass_greenia",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:rocks",
+				"weight": 4
+			},
+			{
+				"item_id": "phantasia:twig",
+				"weight": 3
+			},
+			{
+				"item_id": "phantasia:rose",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:yellow_growler",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:daisy",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:blue_bells",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:persian_speedwell",
+				"weight": 2
+			},
+			{
+				"item_id": "phantasia:purple_dendrobium",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:small_sweet_pea",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:sweet_pea",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:lily_of_the_valley",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:high_society",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:violets",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:petunia",
+				"weight": 1
+			}
+		]
+	}
+}

@@ -1,0 +1,148 @@
+{
+	"background": "phantasia:borealis",
+	"map_colour": "#00BFFF",
+	"sky_colour": {
+		"base": [
+			"#180738",
+			"#5F91FE",
+			"#C4502D",
+			"#000019"
+		],
+		"gradient": [
+			"#2A1504",
+			"#244FE9",
+			"#DA651C",
+			"#020008"
+		]
+	},
+	"light_colour": [
+		"#374A91",
+		"#FFFFFF",
+		"#C68B69",
+		"#141B35"
+	],
+	"music": [
+		"phantasia:lichen",
+		"phantasia:fall",
+		"phantasia:hocus_pocus",
+		"phantasia:liminality",
+		"phantasia:soliloquy"
+	],
+	"tiles": {
+		"crust_top": {
+			"solid": {
+				"id": "phantasia:grass_block_tundra"
+			},
+			"wall": {
+				"id": "phantasia:dirt_wall"
+			}
+		},
+		"crust_bottom": {
+			"solid": {
+				"id": "phantasia:dirt"
+			},
+			"wall": {
+				"id": "phantasia:dirt_wall"
+			}
+		},
+		"stone": {
+			"solid": {
+				"id": "phantasia:kyanite"
+			},
+			"wall": {
+				"id": "phantasia:kyanite_wall"
+			}
+		}
+	},
+	"creatures": {
+		"can_spawn_on": [
+			"phantasia:grass_block_tundra",
+			"phantasia:dirt"
+		],
+		"passive_spawn_chance": 0.02,
+		"passive_spawn_amount": [
+			1,
+			2
+		],
+		"passive": {
+			"phantasia:fox": {
+				"weight": 1
+			},
+			"phantasia:bunny": {
+				"weight": 1
+			},
+			"phantasia:goat": {
+				"weight": 1
+			}
+		},
+		"hostile_spawn_chance": 0,
+		"hostile_spawn_amount": 0,
+		"hostile": {}
+	},
+	"structures": [
+		{
+			"id": "phantasia:shrine/empty",
+			"chance": 0.0007
+		},
+		{
+			"id": "phantasia:tree/pine",
+			"chance": 0.009
+		},
+		{
+			"id": "phantasia:tree/blizzard",
+			"chance": 0.004
+		},
+		{
+			"id": "phantasia:pile/stone",
+			"chance": 0.005
+		}
+	],
+	"foliage": {
+		"can_spawn_on": [
+			"phantasia:grass_block_tundra"
+		],
+		"chance": 0.7,
+		"tiles": [
+			{
+				"item_id": "phantasia:short_grass_tundra",
+				"weight": 3
+			},
+			{
+				"item_id": "phantasia:tall_grass_tundra",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:icelea",
+				"weight": 3
+			},
+			{
+				"item_id": "phantasia:lily_of_the_valley",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:snow_pile",
+				"weight": 3
+			},
+			{
+				"item_id": "phantasia:forget_me_not",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:anemone",
+				"weight": 2
+			},
+			{
+				"item_id": "phantasia:harebell",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:twig",
+				"weight": 3
+			},
+			{
+				"item_id": "phantasia:rocks",
+				"weight": 3
+			}
+		]
+	}
+}

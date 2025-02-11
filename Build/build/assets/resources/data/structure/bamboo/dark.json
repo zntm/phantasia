@@ -1,0 +1,21 @@
+{
+	"width": 1,
+	"height": [ 10, 18 ],
+	"placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": 0
+		}
+	},
+	"data": {
+		"function": "phantasia:tall_plant/bamboo",
+		"parameter": {
+			"tile": "phantasia:dark_bamboo",
+			"index": [ 1, 2 ],
+			"index_sheath": 3,
+			"index_top": 4,
+			"sheath_length": [ 2, 6 ]
+		}
+	}
+}

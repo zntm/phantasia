@@ -19,11 +19,11 @@ function value_get(_value)
     
     if (_type == VALUE_TYPE.RANDOM)
     {
-        return random(_value[1], _value[2]);
+        return random_range(_value[1], _value[2]);
     }
     
     if (_type == VALUE_TYPE.IRANDOM)
     {
-        return irandom(_value[1], _value[2]);
+        return irandom_range(_value[1], _value[2]);
     }
 }

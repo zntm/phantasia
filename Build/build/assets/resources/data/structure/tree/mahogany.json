@@ -1,0 +1,21 @@
+{
+	"width": [ 7, 9 ],
+	"height": [ 7, 11 ],
+	"placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": 0
+		}
+	},
+	"data": {
+		"function": "phantasia:tree/generic",
+		"parameter": {
+			"tile_wood": "phantasia:mahogany_wood",
+			"tile_leaves": "phantasia:mahogany_leaves",
+			"index": 1,
+			"index_top": 2,
+			"index_bottom": 3
+		}
+	}
+}

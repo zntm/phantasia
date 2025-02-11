@@ -1,0 +1,126 @@
+{
+	"background": "phantasia:greenia",
+	"map_colour": "#00009E",
+	"sky_colour": {
+		"base": [ "#180738", "#5F91FE", "#C4502D", "#000019" ],
+		"gradient": [ "#2A1504", "#244FE9", "#DA651C", "#020008" ]
+	},
+	"light_colour": [
+		"#374A91",
+		"#FFFFFF",
+		"#C68B69",
+		"#141B35"
+	],
+	"music": [ "phantasia:12_hours_at_ease", "phantasia:wetlands", "phantasia:hocus_pocus" ],
+	"tiles": {
+		"crust_top": {
+			"solid": {
+				"id": "phantasia:grass_block_amazonia"
+			},
+			"wall": {
+				"id": "phantasia:dirt_wall"
+			}
+		},
+		"crust_bottom": {
+			"solid": {
+				"id": "phantasia:dirt"
+			},
+			"wall": {
+				"id": "phantasia:dirt_wall"
+			}
+		},
+		"stone": {
+			"solid": {
+				"id": "phantasia:dirt"
+			},
+			"wall": {
+				"id": "phantasia:dirt_wall"
+			}
+		}
+	},
+	"creatures": {
+		"can_spawn_on": [ "phantasia:grass_block_amazonia", "phantasia:dirt" ],
+		"passive_spawn_chance": 0.02,
+		"passive_spawn_amount": [ 1, 4 ],
+		"passive": {
+			"phantasia:cow": {
+				"weight": 1
+			},
+			"phantasia:capybara": {
+				"weight": 1
+			},
+			"phantasia:toad": {
+				"weight": 1
+			},
+			"phantasia:tortoise": {
+				"weight": 1
+			},
+			"phantasia:parrot": {
+				"weight": 1
+			}
+		},
+		"hostile_spawn_chance": 0,
+		"hostile_spawn_amount": [ 1, 4 ],
+		"hostile": {}
+	},
+	"structures": [
+		{
+			"id": "phantasia:bamboo/generic",
+			"chance": 0.19
+		},
+		{
+			"id": "phantasia:bamboo/dark",
+			"chance": 0.05
+		}
+	],
+	"foliage": {
+		"can_spawn_on": [ "phantasia:grass_block_amazonia", "phantasia:mud" ],
+		"chance": 0.8,
+		"tiles": [
+			{
+				"item_id": "phantasia:short_grass_amazonia",
+				"weight": 4
+			},
+			{
+				"item_id": "phantasia:tall_grass_amazonia",
+				"weight": 4
+			},
+			{
+				"item_id": "phantasia:rose",
+				"weight": 2
+			},
+			{
+				"item_id": "phantasia:high_society",
+				"weight": 2
+			},
+			{
+				"item_id": "phantasia:lily_of_the_valley",
+				"weight": 2
+			},
+			{
+				"item_id": "phantasia:red_mushroom",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:brown_mushroom",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:venus_fly_trap",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:heliconia",
+				"weight": 2
+			},
+			{
+				"item_id": "phantasia:rocks",
+				"weight": 4
+			},
+			{
+				"item_id": "phantasia:twig",
+				"weight": 3
+			}
+		]
+	}
+}

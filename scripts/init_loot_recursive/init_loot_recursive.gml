@@ -27,9 +27,9 @@ function init_loot_recursive(_namespace, _directory, _id)
         
         if (_id != undefined)
         {
-            global.loot_data[$ _id] ??= [];
+            global.loot_data[$ $"{_namespace}:{_id}"] ??= [];
             
-            array_push(global.loot_data[$ _id], _name);
+            array_push(global.loot_data[$ $"{_namespace}:{_id}"], $"{_namespace}:{_name}");
         }
         
         debug_timer("init_data_loot");

@@ -2899,8 +2899,8 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID)
                 
                 structure_export(
                     _tile[$ "variable.structure_id"],
-                    round(_instance.bbox_left   / TILE_SIZE),
-                    round(_instance.bbox_top    / TILE_SIZE),
+                    ceil(_instance.bbox_left    / TILE_SIZE),
+                    ceil(_instance.bbox_top     / TILE_SIZE),
                     floor(_instance.bbox_right  / TILE_SIZE),
                     floor(_instance.bbox_bottom / TILE_SIZE)
                 );

@@ -194,7 +194,16 @@ function chunk_generate(_world, _seed, _world_data)
                         {
                             var _loot_id = _tile[$ "variable.loot_id"];
                             
-                            var _container_id = choose_weighted(_loot_data[$ _loot_id].container).item_id;
+                            var _data3 = _loot_data[$ _loot_id];
+                            
+                            if (is_array(_data3))
+                            {
+                                _loot_id = array_choose(_data3);
+                                
+                                _data3 = _loot_data[$ _loot_id];
+                            }
+                            
+                            var _container_id = choose_weighted(_data3.container).item_id;
                             
                             if (_container_id == TILE_EMPTY) continue;
                             

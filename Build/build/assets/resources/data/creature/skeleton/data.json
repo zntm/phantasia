@@ -1,0 +1,28 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 1,
+        "moving": 1
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 16,
+    "type": {
+        "hostility": "hostile",
+        "movement": "ground"
+    },
+    "sfx": "phantasia:creature.skeleton",
+    "drops": [
+        {
+            "item_id": "phantasia:bone",
+            "amount": [ 1, 3 ],
+            "chance": 0.85
+        }
+    ],
+    "attributes": {
+        "movement_speed": 0.68,
+        "attack_damage": 3
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "type": "constant",
+    "attribute": "movement_speed",
+    "calculation": [
+        {
+            "value": "phantasia:level",
+            "type": "phantasia:multiply"
+        }
+    ],
+    "base_value": 1,
+    "particle": {
+        "id": "phantasia:effect",
+        "chance": 0.1,
+        "colour": "#C4ECFF"
+    }
+}

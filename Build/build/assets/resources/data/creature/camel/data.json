@@ -1,0 +1,22 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 1,
+        "moving": 1
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 32,
+    "type": {
+        "hostility": "passive",
+        "movement": "ground"
+    },
+    "attributes": {
+        "movement_speed": 0.7
+    },
+    "sprite_index": {
+        "default": [ 0, 1 ]
+    }
+}

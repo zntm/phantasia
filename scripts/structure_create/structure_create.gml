@@ -2,7 +2,14 @@ function structure_create(_x, _y, _id, _seed, _seed2, _structure_data = global.s
 {
     if (_level > 10) exit;
     
-    var _structure = _structure_data[$ is_array_choose(_id)];
+    var _structure = _structure_data[$ _id];
+    
+    if (is_array(_structure))
+    {
+        _id = array_choose(_structure);
+        
+        _structure = _structure_data[$ _id];
+    }
     
     if (_structure == undefined) exit;
     

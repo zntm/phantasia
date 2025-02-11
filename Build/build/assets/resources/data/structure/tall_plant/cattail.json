@@ -1,0 +1,19 @@
+{
+	"width": 1,
+	"height": [ 3, 7 ],
+	"placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": 0
+		}
+	},
+	"data": {
+		"function": "phantasia:tall_plant/generic",
+		"parameter": {
+			"tile": "phantasia:cattail",
+			"index": 0,
+			"index_top": 1
+		}
+	}
+}

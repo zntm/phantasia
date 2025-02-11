@@ -1,0 +1,16 @@
+{
+    "type": "constant",
+    "attribute": "luck",
+    "calculation": [
+        {
+            "value": "phantasia:level",
+            "type": "phantasia:multiply"
+        }
+    ],
+    "base_value": 1.5,
+    "particle": {
+        "id": "phantasia:effect",
+        "chance": 0.1,
+        "colour": "#6BFF72"
+    }
+}

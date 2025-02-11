@@ -1,0 +1,18 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 1,
+        "moving": 1
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 10,
+    "type": {
+        "hostility": "passive",
+        "movement": "ground"
+    },
+    "sfx": "phantasia:creature.tortoise",
+    "attributes": {}
+}

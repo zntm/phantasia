@@ -58,9 +58,9 @@ function init_structure_recursive(_namespace, _directory, _id)
             
             if (_id != undefined)
             {
-                global.structure_data[$ _id] ??= [];
+                global.structure_data[$ $"{_namespace}:{_id}"] ??= [];
                 
-                array_push(global.structure_data[$ _id], _name);
+                array_push(global.structure_data[$ $"{_namespace}:{_id}"], $"{_namespace}:{string_delete(_name, string_length(_name) - 3, 4)}");
             }
             
             var _buffer = buffer_load_decompressed(_);

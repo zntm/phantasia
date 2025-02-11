@@ -1,0 +1,19 @@
+{
+	"width": [ 12, 26 ],
+	"height": [ 4, 14 ],
+	"placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": [ 3, 7 ]
+		}
+	},
+	"data": {
+		"function": "phantasia:pile",
+		"parameter": {
+			"tile": "phantasia:basalt",
+            "height_random_offset": 0.7,
+            "start_offset": [ 0, 3 ]
+		}
+	}
+}

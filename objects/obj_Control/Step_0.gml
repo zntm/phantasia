@@ -30,11 +30,13 @@ if (is_exiting)
         }
     }
     
+    var _chunk_count_max = obj_Control.chunk_count_max;
+    
     with (obj_Chunk)
     {
         chunk_clear(id);
         
-        if (++obj_Control.chunk_count < obj_Control.chunk_count_max) exit;
+        if (++obj_Control.chunk_count < _chunk_count_max) exit;
     }
     
     array_resize(global.message_history, 0);
@@ -61,7 +63,7 @@ if (is_exiting)
     
     surface_free_existing(obj_Player.surface);
     surface_free_existing(obj_Player.surface2);
-
+    
     if (time_source_exists(time_source_rpc))
     {
         time_source_destroy(time_source_rpc);
@@ -395,7 +397,7 @@ ctrl_camera();
 with (obj_Toast)
 {
     life += _delta_time;
-
+    
     if (life >= life_max)
     {
         instance_destroy();

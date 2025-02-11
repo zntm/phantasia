@@ -1,0 +1,8 @@
+[gml_api, lib_map = { windows: [ execute_shell_simple_ext_x64.dll ] }]
+module execute_shell_simple_ext
+{
+    [global, bind = gmval]
+    function execute_shell_simple_raw([allow_raw_ptr] arg0 : cstring, [allow_raw_ptr] arg1 : cstring, [allow_raw_ptr] arg2 : cstring, arg3 : real) : real;
+
+}
+

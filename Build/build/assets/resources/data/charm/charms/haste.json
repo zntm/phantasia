@@ -1,0 +1,13 @@
+{
+	"category": "phantasia:agility",
+	"item_type": [ "pickaxe", "axe", "shovel", "hammer" ],
+	"mod_type": "add",
+	"levels": [
+		{
+			"mining_speed": 2
+		},
+		{
+			"mining_speed": 5
+		}
+	]
+}
