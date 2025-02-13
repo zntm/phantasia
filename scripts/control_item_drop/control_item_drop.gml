@@ -28,6 +28,7 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
             var _length = collision_rectangle_list(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_Item_Drop, false, true, __list, false);
             
             var _amount = 0;
+            var _time_life = time_life;
             
             for (var i = 0; i < _length; ++i)
             {
@@ -41,6 +42,8 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
                 
                 _amount += _item.get_amount();
                 
+                _time_life = min(_time_life, _inst.time_life);
+                
                 delete _item;
                 
                 instance_destroy(_inst);
@@ -50,7 +53,7 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
             {
                 item.add_amount(_amount);
                 
-                time_life = 0;
+                time_life = _time_life;
             }
             
             ds_list_clear(__list);
