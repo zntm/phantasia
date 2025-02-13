@@ -23,7 +23,7 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
     
     var _ = xvelocity;
     
-    if (knockback_time > 0)
+    if (object_index != obj_Item_Drop) && (knockback_time > 0)
     {
         _ = max(1, abs(_)) * knockback_direction;
         

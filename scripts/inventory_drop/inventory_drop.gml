@@ -12,14 +12,14 @@ function inventory_drop()
 	
 	if (keyboard_check(vk_shift))
 	{
-		spawn_drop(x, y - TILE_SIZE, _holding.item_id, _holding.amount, image_xscale * INVENTORY_DROP_XVELOCITY, sign(image_xscale), -INVENTORY_DROP_YVELOCITY, GAME_FPS * 6, undefined, _holding.index, _holding.index_offset, _holding[$ "durability"], _holding[$ "state"]);
-		
-        inventory_delete("base", _inventory_selected_hotbar);
+        spawn_item_drop(x, y - TILE_SIZE, _holding, sign(image_xscale), image_xscale * INVENTORY_DROP_XVELOCITY, -INVENTORY_DROP_YVELOCITY, GAME_FPS * 3);
+        
+        global.inventory.base[@ _inventory_selected_hotbar] = INVENTORY_EMPTY;
 		
 		exit;
 	}
 	
-	spawn_drop(x, y - TILE_SIZE, _holding.item_id, 1, image_xscale * INVENTORY_DROP_XVELOCITY, sign(image_xscale), -INVENTORY_DROP_YVELOCITY, GAME_FPS * 6, undefined, _holding.index, _holding.index_offset, _holding[$ "durability"], _holding[$ "state"]);
-	
+    spawn_item_drop(x, y - TILE_SIZE, variable_clone(_holding).set_amount(1), sign(image_xscale), image_xscale * INVENTORY_DROP_XVELOCITY, -INVENTORY_DROP_YVELOCITY, GAME_FPS * 3);
+    
     inventory_item_decrement("base", _inventory_selected_hotbar);
 }

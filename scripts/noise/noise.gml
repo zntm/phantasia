@@ -28,7 +28,7 @@ buffer_delete(_buffer);
 
 function noise(_x, _y, _octaves, _seed)
 {
-    var _index = (((((_y / _octaves) + _seed) << 0) & (NOISE_SIZE - 1)) << NOISE_SIZE_BIT) | ((((_x / _octaves) - _seed) << 0) & (NOISE_SIZE - 1));
+    var _index = ((floor((_y / _octaves) + _seed) & (NOISE_SIZE - 1)) << NOISE_SIZE_BIT) | (floor((_x / _octaves) - _seed) & (NOISE_SIZE - 1));
     
     return global.noise_array[_index];
 }

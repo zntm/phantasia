@@ -132,23 +132,6 @@ function file_load_world_chunk_old(_inst, _buffer2)
 		
 		if (_timer >= ITEM_DESPAWN_SECONDS)
 		{
-			spawn_drop(
-				_x,
-				_y,
-				_item_id,
-				_value & 0xffff,
-				_xvelocity,
-				(_value >> 35) - 1,
-				_yvelocity,
-				_timer,
-				(_value >> 34) & 1,
-				_index,
-				_index_offset,
-				_durability,
-				(_value >> 16) & 0xffff,
-				_timestamp,
-				_item_data
-			);
 		}
 	}
 	

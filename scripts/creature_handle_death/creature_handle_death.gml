@@ -17,7 +17,7 @@ function creature_handle_death(_sfx, _drops)
             if (_index != undefined) && (is_array(_index) ? !array_contains(_index, index) : _index != index) continue;
         }
         
-        spawn_drop(x, y, _drop.item_id, is_array_irandom(_drop.amount), random_range(-INVENTORY_DROP_XVELOCITY, INVENTORY_DROP_XVELOCITY), -random(INVENTORY_DROP_YVELOCITY));
+        spawn_item_drop(x, y, new Inventory(_drop.item_id, _drop.amount), choose(-1, 1), random(INVENTORY_DROP_XVELOCITY), -random(INVENTORY_DROP_YVELOCITY));
     }
     
     spawn_particle(x, y, CHUNK_DEPTH_DEFAULT + 1, "phantasia:death_creature", irandom_range(8, 16));

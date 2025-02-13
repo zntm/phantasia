@@ -2,7 +2,9 @@ function inventory_craft(_player_x, _player_y, _inst)
 {
 	if (_inst.grimoire) exit;
 	
-	spawn_drop(_player_x, _player_y, _inst.item_id, _inst.amount, 0, 0, undefined, 0, undefined, undefined, _inst.index_offset, undefined, undefined, _inst.state);
+    spawn_item_drop(_player_x, _player_y, new Inventory(_inst.item_id, _inst.amount)
+        .set_index_offset(_inst.index_offset)
+        .set_state(_inst.state), 0, 0, 0, 0, 0);
 	
 	var _data = global.crafting_data[$ item_id];
 	

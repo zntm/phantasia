@@ -134,7 +134,7 @@ function player_place(_x, _y, _world_height)
         
         if (_give_back != undefined)
         {
-            spawn_drop(x, y, _give_back, 1, 0, 0, undefined, undefined, false);
+            spawn_item_drop(_x, _y, new Inventory(_give_back));
         }
     }
     

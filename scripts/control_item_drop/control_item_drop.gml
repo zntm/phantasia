@@ -8,18 +8,18 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
     
     with (obj_Item_Drop)
     {
-        life += _tick2;
+        time_life += _tick2;
         
-        if (life >= ITEM_DESPAWN_SECONDS)
+        if (time_life >= ITEM_DESPAWN_SECONDS)
         {
             instance_destroy();
             
             continue;
         }
         
-        if (timer > 0)
+        if (time_pickup > 0)
         {
-            timer -= _delta_time;
+            time_pickup -= _delta_time;
         }
         
         var _inst = instance_nearest(x, y, obj_Player);
@@ -27,7 +27,7 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
         var _xplayer = _inst.x;
         var _yplayer = _inst.y;
         
-        if (timer > 0) || (point_distance(x, y, _xplayer, _yplayer) >= 64 + (_inst.buffs[$ "item_drop_reach"] * TILE_SIZE))
+        if (time_pickup > 0) || (point_distance(x, y, _xplayer, _yplayer) >= 64 + (_inst.buffs[$ "item_drop_reach"] * TILE_SIZE))
         {
             if (tile_meeting(x, y + 1, undefined, undefined, _world_height))
             {
@@ -65,15 +65,6 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
             continue;
         }
         
-        var _amount = inventory_give(_xplayer, _yplayer, item_id, amount, index, index_offset, state, durability);
-        
-        if (_amount <= 0)
-        {
-            instance_destroy();
-            
-            continue;
-        }
-        
-        amount = _amount;
+        inventory_give(_xplayer, _yplayer, item);
     }
 }

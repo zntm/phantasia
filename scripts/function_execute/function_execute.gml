@@ -29,7 +29,7 @@ function function_execute(_x, _y, _z, _functions)
 		{
 			spawn_creature(_x, _y, _function[2], _function[3]);
 		}
-		else if (_type == FUNCTION_TYPE.SPAWN_DROP)
+		else if (_type == FUNCTION_TYPE.SPAWN_ITEM_DROP)
 		{
 			
 		}

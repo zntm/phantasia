@@ -1,11 +1,24 @@
 function Inventory(_item, _amount = 1) constructor
 {
     item_id = _item;
-    amount  = _amount;
+    
+    static get_item_id = function()
+    {
+        return item_id;
+    }
+    
+    amount = _amount;
     
     static set_amount = function(_amount)
     {
         amount = _amount;
+        
+        return self;
+    }
+    
+    static add_amount = function(_amount)
+    {
+        amount += _amount;
         
         return self;
     }
@@ -42,6 +55,11 @@ function Inventory(_item, _amount = 1) constructor
         state = _state;
         
         return self;
+    }
+    
+    static get_state = function()
+    {
+        return state;
     }
     
     var _type = _data.type;
@@ -109,17 +127,17 @@ function Inventory(_item, _amount = 1) constructor
     if (_inventory_length > 0)
     {
         ___inventory = array_create(_inventory_length, INVENTORY_EMPTY);
+    }
+    
+    static set_ivnentory = function(_inventory)
+    {
+        ___inventory = _inventory;
         
-        static set_ivnentory = function(_inventory)
-        {
-            ___inventory = _inventory;
-            
-            return self;
-        }
-        
-        static get_ivnentory = function()
-        {
-            return ___inventory;
-        }
+        return self;
+    }
+    
+    static get_ivnentory = function()
+    {
+        return self[$ "___inventory"];
     }
 }

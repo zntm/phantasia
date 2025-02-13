@@ -49,7 +49,7 @@ function ctrl_creature_spawn(_biome_data, _creature_data, _item_data, _world_hei
 	{
 		spawn_creature(x, y, _id, is_array_irandom(_creatures.passive_spawn_amount));
 	}
-		
+	
 	x = xstart;
 	y = ystart;
 	

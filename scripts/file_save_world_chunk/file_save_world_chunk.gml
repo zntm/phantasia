@@ -59,43 +59,20 @@ function file_save_world_chunk(_inst)
 		var _ = __inst_item[i];
 		
 		var _next = buffer_tell(_buffer);
-		buffer_write(_buffer, buffer_u32, 0);
 		
-		var _item_id = _.item_id;
+        buffer_write(_buffer, buffer_u32, 0);
 		
-		buffer_write(_buffer, buffer_string, _item_id);
-		
-		buffer_write(_buffer, buffer_f32, _.life);
+        buffer_write(_buffer, buffer_f32, _.time_pickup);
+		buffer_write(_buffer, buffer_f32, _.time_life);
 		
 		buffer_write(_buffer, buffer_f64, _.x);
 		buffer_write(_buffer, buffer_f64, _.y);
 		
 		buffer_write(_buffer, buffer_f16, _.xvelocity);
 		buffer_write(_buffer, buffer_f16, _.yvelocity);
-		
-		var _index = _[$ "index"];
-		var _index_offset = _[$ "index_offset"];
-		
-		var _value = ((_.xdirection + 1) << 35) | (_.show_text << 34) | (_.state << 16) | _.amount;
-		
-		if (_index != undefined)
-		{
-			_value |= ((_index + 0x80) << 44) | (1 << 33);
-		}
-		
-		if (_index_offset != undefined)
-		{
-			_value |= ((_index_offset + 0x80) << 36) | (1 << 32);
-		}
-		
-		buffer_write(_buffer, buffer_u64, _value);
-		
-		if (_item_data[$ _item_id].type & ITEM_TYPE_HAS_DURABILITY)
-		{
-			buffer_write(_buffer, buffer_u16, _.get_durability());
-		}
-		
-		buffer_write(_buffer, buffer_f16, _.life);
+        
+        file_save_snippet_item(_buffer, _.item);
+        
 		buffer_poke(_buffer, _next, buffer_u32, buffer_tell(_buffer));
 		
 		instance_destroy(_);

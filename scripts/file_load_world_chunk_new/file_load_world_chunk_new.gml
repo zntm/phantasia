@@ -47,13 +47,28 @@ function file_load_world_chunk_new(_inst, _buffer2)
     repeat (_length_item)
     {
         var _next = buffer_read(_buffer2, buffer_u32);
-        var _item_id = buffer_read(_buffer2, buffer_string);
+        
+        var _time_pickup = buffer_read(_buffer2, buffer_f16);
+        var _time_life = buffer_read(_buffer2, buffer_f16);
+        
+        var _x = buffer_read(_buffer2, buffer_f64);
+        var _y = buffer_read(_buffer2, buffer_f64);
+        
+        var _direction = buffer_read(_buffer2, buffer_u8);
+        
+        var _xvelocity = buffer_read(_buffer2, buffer_f16);
+        var _yvelocity = buffer_read(_buffer2, buffer_f16);
+        
+        var _item = file_load_snippet_item(_buffer2, _datafixer_item);
+        
+        var _item_id = _item.get_item_id();
         
         var _data = _item_data[$ _item_id];
         
         if (_data == undefined)
         {
             _item_id = _datafixer_item[$ _item_id];
+            
             _data = _item_data[$ _item_id];
             
             if (_data == undefined)
@@ -64,52 +79,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
             }
         }
         
-        var _timestamp = buffer_read(_buffer2, buffer_f32);
-        
-        var _x = buffer_read(_buffer2, buffer_f64);
-        var _y = buffer_read(_buffer2, buffer_f64);
-        
-        var _xvelocity = buffer_read(_buffer2, buffer_f16);
-        var _yvelocity = buffer_read(_buffer2, buffer_f16);
-        
-        var _value   = buffer_read(_buffer2, buffer_u64);
-        
-        var _index        = ((_value & (1 << 33)) ? (((_value >> 44) & 0xff) - 0x80) : undefined);
-        var _index_offset = ((_value & (1 << 32)) ? (((_value >> 36) & 0xff) - 0x80) : undefined);
-        
-        var _durability;
-        
-        if (_data.type & ITEM_TYPE_HAS_DURABILITY)
-        {
-            _durability = buffer_read(_buffer2, buffer_u16);
-        }
-        else
-        {
-            _durability = undefined;
-        }
-        
-        var _timer = buffer_read(_buffer2, buffer_f16);
-        
-        if (_timer >= ITEM_DESPAWN_SECONDS)
-        {
-            spawn_drop(
-                _x,
-                _y,
-                _item_id,
-                _value & 0xffff,
-                _xvelocity,
-                (_value >> 35) - 1,
-                _yvelocity,
-                _timer,
-                (_value >> 34) & 1,
-                _index,
-                _index_offset,
-                _durability,
-                (_value >> 16) & 0xffff,
-                _timestamp,
-                _item_data
-            );
-        }
+        spawn_item_drop(_x, _y, _item, _direction, _xvelocity, _yvelocity, _time_pickup, _time_life);
     }
     
     #endregion

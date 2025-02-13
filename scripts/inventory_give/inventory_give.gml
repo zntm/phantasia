@@ -1,6 +1,11 @@
-function inventory_give(_x, _y, _item_id, _amount, _index, _index_offset, _state, _durability, _text = true)
+function inventory_give(_x, _y, _item, _text = true)
 {
-	var _pickup = 0;
+    var _item_id = _item.get_item_id();
+    var _amount = _item.get_amount();
+    
+    var _state = _item.get_state();
+    
+	var _pickup_amount = 0;
 	
 	var _data = global.item_data[$ _item_id];
 	var _inventory_max = _data.get_inventory_max();
@@ -9,60 +14,57 @@ function inventory_give(_x, _y, _item_id, _amount, _index, _index_offset, _state
     
 	for (var i = 0; i < _length; ++i)
 	{
-		if (_amount <= 0) break;
-		
 		var _inventory = global.inventory.base[i];
 		
 		if (_inventory == INVENTORY_EMPTY)
 		{
-            global.inventory.base[@ i] = new Inventory(_item_id)
-                .set_index(_index)
-                .set_index_offset(_index_offset)
-                .set_state(_state);
-            
-            if (_durability != undefined) && (_data.type & ITEM_TYPE_HAS_DURABILITY)
-            {
-                global.inventory.base[@ i].set_durability(_durability);
-            }
-            
 			if (_amount <= _inventory_max)
 			{
-				global.inventory.base[@ i].set_amount(_amount);
+                global.inventory.base[@ i] = _item;
                 
-				_pickup += _amount;
-				_amount = 0;
+				_pickup_amount += _amount;
+                
+                delete _item;
+                
+                instance_destroy();
                 
 				break;
 			}
             
-            global.inventory.base[@ i].set_amount(_inventory_max);
-			
-			_pickup += _inventory_max;
-			_amount -= _inventory_max;
+            global.inventory.base[@ i] = variable_clone(_item).set_amount(_inventory_max);
+            
+            _item.add_amount(-_inventory_max);
+            
+            _pickup_amount += _inventory_max;
 		}
 		
-		if (_inventory.item_id == _item_id) && (_inventory.state == _state)
+		if (_inventory.get_item_id() == _item_id) && (_inventory.get_state() == _state)
 		{
-			var _amount2 = _inventory.amount;
+			var _amount2 = _inventory.get_amount();
 			
-			if (_amount2 >= _inventory_max) continue;
-			
-			if (_amount + _amount2 <= _inventory_max)
-			{
-				global.inventory.base[@ i].amount += _amount;
-				
-				_pickup += _amount;
-				_amount = 0;
+			if (_amount2 < _inventory_max)
+            {
+    			if (_amount + _amount2 <= _inventory_max)
+    			{
+    				global.inventory.base[@ i].add_amount(_amount);
+    				
+    				_pickup_amount += _amount;
+    				
+                    delete _item;
+                    
+                    instance_destroy();
+                    
+    				break;
+    			}
+    			
+    			global.inventory.base[@ i].set_amount(_inventory_max);
+    			
+                var _amount3 = _inventory_max - _amount2;
                 
-				break;
-			}
-			
-			global.inventory.base[@ i].amount = _inventory_max;
-			
-			var _amount3 = _inventory_max - _amount2;
-			
-			_pickup += _amount3;
-			_amount -= _amount3;
+                _item.add_amount(-_amount3);
+    			
+    			_pickup_amount += _amount3;
+            }
 		}
 	}
 	
@@ -70,17 +72,15 @@ function inventory_give(_x, _y, _item_id, _amount, _index, _index_offset, _state
 	
 	inventory_refresh_craftable(true);
 	
-	if (_text) && (_pickup > 0)
+	if (_text) && (_pickup_amount > 0)
 	{
 		var _loca = loca_translate($"{_data.get_namespace()}:item.{_item_id}.name");
 		
-		if (_pickup > 1)
+		if (_pickup_amount > 1)
 		{
-			_loca += $" ({_pickup})";
+			_loca += $" ({_pickup_amount})";
 		}
 		
 		spawn_text(_x, _y, _loca, 0, -8);
 	}
-	
-	return _amount;
 }

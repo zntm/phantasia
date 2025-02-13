@@ -205,7 +205,7 @@ global.command_data[$ "inventory"] = new CommandData()
             
             if (_id == undefined) exit;
             
-            spawn_drop(_user.x, _user.y, _id, _amount, 0, 0);
+            spawn_item_drop(_user.x, _user.y, new Inventory(_id, _amount), 0, 0, 0, 0, 0);
         }));
 
 global.command_data[$ "summon"] = new CommandData()

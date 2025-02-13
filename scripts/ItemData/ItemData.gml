@@ -89,6 +89,7 @@ enum ITEM_BOOLEAN {
     IS_ANIMATED          = 1 << 5,
     CAN_CONNECT          = 1 << 6,
     CAN_ALWAYS_CONSUME   = 1 << 7,
+    CAN_STORE_INVENTORY  = 1 << 8
 }
 
 global.item_data = {}
@@ -148,6 +149,11 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     name = string_lower(string_delete(sprite_get_name(_sprite), 1, 5));
     sprite = _sprite;
+    
+    static get_sprite = function()
+    {
+        return sprite;
+    }
     
     global.item_data[$ $"{_namespace}:{name}"] = self;
     
@@ -216,6 +222,13 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         {
             boolean ^= ITEM_BOOLEAN.CAN_CONNECT;
         }
+        
+        return self;
+    }
+    
+    static set_can_store_inventory = function()
+    {
+        boolean |= ITEM_BOOLEAN.CAN_STORE_INVENTORY;
         
         return self;
     }
