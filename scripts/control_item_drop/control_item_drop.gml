@@ -52,14 +52,17 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
                 instance_destroy(_inst);
             }
             
-            if (_amount > 0)
+            if (_length > 0)
             {
-                item.add_amount(_amount);
+                if (_amount > 0)
+                {
+                    item.add_amount(_amount);
+                    
+                    time_life = _time_life;
+                }
                 
-                time_life = _time_life;
+                ds_list_clear(__list);
             }
-            
-            ds_list_clear(__list);
         }
         
         var _inst = instance_nearest(x, y, obj_Player);
