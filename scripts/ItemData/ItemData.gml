@@ -514,6 +514,23 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         set_item_swing_distance(16);
     }
     
+    static set_charm_length = function(_length)
+    {
+        ___charm_length = _length;
+        
+        return self;
+    }
+    
+    static get_charm_length = function()
+    {
+        return self[$ "___charm_length"] ?? 0;
+    }
+    
+    if (type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
+    {
+        set_charm_length(3);
+    }
+    
     #endregion
     
     static set_on_swing_interact = function(_function)
@@ -645,22 +662,6 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         }
             
         return self;
-    }
-    
-    static set_charm = function(_type, _length)
-    {
-        ___charm_type = _type;
-        ___charm_length = _length;
-    }
-    
-    static get_charm_type = function()
-    {
-        return self[$ "___charm_type"];
-    }
-    
-    static get_charm_length = function()
-    {
-        return self[$ "___charm_length"] ?? 3;
     }
     
     static get_mining_hardness = function()
