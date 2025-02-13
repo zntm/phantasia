@@ -1,10 +1,12 @@
 function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delta_time)
 {
+    static __list = ds_list_create();
+    
     var _inventory = global.inventory;
     
     var _tick2 = _delta_time / _tick;
     
-    var _speed = 8 * _delta_time;
+    var _speed = 4 * _delta_time;
     
     with (obj_Item_Drop)
     {
@@ -20,6 +22,38 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
         if (time_pickup > 0)
         {
             time_pickup -= _delta_time;
+        }
+        else
+        {
+            var _length = collision_rectangle_list(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_Item_Drop, false, true, __list, false);
+            
+            var _amount = 0;
+            
+            for (var i = 0; i < _length; ++i)
+            {
+                var _inst = __list[| i];
+                
+                if (_inst.time_pickup > 0) continue;
+                
+                var _item = _inst.item;
+                
+                if (item.get_item_id() != _item.get_item_id()) || (item.get_state() != _item.get_state()) continue;
+                
+                _amount += _item.get_amount();
+                
+                delete _item;
+                
+                instance_destroy(_inst);
+            }
+            
+            if (_amount > 0)
+            {
+                item.add_amount(_amount);
+                
+                time_life = 0;
+            }
+            
+            ds_list_clear(__list);
         }
         
         var _inst = instance_nearest(x, y, obj_Player);
@@ -55,16 +89,16 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
         var _direction = point_direction(x, y, _xplayer, _yplayer);
         
         var _xnew = x + lengthdir_x(_speed, _direction);
-        var _ynew = y + lengthdir_y(_speed, _direction);
+        var _ynew = clamp(y + lengthdir_y(_speed, _direction), 0, _entity_ymax);
         
-        if (!collision_line(_xold, _yold, _xnew, _ynew, obj_Player, true, true))
+        if (collision_line(_xold, _yold, _xnew, _ynew, obj_Player, true, true))
         {
-            x = _xnew;
-            y = clamp(_ynew, 0, _entity_ymax);
+            inventory_give(_xplayer, _yplayer, item);
             
             continue;
         }
         
-        inventory_give(_xplayer, _yplayer, item);
+        x = _xnew;
+        y = _ynew
     }
 }
