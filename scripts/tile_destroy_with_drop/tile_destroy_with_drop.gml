@@ -7,35 +7,34 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
     
     var _data = global.item_data[$ _item_id];
     
+    var _drops = _data.get_drops();
+    var _item = undefined;
+    
+    if (_drops != undefined)
+    {
+        _item = tile_spawn_item_drop(_xinst, _yinst, _drops);
+    }
+    
     if (_data.type & ITEM_TYPE_BIT.CONTAINER)
     {
+        var _inventory = tile_get_inventory(_tile);
+        
         if (_data.boolean & ITEM_BOOLEAN.CAN_STORE_INVENTORY)
         {
-            
+            if (_item != undefined)
+            {
+                _item.set_inventory(_inventory);
+            }
         }
         else
         {
-            var _inventory = tile_get_inventory(_tile);
-            
             var _tile_container_length = _data.get_tile_container_length();
             
             for (var i = 0; i < _tile_container_length; ++i)
             {
-                var _item = _inventory[i];
-                
-                if (_item != INVENTORY_EMPTY)
-                {
-                    spawn_item_drop(_xinst, _yinst, _item, choose(-1, 1), random(INVENTORY_DROP_XVELOCITY), -random(INVENTORY_DROP_YVELOCITY));
-                }
+                spawn_item_drop(_xinst, _yinst, _inventory[i], choose(-1, 1), random(INVENTORY_DROP_XVELOCITY), -random(INVENTORY_DROP_YVELOCITY));
             }
         }
-    }
-    
-    var _drops = _data.get_drops();
-    
-    if (_drops != undefined)
-    {
-        tile_spawn_item_drop(_xinst, _yinst, _drops);
     }
     
     var _inst = tile_place(_x, _y, _z, TILE_EMPTY);
