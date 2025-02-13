@@ -28,32 +28,37 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
         }
         else
         {
-            var _length = collision_rectangle_list(bbox_left - ITEM_DROP_COMBINATION_PADDING, bbox_top - ITEM_DROP_COMBINATION_PADDING, bbox_right + ITEM_DROP_COMBINATION_PADDING, bbox_bottom + ITEM_DROP_COMBINATION_PADDING, obj_Item_Drop, false, true, __list, false);
+            var _x1 = bbox_left   - ITEM_DROP_COMBINATION_PADDING;
+            var _y1 = bbox_top    - ITEM_DROP_COMBINATION_PADDING;
+            var _x2 = bbox_right  + ITEM_DROP_COMBINATION_PADDING;
+            var _y2 = bbox_bottom + ITEM_DROP_COMBINATION_PADDING;
             
-            var _amount = 0;
-            var _time_life = time_life;
-            
-            for (var i = 0; i < _length; ++i)
+            if (collision_rectangle(_x1, _y1, _x2, _y2, obj_Item_Drop, false, true))
             {
-                var _inst = __list[| i];
+                var _length = collision_rectangle_list(_x1, _y1, _x2, _y2, obj_Item_Drop, false, true, __list, false);
                 
-                if (_inst.time_pickup > 0) continue;
+                var _amount = 0;
+                var _time_life = time_life;
                 
-                var _item = _inst.item;
+                for (var i = 0; i < _length; ++i)
+                {
+                    var _inst = __list[| i];
+                    
+                    if (_inst.time_pickup > 0) continue;
+                    
+                    var _item = _inst.item;
+                    
+                    if (item.get_item_id() != _item.get_item_id()) || (item.get_state() != _item.get_state()) continue;
+                    
+                    _amount += _item.get_amount();
+                    
+                    _time_life = min(_time_life, _inst.time_life);
+                    
+                    delete _item;
+                    
+                    instance_destroy(_inst);
+                }
                 
-                if (item.get_item_id() != _item.get_item_id()) || (item.get_state() != _item.get_state()) continue;
-                
-                _amount += _item.get_amount();
-                
-                _time_life = min(_time_life, _inst.time_life);
-                
-                delete _item;
-                
-                instance_destroy(_inst);
-            }
-            
-            if (_length > 0)
-            {
                 if (_amount > 0)
                 {
                     item.add_amount(_amount);
