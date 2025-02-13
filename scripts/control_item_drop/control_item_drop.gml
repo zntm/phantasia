@@ -1,3 +1,8 @@
+#macro ITEM_DROP_REACH_MIN 4
+#macro ITEM_DROP_REACH_SPEED 4
+
+#macro ITEM_DROP_COMBINATION_PADDING 4
+
 function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delta_time)
 {
     static __list = ds_list_create();
@@ -5,8 +10,6 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
     var _inventory = global.inventory;
     
     var _tick2 = _delta_time / _tick;
-    
-    var _speed = 4 * _delta_time;
     
     with (obj_Item_Drop)
     {
@@ -25,7 +28,7 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
         }
         else
         {
-            var _length = collision_rectangle_list(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_Item_Drop, false, true, __list, false);
+            var _length = collision_rectangle_list(bbox_left - ITEM_DROP_COMBINATION_PADDING, bbox_top - ITEM_DROP_COMBINATION_PADDING, bbox_right + ITEM_DROP_COMBINATION_PADDING, bbox_bottom + ITEM_DROP_COMBINATION_PADDING, obj_Item_Drop, false, true, __list, false);
             
             var _amount = 0;
             var _time_life = time_life;
@@ -64,7 +67,10 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
         var _xplayer = _inst.x;
         var _yplayer = _inst.y;
         
-        if (time_pickup > 0) || (point_distance(x, y, _xplayer, _yplayer) >= 64 + (_inst.buffs[$ "item_drop_reach"] * TILE_SIZE))
+        var _distance = point_distance(x, y, _xplayer, _yplayer);
+        var _distance_max = _inst.buffs[$ "item_drop_reach"] * TILE_SIZE;
+        
+        if (time_pickup > 0) || (_distance >= _distance_max)
         {
             if (tile_meeting(x, y + 1, undefined, undefined, _world_height))
             {
@@ -91,6 +97,8 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
         
         var _direction = point_direction(x, y, _xplayer, _yplayer);
         
+        var _speed = (ITEM_DROP_REACH_SPEED + min(ITEM_DROP_REACH_SPEED, (_distance / _distance_max) * ITEM_DROP_REACH_SPEED)) * _delta_time;
+        
         var _xnew = x + lengthdir_x(_speed, _direction);
         var _ynew = clamp(y + lengthdir_y(_speed, _direction), 0, _entity_ymax);
         
@@ -102,6 +110,6 @@ function control_item_drop(_item_data, _tick, _world_height, _entity_ymax, _delt
         }
         
         x = _xnew;
-        y = _ynew
+        y = _ynew;
     }
 }
