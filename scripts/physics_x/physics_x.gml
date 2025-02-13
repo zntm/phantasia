@@ -54,24 +54,26 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
     {
         var _direction = _sign * min(i, _size);
         
-        if (__tile_meeting(x + _direction, y, _world_height))
+        if (!__tile_meeting(x + _direction, y, _world_height))
         {
-            for (var j = _size; j > 0; --j)
-            {
-                var _offset = min(j, 1) * _sign;
-                
-                if (__tile_meeting(x + _offset, y, _world_height))
-                {
-                    return true;
-                }
-                
-                x += _offset;
-            }
+            x += _direction;
             
-            break;
+            continue;
         }
         
-        x += _direction;
+        for (var j = _size; j > 0; --j)
+        {
+            var _offset = min(j, 1) * _sign;
+            
+            if (__tile_meeting(x + _offset, y, _world_height))
+            {
+                return true;
+            }
+            
+            x += _offset;
+        }
+        
+        break;
     }
     
     return false;
