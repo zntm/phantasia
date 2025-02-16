@@ -154,14 +154,14 @@ global.camera = {
     x: infinity,
     y: infinity,
     
-    x_real:    _camera_x,
-    y_real:    _camera_y,
+    x_real: _camera_x,
+    y_real: _camera_y,
     
     width:  _camera_width,
     height: _camera_height,
     
-    gui_width:    _gui_width,
-    gui_height:    _gui_height,
+    gui_width:  _gui_width,
+    gui_height: _gui_height,
     
     shake: 0,
     direction: 0
@@ -178,7 +178,8 @@ room_set_viewport(room, 0, true, 0, 0, _camera_width, _camera_height);
 
 #endregion
 
-load_inventory();
+init_inventory_instance();
+
 file_load_world_sun_ray(_camera_width);
 
 #region Rich Presence

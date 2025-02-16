@@ -7,10 +7,9 @@ function control_text(_bbox_l, _bbox_t, _bbox_r, _bbox_b, _speed)
 
     with (obj_Floating_Text)
     {
+        yvelocity = clamp(yvelocity + _acceleration, -PHYSICS_GLOBAL_YVELOCITY_MAX, PHYSICS_GLOBAL_YVELOCITY_MAX);
+        
         x += xvelocity * _speed;
-        
-        yvelocity += _acceleration;
-        
         y += yvelocity;
         
         if (!rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, _bbox_l, _bbox_t, _bbox_r, _bbox_b))
@@ -29,4 +28,3 @@ function control_text(_bbox_l, _bbox_t, _bbox_r, _bbox_b, _speed)
         }
     }
 }
-

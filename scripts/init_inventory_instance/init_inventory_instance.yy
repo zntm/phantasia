@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"load_inventory",
+  "%Name":"init_inventory_instance",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"load_inventory",
+  "name":"init_inventory_instance",
   "parent":{
     "name":"Load",
     "path":"folders/Scripts/Phantasia/Load.yy",

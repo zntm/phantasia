@@ -72,7 +72,7 @@ if (instance_exists(obj_Floating_Text))
     
     with (obj_Floating_Text)
     {
-        draw_text_ext_transformed_colour(x, y, text, 0, 255, 0.5, 0.5, image_angle, colour, colour, colour, colour, image_alpha);
+        draw_text_ext_transformed_colour(x, y, text, 0, 255, image_xscale, image_yscale, image_angle, colour, colour, colour, colour, image_alpha);
     }
 }
 
