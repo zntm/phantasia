@@ -10,11 +10,11 @@ function tile_meeting(_x, _y, _z = CHUNK_DEPTH_DEFAULT, _type = ITEM_TYPE_BIT.SO
 	var _xscale = abs(image_xscale);
 	var _yscale = abs(image_yscale);
     
-    var _x1 = _x - (_xscale * sprite_get_xoffset(sprite_index));
-    var _y1 = _y - (_yscale * sprite_get_yoffset(sprite_index));
+    var _x1 = _x - (_xscale * sprite_bbox_left);
+    var _y1 = _y - (_yscale * sprite_bbox_top);
     
-    var _x2 = _x1 + (_xscale * sprite_get_width(sprite_index))  - 1;
-    var _y2 = _y1 + (_yscale * sprite_get_height(sprite_index)) - 1;
+    var _x2 = _x1 + (_xscale * sprite_bbox_right)  - 1;
+    var _y2 = _y1 + (_yscale * sprite_bbox_bottom) - 1;
     /*
     var _x1 = (_ax1 < _ax2 ? _ax1 : _ax2);
     var _y1 = (_ay1 < _ay2 ? _ay1 : _ay2);

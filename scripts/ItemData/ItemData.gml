@@ -1575,16 +1575,19 @@ new ItemData("phantasia", item_Sapking_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
     });
 
 new ItemData("phantasia", item_Daffodil, ITEM_TYPE_BIT.PLANT)
+    .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:daffodil")
     .set_sfx("phantasia:tile.leaves");
 
 new ItemData("phantasia", item_Dandelion, ITEM_TYPE_BIT.PLANT)
+    .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:dandelion")
     .set_sfx("phantasia:tile.leaves");
 
 new ItemData("phantasia", item_Puffball, ITEM_TYPE_BIT.PLANT)
+    .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:puffball")
     .set_sfx("phantasia:tile.leaves")
@@ -1596,6 +1599,7 @@ new ItemData("phantasia", item_Puffball, ITEM_TYPE_BIT.PLANT)
     });
 
 new ItemData("phantasia", item_Nemesia, ITEM_TYPE_BIT.PLANT)
+    .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:nemesia")
     .set_sfx("phantasia:tile.leaves");
@@ -2587,6 +2591,7 @@ new ItemData("phantasia", item_Peony, ITEM_TYPE_BIT.PLANT)
 
 new ItemData("phantasia", item_Violets, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_waveable()
+    .set_random_index(1, 1)
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves")
     .set_drops("phantasia:violets");

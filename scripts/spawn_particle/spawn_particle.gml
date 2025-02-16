@@ -66,11 +66,8 @@ function spawn_particle(_x, _y, _z, _id, _amount = 1, _colour = c_white)
             knockback_time = 0;
             knockback_direction = 0;
 			
-			sprite_offset_x = _sprite_xoffset;
-			sprite_offset_y = _sprite_yoffset;
-			
-			sprite_bbox_left   = _bbox_left;
-			sprite_bbox_top    = _bbox_top;
+			sprite_bbox_left   = _sprite_xoffset;
+			sprite_bbox_top    = _sprite_yoffset;
 			sprite_bbox_right  = _bbox_right;
 			sprite_bbox_bottom = _bbox_bottom;
 			
