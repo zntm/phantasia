@@ -30,6 +30,11 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
         _speed = buffs[$ "knockback"] * (knockback_time / buffs[$ "knockback_time"]);
     }
     
+    if (xvelocity == 0)
+    {
+        return false;
+    }
+    
     var _xvelocity = abs(_);
     
     var _sign = sign(_);

@@ -11,7 +11,7 @@ function tile_get(_x, _y, _z, _attribute = "item_id", _world_height = global.wor
 		return TILE_EMPTY;
 	}
 	
-	var _inst = tile_get_inst(_x, _y, "get");
+	var _inst = tile_get_inst(_x, _y, "tile_get_inst", "tile_get_inst_x", "tile_get_inst_y");
 	
 	var _tile = _inst.chunk[tile_index(_x, _y, _z)];
 	
