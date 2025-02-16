@@ -53,7 +53,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 			
             if ((surface_display & _zbit) == 0) continue;
             
-            var _ = false;
+            var _transfer = false;
             
             if (_surface_bit & _zbit)
             {
@@ -61,13 +61,13 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                 {
                     chunk_z_refresh ^= _zbit;
                     
-                    _ = true;
+                    _transfer = true;
                 }
                 else if ((chunk_z_animated & _zbit) == 0) || (timer_surface[_z] < CHUNK_REFRESH_SURFACE) continue;
             }
             else
             {
-                _ = true;
+                _transfer = true;
             }
             
             var _z2 = CHUNK_SIZE_Z + _z;
@@ -156,8 +156,6 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 						continue;
 					}
 					
-					var _collision_box = _data.collision_box[0];
-					
 					// Gets render position with skew for plants.
 					var _x1 = _draw_x + _data.get_collision_box_left(0);
 					var _y1 = _draw_y + _data.get_collision_box_top(0);
@@ -182,16 +180,16 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 						
 						if (is_near_inst)
 						{
-							var _inst2 = instance_position(x + _xoffset - TILE_SIZE_H, y + _yoffset - TILE_SIZE_H, __inst);
+							var _inst = instance_position(x + _xoffset - TILE_SIZE_H, y + _yoffset - TILE_SIZE_H, __inst);
                             
-							if (instance_exists(_inst2))
+							if (instance_exists(_inst))
 							{
-								var _xvelocity = _inst2.xvelocity;
+								var _xvelocity = _inst.xvelocity;
 								var _abs = abs(_xvelocity);
                                 
 								if (_abs > 0.5)
 								{
-                                    _skew = clamp(_abs - 0.5, 0, 2) * ((_xvelocity > 0) ? 8 : -8);
+                                    _skew = clamp(_abs - 0.5, 0, 2) * 8 * sign(_xvelocity);
                                     _skew_to = 0;
 								}
                             }
@@ -211,7 +209,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 			
 			surface_reset_target();
             
-            if (_)
+            if (_transfer)
             {
                 var _surface_index2 = (_surface_index_offset ? _z : _z2);
                 
