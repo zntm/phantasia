@@ -10,7 +10,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 	var _item_data = global.item_data;
 	var _delta_time = global.delta_time;
 	
-	var _index_animation = round(global.timer_delta / CHUNK_REFRESH_SURFACE) - 0x80 - 0x80;
+	var _index_animation = round(global.timer_delta / CHUNK_REFRESH_SURFACE);
 	
 	var _skew_strength = (global.world_environment.wind - random_range(0.4, 0.6)) * DRAW_SKEW_AMOUNT;
 	var _skew_update = (random(1) < 0.05 * _delta_time);
@@ -89,7 +89,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 			for (var _y = 0; _y < CHUNK_SIZE_Y; ++_y)
 			{
 				var _yoffset = _y << TILE_SIZE_BIT;
-				var _ytile = CHUNK_SURFACE_PADDING - TILE_SIZE_H + _yoffset;
+				var _ytile = CHUNK_SURFACE_PADDING + _yoffset;
 				
 				var _yindex  = _y << CHUNK_SIZE_X_BIT;
 				var _y2index = _yindex | (CHUNK_DEPTH_DEFAULT * CHUNK_SIZE_X * CHUNK_SIZE_Y);
@@ -130,32 +130,28 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 						var _animation_index_min = _data.get_animation_index_min();
 						var _animation_index_max = _data.get_animation_index_max();
                         
-						_index = ((_animation_type & TILE_ANIMATION_TYPE.INCREMENT) ?
-							(_animation_index_min + (_index_animation % ((_animation_index_max - _animation_index_min) + 1))) :
-							((_scale_rotation_index >> 8) & 0xff) - 0x80 - 0x80);
+						_index = ((_animation_type & TILE_ANIMATION_TYPE.INCREMENT) ? (_animation_index_min + (_index_animation % ((_animation_index_max - _animation_index_min) + 1))) : _tile.get_index());
 					}
 					else
 					{
-						_index = ((_scale_rotation_index >> 8) & 0xff) - 0x80 - 0x80;
+						_index = _tile.get_index();
 					}
+                    
+                    _index += _tile.get_index_offset();
                     
                     var _xoffset = _x << TILE_SIZE_BIT;
                     
-                    var _xdraw = CHUNK_SURFACE_PADDING - TILE_SIZE_H + _xoffset + ((_scale_rotation_index >> 44) & 0xf);
-                    var _ydraw = _ytile + ((_scale_rotation_index >> 40) & 0xf);
+                    var _draw_x = _tile.get_xoffset() + CHUNK_SURFACE_PADDING + _xoffset;
+                    var _draw_y = _tile.get_yoffset() + _ytile;
 					
 					if (_z_is_wall) || ((_boolean & ITEM_BOOLEAN.IS_PLANT_WAVEABLE) == 0) || ((_data.type & ITEM_TYPE_BIT.PLANT) == 0)
 					{
-						draw_sprite_ext(_data.sprite,
-							_index + (_scale_rotation_index & 0xff),
-							_xdraw,
-							_ydraw,
-							((_scale_rotation_index >> 32) & 0xf) - 8,
-							((_scale_rotation_index >> 36) & 0xf) - 8,
-							((_scale_rotation_index >> 16) & 0xffff) - 0x8000,
-							c_white,
-							1
-						);
+                        var _xscale = _tile.get_xscale();
+                        var _yscale = _tile.get_yscale();
+                        
+                        var _rotation = _tile.get_rotation();
+                        
+						draw_sprite_ext(_data.sprite, _index, _draw_x, _draw_y, _xscale, _yscale, _rotation, c_white, 1);
 						
 						continue;
 					}
@@ -163,8 +159,8 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 					var _collision_box = _data.collision_box[0];
 					
 					// Gets render position with skew for plants.
-					var _x1 = _xdraw + ((_collision_box >> 0) & 0xff) - 0x80;
-					var _y1 = _ydraw + ((_collision_box >> 8) & 0xff) - 0x80;
+					var _x1 = _draw_x + _data.get_collision_box_left(0);
+					var _y1 = _draw_y + _data.get_collision_box_top(0);
 					
 					var _x2 = _x1 + _data.get_sprite_width();
 					var _y2 = _y1 + _data.get_sprite_height();
@@ -186,7 +182,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 						
 						if (is_near_inst)
 						{
-							var _inst2 = instance_position(x - TILE_SIZE_H + _xoffset, y - TILE_SIZE_H + _yoffset, __inst);
+							var _inst2 = instance_position(x + _xoffset - TILE_SIZE_H, y + _yoffset - TILE_SIZE_H, __inst);
                             
 							if (instance_exists(_inst2))
 							{
@@ -209,7 +205,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 						}
 					}
 					
-					draw_sprite_pos_fixed(_data.sprite, _index + (_scale_rotation_index & 0xff), _x1 + _skew, _y1, _x2 + _skew, _y1, _x2, _y2, _x1, _y2, c_white, 1);
+					draw_sprite_pos_fixed(_data.sprite, _index, _x1 + _skew, _y1, _x2 + _skew, _y1, _x2, _y2, _x1, _y2, c_white, 1);
 				}
 			}
 			
