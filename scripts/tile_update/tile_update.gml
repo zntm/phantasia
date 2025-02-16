@@ -41,8 +41,34 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 			(tile_condition_connected(_x, _y + 1, _z, _item_id, _type, _item_data, _world_height) << 1) |
 			(tile_condition_connected(_x - 1, _y, _z, _item_id, _type, _item_data, _world_height))
 		];
+        
+    	var _bit = 1 << _index2;
+    	
+    	if (_bit & 0b0_00_0000_1111_0000_00)
+    	{
+    		_inst.chunk[@ _index]
+                .set_index(_index2)
+                .set_scale(1, 1);
+    	}
+    	else if (_bit & 0b0_00_1010_1111_1010_00)
+    	{
+    		_inst.chunk[@ _index]
+                .set_index(_index2)
+                .set_xscale(1);
+    	}
+    	else if (_bit & 0b0_00_0101_1111_0101_00)
+    	{
+    		_inst.chunk[@ _index]
+                .set_index(_index2)
+                .set_yscale(1);
+    	}
+        else
+        {
+    		_inst.chunk[@ _index]
+                .set_index(_index2);
+        }
 	}
-	else
+	else if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
 	{
 		_index2 = __index[
 			(tile_condition_connected_to_self(_x, _y - 1, _z, _item_id, _world_height) << 3) |
@@ -50,22 +76,31 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 			(tile_condition_connected_to_self(_x, _y + 1, _z, _item_id, _world_height) << 1) |
 			(tile_condition_connected_to_self(_x - 1, _y, _z, _item_id, _world_height))
 		];
-	}
-	
-	_inst.chunk[@ _index].set_index(_index2);
-		
-	var _bit = 1 << _index2;
-	
-	if (_bit & 0b0_00_0000_1111_0000_00)
-	{
-		_inst.chunk[@ _index].set_scale(1, 1);
-	}
-	else if (_bit & 0b0_00_1010_1111_1010_00)
-	{
-		_inst.chunk[@ _index].set_xscale(1);
-	}
-	else if (_bit & 0b0_00_0101_1111_0101_00)
-	{
-		_inst.chunk[@ _index].set_yscale(1);
+        
+    	var _bit = 1 << _index2;
+    	
+    	if (_bit & 0b0_00_0000_1111_0000_00)
+    	{
+    		_inst.chunk[@ _index]
+                .set_index(_index2)
+                .set_scale(1, 1);
+    	}
+    	else if (_bit & 0b0_00_1010_1111_1010_00)
+    	{
+    		_inst.chunk[@ _index]
+                .set_index(_index2)
+                .set_xscale(1);
+    	}
+    	else if (_bit & 0b0_00_0101_1111_0101_00)
+    	{
+    		_inst.chunk[@ _index]
+                .set_index(_index2)
+                .set_yscale(1);
+    	}
+        else
+        {
+    		_inst.chunk[@ _index]
+                .set_index(_index2);
+        }
 	}
 }

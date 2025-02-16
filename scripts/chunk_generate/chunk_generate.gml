@@ -119,9 +119,6 @@ function chunk_generate(_world, _seed, _world_data)
         
         var _structure_inside_chunk_x = (_structure_inside_chunk_rectangle) && (instance_exists(collision_rectangle(_xinst - TILE_SIZE_H, _collision_chunk_y1, _xinst + TILE_SIZE_H, _collision_chunk_y2, obj_Structure, false, true)));
         
-        var _connected_x1 = 1 << (_x << 1);
-        var _connected_x2 = _connected_x1 << 1;
-        
         random_set_seed(_seed + _x + xcenter);
         
         for (var _y = CHUNK_SIZE_Y - 1; _y >= 0; --_y)
@@ -228,7 +225,7 @@ function chunk_generate(_world, _seed, _world_data)
                             is_on_draw_update |= _zbit;
                         }
                         
-                        chunk_generate_anim_handler(_item_data[$ _item_id], _zbit, _y, _connected_x1, _connected_x2);
+                        chunk_generate_anim_handler(_item_data[$ _item_id], _zbit, _y);
                         
                         if (_type & ITEM_TYPE_BIT.SOLID) && (_sun_rays_y > _ypos)
                         {
@@ -288,7 +285,7 @@ function chunk_generate(_world, _seed, _world_data)
                             is_on_draw_update |= 1 << CHUNK_DEPTH_WALL;
                         }
                         
-                        chunk_generate_anim_handler(_item_data[$ _item_id], 1 << CHUNK_DEPTH_WALL, _y, _connected_x1, _connected_x2);
+                        chunk_generate_anim_handler(_item_data[$ _item_id], 1 << CHUNK_DEPTH_WALL, _y);
                     }
                 }
                 
@@ -317,7 +314,7 @@ function chunk_generate(_world, _seed, _world_data)
                             is_on_draw_update |= 1 << CHUNK_DEPTH_DEFAULT;
                         }
                         
-                        chunk_generate_anim_handler(_item_data[$ _item_id], 1 << CHUNK_DEPTH_DEFAULT, _y, _connected_x1, _connected_x2);
+                        chunk_generate_anim_handler(_item_data[$ _item_id], 1 << CHUNK_DEPTH_DEFAULT, _y);
                     }
                 }
             }

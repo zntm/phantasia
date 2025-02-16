@@ -62,8 +62,6 @@ function ctrl_chunk_generate_1()
                         var _ypos = chunk_ystart + _y;
                         var _index_yz = (_y << CHUNK_SIZE_X_BIT) | _index_z;
                         
-                        var _connected_type = connected_type[_y];
-                        
                         for (var _x = CHUNK_SIZE_X - 1; _x >= 0; --_x)
                         {
                             var _xpos = chunk_xstart + _x;
@@ -73,14 +71,13 @@ function ctrl_chunk_generate_1()
                             
                             if (_tile == TILE_EMPTY) continue;
                             
-                            var _connection_type = (_connected_type >> (_x << 1)) & 0b11;
-                            
-                            if (!_connection_type) continue;
-                            
                             var _item_id = _tile.item_id;
+                            
+                            var _animation_type = _item_data[$ _item_id].get_animation_type();
+                            
                             var _index;
                             
-                            if (_connection_type == 1)
+                            if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED)
                             {
                                 var _type = _item_data[$ _item_id].type;
                                 
@@ -91,7 +88,7 @@ function ctrl_chunk_generate_1()
                                     (tile_condition_connected(_xpos - 1, _ypos, _z, _item_id, _type, _item_data, _world_height) << 0)
                                 ];
                             }
-                            else
+                            else if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
                             {
                                 _index = __index[
                                     (tile_condition_connected_to_self(_xpos, _ypos - 1, _z, _item_id, _world_height) << 3) |
@@ -100,6 +97,13 @@ function ctrl_chunk_generate_1()
                                     (tile_condition_connected_to_self(_xpos - 1, _ypos, _z, _item_id, _world_height) << 0)
                                 ];
                             }
+                            else if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+                            {
+                                _index =
+                                    (tile_condition_connected_to_self(_xpos + 1, _ypos, _z, _item_id, _world_height) << 1) |
+                                    (tile_condition_connected_to_self(_xpos - 1, _ypos, _z, _item_id, _world_height) << 0);
+                            }
+                            else continue;
                             
                             var _bit = 1 << _index;
                             

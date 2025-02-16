@@ -102,7 +102,7 @@ function render_entity(_surface_index_offset)
 			
 			with (obj_Item_Drop)
 			{
-				draw_sprite_ext(sprite_index, image_index, x, ((xvelocity == 0) && (yvelocity == 0) ? (y - (cos((x + y + _timestamp + life) / 16) * 2)) : y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+				draw_sprite_ext(sprite_index, image_index, x, ((xvelocity == 0) && (yvelocity == 0) ? (y - (cos((x + y + _timestamp + time_life) / 16) * 2)) : y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 			}
 			
 			with (obj_Pet)
