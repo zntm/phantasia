@@ -88,9 +88,10 @@ enum ITEM_BOOLEAN {
     IS_PLANT_REPLACEABLE = 1 << 3,
     IS_PLANT_WAVEABLE    = 1 << 4,
     IS_ANIMATED          = 1 << 5,
-    CAN_CONNECT          = 1 << 6,
-    CAN_ALWAYS_CONSUME   = 1 << 7,
-    CAN_STORE_INVENTORY  = 1 << 8
+    IS_FACING_PLAYER     = 1 << 6,
+    CAN_CONNECT          = 1 << 7,
+    CAN_ALWAYS_CONSUME   = 1 << 8,
+    CAN_STORE_INVENTORY  = 1 << 9
 }
 
 global.item_data = {}
@@ -217,6 +218,13 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self;
     }
     
+    static set_is_facing_player = function()
+    {
+        boolean |= ITEM_BOOLEAN.IS_FACING_PLAYER;
+        
+        return self;
+    }
+    
     static set_tile_can_not_connect = function()
     {
         if (boolean & ITEM_BOOLEAN.CAN_CONNECT)
@@ -326,7 +334,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         return self;
     }
-        
+    
     static get_durability = function()
     {
         return self[$ "___durability"] ?? 0;
@@ -2036,6 +2044,8 @@ new ItemData("phantasia", item_Bloom_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Bloom_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -2633,6 +2643,7 @@ new ItemData("phantasia", item_Grass_Block_Amazonia, ITEM_TYPE_BIT.SOLID)
 
 
 new ItemData("phantasia", item_Grass_Block_Savannah, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, false)
     .set_mining_stats(ITEM_TYPE_BIT.SHOVEL, undefined, 12)
     .set_is_not_obstructing(false)
@@ -3230,6 +3241,8 @@ new ItemData("phantasia", item_Egg, ITEM_TYPE_BIT.THROWABLE | ITEM_TYPE_BIT.AMMO
     .set_ammo_type("phantasia:egg");
 
 new ItemData("phantasia", item_Acacia_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -3279,6 +3292,8 @@ new ItemData("phantasia", item_Ashen_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Ashen_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -3361,6 +3376,8 @@ new ItemData("phantasia", item_Birch_Table, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_drops("phantasia:birch_table");
 
 new ItemData("phantasia", item_Birch_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -4714,6 +4731,8 @@ new ItemData("phantasia", item_Mangrove_Planks_Wall, ITEM_TYPE_BIT.WALL)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Cherry_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -4891,6 +4910,8 @@ new ItemData("phantasia", item_Stove, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.
     .set_sfx_craft("phantasia:tile.craft.furnace");
 
 new ItemData("phantasia", item_Yucca_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -4930,6 +4951,8 @@ new ItemData("phantasia", item_Oak_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Wysteria_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -4938,6 +4961,8 @@ new ItemData("phantasia", item_Wysteria_Door, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Oak_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -5665,6 +5690,8 @@ new ItemData("phantasia", item_Mangrove_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Mangrove_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -5690,6 +5717,8 @@ new ItemData("phantasia", item_Mahogany_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Mahogany_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -5714,6 +5743,8 @@ new ItemData("phantasia", item_Blizzard_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Blizzard_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -5739,6 +5770,8 @@ new ItemData("phantasia", item_Pine_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Pine_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)
@@ -5764,6 +5797,8 @@ new ItemData("phantasia", item_Palm_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Palm_Door, ITEM_TYPE_BIT.SOLID)
+    .set_is_facing_player()
+    .set_random_index(1, 1)
     .set_collision_box(0, -8, -24, 4, 32)
     .set_instance(global.tile_instance_door)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 18)

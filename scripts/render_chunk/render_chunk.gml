@@ -111,7 +111,6 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                         }
                     }
                     
-                    var _scale_rotation_index = _tile.scale_rotation_index;
                     var _index;
                     
                     // NOTE: Index variable with double 0x80s are related to 'index offset' value offset.

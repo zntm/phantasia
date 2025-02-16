@@ -110,16 +110,36 @@ function player_place(_x, _y, _world_height)
         obj_Control.surface_refresh_lighting = true;
     }
     
+    var _inst_x = _x * TILE_SIZE;
+    var _inst_y = _y * TILE_SIZE;
+    
+    var _player_x = obj_Player.x;
+    var _player_y = obj_Player.y;
+    
+    var _boolean = _data.boolean;
+    
+    if (_boolean & ITEM_BOOLEAN.IS_FACING_PLAYER)
+    {
+        var _direction = sign(_player_x - _inst_x);
+        
+        if (_direction == 0)
+        {
+            _direction = 1;
+        }
+        
+        _tile.set_xscale(abs(_tile.get_xscale()) * _direction);
+    }
+    
     var _inst = tile_place(_x, _y, _z, _tile, _world_height);
     
-    if (_data.boolean & ITEM_BOOLEAN.IS_ANIMATED)
+    if (_boolean & ITEM_BOOLEAN.IS_ANIMATED)
     {
         _inst.chunk_z_animated |= 1 << _z;
     }
     
     tile_update_neighbor(_x, _y, undefined, undefined, _world_height);
     
-    sfx_diegetic_play(obj_Player.x, obj_Player.y, _x * TILE_SIZE, _y * TILE_SIZE, $"{_data.get_sfx()}.place", undefined, global.settings_value.blocks);
+    sfx_diegetic_play(_player_x, _player_y, _inst_x, _inst_y, $"{_data.get_sfx()}.place", undefined, global.settings_value.blocks);
     
     chunk_update_near_light();
     instance_cull(true);
