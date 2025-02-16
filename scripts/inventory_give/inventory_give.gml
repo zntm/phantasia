@@ -74,7 +74,9 @@ function inventory_give(_x, _y, _item, _text = true)
 	
 	if (_text) && (_pickup_amount > 0)
 	{
-		var _loca = loca_translate($"{_data.get_namespace()}:item.{_item_id}.name");
+        var _ = string_split(_item_id, ":");
+        
+		var _loca = loca_translate($"{_[0]}:item.{_[1]}.name");
 		
 		if (_pickup_amount > 1)
 		{
