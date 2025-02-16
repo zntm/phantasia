@@ -27,15 +27,11 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
     
     var _animation_type = _data.get_animation_type();
 	
-	if (_animation_type & (TILE_ANIMATION_TYPE.NONE | TILE_ANIMATION_TYPE.INCREMENT)) exit;
-	
-	var _index2;
-	
 	if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED)
 	{
 		var _type = _data.type;
 		
-		_index2 = __index[
+		var _index2 = __index[
 			(tile_condition_connected(_x, _y - 1, _z, _item_id, _type, _item_data, _world_height) << 3) |
 			(tile_condition_connected(_x + 1, _y, _z, _item_id, _type, _item_data, _world_height) << 2) |
 			(tile_condition_connected(_x, _y + 1, _z, _item_id, _type, _item_data, _world_height) << 1) |
@@ -70,7 +66,7 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 	}
 	else if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
 	{
-		_index2 = __index[
+		var _index2 = __index[
 			(tile_condition_connected_to_self(_x, _y - 1, _z, _item_id, _world_height) << 3) |
 			(tile_condition_connected_to_self(_x + 1, _y, _z, _item_id, _world_height) << 2) |
 			(tile_condition_connected_to_self(_x, _y + 1, _z, _item_id, _world_height) << 1) |
