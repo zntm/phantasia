@@ -368,7 +368,7 @@ for (var i = _delta_time; i > 0; --i)
     control_pets(_world_height, _delta_time);
     
     control_particles(_particle_data, _world_height, _particle_bbox_l, _particle_bbox_t, _particle_bbox_r, _particle_bbox_b, _speed);
-    control_text(_particle_bbox_l, _particle_bbox_t, _particle_bbox_r, _particle_bbox_b, _speed);
+    control_floating_text(_particle_bbox_l, _particle_bbox_t, _particle_bbox_r, _particle_bbox_b, _speed);
     
     ctrl_effects(_effect_data, _effect_names, _effect_length, _speed);
     

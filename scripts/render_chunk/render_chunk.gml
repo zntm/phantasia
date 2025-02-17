@@ -55,7 +55,12 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                     
                     _transfer = true;
                 }
-                else if ((chunk_z_animated & _zbit) == 0) || (timer_surface[_z] < CHUNK_REFRESH_SURFACE) continue;
+                else
+                {
+                    if ((chunk_z_animated & _zbit) == 0) || (timer_surface[_z] < CHUNK_REFRESH_SURFACE) continue;
+                    
+                    timer_surface[@ _z] %= CHUNK_REFRESH_SURFACE;
+                }
             }
             else
             {
@@ -68,8 +73,6 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
             {
                 surface[@ _surface_index] = surface_create(CHUNK_SURFACE_WIDTH, CHUNK_SURFACE_HEIGHT);
             }
-            
-            timer_surface[@ _z] %= CHUNK_REFRESH_SURFACE;
             
             debug_timer("render_chunk_draw");
             
@@ -201,7 +204,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
             
             surface_reset_target();
             
-            debug_timer("render_chunk_draw", "Render Chunk Surfaces");
+            debug_timer("render_chunk_draw", $"[{chunk_xstart}, {chunk_ystart}] [{_z}] Render Chunk Surfaces");
             
             if (_transfer)
             {
@@ -221,7 +224,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                 
                 surface_reset_target();
                 
-                debug_timer("render_chunk_transfer", $"[{chunk_xstart}, {chunk_ystart}] Transferred Chunk Surfaces");
+                debug_timer("render_chunk_transfer", $"[{chunk_xstart}, {chunk_ystart}] [{_z}] Transferred Chunk Surfaces");
             }
         }
     }

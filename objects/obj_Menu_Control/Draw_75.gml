@@ -137,7 +137,7 @@ draw_set_align(fa_center, fa_middle);
 draw_set_font(fnt_Main);
 gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_src_alpha, bm_one);
 
-menu_control_textbox();
+menu_control_floating_textbox();
 
 if (mouse_check_button_pressed(mb_left))
 {

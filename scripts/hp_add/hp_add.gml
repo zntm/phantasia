@@ -22,7 +22,7 @@ function hp_add(_obj, _val, _type = DAMAGE_TYPE.DEFAULT, _show_text = true, _is_
 	{
 		var _rotation = random_range(-2, 2);
 		
-		spawn_text(_obj.x, _obj.y, abs(_val), _rotation, random_range(-6, -4), 0.5, 0.5, -_rotation, (_val >= 0 ? HP_COLOUR_HEAL : (_is_critical ? HP_COLOUR_DAMAGE_CRITICAL : HP_COLOUR_DAMAGE)));
+		spawn_floating_text(_obj.x, _obj.y, abs(_val), _rotation, random_range(-6, -4), 0.5, 0.5, -_rotation, (_val >= 0 ? HP_COLOUR_HEAL : (_is_critical ? HP_COLOUR_DAMAGE_CRITICAL : HP_COLOUR_DAMAGE)));
 	}
 	
 	if (_obj.hp > 0) || (_obj[$ "name"] == undefined) exit;

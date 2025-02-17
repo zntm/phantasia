@@ -1,4 +1,4 @@
-function menu_control_textbox()
+function menu_control_floating_textbox()
 {
 	// Used to filter out invalid characters.
 	// NOTE: This feels like a quick fix, however it suits the current needs of the game.

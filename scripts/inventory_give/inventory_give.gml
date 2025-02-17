@@ -83,6 +83,6 @@ function inventory_give(_x, _y, _item, _text = true)
 			_loca += $" ({_pickup_amount})";
 		}
 		
-		spawn_text(_x, _y, _loca, 0, -8);
+		spawn_floating_text(_x, _y, _loca, 0, -8);
 	}
 }

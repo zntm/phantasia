@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"spawn_text",
+  "%Name":"control_floating_text",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"spawn_text",
+  "name":"control_floating_text",
   "parent":{
-    "name":"Spawn",
-    "path":"folders/Scripts/Phantasia/Spawn.yy",
+    "name":"Control",
+    "path":"folders/Scripts/Control.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
