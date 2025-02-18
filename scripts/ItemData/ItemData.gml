@@ -98,7 +98,7 @@ global.item_data = {}
 global.item_data_on_draw = {}
 
 global.tile_variable_sign = {
-    text: "Text"
+    text: ""
 }
 
 global.tile_menu_sign = [
@@ -2386,6 +2386,7 @@ new ItemData("phantasia", item_Rock_Path, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.dirt");
 
 new ItemData("phantasia", item_Tent, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_is_facing_player()
     .set_random_index(1, 1)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, 0, 0)
     .set_drops("phantasia:tent");
@@ -2608,12 +2609,10 @@ new ItemData("phantasia", item_Violets, ITEM_TYPE_BIT.PLANT)
     .set_drops("phantasia:violets");
 
 new ItemData("phantasia", item_Red_Mushroom, ITEM_TYPE_BIT.PLANT)
-    .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:red_mushroom");
 
 new ItemData("phantasia", item_Blue_Mushroom, ITEM_TYPE_BIT.PLANT)
-    .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:blue_mushroom");
 
@@ -3197,11 +3196,32 @@ new ItemData("phantasia", item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
 
 new ItemData("phantasia", item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
+    .set_animation_index(0, 19)
     .set_colour_offset(0, -2, -28)
     .set_bloom(#160704)
     .set_mining_stats(undefined, undefined, 8)
     .set_drops("phantasia:campfire")
-    .set_sfx("phantasia:tile.wood");
+    .set_sfx("phantasia:tile.wood")
+    .set_on_tile_interaction(function(_x, _y, _z, _tile)
+    {
+        var _animated = !_tile.get_animated();
+        
+        if (_animated)
+        {
+            _tile.set_animated(true);
+            _tile.set_index(0);
+        }
+        else
+        {
+            _tile.set_animated(false);
+            _tile.set_index(20);
+        }
+        
+        var _xinst = _x * TILE_SIZE;
+        var _yinst = _y * TILE_SIZE;
+        
+        chunk_refresh_fast(_xinst - CHUNK_SIZE_WIDTH_H, _yinst - CHUNK_SIZE_HEIGHT_H, _xinst + CHUNK_SIZE_WIDTH_H, _yinst + CHUNK_SIZE_HEIGHT_H);
+    });
 
 new ItemData("phantasia", item_Cloud, ITEM_TYPE_BIT.SOLID)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)

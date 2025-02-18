@@ -83,7 +83,6 @@ function string_profanity(_string)
                     ++_index;
                 }
             }
-             
             
             if (_text == "") || (string_pos(_profanity, _text) <= 0) continue;
             

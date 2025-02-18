@@ -94,6 +94,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                 for (var _x = 0; _x < CHUNK_SIZE_X; ++_x)
                 {
                     var _xyzindex = _x | _yzindex;
+                    
                     var _tile = chunk[_xyzindex];
                     
                     if (_tile == TILE_EMPTY) continue;
@@ -116,16 +117,14 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                     
                     var _index;
                     
-                    // NOTE: Index variable with double 0x80s are related to 'index offset' value offset.
-                    //       Combining these so that they can be compiled as constants.
-                    if (_boolean & ITEM_BOOLEAN.IS_ANIMATED)
+                    if (_data.get_animation_type() & TILE_ANIMATION_TYPE.INCREMENT) && (_tile.get_animated())
                     {
-                        var _animation_type = _data.get_animation_type();
-                        
                         var _animation_index_min = _data.get_animation_index_min();
                         var _animation_index_max = _data.get_animation_index_max();
                         
-                        _index = ((_animation_type & TILE_ANIMATION_TYPE.INCREMENT) ? (_animation_index_min + (_index_animation % ((_animation_index_max - _animation_index_min) + 1))) : _tile.get_index());
+                        _index = _animation_index_min + (_index_animation % ((_animation_index_max - _animation_index_min) + 1));
+                        
+                        show_debug_message($"TEST: {_index}")
                     }
                     else
                     {

@@ -132,7 +132,7 @@ function player_place(_x, _y, _world_height)
     
     var _inst = tile_place(_x, _y, _z, _tile, _world_height);
     
-    if (_boolean & ITEM_BOOLEAN.IS_ANIMATED)
+    if (_data.get_animation_type() & TILE_ANIMATION_TYPE.INCREMENT)
     {
         _inst.chunk_z_animated |= 1 << _z;
     }
