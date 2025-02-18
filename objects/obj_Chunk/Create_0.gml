@@ -16,7 +16,7 @@ timer_surface = array_create(CHUNK_SIZE_Z, 0);
 
 for (var i = 0; i < CHUNK_SIZE_Z; ++i)
 {
-    timer_surface[@ i] = random(CHUNK_REFRESH_SURFACE);
+    timer_surface[@ i] = CHUNK_REFRESH_SURFACE + random(CHUNK_REFRESH_SURFACE);
 }
 
 surface_display = 0;

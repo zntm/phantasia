@@ -124,14 +124,19 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                         
                         _index = _animation_index_min + (_index_animation % ((_animation_index_max - _animation_index_min) + 1));
                         
-                        show_debug_message($"TEST: {_index}")
+                        show_debug_message($"TEST: {_index} {_tile.get_index_offset()}")
+                        
+                        _transfer = true;
                     }
                     else
                     {
-                        _index = _tile.get_index();
+                        _index = _tile.get_index() + _tile.get_index_offset();
+                        
+                        if (_tile.item_id == "phantasia:campfire")
+                        {
+                            show_debug_message($"TEST: {_index} {_tile.get_index()} {_tile.get_index_offset()}")
+                        }
                     }
-                    
-                    _index += _tile.get_index_offset();
                     
                     var _xoffset = _x << TILE_SIZE_BIT;
                     

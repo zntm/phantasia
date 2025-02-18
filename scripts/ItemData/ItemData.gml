@@ -351,7 +351,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     }
     
     // 0xff_ff_ff_ff_ff
-    v1 = (sprite_get_width(_sprite) << 32) | (sprite_get_height(_sprite) << 24) | (0 << 16) | (SLOT_TYPE.BASE | SLOT_TYPE.CONTAINER);
+    v1 = (sprite_get_width(_sprite) << 32) | (sprite_get_height(_sprite) << 24) | (0 << 16) | (0x80 << 8) | (SLOT_TYPE.BASE | SLOT_TYPE.CONTAINER);
     
     static get_sprite_width = function()
     {
@@ -3208,13 +3208,15 @@ new ItemData("phantasia", item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
         
         if (_animated)
         {
-            _tile.set_animated(true);
-            _tile.set_index(0);
+            _tile
+                .set_index(0)
+                .set_animated(true);
         }
         else
         {
-            _tile.set_animated(false);
-            _tile.set_index(20);
+            _tile
+                .set_index(20)
+                .set_animated(false);
         }
         
         var _xinst = _x * TILE_SIZE;

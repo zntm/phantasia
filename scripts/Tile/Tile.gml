@@ -142,7 +142,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 		return self;
 	}
 	
-	static get_index = function(_index = 1)
+	static get_index = function()
 	{
 		return ((scale_rotation_index >> 8) & 0xff) - 0x80;
 	}
@@ -154,7 +154,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 		return self;
 	}
 	
-	static get_index_offset = function(_index = 1)
+	static get_index_offset = function()
 	{
 		return (scale_rotation_index & 0xff) - 0x80;
 	}
