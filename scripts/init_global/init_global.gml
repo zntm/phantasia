@@ -59,6 +59,7 @@ if (DEVELOPER_MODE)
 		world: true,
 		loca: true,
 		player_colour: true,
+		profanity: true,
 		splash: true,
         emote: true
 	}

@@ -147,6 +147,8 @@ if (mouse_check_button_pressed(mb_left))
     }
 }
 
+var _profanity_fliter = global.settings_value.profanity_fliter;
+
 var _length = array_length(surface);
 
 for (var i = 0; i < _length; ++i)
@@ -226,7 +228,7 @@ for (var i = 0; i < _length; ++i)
                 if (!selected)
                 {
                     _edge = asset_get_index(sprite_get_name(sprite_index) + "_Edge");
-                
+                    
                     if (_edge > -1)
                     {
                         _edge_exists = true;
@@ -342,7 +344,13 @@ for (var i = 0; i < _length; ++i)
         
         draw_sprite_ext(spr_Menu_Indent, 0, _x, _y, _xscale, _yscale, 0, c_white, 1);
         
-        var _text_length = string_length(text);
+        if (text != text_old)
+        {
+            text_old = text;
+            text_display = (_profanity_fliter ? string_profanity(text) : text);
+        }
+        
+        var _text_length = string_length(text_display);
         
         var _underscore = ((selected) && (_text_length < text_length) && (round((global.timer_delta % GAME_FPS) / GAME_FPS) == 0) ? "_" : "");
         
@@ -356,7 +364,7 @@ for (var i = 0; i < _length; ++i)
         }
         else
         {
-            var _ = string(text) + _underscore;
+            var _ = string(text_display) + _underscore;
             
             var _scale = menu_textbox_text_scale(_, _display_width);
             
@@ -364,7 +372,7 @@ for (var i = 0; i < _length; ++i)
             _yscale = _scale * _ymultiplier;
             
             draw_text_transformed_colour(_x, _y, _, _xscale, _yscale, 0, c_white, c_white, c_white, c_white, 0.25);
-            draw_text_transformed(_x - ((string_width(_underscore) * _xscale) / 2), _y, text, _xscale, _yscale, 0);
+            draw_text_transformed(_x - ((string_width(_underscore) * _xscale) / 2), _y, text_display, _xscale, _yscale, 0);
         }
     }
     
