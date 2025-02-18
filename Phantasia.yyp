@@ -2633,6 +2633,7 @@
           "compressFormat":"bz2",
           "groupParent":"null",
           "loadType":"default",
+          "isScaled":"false",
         },
       },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Foliage","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"Game_Liquid","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{

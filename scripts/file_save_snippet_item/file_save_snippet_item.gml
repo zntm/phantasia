@@ -1,4 +1,4 @@
-function file_save_snippet_item(_buffer, _item)
+function file_save_snippet_item(_buffer, _item_data, _item)
 {
     if (_item == INVENTORY_EMPTY)
     {

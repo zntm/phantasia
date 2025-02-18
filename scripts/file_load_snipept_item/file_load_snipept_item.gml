@@ -1,4 +1,4 @@
-function file_load_snipept_item(_buffer, _datafixer)
+function file_load_snipept_item(_buffer, _item_data, _datafixer)
 {
     var _item_id = buffer_read(_buffer, buffer_string);
     
