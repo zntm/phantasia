@@ -105,7 +105,8 @@ global.tile_menu_sign = [
     new ItemMenu("button")
         .set_icon(ico_Arrow_Left)
         .set_position(32, 32)
-        .set_scale(2.5, 2.5),
+        .set_scale(2.5, 2.5)
+        .set_function("exit"),
     new ItemMenu("anchor")
         .set_text("Enter Text")
         .set_position(480, 172 - 32),

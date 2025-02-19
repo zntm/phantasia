@@ -269,13 +269,6 @@ function inventory_interaction()
                 obj_Menu_Control.xoffset = -_camera_x;
                 obj_Menu_Control.yoffset = -_camera_y;
                 
-                obj_Menu_Control.on_draw = function(_xmultiplier, _ymultiplier, _display_width, _display_height)
-                {
-                    var _ = global.menu_tile;
-                    
-                    draw_text_transformed(16 * _xmultiplier, 16 * _ymultiplier, tile_get(_.x, _.y, _.z, "item_id"), _xmultiplier, _ymultiplier, 0);
-                }
-                
                 global.menu_tile = {
                     x: _x,
                     y: _y,
