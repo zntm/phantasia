@@ -5,123 +5,110 @@ enum TILE_MENU_TEXTBOX_TYPE {
 
 function inventory_interaction()
 {
-    static __menu_on_update_textbox = function(_x, _y, _id, _text_before, _text_after)
+    static __instance_link = function(_instance, _instance_link, _value)
     {
-        static __instance_link = function(_instance, _instance_link, _value)
+        if (_instance_link == undefined) exit;
+        
+        with (_instance)
         {
-            if (_instance_link == undefined) exit;
-            
-            with (_instance)
+            if (_instance_link == "x")
             {
-                if (_instance_link == "x")
+                xoffset = (_value * TILE_SIZE) + (floor(image_xscale / 2) * TILE_SIZE);
+                
+                x = xstart + xoffset;
+                
+                if (image_xscale > 0) && (image_xscale % 2 == 0)
                 {
-                    xoffset = (_value * TILE_SIZE) + (floor(image_xscale / 2) * TILE_SIZE);
-                    
-                    x = xstart + xoffset;
-                    
-                    if (image_xscale > 0) && (image_xscale % 2 == 0)
-                    {
-                        x -= TILE_SIZE_H;
-                    }
-                }
-                else if (_instance_link == "y")
-                {
-                    yoffset = (_value * TILE_SIZE) + (floor(image_yscale / 2) * TILE_SIZE);
-                    
-                    y = ystart + yoffset;
-                    
-                    if (image_yscale > 0) && (image_yscale % 2 == 0)
-                    {
-                        y -= TILE_SIZE_H;
-                    }
-                }
-                else if (_instance_link == "xscale")
-                {
-                    x = xstart + xoffset + (floor(_value / 2) * TILE_SIZE);
-                    
-                    if (_value > 0) && (_value % 2 == 0)
-                    {
-                        x -= TILE_SIZE_H;
-                    }
-                    
-                    image_xscale = _value;
-                }
-                else if (_instance_link == "yscale")
-                {
-                    y = ystart + yoffset + (floor(_value / 2) * TILE_SIZE);
-                    
-                    if (_value > 0) && (_value % 2 == 0)
-                    {
-                        y -= TILE_SIZE_H;
-                    }
-                    
-                    image_yscale = _value;
+                    x -= TILE_SIZE_H;
                 }
             }
+            else if (_instance_link == "y")
+            {
+                yoffset = (_value * TILE_SIZE) + (floor(image_yscale / 2) * TILE_SIZE);
+                
+                y = ystart + yoffset;
+                
+                if (image_yscale > 0) && (image_yscale % 2 == 0)
+                {
+                    y -= TILE_SIZE_H;
+                }
+            }
+            else if (_instance_link == "xscale")
+            {
+                x = xstart + xoffset + (floor(_value / 2) * TILE_SIZE);
+                
+                if (_value > 0) && (_value % 2 == 0)
+                {
+                    x -= TILE_SIZE_H;
+                }
+                
+                image_xscale = _value;
+            }
+            else if (_instance_link == "yscale")
+            {
+                y = ystart + yoffset + (floor(_value / 2) * TILE_SIZE);
+                
+                if (_value > 0) && (_value % 2 == 0)
+                {
+                    y -= TILE_SIZE_H;
+                }
+                
+                image_yscale = _value;
+            }
         }
+    }
+
+    static __menu_on_update_textbox = function(_x, _y, _id, _text_before, _text_after)
+    {
+        var _string;
+        var _string2;
         
         var _type = _id.type;
         
         if (_type & TILE_MENU_TEXTBOX_TYPE.STRING)
         {
-            var _menu_tile = global.menu_tile;
-            
-            tile_set(_menu_tile.x, _menu_tile.y, _menu_tile.z, $"variable.{_id.variable}", _text_after);
+            _string  = _text_after;
+            _string2 = _text_after;
         }
-        else if (_type & TILE_MENU_TEXTBOX_TYPE.NUMBER) && (string_length(_text_after) > 0)
+        else if (_type & TILE_MENU_TEXTBOX_TYPE.NUMBER) && (_text_after != "")
         {
-            var _string;
+            var _value = 0;
             
-            try
+            if (_text_after != "-")
             {
-                var _ = real(_text_after);
-                
-                var _value_min = _id.value_min;
-                
-                if (_ <= _value_min)
+                try
                 {
-                    _string = string(_value_min);
-                }
-                else
-                {
+                    _value = real(_text_after);
+                    
+                    var _value_min = _id.value_min;
                     var _value_max = _id.value_max;
                     
-                    if (_ >= _value_max)
-                    {
-                        _string = string(_value_max);
-                    }
-                    else
-                    {
-                        _string = _text_after;
-                    }
-                }
-                
-                __instance_link(_id.instance, _id.instance_link, _);
-            }
-            catch (_error)
-            {
-                if (_text_after == "-")
-                {
-                    __instance_link(_id.instance, _id.instance_link, 0);
+                    _string  = string(_value);
+                    _string2 = _text_after;
                     
-                    _string = _text_after;
+                    _value = clamp(_value, _value_min, _value_max);
                 }
-                else
+                catch (_error)
                 {
-                    _string = _text_before;
+                    exit;
                 }
             }
             
-            var _menu_tile = global.menu_tile;
-            
-            tile_set(_menu_tile.x, _menu_tile.y, _menu_tile.z, $"variable.{_id.variable}", _string);
-            
-            _id.text = _string;
+            inventory_interaction.__instance_link(_id.instance, _id.instance_link, _value);
         }
+        exit;
+        
+        var _menu_tile = global.menu_tile;
+        
+        tile_set(_menu_tile.x, _menu_tile.y, _menu_tile.z, $"variable.{_id.variable}", _string);
+        
+        _id.text = _string2;
     }
     
+    static __inst = [];
+    
     var _inst = instance_position(mouse_x, mouse_y, obj_Inventory);
-        
+    
     if (_inst)
     {
         var _type = _inst.type;
@@ -189,6 +176,8 @@ function inventory_interaction()
                 
                 var _length = array_length(_menu);
                 
+                array_resize(__inst, _length);
+                
                 for (var i = 0; i < _length; ++i)
                 {
                     var _ = _menu[i];
@@ -204,6 +193,8 @@ function inventory_interaction()
                             yscale = _.get_yscale();
                             
                             on_draw = menu_on_draw_anchor;
+                            
+                            __inst[@ i] = id;
                         }
                     }
                     else if (_type == "button")
@@ -219,6 +210,8 @@ function inventory_interaction()
                             image_yscale = _.get_yscale();
                             
                             on_press = (_function == "exit" ? tile_menu_close : _function);
+                            
+                            __inst[@ i] = id;
                         }
                     }
                     else
@@ -273,8 +266,30 @@ function inventory_interaction()
                                 instance = _instance;
                                 instance_link = _.get_instance_link();
                                 
-                                __menu_on_update_textbox(x, y, id, "", text);
+                                if (text != "")
+                                {
+                                    __instance_link(instance, instance_link, real(text));
+                                }
                             }
+                            
+                            __inst[@ i] = id;
+                        }
+                    }
+                }
+                
+                // NOTE: Needs to double check to fix scaling issues
+                for (var i = 0; i < _length; ++i)
+                {
+                    var _ = _menu[i];
+                    var _type = _.get_type();
+                    
+                    if (_type != "textbox-number") continue;
+                    
+                    with (__inst[i])
+                    {
+                        if (text != "")
+                        {
+                            __instance_link(instance, instance_link, real(text));
                         }
                     }
                 }

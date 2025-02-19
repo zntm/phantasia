@@ -2888,6 +2888,20 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID)
             .set_scale(32, 5)
             .set_variable("structure_id"),
         new ItemMenu("anchor")
+            .set_text("Scale")
+            .set_position(480, 364 - 32),
+        new ItemMenu("textbox-number")
+            .set_placeholder("X")
+            .set_position(416, 364)
+            .set_scale(16, 5)
+            .set_instance_link("xscale")
+            .set_variable("xscale"),
+        new ItemMenu("textbox-number")
+            .set_placeholder("Y")
+            .set_position(544, 364)
+            .set_scale(16, 5)
+            .set_instance_link("yscale"),
+        new ItemMenu("anchor")
             .set_text("Offset")
             .set_position(480, 236 - 32),
         new ItemMenu("textbox-number")
@@ -2902,20 +2916,6 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID)
             .set_scale(16, 5)
             .set_instance_link("y")
             .set_variable("yoffset"),
-        new ItemMenu("anchor")
-            .set_text("Scale")
-            .set_position(480, 364 - 32),
-        new ItemMenu("textbox-number")
-            .set_placeholder("X")
-            .set_position(416, 364)
-            .set_scale(16, 5)
-            .set_instance_link("xscale")
-            .set_variable("xscale"),
-        new ItemMenu("textbox-number")
-            .set_placeholder("Y")
-            .set_position(544, 364)
-            .set_scale(16, 5)
-            .set_instance_link("yscale"),
         new ItemMenu("button")
             .set_text("Export")
             .set_position(480, 480)
