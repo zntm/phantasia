@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"inventory_instance_delete",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"inventory_instance_delete",
+  "parent":{
+    "name":"Inventory",
+    "path":"folders/Scripts/Inventory.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

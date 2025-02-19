@@ -1183,6 +1183,7 @@
     {"id":{"name":"inventory_drop","path":"scripts/inventory_drop/inventory_drop.yy",},},
     {"id":{"name":"inventory_give","path":"scripts/inventory_give/inventory_give.yy",},},
     {"id":{"name":"inventory_includes","path":"scripts/inventory_includes/inventory_includes.yy",},},
+    {"id":{"name":"inventory_instance_delete","path":"scripts/inventory_instance_delete/inventory_instance_delete.yy",},},
     {"id":{"name":"inventory_interaction","path":"scripts/inventory_interaction/inventory_interaction.yy",},},
     {"id":{"name":"inventory_item_decrement","path":"scripts/inventory_item_decrement/inventory_item_decrement.yy",},},
     {"id":{"name":"inventory_open","path":"scripts/inventory_open/inventory_open.yy",},},
@@ -2636,7 +2637,7 @@
           "isScaled":"false",
         },
       },"customOptions":"","directory":"","groupParent":{"name":"Default","path":"texturegroups/Default",},"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Game_Foliage","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMTextureGroup":"","%Name":"Game_Liquid","autocrop":true,"border":2,"compressFormat":"bz2","ConfigValues":{
+    {"$GMTextureGroup":"","%Name":"Game_Liquid","autocrop":false,"border":2,"compressFormat":"bz2","ConfigValues":{
         "Developer":{
           "autocrop":"false",
           "compressFormat":"bz2",

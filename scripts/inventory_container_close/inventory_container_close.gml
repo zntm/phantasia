@@ -33,16 +33,5 @@ function inventory_container_close()
 	obj_Control.surface_refresh_inventory = true;
 	
 	inventory_resize("container", 0);
-	
-	with (obj_Inventory)
-	{
-		if (type != "container")
-        {
-            instance_deactivate_object(id);
-            
-            continue;
-        }
-        
-		instance_destroy();
-	}
+	inventory_instance_delete();
 }
