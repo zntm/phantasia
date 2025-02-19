@@ -109,7 +109,7 @@ add_setting("general", "discord_rpc", new SettingsData(true, SETTINGS_TYPE.SWITC
 
 add_setting("general", "toast_notification", new SettingsData(true, SETTINGS_TYPE.SWITCH));
 
-add_setting("general", "profanity_fliter", new SettingsData(true, SETTINGS_TYPE.SWITCH));
+add_setting("general", "profanity_filter", new SettingsData(true, SETTINGS_TYPE.SWITCH));
 
 add_setting("general", "skip_warning", new SettingsData(false, SETTINGS_TYPE.SWITCH));
 

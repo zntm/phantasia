@@ -1,5 +1,8 @@
 function tile_hover_sign(_x, _y, _z, _tile, _gui_x, _gui_y, _gui_width, _gui_height)
 {
+    static __text = undefined;
+    static __text_profanity = undefined;
+    
     static __sprite_width  = sprite_get_width(spr_Menu_Tooltip);
     static __sprite_height = sprite_get_height(spr_Menu_Tooltip);
     
@@ -23,6 +26,17 @@ function tile_hover_sign(_x, _y, _z, _tile, _gui_x, _gui_y, _gui_width, _gui_hei
     
     draw_sprite_ext(spr_Menu_Tooltip, 0, _x2, _y2, _xscale, _yscale, 0, c_white, 1);
     draw_sprite_ext(spr_Menu_Tooltip_Border, 0, _x2, _y2, _xscale, _yscale, 0, c_white, 1);
+    
+    if (global.settings_value.profanity_filter)
+    {
+        if (__text != _text)
+        {
+            __text = _text;
+            __text_profanity = string_profanity(_text);
+        }
+        
+        _text = __text_profanity;
+    }
     
     draw_text_cuteify(_gui_x, _gui_y, _text);
     

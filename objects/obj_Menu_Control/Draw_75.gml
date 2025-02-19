@@ -147,7 +147,7 @@ if (mouse_check_button_pressed(mb_left))
     }
 }
 
-var _profanity_fliter = global.settings_value.profanity_fliter;
+var _profanity_filter = global.settings_value.profanity_filter;
 
 var _length = array_length(surface);
 
@@ -347,7 +347,7 @@ for (var i = 0; i < _length; ++i)
         if (text != text_old)
         {
             text_old = text;
-            text_display = (_profanity_fliter ? string_profanity(text) : text);
+            text_display = (_profanity_filter ? string_profanity(text) : text);
         }
         
         var _text_length = string_length(text_display);
