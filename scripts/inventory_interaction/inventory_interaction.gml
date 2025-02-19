@@ -170,6 +170,23 @@ function inventory_interaction()
                 
                 inventory_close();
                 
+                var _instance = _tile[$ "instance.instance"];
+                
+                with (_instance)
+                {
+                    xoffset = 0;
+                    yoffset = 0;
+                }
+                
+                obj_Menu_Control.xoffset = -_camera_x;
+                obj_Menu_Control.yoffset = -_camera_y;
+                
+                global.menu_tile = {
+                    x: _x,
+                    y: _y,
+                    z: _z,
+                }
+                
                 var _length = array_length(_menu);
                 
                 for (var i = 0; i < _length; ++i)
@@ -253,26 +270,13 @@ function inventory_interaction()
                                 
                                 on_update = __menu_on_update_textbox;
                                 
-                                instance = _tile[$ "instance.instance"];
+                                instance = _instance;
                                 instance_link = _.get_instance_link();
                                 
-                                with (instance)
-                                {
-                                    xoffset = 0;
-                                    yoffset = 0;
-                                }
+                                __menu_on_update_textbox(x, y, id, "", text);
                             }
                         }
                     }
-                }
-                
-                obj_Menu_Control.xoffset = -_camera_x;
-                obj_Menu_Control.yoffset = -_camera_y;
-                
-                global.menu_tile = {
-                    x: _x,
-                    y: _y,
-                    z: _z,
                 }
                 
                 menu_init_button_depth();
