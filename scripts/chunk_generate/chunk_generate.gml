@@ -81,14 +81,20 @@ function chunk_generate(_world, _seed, _world_data)
         __chunk_data[@ i] = _ysurface;
         __chunk_data[@ CHUNK_SIZE_X | i] = _chunk_data;
         
+        var _surface_biome = worldgen_get_surface_biome(_xpos, chunk_ystart, _seed, _ysurface, _world_data, _realm);
+        
         for (var j = 0; j < CHUNK_SIZE_Y + 1; ++j)
         {
             var _ypos = chunk_ystart + j;
             
             var _index = i | (j << CHUNK_SIZE_X_BIT);
             
-            var _surface_biome = worldgen_get_surface_biome(_xpos, _ypos, _seed, _ysurface, _world_data, _realm);
-            var _cave_biome    = worldgen_get_cave_biome(_xpos, _ypos, _seed, _ysurface, _world_data);
+            if (_ypos > _ysurface + 2)
+            {
+                _surface_biome = worldgen_get_surface_biome(_xpos, _ypos, _seed, _ysurface, _world_data, _realm);
+            }
+            
+            var _cave_biome = worldgen_get_cave_biome(_xpos, _ypos, _seed, _ysurface, _world_data);
             
             __base[@ _index] = ((_chunk_data & (1 << j)) ? TILE_EMPTY : worldgen_base(_xpos, _ypos, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface));
             

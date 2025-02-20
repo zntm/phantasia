@@ -27,7 +27,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
         
         if (_yend < _ysurface2) continue;
 		
-        var _ystart3 = _ysurface2;
+        var _ystart3 = max(_ystart, _ysurface2);
         
         var _generated = false;
         
@@ -52,7 +52,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                 
                 for (var l = _ystart3 - 1; l <= _yend + 1; ++l)
                 {
-                    __carve_cave[@ _index2++] = worldgen_carve_cave(i, l, _seed_cave, _world_data, _ysurface);
+                    __carve_cave[@ _index2++] = (l > _ysurface2 ? worldgen_carve_cave(i, l, _seed_cave, _world_data, _ysurface) : false);
                 }
             }
             
