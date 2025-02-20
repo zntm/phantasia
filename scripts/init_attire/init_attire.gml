@@ -4,6 +4,7 @@ function init_attire(_directory, _prefix = "phantasia", _type = 0)
 {
 	if (_type & INIT_TYPE.RESET)
 	{
+        /*
         static __delete = function(_data)
         {
             if (_data == undefined) exit;
@@ -24,6 +25,9 @@ function init_attire(_directory, _prefix = "phantasia", _type = 0)
         for (var i = 0; i < _length; ++i)
         {
             var _data = _attire_data[$ _names[i]];
+            
+            if (_data == undefined) continue;
+            
             var _icon = _data.icon;
             
             if (sprite_exists(_icon))
@@ -34,7 +38,7 @@ function init_attire(_directory, _prefix = "phantasia", _type = 0)
             __delete(_data.colour);
             __delete(_data.white);
         }
-        
+        */
 		init_data_reset("attire_data");
 	}
 	

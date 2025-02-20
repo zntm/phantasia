@@ -11,9 +11,7 @@
 	"data": {
 		"function": "phantasia:pile",
 		"parameter": {
-			"tile": "phantasia:stone",
-            "height_random_offset": 0.2,
-            "start_offset": [ 0, 2 ]
+			"tile": "phantasia:stone"
 		}
 	}
 }

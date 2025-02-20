@@ -147,3 +147,19 @@ global.attire_elements_ordered = [
     [ "shirt_detail", 2 ],
     "footwear"
 ];
+
+#macro TAU 6.283185307176
+
+var _sin = [];
+var _cos = [];
+
+for (var i = 0; i < 16; ++i)
+{
+    var d = i * TAU / 16;
+    
+    _sin[i] = sin(d);
+    _cos[i] = cos(d);
+}
+
+shader_set_uniform_f_array(shader_get_uniform(shd_Blur, "_sin"), _sin);
+shader_set_uniform_f_array(shader_get_uniform(shd_Blur, "_sin"), _sin);

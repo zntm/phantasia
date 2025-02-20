@@ -11,9 +11,7 @@
 	"data": {
 		"function": "phantasia:pile",
 		"parameter": {
-			"tile": "phantasia:block_of_salt",
-            "height_random_offset": 0.3,
-            "start_offset": [ 0, 2 ]
+			"tile": "phantasia:block_of_salt"
 		}
 	}
 }

@@ -205,8 +205,6 @@ global.natural_structure_data[$ "phantasia:geode"] = new NaturalStructureData()
 enum NATURAL_STRUCTURE_PILE {
     USE_STRUCTURE_VOID,
     TILE,
-    HEIGHT_RANDOM_OFFSET,
-    START_OFFSET,
     LENGTH
 }
 
@@ -219,10 +217,7 @@ global.natural_structure_data[$ "phantasia:pile"] = new NaturalStructureData()
         
         _data[@ NATURAL_STRUCTURE_PILE.USE_STRUCTURE_VOID] = _parameter[$ "use_structure_void"] ?? true;
         
-        _data[@ NATURAL_STRUCTURE_PILE.TILE] = new Tile(_parameter.tile, _item_data);
-        
-        _data[@ NATURAL_STRUCTURE_PILE.HEIGHT_RANDOM_OFFSET] = _parameter.height_random_offset;
-        _data[@ NATURAL_STRUCTURE_PILE.START_OFFSET] = _parameter.start_offset;
+        _data[@ NATURAL_STRUCTURE_PILE.TILE] = new Tile(_parameter.tile, _item_data);;
         
         return _data;
     })
@@ -235,20 +230,15 @@ global.natural_structure_data[$ "phantasia:pile"] = new NaturalStructureData()
         
         var _tile = _parameter[NATURAL_STRUCTURE_PILE.TILE];
         
-        var _height_random_offset = _parameter[NATURAL_STRUCTURE_PILE.HEIGHT_RANDOM_OFFSET];
-        
-        var _min = 1 - _height_random_offset;
-        var _max = 1 + _height_random_offset;
-        
-        var _start_offset = _parameter[NATURAL_STRUCTURE_PILE.START_OFFSET];
-        
         for (var i = 0; i < _width; ++i)
         {
-            var _ = min(_height, round(cos((i / _width) * pi) * _height * random_range(_min, _max)));
+            var _cos = cos(((pi * i) / (_width - 1)) - (pi / 2));
             
-            for (var j = is_array_irandom(_start_offset); j < _; ++j)
+            var _ = max(0, round(_cos * _height));
+            
+            for (var j = _height - 1; j >= _; --j)
             {
-                _data[@ i + ((_height - 1 - j) * _width) + _depth] = variable_clone(_tile);
+                _data[@ i + (j * _width) + _depth] = variable_clone(_tile);
             }
         }
         

@@ -18,7 +18,7 @@ const float CONTRAST_STRENGTH = 1.2;
 void main()
 {
 	vec4 texture = texture2D(gm_BaseTexture, v_vTexcoord);
-
+    
 	for (int i = 0; i < BLOOM_DRAW_AMOUNT; ++i)
 	{
 		float angle = (float(i) * TWO_PI) / float(BLOOM_DRAW_AMOUNT);
