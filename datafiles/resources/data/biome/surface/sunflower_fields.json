@@ -57,6 +57,9 @@
 			},
 			"phantasia:cow": {
 				"weight": 2
+			},
+			"phantasia:butterfly": {
+				"weight": 2
 			}
 		},
 		"hostile_spawn_chance": 0,

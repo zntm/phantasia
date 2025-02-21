@@ -54,6 +54,12 @@
 			},
 			"phantasia:snail": {
 				"weight": 1
+			},
+			"phantasia:butterfly": {
+				"weight": 2
+			},
+			"phantasia:squirrel": {
+				"weight": 2
 			}
 		},
 		"hostile_spawn_chance": 0,
