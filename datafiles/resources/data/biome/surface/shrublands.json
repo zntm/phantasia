@@ -75,7 +75,7 @@
 	],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:grass_block_savannah", "phantasia:dirt" ],
-		"chance": 0.19,
+		"chance": 0.7,
 		"tiles": [
 			{
 				"item_id": "phantasia:short_grass_savannah",

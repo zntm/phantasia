@@ -1248,7 +1248,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         
         static set_on_draw_update = function(_on_draw_update)
         {
-            global.item_data_on_draw[$ name] = _on_draw_update;
+            global.item_data_on_draw[$ $"{get_namespace()}:{name}"] = _on_draw_update;
             
             return self;
         }
@@ -1931,7 +1931,10 @@ new ItemData("phantasia", item_Mangrove_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_flip_on(true, true)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
-    .set_sfx("phantasia:tile.leaves");
+    .set_sfx("phantasia:tile.leaves")
+    .set_on_draw_update(function(_x, _y, _z) {
+        item_update_leaves(_x, _y, _z, "phantasia:leaf_mangrove");
+    });
 
 new ItemData("phantasia", item_High_Society, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_waveable()
