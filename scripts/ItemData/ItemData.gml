@@ -6189,3 +6189,75 @@ new ItemData("phantasia", item_Cave_Fern, ITEM_TYPE_BIT.PLANT)
     .set_is_plant_waveable()
     .set_random_index(0, 2)
     .set_flip_on(true, false);
+
+new ItemData("phantasia", item_Red_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:red_cloth");
+
+new ItemData("phantasia", item_Orange_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:orange_cloth");
+
+new ItemData("phantasia", item_Yellow_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:yellow_cloth");
+
+new ItemData("phantasia", item_Lime_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:lime_cloth");
+
+new ItemData("phantasia", item_Green_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:green_cloth");
+
+new ItemData("phantasia", item_Cyan_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:cyan_cloth");
+
+new ItemData("phantasia", item_Blue_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:blue_cloth");
+
+new ItemData("phantasia", item_Purple_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:purple_cloth");
+
+new ItemData("phantasia", item_Pink_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:pink_cloth");
+
+new ItemData("phantasia", item_White_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:white_cloth");
+
+new ItemData("phantasia", item_Brown_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:brown_cloth");
+
+new ItemData("phantasia", item_Black_Cloth, ITEM_TYPE_BIT.SOLID)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
+    .set_mining_stats(undefined, undefined, 12)
+    .set_drops("phantasia:black_cloth");
