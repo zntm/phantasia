@@ -31,8 +31,6 @@ function ctrl_creature_spawn(_biome_data, _creature_data, _item_data, _world_hei
 	
     var _sprite = sprite_index;
     
-	sprite_index = spr_Entity;
-	
 	image_xscale = _bbox.width;
 	image_yscale = _bbox.height;
 	
@@ -41,7 +39,7 @@ function ctrl_creature_spawn(_biome_data, _creature_data, _item_data, _world_hei
 	x = (_tile_x - 0) * TILE_SIZE;
 	y = (_tile_y - 1) * TILE_SIZE;
 	
-	if (!tile_meeting(x, y, undefined, undefined, _world_height))
+	if (!tile_meeting(x, y, undefined, undefined, _world_height)) && (tile_meeting(x, y + 1, undefined, undefined, _world_height))
 	{
 		spawn_creature(x, y, _id, is_array_irandom(_creatures.passive_spawn_amount));
 	}

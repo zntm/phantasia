@@ -69,6 +69,10 @@
 			"chance": 0.21
 		},
 		{
+			"id": "phantasia:rafflesia",
+			"chance": 0.009
+		},
+		{
 			"id": "phantasia:bamboo",
 			"chance": 0.09
 		},
@@ -116,10 +120,6 @@
 			{
 				"item_id": "phantasia:heliconia",
 				"weight": 2
-			},
-			{
-				"item_id": "phantasia:rafflesia",
-				"weight": 1
 			},
 			{
 				"item_id": "phantasia:rocks",
