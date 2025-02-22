@@ -2533,6 +2533,7 @@ new ItemData("phantasia", item_Pine_Wood, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Pine_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, true)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 11)
     .set_sfx("phantasia:tile.leaves")
