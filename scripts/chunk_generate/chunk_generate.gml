@@ -332,7 +332,7 @@ function chunk_generate(_world, _seed, _world_data)
                 
                 if (_tile_foliage != TILE_EMPTY)
                 {
-                    var _z = CHUNK_DEPTH_PLANT;
+                    var _z = CHUNK_DEPTH_FOLIAGE;
                     
                     var _item_id      = _tile_foliage[0];
                     var _index_offset = _tile_foliage[1];

@@ -8,7 +8,7 @@ function chunk_generate_anim_handler(_data, _zbit, _index)
     {
         connected |= _zbit;
     }
-    else if (_animation_value & TILE_ANIMATION_TYPE.INCREMENT) || ((_data.type & ITEM_TYPE_BIT.PLANT) && (_data.boolean & ITEM_BOOLEAN.IS_PLANT_WAVEABLE))
+    else if (_animation_value & TILE_ANIMATION_TYPE.INCREMENT) || ((_data.type & ITEM_TYPE_BIT.FOLIAGE) && (_data.boolean & ITEM_BOOLEAN.IS_PLANT_WAVEABLE))
     {
         chunk_z_animated |= _zbit;
     }

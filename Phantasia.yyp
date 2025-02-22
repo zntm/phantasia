@@ -909,6 +909,8 @@
     {"$GMIncludedFile":"","%Name":"basalt.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/pile","name":"basalt.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"salt.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/pile","name":"salt.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"stone.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/pile","name":"stone.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"rafflesia.dat","CopyToMask":-1,"filePath":"datafiles/resources/data/structure","name":"rafflesia.dat","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"rafflesia.dat.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure","name":"rafflesia.dat.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"empty.dat","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/shrine","name":"empty.dat","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"empty.dat.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/shrine","name":"empty.dat.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"cactus.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/tall_plant","name":"cactus.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},

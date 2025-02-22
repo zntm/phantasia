@@ -22,9 +22,9 @@ function player_place(_x, _y, _world_height)
     {
         _z = CHUNK_DEPTH_WALL;
     }
-    else if (_type & ITEM_TYPE_BIT.PLANT)
+    else if (_type & ITEM_TYPE_BIT.FOLIAGE)
     {
-        _z = CHUNK_DEPTH_PLANT;
+        _z = CHUNK_DEPTH_FOLIAGE;
     }
     else if (_type & ITEM_TYPE_BIT.LIQUID)
     {
@@ -57,7 +57,7 @@ function player_place(_x, _y, _world_height)
             
             var _data2 = global.item_data[$ _];
             
-            if ((_data2.type & ITEM_TYPE_BIT.PLANT) == 0) || ((_data2.boolean & ITEM_BOOLEAN.IS_PLANT_REPLACEABLE) == 0) exit;
+            if ((_data2.type & ITEM_TYPE_BIT.FOLIAGE) == 0) || ((_data2.boolean & ITEM_BOOLEAN.IS_PLANT_REPLACEABLE) == 0) exit;
             
             tile_place(_x, _y, _z, TILE_EMPTY, _world_height);
         }
@@ -68,17 +68,17 @@ function player_place(_x, _y, _world_height)
         {
             var _data2 = global.item_data[$ _];
             
-            if ((_data2.type & ITEM_TYPE_BIT.PLANT) == 0) || ((_data2.boolean & ITEM_BOOLEAN.IS_PLANT_REPLACEABLE) == 0) exit;
+            if ((_data2.type & ITEM_TYPE_BIT.FOLIAGE) == 0) || ((_data2.boolean & ITEM_BOOLEAN.IS_PLANT_REPLACEABLE) == 0) exit;
         }
         else
         {
-            if (_z == CHUNK_DEPTH_PLANT_BACK)
+            if (_z == CHUNK_DEPTH_FOLIAGE_BACK)
             {
-                __plant(_x, _y, CHUNK_DEPTH_PLANT_FRONT, _world_height);
+                __plant(_x, _y, CHUNK_DEPTH_FOLIAGE_FRONT, _world_height);
             }
-            else if (_z == CHUNK_DEPTH_PLANT_FRONT)
+            else if (_z == CHUNK_DEPTH_FOLIAGE_FRONT)
             {
-                __plant(_x, _y, CHUNK_DEPTH_PLANT_BACK, _world_height);
+                __plant(_x, _y, CHUNK_DEPTH_FOLIAGE_BACK, _world_height);
             }
             
             var _type2 = ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | _type;

@@ -136,7 +136,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                     var _draw_x = _tile.get_xoffset() + CHUNK_SURFACE_PADDING + _xoffset;
                     var _draw_y = _tile.get_yoffset() + _ytile;
                     
-                    if (_z_is_wall) || ((_boolean & ITEM_BOOLEAN.IS_PLANT_WAVEABLE) == 0) || ((_data.type & ITEM_TYPE_BIT.PLANT) == 0)
+                    if (_z_is_wall) || ((_boolean & ITEM_BOOLEAN.IS_PLANT_WAVEABLE) == 0) || ((_data.type & ITEM_TYPE_BIT.FOLIAGE) == 0)
                     {
                         var _xscale = _tile.get_xscale();
                         var _yscale = _tile.get_yscale();

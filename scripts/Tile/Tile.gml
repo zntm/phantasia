@@ -204,7 +204,7 @@ function Tile(_item, _item_data = global.item_data) constructor
 	
 	var _type = _data.type;
 	
-	if (_type & ITEM_TYPE_BIT.PLANT)
+	if (_type & ITEM_TYPE_BIT.FOLIAGE)
 	{
 		skew    = 0;
 		skew_to = 0;

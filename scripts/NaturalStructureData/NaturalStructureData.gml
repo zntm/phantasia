@@ -282,7 +282,7 @@ global.natural_structure_data[$ "phantasia:tall_plant/bamboo"] = new NaturalStru
         var _rectangle = _width * _height;
         var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_parameter[NATURAL_STRUCTURE_TALL_PLANT_GENERIC.USE_STRUCTURE_VOID] ? STRUCTURE_VOID : TILE_EMPTY));
         
-        var _depth = _rectangle * CHUNK_DEPTH_PLANT;
+        var _depth = _rectangle * CHUNK_DEPTH_FOLIAGE;
         
         var _tile = _parameter[NATURAL_STRUCTURE_TALL_PLANT_BAMBOO.TILE];
         
@@ -346,7 +346,7 @@ global.natural_structure_data[$ "phantasia:tall_plant/generic"] = new NaturalStr
         var _rectangle = _width * _height;
         var _data = array_create(_rectangle * CHUNK_SIZE_Z, (_parameter[NATURAL_STRUCTURE_TALL_PLANT_GENERIC.USE_STRUCTURE_VOID] ? STRUCTURE_VOID : TILE_EMPTY));
         
-        var _depth = _rectangle * CHUNK_DEPTH_PLANT;
+        var _depth = _rectangle * CHUNK_DEPTH_FOLIAGE;
         
         var _tile = _parameter[NATURAL_STRUCTURE_TALL_PLANT_GENERIC.TILE];
         
@@ -592,7 +592,7 @@ global.natural_structure_data[$ "phantasia:vine"] = new NaturalStructureData()
             ++_size;
         }
         
-        var _depth = CHUNK_DEPTH_PLANT * _rectangle;
+        var _depth = CHUNK_DEPTH_FOLIAGE * _rectangle;
         
         var _tile = _parameter[NATURAL_STRUCTURE_VINE.TILE];
         

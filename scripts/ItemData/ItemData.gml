@@ -4,7 +4,7 @@ enum ITEM_TYPE {
     PLATFORM,
     UNTOUCHABLE,
     CONTAINER,
-    PLANT,
+    FOLIAGE,
     WALL,
     LIQUID,
     CLIMBABLE,
@@ -36,7 +36,7 @@ enum ITEM_TYPE_BIT {
     PLATFORM          = 1 << ITEM_TYPE.PLATFORM,
     UNTOUCHABLE       = 1 << ITEM_TYPE.UNTOUCHABLE,
     CONTAINER         = 1 << ITEM_TYPE.CONTAINER,
-    PLANT             = 1 << ITEM_TYPE.PLANT,
+    FOLIAGE           = 1 << ITEM_TYPE.FOLIAGE,
     WALL              = 1 << ITEM_TYPE.WALL,
     LIQUID            = 1 << ITEM_TYPE.LIQUID,
     CLIMBABLE         = 1 << ITEM_TYPE.CLIMBABLE,
@@ -161,6 +161,11 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     global.item_data[$ $"{_namespace}:{name}"] = self;
     
     type = _type;
+    
+    static get_type = function()
+    {
+        return type;
+    }
     
     static set_rarity = function(_rarity)
     {
@@ -953,7 +958,29 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self[$ "___inventory_container_length"] ?? 0;
     }
     
-    if (type & (ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.WALL | ITEM_TYPE_BIT.PLANT | ITEM_TYPE_BIT.CONTAINER | ITEM_TYPE_BIT.LIQUID))
+    static add_tile_tag = function(_tag)
+    {
+        self[$ "___tile_tag"] ??= [];
+        self[$ "___tile_tag_length"] ??= 0;
+        
+        array_push(___tile_tag, _tag);
+        
+        ++___tile_tag_length;
+        
+        return self;
+    }
+    
+    static get_tile_tag = function()
+    {
+        return self[$ "___tile_tag"];
+    }
+    
+    static get_tile_tag_length = function()
+    {
+        return self[$ "___tile_tag_length"] ?? 0;
+    }
+    
+    if (type & (ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.WALL | ITEM_TYPE_BIT.FOLIAGE | ITEM_TYPE_BIT.CONTAINER | ITEM_TYPE_BIT.LIQUID))
     {
         set_mining_stats();
         
@@ -1584,19 +1611,19 @@ new ItemData("phantasia", item_Sapking_Shrine, ITEM_TYPE_BIT.UNTOUCHABLE)
         spawn_boss(_x * TILE_SIZE, _y * TILE_SIZE, "phantasia:sapking");
     });
 
-new ItemData("phantasia", item_Daffodil, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Daffodil, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:daffodil")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Dandelion, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Dandelion, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:dandelion")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Puffball, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Puffball, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:puffball")
@@ -1608,13 +1635,13 @@ new ItemData("phantasia", item_Puffball, ITEM_TYPE_BIT.PLANT)
         spawn_particle(_x * TILE_SIZE, _y * TILE_SIZE, CHUNK_DEPTH_DEFAULT, "phantasia:puffball");
     });
 
-new ItemData("phantasia", item_Nemesia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Nemesia, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:nemesia")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Brown_Mushroom, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Brown_Mushroom, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_drops("phantasia:brown_mushroom");
 
@@ -1690,7 +1717,7 @@ new ItemData("phantasia", item_Coral_Wave_Fan, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData("phantasia", item_Chrystal_Blade, ITEM_TYPE_BIT.SWORD)
     .set_damage(33);
 
-new ItemData("phantasia", item_Short_Grass_Greenia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Short_Grass_Greenia, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -1703,7 +1730,7 @@ new ItemData("phantasia", item_Short_Grass_Greenia, ITEM_TYPE_BIT.PLANT)
         "phantasia:potato_seeds", 1
     );
 
-new ItemData("phantasia", item_Short_Grass_Borealis, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Short_Grass_Borealis, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -1716,7 +1743,7 @@ new ItemData("phantasia", item_Short_Grass_Borealis, ITEM_TYPE_BIT.PLANT)
         "phantasia:potato_seeds", 1
     );
 
-new ItemData("phantasia", item_Short_Grass_Swamplands, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Short_Grass_Swamplands, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -1729,7 +1756,7 @@ new ItemData("phantasia", item_Short_Grass_Swamplands, ITEM_TYPE_BIT.PLANT)
         "phantasia:potato_seeds", 1
     );
 
-new ItemData("phantasia", item_Short_Grass_Amazonia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Short_Grass_Amazonia, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -1742,7 +1769,7 @@ new ItemData("phantasia", item_Short_Grass_Amazonia, ITEM_TYPE_BIT.PLANT)
         "phantasia:potato_seeds", 1
     );
 
-new ItemData("phantasia", item_Short_Grass_Tundra, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Short_Grass_Tundra, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_random_index(0, 5)
     .set_flip_on(true, false)
@@ -1757,7 +1784,7 @@ new ItemData("phantasia", item_Short_Grass_Tundra, ITEM_TYPE_BIT.PLANT)
 new ItemData("phantasia", item_Zombie_Arm, ITEM_TYPE_BIT.SWORD)
     .set_damage(19);
 
-new ItemData("phantasia", item_Tall_Grass_Greenia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Grass_Greenia, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -1770,7 +1797,7 @@ new ItemData("phantasia", item_Tall_Grass_Greenia, ITEM_TYPE_BIT.PLANT)
         "phantasia:potato_seeds", 1
     );
 
-new ItemData("phantasia", item_Tall_Grass_Borealis, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Grass_Borealis, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -1783,7 +1810,7 @@ new ItemData("phantasia", item_Tall_Grass_Borealis, ITEM_TYPE_BIT.PLANT)
         "phantasia:potato_seeds", 1
     );
 
-new ItemData("phantasia", item_Tall_Grass_Swamplands, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Grass_Swamplands, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -1796,7 +1823,7 @@ new ItemData("phantasia", item_Tall_Grass_Swamplands, ITEM_TYPE_BIT.PLANT)
         "phantasia:potato_seeds", 1
     );
 
-new ItemData("phantasia", item_Tall_Grass_Amazonia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Grass_Amazonia, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_random_index(0, 5)
     .set_flip_on(true, false)
@@ -1808,7 +1835,7 @@ new ItemData("phantasia", item_Tall_Grass_Amazonia, ITEM_TYPE_BIT.PLANT)
         "phantasia:potato_seeds", 1
     );
 
-new ItemData("phantasia", item_Tall_Grass_Tundra, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Grass_Tundra, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -1840,19 +1867,19 @@ new ItemData("phantasia", item_Cherry_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
         item_update_leaves(_x, _y, _z, "phantasia:leaf_cherry");
     });
     
-new ItemData("phantasia", item_Petunia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Petunia, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:petunia")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Sweet_Pea, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Sweet_Pea, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:sweet_pea")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Pink_Amaryllis, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Pink_Amaryllis, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:pink_amaryllis")
@@ -1865,25 +1892,25 @@ new ItemData("phantasia", item_Cherry_Planks, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:cherry_planks")
     .set_sfx("phantasia:tile.wood");
 
-new ItemData("phantasia", item_Rose, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Rose, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:rose")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Yellow_Growler, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Yellow_Growler, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:yellow_growler")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Daisy, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Daisy, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:daisy")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Blue_Bells, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Blue_Bells, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:blue_bells")
@@ -1907,7 +1934,7 @@ new ItemData("phantasia", item_Ice, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:ice")
     .set_sfx("phantasia:tile.glass");
 
-new ItemData("phantasia", item_Icelea, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Icelea, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:icelea")
@@ -1936,7 +1963,7 @@ new ItemData("phantasia", item_Mangrove_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
         item_update_leaves(_x, _y, _z, "phantasia:leaf_mangrove");
     });
 
-new ItemData("phantasia", item_High_Society, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_High_Society, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:high_society")
@@ -2071,7 +2098,7 @@ new ItemData("phantasia", item_Mahogany_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
         item_update_leaves(_x, _y, _z, "phantasia:leaf_mahogany");
     });
 
-new ItemData("phantasia", item_Redberry_Bush, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Redberry_Bush, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves");
@@ -2079,7 +2106,7 @@ new ItemData("phantasia", item_Redberry_Bush, ITEM_TYPE_BIT.PLANT)
 new ItemData("phantasia", item_Redberry, ITEM_TYPE_BIT.CONSUMABLE)
     .set_consumption_hp(4);
 
-new ItemData("phantasia", item_Blueberry_Bush, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Blueberry_Bush, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves");
@@ -2165,7 +2192,7 @@ new ItemData("phantasia", item_Raw_Copper);
 
 new ItemData("phantasia", item_Copper);
 
-new ItemData("phantasia", item_Rafflesia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Rafflesia, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_drops("phantasia:rafflesia");
 
@@ -2330,7 +2357,7 @@ new ItemData("phantasia", item_Blizzard_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
         item_update_leaves(_x, _y, _z, "phantasia:leaf_blizzard");
     });
 
-new ItemData("phantasia", item_Rocks, ITEM_TYPE_BIT.THROWABLE | ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Rocks, ITEM_TYPE_BIT.THROWABLE | ITEM_TYPE_BIT.FOLIAGE)
     .set_damage(3)
     .set_random_index(1, 4)
     .set_flip_on(true, false)
@@ -2338,22 +2365,22 @@ new ItemData("phantasia", item_Rocks, ITEM_TYPE_BIT.THROWABLE | ITEM_TYPE_BIT.PL
     .set_drops("phantasia:rocks")
     .set_sfx("phantasia:tile.stone");
 
-new ItemData("phantasia", item_Dead_Bush, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Dead_Bush, ITEM_TYPE_BIT.FOLIAGE)
     .set_random_index(0, 8)
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.stick");
 
-new ItemData("phantasia", item_Persian_Speedwell, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Persian_Speedwell, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_drops("phantasia:persian_speedwell")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Purple_Dendrobium, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Purple_Dendrobium, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_drops("phantasia:purple_dendrobium")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Deadflower, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Deadflower, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_drops("phantasia:deadflower")
     .set_sfx("phantasia:tile.leaves");
@@ -2371,12 +2398,12 @@ new ItemData("phantasia", item_Sandstone_Wall, ITEM_TYPE_BIT.WALL)
     .set_drops("phantasia:sandstone_wall")
     .set_sfx("phantasia:tile.stone");
 
-new ItemData("phantasia", item_Succulent, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Succulent, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_drops("phantasia:succulent")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Cattails, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Cattails, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:cattails")
@@ -2407,7 +2434,7 @@ new ItemData("phantasia", item_Tarnished_Copper_Bow, ITEM_TYPE_BIT.BOW)
     .set_damage(8, DAMAGE_TYPE.RANGED)
     .set_durability(80);
 
-new ItemData("phantasia", item_Mixed_Orchids, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Mixed_Orchids, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:mixed_orchids")
@@ -2419,25 +2446,25 @@ new ItemData("phantasia", item_Blizzard_Planks, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:blizzard_planks")
     .set_sfx("phantasia:tile.wood");
 
-new ItemData("phantasia", item_Small_Sweet_Pea, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Small_Sweet_Pea, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:small_sweet_pea")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Lily_Of_The_Valley, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Lily_Of_The_Valley, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:lily_of_the_valley")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Sunflower, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Sunflower, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:sunflower")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Desert_Waves, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Desert_Waves, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:desert_waves")
@@ -2448,13 +2475,13 @@ new ItemData("phantasia", item_Gray_Marble, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:gray_marble")
     .set_sfx("phantasia:tile.stone");
 
-new ItemData("phantasia", item_Fern, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Fern, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:fern")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Curly_Fern, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Curly_Fern, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:curly_fern")
@@ -2576,13 +2603,13 @@ new ItemData("phantasia", item_White_Marble, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.stone")
     .set_drops("phantasia:white_marble");
 
-new ItemData("phantasia", item_Rosehip, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Rosehip, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves")
     .set_drops("phantasia:rosehip");
 
-new ItemData("phantasia", item_Cyan_Rose, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Cyan_Rose, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves")
@@ -2594,30 +2621,30 @@ new ItemData("phantasia", item_Cattail, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.leaves")
     .set_drops("phantasia:cattail");
 
-new ItemData("phantasia", item_Paeonia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Paeonia, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves")
     .set_drops("phantasia:paeonia");
 
-new ItemData("phantasia", item_Peony, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Peony, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves")
     .set_drops("phantasia:peony");
 
-new ItemData("phantasia", item_Violets, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Violets, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_random_index(1, 1)
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves")
     .set_drops("phantasia:violets");
 
-new ItemData("phantasia", item_Red_Mushroom, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Red_Mushroom, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_drops("phantasia:red_mushroom");
 
-new ItemData("phantasia", item_Blue_Mushroom, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Blue_Mushroom, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_drops("phantasia:blue_mushroom");
 
@@ -2662,7 +2689,7 @@ new ItemData("phantasia", item_Trident, ITEM_TYPE_BIT.SPEAR)
     .set_item_swing_speed(7)
     .set_damage(5);
 
-new ItemData("phantasia", item_Short_Grass_Savannah, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Short_Grass_Savannah, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -2677,7 +2704,7 @@ new ItemData("phantasia", item_Frosthaven, ITEM_TYPE_BIT.SPEAR)
     .set_item_swing_speed(7)
     .set_damage(5);
 
-new ItemData("phantasia", item_Tall_Grass_Savannah, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Grass_Savannah, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -2782,7 +2809,7 @@ new ItemData("phantasia", item_Strata_Wall, ITEM_TYPE_BIT.WALL)
     .set_drops("phantasia:strata_wall")
     .set_sfx("phantasia:tile.stone");
 
-new ItemData("phantasia", item_Yucca, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Yucca, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false);
 
@@ -2831,7 +2858,7 @@ new ItemData("phantasia", item_Lumin_Nub, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData("phantasia", item_Jonathan, ITEM_TYPE_BIT.SWORD)
     .set_damage(5);
 
-new ItemData("phantasia", item_Short_Lumin_Growth, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Short_Lumin_Growth, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_random_index(0, 5)
     .set_flip_on(true, false)
@@ -2839,7 +2866,7 @@ new ItemData("phantasia", item_Short_Lumin_Growth, ITEM_TYPE_BIT.PLANT)
 new ItemData("phantasia", item_Spectrum_Glaive, ITEM_TYPE_BIT.SPEAR)
     .set_damage(22);
 
-new ItemData("phantasia", item_Tall_Lumin_Growth, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Lumin_Growth, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_random_index(0, 5)
     .set_flip_on(true, false);
@@ -2942,7 +2969,7 @@ new ItemData("phantasia", item_Structure_Block, ITEM_TYPE_BIT.SOLID)
             })
     ]);
 
-new ItemData("phantasia", item_Short_Dead_Grass, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Short_Dead_Grass, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -2968,7 +2995,7 @@ new ItemData("phantasia", item_Structure_Loot, ITEM_TYPE_BIT.SOLID)
             .set_variable("loot_id")
     ]);
 
-new ItemData("phantasia", item_Tall_Dead_Grass, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Dead_Grass, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 5)
@@ -2981,7 +3008,7 @@ new ItemData("phantasia", item_Block_Of_Bone, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 68)
     .set_drops("phantasia:block_of_bone");
 
-new ItemData("phantasia", item_Dead_Rose, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Dead_Rose, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:dead_rose");
@@ -3071,7 +3098,7 @@ new ItemData("phantasia", item_Bricks, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Pinecone, ITEM_TYPE_BIT.THROWABLE);
 
-new ItemData("phantasia", item_Lumin_Lotus, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Lumin_Lotus, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:lumin_lotus");
@@ -3093,7 +3120,7 @@ new ItemData("phantasia", item_Lumin_Moss_Wall, ITEM_TYPE_BIT.WALL)
     .set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 8)
     .set_drops("phantasia:lumin_moss_wall");
 
-new ItemData("phantasia", item_Lumin_Shroom, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Lumin_Shroom, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:lumin_shroom");
@@ -3735,11 +3762,11 @@ new ItemData("phantasia", item_Gold_Ore, ITEM_TYPE_BIT.SOLID)
     .set_drops("phantasia:raw_gold")
     .set_sfx("phantasia:tile.metal");
 
-new ItemData("phantasia", item_Seagrass, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Seagrass, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Tall_Seagrass, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Seagrass, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_sfx("phantasia:tile.leaves");
 
@@ -4018,19 +4045,19 @@ new ItemData("phantasia", item_Coal_Inlaid_Block_Of_Bone, ITEM_TYPE_BIT.SOLID);
 
 new ItemData("phantasia", item_Diamond_Inlaid_Block_Of_Bone, ITEM_TYPE_BIT.SOLID);
 
-new ItemData("phantasia", item_Dead_Sunflower, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Dead_Sunflower, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:dead_sunflower")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Swamp_Fogpod, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Swamp_Fogpod, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:swamp_fogpod")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Swamp_Lilybell, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Swamp_Lilybell, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:swamp_lilybell")
@@ -4127,30 +4154,30 @@ new ItemData("phantasia", item_Blonde_Cherry_Leaves, ITEM_TYPE_BIT.UNTOUCHABLE)
         item_update_leaves(_x, _y, _z, "phantasia:leaf_blonde_cherry");
     });
 
-new ItemData("phantasia", item_Snow_Pile, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Snow_Pile, ITEM_TYPE_BIT.FOLIAGE)
     .set_random_index(0, 3)
     .set_flip_on(true, false)
     .set_mining_stats(undefined, undefined, 2)
     .set_sfx("phantasia:tile.snow");
 
-new ItemData("phantasia", item_Birds_Nest, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Birds_Nest, ITEM_TYPE_BIT.FOLIAGE)
     .set_flip_on(true, false)
     .set_mining_stats(undefined, undefined, 1)
     .set_drops("phantasia:twig");
 
-new ItemData("phantasia", item_Forget_Me_Not, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Forget_Me_Not, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:forget_me_not")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Anemone, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Anemone, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:anemone")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Harebell, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Harebell, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:harebell")
@@ -4340,7 +4367,7 @@ new ItemData("phantasia", item_Tarnished_Copper_Hammer, ITEM_TYPE_BIT.HAMMER)
 new ItemData("phantasia", item_Tarnished_Copper_Fishing_Pole, ITEM_TYPE_BIT.FISHING_POLE)
     .set_durability(68);
 
-new ItemData("phantasia", item_Tall_Puffball, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tall_Puffball, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:tall_puffball")
@@ -4352,7 +4379,7 @@ new ItemData("phantasia", item_Tall_Puffball, ITEM_TYPE_BIT.PLANT)
     })
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Blue_Phlox, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Blue_Phlox, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:blue_phlox")
@@ -4435,30 +4462,30 @@ new ItemData("phantasia", item_Emustone_Bricks_Wall, ITEM_TYPE_BIT.WALL)
     .set_drops("phantasia:emustone_wall")
     .set_sfx("phantasia:tile.stone");
 
-new ItemData("phantasia", item_Pink_Hibiscus, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Pink_Hibiscus, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:pink_hibiscus")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Red_Hibiscus, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Red_Hibiscus, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:red_hibiscus")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Yellow_Hibiscus, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Yellow_Hibiscus, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:yellow_hibiscus");
 
-new ItemData("phantasia", item_Blue_Hibiscus, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Blue_Hibiscus, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:blue_hibiscus")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Papyrus, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Papyrus, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:papyrus")
@@ -4529,7 +4556,7 @@ new ItemData("phantasia", item_Block_Of_Onyx, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, TOOL_POWER.IRON, 74)
     .set_drops("phantasia:block_of_onyx");
 
-new ItemData("phantasia", item_Cloudflower, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Cloudflower, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:cloudflower");
@@ -4575,19 +4602,19 @@ new ItemData("phantasia", item_Water, ITEM_TYPE_BIT.LIQUID)
         item_update_liquid_flow(_x, _y, _z, "phantasia:water", 8);
     });
 
-new ItemData("phantasia", item_Heliconia, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Heliconia, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:heliconia")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Venus_Fly_Trap, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Venus_Fly_Trap, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:venus_fly_trap")
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Tumbleweed, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Tumbleweed, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:twig")
@@ -4776,7 +4803,7 @@ new ItemData("phantasia", item_Glass, ITEM_TYPE_BIT.SOLID)
     .set_sfx("phantasia:tile.glass")
     .set_is_not_obstructing(false);
 
-new ItemData("phantasia", item_Aloe_Vera, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Aloe_Vera, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:aloe_vera")
@@ -4789,7 +4816,7 @@ new ItemData("phantasia", item_Hatchet, ITEM_TYPE_BIT.AXE)
     .set_mining_stats(TOOL_POWER.WOOD)
     .set_durability(68);
 
-new ItemData("phantasia", item_Twig, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Twig, ITEM_TYPE_BIT.FOLIAGE)
     .set_random_index(1, 3)
     .set_flip_on(true, false)
     .set_mining_stats(undefined, undefined, 1)
@@ -5073,13 +5100,13 @@ new ItemData("phantasia", item_Sandstone_Bricks_Wall, ITEM_TYPE_BIT.WALL)
     .set_drops("phantasia:sandstone_bricks_wall")
     .set_sfx("phantasia:tile.bricks");
 
-new ItemData("phantasia", item_Desert_Grass, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Desert_Grass, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_random_index(0, 1)
     .set_flip_on(true, false)
     .set_sfx("phantasia:tile.leaves");
 
-new ItemData("phantasia", item_Yarrow, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Yarrow, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_waveable()
     .set_flip_on(true, false)
     .set_drops("phantasia:yarrow")
@@ -6186,7 +6213,7 @@ new ItemData("phantasia", item_Schist, ITEM_TYPE_BIT.SOLID)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 70)
     .set_drops("phantasia:schist");
 
-new ItemData("phantasia", item_Cave_Fern, ITEM_TYPE_BIT.PLANT)
+new ItemData("phantasia", item_Cave_Fern, ITEM_TYPE_BIT.FOLIAGE)
     .set_is_plant_replaceable()
     .set_is_plant_waveable()
     .set_random_index(0, 2)
