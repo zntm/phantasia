@@ -229,6 +229,6 @@ function init_creatures(_directory, _prefix = "phantasia", _type = 0)
 		
 		global.creature_data[$ $"{_prefix}:{_file}"] = _data.set_attributes(_a);
         
-        debug_timer("init_creature", $"Added Creature: '{_file}'");
+        debug_timer("init_creature", $"Loaded Creature: '{_file}'");
 	}
 }

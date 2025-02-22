@@ -24,8 +24,8 @@ function init_particles(_directory, _prefix = "phantasia", _type = 0)
 	{
 		var _file = _files[i];
 		
-		show_debug_message($"[Init] : [Particle] * Loading '{_file}'...");
-		
+        debug_timer("init_data_particle");
+        
 		var _data = json_parse(buffer_load_text($"{_directory}/{_file}/data.json"));
 		
 		var _sprite = sprite_add($"{_directory}/{_file}/sprite.png", (_data[$ "frames"] ?? 1), false, false, 0, 0);
@@ -73,5 +73,7 @@ function init_particles(_directory, _prefix = "phantasia", _type = 0)
 			bbox_right: _bbox_right,
 			bbox_bottom: _bbox_bottom,
 		}
+        
+        debug_timer("init_data_particle", $"Loaded Particle: '{_file}'");
 	}
 }

@@ -117,7 +117,7 @@ function init_attire(_directory, _prefix = "phantasia", _type = 0)
 				.set_colour(__init(_file, j, "colour", $"{_directory2}/colour"))
 				.set_white(__init(_file, j, "white", $"{_directory2}/white"));
 			
-			debug_timer("init_attire", $"Added Attire Type: '{_file}', Index: '{j}'");
+			debug_timer("init_attire", $"Loaded Attire Type: '{_file}', Index: '{j}'");
 		}
 	}
 }

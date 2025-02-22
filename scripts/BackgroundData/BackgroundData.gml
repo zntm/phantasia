@@ -47,6 +47,6 @@ function init_backgrounds(_directory, _prefix = "phantasia", _type = 0)
 			global.background_data[$ $"{_prefix}:{_name}"][@ j] = _sprite;
 		}
 		
-		debug_timer("init_data_backgrounds", $"[Init] Loaded Backgrounds: \'{_name}\' ({_files_length2})");
+		debug_timer("init_data_backgrounds", $"[Init] Loaded Background: \'{_name}\' ({_files_length2})");
 	}
 }
