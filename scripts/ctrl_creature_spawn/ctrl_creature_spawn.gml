@@ -6,6 +6,8 @@
 
 function ctrl_creature_spawn(_biome_data, _creature_data, _item_data, _world_height, _camera_x, _camera_y, _camera_width, _camera_height, _delta_time)
 {
+    randomize();
+    
 	var _x = choose(_camera_x - (TILE_SIZE * 2), _camera_x + _camera_width + (TILE_SIZE * 2));
 	var _y = irandom_range(_camera_y, _camera_y + _camera_height);
 	
@@ -14,35 +16,29 @@ function ctrl_creature_spawn(_biome_data, _creature_data, _item_data, _world_hei
 	
 	var _t = tile_get(_tile_x, _tile_y, CHUNK_DEPTH_DEFAULT, undefined, _world_height);
 	
-	var _sprite = sprite_index;
-	
 	if (_t == TILE_EMPTY) exit;
 	
-	var _data = _item_data[$ _t];
+	if ((_item_data[$ _t].type & ITEM_TYPE_BIT.SOLID) == 0) exit;
 	
-	if ((_data.type & ITEM_TYPE_BIT.SOLID) == 0) exit;
-	
-	var _biome = bg_get_biome(_x, _y);
-	var _data2 = _biome_data[$ _biome];
-	
-	var _creatures = _data2.creatures;
+	var _creatures = _biome_data[$ bg_get_biome(_x, _y)].creatures;
 	
 	if (!array_contains(_creatures.can_spawn_on, _t)) || (!chance(_creatures.passive_spawn_chance * _delta_time)) exit;
 	
 	var _id = choose_weighted(_creatures.passive).id;
 	
-	var _data3 = _creature_data[$ _id];
+	var _data = _creature_data[$ _id];
+    var _bbox = _data.bbox;
 	
-	if (_data3 == undefined) exit;
-	
+    var _sprite = sprite_index;
+    
 	sprite_index = spr_Entity;
 	
-	image_xscale = _data3.bbox.width;
-	image_yscale = _data3.bbox.height;
+	image_xscale = _bbox.width;
+	image_yscale = _bbox.height;
 	
 	entity_init_sprite(spr_Entity);
 	
-	x = _tile_x * TILE_SIZE;
+	x = (_tile_x - 0) * TILE_SIZE;
 	y = (_tile_y - 1) * TILE_SIZE;
 	
 	if (!tile_meeting(x, y, undefined, undefined, _world_height))

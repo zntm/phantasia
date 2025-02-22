@@ -27,11 +27,7 @@
 		"can_spawn_on": [ "phantasia:stone" ],
 		"passive_spawn_chance": 0,
 		"passive_spawn_amount": [ 1, 4 ],
-		"passive": {
-			"phantasia:bat": {
-				"weight": 1
-			}
-		},
+		"passive": {},
 		"hostile_spawn_chance": 0,
 		"hostile_spawn_amount": [ 1, 4 ],
 		"hostile": {}

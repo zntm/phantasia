@@ -52,7 +52,7 @@
 		"can_spawn_on": [
 			"phantasia:sand"
 		],
-		"passive_spawn_chance": 0.02,
+		"passive_spawn_chance": 0.012,
 		"passive_spawn_amount": [
 			1,
 			4
