@@ -3192,11 +3192,9 @@ new ItemData("phantasia", item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
         
         return false;
     })
-    .set_on_draw_update(function(_x, _y, _z)
+    .set_on_draw_update(function(_x, _y, _z, _tile, _delta_time)
     {
-        randomize();
-    
-        spawn_particle((_x * TILE_SIZE) + irandom_range(-2, 2), (_y * TILE_SIZE) - 8, _z, "phantasia:smoke");
+        item_update_leaves(_x, _y, _z, "phantasia:ember", 0.4);
     });
 
 new ItemData("phantasia", item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
@@ -3228,6 +3226,10 @@ new ItemData("phantasia", item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
         var _yinst = _y * TILE_SIZE;
         
         chunk_refresh_fast(_xinst - CHUNK_SIZE_WIDTH_H, _yinst - CHUNK_SIZE_HEIGHT_H, _xinst + CHUNK_SIZE_WIDTH_H, _yinst + CHUNK_SIZE_HEIGHT_H);
+    })
+    .set_on_draw_update(function(_x, _y, _z, _tile, _delta_time)
+    {
+        item_update_leaves(_x, _y, _z, "phantasia:ember", 0.4);
     });
 
 new ItemData("phantasia", item_Cloud, ITEM_TYPE_BIT.SOLID)
