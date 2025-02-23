@@ -40,7 +40,7 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:grass_block_greenia", "phantasia:dirt" ],
-		"passive_spawn_chance": 0.02,
+		"passive_spawn_chance": 0.012,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
 			"phantasia:chicken": {
@@ -54,6 +54,12 @@
 			},
 			"phantasia:snail": {
 				"weight": 1
+			},
+			"phantasia:butterfly": {
+				"weight": 2
+			},
+			"phantasia:squirrel": {
+				"weight": 2
 			}
 		},
 		"hostile_spawn_chance": 0,
@@ -62,7 +68,7 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:campsite/generic",
+			"id": "phantasia:campsite/abandoned",
 			"chance": 0.005
 		},
 		{
@@ -71,7 +77,7 @@
 		},
 		{
 			"id": "phantasia:pile/stone",
-			"chance": 0.004
+			"chance": 0.007
 		}
 	],
 	"foliage": {

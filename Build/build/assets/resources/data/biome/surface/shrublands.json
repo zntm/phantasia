@@ -40,7 +40,7 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:grass_block_savannah", "phantasia:dirt" ],
-		"passive_spawn_chance": 0.02,
+		"passive_spawn_chance": 0.012,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
 			"phantasia:camel": {
@@ -75,7 +75,7 @@
 	],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:grass_block_savannah", "phantasia:dirt" ],
-		"chance": 0.19,
+		"chance": 0.7,
 		"tiles": [
 			{
 				"item_id": "phantasia:short_grass_savannah",

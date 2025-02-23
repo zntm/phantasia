@@ -11,9 +11,7 @@
 	"data": {
 		"function": "phantasia:pile",
 		"parameter": {
-			"tile": "phantasia:basalt",
-            "height_random_offset": 0.7,
-            "start_offset": [ 0, 3 ]
+			"tile": "phantasia:basalt"
 		}
 	}
 }

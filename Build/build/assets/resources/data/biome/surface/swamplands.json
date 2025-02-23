@@ -40,7 +40,7 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:grass_block_swamplands", "phantasia:dirt" ],
-		"passive_spawn_chance": 0.02,
+		"passive_spawn_chance": 0.012,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
 			"phantasia:frog": {
@@ -52,14 +52,14 @@
 			"phantasia:capybara": {
 				"weight": 1
 			},
-			"phantasia:butterfly": {
-				"weight": 1
-			},
 			"phantasia:crab": {
 				"weight": 1
 			},
 			"phantasia:duck": {
 				"weight": 1
+			},
+			"phantasia:firefly": {
+				"weight": 2
 			}
 		},
 		"hostile_spawn_chance": 0,

@@ -9,7 +9,7 @@ function tile_place(_x, _y, _z, _tile, _world_height = global.world_data[$ globa
     if (_y < 0) || (_y >= _world_height) exit;
     
     var _inst = tile_get_inst(_x, _y, "place");
-
+    
     var _index = tile_index(_x, _y, _z);
     
     var _ = _inst.chunk[_index];

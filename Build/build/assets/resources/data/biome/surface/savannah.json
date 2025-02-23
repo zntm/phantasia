@@ -40,7 +40,7 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:grass_block_savannah", "phantasia:dirt" ],
-		"passive_spawn_chance": 0.02,
+		"passive_spawn_chance": 0.012,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
 			"phantasia:ostrich": {
@@ -57,6 +57,9 @@
 			},
 			"phantasia:zebra": {
 				"weight": 1
+			},
+			"phantasia:butterfly": {
+				"weight": 2
 			}
 		},
 		"hostile_spawn_chance": 0,

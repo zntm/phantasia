@@ -59,7 +59,7 @@
 			"phantasia:grass_block_tundra",
 			"phantasia:dirt"
 		],
-		"passive_spawn_chance": 0.02,
+		"passive_spawn_chance": 0.012,
 		"passive_spawn_amount": [
 			1,
 			2
@@ -71,7 +71,7 @@
 			"phantasia:bunny": {
 				"weight": 1
 			},
-			"phantasia:goat": {
+			"phantasia:penguin": {
 				"weight": 1
 			}
 		},

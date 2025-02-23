@@ -40,7 +40,7 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:grass_block_greenia", "phantasia:dirt" ],
-		"passive_spawn_chance": 1,
+		"passive_spawn_chance": 0.006,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
 			"phantasia:chicken": {
@@ -56,6 +56,12 @@
 				"weight": 1
 			},
 			"phantasia:cow": {
+				"weight": 2
+			},
+			"phantasia:butterfly": {
+				"weight": 2
+			},
+			"phantasia:bee": {
 				"weight": 2
 			}
 		},
@@ -82,7 +88,7 @@
 		},
 		{
 			"id": "phantasia:pile/stone",
-			"chance": 0.004
+			"chance": 0.006
 		},
 		{
 			"id": "phantasia:shrine/empty",

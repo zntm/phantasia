@@ -1,0 +1,19 @@
+{
+    "eye_level": 3,
+    "frames": {
+        "idle": 1,
+        "moving": 6
+    },
+    "bbox": {
+        "width": 8,
+        "height": 8
+    },
+    "hp": 16,
+    "type": {
+        "hostility": "passive",
+        "movement": "ground"
+    },
+    "attributes": {
+        "movement_speed": 1.2
+    }
+}

@@ -40,7 +40,7 @@
 	},
 	"creatures": {
 		"can_spawn_on": [ "phantasia:grass_block_greenia", "phantasia:dirt" ],
-		"passive_spawn_chance": 1,
+		"passive_spawn_chance": 0.006,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {
 			"phantasia:chicken": {
@@ -65,7 +65,7 @@
 	},
 	"structures": [
 		{
-			"id": "phantasia:campsite/generic",
+			"id": "phantasia:campsite/abandoned",
 			"chance": 0.006
 		},
 		{

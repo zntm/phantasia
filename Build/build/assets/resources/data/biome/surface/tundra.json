@@ -59,7 +59,7 @@
 			"phantasia:podzol",
 			"phantasia:dirt"
 		],
-		"passive_spawn_chance": 0.02,
+		"passive_spawn_chance": 0.012,
 		"passive_spawn_amount": [
 			1,
 			4 
@@ -68,17 +68,8 @@
 			"phantasia:cow": {
 				"weight": 1
 			},
-			"phantasia:snail": {
-				"weight": 1
-			},
-			"phantasia:butterfly": {
-				"weight": 1
-			},
-			"phantasia:ladybug": {
-				"weight": 1
-			},
-			"phantasia:duck": {
-				"weight": 1
+			"phantasia:penguin": {
+				"weight": 2
 			}
 		},
 		"hostile_spawn_chance": 0,
