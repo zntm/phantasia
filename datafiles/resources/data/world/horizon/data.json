@@ -45,6 +45,5 @@
 	"caves": {
 		"start": 0,
 		"caves": []
-	},
-	"generation": []
+	}
 }

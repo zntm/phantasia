@@ -7,35 +7,40 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
         var _tile_solid = _biome_data[$ _cave_biome].tiles_solid;
         var _tile_solid_id = _tile_solid[0];
         
-        var _length = _world_data.get_generation_length();
+        if (!_tile_solid[2])
+        {
+            return _tile_solid;
+        }
+        
+        var _length = _tile_solid_id.get_generation_length();
         
         for (var i = 0; i < _length; ++i)
         {
-            var _range_min = _world_data.get_generation_range_min(i);
-            var _range_max = _world_data.get_generation_range_max(i);
+            var _range_min = _tile_solid_id.get_generation_range_min(i);
+            var _range_max = _tile_solid_id.get_generation_range_max(i);
             
             if (_y <= _range_min) || (_y > _range_max) continue;
             
-            var _exclusive = _world_data.get_generation_exclusive(i);
+            var _exclusive = _tile_solid_id.get_generation_exclusive(i);
             
             if (_exclusive != undefined) && (!array_contains(_exclusive, _cave_biome)) continue;
             
             var _seed_generation = _seed - (i * 213);
             
-            var _type = _world_data.get_generation_type(i);
+            var _type = _tile_solid_id.get_generation_type(i);
             
-            var _threshold_min = _world_data.get_generation_threshold_min(i);
-            var _threshold_max = _world_data.get_generation_threshold_max(i);
+            var _threshold_min = _tile_solid_id.get_generation_threshold_min(i);
+            var _threshold_max = _tile_solid_id.get_generation_threshold_max(i);
             
-            var _threshold_octave = _world_data.get_generation_threshold_octave(i);
+            var _threshold_octave = _tile_solid_id.get_generation_threshold_octave(i);
             
             var _generate = true;
             
-            var _condition_length = _world_data.get_generation_condition_length(i);
+            var _condition_length = _tile_solid_id.get_generation_condition_length(i);
             
             for (var j = 0; j < _condition_length; ++j)
             {
-                var _noise = noise(_x, _y, _world_data.get_generation_threshold_octave(i), _seed_generation + (j * 143)) * 255;
+                var _noise = noise(_x, _y, _tile_solid_id.get_generation_threshold_octave(i), _seed_generation - (j * 143)) * 255;
                 
                 if (_type == "phantasia:triangular")
                 {
@@ -46,7 +51,7 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
                     _noise *= 1 - normalize(_y, _range_min, _range_max);
                 }
                 
-                if (_noise >= _world_data.get_generation_threshold_min(i)) && (_noise < _world_data.get_generation_threshold_max(i)) continue;
+                if (_noise >= _tile_solid_id.get_generation_threshold_min(i)) && (_noise < _tile_solid_id.get_generation_threshold_max(i)) continue;
                 
                 _generate = false;
                 
@@ -55,16 +60,11 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
             
             if (_generate)
             {
-                var _replace = _world_data.get_generation_replace(i);
-                
-                if (_replace == undefined) || (array_contains(_replace, _tile_solid_id))
-                {
-                    return _world_data.get_generation_tile(i);
-                }
+                return _tile_solid_id.get_generation_tile(i);
             }
         }
         
-        return _tile_solid;
+        return _tile_solid[3];
     }
     
     #endregion

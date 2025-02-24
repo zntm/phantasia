@@ -7,6 +7,77 @@ enum BIOME_TYPE {
 
 global.biome_data = {}
 
+function BiomeDataTile() constructor
+{
+    ___generation_length = 0;
+    
+    static add_generation = function(_range_min, _range_max, _threshold_min, _threshold_max, _condition_length, _threshold_octave, _type, _tile, _exclusive)
+    {
+        self[$ "___generation"] ??= [];
+        
+        _tile = [
+            _tile.id,
+            _tile[$ "index_offset"] ?? 0
+        ];
+        
+        array_push(___generation, (_condition_length << 48) | (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave, _type, _tile, _exclusive);
+        
+        ++___generation_length;
+        
+        return self;
+    }
+    
+    static get_generation_length = function()
+    {
+        return ___generation_length;
+    }
+    
+    static get_generation_range_min = function(_index)
+    {
+        return ___generation[_index * 5] & 0xffff;
+    }
+    
+    static get_generation_range_max = function(_index)
+    {
+        return (___generation[_index * 5] >> 16) & 0xffff;
+    }
+    
+    static get_generation_threshold_min = function(_index)
+    {
+        return (___generation[_index * 5] >> 32) & 0xff;
+    }
+    
+    static get_generation_threshold_max = function(_index)
+    {
+        return (___generation[_index * 5] >> 40) & 0xff;
+    }
+    
+    static get_generation_condition_length = function(_index)
+    {
+        return (___generation[_index * 5] >> 48) & 0xff;
+    }
+    
+    static get_generation_threshold_octave = function(_index)
+    {
+        return ___generation[(_index * 5) + 1];
+    }
+    
+    static get_generation_type = function(_index)
+    {
+        return ___generation[(_index * 5) + 2];
+    }
+    
+    static get_generation_tile = function(_index)
+    {
+        return ___generation[(_index * 5) + 3];
+    }
+    
+    static get_generation_exclusive = function(_index)
+    {
+        return ___generation[(_index * 5) + 4];
+    }
+}
+
 function init_biome(_directory, _prefix = "phantasia", _type = 0)
 {
 	static __init_audio = function(_data, _type)
@@ -34,7 +105,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 	static __init_creatures = function(_data, _type)
 	{
 		var _creatures = _data[$ _type];
-			
+		
 		var _names  = struct_get_names(_creatures);
 		var _length = array_length(_names);
 		
@@ -126,7 +197,51 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 	{
 		var _tiles = _data[$ _type];
 		
-		return [ _tiles.id, _tiles[$ "index_offset"] ?? 0 ];
+        if (is_array(_tiles))
+        {
+            show_debug_message(_tiles);
+            
+            var _id2 = _tiles;
+            
+            _tiles = new BiomeDataTile();
+            
+            var _length = array_length(_id2);
+            
+            for (var i = 0; i < _length - 1; ++i)
+            {
+                var _ = _id2[i];
+                
+                var _range = _[$ "range"];
+                
+                var _noise = _.noise;
+                var _noise_threshold = _noise.threshold;
+                
+                var _range_min;
+                var _range_max;
+                
+                if (_range == undefined)
+                {
+                    _range_min = 0;
+                    _range_max = 0;
+                }
+                else
+                {
+                    _range_min = _range[$ "min"] ?? 0;
+                    _range_max = _range[$ "max"] ?? 0;
+                }
+                
+                _tiles.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise[$ "condition_length"] ?? 1, _noise.octave, _[$ "type"] ?? "phantasia:linear", _.tile, _[$ "exclusive"]);
+            }
+            
+            show_debug_message(_id2);
+            show_debug_message(_tiles);
+            
+            var _ = _id2[_length - 1];
+            
+            return [ _tiles, undefined, true, [ _.id, _[$ "index_offset"] ?? 0 ] ];
+        }
+        
+		return [ _tiles.id, _tiles[$ "index_offset"] ?? 0, false ];
 	}
 	
 	if (_type & INIT_TYPE.RESET)

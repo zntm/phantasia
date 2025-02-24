@@ -16,9 +16,173 @@
 	},
 	"music": [ "phantasia:somewhere_deep" ],
 	"tiles": {
-		"solid": {
-			"id": "phantasia:stone"
-		},
+		"solid": [
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.36,
+					"threshold": {
+						"min": 82,
+						"max": 111
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 0,
+					"max": 1024
+				},
+				"tile": {
+					"id": "phantasia:granite"
+				}
+			},
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.22,
+					"threshold": {
+						"min": 91,
+						"max": 106
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 0,
+					"max": 1024
+				},
+				"tile": {
+					"id": "phantasia:andesite"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.28,
+					"threshold": {
+						"min": 96,
+						"max": 110
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 654,
+					"max": 832
+				},
+				"tile": {
+					"id": "phantasia:silt"
+				}
+			},
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.19,
+					"threshold": {
+						"min": 86,
+						"max": 105
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 580,
+					"max": 768
+				},
+				"tile": {
+					"id": "phantasia:schist"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.1,
+					"threshold": {
+						"min": 136,
+						"max": 164
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 512,
+					"max": 768
+				},
+				"tile": {
+					"id": "phantasia:coal_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.08,
+					"threshold": {
+						"min": 107,
+						"max": 131
+					},
+					"condition_length": 3
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:tarnished_copper_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.06,
+					"threshold": {
+						"min": 109,
+						"max": 128
+					},
+					"condition_length": 3
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:weathered_copper_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.04,
+					"threshold": {
+						"min": 116,
+						"max": 121
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:copper_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.11,
+					"threshold": {
+						"min": 88,
+						"max": 116
+					},
+					"condition_length": 3
+				},
+				"range": {
+					"min": 700,
+					"max": 914
+				},
+				"tile": {
+					"id": "phantasia:gold_ore"
+				}
+			},
+			{
+				"id": "phantasia:stone"
+			}
+		],
 		"wall": {
 			"id": "phantasia:stone_wall"
 		}

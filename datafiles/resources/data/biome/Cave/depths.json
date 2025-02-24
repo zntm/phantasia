@@ -16,9 +16,137 @@
 	},
 	"music": [ "phantasia:somewhere_deep", "phantasia:lithosphere" ],
 	"tiles": {
-		"solid": {
-			"id": "phantasia:emustone"
-		},
+		"solid": [
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.08,
+					"threshold": {
+						"min": 71,
+						"max": 92
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 512,
+					"max": 1024
+				},
+				"tile": {
+					"id": "phantasia:emustone_coal_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.17,
+					"threshold": {
+						"min": 89,
+						"max": 100
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 760,
+					"max": 810
+				},
+				"tile": {
+					"id": "phantasia:emustone_tarnished_copper_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.13,
+					"threshold": {
+						"min": 99,
+						"max": 111
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 760,
+					"max": 810
+				},
+				"tile": {
+					"id": "phantasia:emustone_weathered_copper_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.11,
+					"threshold": {
+						"min": 106,
+						"max": 108
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 760,
+					"max": 810
+				},
+				"tile": {
+					"id": "phantasia:emustone_copper_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.11,
+					"threshold": {
+						"min": 99,
+						"max": 113
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 760,
+					"max": 840
+				},
+				"tile": {
+					"id": "phantasia:emustone_iron_ore"
+				}
+			},
+			{
+				"type": "phantasia:flipped_triangular",
+				"noise": {
+					"octave": 0.09,
+					"threshold": {
+						"min": 90,
+						"max": 105
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 760,
+					"max": 970
+				},
+				"tile": {
+					"id": "phantasia:emustone_gold_ore"
+				}
+			},
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.34,
+					"threshold": {
+						"min": 92,
+						"max": 99
+					},
+					"condition_length": 2
+				},
+				"range": {
+					"min": 800,
+					"max": 1024
+				},
+				"tile": {
+					"id": "phantasia:emustone_platinum_ore"
+				}
+			},
+			{
+				"id": "phantasia:emustone"
+			}
+		],
 		"wall": {
 			"id": "phantasia:emustone_wall"
 		}

@@ -57,18 +57,6 @@ function WorldData(_namespace) constructor
         return (self[$ "___world_value"] >> 40) & 0xff;
     }
     
-    static set_generation_length = function(_length)
-    {
-        __set_value("___world_value", 0x00_ff_ff_ffff_ffff, _length, 48);
-        
-        return self;
-    }
-    
-    static get_generation_length = function()
-    {
-        return (self[$ "___world_value"] >> 48) & 0xff;
-    }    
-    
     static set_surface_octave = function(_octave)
     {
         ___surface_octave = _octave;
@@ -232,67 +220,5 @@ function WorldData(_namespace) constructor
     static get_surface_biome_default = function()
     {
         return ___surface_biome_default;
-    }
-    
-    static add_generation = function(_range_min, _range_max, _threshold_min, _threshold_max, _condition_length, _threshold_octave, _type, _tile, _exclusive, _replace)
-    {
-        self[$ "___generation"] ??= [];
-        
-        _tile = [
-            _tile.id,
-            _tile[$ "index_offset"] ?? 0
-        ];
-        
-        array_push(___generation, (_condition_length << 48) | (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave, _type, _tile, _exclusive, _replace);
-    }
-    
-    static get_generation_range_min = function(_index)
-    {
-        return ___generation[_index * 6] & 0xffff;
-    }
-    
-    static get_generation_range_max = function(_index)
-    {
-        return (___generation[_index * 6] >> 16) & 0xffff;
-    }
-    
-    static get_generation_threshold_min = function(_index)
-    {
-        return (___generation[_index * 6] >> 32) & 0xff;
-    }
-    
-    static get_generation_threshold_max = function(_index)
-    {
-        return (___generation[_index * 6] >> 40) & 0xff;
-    }
-    
-    static get_generation_condition_length = function(_index)
-    {
-        return (___generation[_index * 6] >> 48) & 0xff;
-    }
-    
-    static get_generation_threshold_octave = function(_index)
-    {
-        return ___generation[(_index * 6) + 1];
-    }
-    
-    static get_generation_type = function(_index)
-    {
-        return ___generation[(_index * 6) + 2];
-    }
-    
-    static get_generation_tile = function(_index)
-    {
-        return ___generation[(_index * 6) + 3];
-    }
-    
-    static get_generation_exclusive = function(_index)
-    {
-        return ___generation[(_index * 6) + 4];
-    }
-    
-    static get_generation_replace = function(_index)
-    {
-        return ___generation[(_index * 6) + 5];
     }
 }

@@ -1,16 +1,5 @@
 global.world_data = {}
 
-enum WORLD_CAVE_TYPE {
-    LINEAR = 0,
-    TRIANGULAR = 1,
-    FLIPPED_TRIANGULAR = 2
-}
-
-enum WORLD_CAVE_TRANSITION_TYPE {
-    RANDOM = 1,
-    LINEAR = 2
-}
-
 function init_world(_directory, _prefix = "phantasia", _type = 0)
 {
 	if (_type & INIT_TYPE.RESET)
@@ -100,41 +89,6 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         _data.set_surface_biome(_surface2.heat, _surface2.humidity, _surface2[$ "default"]);
         
         #endregion
-        
-        #region Generation
-        
-        var _generation = _json.generation;
-        var _generation_length = array_length(_generation);
-        
-        for (var j = 0; j < _generation_length; ++j)
-        {
-            var _ = _generation[j];
-            
-            var _range = _[$ "range"];
-            
-            var _noise = _.noise;
-            var _noise_threshold = _noise.threshold;
-            
-            var _range_min;
-            var _range_max;
-            
-            if (_range == undefined)
-            {
-                _range_min = 0;
-                _range_max = _world_height;
-            }
-            else
-            {
-                _range_min = _range[$ "min"] ?? 0;
-                _range_max = _range[$ "max"] ?? _world_height;
-            }
-            
-            _data.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise[$ "condition_length"] ?? 1, _noise.octave, _[$ "type"] ?? "phantasia:linear", _.tile, _[$ "exclusive"], _[$ "replace"]);
-        }
-        
-        #endregion
-        
-        _data.set_generation_length(_generation_length);
         
         global.world_data[$ $"{_prefix}:{_file}"] = _data;
         
