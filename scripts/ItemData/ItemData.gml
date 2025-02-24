@@ -3185,11 +3185,19 @@ new ItemData("phantasia", item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_animation_index(0, 5)
     .set_colour_offset(0, -12, -50)
     .set_bloom(#160704)
+    .set_drops("phantasia:torch")
     .set_place_requirement(function(_x, _y, _z)
     {
         var _item_data = global.item_data;
         
-        var _tile = tile_get(_x - 1, _y, CHUNK_DEPTH_DEFAULT);
+        var _tile = tile_get(_x, _y, CHUNK_DEPTH_WALL);
+        
+        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.WALL)
+        {
+            return true;
+        }
+        
+        _tile = tile_get(_x - 1, _y, CHUNK_DEPTH_DEFAULT);
         
         if (_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.SOLID)
         {
@@ -3203,14 +3211,7 @@ new ItemData("phantasia", item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
             return true;
         }
         
-        _tile = tile_get(_x, _y + 1, CHUNK_DEPTH_DEFAULT);
-        
-        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.SOLID)
-        {
-            return true;
-        }
-        
-        _tile = tile_get(_x, _y, CHUNK_DEPTH_WALL);
+        _tile = tile_get(_x, _y + 1, CHUNK_DEPTH_WALL);
         
         if (_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.SOLID)
         {

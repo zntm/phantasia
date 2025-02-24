@@ -22,7 +22,7 @@ for (var i = 0; i < CHUNK_SIZE_Z; ++i)
 surface_display = 0;
 
 chunk_z_animated = 0;
-chunk_z_refresh = 0;
+chunk_z_refresh = (1 << CHUNK_SIZE_Z) - 1;
 
 chunk = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Y * CHUNK_SIZE_Z, TILE_EMPTY);
 

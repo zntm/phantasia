@@ -6,7 +6,7 @@
 function render_chunk(_surface_index_offset, _camera_x, _camera_y)
 {
     static __inst = [ obj_Player, obj_Projectile, obj_Creature ];
-
+    
     var _timer_lighting_refresh = timer_lighting_refresh;
     
     var _item_data = global.item_data;

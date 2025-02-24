@@ -71,7 +71,7 @@ function file_save_world_chunk(_inst)
 		buffer_write(_buffer, buffer_f16, _.xvelocity);
 		buffer_write(_buffer, buffer_f16, _.yvelocity);
         
-        file_save_snippet_item(_buffer, _.item);
+        file_save_snippet_item(_buffer, _item_data, _.item);
         
 		buffer_poke(_buffer, _next, buffer_u32, buffer_tell(_buffer));
 		
