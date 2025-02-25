@@ -35,15 +35,19 @@
 	"structures": [],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:deadstone" ],
-		"chance": 0.3,
+		"chance": 0.5,
 		"tiles": [
 			{
 				"item_id": "phantasia:rocks",
-				"weight": 1
+				"weight": 5
 			},
 			{
 				"item_id": "phantasia:twig",
-				"weight": 3
+				"weight": 2
+			},
+			{
+				"item_id": "phantasia:cocoon",
+				"weight": 1
 			}
 		]
 	}

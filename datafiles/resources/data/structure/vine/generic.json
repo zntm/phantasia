@@ -13,7 +13,8 @@
 		"parameter": {
 			"use_structure_void": true,
 			"tile": "phantasia:vine",
-			"index": 0
+			"index": 1,
+			"index_tip": 2
 		}
 	}
 }

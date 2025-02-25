@@ -559,6 +559,8 @@ global.natural_structure_data[$ "phantasia:tree/pine"] = new NaturalStructureDat
 enum NATURAL_STRUCTURE_VINE {
     USE_STRUCTURE_VOID,
     TILE,
+    INDEX,
+    INDEX_TIP,
     LENGTH
 }
 
@@ -572,6 +574,11 @@ global.natural_structure_data[$ "phantasia:vine"] = new NaturalStructureData()
         _data[@ NATURAL_STRUCTURE_VINE.USE_STRUCTURE_VOID] = _parameter[$ "use_structure_void"] ?? true;
         
         _data[@ NATURAL_STRUCTURE_VINE.TILE] = new Tile(_parameter.tile, _item_data);
+        
+        var _index = _parameter[$ "index"] ?? 1;
+        
+        _data[@ NATURAL_STRUCTURE_VINE.INDEX]     = _index;
+        _data[@ NATURAL_STRUCTURE_VINE.INDEX_TIP] = _parameter[$ "index_tip"] ?? _index;
         
         return _data;
     })
@@ -596,9 +603,19 @@ global.natural_structure_data[$ "phantasia:vine"] = new NaturalStructureData()
         
         var _tile = _parameter[NATURAL_STRUCTURE_VINE.TILE];
         
+        var _index = _parameter[NATURAL_STRUCTURE_VINE.INDEX];
+        
         for (var i = 1; i < _size; ++i)
         {
-            _data[@ (i * _width) + _depth] = variable_clone(_tile);
+            if (i == _size - 1)
+            {
+                _data[@ (i * _width) + _depth] = variable_clone(_tile).set_index(_parameter[NATURAL_STRUCTURE_VINE.INDEX_TIP]);
+            }
+            else
+            {
+                _data[@ (i * _width) + _depth] = variable_clone(_tile).set_index(_index);
+            }
+            
         }
         
         return _data;

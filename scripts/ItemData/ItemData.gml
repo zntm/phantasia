@@ -3117,6 +3117,7 @@ new ItemData("phantasia", item_Acacia_Chest, ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TY
 
 new ItemData("phantasia", item_Lumin_Moss_Wall, ITEM_TYPE_BIT.WALL)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
     .set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 8)
     .set_drops("phantasia:lumin_moss_wall");
 
@@ -3132,6 +3133,7 @@ new ItemData("phantasia", item_Polished_Stone, ITEM_TYPE_BIT.SOLID)
 
 new ItemData("phantasia", item_Moss_Wall, ITEM_TYPE_BIT.WALL)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
+    .set_flip_on(true, true)
     .set_mining_stats(ITEM_TYPE_BIT.HAMMER, undefined, 8)
     .set_drops("phantasia:moss_wall");
 
