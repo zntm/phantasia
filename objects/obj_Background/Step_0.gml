@@ -20,23 +20,26 @@ if (_data.type == BIOME_TYPE.CAVE)
         var _sfx = _ambience.sfx;
         var _length = array_length(_sfx);
         
-        for (var i = 0; i < _length; ++i)
+        if (_length > 0)
         {
-            var _ = _sfx_data[$ _sfx[i]];
-            
-            if (_ == undefined) continue;
-            
-            if (audio_array_is_playing(_))
+            for (var i = 0; i < _length; ++i)
             {
-                _is_playing = true;
+                var _ = _sfx_data[$ _sfx[i]];
                 
-                break;
+                if (_ == undefined) continue;
+                
+                if (audio_array_is_playing(_))
+                {
+                    _is_playing = true;
+                    
+                    break;
+                }
             }
-        }
-        
-        if (!_is_playing)
-        {
-            sfx_diegetic_play(obj_Player.x, obj_Player.y, obj_Player.x + random_range(-TILE_SIZE * 2, TILE_SIZE * 2), obj_Player.y + random_range(-TILE_SIZE * 2, TILE_SIZE * 2), array_choose(_sfx));
+            
+            if (!_is_playing)
+            {
+                sfx_diegetic_play(obj_Player.x, obj_Player.y, obj_Player.x + random_range(-TILE_SIZE * 2, TILE_SIZE * 2), obj_Player.y + random_range(-TILE_SIZE * 2, TILE_SIZE * 2), array_choose(_sfx));
+            }
         }
     }
 }

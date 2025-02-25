@@ -17,14 +17,14 @@
 	"music": [ "phantasia:shimmering" ],
 	"tiles": {
 		"solid": {
-			"id": "phantasia:stone"
+			"id": "phantasia:black_marble"
 		},
 		"wall": {
 			"id": "phantasia:stone_wall"
 		}
 	},
 	"creatures": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:black_marble" ],
 		"passive_spawn_chance": 0,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {},
@@ -34,7 +34,7 @@
 	},
 	"structures": [],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:black_marble" ],
 		"chance": 0.3,
 		"tiles": [
 			{

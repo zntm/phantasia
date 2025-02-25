@@ -45,16 +45,28 @@ function WorldData(_namespace) constructor
         return (self[$ "___world_value"] >> 32) & 0xff;
     }
     
+    static set_biome_cave_length = function(_length)
+    {
+        __set_value("___world_value2", 0xff_00, _length, 0);
+        
+        return self;
+    }
+    
+    static get_biome_cave_length = function()
+    {
+        return self[$ "___world_value2"] & 0xff;
+    }
+    
     static set_cave_length = function(_length)
     {
-        __set_value("___world_value", 0xff_00_ff_ffff_ffff, _length, 40);
+        __set_value("___world_value2", 0x00_ff, _length, 8);
         
         return self;
     }
     
     static get_cave_length = function()
     {
-        return (self[$ "___world_value"] >> 40) & 0xff;
+        return (self[$ "___world_value2"] >> 8) & 0xff;
     }
     
     static set_surface_octave = function(_octave)
@@ -161,6 +173,45 @@ function WorldData(_namespace) constructor
     static get_default_cave_transition_type = function(_index)
     {
         return ___cave_default[(_index * 4) + 3];
+    }
+    
+    static add_biome_cave = function(_id, _range_min, _range_max, _threshold_min, _threshold_max, _threshold_octave)
+    {
+        self[$ "___cave_biome"] ??= [];
+        
+        array_push(___cave_biome, _id, (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave);
+        
+        return self;
+    }
+    
+    static get_biome_cave_id = function(_index)
+    {
+        return ___cave_biome[_index * 3];
+    }
+    
+    static get_biome_cave_range_min = function(_index)
+    {
+        return ___cave_biome[(_index * 3) + 1] & 0xffff;
+    }
+    
+    static get_biome_cave_range_max = function(_index)
+    {
+        return (___cave_biome[(_index * 3) + 1] >> 16) & 0xffff;
+    }
+    
+    static get_biome_cave_threshold_min = function(_index)
+    {
+        return (___cave_biome[(_index * 3) + 1] >> 32) & 0xff;
+    }
+    
+    static get_biome_cave_threshold_max = function(_index)
+    {
+        return (___cave_biome[(_index * 3) + 1] >> 40) & 0xff;
+    }
+    
+    static get_biome_cave_threshold_octave = function(_index)
+    {
+        return ___cave_biome[(_index * 3) + 2];
     }
     
     static add_cave = function(_range_min, _range_max, _threshold_min, _threshold_max, _threshold_octave)

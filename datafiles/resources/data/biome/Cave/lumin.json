@@ -17,14 +17,14 @@
 	"music": [ "phantasia:liminality" ],
 	"tiles": {
 		"solid": {
-			"id": "phantasia:stone"
+			"id": "phantasia:lumin_moss"
 		},
 		"wall": {
-			"id": "phantasia:stone_wall"
+			"id": "phantasia:lumin_moss_wall"
 		}
 	},
 	"creatures": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:lumin_moss" ],
 		"passive_spawn_chance": 0,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {},
@@ -34,7 +34,7 @@
 	},
 	"structures": [],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:lumin_moss" ],
 		"chance": 0.3,
 		"tiles": [
 			{

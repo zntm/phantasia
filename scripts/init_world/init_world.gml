@@ -37,22 +37,37 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         
         #region Cave Biomes
         
-        var _caves_default = _biome.cave;
+        var _caves = _biome.cave;
         
-        var _cave_default = _caves_default[$ "default"];
+        var _cave_default = _caves[$ "default"];
         var _cave_default_length = array_length(_cave_default);
         
         for (var j = 0; j < _cave_default_length; ++j)
         {
-            var _cave = _cave_default[j];
+            var _ = _cave_default[j];
             
-            var _range = _cave.range;
-            var _transition = _cave.transition;
+            var _range = _.range;
+            var _transition = _.transition;
             
-            _data.add_default_cave(_cave.id, _range.min, _range.max, _transition.amplitude, _transition.octave, _transition.type);
+            _data.add_default_cave(_.id, _range.min, _range.max, _transition.amplitude, _transition.octave, _transition.type);
         }
         
         _data.set_default_cave_length(_cave_default_length);
+        
+        var _cave_cave = _caves[$ "cave"];
+        var _cave_cave_length = array_length(_cave_cave);
+        
+        for (var j = 0; j < _cave_cave_length; ++j)
+        {
+            var _ = _cave_cave[j];
+            
+            var _range = _.range;
+            var _threshold = _.threshold;
+            
+            _data.add_biome_cave(_.id, _range.min, _range.max, _threshold.min, _threshold.max, _threshold.octave);
+        }
+        
+        _data.set_biome_cave_length(_cave_cave_length);
         
         #endregion
         

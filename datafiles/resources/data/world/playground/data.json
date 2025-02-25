@@ -45,12 +45,19 @@
 					}
 				}
 			],
-			"id": [
-				"phantasia:araneae",
-				"phantasia:lumin",
-				"phantasia:obitus",
-				"phantasia:prisma",
-				"phantasia:verdant"
+			"cave": [
+				{
+					"id": "phantasia:lumin",
+					"range": {
+						"min": 600,
+						"max": 1000
+					},
+					"threshold": {
+						"min": 100,
+						"max": 128,
+						"octave": 0.5
+					}
+				}
 			]
 		},
 		"sky": {},

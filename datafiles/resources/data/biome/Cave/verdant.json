@@ -17,10 +17,10 @@
 	"music": [ "phantasia:liminality" ],
 	"tiles": {
 		"solid": {
-			"id": "phantasia:stone"
+			"id": "phantasia:moss"
 		},
 		"wall": {
-			"id": "phantasia:stone_wall"
+			"id": "phantasia:moss_wall"
 		}
 	},
 	"creatures": {
@@ -34,7 +34,7 @@
 	},
 	"structures": [],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:moss" ],
 		"chance": 0.3,
 		"tiles": [
 			{

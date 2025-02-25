@@ -17,14 +17,14 @@
 	"music": [ "phantasia:tincture_of_ink", "phantasia:lithosphere" ],
 	"tiles": {
 		"solid": {
-			"id": "phantasia:stone"
+			"id": "phantasia:aphide"
 		},
 		"wall": {
-			"id": "phantasia:stone_wall"
+			"id": "phantasia:aphide_wall"
 		}
 	},
 	"creatures": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:aphide" ],
 		"passive_spawn_chance": 0,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {},
@@ -34,7 +34,7 @@
 	},
 	"structures": [],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:aphide" ],
 		"chance": 0.3,
 		"tiles": [
 			{

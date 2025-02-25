@@ -17,14 +17,14 @@
 	"music": [ "phantasia:choir_of_the_dead", "phantasia:lithosphere" ],
 	"tiles": {
 		"solid": {
-			"id": "phantasia:basalt"
+			"id": "phantasia:deadstone"
 		},
 		"wall": {
-			"id": "phantasia:basalt_wall"
+			"id": "phantasia:deadstone_wall"
 		}
 	},
 	"creatures": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:deadstone" ],
 		"passive_spawn_chance": 0,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {},
@@ -34,7 +34,7 @@
 	},
 	"structures": [],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:deadstone" ],
 		"chance": 0.3,
 		"tiles": [
 			{
