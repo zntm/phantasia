@@ -16,9 +16,28 @@
 	},
 	"music": [ "phantasia:liminality" ],
 	"tiles": {
-		"solid": {
-			"id": "phantasia:lumin_moss"
-		},
+		"solid": [
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.32,
+					"threshold": {
+						"min": 82,
+						"max": 108
+					}
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:lumin_stone"
+				}
+			},
+			{
+				"id": "phantasia:lumin_moss"
+			}
+		],
 		"wall": {
 			"id": "phantasia:lumin_moss_wall"
 		}
@@ -35,8 +54,20 @@
 	"structures": [],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:lumin_moss" ],
-		"chance": 0.3,
+		"chance": 0.6,
 		"tiles": [
+			{
+				"item_id": "phantasia:short_lumin_growth",
+				"weight": 3
+			},
+			{
+				"item_id": "phantasia:tall_lumin_growth",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:lumin_lotus",
+				"weight": 1
+			},
 			{
 				"item_id": "phantasia:rocks",
 				"weight": 1

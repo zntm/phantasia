@@ -49,13 +49,13 @@
 				{
 					"id": "phantasia:lumin",
 					"range": {
-						"min": 600,
-						"max": 1000
+						"min": 672,
+						"max": 760
 					},
 					"threshold": {
-						"min": 100,
-						"max": 128,
-						"octave": 0.5
+						"min": 170,
+						"max": 230,
+						"octave": 0.35
 					}
 				}
 			]
