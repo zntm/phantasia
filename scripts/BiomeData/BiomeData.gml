@@ -233,9 +233,6 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
                 _tiles.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise[$ "condition_length"] ?? 1, _noise.octave, _[$ "type"] ?? "phantasia:linear", _.tile, _[$ "exclusive"]);
             }
             
-            show_debug_message(_id2);
-            show_debug_message(_tiles);
-            
             var _ = _id2[_length - 1];
             
             return [ _tiles, undefined, true, [ _.id, _[$ "index_offset"] ?? 0 ] ];

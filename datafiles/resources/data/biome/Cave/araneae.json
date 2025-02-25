@@ -38,6 +38,10 @@
 		"chance": 0.3,
 		"tiles": [
 			{
+				"item_id": "phantasia:cocoon",
+				"weight": 2
+			},
+			{
 				"item_id": "phantasia:rocks",
 				"weight": 1
 			},
