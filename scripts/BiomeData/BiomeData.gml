@@ -11,7 +11,7 @@ function BiomeDataTile() constructor
 {
     ___generation_length = 0;
     
-    static add_generation = function(_range_min, _range_max, _threshold_min, _threshold_max, _condition_length, _threshold_octave, _type, _tile, _exclusive)
+    static add_generation = function(_range_min, _range_max, _threshold_min, _threshold_max, _condition_length, _threshold_octave, _type, _tile, _exclusive, _salt)
     {
         self[$ "___generation"] ??= [];
         
@@ -20,7 +20,7 @@ function BiomeDataTile() constructor
             _tile[$ "index_offset"] ?? 0
         ];
         
-        array_push(___generation, (_condition_length << 48) | (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave, _type, _tile, _exclusive);
+        array_push(___generation, (_condition_length << 48) | (_threshold_max << 40) | (_threshold_min << 32) | (_range_max << 16) | _range_min, _threshold_octave, _type, _tile, _exclusive, _salt ?? ((___generation_length + 1) * 213));
         
         ++___generation_length;
         
@@ -34,47 +34,52 @@ function BiomeDataTile() constructor
     
     static get_generation_range_min = function(_index)
     {
-        return ___generation[_index * 5] & 0xffff;
+        return ___generation[_index * 6] & 0xffff;
     }
     
     static get_generation_range_max = function(_index)
     {
-        return (___generation[_index * 5] >> 16) & 0xffff;
+        return (___generation[_index * 6] >> 16) & 0xffff;
     }
     
     static get_generation_threshold_min = function(_index)
     {
-        return (___generation[_index * 5] >> 32) & 0xff;
+        return (___generation[_index * 6] >> 32) & 0xff;
     }
     
     static get_generation_threshold_max = function(_index)
     {
-        return (___generation[_index * 5] >> 40) & 0xff;
+        return (___generation[_index * 6] >> 40) & 0xff;
     }
     
     static get_generation_condition_length = function(_index)
     {
-        return (___generation[_index * 5] >> 48) & 0xff;
+        return (___generation[_index * 6] >> 48) & 0xff;
     }
     
     static get_generation_threshold_octave = function(_index)
     {
-        return ___generation[(_index * 5) + 1];
+        return ___generation[(_index * 6) + 1];
     }
     
     static get_generation_type = function(_index)
     {
-        return ___generation[(_index * 5) + 2];
+        return ___generation[(_index * 6) + 2];
     }
     
     static get_generation_tile = function(_index)
     {
-        return ___generation[(_index * 5) + 3];
+        return ___generation[(_index * 6) + 3];
     }
     
     static get_generation_exclusive = function(_index)
     {
-        return ___generation[(_index * 5) + 4];
+        return ___generation[(_index * 6) + 4];
+    }
+    
+    static get_generation_salt = function(_index)
+    {
+        return ___generation[(_index * 6) + 5];
     }
 }
 
@@ -230,7 +235,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
                     _range_max = _range[$ "max"] ?? 0;
                 }
                 
-                _tiles.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise[$ "condition_length"] ?? 1, _noise.octave, _[$ "type"] ?? "phantasia:linear", _.tile, _[$ "exclusive"]);
+                _tiles.add_generation(_range_min, _range_max, _noise_threshold.min, _noise_threshold.max, _noise[$ "condition_length"] ?? 1, _noise.octave, _[$ "type"] ?? "phantasia:linear", _.tile, _[$ "exclusive"], _noise[$ "salt"]);
             }
             
             var _ = _id2[_length - 1];

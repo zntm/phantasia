@@ -39,7 +39,7 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
         
         if (_exclusive != undefined) && (!array_contains(_exclusive, _cave_biome)) continue;
         
-        var _seed_generation = _seed - (i * 213);
+        var _seed_generation = _seed + _tile2.get_generation_salt(i);
         
         var _type = _tile2.get_generation_type(i);
         

@@ -16,9 +16,101 @@
 	},
 	"music": [ "phantasia:shimmering" ],
 	"tiles": {
-		"solid": {
-			"id": "phantasia:black_marble"
-		},
+		"solid": [
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.66,
+					"threshold": {
+						"min": 80,
+						"max": 83
+					},
+					"salt": 1250
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:gray_marble"
+				}
+			},
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.66,
+					"threshold": {
+						"min": 83,
+						"max": 85
+					},
+					"salt": 1250
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:white_marble"
+				}
+			},
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.66,
+					"threshold": {
+						"min": 85,
+						"max": 94
+					},
+					"salt": 1250
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:pink_amethyst"
+				}
+			},
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.66,
+					"threshold": {
+						"min": 94,
+						"max": 96
+					},
+					"salt": 1250
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:white_marble"
+				}
+			},
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.66,
+					"threshold": {
+						"min": 96,
+						"max": 99
+					},
+					"salt": 1250
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:gray_marble"
+				}
+			},
+			{
+				"id": "phantasia:black_marble"
+			}
+		],
 		"wall": {
 			"id": "phantasia:stone_wall"
 		}
