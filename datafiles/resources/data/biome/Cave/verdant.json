@@ -24,7 +24,7 @@
 		}
 	},
 	"creatures": {
-		"can_spawn_on": [ "phantasia:stone" ],
+		"can_spawn_on": [ "phantasia:moss" ],
 		"passive_spawn_chance": 0,
 		"passive_spawn_amount": [ 1, 4 ],
 		"passive": {},
@@ -35,8 +35,24 @@
 	"structures": [],
 	"foliage": {
 		"can_spawn_on": [ "phantasia:moss" ],
-		"chance": 0.3,
+		"chance": 0.7,
 		"tiles": [
+			{
+				"item_id": "phantasia:short_grass_greenia",
+				"weight": 4
+			},
+			{
+				"item_id": "phantasia:tall_grass_greenia",
+				"weight": 2
+			},
+			{
+				"item_id": "phantasia:rose",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:rocks",
+				"weight": 1
+			},
 			{
 				"item_id": "phantasia:rocks",
 				"weight": 1

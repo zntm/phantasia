@@ -23,10 +23,12 @@ function init_loot_recursive(_namespace, _directory, _id)
             continue;
         }
         
-        var _name = $"{_id}/{string_delete(_file, string_length(_file) - 4, 5)}";
+        var _name = string_delete(_file, string_length(_file) - 4, 5);
         
         if (_id != undefined)
         {
+            _name = $"{_id}/{_name}";
+            
             global.loot_data[$ $"{_namespace}:{_id}"] ??= [];
             
             array_push(global.loot_data[$ $"{_namespace}:{_id}"], $"{_namespace}:{_name}");

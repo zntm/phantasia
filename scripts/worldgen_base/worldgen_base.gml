@@ -2,7 +2,7 @@ function worldgen_base(_x, _y, _seed, _world_data, _biome_data, _surface_biome, 
 {
     var _tile;
     
-    if (_cave_biome != -1)
+    if (_cave_biome != 0)
     {
         _tile = _biome_data[$ _cave_biome].tiles_solid;
     }

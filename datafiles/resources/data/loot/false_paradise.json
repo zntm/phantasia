@@ -1,0 +1,49 @@
+{
+	"container": [
+		{
+			"item_id": "phantasia:oak_chest",
+			"weight": 1
+		},
+		{
+			"item_id": "phantasia:pine_chest",
+			"weight": 1
+		}
+	],
+	"guaranteed": [
+		{
+			"item_id": [ "phantasia:mining_helmet", "phantasia:tarnished_copper_pickaxe" ],
+			"amount": 1
+		}
+	],
+	"loot": [
+		{
+			"item_id": -1,
+			"weight": 32
+		},
+		{
+			"item_id": "phantasia:green_cloth",
+			"amount": [ 3, 6 ],
+			"weight": 2
+		},
+		{
+			"item_id": "phantasia:brown_cloth",
+			"amount": [ 2, 4 ],
+			"weight": 1
+		},
+		{
+			"item_id": "phantasia:pine_door",
+			"amount": 1,
+			"weight": 1
+		},
+		{
+			"item_id": "phantasia:torch",
+			"amount": [ 1, 12 ],
+			"weight": 2
+		},
+		{
+			"item_id": "phantasia:rope",
+			"amount": [ 3, 9 ],
+			"weight": 2
+		}
+	]
+}

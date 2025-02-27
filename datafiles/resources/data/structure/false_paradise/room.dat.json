@@ -1,0 +1,9 @@
+{
+    "placement": {
+		"type": "phantasia:floor",
+		"offset": {
+			"x": 0,
+			"y": 3
+		}
+    }
+}

@@ -2,7 +2,7 @@ function worldgen_wall(_x, _y, _seed, _attributes, _biome_data, _surface_biome, 
 {
     #region Cave Biome
     
-    if (_cave_biome != -1)
+    if (_cave_biome != 0)
     {
         return _biome_data[$ _cave_biome].tiles_wall;
     }
