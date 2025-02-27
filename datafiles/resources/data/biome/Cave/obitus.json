@@ -16,9 +16,28 @@
 	},
 	"music": [ "phantasia:choir_of_the_dead", "phantasia:lithosphere" ],
 	"tiles": {
-		"solid": {
-			"id": "phantasia:deadstone"
-		},
+		"solid": [
+			{
+				"type": "phantasia:linear",
+				"noise": {
+					"octave": 0.88,
+					"threshold": {
+						"min": 80,
+						"max": 90
+					}
+				},
+				"range": {
+					"min": 512,
+					"max": 800
+				},
+				"tile": {
+					"id": "phantasia:dirt_obitus"
+				}
+			},
+			{
+				"id": "phantasia:deadstone"
+			}
+		],
 		"wall": {
 			"id": "phantasia:deadstone_wall"
 		}
@@ -34,8 +53,8 @@
 	},
 	"structures": [],
 	"foliage": {
-		"can_spawn_on": [ "phantasia:deadstone" ],
-		"chance": 0.5,
+		"can_spawn_on": [ "phantasia:dirt_obitus" ],
+		"chance": 0.3,
 		"tiles": [
 			{
 				"item_id": "phantasia:rocks",
@@ -43,10 +62,22 @@
 			},
 			{
 				"item_id": "phantasia:twig",
+				"weight": 3
+			},
+			{
+				"item_id": "phantasia:deadflower",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:short_dead_grass",
 				"weight": 2
 			},
 			{
-				"item_id": "phantasia:cocoon",
+				"item_id": "phantasia:tall_dead_grass",
+				"weight": 1
+			},
+			{
+				"item_id": "phantasia:dead_sunflower",
 				"weight": 1
 			}
 		]

@@ -136,6 +136,10 @@
 			{
 				"item_id": "phantasia:twig",
 				"weight": 3
+			},
+			{
+				"item_id": "phantasia:pink_amethyst_cluster",
+				"weight": 2
 			}
 		]
 	}
