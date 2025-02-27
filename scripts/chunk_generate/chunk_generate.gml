@@ -160,6 +160,10 @@ function chunk_generate(_world, _seed, _world_data)
                 {
                     var _inst = __structures_array[i];
                     
+                    var _data = _inst.data;
+                    
+                    if (_data == undefined) continue;
+                    
                     var _id = _inst.structure_id;
                     
                     var _xscale = _inst.image_xscale;
@@ -167,11 +171,12 @@ function chunk_generate(_world, _seed, _world_data)
                     
                     var _rectangle = _xscale * _yscale;
                     
-                    var _data = _inst.data;
                     var _natural = _inst.natural;
                     
                     var _ax = _tile_x - ceil(_inst.bbox_left / TILE_SIZE);
                     var _ay = _tile_y - ceil(_inst.bbox_top  / TILE_SIZE);
+                    
+                    // if (_ax < 0) || (_ax >= _xscale) || (_ay < 0) || (_ay >= _yscale) continue;
                     
                     var _structure_index_xy = _ax + (_ay * _xscale);
                     
