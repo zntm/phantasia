@@ -37,7 +37,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 		{
 			var _cave = worldgen_get_cave_biome(i, j, _seed, _ysurface, _world_data);
 			
-			if (_cave == -1)
+			if (_cave == 0)
             {
                 ++_index;
                 

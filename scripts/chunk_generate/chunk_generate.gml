@@ -326,7 +326,7 @@ function chunk_generate(_world, _seed, _world_data)
                 }
             }
             
-            if ((_skip_layer & 2) == 0) && ((_tile_y == _ysurface - 1) || ((_cave_biome != -1) && (_chunk_data & _ybit) && ((_chunk_data & (_ybit << 1)) == 0)))
+            if ((_skip_layer & 2) == 0) && ((_tile_y == _ysurface - 1) || ((_cave_biome != 0) && (_chunk_data & _ybit) && ((_chunk_data & (_ybit << 1)) == 0)))
             {
                 var _tile_surface = __base[@ _x | ((_y + 1) << CHUNK_SIZE_X_BIT)];
                 var _tile_foliage = worldgen_foliage(_tile_x, _tile_y, _seed_foliage, _world_data, _biome_data, _surface_biome, _cave_biome, _tile_surface[0]);

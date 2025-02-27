@@ -2,7 +2,7 @@ function worldgen_get_cave_biome(_x, _y, _seed, _ysurface, _world_data)
 {
 	if (_y <= _ysurface + _world_data.get_cave_ystart())
 	{
-		return -1;
+		return 0;
 	}
 	
 	if (DEVELOPER_MODE) && (global.debug_settings.force_cave != "-1")
@@ -52,5 +52,5 @@ function worldgen_get_cave_biome(_x, _y, _seed, _ysurface, _world_data)
 		}
 	}
     
-    return -1;
+    return 0;
 }

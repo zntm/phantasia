@@ -25,7 +25,7 @@ function rpc_world()
     
     var _sky = worldgen_get_sky_biome(_x, _y, _world_seed);
     
-    if (_sky != -1)
+    if (_sky != 0)
     {
         __rpc(_sky, "sky");
         
@@ -34,7 +34,7 @@ function rpc_world()
     
     var _cave = worldgen_get_cave_biome(_x, _y, _world_seed, _ysurface, _world_data);
     
-    if (_cave != -1)
+    if (_cave != 0)
     {
         __rpc(_cave, "cave");
         
