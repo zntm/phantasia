@@ -1,47 +1,89 @@
 function worldgen_wall(_x, _y, _seed, _attributes, _biome_data, _surface_biome, _cave_biome, _ysurface)
 {
-    #region Cave Biome
+    var _tile;
     
     if (_cave_biome != 0)
     {
-        return _biome_data[$ _cave_biome].tiles_wall;
+        _tile = _biome_data[$ _cave_biome].tiles_wall;
     }
-    
-    #endregion
-    
-    #region Surface Biome
-    
-    if (_y <= _ysurface + 8)
+    else if (_y <= _ysurface + 8)
     {
         if (_y <= _ysurface)
         {
-            return _biome_data[$ _surface_biome].tiles_crust_top_wall;
+            _tile = _biome_data[$ _surface_biome].tiles_crust_top_wall;
         }
-        
-        if (_y <= _ysurface + 12)
+        else if (_y <= _ysurface + 12)
         {
-            return _biome_data[$ _surface_biome].tiles_crust_bottom_wall;
+            _tile = _biome_data[$ _surface_biome].tiles_crust_bottom_wall;
         }
-        
-        return _biome_data[$ _surface_biome].tiles_stone_wall;
+        else
+        {
+            _tile = _biome_data[$ _surface_biome].tiles_stone_wall;
+        }
     }
-    
-    var _ylowest = _ysurface + 12;
-    
-    if (_y <= _ylowest + (noise(_x, _y, 4, _seed) * 8))
+    else
     {
-        if (_y <= _ysurface)
+        _tile = _biome_data[$ _surface_biome].tiles_stone_wall;
+    }
+    
+    if (!_tile[2])
+    {
+        return _tile;
+    }
+    
+    var _tile2 = _tile[0];
+    
+    var _length = _tile2.get_generation_length();
+    
+    for (var i = 0; i < _length; ++i)
+    {
+        var _range_min = _tile2.get_generation_range_min(i);
+        var _range_max = _tile2.get_generation_range_max(i);
+        
+        if (_y <= _range_min) || (_y > _range_max) continue;
+        
+        var _exclusive = _tile2.get_generation_exclusive(i);
+        
+        if (_exclusive != undefined) && (!array_contains(_exclusive, _cave_biome)) continue;
+        
+        var _seed_generation = _seed + _tile2.get_generation_salt(i);
+        
+        var _type = _tile2.get_generation_type(i);
+        
+        var _threshold_min = _tile2.get_generation_threshold_min(i);
+        var _threshold_max = _tile2.get_generation_threshold_max(i);
+        
+        var _threshold_octave = _tile2.get_generation_threshold_octave(i);
+        
+        var _generate = true;
+        
+        var _condition_length = _tile2.get_generation_condition_length(i);
+        
+        for (var j = 0; j < _condition_length; ++j)
         {
-            return _biome_data[$ _surface_biome].tiles_crust_top_wall;
+            var _noise = noise(_x, _y, _tile2.get_generation_threshold_octave(i), _seed_generation - (j * 143)) * 255;
+            
+            if (_type == "phantasia:triangular")
+            {
+                _noise *= normalize(_y, _range_min, _range_max);
+            }
+            else if (_type == "phantasia:flipped_triangular")
+            {
+                _noise *= 1 - normalize(_y, _range_min, _range_max);
+            }
+            
+            if (_noise >= _tile2.get_generation_threshold_min(i)) && (_noise < _tile2.get_generation_threshold_max(i)) continue;
+            
+            _generate = false;
+            
+            break;
         }
         
-        if (_y <= _ylowest)
+        if (_generate)
         {
-            return _biome_data[$ _surface_biome].tiles_crust_bottom_wall;
+            return _tile2.get_generation_tile(i);
         }
     }
     
-    return _biome_data[$ _surface_biome].tiles_stone_wall;
-    
-    #endregion
+    return _tile[3];
 }

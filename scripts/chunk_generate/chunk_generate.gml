@@ -14,6 +14,8 @@ function chunk_generate(_world, _seed, _world_data)
     
     static __chunk_data = array_create((CHUNK_SIZE_X + 2) + CHUNK_SIZE_X, 0);
     
+    debug_timer("chunk_generation_ysurface");
+    
     // Check if chunk is inside of a structure
     var _ymax = 0;
     
@@ -26,12 +28,16 @@ function chunk_generate(_world, _seed, _world_data)
         __ysurface[@ i] = _ysurface;
     }
     
+    debug_timer("chunk_generation_ysurface", $"Chunk y surface generated at ({chunk_xstart / CHUNK_SIZE_X}, {chunk_ystart / CHUNK_SIZE_Y})");
+    
     var _collision_chunk_y1 = ycenter - CHUNK_SIZE_HEIGHT_H;
     var _collision_chunk_y2 = ycenter + CHUNK_SIZE_HEIGHT_H;
     
     var _structure_inside_chunk_rectangle = instance_exists(collision_rectangle(xcenter - CHUNK_SIZE_WIDTH_H, _collision_chunk_y1, xcenter + CHUNK_SIZE_WIDTH_H, _collision_chunk_y2, obj_Structure, false, true));
     
     if (!_structure_inside_chunk_rectangle) && (_ymax < round(_collision_chunk_y1 / TILE_SIZE)) && (_ymax > round(_collision_chunk_y2 / TILE_SIZE)) exit;
+    
+    debug_timer("chunk_generation_data");
     
     var _realm = _world.realm;
     
@@ -46,7 +52,7 @@ function chunk_generate(_world, _seed, _world_data)
     var _loot_data = global.loot_data;
     var _structure_data = global.structure_data;
 
-    var _ysurface_offset = _world_data.get_cave_ystart();
+    var _cave_ystart = _world_data.get_cave_ystart();
     
     static __surface_biome = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Y);
     static __cave_biome    = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Y);
@@ -60,7 +66,7 @@ function chunk_generate(_world, _seed, _world_data)
         
         var _chunk_data = 0;
         
-        var _ymin = _ysurface + _ysurface_offset;
+        var _ymin = _ysurface + _cave_ystart;
         
         if (_ymin <= chunk_ystart + CHUNK_SIZE_Y)
         {
@@ -91,7 +97,7 @@ function chunk_generate(_world, _seed, _world_data)
                 _surface_biome = worldgen_get_surface_biome(_tile_x, _tile_y, _seed, _ysurface, _world_data, _realm);
             }
             
-            var _cave_biome = worldgen_get_cave_biome(_tile_x, _tile_y, _seed, _ysurface, _world_data);
+            var _cave_biome = ((_tile_y > _ymin) ? worldgen_get_cave_biome(_tile_x, _tile_y, _seed, _ysurface, _world_data) : 0);
             
             __base[@ _index] = ((_chunk_data & (1 << j)) ? TILE_EMPTY : worldgen_base(_tile_x, _tile_y, _seed_base, _world_data, _biome_data, _surface_biome, _cave_biome, _ysurface));
             
@@ -102,6 +108,8 @@ function chunk_generate(_world, _seed, _world_data)
             }
         }
     }
+    
+    debug_timer("chunk_generation_data", $"Chunk data generated at ({chunk_xstart / CHUNK_SIZE_X}, {chunk_ystart / CHUNK_SIZE_Y})");
     
     debug_timer("chunk_generation");
     
