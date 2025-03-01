@@ -27,6 +27,9 @@ function ctrl_creature_spawn(_biome_data, _creature_data, _item_data, _world_hei
     var _id = choose_weighted(_creatures.passive).id;
     
     var _data = _creature_data[$ _id];
+    
+    if (_data == undefined) exit;
+    
     var _bbox = _data.bbox;
     
     var _sprite = sprite_index;

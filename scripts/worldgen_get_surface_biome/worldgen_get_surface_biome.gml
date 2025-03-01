@@ -18,7 +18,7 @@ function worldgen_get_surface_biome(_x, _y, _seed, _ysurface, _world_data, _real
     
     var _biome = _world_data.get_surface_biome_map(
         round(worldgen_get_heat(_x, _y, _world_data.get_surface_biome_heat(), _seed) * (WORLDGEN_SIZE_HEAT - 1)),
-        round(worldgen_get_humidity(_x, _y, _world_data.get_surface_biome_humidity(), _seed) * (WORLDGEN_SIZE_HUMIDITY - 1)) << 5
+        round(worldgen_get_humidity(_x, _y, _world_data.get_surface_biome_humidity(), _seed) * (WORLDGEN_SIZE_HUMIDITY - 1))
     );
 	
 	return (_biome != 0 ? _biome : _world_data.get_surface_biome_default());

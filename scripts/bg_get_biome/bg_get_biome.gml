@@ -12,15 +12,18 @@ function bg_get_biome(_x, _y)
     
     var _ysurface = worldgen_get_ysurface(_x2, _seed);
     
-    var _cave_biome = worldgen_get_cave_biome(_x2, _y2, _seed, _ysurface, _world_data);
-    
-    if (_cave_biome != 0)
+    if (_y2 > _ysurface + _world_data.get_cave_ystart())
     {
-        return _cave_biome;
+        var _cave_biome = worldgen_get_cave_biome(_x2, _y2, _seed, _ysurface, _world_data);
+        
+        if (_cave_biome != 0)
+        {
+            return _cave_biome;
+        }
     }
-
+    
     var _sky_biome = worldgen_get_sky_biome(_x2, _y2, _seed);
-
+    
     if (_sky_biome != 0)
     {
         return _sky_biome;

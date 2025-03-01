@@ -1,10 +1,5 @@
 function worldgen_get_cave_biome(_x, _y, _seed, _ysurface, _world_data)
 {
-	if (_y <= _ysurface + _world_data.get_cave_ystart())
-	{
-		return 0;
-	}
-	
 	if (DEVELOPER_MODE) && (global.debug_settings.force_cave != "-1")
 	{
 		return global.debug_settings.force_cave;
@@ -28,9 +23,12 @@ function worldgen_get_cave_biome(_x, _y, _seed, _ysurface, _world_data)
 	for (var i = 0; i < _length2; ++i)
 	{
         var _range_min = _world_data.get_default_cave_range_min(i);
+        
+        if (_y < _range_min) continue;
+        
         var _range_max = _world_data.get_default_cave_range_max(i);
         
-		if (_y < _range_max) && (_y >= _range_min)
+		if (_y < _range_max)
 		{
 			return _world_data.get_default_cave_id(i);
         }

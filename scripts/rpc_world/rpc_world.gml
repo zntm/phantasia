@@ -32,7 +32,9 @@ function rpc_world()
         exit;
     }
     
-    var _cave = worldgen_get_cave_biome(_x, _y, _world_seed, _ysurface, _world_data);
+    var _ysurface2 = _ysurface + _world_data.get_cave_ystart();
+    
+    var _cave = ((_y > _ysurface2) ? worldgen_get_cave_biome(_x, _y, _world_seed, _ysurface, _world_data) : 0);
     
     if (_cave != 0)
     {
