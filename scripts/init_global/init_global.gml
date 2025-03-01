@@ -32,7 +32,7 @@ if (DEVELOPER_MODE)
 		overlay: true,
 		background: true,
 		camera_size: 1,
-		creature: false,
+		creature: true,
 		fly_speed: 32,
 		fps: false,
 		instances: false,

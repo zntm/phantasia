@@ -280,8 +280,8 @@ function WorldData(_namespace) constructor
         return self;
     }
     
-    static get_surface_biome_map = function()
+    static get_surface_biome_map = function(_heat, _humidity)
     {
-        return ___surface_biome_map;
+        return ___surface_biome_map[_heat | (_humidity << 5)];
     }
 }
