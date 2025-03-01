@@ -105,6 +105,49 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         
         #endregion
         
+        #region Biome Map
+        
+		var _sprite = sprite_add($"{_directory}/{_file}/map.png", 1, false, false, 0, 0);
+		var _surface3 = surface_create(32, 32);
+		
+		var _surface_biome_map = array_create(32 * 32, 0);
+		
+		surface_set_target(_surface3);
+		draw_sprite(_sprite, 0, 0, 0);
+		surface_reset_target();
+		
+		var _biome_data = global.biome_data;
+		
+		var _names = struct_get_names(_biome_data);
+		var _names_length = array_length(_names);
+		
+		for (var j = 0; j < _names_length; ++j)
+		{
+			var _name = _names[j];
+			var _map_colour = _biome_data[$ _name][$ "map_colour"];
+			
+			if (_map_colour == undefined) continue;
+			
+			for (var l = 0; l < WORLDGEN_SIZE_HUMIDITY; ++l)
+			{
+				var _ = l << 5;
+				
+				for (var m = 0; m < WORLDGEN_SIZE_HEAT; ++m)
+				{
+					if (_map_colour != surface_getpixel(_surface3, m, l)) continue;
+					
+					_surface_biome_map[@ m | _] = _name;
+				}
+			}
+		}
+		
+		sprite_delete(_sprite);
+		surface_free(_surface3);
+        
+        _data.set_surface_biome_map(_surface_biome_map);
+        
+        #endregion
+        
         global.world_data[$ $"{_prefix}:{_file}"] = _data;
         
         delete _json;

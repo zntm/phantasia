@@ -272,4 +272,16 @@ function WorldData(_namespace) constructor
     {
         return ___surface_biome_default;
     }
+    
+    static set_surface_biome_map = function(_data)
+    {
+        ___surface_biome_map = _data;
+        
+        return self;
+    }
+    
+    static get_surface_biome_map = function()
+    {
+        return ___surface_biome_map;
+    }
 }
