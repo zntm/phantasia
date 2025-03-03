@@ -25,6 +25,7 @@ chunk_z_animated = 0;
 chunk_z_refresh = (1 << CHUNK_SIZE_Z) - 1;
 
 chunk = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Y * CHUNK_SIZE_Z, TILE_EMPTY);
+chunk_update_on_draw = array_create(CHUNK_SIZE_X * CHUNK_SIZE_Z, 0);
 
 chunk_xstart = floor(x / TILE_SIZE);
 chunk_ystart = floor(y / TILE_SIZE);

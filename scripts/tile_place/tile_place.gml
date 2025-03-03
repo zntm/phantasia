@@ -50,18 +50,40 @@ function tile_place(_x, _y, _z, _tile, _world_height = global.world_data[$ globa
     
     _inst.chunk[@ _index] = _tile;
     
+    var _on_draw_index = (_z << CHUNK_SIZE_X_BIT) | (_x & (CHUNK_SIZE_X - 1));
+    var _on_draw_bitmask = 1 << (_y & (CHUNK_SIZE_Y - 1));
+    
+    var _bit = _inst.chunk_update_on_draw[_on_draw_index] & _on_draw_bitmask;
+    
     if (_tile != TILE_EMPTY)
     {
         _inst.surface_display |= 1 << _z;
         
-        var _on_place = global.item_data[$ _tile.item_id].on_place;
+        var _item_id = _tile.item_id;
+        
+        var _on_place = global.item_data[$ _item_id].on_place;
         
         if (_on_place != undefined)
         {
             _on_place(_x, _y, _z);
         }
         
+        var _item_data_on_draw = global.item_data_on_draw[$ _item_id];
+        
+        if (_item_data_on_draw != undefined)
+        {
+            _inst.chunk_update_on_draw[_on_draw_index] |= _on_draw_bitmask;
+        }
+        else if (_bit)
+        {
+            _inst.chunk_update_on_draw[_on_draw_index] ^= _on_draw_bitmask;
+        }
+        
         tile_instance_create(_x, _y, _z, _tile);
+    }
+    else if (_bit)
+    {
+        _inst.chunk_update_on_draw[_on_draw_index] ^= _on_draw_bitmask;
     }
     
     return _inst;

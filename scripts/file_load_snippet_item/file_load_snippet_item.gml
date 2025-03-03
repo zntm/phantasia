@@ -1,4 +1,4 @@
-function file_load_snipept_item(_buffer, _item_data, _datafixer)
+function file_load_snippet_item(_buffer, _item_data, _datafixer)
 {
     var _item_id = buffer_read(_buffer, buffer_string);
     
@@ -14,6 +14,11 @@ function file_load_snipept_item(_buffer, _item_data, _datafixer)
     if (_data == undefined)
     {
         _item_id = _datafixer[$ _item_id];
+        
+        if (_item_id == undefined)
+        {
+            return INVENTORY_EMPTY;
+        }
         
         _data = _item_data[$ _item_id];
         

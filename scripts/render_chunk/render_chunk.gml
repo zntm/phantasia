@@ -117,7 +117,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                     
                     var _index;
                     
-                    if (_data.get_animation_type() & TILE_ANIMATION_TYPE.INCREMENT) && (_tile.get_animated())
+                    if (_data.get_animation_type() & TILE_ANIMATION_TYPE.INCREMENT) && (!_tile.get_static())
                     {
                         var _animation_index_min = _data.get_animation_index_min();
                         var _animation_index_max = _data.get_animation_index_max();

@@ -29,34 +29,27 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 		
         var _ystart3 = max(_ystart, _ysurface2);
         
-        var _generated = false;
+        var _index2 = 0;
         
+        for (var l = _ystart3 - 1; l <= _yend + 1; ++l)
+        {
+            __carve_cave[@ _index2++] = (l > _ysurface2 ? worldgen_carve_cave(i, l, _seed_cave, _world_data, _ysurface) : false);
+        }
+         
         var _index = 1;
         
 		for (var j = _ystart3; j <= _yend; ++j)
 		{
-			var _cave = worldgen_get_cave_biome(i, j, _seed, _ysurface, _world_data);
-			
-			if (_cave == 0)
+            if (__carve_cave[_index])
             {
                 ++_index;
                 
                 continue;
             }
             
-            if (!_generated)
-            {
-                _generated = true;
-                
-                var _index2 = 0;
-                
-                for (var l = _ystart3 - 1; l <= _yend + 1; ++l)
-                {
-                    __carve_cave[@ _index2++] = (l > _ysurface2 ? worldgen_carve_cave(i, l, _seed_cave, _world_data, _ysurface) : false);
-                }
-            }
-            
-            if (__carve_cave[_index])
+			var _cave = worldgen_get_cave_biome(i, j, _seed, _ysurface, _world_data);
+			
+			if (_cave == 0)
             {
                 ++_index;
                 

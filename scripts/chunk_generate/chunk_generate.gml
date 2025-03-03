@@ -124,11 +124,13 @@ function chunk_generate(_world, _seed, _world_data)
         
         global.sun_rays_y[$ _xindex] ??= _ysurface;
         
+        var _structure_inside_chunk_x = (_structure_inside_chunk_rectangle) && (instance_exists(collision_rectangle(_inst_x - TILE_SIZE_H, _collision_chunk_y1, _inst_x + TILE_SIZE_H, _collision_chunk_y2, obj_Structure, false, true)));
+        
+        if (!_structure_inside_chunk_x) && (_ysurface > chunk_ystart + CHUNK_SIZE_Y) continue;
+        
         var _sun_rays_y = global.sun_rays_y[$ _xindex];
         
         var _chunk_data = __chunk_data[CHUNK_SIZE_X | _x];
-        
-        var _structure_inside_chunk_x = (_structure_inside_chunk_rectangle) && (instance_exists(collision_rectangle(_inst_x - TILE_SIZE_H, _collision_chunk_y1, _inst_x + TILE_SIZE_H, _collision_chunk_y2, obj_Structure, false, true)));
         
         random_set_seed(_seed + _x + xcenter);
         
@@ -241,6 +243,8 @@ function chunk_generate(_world, _seed, _world_data)
                         if (_item_data_on_draw[$ _item_id] != undefined)
                         {
                             is_on_draw_update |= _zbit;
+                            
+                            chunk_update_on_draw[@ (j << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
                         }
                         
                         chunk_generate_anim_handler(_item_data[$ _item_id], _zbit, _y);
@@ -303,6 +307,8 @@ function chunk_generate(_world, _seed, _world_data)
                         if (_item_data_on_draw[$ _item_id] != undefined)
                         {
                             is_on_draw_update |= 1 << CHUNK_DEPTH_WALL;
+                            
+                            chunk_update_on_draw[@ (CHUNK_DEPTH_WALL << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
                         }
                         
                         chunk_generate_anim_handler(_item_data[$ _item_id], 1 << CHUNK_DEPTH_WALL, _y);
@@ -332,6 +338,8 @@ function chunk_generate(_world, _seed, _world_data)
                         if (_item_data_on_draw[$ _item_id] != undefined)
                         {
                             is_on_draw_update |= 1 << CHUNK_DEPTH_DEFAULT;
+                            
+                            chunk_update_on_draw[@ (CHUNK_DEPTH_DEFAULT << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
                         }
                         
                         chunk_generate_anim_handler(_item_data[$ _item_id], 1 << CHUNK_DEPTH_DEFAULT, _y);
@@ -363,6 +371,8 @@ function chunk_generate(_world, _seed, _world_data)
                     if (_item_data_on_draw[$ _item_id] != undefined)
                     {
                         is_on_draw_update |= _zbit;
+                        
+                        chunk_update_on_draw[@ (_z << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
                     }
                     
                     chunk[@ _index_xy | (_z << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT))] = _tile;

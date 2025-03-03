@@ -15,6 +15,11 @@ function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer, _in
     {
         _item_id = _datafixer[$ _item_id];
         
+        if (_item_id)
+        {
+            return undefined;
+        }
+        
         _data = _item_data[$ _item_id];
         
         if (_data == undefined)
@@ -58,11 +63,11 @@ function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer, _in
                 if (_tile_container_length != _length)
                 {
                     array_resize(_inventory, _tile_container_length);
-                    
-                    for (var i = _length; i < _tile_container_length; ++i)
-                    {
-                        _inventory[@ i] = INVENTORY_EMPTY;
-                    }
+                }
+                
+                for (var i = _length; i < _tile_container_length; ++i)
+                {
+                    _inventory[@ i] = INVENTORY_EMPTY;
                 }
                 
                 _tile.set_inventory(_inventory);

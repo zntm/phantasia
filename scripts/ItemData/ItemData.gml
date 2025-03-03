@@ -294,7 +294,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             return 1;
         }
         
-        return 1.5;
+        return 2;
     }
     
     static set_inventory_index = function(_min, _max)
@@ -3237,19 +3237,19 @@ new ItemData("phantasia", item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_sfx("phantasia:tile.wood")
     .set_on_tile_interaction(function(_x, _y, _z, _tile)
     {
-        var _animated = !_tile.get_animated();
+        var _animated = !_tile.get_static();
         
         if (_animated)
         {
             _tile
                 .set_index(0)
-                .set_animated(true);
+                .set_static(false);
         }
         else
         {
             _tile
                 .set_index(20)
-                .set_animated(false);
+                .set_static(true);
         }
         
         var _xinst = _x * TILE_SIZE;

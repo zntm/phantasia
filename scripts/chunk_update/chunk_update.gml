@@ -18,47 +18,57 @@ function chunk_update(_delta_time)
             (!position_meeting(x,                    y + CHUNK_SIZE_HEIGHT, obj_Chunk)) ||
             (!position_meeting(x + CHUNK_SIZE_WIDTH, y + CHUNK_SIZE_HEIGHT, obj_Chunk)) continue;
         
-        for (var _z = CHUNK_SIZE_Z - 1; _z >= 0; --_z)
+        for (var _z = 0; _z < CHUNK_SIZE_Z; ++_z)
         {
             var _zbit = 1 << _z;
             
             if ((surface_display & _zbit) == 0) || ((is_on_draw_update & _zbit) == 0) continue;
             
+            debug_timer("chunk_update_reset");
+            
             var _zindex = _z << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
             
-            for (var i = 0; i < CHUNK_SIZE_X * CHUNK_SIZE_Y; ++i)
+            for (var _y = 0; _y < CHUNK_SIZE_Y; ++_y)
             {
-                var _index = _zindex | i;
+                var _bit = 1 << _y;
                 
-                var _tile = chunk[_index];
-                
-                if (_tile == TILE_EMPTY) || (!_tile.get_updated()) || (_item_data_on_draw[$ _tile.item_id] == undefined) continue;
-                
-                chunk[@ _index].set_updated(false);
-            }
-            
-            for (var _y = CHUNK_SIZE_Y - 1; _y >= 0; --_y)
-            {
-                var _yzindex = (_y << CHUNK_SIZE_X_BIT) | _zindex;
-                var _y2 = chunk_ystart + _y;
-                
-                for (var _x = CHUNK_SIZE_X - 1; _x >= 0; --_x)
+                for (var _x = 0; _x < CHUNK_SIZE_X; ++_x)
                 {
-                    var _xyzindex = _yzindex | _x;
-                    
-                    var _tile = chunk[_xyzindex];
-                    
-                    if (_tile == TILE_EMPTY) || (_tile.get_updated()) continue;
-                    
-                    var _function = _item_data_on_draw[$ _tile.item_id];
-                    
-                    if (_function == undefined) continue;
-                    
-                    _tile.set_updated(true);
-                    
-                    _function(chunk_xstart + _x, _y2, _z, _tile, _delta_time);
+                    if (chunk_update_on_draw[(_z << CHUNK_SIZE_X_BIT) | _x] & _bit)
+                    {
+                        chunk[@ _zindex | (_y << CHUNK_SIZE_X_BIT) | _x].set_updated(false);
+                    }
                 }
             }
+            
+            debug_timer("chunk_update_reset", $"[{chunk_xstart}, {chunk_ystart}] [{_z}] Reset Chunk Update");
+            
+            debug_timer("chunk_update");
+            
+            for (var _y = 0; _y < CHUNK_SIZE_Y; ++_y)
+            {
+                var _y2 = chunk_ystart + _y;
+                
+                var _bit = 1 << _y;
+                
+                for (var _x = 0; _x < CHUNK_SIZE_X; ++_x)
+                {
+                    if (chunk_update_on_draw[(_z << CHUNK_SIZE_X_BIT) | _x] & _bit)
+                    {
+                        var _tile = chunk[_zindex | (_y << CHUNK_SIZE_X_BIT) | _x];
+                        
+                        var _function = _item_data_on_draw[$ _tile.item_id];
+                        
+                        if (_function == undefined) continue;
+                        
+                        _tile.set_updated(true);
+                        
+                        _function(chunk_xstart + _x, _y2, _z, _tile, _delta_time);
+                    }
+                }
+            }
+            
+            debug_timer("chunk_update", $"[{chunk_xstart}, {chunk_ystart}] [{_z}] Updated Chunk");
         }
     }
 }

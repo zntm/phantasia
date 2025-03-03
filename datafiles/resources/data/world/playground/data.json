@@ -84,40 +84,14 @@
 		"caves": [
 			{
 				"range": {
-					"min": 0,
-					"max": 1024
+					"min": 512,
+					"max": 1000
 				},
 				"noise": {
-					"octave": 0.78,
-					"threshold": {
-						"min": 122,
-						"max": 144
-					}
-				}
-			},
-			{
-				"range": {
-					"min": 544,
-					"max": 768
-				},
-				"noise": {
-					"octave": 0.54,
+					"octave": 0.33,
 					"threshold": {
 						"min": 88,
 						"max": 110
-					}
-				}
-			},
-			{
-				"range": {
-					"min": 640,
-					"max": 1024
-				},
-				"noise": {
-					"octave": 0.26,
-					"threshold": {
-						"min": 116,
-						"max": 130
 					}
 				}
 			}

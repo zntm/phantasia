@@ -4,7 +4,7 @@ function file_load_snippet_inventory(_buffer, _length, _item_data, _datafixer)
     
     for (var i = 0; i < _length; ++i)
     {
-        var _item = file_load_snipept_item(_buffer, _item_data, _datafixer);
+        var _item = file_load_snippet_item(_buffer, _item_data, _datafixer);
         
         if (_item != INVENTORY_EMPTY)
         {

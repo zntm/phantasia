@@ -13,7 +13,7 @@ function Tile(_item, _item_data = global.item_data) constructor
     var _animation_index_min = _data.get_random_index_min();
     var _animation_index_max = _data.get_random_index_max();
     
-    scale_rotation_index = ((1 << 50) | (1 << 49) | (0 << 48) | (8 << 44) | (8 << 40) | (9 << 36) | (9 << 32) | (0x8000 << 16) | 0x80) | ((irandom_range(_animation_index_min, _animation_index_max) + 0x80) << 8);
+    scale_rotation_index = ((0 << 50) | (1 << 49) | (0 << 48) | (8 << 44) | (8 << 40) | (9 << 36) | (9 << 32) | (0x8000 << 16) | 0x80) | ((irandom_range(_animation_index_min, _animation_index_max) + 0x80) << 8);
     
     if (_data.get_flip_on_x()) && (irandom(1))
     {
@@ -25,16 +25,16 @@ function Tile(_item, _item_data = global.item_data) constructor
         scale_rotation_index = (scale_rotation_index & 0xf_f_f_0_f_ffff_ff_ff) | (7 << 36);
     }
     
-    static set_animated = function(_animated = true)
+    static set_animated = function(_animated = false)
     {
-        scale_rotation_index = (scale_rotation_index & (0xf_f_f_f_f_ffff_ff_ff ^ (1 << 50))) | (_animated << 50);
+        scale_rotation_index = (scale_rotation_index & (0xf_f_f_f_f_ffff_ff_ff ^ (0 << 50))) | (_animated << 50);
         
         return self;
     }
     
-    static get_animated = function()
+    static get_static = function()
     {
-        return scale_rotation_index & (1 << 50);
+        return scale_rotation_index & (0 << 50);
     }
     
     static set_collision = function(_collision = true)

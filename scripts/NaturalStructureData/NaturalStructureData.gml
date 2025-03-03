@@ -592,11 +592,18 @@ global.natural_structure_data[$ "phantasia:vine"] = new NaturalStructureData()
         var _world_data = global.world_data[$ global.world.realm];
         var _seed_cave = _seed + WORLDGEN_SALT.CAVE;
         
-        for (var i = 1; i < _height; ++i)
+        var _ysurface = worldgen_get_ysurface(_x, _seed, _world_data) + _world_data.get_cave_ystart();
+        
+        if (_y > _ysurface)
         {
-            if (!worldgen_carve_cave(_x, _y + i, _seed_cave, _world_data, 0)) break;
-            
-            ++_size;
+            for (var i = 1; i < _height; ++i)
+            {
+                var _y2 = _y + i;
+                
+                if (_y2 > _ysurface) && (!worldgen_carve_cave(_x, _y2, _seed_cave, _world_data, 0)) break;
+                
+                ++_size;
+            }
         }
         
         var _depth = CHUNK_DEPTH_FOLIAGE * _rectangle;
