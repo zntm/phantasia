@@ -276,6 +276,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 		_data.sky_colour   = __init_sky_colour(_data.sky_colour);
 		
 		_data.structures = __init_structures_cave(_data.structures);
+        _data.structures_length = array_length(_data.structures);
 		
 		var _foliage = _data.foliage;
 		
@@ -331,6 +332,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 		_data.sky_colour   = __init_sky_colour(_data.sky_colour);
 		
 		// _data.structures = __init_structures(_data.structures);
+        _data.structures_length = array_length(_data.structures);
 		
 		var _foliage = _data.foliage;
 		
@@ -387,6 +389,7 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 		_data.sky_colour   = __init_sky_colour(_data.sky_colour);
 		
 		_data.structures = __init_structures_surface(_data.structures);
+        _data.structures_length = array_length(_data.structures);
 		
 		var _foliage = _data.foliage;
 		

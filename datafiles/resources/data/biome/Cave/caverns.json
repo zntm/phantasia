@@ -212,7 +212,7 @@
 	"structures": [
 		{
 			"id": "phantasia:vine/generic",
-			"chance": 0.01
+			"chance": 0.1
 		},
 		{
 			"id": "phantasia:false_paradise",
