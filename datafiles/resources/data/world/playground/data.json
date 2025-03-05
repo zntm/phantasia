@@ -45,32 +45,7 @@
 					}
 				}
 			],
-			"cave": [
-				{
-					"id": "phantasia:prisma",
-					"range": {
-						"min": 700,
-						"max": 750
-					},
-					"threshold": {
-						"min": 128,
-						"max": 240,
-						"octave": 0.6
-					}
-				},
-				{
-					"id": "phantasia:lumin",
-					"range": {
-						"min": 672,
-						"max": 760
-					},
-					"threshold": {
-						"min": 170,
-						"max": 230,
-						"octave": 0.35
-					}
-				}
-			]
+			"cave": []
 		},
 		"sky": {},
 		"surface": {
