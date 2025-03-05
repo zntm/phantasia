@@ -71,9 +71,6 @@ global.settings_category = {}
 
 function add_setting(_category, _type, _setting)
 {
-    var _index = {}
-    _index[$ _category] ??= 0;
-    
     if (!array_contains(global.settings_names, _category))
     {
         array_push(global.settings_names, _category);
@@ -83,7 +80,9 @@ function add_setting(_category, _type, _setting)
     
     array_push(global.settings_category[$ _category], _type);
     
-    global.settings_data[$ _type] = _setting.set_order(_index[$ _category]++);
+    var _length = array_length(struct_get_names(global.settings_data));
+    
+    global.settings_data[$ _type] = _setting.set_order(_length);
     global.settings_value[$ _type] = _setting.value;
 }
 

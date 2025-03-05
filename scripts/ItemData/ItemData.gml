@@ -3243,12 +3243,14 @@ new ItemData("phantasia", item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
         {
             _tile
                 .set_index(0)
+                .set_glowing(true)
                 .set_static(false);
         }
         else
         {
             _tile
                 .set_index(20)
+                .set_glowing(false)
                 .set_static(true);
         }
         

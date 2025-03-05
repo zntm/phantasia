@@ -13,33 +13,35 @@ function Tile(_item, _item_data = global.item_data) constructor
     var _animation_index_min = _data.get_random_index_min();
     var _animation_index_max = _data.get_random_index_max();
     
-    scale_rotation_index = ((0 << 50) | (1 << 49) | (0 << 48) | (8 << 44) | (8 << 40) | (9 << 36) | (9 << 32) | (0x8000 << 16) | 0x80) | ((irandom_range(_animation_index_min, _animation_index_max) + 0x80) << 8);
+    scale_rotation_index = ((1 << 51) | (0 << 50) | (1 << 49) | (0 << 48) | (8 << 44) | (8 << 40) | (9 << 36) | (9 << 32) | (0x8000 << 16) | 0x80) | ((irandom_range(_animation_index_min, _animation_index_max) + 0x80) << 8);
     
-    if (_data.get_flip_on_x()) && (irandom(1))
+    static set_glowing = function(_glowing = true)
     {
-        scale_rotation_index = (scale_rotation_index & 0xf_f_f_f_0_ffff_ff_ff) | (7 << 32);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0 << 51))) | (_glowing << 51);
+        
+        return self;
     }
     
-    if (_data.get_flip_on_y()) && (irandom(1))
+    static get_glowing = function()
     {
-        scale_rotation_index = (scale_rotation_index & 0xf_f_f_0_f_ffff_ff_ff) | (7 << 36);
+        return scale_rotation_index & (1 << 51);
     }
     
-    static set_animated = function(_animated = false)
+    static set_static = function(_static = false)
     {
-        scale_rotation_index = (scale_rotation_index & (0xf_f_f_f_f_ffff_ff_ff ^ (0 << 50))) | (_animated << 50);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0 << 50))) | (_static << 50);
         
         return self;
     }
     
     static get_static = function()
     {
-        return scale_rotation_index & (0 << 50);
+        return scale_rotation_index & (1 << 50);
     }
     
     static set_collision = function(_collision = true)
     {
-        scale_rotation_index = (scale_rotation_index & (0xf_f_f_f_f_ffff_ff_ff ^ (1 << 49))) | (_collision << 49);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (1 << 49))) | (_collision << 49);
         
         return self;
     }
@@ -51,7 +53,7 @@ function Tile(_item, _item_data = global.item_data) constructor
     
     static set_updated = function(_updated = true)
     {
-        scale_rotation_index = (scale_rotation_index & (0xf_f_f_f_f_ffff_ff_ff ^ (1 << 48))) | (_updated << 48);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (1 << 48))) | (_updated << 48);
         
         return self;
     }
@@ -63,21 +65,21 @@ function Tile(_item, _item_data = global.item_data) constructor
     
     static set_offset = function(_xoffset = 0, _yoffset = 0)
     {
-        scale_rotation_index = ((_yoffset + 8) << 44) | ((_xoffset + 8) << 40) | (scale_rotation_index & 0xf_0_0_f_f_ffff_ff_ff);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ ((0xf << 44) | (0xf << 40)))) | ((_yoffset + 8) << 44) | ((_xoffset + 8) << 40);
         
         return self;
     }
     
     static set_xoffset = function(_xoffset = 0)
     {
-        scale_rotation_index = ((_xoffset + 8) << 40) | (scale_rotation_index & 0xf_f_0_f_f_ffff_ff_ff);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0xf << 40))) | ((_xoffset + 8) << 40);
         
         return self;
     }
     
     static set_yoffset = function(_yoffset = 0)
     {
-        scale_rotation_index = ((_yoffset + 8) << 44) | (scale_rotation_index & 0xf_0_f_f_f_ffff_ff_ff);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0xf << 44))) | ((_yoffset + 8) << 44);
         
         return self;
     }
@@ -94,14 +96,14 @@ function Tile(_item, _item_data = global.item_data) constructor
     
     static set_scale = function(_xscale = 1, _yscale = 1)
     {
-        scale_rotation_index = ((_yscale + 8) << 36) | ((_xscale + 8) << 32) | (scale_rotation_index & 0xf_f_f_0_0_ffff_ff_ff);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ ((0xf << 36) | (0xf << 32)))) | ((_yscale + 8) << 36) | ((_xscale + 8) << 32);
         
         return self;
     }
     
     static set_xscale = function(_xscale = 1)
     {
-        scale_rotation_index = ((_xscale + 8) << 32) | (scale_rotation_index & 0xf_f_f_f_0_ffff_ff_ff);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0xf << 32))) | ((_xscale + 8) << 32);
         
         return self;
     }
@@ -113,7 +115,7 @@ function Tile(_item, _item_data = global.item_data) constructor
     
     static set_yscale = function(_yscale = 1)
     {
-        scale_rotation_index = ((_yscale + 8) << 36) | (scale_rotation_index & 0xf_f_f_0_f_ffff_ff_ff);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0xf << 36))) | ((_yscale + 8) << 36);
         
         return self;
     }
@@ -125,7 +127,7 @@ function Tile(_item, _item_data = global.item_data) constructor
     
     static set_rotation = function(_rotation = 0)
     {
-        scale_rotation_index = ((_rotation + 0x8000) << 16) | (scale_rotation_index & 0xf_f_f_f_f_0000_ff_ff);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0xffff << 16))) | ((_rotation + 0x8000) << 16);
         
         return self;
     }
@@ -137,7 +139,7 @@ function Tile(_item, _item_data = global.item_data) constructor
     
     static set_index = function(_index = 1)
     {
-        scale_rotation_index = ((_index + 0x80) << 8) | (scale_rotation_index & 0xf_f_f_f_f_ffff_00_ff);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0xff << 8))) | ((_index + 0x80) << 8);
         
         return self;
     }
@@ -149,7 +151,7 @@ function Tile(_item, _item_data = global.item_data) constructor
     
     static set_index_offset = function(_index = 1)
     {
-        scale_rotation_index = (_index + 0x80) | (scale_rotation_index & 0xf_f_f_f_f_ffff_ff_00);
+        scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0xff << 0))) | ((_index + 0x80) << 0);
         
         return self;
     }
@@ -157,6 +159,16 @@ function Tile(_item, _item_data = global.item_data) constructor
     static get_index_offset = function()
     {
         return (scale_rotation_index & 0xff) - 0x80;
+    }
+    
+    if (chance(0.5)) && (_data.get_flip_on_x())
+    {
+        set_xscale(-1);
+    }
+    
+    if (chance(0.5)) && (_data.get_flip_on_y())
+    {
+        set_yscale(-1);
     }
     
     // 0xff_ffff state, id
