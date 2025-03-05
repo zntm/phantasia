@@ -12,15 +12,6 @@ function SettingsData(_value = 1, _type = SETTINGS_TYPE.SWITCH) constructor
     value = _value;
     type = _type;
     
-    order = 0;
-    
-    static set_order = function(_order)
-    {
-        order = _order;
-        
-        return self;
-    }
-    
     on_press = undefined;
     
     static set_on_press = function(_on_press)
@@ -80,9 +71,7 @@ function add_setting(_category, _type, _setting)
     
     array_push(global.settings_category[$ _category], _type);
     
-    var _length = array_length(struct_get_names(global.settings_data));
-    
-    global.settings_data[$ _type] = _setting.set_order(_length);
+    global.settings_data[$ _type] = _setting;
     global.settings_value[$ _type] = _setting.value;
 }
 

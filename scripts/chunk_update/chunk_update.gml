@@ -28,13 +28,15 @@ function chunk_update(_delta_time)
             
             var _zindex = _z << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
             
-            for (var _y = 0; _y < CHUNK_SIZE_Y; ++_y)
+            for (var _x = 0; _x < CHUNK_SIZE_X; ++_x)
             {
-                var _bit = 1 << _y;
+                var _bit = chunk_update_on_draw[(_z << CHUNK_SIZE_X_BIT) | _x];
                 
-                for (var _x = 0; _x < CHUNK_SIZE_X; ++_x)
+                if (!_bit) continue;
+                
+                for (var _y = 0; _y < CHUNK_SIZE_Y; ++_y)
                 {
-                    if (chunk_update_on_draw[(_z << CHUNK_SIZE_X_BIT) | _x] & _bit)
+                    if (_bit & (1 << _y))
                     {
                         chunk[@ _zindex | (_y << CHUNK_SIZE_X_BIT) | _x].set_updated(false);
                     }
@@ -45,16 +47,20 @@ function chunk_update(_delta_time)
             
             debug_timer("chunk_update");
             
-            for (var _y = 0; _y < CHUNK_SIZE_Y; ++_y)
+            for (var _x = 0; _x < CHUNK_SIZE_X; ++_x)
             {
-                var _y2 = chunk_ystart + _y;
+                var _bit = chunk_update_on_draw[(_z << CHUNK_SIZE_X_BIT) | _x];
                 
-                var _bit = 1 << _y;
+                if (!_bit) continue;
                 
-                for (var _x = 0; _x < CHUNK_SIZE_X; ++_x)
+                var _x2 = chunk_xstart + _x;
+                
+                for (var _y = 0; _y < CHUNK_SIZE_Y; ++_y)
                 {
-                    if (chunk_update_on_draw[(_z << CHUNK_SIZE_X_BIT) | _x] & _bit)
+                    if (_bit & (1 << _y))
                     {
+                        var _y2 = chunk_ystart + _y;
+                        
                         var _tile = chunk[_zindex | (_y << CHUNK_SIZE_X_BIT) | _x];
                         
                         var _function = _item_data_on_draw[$ _tile.item_id];
@@ -63,7 +69,7 @@ function chunk_update(_delta_time)
                         
                         _tile.set_updated(true);
                         
-                        _function(chunk_xstart + _x, _y2, _z, _tile, _delta_time);
+                        _function(_x2, _y2, _z, _tile, _delta_time);
                     }
                 }
             }
