@@ -4602,7 +4602,7 @@ new ItemData("phantasia", item_Duckweed, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData("phantasia", item_Water, ITEM_TYPE_BIT.LIQUID)
     .set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
     .set_animation_index(0, 7)
-    .set_on_draw_update(function(_x, _y, _z)
+    .set_on_draw_update(function(_x, _y, _z, _tile)
     {
         item_update_liquid_flow(_x, _y, _z, "phantasia:water", 8);
     });
@@ -5363,7 +5363,7 @@ new ItemData("phantasia", item_Throwing_Knife, ITEM_TYPE_BIT.THROWABLE);
 new ItemData("phantasia", item_Lava, ITEM_TYPE_BIT.LIQUID)
     .set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
     .set_animation_index(0, 3)
-    .set_on_draw_update(function(_x, _y, _z)
+    .set_on_draw_update(function(_x, _y, _z, _tile)
     {
         item_update_liquid_flow(_x, _y, _z, "phantasia:water", 4);
         item_update_liquid_combine(_x, _y, _z, "phantasia:ink", "phantasia:obsidian", 4);
@@ -5402,7 +5402,7 @@ new ItemData("phantasia", item_Bucket_Of_Lava, ITEM_TYPE_BIT.DEPLOYABLE)
 new ItemData("phantasia", item_Ink, ITEM_TYPE_BIT.LIQUID)
     .set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
     .set_animation_index(0, 3)
-    .set_on_draw_update(function(_x, _y, _z)
+    .set_on_draw_update(function(_x, _y, _z, _tile)
     {
         item_update_liquid_flow(_x, _y, _z, "phantasia:ink", 4);
         item_update_liquid_combine(_x, _y, _z, "phantasia:water", "phantasia:obsidian", 4);

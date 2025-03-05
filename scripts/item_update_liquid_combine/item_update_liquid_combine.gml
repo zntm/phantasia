@@ -1,5 +1,6 @@
 function item_update_liquid_combine(_x, _y, _z, _combine, _tile, _frame_amount)
 {
+    /*
 	if ((tile_get(_x, _y, _z, "state_id") >> 16) != 7)
 	{
 		if (tile_get(_x, _y - 1, _z) == _combine)
@@ -61,4 +62,5 @@ function item_update_liquid_combine(_x, _y, _z, _combine, _tile, _frame_amount)
 		tile_place(_x, _y, CHUNK_DEPTH_DEFAULT, new Tile(_tile));
 		tile_place(_x, _y, _z, TILE_EMPTY);
 	}
+    */
 }

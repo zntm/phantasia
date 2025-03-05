@@ -5,6 +5,8 @@
 
 function item_update_grass(_x, _y, _z, _dirt, _grass, _spread = true)
 {
+    randomize();
+    
     var _item_data = global.item_data;
     var _world_height = global.world_data[$ global.world.realm].get_world_height();
     
