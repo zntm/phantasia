@@ -84,7 +84,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
             
             for (var _y = 0; _y < CHUNK_SIZE_Y; ++_y)
             {
-                var _yoffset = _y << TILE_SIZE_BIT;
+                var _yoffset = _y * TILE_SIZE;
                 var _ytile = CHUNK_SURFACE_PADDING + _yoffset;
                 
                 var _yindex  = _y << CHUNK_SIZE_X_BIT;
@@ -131,7 +131,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                     
                     _index += _tile.get_index_offset();
                     
-                    var _xoffset = _x << TILE_SIZE_BIT;
+                    var _xoffset = _x * TILE_SIZE;
                     
                     var _draw_x = _tile.get_xoffset() + CHUNK_SURFACE_PADDING + _xoffset;
                     var _draw_y = _tile.get_yoffset() + _ytile;

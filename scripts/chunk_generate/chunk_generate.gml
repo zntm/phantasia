@@ -268,11 +268,11 @@ function chunk_generate(_world, _seed, _world_data)
                     {
                         if (!_structure_data[$ _inst.structure].persistent)
                         {
-                            instance_destroy(_inst);
+                            _inst.data = undefined;
                         }
                         else
                         {
-                            _inst.data = undefined;
+                            instance_destroy(_inst);
                         }
                     }
                 }

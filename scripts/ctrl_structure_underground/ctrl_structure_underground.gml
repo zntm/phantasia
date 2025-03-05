@@ -1,3 +1,9 @@
+enum WORLDGEN_UNDERGROUND_STRUCTURE {
+    CARVE_TOP = 0b100,
+    CARVE_MID = 0b010,
+    CARVE_BOT = 0b001
+}
+
 function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 {
     debug_timer("timer_structure_cave");
@@ -33,13 +39,13 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
         
         // NOTE: I know this is horrible, but it improved the performance of structure generation a bit. I hate it as well.
         var _carve =
-            worldgen_carve_cave(i, _ystart3 - 1, _seed_cave, _world_data, _ysurface) |
-            worldgen_carve_cave(i, _ystart3,     _seed_cave, _world_data, _ysurface) |
-            worldgen_carve_cave(i, _ystart3 + 1, _seed_cave, _world_data, _ysurface);
+            (worldgen_carve_cave(i, _ystart3 - 1, _seed_cave, _world_data, _ysurface) << 2) |
+            (worldgen_carve_cave(i, _ystart3,     _seed_cave, _world_data, _ysurface) << 1) |
+            (worldgen_carve_cave(i, _ystart3 + 1, _seed_cave, _world_data, _ysurface) << 0);
         
 		for (var j = _ystart3; j <= _yend; ++j)
 		{
-            if (_carve & 0b010)
+            if (_carve & WORLDGEN_UNDERGROUND_STRUCTURE.CARVE_MID)
             {
                 _carve = (_carve << 1) | worldgen_carve_cave(i, j + 1, _seed_cave, _world_data, _ysurface);
                 
@@ -66,8 +72,8 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
                 continue;
             }
             
-            var _carve_top    = !!(_carve & 0b100);
-            var _carve_bottom = !!(_carve & 0b001);
+            var _carve_top    = !!(_carve & WORLDGEN_UNDERGROUND_STRUCTURE.CARVE_TOP);
+            var _carve_bottom = !!(_carve & WORLDGEN_UNDERGROUND_STRUCTURE.CARVE_BOT);
             
             var _structures = _data.structures;
             
@@ -81,9 +87,7 @@ function ctrl_structure_underground(_xstart, _xend, _ystart, _yend)
 			{
 				var _structure = _structures[l];
 				
-				if (!chance(_structure[0])) continue;
-				
-				if (i % _structure[1]) || (j % _structure[2]) continue;
+				if (!chance(_structure[0])) || (i % _structure[1]) || (j % _structure[2]) continue;
 				
 				var _name = _structure[3];
 				

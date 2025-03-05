@@ -1,6 +1,8 @@
 function worldgen_carve_cave(_x, _y, _seed, _world_data, _ysurface)
 {
-    for (var i = _world_data.get_cave_length() - 1; i >= 0; --i)
+    var _cave_length = _world_data.get_cave_length();
+    
+    for (var i = 0; i < _cave_length; ++i)
     {
         if (_y > _world_data.get_cave_range_max(i)) || (_y <= _world_data.get_cave_range_min(i)) continue;
         

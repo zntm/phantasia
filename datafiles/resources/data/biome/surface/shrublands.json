@@ -70,7 +70,11 @@
 		},
 		{
 			"id": "phantasia:tree/oak",
-			"chance": 0.003
+			"chance": 0.005
+		},
+		{
+			"id": "phantasia:tree/acacia",
+			"chance": 0.001
 		}
 	],
 	"foliage": {
