@@ -1628,7 +1628,6 @@
     {"name":"spr_Cloud_NHJ","order":1,"path":"sprites/spr_Cloud_NHJ/spr_Cloud_NHJ.yy",},
     {"name":"spr_Credits_Header","order":15,"path":"sprites/spr_Credits_Header/spr_Credits_Header.yy",},
     {"name":"spr_Entity","order":16,"path":"sprites/spr_Entity/spr_Entity.yy",},
-    {"name":"spr_Glow_Half","order":8,"path":"sprites/spr_Glow_Half/spr_Glow_Half.yy",},
     {"name":"spr_Glow_Pixel_Half","order":11,"path":"sprites/spr_Glow_Pixel_Half/spr_Glow_Pixel_Half.yy",},
     {"name":"spr_Glow_Pixel_Stretch","order":12,"path":"sprites/spr_Glow_Pixel_Stretch/spr_Glow_Pixel_Stretch.yy",},
     {"name":"spr_Glow_Pixel","order":10,"path":"sprites/spr_Glow_Pixel/spr_Glow_Pixel.yy",},

@@ -30,7 +30,10 @@ function render_lighting(_camera_x, _camera_y, _camera_width, _camera_height)
 		{
 			_x += TILE_SIZE;
 			
-			draw_sprite_ext(spr_Glow_Half, 0, _x, _y, 1, 1, 0, c_white, 1);
+			// draw_sprite_ext(spr_Glow_Half, 0, _x, _y, 1, 1, 0, c_white, 1);
+            
+            draw_sprite_part(spr_Glow, 0, 0, 128, 256, 128, _x - 128, _y);
+            
             draw_sprite_ext(spr_Glow_Stretch, 0, _x, _y, 1, _world_height - _y, 0, c_white, 1);
 		}
 	}

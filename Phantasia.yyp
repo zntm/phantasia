@@ -2500,7 +2500,6 @@
     {"id":{"name":"spr_Cloud","path":"sprites/spr_Cloud/spr_Cloud.yy",},},
     {"id":{"name":"spr_Credits_Header","path":"sprites/spr_Credits_Header/spr_Credits_Header.yy",},},
     {"id":{"name":"spr_Entity","path":"sprites/spr_Entity/spr_Entity.yy",},},
-    {"id":{"name":"spr_Glow_Half","path":"sprites/spr_Glow_Half/spr_Glow_Half.yy",},},
     {"id":{"name":"spr_Glow_Pixel_Half","path":"sprites/spr_Glow_Pixel_Half/spr_Glow_Pixel_Half.yy",},},
     {"id":{"name":"spr_Glow_Pixel_Stretch","path":"sprites/spr_Glow_Pixel_Stretch/spr_Glow_Pixel_Stretch.yy",},},
     {"id":{"name":"spr_Glow_Pixel","path":"sprites/spr_Glow_Pixel/spr_Glow_Pixel.yy",},},
