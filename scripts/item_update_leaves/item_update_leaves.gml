@@ -1,4 +1,4 @@
-function item_update_leaves(_x, _y, _z, _id, _chance = 0.1)
+function item_update_leaves(_x, _y, _z, _id, _chance = 0.01)
 {
     randomize();
     

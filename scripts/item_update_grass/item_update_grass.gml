@@ -1,6 +1,6 @@
-#macro ITEM_UPDATE_GRASS_DECAY_CHANCE 0.3
+#macro ITEM_UPDATE_GRASS_DECAY_CHANCE 0.003
 
-#macro ITEM_UPDATE_GRASS_SPREAD_CHANCE 0.15
+#macro ITEM_UPDATE_GRASS_SPREAD_CHANCE 0.0015
 #macro ITEM_UPDATE_GRASS_SPREAD_RANGE 3
 
 function item_update_grass(_x, _y, _z, _dirt, _grass, _spread = true)

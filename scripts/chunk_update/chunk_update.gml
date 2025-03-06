@@ -24,7 +24,7 @@ function chunk_update(_delta_time)
             
             if ((surface_display & _zbit) == 0) || ((is_on_draw_update & _zbit) == 0) continue;
             
-            debug_timer("chunk_update_reset");
+            // debug_timer("chunk_update_reset");
             
             var _zindex = _z << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
             
@@ -43,9 +43,9 @@ function chunk_update(_delta_time)
                 }
             }
             
-            debug_timer("chunk_update_reset", $"[{chunk_xstart}, {chunk_ystart}] [{_z}] Reset Chunk Update");
+            // debug_timer("chunk_update_reset", $"[{chunk_xstart}, {chunk_ystart}] [{_z}] Reset Chunk Update");
             
-            debug_timer("chunk_update");
+            // debug_timer("chunk_update");
             
             for (var _x = 0; _x < CHUNK_SIZE_X; ++_x)
             {
@@ -74,7 +74,7 @@ function chunk_update(_delta_time)
                 }
             }
             
-            debug_timer("chunk_update", $"[{chunk_xstart}, {chunk_ystart}] [{_z}] Updated Chunk");
+            // debug_timer("chunk_update", $"[{chunk_xstart}, {chunk_ystart}] [{_z}] Updated Chunk");
         }
     }
 }

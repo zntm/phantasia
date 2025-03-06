@@ -3,9 +3,7 @@ function tile_instance_create(_x, _y, _z, _tile, _item_data = global.item_data)
     var _item_id = _tile.item_id;
     var _data    = _item_data[$ _item_id];
     
-    var _colour_offset_bloom = _data[$ "__colour_offset_bloom"];
-    
-    if (_colour_offset_bloom != undefined)
+    if (_data[$ "___colour_offset_bloom"] != undefined)
     {
         with (instance_create_layer(_x * TILE_SIZE, _y * TILE_SIZE, "Instances", obj_Tile_Light))
         {

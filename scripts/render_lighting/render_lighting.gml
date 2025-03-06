@@ -16,6 +16,8 @@ function render_lighting(_camera_x, _camera_y, _camera_width, _camera_height)
 	{
 		if (object_index != obj_Light_Sun)
 		{
+            if (object_index == obj_Tile_Light) && (!glowing) continue;
+            
 			draw_sprite_ext(spr_Glow, 0, x - _camera_x, y - _camera_y, 1, 1, 0, c_white, 1);
 			
 			continue;
@@ -29,7 +31,7 @@ function render_lighting(_camera_x, _camera_y, _camera_width, _camera_height)
 			_x += TILE_SIZE;
 			
 			draw_sprite_ext(spr_Glow_Half, 0, _x, _y, 1, 1, 0, c_white, 1);
-            draw_sprite_ext(spr_Glow_Stretch, 0, _x, _y, 1, _world_height, 0, c_white, 1);
+            draw_sprite_ext(spr_Glow_Stretch, 0, _x, _y, 1, _world_height - _y, 0, c_white, 1);
 		}
 	}
 
@@ -52,6 +54,16 @@ function render_lighting(_camera_x, _camera_y, _camera_width, _camera_height)
     {
         if (object_index != obj_Light_Sun)
         {
+            if (object_index == obj_Tile_Light)
+            {
+                if (glowing)
+                {
+                    draw_sprite_ext(spr_Glow_Pixel, 0, (x - _camera_x) + TILE_SIZE_H, (y - _camera_y) + TILE_SIZE_H, TILE_SIZE, TILE_SIZE, 0, colour_offset, 1);
+                }
+                
+                continue;
+            }
+            
             var _x = floor((x - _camera_x) / TILE_SIZE) * TILE_SIZE;
             var _y = floor((y - _camera_y) / TILE_SIZE) * TILE_SIZE;
             
@@ -87,7 +99,7 @@ function render_lighting(_camera_x, _camera_y, _camera_width, _camera_height)
             _x += TILE_SIZE;
             
             draw_sprite_ext(spr_Glow_Pixel_Half, 0, _x, _y, TILE_SIZE, TILE_SIZE, 0, colour_offset, 0.25);
-            draw_sprite_ext(spr_Glow_Pixel_Stretch, 0, _x, _y, TILE_SIZE, _world_height, 0, colour_offset, 0.25);
+            draw_sprite_ext(spr_Glow_Pixel_Stretch, 0, _x, _y, TILE_SIZE, _world_height - _y, 0, colour_offset, 0.25);
         }
     }
     

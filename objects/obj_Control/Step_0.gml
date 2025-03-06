@@ -374,9 +374,9 @@ for (var i = _delta_time; i > 0; --i)
     
     timer_chunk_update += _speed;
     
-    if (timer_chunk_update >= GAME_FPS)
+    if (timer_chunk_update >= 4)
     {
-        timer_chunk_update -= GAME_FPS;
+        timer_chunk_update -= 4;
         
         chunk_update(_speed);
     }

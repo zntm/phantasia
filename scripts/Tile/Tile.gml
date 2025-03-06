@@ -19,6 +19,13 @@ function Tile(_item, _item_data = global.item_data) constructor
     {
         scale_rotation_index = (scale_rotation_index & (0xffff_ffff_ffff_ffff ^ (0 << 51))) | (_glowing << 51);
         
+        var _inst = self[$ "instance.light"];
+        
+        if (instance_exists(_inst))
+        {
+            _inst.glowing = _glowing;
+        }
+        
         return self;
     }
     

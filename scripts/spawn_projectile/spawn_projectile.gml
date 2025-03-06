@@ -20,7 +20,7 @@ function spawn_projectile(_x, _y, _damage, _sprite, _index, _xvelocity, _yveloci
 		gravity_strength = _gravity;
 		damage_unable = _damage_unable;
 		
-		entity_init_sprite(sprite_index);
+		entity_init_sprite(_sprite);
 		
 		if (rotation != 0)
 		{

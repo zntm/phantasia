@@ -1,4 +1,6 @@
-spr_Entitwhip_damage = 0;
+event_inherited();
+
+whip_damage = 0;
 whip_sprite = -1;
 
 whip_call = method(id, call_destroy_whip);

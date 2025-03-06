@@ -15,7 +15,7 @@ function render_glow(_camera_x, _camera_y, _camera_width, _camera_height)
 	with (obj_Tile_Light)
 	{
 		if (bloom == c_black) continue;
-		
+        
 		draw_sprite_ext(spr_Glow, 0, x - _camera_x, y - _camera_y, 1, 1, 0, bloom, 1);
 	}
 	

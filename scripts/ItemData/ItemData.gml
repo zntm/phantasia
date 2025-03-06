@@ -1173,11 +1173,11 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             return self[$ "___sfx"];
         }
         
-        static set_colour_offset = function(_r = 0, _g = 0, _b = 0)
+        static set_colour_offset = function(_colour)
         {
             self[$ "___colour_offset_bloom"] ??= 0;
             
-            ___colour_offset_bloom = (___colour_offset_bloom & 0x00000000_ffffff);
+            ___colour_offset_bloom = (___colour_offset_bloom & 0xffffff_000000) | _colour;
             
             return self;
         }
@@ -1191,15 +1191,15 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         {
             self[$ "___colour_offset_bloom"] ??= 0;
             
-            ___colour_offset_bloom = (___colour_offset_bloom & 0xffffffff_000000) | _colour;
+            ___colour_offset_bloom = (___colour_offset_bloom & 0x000000_ffffff) | (_colour << 24);
             
             return self;
         }
         
         static get_bloom = function()
         {
-            return ((self[$ "___colour_offset_bloom"] ?? 0) >> 24) & 0xffffffff;
-        }
+            return ((self[$ "___colour_offset_bloom"] ?? 0) >> 24) & 0xffffff;
+        }        
         
         static add_collision_box = function(_left, _top, _right, _bottom)
         {
@@ -2224,7 +2224,7 @@ new ItemData("phantasia", item_Weathered_Copper);
 new ItemData("phantasia", item_Lumin_Bulb, ITEM_TYPE_BIT.SOLID)
     .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED)
     .set_flip_on(true, true)
-    .set_colour_offset(-30, -127, 0)
+    .set_colour_offset(#070A16)
     .set_bloom(#070A16)
     .set_mining_stats(ITEM_TYPE_BIT.PICKAXE, undefined, 11);
 
@@ -3185,7 +3185,7 @@ new ItemData("phantasia", item_Acacia_Chair, ITEM_TYPE_BIT.UNTOUCHABLE)
 new ItemData("phantasia", item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
     .set_animation_index(0, 5)
-    .set_colour_offset(0, -12, -50)
+    .set_colour_offset(#160704)
     .set_bloom(#160704)
     .set_drops("phantasia:torch")
     .set_place_requirement(function(_x, _y, _z)
@@ -3224,14 +3224,14 @@ new ItemData("phantasia", item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
     })
     .set_on_draw_update(function(_x, _y, _z, _tile, _delta_time)
     {
-        item_update_leaves(_x, _y, _z, "phantasia:ember", 0.4);
+        item_update_leaves(_x, _y, _z, "phantasia:ember", 0.04);
     });
 
 new ItemData("phantasia", item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
     .set_animation_type(TILE_ANIMATION_TYPE.INCREMENT)
     .set_animation_index(0, 19)
-    .set_colour_offset(0, -2, -28)
-    .set_bloom(#160704)
+    .set_colour_offset(#E95618)
+    .set_bloom(#311802)
     .set_mining_stats(undefined, undefined, 8)
     .set_drops("phantasia:campfire")
     .set_sfx("phantasia:tile.wood")
@@ -3261,7 +3261,7 @@ new ItemData("phantasia", item_Campfire, ITEM_TYPE_BIT.UNTOUCHABLE)
     })
     .set_on_draw_update(function(_x, _y, _z, _tile, _delta_time)
     {
-        item_update_leaves(_x, _y, _z, "phantasia:ember", 0.4);
+        item_update_leaves(_x, _y, _z, "phantasia:ember", 0.04);
     });
 
 new ItemData("phantasia", item_Cloud, ITEM_TYPE_BIT.SOLID)
