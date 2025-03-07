@@ -2543,7 +2543,6 @@
     {"id":{"name":"spr_Setting_Slider","path":"sprites/spr_Setting_Slider/spr_Setting_Slider.yy",},},
     {"id":{"name":"spr_Square","path":"sprites/spr_Square/spr_Square.yy",},},
     {"id":{"name":"spr_Vignette_Corner","path":"sprites/spr_Vignette_Corner/spr_Vignette_Corner.yy",},},
-    {"id":{"name":"spr_Vignette","path":"sprites/spr_Vignette/spr_Vignette.yy",},},
     {"id":{"name":"title_Achievements","path":"sprites/title_Achievements/title_Achievements.yy",},},
     {"id":{"name":"title_Settings","path":"sprites/title_Settings/title_Settings.yy",},},
     {"id":{"name":"title_Worlds","path":"sprites/title_Worlds/title_Worlds.yy",},},

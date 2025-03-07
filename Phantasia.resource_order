@@ -1667,7 +1667,6 @@
     {"name":"spr_Setting_Arrow_Right","order":1,"path":"sprites/spr_Setting_Arrow_Right/spr_Setting_Arrow_Right.yy",},
     {"name":"spr_Setting_Slider","order":2,"path":"sprites/spr_Setting_Slider/spr_Setting_Slider.yy",},
     {"name":"spr_Vignette_Corner","order":7,"path":"sprites/spr_Vignette_Corner/spr_Vignette_Corner.yy",},
-    {"name":"spr_Vignette","order":6,"path":"sprites/spr_Vignette/spr_Vignette.yy",},
     {"name":"title_Achievements","order":6,"path":"sprites/title_Achievements/title_Achievements.yy",},
     {"name":"title_Settings","order":7,"path":"sprites/title_Settings/title_Settings.yy",},
     {"name":"title_Worlds","order":8,"path":"sprites/title_Worlds/title_Worlds.yy",},
