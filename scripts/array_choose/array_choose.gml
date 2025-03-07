@@ -1,6 +1,9 @@
 function array_choose(_array, _length = undefined)
 {
-	gml_pragma("forceinline");
+	if (!DEVELOPER_MODE)
+    {
+        gml_pragma("forceinline");
+    }
     
     _length ??= array_length(_array);
 	

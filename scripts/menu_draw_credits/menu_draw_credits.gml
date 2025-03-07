@@ -172,8 +172,8 @@ function menu_draw_credits(_xmultiplier, _ymultiplier, _display_width, _display_
 		
 		_offset += _height;
 	}
-	
-	draw_sprite_stretched_ext(spr_Vignette, 0, 0, 0, _display_width, _display_height, c_black, 0.5);
+    
+    draw_vignette(0, 0, _display_width, _display_height, c_black, 0.5);
 	
 	if (_y + _offset <= 0)
 	{

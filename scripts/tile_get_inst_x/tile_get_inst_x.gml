@@ -1,6 +1,9 @@
 function tile_get_inst_x(_x)
 {
-    gml_pragma("forceinline");
+	if (!DEVELOPER_MODE)
+    {
+        gml_pragma("forceinline");
+    }
     
     // return floor(_x / CHUNK_SIZE_X) * CHUNK_SIZE_WIDTH;
     if (_x < 0)

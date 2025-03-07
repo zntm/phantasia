@@ -1,6 +1,9 @@
 function tile_get_inst(_x, _y, _name)
 {
-    gml_pragma("forceinline");
+	if (!DEVELOPER_MODE)
+    {
+        gml_pragma("forceinline");
+    }
     
     var _cx = tile_get_inst_x(_x);
     var _cy = tile_get_inst_y(_y);

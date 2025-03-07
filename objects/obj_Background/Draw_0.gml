@@ -1,5 +1,5 @@
 var _camera = global.camera;
-        
+
 var _camera_x = _camera.x;
 var _camera_y = _camera.y;
 
@@ -9,16 +9,10 @@ var _camera_height = _camera.height;
 var _camera_half_width  = _camera_width  / 2;
 var _camera_half_height = _camera_height / 2;
 
-if (!global.settings_value.background)
-{
-    draw_sprite_ext(spr_Square, 0, _camera_x, _camera_y, _camera_width, _camera_height, 0, colour_sky_base, 1);
-    draw_sprite_ext(spr_Glow, 0, _camera_x + _camera_half_width, _camera_y + _camera_height, _camera_width, 4, 0, colour_sky_gradient, 1);
-
-    exit;
-}
-
 draw_sprite_ext(spr_Square, 0, _camera_x, _camera_y, _camera_width, _camera_height, 0, colour_sky_base, 1);
 draw_sprite_ext(spr_Glow, 0, _camera_x + _camera_half_width, _camera_y + _camera_height, _camera_width, 4, 0, colour_sky_gradient, 1);
+
+if (!global.settings_value.background) exit;
 
 var _is_paused = obj_Control.is_paused;
 

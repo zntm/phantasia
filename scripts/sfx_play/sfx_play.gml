@@ -1,6 +1,9 @@
 function sfx_play(_id, _gain = 1, _pitch = 1)
 {
-	gml_pragma("forceinline");
+	if (!DEVELOPER_MODE)
+    {
+        gml_pragma("forceinline");
+    }
 	
 	var _sfx = global.sfx_data[$ _id];
 	

@@ -8,9 +8,17 @@ for (var i = 0; i < _length; ++i)
 {
 	var _flare = flares[i];
 	
-	var _scale = _flare.scale;
-	
-	draw_sprite_ext(spr_Glow, 0, _flare.x, _flare.y, _flare.scale, _flare.scale, 0, _flare.colour, 1);
+    var _x = _flare.x;
+    var _y = _flare.y;
+    
+    var _scale = _flare.scale;
+    
+    var _colour = _flare.colour;
+    
+    for (var j = 0; j < 4; ++j)
+    {
+        draw_sprite_ext(spr_Glow_Corner, 0, _x, _y, _scale, _scale, 90 * j, _colour, 1);
+    }
 	
 	flares[@ i].x += _flare.xvelocity * _delta_time;
 	flares[@ i].y += _flare.yvelocity * _delta_time;

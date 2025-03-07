@@ -11,6 +11,6 @@ function gui_vignette(_gui_width, _gui_height)
 	
 	if (_alpha > 0)
 	{
-		draw_sprite_stretched_ext(spr_Vignette, 0, 0, 0, _gui_width, _gui_height, _data.get_vignette_colour(), _alpha);
+        draw_vignette(0, 0, _gui_width, _gui_height, _data.get_vignette_colour(), _alpha);
 	}
 }

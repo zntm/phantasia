@@ -1,7 +1,5 @@
 function debug_timer(_name, _string = undefined)
 {
-	gml_pragma("forceinline");
-	
 	if (!DEVELOPER_MODE) exit;
 	
 	static __timers = {}

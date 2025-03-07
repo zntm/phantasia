@@ -167,7 +167,7 @@ var _hp_critical = _hp_max * 0.25;
 // TODO: Make it look good
 if (_hp <= 0)
 {
-    draw_sprite_stretched_ext(spr_Vignette, 0, 0, 0, _gui_width, _gui_height, GUI_HP_VIGNETTE_COLOUR, 0.5);
+    draw_vignette(0, 0, _gui_width, _gui_height, GUI_HP_VIGNETTE_COLOUR, 0.5);
     
     draw_set_align(fa_center, fa_middle);
     
@@ -181,7 +181,7 @@ if (_hp <= 0)
 }
 else if (_hp < _hp_critical)
 {
-    draw_sprite_stretched_ext(spr_Vignette, 0, 0, 0, _gui_width, _gui_height, GUI_HP_VIGNETTE_COLOUR, (_hp / _hp_max) / 2);
+    draw_vignette(0, 0, _gui_width, _gui_height, GUI_HP_VIGNETTE_COLOUR, (_hp / _hp_max) / 2);
     
     surface_refresh_hp = true;
 }

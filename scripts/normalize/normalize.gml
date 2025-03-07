@@ -4,7 +4,10 @@
 /// @param {Real} max The maximum value.
 function normalize(_val, _min, _max)
 {
-	gml_pragma("forceinline");
+	if (!DEVELOPER_MODE)
+    {
+        gml_pragma("forceinline");
+    }
 	
 	return clamp((_val - _min) / (_max - _min), 0, 1);
 }
