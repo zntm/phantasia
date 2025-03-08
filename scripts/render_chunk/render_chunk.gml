@@ -111,7 +111,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                         {
                             var _data2 = _item_data[$ _tile2.item_id];
                             
-                            if (_data2.type & ITEM_TYPE_BIT.SOLID) && (_data2.boolean & ITEM_BOOLEAN.IS_OBSTRUCTING) && ((_data2.get_animation_type() & (TILE_ANIMATION_TYPE.CONNECTED | TILE_ANIMATION_TYPE.CONNECTED_TO_SELF | TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM | TILE_ANIMATION_TYPE.NONE)) == 0) continue;
+                            if (_data2.type & ITEM_TYPE_BIT.SOLID) && (_data2.boolean & ITEM_BOOLEAN.IS_OBSTRUCTING) && ((_data2.get_animation_type() & (TILE_ANIMATION_TYPE.CONNECTED | TILE_ANIMATION_TYPE.CONNECTED_TO_SELF | TILE_ANIMATION_TYPE.CONNECTED_PLATFORM | TILE_ANIMATION_TYPE.NONE)) == 0) continue;
                         }
                     }
                     

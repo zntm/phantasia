@@ -78,7 +78,7 @@ enum TILE_ANIMATION_TYPE {
     INCREMENT         = 2,
     CONNECTED         = 4,
     CONNECTED_TO_SELF = 8,
-    CONNECTED_PLATOFRM = 16
+    CONNECTED_PLATFORM = 16
 }
 
 enum ITEM_BOOLEAN {
@@ -6039,91 +6039,91 @@ new ItemData("phantasia", item_Shadewrath, ITEM_TYPE_BIT.SPEAR)
 
 new ItemData("phantasia", item_Oak_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:oak_platform")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Pine_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:spruce_platform")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Yucca_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:yucca_platform")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Wysteria_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:wysteriplatformgn")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Mahogany_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:mahoganplatformgn")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Birch_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:birch_platform")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Cherry_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:cherry_platform")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Mangrove_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:mangrovplatformgn")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Blizzard_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:blizzarplatformgn")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Acacia_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:acacia_platform")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Palm_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:palm_platform")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Ashen_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:ashen_platform")
     .set_sfx("phantasia:tile.wood");
 
 new ItemData("phantasia", item_Bloom_Platform, ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.PLATFORM)
     .set_tile_can_not_connect()
-    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+    .set_animation_type(TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
     .set_mining_stats(ITEM_TYPE_BIT.AXE, undefined, 16)
     .set_drops("phantasia:bloom_platform")
     .set_sfx("phantasia:tile.wood");

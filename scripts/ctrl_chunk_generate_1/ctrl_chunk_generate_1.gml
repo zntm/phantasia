@@ -97,11 +97,15 @@ function ctrl_chunk_generate_1()
                                     (tile_condition_connected_to_self(_xpos - 1, _ypos, _z, _item_id, _world_height) << 0)
                                 ];
                             }
-                            else if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM)
+                            else if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
                             {
                                 _index =
-                                    (tile_condition_connected_to_self(_xpos + 1, _ypos, _z, _item_id, _world_height) << 1) |
-                                    (tile_condition_connected_to_self(_xpos - 1, _ypos, _z, _item_id, _world_height) << 0);
+                                    (tile_condition_connected_to_self(_xpos - 1, _ypos, _z, _item_id, _world_height) << 1) |
+                                    (tile_condition_connected_to_self(_xpos + 1, _ypos, _z, _item_id, _world_height) << 0);
+                                
+                                _inst.chunk[@ _index_xyz].set_index(_index);
+                                
+                                continue;
                             }
                             else continue;
                             

@@ -4,7 +4,7 @@ function chunk_generate_anim_handler(_data, _zbit, _index)
     
     var _animation_value = _data.get_animation_type();
     
-    if (_animation_value & (TILE_ANIMATION_TYPE.CONNECTED | TILE_ANIMATION_TYPE.CONNECTED_TO_SELF | TILE_ANIMATION_TYPE.CONNECTED_PLATOFRM))
+    if (_animation_value & (TILE_ANIMATION_TYPE.CONNECTED | TILE_ANIMATION_TYPE.CONNECTED_TO_SELF | TILE_ANIMATION_TYPE.CONNECTED_PLATFORM))
     {
         connected |= _zbit;
     }

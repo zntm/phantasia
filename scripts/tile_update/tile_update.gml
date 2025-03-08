@@ -99,4 +99,13 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
                 .set_index(_index2);
         }
 	}
+	else if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED_PLATFORM)
+	{
+		var _index2 = 
+			(tile_condition_connected_to_self(_x - 1, _y, _z, _item_id, _world_height) << 1) |
+			(tile_condition_connected_to_self(_x + 1, _y, _z, _item_id, _world_height));
+        
+        _inst.chunk[@ _index]
+            .set_index(_index2);
+	}
 }
