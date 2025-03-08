@@ -232,9 +232,9 @@ add_setting("audio", "creature_hostile", new SettingsData(1, SETTINGS_TYPE.SLIDE
 #region Accessibility
 
 var _language = new SettingsData(0, SETTINGS_TYPE.ARROW)
-    .set_on_press(function(_data, _value)
+    .set_on_update(function(_name, _value)
     {
-        loca_setup("phantasia", $"{_value + 1}. {_data.values[_value]}");
+        loca_setup("phantasia", $"{_value + 1}. {global.settings_data[$ _name].values[_value]}");
     });
 
 var _languages = file_read_directory($"{DATAFILES_RESOURCES}\\languages");

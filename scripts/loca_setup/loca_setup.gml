@@ -14,13 +14,17 @@ function loca_setup(_namespace, _langauge)
 	
 	if (file_exists($"{_directory}\\font.ttf"))
 	{
-		global.font_current = font_add($"{_directory}\\font.ttf", 9, false, false, 32, 0xffff);
-		
+        var _data = json_parse(buffer_load_text($"{_directory}\\font.json"));
+        
+		global.font_current = font_add($"{_directory}\\font.ttf", _data.size, false, false, _data.first, _data.last);
+		 
 		font_enable_sdf(global.font_current, true);
 	}
 	else if (file_exists($"{_directory}\\font.otf"))
 	{
-		global.font_current = font_add($"{_directory}\\font.otf", 9, false, false, 32, 0xffff);
+        var _data = json_parse(buffer_load_text($"{_directory}\\font.json"));
+        
+		global.font_current = font_add($"{_directory}\\font.otf", _data.size, false, false, _data.first, _data.last);
 		
 		font_enable_sdf(global.font_current, true);
 	}

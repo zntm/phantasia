@@ -134,7 +134,7 @@ if (on_draw != -1)
 }
 
 draw_set_align(fa_center, fa_middle);
-draw_set_font(fnt_Main);
+draw_set_font(global.font_current);
 gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_src_alpha, bm_one);
 
 menu_control_floating_textbox();
