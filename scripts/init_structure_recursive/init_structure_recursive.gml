@@ -99,7 +99,7 @@ function init_structure_recursive(_namespace, _directory, _id)
                     
                     for (var m = CHUNK_SIZE_Z - 1; m >= 0; --m)
                     {
-                        var _tile = file_load_snippet_tile(_buffer, j, l, m, _item_data, _datafixer, false);
+                        var _tile = file_load_snippet_tile(_buffer, j, l, m, _item_data, _datafixer);
                         
                         if (_tile != undefined)
                         {

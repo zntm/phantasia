@@ -1,4 +1,4 @@
-function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer, _instance_create = true)
+function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer)
 {
     var _item_id = buffer_read(_buffer, buffer_string);
     
@@ -34,11 +34,6 @@ function file_load_snippet_tile(_buffer, _x, _y, _z, _item_data, _datafixer, _in
     
     _tile.state_id = buffer_read(_buffer, buffer_u32);
     _tile.scale_rotation_index = buffer_read(_buffer, buffer_u64);
-    
-    if (_instance_create)
-    {
-        tile_instance_create(_x, _y, _z, _tile);
-    }
     
     if (_data.type & ITEM_TYPE_BIT.CONTAINER)
     {

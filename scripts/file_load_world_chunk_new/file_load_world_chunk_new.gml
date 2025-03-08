@@ -5,6 +5,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
     var _datafixer_item = _datafixer.item;
     
     var _item_data = global.item_data;
+    var _item_data_on_draw = global.item_data_on_draw;
     
     _inst.is_generated = true;
     
@@ -19,20 +20,40 @@ function file_load_world_chunk_new(_inst, _buffer2)
         
         for (var i = 0; i < CHUNK_SIZE_Z; ++i)
         {
-            if ((_surface_display & (1 << i)) == 0) continue;
+            var _bit_z = 1 << i;
+            
+            if ((_surface_display & _bit_z) == 0) continue;
             
             var j = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
             
             repeat (CHUNK_SIZE_X * CHUNK_SIZE_Y)
             {
-                var _xtile = _chunk_xstart + (j & (CHUNK_SIZE_X - 1));
-                var _ytile = _chunk_ystart + ((j >> CHUNK_SIZE_X_BIT) & (CHUNK_SIZE_Y - 1));
+                var _x = j & (CHUNK_SIZE_X - 1);
+                var _y = (j >> CHUNK_SIZE_X_BIT) & (CHUNK_SIZE_Y - 1);
+                
+                var _xtile = _chunk_xstart + _x;
+                var _ytile = _chunk_ystart + _y;
                 
                 var _tile = file_load_snippet_tile(_buffer2, _xtile, _ytile, i, _item_data, _datafixer_item);
                 
                 if (_tile != undefined)
                 {
-                    chunk[@ j] = _tile;
+                    _inst.chunk[@ j] = _tile;
+                    
+                    var _item_id = _tile.item_id;
+                    
+                    _inst.surface_display |= _bit_z;
+                    
+                    if (_item_data_on_draw[$ _item_id] != undefined)
+                    {
+                        _inst.is_on_draw_update |= _bit_z;
+                        
+                        _inst.chunk_update_on_draw[@ (_y << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
+                    }
+                    
+                    chunk_generate_anim_handler(_item_data[$ _item_id], _bit_z, _y);
+                    
+                    tile_instance_create(_xtile, _ytile, i, _tile);
                 }
                 
                 ++j;
@@ -59,7 +80,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
         var _xvelocity = buffer_read(_buffer2, buffer_f16);
         var _yvelocity = buffer_read(_buffer2, buffer_f16);
         
-        var _item = file_load_snippet_item(_buffer2, _datafixer_item);
+        var _item = file_load_snippet_item(_buffer2, _item_data, _datafixer_item);
         
         var _item_id = _item.get_item_id();
         
