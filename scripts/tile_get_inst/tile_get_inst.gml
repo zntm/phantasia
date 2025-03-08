@@ -1,4 +1,4 @@
-function tile_get_inst(_x, _y, _name)
+function tile_get_inst(_x, _y)
 {
 	if (!DEVELOPER_MODE)
     {

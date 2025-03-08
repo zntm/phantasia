@@ -2,7 +2,7 @@ function tile_set(_x, _y, _z, _attribute, _value, _world_height = global.world_d
 {
 	if (_y < 0) || (_y >= _world_height) exit;
 	
-	var _inst = tile_get_inst(_x, _y, "set");
+	var _inst = tile_get_inst(_x, _y);
 	
 	var _index = tile_index(_x, _y, _z);
 	

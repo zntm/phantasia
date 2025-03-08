@@ -6,7 +6,7 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 	
 	var _index = tile_index(_x, _y, _z);
 	
-	var _inst = tile_get_inst(_x, _y, "tile_update_inst", "tile_update_inst_x", "tile_update_inst_y");
+	var _inst = tile_get_inst(_x, _y);
 	
 	var _tile = _inst.chunk[_index];
 	
