@@ -23,7 +23,18 @@ function init_data_credits()
 		
 		for (var i = 0; i < _length; ++i)
 		{
-			var _colour2 = _data.contributors[i][$ "colour"];
+            var _ = _data.contributors[i];
+            
+            if (typeof(_) == "string")
+            {
+                data[@ _index].contributors[@ i] = {
+                    name: _
+                }
+                
+                continue;
+            }
+            
+			var _colour2 = _[$ "colour"];
 			
 			if (_colour2 != undefined)
 			{

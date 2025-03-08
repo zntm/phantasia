@@ -62,105 +62,51 @@
 					"name": "Oh Eight",
 					"youtube": "oheight"
 				},
-				{
-					"name": "Skies"
-				}
+				"Skies"
 			]
 		},
 		{
 			"header": "translation_es",
 			"colour": "#FFEBB2",
 			"contributors": [
-				{
-					"name": "vikkithecat"
-				},
-				{
-					"name": "Artemisia"
-				}
+				"vikkithecat",
+				"Artemisia"
 			]
 		},
 		{
 			"header": "playtester",
 			"colour": "#53626B",
 			"contributors": [
-				{
-					"name": "zenuss."
-				},
-				{
-					"name": "abyssaltheking"
-				},
-				{
-					"name": "fordivinity"
-				},
-				{
-					"name": "jay_ar3"
-				},
-				{
-					"name": "licensedfunnyman"
-				},
-				{
-					"name": "iammefr"
-				},
-				{
-					"name": "srisrid"
-				},
-				{
-					"name": "wanterwither"
-				},
-				{
-					"name": "anxieteaplushbee"
-				},
-				{
-					"name": "ceasingbonsai17"
-				},
-				{
-					"name": "emjaycrowe"
-				},
-				{
-					"name": "greetingscultist"
-				},
-				{
-					"name": "hunvich"
-				},
-				{
-					"name": "hyfa"
-				},
-				{
-					"name": "jarviscrompz"
-				},
-				{
-					"name": "void_4736"
-				},
-				{
-					"name": "tamtixx"
-				},
-				{
-					"name": "kksxx"
-				},
-				{
-					"name": "Yuiayyy"
-				}
+				"zenuss.",
+				"abyssaltheking",
+				"fordivinity",
+				"jay_ar3",
+				"licensedfunnyman",
+				"iammefr",
+				"srisrid",
+				"wanterwither",
+				"anxieteaplushbee",
+				"ceasingbonsai17",
+				"emjaycrowe",
+				"greetingscultist",
+				"hunvich",
+				"hyfa",
+				"jarviscrompz",
+				"void_4736",
+				"tamtixx",
+				"kksxx",
+				"Yuiayyy"
 			]
 		},
 		{
 			"header": "special_thanks",
 			"colour": "#904443",
 			"contributors": [
-				{
-					"name": "zenuss."
-				},
-				{
-					"name": "pieusername"
-				},
-				{
-					"name": "nisanunu"
-				},
-				{
-					"name": "jay_ar3"
-				},
-				{
-					"name": "anxieteaplushbee"
-				}
+				"zenuss.",
+				"pieusername",
+				"nisanunu",
+				"jay_ar3",
+				"anxieteaplushbee"
 			]
 		}
 	]
