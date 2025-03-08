@@ -47,16 +47,4 @@ function Chat(_name, _message) constructor
     {
         return self[$ "___colour"];
     }
-    
-    static set_data = function(_data)
-    {
-        ___data = _data;
-        
-        return self;
-    }
-    
-    static get_data = function()
-    {
-        return self[$ "___data"];
-    }
 }

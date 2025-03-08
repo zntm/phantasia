@@ -1,6 +1,6 @@
 enum CUTEIFY_BOOLEAN {
     OBSTRUCT = 1,
-    UNDERLINE = 2,
+    UNDERLINE = 2
 }
 
 enum CUTEIFY_INDEX {
@@ -14,7 +14,7 @@ enum CUTEIFY_TYPE {
     FONT,
     STRING,
     OBSTRUCT,
-    UNDERLINE,
+    UNDERLINE
 }
 
 #macro CUTEIFY_BRACKET_OPEN "{"
