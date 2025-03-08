@@ -25,7 +25,7 @@ function menu_draw_credits(_xmultiplier, _ymultiplier, _display_width, _display_
 			"twitter": "https://x.com/{0}",
 			"youtube": "https://youtube.com/@{0}"
 		}
-		
+        
 		var _offset = 12 * _xmultiplier;
 		
 		_x += _offset;
