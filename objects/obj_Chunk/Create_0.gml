@@ -43,14 +43,6 @@ var _directory = $"{global.world_directory}/realm/{string_replace_all(_realm, ":
 if (file_exists(_directory))
 {
     file_load_world_chunk(id, _directory);
-    
-    for (var i = 0; i < CHUNK_SIZE_X; ++i)
-    {
-        for (var j = 0; j < CHUNK_SIZE_Y; ++j)
-        {
-            
-        }
-    }
 }
 else
 {
