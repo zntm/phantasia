@@ -40,7 +40,7 @@ function ctrl_chunk_generate_1()
             
             with (_inst)
             {
-                if (is_generated) break;
+                if (is_generated) || (chunk_nearby_mask != 0xff) break;
                 
                 var _x1 = x - TILE_SIZE_H - CHUNK_SIZE_WIDTH;
                 var _y1 = y - TILE_SIZE_H - CHUNK_SIZE_HEIGHT;

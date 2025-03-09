@@ -49,6 +49,7 @@ else
     chunk_generate(_world, _seed, global.world_data[$ _realm]);
 }
 
+chunk_init_nearby_mask();
 
 obj_Control.refresh_sun_ray = true;
 obj_Control.refresh_sun_position = infinity;

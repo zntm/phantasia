@@ -1,25 +1,27 @@
 function chunk_clear(_inst)
 {
-	if (_inst.is_generated)
-	{
-		file_save_world_chunk(_inst);
-	}
-    
-    for (var i = 0; i < CHUNK_SIZE_X * CHUNK_SIZE_Y * CHUNK_SIZE_Z; ++i)
+    with (_inst)
     {
-        var _tile = chunk[i];
+        file_save_world_chunk(id);
         
-        if (_tile != TILE_EMPTY)
+        for (var i = 0; i < CHUNK_SIZE_X * CHUNK_SIZE_Y * CHUNK_SIZE_Z; ++i)
         {
-            // Feather disable once GM1052
-            delete _tile;
+            var _tile = chunk[i];
+            
+            if (_tile != TILE_EMPTY)
+            {
+                // Feather disable once GM1052
+                delete _tile;
+            }
         }
+        
+    	for (var i = 0; i < CHUNK_SIZE_Z * 2; ++i)
+    	{
+    		surface_free_existing(surface[i]);
+    	}
+        
+        chunk_remove_nearby_mask(x, y);
+        
+    	instance_destroy();
     }
-	
-	for (var i = 0; i < CHUNK_SIZE_Z * 2; ++i)
-	{
-		surface_free_existing(_inst.surface[i]);
-	}
-    
-	instance_destroy(_inst);
 }

@@ -48,7 +48,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
                     {
                         _inst.is_on_draw_update |= _bit_z;
                         
-                        _inst.chunk_update_on_draw[@ (_y << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
+                        _inst.chunk_update_on_draw[@ (i << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
                     }
                     
                     chunk_generate_anim_handler(_item_data[$ _item_id], _bit_z, _y);

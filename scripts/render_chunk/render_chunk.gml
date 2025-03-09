@@ -19,7 +19,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
     
     with (obj_Chunk)
     {
-        if ((!is_in_view) || (!surface_display) || (!is_near_light)) continue;
+        if (!is_in_view) || (!surface_display) || (!is_near_light) || (chunk_nearby_mask != 0xff) continue;
         
         var _cx1 = xcenter - CHUNK_SIZE_WIDTH;
         var _cy1 = ycenter - CHUNK_SIZE_HEIGHT;
