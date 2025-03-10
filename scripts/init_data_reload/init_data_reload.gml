@@ -30,11 +30,6 @@ function init_data_reload(_directory, _prefix, _type)
             init_datafixer();
         }
         
-        if (_debug_reload.profanity)
-        {
-            __init(init_profanity, $"{_directory}/profanity", _prefix, _type);
-        }
-        
         if (_debug_reload.attire)
         {
             __init(init_attire, $"{_directory}/attire", _prefix, _type);
@@ -124,7 +119,6 @@ function init_data_reload(_directory, _prefix, _type)
         init_data_credits();
         init_datafixer();
         
-        __init(init_attire, $"{_directory}/profanity", _prefix, _type);
         __init(init_attire, $"{_directory}/attire", _prefix, _type);
         __init(init_backgrounds, $"{_directory}/background", _prefix, _type);
         __init(init_effects, $"{_directory}/effect", _prefix, _type);

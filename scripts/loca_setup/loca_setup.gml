@@ -32,6 +32,8 @@ function loca_setup(_namespace, _langauge)
 	{
 		global.font_current = fnt_Main;
 	}
+    
+    init_scunthorpe($"{_directory}\\profanity");
 	
 	loca_effect();
     

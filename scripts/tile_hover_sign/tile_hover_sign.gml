@@ -32,7 +32,7 @@ function tile_hover_sign(_x, _y, _z, _tile, _gui_x, _gui_y, _gui_width, _gui_hei
         if (__text != _text)
         {
             __text = _text;
-            __text_profanity = string_profanity(_text);
+            __text_profanity = string_scunthorpe(_text);
         }
         
         _text = __text_profanity;

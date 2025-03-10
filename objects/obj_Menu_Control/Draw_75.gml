@@ -347,7 +347,7 @@ for (var i = 0; i < _length; ++i)
         if (text != text_old)
         {
             text_old = text;
-            text_display = (_profanity_filter ? string_profanity(text) : text);
+            text_display = (_profanity_filter ? string_scunthorpe(text) : text);
         }
         
         var _text_length = string_length(text_display);
