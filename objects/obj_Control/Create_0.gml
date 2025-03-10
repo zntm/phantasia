@@ -156,7 +156,6 @@ global.camera_direction = 0;
 global.gui_width  = _gui_width;
 global.gui_height = _gui_height;
 
-camera_set_view_pos(view_camera[0], 0, 0);
 camera_set_view_size(view_camera[0], _camera_width, _camera_height);
 
 display_set_gui_size(_gui_width, _gui_height);

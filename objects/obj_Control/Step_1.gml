@@ -5,8 +5,8 @@ var _cy = global.camera_y;
 
 if (_cx == infinity) || (_cy == infinity)
 {
-    var _camera_width  = _c.width;
-    var _camera_height = _c.height;
+    var _camera_width  = global.camera_width;
+    var _camera_height = global.camera_height;
     
     var _xplayer = obj_Player.x;
     var _xtile = round(_xplayer / TILE_SIZE);
@@ -33,12 +33,6 @@ if (_cx == infinity) || (_cy == infinity)
         obj_Player.y -= TILE_SIZE;
     }
     
-    global.camera_x = _camera_x;
-    global.camera_y = _camera_y;
-    
-    global.camera_real_x = _camera_x;
-    global.camera_real_y = _camera_y;
-    
     var _directory2 = $"{global.world_directory}/realm";
 
     if (!directory_exists(_directory2))
@@ -55,7 +49,7 @@ if (_cx == infinity) || (_cy == infinity)
     
     save_info($"{global.world_directory}/info.dat");
     
-    camera_set_view_pos(view_camera[0], _camera_x, _camera_y);
+    camera_set_position(_camera_x, _camera_y, _camera_x, _camera_y);
 }
 
 var _camera_x = global.camera_x;

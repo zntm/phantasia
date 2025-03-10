@@ -38,11 +38,5 @@ function ctrl_camera()
     
 	global.camera_direction = (_camera_x < global.camera_x);
 	
-	global.camera_x = _camera_x;
-	global.camera_y = _camera_y;
-	
-	global.camera_real_x = _camera_x_real;
-	global.camera_real_y = _camera_y_real;
-	
-	camera_set_view_pos(view_camera[0], _camera_x, _camera_y);
+    camera_set_position(_camera_x, _camera_y, _camera_x_real, _camera_y_real);
 }

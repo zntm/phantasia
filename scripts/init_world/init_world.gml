@@ -1,25 +1,41 @@
+#macro WORLD_BIOME_MAP_BIT 5
+#macro WORLD_BIOME_MAP (1 << WORLD_BIOME_MAP_BIT)
+
 global.world_data = {}
 
 function init_world(_directory, _prefix = "phantasia", _type = 0)
 {
-	if (_type & INIT_TYPE.RESET)
-	{
-		init_data_reset("world_data");
-	}
-	
-	var _files = file_read_directory(_directory);
-	var _files_length = array_length(_files);
-	
-	for (var i = 0; i < _files_length; ++i)
-	{
-		var _file = _files[i];
-		
+    static __biome_map_buffer = -1;
+    static __biome_map_surface = -1;
+    
+    if (!buffer_exists(__biome_map_buffer))
+    {
+        __biome_map_buffer = buffer_create(WORLD_BIOME_MAP * WORLD_BIOME_MAP * 4, buffer_fixed, 1);
+    }
+    
+    if (!surface_exists(__biome_map_surface))
+    {
+        __biome_map_surface = surface_create(WORLD_BIOME_MAP, WORLD_BIOME_MAP);
+    }
+    
+    if (_type & INIT_TYPE.RESET)
+    {
+        init_data_reset("world_data");
+    }
+    
+    var _files = file_read_directory(_directory);
+    var _files_length = array_length(_files);
+    
+    for (var i = 0; i < _files_length; ++i)
+    {
+        var _file = _files[i];
+        
         debug_timer("init_data_world");
-		
-		var _json = json_parse(buffer_load_text($"{_directory}/{_file}/data.json"));
-		
-		var _world_height = _json.height;
-		var _vignette = _json.vignette;
+        
+        var _json = json_parse(buffer_load_text($"{_directory}/{_file}/data.json"));
+        
+        var _world_height = _json.height;
+        var _vignette = _json.vignette;
         
         var _data = new WorldData(_prefix);
         
@@ -32,7 +48,7 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
             .set_surface_height_start(_surface.start)
             .set_surface_height_offset(_surface_offset.min, _surface_offset.max)
             .set_vignette(_vignette.start, _vignette[$ "end"], hex_parse(_vignette.colour));
-		
+        
         var _biome = _json.biome;
         
         #region Cave Biomes
@@ -107,42 +123,48 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         
         #region Biome Map
         
-		var _sprite = sprite_add($"{_directory}/{_file}/map.png", 1, false, false, 0, 0);
-		var _surface3 = surface_create(32, 32);
-		
-		var _surface_biome_map = array_create(32 * 32, 0);
-		
-		surface_set_target(_surface3);
-		draw_sprite(_sprite, 0, 0, 0);
-		surface_reset_target();
-		
-		var _biome_data = global.biome_data;
-		
-		var _names = struct_get_names(_biome_data);
-		var _names_length = array_length(_names);
-		
-		for (var j = 0; j < _names_length; ++j)
-		{
-			var _name = _names[j];
-			var _map_colour = _biome_data[$ _name][$ "map_colour"];
-			
-			if (_map_colour == undefined) continue;
-			
-			for (var l = 0; l < WORLDGEN_SIZE_HUMIDITY; ++l)
-			{
-				var _ = l << 5;
-				
-				for (var m = 0; m < WORLDGEN_SIZE_HEAT; ++m)
-				{
-					if (_map_colour != surface_getpixel(_surface3, m, l)) continue;
-					
-					_surface_biome_map[@ m | _] = _name;
-				}
-			}
-		}
-		
-		sprite_delete(_sprite);
-		surface_free(_surface3);
+        var _sprite = sprite_add($"{_directory}/{_file}/map.png", 1, false, false, 0, 0);
+        
+        var _surface_biome_map = array_create(WORLD_BIOME_MAP * WORLD_BIOME_MAP, 0);
+        
+        surface_set_target(__biome_map_surface);
+        
+        draw_sprite(_sprite, 0, 0, 0);
+        
+        surface_reset_target();
+        
+        buffer_get_surface(__biome_map_buffer, __biome_map_surface, 0);
+        
+        var _biome_data = global.biome_data;
+        
+        var _names = struct_get_names(_biome_data);
+        var _names_length = array_length(_names);
+        
+        for (var j = 0; j < _names_length; ++j)
+        {
+            var _name = _names[j];
+            var _map_colour = _biome_data[$ _name][$ "map_colour"];
+            
+            if (_map_colour == undefined) continue;
+            
+            buffer_seek(__biome_map_buffer, buffer_seek_start, 0);
+            
+            for (var l = 0; l < WORLDGEN_SIZE_HUMIDITY; ++l)
+            {
+                var _ = l << 5;
+                
+                for (var m = 0; m < WORLDGEN_SIZE_HEAT; ++m)
+                {
+                    var _colour = buffer_read(__biome_map_buffer, buffer_u32) & 0xffffff;
+                    
+                    if (_map_colour != _colour) continue;
+                    
+                    _surface_biome_map[@ m | _] = _name;
+                }
+            }
+        }
+        
+        sprite_delete(_sprite);
         
         _data.set_surface_biome_map(_surface_biome_map);
         
@@ -153,5 +175,5 @@ function init_world(_directory, _prefix = "phantasia", _type = 0)
         delete _json;
         
         debug_timer("init_data_world", $"[Init] Loaded World: \'{_file}\'");
-	}
+    }
 }

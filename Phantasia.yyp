@@ -1045,6 +1045,7 @@
     {"id":{"name":"buffer_load_decompressed","path":"scripts/buffer_load_decompressed/buffer_load_decompressed.yy",},},
     {"id":{"name":"buffer_load_text","path":"scripts/buffer_load_text/buffer_load_text.yy",},},
     {"id":{"name":"call_destroy_whip","path":"scripts/call_destroy_whip/call_destroy_whip.yy",},},
+    {"id":{"name":"camera_set_position","path":"scripts/camera_set_position/camera_set_position.yy",},},
     {"id":{"name":"chance","path":"scripts/chance/chance.yy",},},
     {"id":{"name":"chat_add","path":"scripts/chat_add/chat_add.yy",},},
     {"id":{"name":"chat_command_execute","path":"scripts/chat_command_execute/chat_command_execute.yy",},},

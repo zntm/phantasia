@@ -86,17 +86,11 @@ if (hp <= 0)
     var _camera_x = x - (global.camera_width  / 2);
     var _camera_y = y - (global.camera_height / 2);
     
-    global.camera_x = _camera_x;
-    global.camera_y = _camera_y;
-    
-    global.camera_real_x = _camera_x;
-    global.camera_real_y = _camera_y;
-    
     global.camera_shake = 0;
     
     obj_Control.surface_refresh_hp = true;
     
-    camera_set_view_pos(view_camera[0], _camera_x, _camera_y);
+    camera_set_position(_camera_x, _camera_y, _camera_x, _camera_y);
 }
 
 control_inventory();

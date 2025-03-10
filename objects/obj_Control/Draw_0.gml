@@ -74,7 +74,7 @@ if (instance_exists(obj_Floating_Text))
     }
 }
 
-if ((_camera_x != _camera.x_real) || (_camera_y != _camera.y_real)) && ((!DEVELOPER_MODE) || (global.debug_settings.lighting))
+if ((_camera_x != global.camera_real_x) || (_camera_y != global.camera_real_y)) && ((!DEVELOPER_MODE) || (global.debug_settings.lighting))
 {
     render_lighting(_camera_x, _camera_y, _camera_width, _camera_height);
     render_glow(_camera_x, _camera_y, _camera_width, _camera_height);

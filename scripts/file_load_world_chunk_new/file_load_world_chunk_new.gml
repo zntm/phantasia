@@ -14,6 +14,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
     with (_inst)
     {
         surface_display = _surface_display & CHUNK_SIZE_Z_BITMASK;
+        
         is_generated = _surface_display >> CHUNK_SIZE_Z;
         
         if (_surface_display)

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"camera_set_position",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"camera_set_position",
+  "parent":{
+    "name":"Controls",
+    "path":"folders/Scripts/Phantasia/Controls.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

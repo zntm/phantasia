@@ -4,8 +4,8 @@ var _application_surface = application_surface;
 
 var _delta_time = global.delta_time;
 
-var _gui_width  = _camera.gui_width;
-var _gui_height = _camera.gui_height;
+var _gui_width  = global.gui_width;
+var _gui_height = global.gui_height;
 
 var _colourblind = global.settings_value.colourblind;
 
