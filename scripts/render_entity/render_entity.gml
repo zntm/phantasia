@@ -2,13 +2,11 @@ function render_entity(_surface_index_offset)
 {
     var _item_data = global.item_data;
     
-    var _camera = global.camera;
+    var _camera_x1 = global.camera_x;
+    var _camera_y1 = global.camera_y;
     
-    var _camera_x1 = _camera.x;
-    var _camera_y1 = _camera.y;
-    
-    var _camera_x2 = _camera_x1 + _camera.width;
-    var _camera_y2 = _camera_y1 + _camera.height;
+    var _camera_x2 = _camera_x1 + global.camera_width;
+    var _camera_y2 = _camera_y1 + global.camera_height;
     
     static __get_alpha = function(_alpha, _immunity_frame, _immunity_alpha)
     {

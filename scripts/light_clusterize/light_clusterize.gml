@@ -15,7 +15,7 @@ function light_clusterize()
 	var _current_y = 0;
 	var _current_inst;
 	
-	var _xstart = round(global.camera.x / TILE_SIZE) - LIGHT_STRECTCH_AMOUNT;
+	var _xstart = round(global.camera_x / TILE_SIZE) - LIGHT_STRECTCH_AMOUNT;
 	
 	for (var i = 0; i < _sun_rays_length; ++i)
 	{

@@ -269,21 +269,19 @@ global.command_data[$ "tp"] = new CommandData()
 		
 		#region Update Camera Positions
 		
-		var _camera = global.camera;
-		
-		var _camera_width  = _camera.width;
-		var _camera_height = _camera.height;
+		var _camera_width  = global.camera_width;
+		var _camera_height = global.camera_height;
 		
 		var _world_height_tile_size = ((global.world_data[$ global.world.realm].get_world_height()) * TILE_SIZE) - _camera_height - TILE_SIZE_H;
 		
 		var _camera_x = _x2 - (_camera_width / 2) + CAMERA_XOFFSET;
 		var _camera_y = clamp(_y2 - (_camera_height / 2) + CAMERA_YOFFSET, 0, _world_height_tile_size);
 		
-		global.camera.x = _camera_x;
-		global.camera.y = _camera_y;
+		global.camera_x = _camera_x;
+		global.camera_y = _camera_y;
 		
-		global.camera.x_real = _camera_x;
-		global.camera.y_real = _camera_y;
+		global.camera_real_x = _camera_x;
+		global.camera_real_y = _camera_y;
 		
 		#endregion
         

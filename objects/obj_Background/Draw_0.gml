@@ -1,10 +1,8 @@
-var _camera = global.camera;
+var _camera_x = global.camera_x;
+var _camera_y = global.camera_y;
 
-var _camera_x = _camera.x;
-var _camera_y = _camera.y;
-
-var _camera_width  = _camera.width;
-var _camera_height = _camera.height;
+var _camera_width  = global.camera_width;
+var _camera_height = global.camera_height;
 
 var _camera_half_width  = _camera_width  / 2;
 var _camera_half_height = _camera_height / 2;

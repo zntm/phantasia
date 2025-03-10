@@ -137,9 +137,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
     
     obj_Control.refresh_sun_ray = true;
     
-    global.camera.shake = 1;
-    
-    var _camera = global.camera;
+    global.camera_shake = 1;
     
     #region Adjust Sun Ray
     

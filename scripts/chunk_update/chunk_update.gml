@@ -8,7 +8,7 @@ function chunk_update(_delta_time)
     
     with (obj_Chunk)
     {
-        if (!is_on_draw_update) || (!is_in_view) || ((surface_display & CHUNK_SIZE_Z_BIT) == 0) ||
+        if (!is_on_draw_update) || (!is_in_view) || ((surface_display & CHUNK_SIZE_Z_BITMASK) == 0) ||
             (!position_meeting(x - CHUNK_SIZE_WIDTH, y - CHUNK_SIZE_HEIGHT, obj_Chunk)) ||
             (!position_meeting(x,                    y - CHUNK_SIZE_HEIGHT, obj_Chunk)) ||
             (!position_meeting(x + CHUNK_SIZE_WIDTH, y - CHUNK_SIZE_HEIGHT, obj_Chunk)) ||

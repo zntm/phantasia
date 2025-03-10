@@ -16,13 +16,11 @@ enum INVENTORY_LENGTH {
 
 function init_inventory_instance()
 {
-	var _camera = global.camera;
+	var _gui_width  = global.gui_width;
+	var _gui_height = global.gui_height;
 	
-	var _gui_width  = _camera.gui_width;
-	var _gui_height = _camera.gui_height;
-	
-	var _xscale = (INVENTORY_SLOT_SCALE / _gui_width)  * _camera.width;
-	var _yscale = (INVENTORY_SLOT_SCALE / _gui_height) * _camera.height;
+	var _xscale = (INVENTORY_SLOT_SCALE / _gui_width)  * global.camera_width;
+	var _yscale = (INVENTORY_SLOT_SCALE / _gui_height) * global.camera_height;
 	
 	var _inventory = global.inventory;
 	var _inventory_instances = global.inventory_instances;

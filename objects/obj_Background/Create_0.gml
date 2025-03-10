@@ -1,7 +1,5 @@
-var _camera = global.camera;
-
-var _camera_width = _camera.width;
-var _camera_height = _camera.height;
+var _camera_width = global.camera_width;
+var _camera_height = global.camera_height;
 
 world_init_bg_clouds(_camera_width, _camera_height / 8);
 

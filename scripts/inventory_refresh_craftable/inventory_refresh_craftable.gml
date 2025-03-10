@@ -96,11 +96,9 @@ function inventory_refresh_craftable(_force = false)
 	static __distance2 = [];
 	
 	var _distance_length = 0;
-	
-	var _camera = global.camera;
-
-	var _xscale = (INVENTORY_SLOT_SCALE / _camera.gui_width)  * _camera.width;
-	var _yscale = (INVENTORY_SLOT_SCALE / _camera.gui_height) * _camera.height;
+    
+	var _xscale = (INVENTORY_SLOT_SCALE / global.gui_width)  * global.camera_width;
+	var _yscale = (INVENTORY_SLOT_SCALE / global.gui_height) * global.camera_height;
 	
 	#region Refresh Stations
 	

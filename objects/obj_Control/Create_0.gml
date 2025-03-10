@@ -141,22 +141,20 @@ var _camera_y = obj_Player.y - (_camera_height / 2);
 var _gui_width  = real(_graphics_gui[0]);
 var _gui_height = real(_graphics_gui[1]);
 
-global.camera = {
-    x: infinity,
-    y: infinity,
-    
-    x_real: _camera_x,
-    y_real: _camera_y,
-    
-    width:  _camera_width,
-    height: _camera_height,
-    
-    gui_width:  _gui_width,
-    gui_height: _gui_height,
-    
-    shake: 0,
-    direction: 0
-}
+global.camera_x = infinity;
+global.camera_y = 0;
+
+global.camera_real_x = _camera_x;
+global.camera_real_y = _camera_y;
+
+global.camera_width  = _camera_width;
+global.camera_height = _camera_height;
+
+global.camera_shake = 0;
+global.camera_direction = 0;
+
+global.gui_width  = _gui_width;
+global.gui_height = _gui_height;
 
 camera_set_view_pos(view_camera[0], 0, 0);
 camera_set_view_size(view_camera[0], _camera_width, _camera_height);

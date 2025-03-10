@@ -2,7 +2,7 @@
 
 function bg_clouds(_delta_time)
 {
-	var _cloud_max = global.camera.width + BACKGROUND_CLOUD_EDGE;
+	var _cloud_max = global.camera_width + BACKGROUND_CLOUD_EDGE;
 
 	var _wind = global.world_environment.wind;
 	var _wind_speed = _wind - 0.5;

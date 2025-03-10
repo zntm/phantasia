@@ -83,18 +83,16 @@ if (hp <= 0)
     xvelocity = 0;
     yvelocity = 0;
     
-    var _camera = global.camera;
+    var _camera_x = x - (global.camera_width  / 2);
+    var _camera_y = y - (global.camera_height / 2);
     
-    var _camera_x = x - (_camera.width  / 2);
-    var _camera_y = y - (_camera.height / 2);
+    global.camera_x = _camera_x;
+    global.camera_y = _camera_y;
     
-    global.camera.x = _camera_x;
-    global.camera.y = _camera_y;
+    global.camera_real_x = _camera_x;
+    global.camera_real_y = _camera_y;
     
-    global.camera.x_real = _camera_x;
-    global.camera.y_real = _camera_y;
-    
-    global.camera.shake = 0;
+    global.camera_shake = 0;
     
     obj_Control.surface_refresh_hp = true;
     

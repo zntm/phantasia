@@ -131,10 +131,8 @@ function inventory_interaction()
         exit;
     }
     
-    var _camera = global.camera;
-    
-    var _camera_x = _camera.x;
-    var _camera_y = _camera.y;
+    var _camera_x = global.camera_x;
+    var _camera_y = global.camera_y;
     
     var _x = round(mouse_x / TILE_SIZE);
     var _y = round(mouse_y / TILE_SIZE);

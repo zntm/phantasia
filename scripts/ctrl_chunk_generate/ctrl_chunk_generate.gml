@@ -7,13 +7,11 @@ function ctrl_chunk_generate()
 	
 	var _item_data = global.item_data;
 	
-	var _camera = global.camera;
+	var _camera_width_half  = global.camera_width  / 2;
+	var _camera_height_half = global.camera_height / 2;
 	
-	var _camera_width_half  = _camera.width  / 2;
-	var _camera_height_half = _camera.height / 2;
-	
-	var _xcenter = floor((_camera.x + _camera_width_half)  / CHUNK_SIZE_WIDTH)  * CHUNK_SIZE_WIDTH;
-	var _ycenter = floor((_camera.y + _camera_height_half) / CHUNK_SIZE_HEIGHT) * CHUNK_SIZE_HEIGHT;
+	var _xcenter = floor((global.camera_x + _camera_width_half)  / CHUNK_SIZE_WIDTH)  * CHUNK_SIZE_WIDTH;
+	var _ycenter = floor((global.camera_y + _camera_height_half) / CHUNK_SIZE_HEIGHT) * CHUNK_SIZE_HEIGHT;
 	
 	var _xrefresh = ceil(_camera_width_half  / CHUNK_SIZE_WIDTH)  + 4;
 	var _yrefresh = ceil(_camera_height_half / CHUNK_SIZE_HEIGHT) + 3;
@@ -40,7 +38,7 @@ function ctrl_chunk_generate()
 			
 			with (_inst)
 			{
-                if (surface_display)
+                if (surface_display) && (chunk_nearby_mask == 0xff)
                 {
                     is_in_view = true;
                 }

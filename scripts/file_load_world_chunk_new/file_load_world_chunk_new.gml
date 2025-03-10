@@ -7,56 +7,55 @@ function file_load_world_chunk_new(_inst, _buffer2)
     var _item_data = global.item_data;
     var _item_data_on_draw = global.item_data_on_draw;
     
-    _inst.is_generated = true;
-    
     var _sun_rays_y = global.sun_rays_y;
     
     var _surface_display = buffer_read(_buffer2, buffer_u16);
     
-    if (_surface_display)
+    with (_inst)
     {
-        var _chunk_xstart = _inst.chunk_xstart;
-        var _chunk_ystart = _inst.chunk_ystart;
+        surface_display = _surface_display & CHUNK_SIZE_Z_BITMASK;
+        is_generated = _surface_display >> CHUNK_SIZE_Z;
         
-        for (var i = 0; i < CHUNK_SIZE_Z; ++i)
+        if (_surface_display)
         {
-            var _bit_z = 1 << i;
-            
-            if ((_surface_display & _bit_z) == 0) continue;
-            
-            var j = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
-            
-            repeat (CHUNK_SIZE_X * CHUNK_SIZE_Y)
+            for (var i = 0; i < CHUNK_SIZE_Z; ++i)
             {
-                var _x = j & (CHUNK_SIZE_X - 1);
-                var _y = (j >> CHUNK_SIZE_X_BIT) & (CHUNK_SIZE_Y - 1);
+                var _bit_z = 1 << i;
                 
-                var _xtile = _chunk_xstart + _x;
-                var _ytile = _chunk_ystart + _y;
+                if ((_surface_display & _bit_z) == 0) continue;
                 
-                var _tile = file_load_snippet_tile(_buffer2, _xtile, _ytile, i, _item_data, _datafixer_item);
+                var j = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
                 
-                if (_tile != undefined)
+                repeat (CHUNK_SIZE_X * CHUNK_SIZE_Y)
                 {
-                    _inst.chunk[@ j] = _tile;
+                    var _x = j & (CHUNK_SIZE_X - 1);
+                    var _y = (j >> CHUNK_SIZE_X_BIT) & (CHUNK_SIZE_Y - 1);
                     
-                    var _item_id = _tile.item_id;
+                    var _xtile = chunk_xstart + _x;
+                    var _ytile = chunk_ystart + _y;
                     
-                    _inst.surface_display |= _bit_z;
+                    var _tile = file_load_snippet_tile(_buffer2, _xtile, _ytile, i, _item_data, _datafixer_item);
                     
-                    if (_item_data_on_draw[$ _item_id] != undefined)
+                    if (_tile != undefined)
                     {
-                        _inst.is_on_draw_update |= _bit_z;
+                        chunk[@ j] = _tile;
                         
-                        _inst.chunk_update_on_draw[@ (i << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
+                        var _item_id = _tile.item_id;
+                        
+                        if (_item_data_on_draw[$ _item_id] != undefined)
+                        {
+                            is_on_draw_update |= _bit_z;
+                            
+                            chunk_update_on_draw[@ (i << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
+                        }
+                        
+                        chunk_generate_anim_handler(_item_data[$ _item_id], _bit_z, _y);
+                        
+                        tile_instance_create(_xtile, _ytile, i, _tile);
                     }
                     
-                    chunk_generate_anim_handler(_item_data[$ _item_id], _bit_z, _y);
-                    
-                    tile_instance_create(_xtile, _ytile, i, _tile);
+                    ++j;
                 }
-                
-                ++j;
             }
         }
     }

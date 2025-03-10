@@ -1,9 +1,7 @@
 if (is_paused) || (is_exiting) exit;
 
-var _c = global.camera;
-
-var _cx = _c.x;
-var _cy = _c.y;
+var _cx = global.camera_x;
+var _cy = global.camera_y;
 
 if (_cx == infinity) || (_cy == infinity)
 {
@@ -35,11 +33,11 @@ if (_cx == infinity) || (_cy == infinity)
         obj_Player.y -= TILE_SIZE;
     }
     
-    global.camera.x = _camera_x;
-    global.camera.y = _camera_y;
+    global.camera_x = _camera_x;
+    global.camera_y = _camera_y;
     
-    global.camera.x_real = _camera_x;
-    global.camera.y_real = _camera_y;
+    global.camera_real_x = _camera_x;
+    global.camera_real_y = _camera_y;
     
     var _directory2 = $"{global.world_directory}/realm";
 
@@ -60,13 +58,11 @@ if (_cx == infinity) || (_cy == infinity)
     camera_set_view_pos(view_camera[0], _camera_x, _camera_y);
 }
 
-var _camera = global.camera;
+var _camera_x = global.camera_x;
+var _camera_y = global.camera_y;
 
-var _camera_x = _camera.x;
-var _camera_y = _camera.y;
-
-var _camera_width  = _camera.width;
-var _camera_height = _camera.height;
+var _camera_width  = global.camera_width;
+var _camera_height = global.camera_height;
 
 var _camera_x_real = obj_Player.x - (_camera_width  / 2) + CAMERA_XOFFSET;
 var _camera_y_real = obj_Player.y - (_camera_height / 2) + CAMERA_YOFFSET;

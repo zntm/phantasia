@@ -9,7 +9,7 @@ function file_save_world_chunk(_inst)
     buffer_write(_buffer, buffer_u8, VERSION_NUMBER.PATCH);
     buffer_write(_buffer, buffer_u8, VERSION_NUMBER.TYPE);
     
-    buffer_write(_buffer, buffer_u16, surface_display);
+    buffer_write(_buffer, buffer_u16, (is_generated << CHUNK_SIZE_Z) | surface_display);
     
     if (surface_display)
     {

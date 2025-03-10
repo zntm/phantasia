@@ -76,7 +76,6 @@ if (is_exiting)
         layer_sequence_destroy(obj_Player.whip_sequence);
     }
     
-    delete global.camera;
     delete global.command_value;
     delete global.inventory;
     delete global.inventory_instances;
@@ -189,13 +188,11 @@ var _item_data = global.item_data;
 var _xplayer = obj_Player.x;
 var _yplayer = obj_Player.y;
 
-var _camera = global.camera;
+var _camera_x = global.camera_x;
+var _camera_y = global.camera_y;
 
-var _camera_x = _camera.x;
-var _camera_y = _camera.y;
-
-var _camera_width  = _camera.width;
-var _camera_height = _camera.height;
+var _camera_width  = global.camera_width;
+var _camera_height = global.camera_height;
 
 var _camera_x_real = _xplayer - (_camera_width  / 2);
 var _camera_y_real = _yplayer - (_camera_height / 2);
@@ -252,8 +249,8 @@ if (DEVELOPER_MODE)
     _camera_width  = 960 * _camera_size;
     _camera_height = 540 * _camera_size;
     
-    global.camera.width  = _camera_width;
-    global.camera.height = _camera_height;
+    global.camera_width  = _camera_width;
+    global.camera_height = _camera_height;
     
     camera_set_view_size(view_camera[0], _camera_width, _camera_height);
     room_set_viewport(room, 0, true, 0, 0, _camera_width, _camera_height);

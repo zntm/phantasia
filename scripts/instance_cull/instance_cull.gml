@@ -9,14 +9,15 @@ function instance_cull(_force = false)
     instance_deactivate_object(obj_Tile_Station);
     instance_deactivate_object(obj_Tile_Container);
     
-    var _camera = global.camera;
+    var _left = global.camera_real_x - INSTANCE_CULL_OFFSET;
+    var _top  = global.camera_real_y - INSTANCE_CULL_OFFSET;
     
-    var _left = _camera.x_real - INSTANCE_CULL_OFFSET;
-    var _width = _camera.width + (INSTANCE_CULL_OFFSET * 2);
+    var _width  = global.camera_width  + (INSTANCE_CULL_OFFSET * 2);
+    var _height = global.camera_height + (INSTANCE_CULL_OFFSET * 2);
     
     instance_activate_region(_left, 0, _width, 1, true);
     
-    instance_activate_region(_left, _camera.y_real - INSTANCE_CULL_OFFSET, _width, _camera.height + (INSTANCE_CULL_OFFSET * 2), true);
+    instance_activate_region(_left, _top, _width, _height, true);
     
     if (!obj_Control.is_opened_inventory)
     {

@@ -4,8 +4,6 @@ var _application_surface = application_surface;
 
 var _delta_time = global.delta_time;
 
-var _camera = global.camera;
-
 var _gui_width  = _camera.gui_width;
 var _gui_height = _camera.gui_height;
 
@@ -393,11 +391,11 @@ if (is_opened_gui)
         draw_surface(surface_chat, 0, 0);
     }
     
-    var _camera_x = _camera.x;
-    var _camera_y = _camera.y;
+    var _camera_x = global.camera_x;
+    var _camera_y = global.camera_y;
     
-    var _camera_width  = _camera.width;
-    var _camera_height = _camera.height;
+    var _camera_width  = global.camera_width;
+    var _camera_height = global.camera_height;
     
     var _x = round(mouse_x / TILE_SIZE);
     var _y = round(mouse_y / TILE_SIZE);

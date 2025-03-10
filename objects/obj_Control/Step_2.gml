@@ -1,12 +1,10 @@
 if (is_paused) || (is_exiting) exit;
 
-var _camera = global.camera;
+var _camera_x = global.camera_x;
+var _camera_y = global.camera_y;
 
-var _camera_x = _camera.x;
-var _camera_y = _camera.y; 
-
-var _camera_width  = _camera.width;
-var _camera_height = _camera.height;
+var _camera_width  = global.camera_width;
+var _camera_height = global.camera_height;
 
 var _bbox_x = _camera_x - CHUNK_SIZE_WIDTH;
 var _bbox_y = _camera_y - CHUNK_SIZE_HEIGHT;

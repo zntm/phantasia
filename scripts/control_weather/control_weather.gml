@@ -12,16 +12,14 @@ function control_weather(_delta_time)
 {
     randomize();
     
-    var _camera = global.camera;
-    
-    var _camera_x = _camera.x;
-    var _camera_y = _camera.y;
+    var _camera_x = global.camera_x;
+    var _camera_y = global.camera_y;
     
     var _storm = global.world_environment.storm;
     
     if (_storm >= WEATHER_RAIN_THRESHOLD) && (chance(((_storm - WEATHER_RAIN_THRESHOLD) / (1 - WEATHER_RAIN_THRESHOLD)) * _delta_time))
     {
-        var _camera_x2 = _camera_x + _camera.width;
+        var _camera_x2 = _camera_x + global.camera_width;
         var _ystart = _camera_y - 16;
         var _direction = global.world_environment.wind - 0.5;
         
