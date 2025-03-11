@@ -21,13 +21,13 @@ function sfx_diegetic_floodfill(_x, _y, _level, _item_data, _world_height)
     }
     else
     {
-        var _type = _item_data[$ _tile].type;
+        var data = _item_data[$ _tile];
         
-        if (_type & ITEM_TYPE_BIT.LIQUID)
+        if (data.has_type(ITEM_TYPE_BIT.LIQUID))
         {
             global.sfx_diegetic_floodfill_amount += 0.5;
         }
-        else if (_type & (ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE) == 0)
+        else if (!data.has_type(ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE))
         {
             global.sfx_diegetic_floodfill_amount += 1;
         }

@@ -30,35 +30,13 @@ if (_colourblind != 0)
     _application_surface = surface_colourblind;
 }
 
+render_gui_application(_application_surface, _gui_width, _gui_height, _delta_time);
+
 if (is_exiting)
 {
     if (blur_value < 2)
     {
         blur_value = min(2, blur_value + (0.06 * _delta_time));
-    }
-    
-    var _blur_strength = global.settings_value.blur_strength;
-    
-    if (_blur_strength <= 0)
-    {
-        draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
-    }
-    else
-    {
-        shader_set(shd_Blur);
-        
-        var _surface = surface_get_texture(application_surface);
-        
-        shader_set_uniform_f(
-            global.shader_blur_size,
-            texture_get_texel_height(_surface),
-            texture_get_texel_width(_surface),
-            _blur_strength * blur_value * 0.0000016
-        );
-        
-        draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
-        
-        shader_reset();
     }
     
     // TODO: Make it look good
@@ -77,46 +55,19 @@ if (is_exiting)
     
     exit;
 }
-
-if (is_opened_inventory) || (is_paused)
-{
-    if (blur_value < 1)
-    {
-        blur_value = min(1, blur_value + (0.06 * _delta_time));
-    }
-}
-else if (blur_value > 0)
-{
-    blur_value = max(0, blur_value - (0.06 * _delta_time));
-}
-
-if (blur_value > 0)
-{
-    var _blur_strength = global.settings_value.blur_strength;
-    
-    if (_blur_strength <= 0)
-    {
-        draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
-    }
-    else
-    {
-        shader_set(shd_Blur);
-        
-        shader_set_uniform_f(
-            global.shader_blur_size,
-            surface_get_height(_application_surface) / _gui_height,
-            surface_get_width(_application_surface)  / _gui_width,
-            _blur_strength * blur_value * 0.0000016
-        );
-        
-        draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
-        
-        shader_reset();
-    }
-}
 else
 {
-    draw_surface_stretched(_application_surface, 0, 0, _gui_width, _gui_height);
+    if (is_opened_inventory) || (is_paused)
+    {
+        if (blur_value < 1)
+        {
+            blur_value = min(1, blur_value + (0.06 * _delta_time));
+        }
+    }
+    else if (blur_value > 0)
+    {
+        blur_value = max(0, blur_value - (0.06 * _delta_time));
+    }
 }
 
 if (!DEVELOPER_MODE) || (global.debug_settings.lighting)

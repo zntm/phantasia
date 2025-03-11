@@ -197,7 +197,7 @@ var _camera_height = global.camera_height;
 var _camera_x_real = _xplayer - (_camera_width  / 2);
 var _camera_y_real = _yplayer - (_camera_height / 2);
 
-global.luck = clamp(obj_Player.buffs[$ "luck"], 0.2, 3);
+// global.luck = clamp(obj_Player.buffs[$ "luck"], 0.2, 3);
 
 if (is_opened_gui)
 {

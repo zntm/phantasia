@@ -15,7 +15,7 @@ function tile_destroy_with_drop(_x, _y, _z, _tile)
         _item = tile_spawn_item_drop(_xinst, _yinst, _drops);
     }
     
-    if (_data.type & ITEM_TYPE_BIT.CONTAINER)
+    if (_data.has_type(ITEM_TYPE_BIT.CONTAINER))
     {
         var _inventory = tile_get_inventory(_tile);
         

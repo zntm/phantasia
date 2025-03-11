@@ -96,6 +96,4 @@ function init_scunthorpe(_directory)
     }
     
     array_reverse_ext(global.profanity_unique_length);
-    
-    show_debug_message(global.profanity_unique_length);
 }

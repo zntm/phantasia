@@ -205,7 +205,6 @@ function chunk_generate(_world, _seed, _world_data)
                         var _item_id = _tile.item_id;
                         
                         var _data2 = _item_data[$ _item_id];
-                        var _type = _data2.type;
                         
                         if (_item_id == "phantasia:structure_loot")
                         {
@@ -226,7 +225,7 @@ function chunk_generate(_world, _seed, _world_data)
                             
                             var _tile2 = new Tile(_container_id, _item_data);
                             
-                            if (_item_data[$ _container_id].type & ITEM_TYPE_BIT.CONTAINER)
+                            if (_item_data[$ _container_id].has_type(ITEM_TYPE_BIT.CONTAINER))
                             {
                                 _tile2.set_inventory(_loot_id);
                             }
@@ -249,7 +248,7 @@ function chunk_generate(_world, _seed, _world_data)
                         
                         chunk_generate_anim_handler(_item_data[$ _item_id], _zbit, _y);
                         
-                        if (_type & ITEM_TYPE_BIT.SOLID) && (_sun_rays_y > _tile_y)
+                        if (_sun_rays_y > _tile_y) && (_data2.has_type(ITEM_TYPE_BIT.SOLID))
                         {
                             global.sun_rays_y[$ _xindex] = _tile_y;
                         }

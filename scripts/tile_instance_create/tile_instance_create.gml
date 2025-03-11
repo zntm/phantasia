@@ -59,7 +59,7 @@ function tile_instance_create(_x, _y, _z, _tile, _item_data = global.item_data)
         }
     }
     
-    if (_data.type & ITEM_TYPE_BIT.CONTAINER)
+    if (_data.has_type(ITEM_TYPE_BIT.CONTAINER))
     {
         with (instance_create_layer(_x * TILE_SIZE, _y * TILE_SIZE, "Instances", obj_Tile_Container))
         {

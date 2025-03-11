@@ -204,8 +204,6 @@ function init_biome(_directory, _prefix = "phantasia", _type = 0)
 		
         if (is_array(_tiles))
         {
-            show_debug_message(_tiles);
-            
             var _id2 = _tiles;
             
             _tiles = new BiomeDataTile();

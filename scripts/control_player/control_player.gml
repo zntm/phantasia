@@ -49,7 +49,7 @@ function control_player(_item_data, _tick, _world_height, _entity_ymax, _delta_t
         
 		if (!DEVELOPER_MODE) || (global.debug_settings.physics)
 		{
-			if (!is_climbing) && (_tile_on != TILE_EMPTY) && (input_check(_settings_value.climb_up) || input_check(_settings_value.climb_down)) && (_item_data[$ _tile_on].type & ITEM_TYPE_BIT.CLIMBABLE)
+			if (!is_climbing) && (_tile_on != TILE_EMPTY) && (input_check(_settings_value.climb_up) || input_check(_settings_value.climb_down)) && (_item_data[$ _tile_on].has_type(ITEM_TYPE_BIT.CLIMBABLE))
 			{
 				is_climbing = true;
 				

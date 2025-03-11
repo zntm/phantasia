@@ -2,7 +2,7 @@ function chunk_clear(_inst)
 {
     with (_inst)
     {
-        file_save_world_chunk(id);
+        // file_save_world_chunk(id);
         
         for (var i = 0; i < CHUNK_SIZE_X * CHUNK_SIZE_Y * CHUNK_SIZE_Z; ++i)
         {

@@ -221,9 +221,7 @@ function Tile(_item, _item_data = global.item_data) constructor
         }
     }
     
-    var _type = _data.type;
-    
-    if (_type & ITEM_TYPE_BIT.FOLIAGE)
+    if (_data.has_type(ITEM_TYPE_BIT.FOLIAGE))
     {
         skew    = 0;
         skew_to = 0;
@@ -250,7 +248,7 @@ function Tile(_item, _item_data = global.item_data) constructor
             return self;
         }
     }
-    else if (_type & ITEM_TYPE_BIT.CONTAINER)
+    else if (_data.has_type(ITEM_TYPE_BIT.CONTAINER))
     {
         ___inventory = undefined;
         
@@ -350,20 +348,6 @@ function Tile(_item, _item_data = global.item_data) constructor
         static get_inventory = function()
         {
             return self[$ "___inventory"];
-        }
-    }
-    else if (_type & ITEM_TYPE_BIT.LIQUID)
-    {
-        static set_is_source = function()
-        {
-            scale_rotation_index |= 1 << 50;
-            
-            return self;
-        }
-        
-        static get_is_source = function()
-        {
-            return scale_rotation_index >> 50;
         }
     }
 }

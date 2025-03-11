@@ -107,11 +107,11 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                     {
                         var _tile2 = chunk[_x | _y2index];
                         
-                        if (_tile2 != TILE_EMPTY) && (_tile2.scale_rotation_index & (16 << 16))
+                        if (_tile2 != TILE_EMPTY) && (_tile2.get_index() == 16)
                         {
                             var _data2 = _item_data[$ _tile2.item_id];
                             
-                            if (_data2.type & ITEM_TYPE_BIT.SOLID) && (_data2.boolean & ITEM_BOOLEAN.IS_OBSTRUCTING) && ((_data2.get_animation_type() & (TILE_ANIMATION_TYPE.CONNECTED | TILE_ANIMATION_TYPE.CONNECTED_TO_SELF | TILE_ANIMATION_TYPE.CONNECTED_PLATFORM | TILE_ANIMATION_TYPE.NONE)) == 0) continue;
+                            if (_data2.has_type(ITEM_TYPE_BIT.SOLID)) && (_data2.boolean & ITEM_BOOLEAN.IS_OBSTRUCTING) && ((_data2.get_animation_type() & (TILE_ANIMATION_TYPE.CONNECTED | TILE_ANIMATION_TYPE.CONNECTED_TO_SELF | TILE_ANIMATION_TYPE.CONNECTED_PLATFORM | TILE_ANIMATION_TYPE.NONE)) == 0) continue;
                         }
                     }
                     
@@ -136,7 +136,7 @@ function render_chunk(_surface_index_offset, _camera_x, _camera_y)
                     var _draw_x = _tile.get_xoffset() + CHUNK_SURFACE_PADDING + _xoffset;
                     var _draw_y = _tile.get_yoffset() + _ytile;
                     
-                    if (_z_is_wall) || ((_boolean & ITEM_BOOLEAN.IS_PLANT_WAVEABLE) == 0) || ((_data.type & ITEM_TYPE_BIT.FOLIAGE) == 0)
+                    if (_z_is_wall) || ((_boolean & ITEM_BOOLEAN.IS_PLANT_WAVEABLE) == 0) || (!_data.has_type(ITEM_TYPE_BIT.FOLIAGE))
                     {
                         var _xscale = _tile.get_xscale();
                         var _yscale = _tile.get_yscale();

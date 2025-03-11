@@ -22,7 +22,7 @@ if (_cx == infinity) || (_cy == infinity)
     {
         var _tile = tile_get(_xtile, round(obj_Player.y / TILE_SIZE), CHUNK_DEPTH_DEFAULT);
         
-        if (_tile == TILE_EMPTY) || ((_item_data[$ _tile].type & ITEM_TYPE_BIT.SOLID) == 0)
+        if (_tile == TILE_EMPTY) || (!_item_data[$ _tile].has_type(ITEM_TYPE_BIT.SOLID))
         {
             // _camera_x = _xplayer - (_camera_width  / 2);
             _camera_y = obj_Player.y - (_camera_height / 2);

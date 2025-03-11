@@ -167,6 +167,11 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return type;
     }
     
+    static has_type = function(_type)
+    {
+        return !!(type & _type);
+    }
+    
     static set_rarity = function(_rarity)
     {
         ___rarity = _rarity;
@@ -614,12 +619,12 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
     
     static get_sfx_swing = function(_sfx)
     {
-        if (type & ITEM_TYPE_BIT.SWORD)
+        if (has_type(ITEM_TYPE_BIT.SWORD))
         {
             return self[$ "___sfx_swing"] ?? "phantasia:action.swing.default_weapon";
         }
         
-        if (type & (ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER))
+        if (has_type(ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER))
         {
             return self[$ "___sfx_swing"] ?? "phantasia:action.swing.default_tool";
         }
@@ -635,28 +640,28 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return random_range(_min, _max);
     }
     
-    if (type & ITEM_TYPE_BIT.ARMOR_HELMET)
+    if (has_type(ITEM_TYPE_BIT.ARMOR_HELMET))
     {
         set_inventory_max(1);
         add_slot_valid(SLOT_TYPE.ARMOR_HELMET);
         
         buffs = {}
     }
-    else if (type & ITEM_TYPE_BIT.ARMOR_BREASTPLATE)
+    else if (has_type(ITEM_TYPE_BIT.ARMOR_BREASTPLATE))
     {
         set_inventory_max(1);
         add_slot_valid(SLOT_TYPE.ARMOR_BREASTPLATE);
         
         buffs = {}
     }
-    else if (type & ITEM_TYPE_BIT.ARMOR_LEGGINGS)
+    else if (has_type(ITEM_TYPE_BIT.ARMOR_LEGGINGS))
     {
         set_inventory_max(1);
         add_slot_valid(SLOT_TYPE.ARMOR_LEGGINGS);
         
         buffs = {}
     }
-    else if (type & ITEM_TYPE_BIT.ACCESSORY)
+    else if (has_type(ITEM_TYPE_BIT.ACCESSORY))
     {
         set_inventory_max(1);
         add_slot_valid(SLOT_TYPE.ACCESSORY);
@@ -739,7 +744,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self[$ "___ammo_type"] ?? "phantasia:bow";
     }
     
-    if (type & ITEM_TYPE_BIT.BOW)
+    if (has_type(ITEM_TYPE_BIT.BOW))
     {
         set_inventory_scale(INVENTORY_SCALE.TOOL);
         set_inventory_max(1);
@@ -761,7 +766,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         set_durability(1);
     }
     
-    if (type & ITEM_TYPE_BIT.FISHING_POLE)
+    if (has_type(ITEM_TYPE_BIT.FISHING_POLE))
     {
         set_inventory_scale(INVENTORY_SCALE.TOOL);
         set_inventory_max(1);
@@ -800,12 +805,12 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         set_durability(1);
     }
     
-    if (type & ITEM_TYPE_BIT.AMMO)
+    if (has_type(ITEM_TYPE_BIT.AMMO))
     {
         ___ammo_type = "phantasia:arrow";
     }
     
-    if (type & ITEM_TYPE_BIT.THROWABLE)
+    if (has_type(ITEM_TYPE_BIT.THROWABLE))
     {
         set_damage(undefined, DAMAGE_TYPE.RANGED);
         
@@ -853,7 +858,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         }
     }
     
-    if (type & ITEM_TYPE_BIT.DEPLOYABLE)
+    if (has_type(ITEM_TYPE_BIT.DEPLOYABLE))
     {
         deployable_tile = TILE_EMPTY;
         deployable_z = CHUNK_DEPTH_DEFAULT;
@@ -875,7 +880,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         }
     }
     
-    if (type & ITEM_TYPE_BIT.CONSUMABLE)
+    if (has_type(ITEM_TYPE_BIT.CONSUMABLE))
     {
         static set_on_consume = function(_function)
         {
@@ -980,19 +985,19 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
         return self[$ "___tile_tag_length"] ?? 0;
     }
     
-    if (type & (ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.WALL | ITEM_TYPE_BIT.FOLIAGE | ITEM_TYPE_BIT.CONTAINER | ITEM_TYPE_BIT.LIQUID))
+    if (has_type(ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.WALL | ITEM_TYPE_BIT.FOLIAGE | ITEM_TYPE_BIT.CONTAINER | ITEM_TYPE_BIT.LIQUID))
     {
         set_mining_stats();
         
-        if (type & ITEM_TYPE_BIT.SOLID)
+        if (has_type(ITEM_TYPE_BIT.SOLID))
         {
             boolean |= ITEM_BOOLEAN.IS_OBSTRUCTING;
         }
-        else if (type & ITEM_TYPE_BIT.WALL)
+        else if (has_type(ITEM_TYPE_BIT.WALL))
         {
             boolean |= ITEM_BOOLEAN.IS_OBSTRUCTABLE;
         }
-        else if (type & ITEM_TYPE_BIT.CONTAINER)
+        else if (has_type(ITEM_TYPE_BIT.CONTAINER))
         {
             static set_tile_container_length = function(_size)
             {
@@ -1328,7 +1333,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             return self[$ "__instance"];
         }
         
-        if (type & ITEM_TYPE_BIT.CRAFTING_STATION)
+        if (has_type(ITEM_TYPE_BIT.CRAFTING_STATION))
         {
             static set_sfx_craft = function(_sfx)
             {
@@ -1360,7 +1365,7 @@ function ItemData(_namespace, _sprite, _type = ITEM_TYPE_BIT.DEFAULT) constructo
             }
         }
         
-        if (type & ITEM_TYPE_BIT.CROP)
+        if (has_type(ITEM_TYPE_BIT.CROP))
         {
             static __crop = {
                 growth_time: 0,
@@ -3194,28 +3199,28 @@ new ItemData("phantasia", item_Torch, ITEM_TYPE_BIT.UNTOUCHABLE)
         
         var _tile = tile_get(_x, _y, CHUNK_DEPTH_WALL);
         
-        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.WALL)
+        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].has_type(ITEM_TYPE_BIT.WALL))
         {
             return true;
         }
         
         _tile = tile_get(_x - 1, _y, CHUNK_DEPTH_DEFAULT);
         
-        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.SOLID)
+        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].has_type(ITEM_TYPE_BIT.SOLID))
         {
             return true;
         }
         
         _tile = tile_get(_x + 1, _y, CHUNK_DEPTH_DEFAULT);
         
-        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.SOLID)
+        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].has_type(ITEM_TYPE_BIT.SOLID))
         {
             return true;
         }
         
         _tile = tile_get(_x, _y + 1, CHUNK_DEPTH_WALL);
         
-        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.SOLID)
+        if (_tile != TILE_EMPTY) && (_item_data[$ _tile].has_type(ITEM_TYPE_BIT.SOLID))
         {
             return true;
         }

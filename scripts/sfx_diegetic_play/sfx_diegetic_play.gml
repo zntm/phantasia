@@ -71,7 +71,7 @@ function sfx_diegetic_play(_x1, _y1, _x2, _y2, _id, _pitch_offset = 0.1, _volume
     var _tile  = tile_get(_x1tile, _y1tile, CHUNK_DEPTH_LIQUID);
     var _tile2 = tile_get(_x2tile, _y2tile, CHUNK_DEPTH_LIQUID);
     
-    if ((_tile != TILE_EMPTY) && (_item_data[$ _tile].type & ITEM_TYPE_BIT.LIQUID)) || ((_tile2 != TILE_EMPTY) && (_item_data[$ _tile2].type & ITEM_TYPE_BIT.LIQUID))
+    if ((_tile != TILE_EMPTY) && (_item_data[$ _tile].has_type(ITEM_TYPE_BIT.LIQUID))) || ((_tile2 != TILE_EMPTY) && (_item_data[$ _tile2].has_type(ITEM_TYPE_BIT.LIQUID)))
     {
         __audio_bus.effects[@ SFX_DIEGETIC_EFFECT_INDEX.LPF].bypass = 0;
     }
