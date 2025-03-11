@@ -20,7 +20,7 @@ if (is_exiting)
         if (instance_exists(obj_Structure))
         {
             file_save_world_structures();
-        
+            
             instance_destroy(obj_Structure);
         }
         
@@ -31,6 +31,22 @@ if (is_exiting)
     }
     
     var _chunk_count_max = obj_Control.chunk_count_max;
+    
+    with (obj_Chunk)
+    {
+        var _chunk_x = chunk_xstart / CHUNK_SIZE_X;
+        var _chunk_y = chunk_ystart / CHUNK_SIZE_Y;
+        
+        var _chunk_relative_x = ((_chunk_x % CHUNK_REGION_SIZE) + CHUNK_REGION_SIZE) % CHUNK_REGION_SIZE;
+        var _chunk_relative_y = ((_chunk_y % CHUNK_REGION_SIZE) + CHUNK_REGION_SIZE) % CHUNK_REGION_SIZE;
+        
+        if (_chunk_relative_x == 0) && (_chunk_relative_y == 0)
+        {
+            chunk_clear(id, true);
+            
+            if (++obj_Control.chunk_count < _chunk_count_max) exit;
+        }
+    }
     
     with (obj_Chunk)
     {

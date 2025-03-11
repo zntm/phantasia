@@ -13,14 +13,18 @@ function file_load_world_chunk(_inst, _directory)
 	var _version_patch = buffer_read(_buffer, buffer_u8);
 	var _version_type  = buffer_read(_buffer, buffer_u8);
 	
+    var _;
+    
 	if (global.version_game[$ $"{VERSION_TYPE.BETA}_{VERSION_NUMBER.MAJOR}.{VERSION_NUMBER.MINOR}.{VERSION_NUMBER.PATCH}"] >= global.version_game[$ "1_1.2.0"])
 	{
-		file_load_world_chunk_new(_inst, _buffer);
+		_ = file_load_world_chunk_new(_inst, _buffer);
 	}
 	else
 	{
-		file_load_world_chunk_old(_inst, _buffer);
+		_ = file_load_world_chunk_old(_inst, _buffer);
 	}
 	
 	buffer_delete(_buffer);
+    
+    return _;
 }

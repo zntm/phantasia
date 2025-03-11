@@ -38,11 +38,22 @@ var _world = global.world;
 var _seed  = _world.seed;
 var _realm = _world.realm;
 
-var _directory = $"{global.world_directory}/realm/{string_replace_all(_realm, ":", "/")}/{chunk_xstart / CHUNK_SIZE_X} {chunk_ystart / CHUNK_SIZE_Y}.dat";
+var _chunk_x = chunk_xstart / CHUNK_SIZE_X;
+var _chunk_y = chunk_ystart / CHUNK_SIZE_Y;
+
+var _region_x = floor(_chunk_x / CHUNK_REGION_SIZE);
+var _region_y = floor(_chunk_y / CHUNK_REGION_SIZE);
+
+var _directory = $"{global.world_directory}/realm/{string_replace_all(global.world.realm, ":", "/")}/{_region_x} {_region_y}.dat";
 
 if (file_exists(_directory))
 {
-    file_load_world_chunk(id, _directory);
+    var _loaded = file_load_world_chunk(id, _directory);
+    
+    if (!_loaded)
+    {
+        chunk_generate(_world, _seed, global.world_data[$ _realm]);
+    }
 }
 else
 {

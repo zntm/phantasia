@@ -9,6 +9,31 @@ function file_load_world_chunk_new(_inst, _buffer2)
     
     var _sun_rays_y = global.sun_rays_y;
     
+    var _chunk_x = _inst.chunk_xstart / CHUNK_SIZE_X;
+    var _chunk_y = _inst.chunk_ystart / CHUNK_SIZE_Y;
+    
+    var _chunk_relative_x = ((_chunk_x % CHUNK_REGION_SIZE) + CHUNK_REGION_SIZE) % CHUNK_REGION_SIZE;
+    var _chunk_relative_y = ((_chunk_y % CHUNK_REGION_SIZE) + CHUNK_REGION_SIZE) % CHUNK_REGION_SIZE;
+    
+    var _tell = buffer_peek(_buffer2, 4 + (8 * ((_chunk_relative_y * CHUNK_REGION_SIZE) + _chunk_relative_x)), buffer_u32);
+    
+    if (_tell <= 0)
+    {
+        return false;
+    }
+    
+    for (var i = 0; i < CHUNK_REGION_SIZE; ++i)
+    {
+        for (var j = 0; j < CHUNK_REGION_SIZE; ++j)
+        {
+            var _offset = 4 + (8 * ((j * CHUNK_REGION_SIZE) + i));
+            
+            debug_log($"{i} {j} {_chunk_relative_x} {_chunk_relative_y}: {buffer_peek(_buffer2, _offset, buffer_u32)} {_tell}");
+        }
+    }
+    
+    buffer_seek(_buffer2, buffer_seek_start, _tell);
+    
     var _surface_display = buffer_read(_buffer2, buffer_u16);
     
     with (_inst)
@@ -59,11 +84,15 @@ function file_load_world_chunk_new(_inst, _buffer2)
                 }
             }
         }
+        
+        // show_debug_message(chunk)
     }
     
     #region Item Drops
     
     var _length_item = buffer_read(_buffer2, buffer_u32);
+    
+    show_debug_message(_length_item);
     
     repeat (_length_item)
     {
@@ -213,4 +242,6 @@ function file_load_world_chunk_new(_inst, _buffer2)
         _inst.surface_display |= _surface_display;
         _inst.chunk_z_refresh |= _surface_display;
     }
+    
+    return true;
 }
