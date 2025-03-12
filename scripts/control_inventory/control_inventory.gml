@@ -79,8 +79,8 @@ function control_inventory()
             var _camera_width  = global.camera_width;
             var _camera_height = global.camera_height;
             
-            var _gui_width  = global.camera_gui_width;
-            var _gui_height = global.camera_gui_height;
+            var _gui_width  = global.gui_width;
+            var _gui_height = global.gui_height;
             
             with (obj_Inventory)
             {

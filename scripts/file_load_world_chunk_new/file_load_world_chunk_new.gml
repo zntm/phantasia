@@ -22,16 +22,6 @@ function file_load_world_chunk_new(_inst, _buffer2)
         return false;
     }
     
-    for (var i = 0; i < CHUNK_REGION_SIZE; ++i)
-    {
-        for (var j = 0; j < CHUNK_REGION_SIZE; ++j)
-        {
-            var _offset = 4 + (8 * ((j * CHUNK_REGION_SIZE) + i));
-            
-            debug_log($"{i} {j} {_chunk_relative_x} {_chunk_relative_y}: {buffer_peek(_buffer2, _offset, buffer_u32)} {_tell}");
-        }
-    }
-    
     buffer_seek(_buffer2, buffer_seek_start, _tell);
     
     var _surface_display = buffer_read(_buffer2, buffer_u16);
@@ -84,8 +74,6 @@ function file_load_world_chunk_new(_inst, _buffer2)
                 }
             }
         }
-        
-        // show_debug_message(chunk)
     }
     
     #region Item Drops
