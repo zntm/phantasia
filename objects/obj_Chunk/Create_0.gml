@@ -44,7 +44,7 @@ var _chunk_y = chunk_ystart / CHUNK_SIZE_Y;
 var _region_x = floor(_chunk_x / CHUNK_REGION_SIZE);
 var _region_y = floor(_chunk_y / CHUNK_REGION_SIZE);
 
-var _directory = $"{global.world_directory}/realm/{string_replace_all(global.world.realm, ":", "/")}/{_region_x} {_region_y}.dat";
+var _directory = $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/{_region_x} {_region_y}.dat";
 
 if (file_exists(_directory))
 {

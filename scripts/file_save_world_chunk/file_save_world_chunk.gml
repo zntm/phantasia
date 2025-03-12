@@ -10,10 +10,10 @@ function file_save_world_chunk(_inst, _force = false)
     var _region_x = floor(_chunk_x / CHUNK_REGION_SIZE);
     var _region_y = floor(_chunk_y / CHUNK_REGION_SIZE);
     
-    var _dir = $"{global.world_directory}/realm/{string_replace_all(global.world.realm, ":", "/")}/{_region_x} {_region_y}.dat";
+    var _dir = $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/{_region_x} {_region_y}.dat";
     var _buffer3;
     
-    if (file_exists(_dir))
+    if (!_force) && (file_exists(_dir))
     {
         _buffer3 = buffer_load_decompressed(_dir);
     }
