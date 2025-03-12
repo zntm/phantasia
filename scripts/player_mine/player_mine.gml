@@ -62,11 +62,10 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
     else
     {
         var _holding_data = _item_data[$ _holding.item_id];
-        var _holding_type = _holding_data.type;
         
-        if (_holding_type & (ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER))
+        if (_holding_data.has_type(ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER))
         {
-            if (((_mining_type & ITEM_TYPE_BIT.DEFAULT) == 0) && ((_holding_type & _mining_type) == 0)) || (_holding_data.get_mining_power() < _data.get_mining_power())
+            if ((!_data.has_type(ITEM_TYPE_BIT.DEFAULT)) && (!_holding_data.has_type(_data.get_type()))) || (_holding_data.get_mining_power() < _data.get_mining_power())
             {
                 return true;
             }
@@ -75,7 +74,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
         }
         else
         {
-            if ((_mining_type & ITEM_TYPE_BIT.DEFAULT) == 0) || (_data.get_mining_power() != TOOL_POWER.ALL)
+            if (!_mining_type.has_type(ITEM_TYPE_BIT.DEFAULT)) || (_data.get_mining_power() != TOOL_POWER.ALL)
             {
                 return true;
             }
@@ -120,13 +119,17 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
     {
         var _holding_data = _item_data[$ _holding.item_id];
         
-        if (_holding_data.type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW))
+        if (_holding_data.has_type(ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.SPEAR | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW))
         {
             obj_Control.surface_refresh_inventory = true;
             
             var _inventory_selected_hotbar = global.inventory_selected_hotbar;
             
-            if (--global.inventory.base[_inventory_selected_hotbar].___durability <= 0)
+            var _inventory = global.inventory.base[_inventory_selected_hotbar];
+            
+            _inventory.add_durability(-1);
+            
+            if (_inventory.get_durability() <= 0)
             {
                 inventory_delete("base", _inventory_selected_hotbar);
             }
@@ -145,7 +148,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
     
     var i = global.sun_rays_y[$ _string_x] + 1;
     
-    if (i == _yinst) && (_mining_type & ITEM_TYPE_BIT.SOLID)
+    if (i == _yinst) && (_data.has_type(ITEM_TYPE_BIT.SOLID))
     {
         var _cx = tile_get_inst_x(_x);
         
@@ -160,7 +163,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
             
             var _tile2 = tile_get(_x, i, CHUNK_DEPTH_DEFAULT, -1);
             
-            if (_tile2 != TILE_EMPTY) && (_item_data[$ _tile2.item_id].type & ITEM_TYPE_BIT.SOLID)
+            if (_tile2 != TILE_EMPTY) && (_item_data[$ _tile2.item_id].has_type(ITEM_TYPE_BIT.SOLID))
             {
                 global.sun_rays_y[$ _string_x] = i;
                 

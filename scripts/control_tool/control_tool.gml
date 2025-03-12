@@ -7,7 +7,6 @@ function control_tool(_delta_time)
         life = min(180, life + (item_swing_speed * _delta_time));
         
         var _data = _item_data[$ item_id];
-        var _type = _data.type;
         
         var _item_swing_xoffset = _data.get_item_swing_xoffset();
         var _item_swing_yoffset = _data.get_item_swing_yoffset();
@@ -16,7 +15,7 @@ function control_tool(_delta_time)
         
         var _xscale = -owner.image_xscale;
         
-        if (_type & ITEM_TYPE_BIT.SPEAR)
+        if (_data.has_type(ITEM_TYPE_BIT.SPEAR))
         {
             var _offset = sin((life / 180) * pi) * _data.get_item_spear_swing_offset();
             
@@ -27,7 +26,7 @@ function control_tool(_delta_time)
             
             image_angle = point_angle + _item_swing_angle_offset;
         }
-        else if (_type & ITEM_TYPE_BIT.BOW)
+        else if (_data.has_type(ITEM_TYPE_BIT.BOW))
         {
             image_angle = point_angle + _item_swing_angle_offset;
             

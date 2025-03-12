@@ -1,6 +1,6 @@
 function physics_climb(_key_left, _key_right, _key_jump, _tile_on, _world_height, _delta_time)
 {
-	if (_key_jump) || (_tile_on == TILE_EMPTY) || ((global.item_data[$ _tile_on].type & ITEM_TYPE_BIT.CLIMBABLE) == 0)
+	if (_key_jump) || (_tile_on == TILE_EMPTY) || (!global.item_data[$ _tile_on].has_type(ITEM_TYPE_BIT.CLIMBABLE))
 	{
 		is_climbing = false;
 		

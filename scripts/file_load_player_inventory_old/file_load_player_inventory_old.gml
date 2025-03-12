@@ -20,7 +20,7 @@ function file_load_player_inventory_old(_uuid, _buffer2, _name)
 			.set_index_offset(buffer_read(_buffer2, buffer_s8))
 			.set_state(buffer_read(_buffer2, buffer_u16));
 		
-		if (_item_data[$ _item_id].type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
+		if (_item_data[$ _item_id].has_type(ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
 		{
 			global.inventory[$ _name][@ j].set_durability(buffer_read(_buffer2, buffer_u16));
 		}

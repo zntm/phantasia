@@ -29,7 +29,7 @@ function item_update_liquid_flow(_x, _y, _z, _liquid, _frame_amount)
         
         var _tile_to = tile_get(_to_x, _to_y, CHUNK_DEPTH_DEFAULT, -1, _world_height);
         
-        if (_tile_to != TILE_EMPTY) && (_item_data[$ _tile_to.item_id].type & ITEM_TYPE_BIT.SOLID)
+        if (_tile_to != TILE_EMPTY) && (_item_data[$ _tile_to.item_id].has_type(ITEM_TYPE_BIT.SOLID))
         {
             if (_type == LIQUID_DIRECTION.SIDE)
             {

@@ -7,7 +7,7 @@ function file_save_snippet_tile(_buffer, _tile, _item_data)
         exit;
     }
     
-    var _item_id = _tile.item_id;
+    var _item_id = _tile.get_item_id();
     
     buffer_write(_buffer, buffer_string, _item_id);
     
@@ -20,7 +20,7 @@ function file_save_snippet_tile(_buffer, _tile, _item_data)
     
     var _data = _item_data[$ _item_id];
     
-    if (_data.type & ITEM_TYPE_BIT.CONTAINER)
+    if (_data.has_type(ITEM_TYPE_BIT.CONTAINER))
     {
         var _inventory = _tile.get_inventory();
         

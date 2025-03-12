@@ -40,7 +40,7 @@
 				},
 				{
 					"name": "voxelotl",
-					"bluesky": "voxelotl",
+					"bluesky": "voxelotl.bsky.social",
 					"twitter": "voxelvoxel_"
 				}
 			]
@@ -77,10 +77,10 @@
 			"header": "playtester",
 			"colour": "#53626B",
 			"contributors": [
-				"zenuss.",
+				"zenuss",
 				"abyssaltheking",
 				"fordivinity",
-				"jay_ar3",
+				"Jay-Ar",
 				"licensedfunnyman",
 				"iammefr",
 				"srisrid",
@@ -102,10 +102,10 @@
 			"header": "special_thanks",
 			"colour": "#904443",
 			"contributors": [
-				"zenuss.",
+				"zenuss",
 				"pieusername",
 				"nisanunu",
-				"jay_ar3",
+				"Jay-Ar",
 				"anxieteaplushbee"
 			]
 		}

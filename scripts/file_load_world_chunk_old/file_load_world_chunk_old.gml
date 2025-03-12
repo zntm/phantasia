@@ -41,7 +41,7 @@ function file_load_world_chunk_old(_inst, _buffer2)
 				
 				var _data = _item_data[$ _item_id];
 				
-				if (_data.type & ITEM_TYPE_BIT.CONTAINER)
+				if (_data.has_type(ITEM_TYPE_BIT.CONTAINER))
 				{
 					var _is_loot = buffer_read(_buffer2, buffer_bool);
 					
@@ -69,7 +69,7 @@ function file_load_world_chunk_old(_inst, _buffer2)
 								.set_index_offset(_index_offset)
 								.set_state(_state);
 							
-							if (_item_data[$ _item_id2].type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
+							if (_item_data[$ _item_id2].has_type(ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
 							{
 								_tile.inventory[@ l].set_durability(buffer_read(_buffer2, buffer_u16));
 							}
@@ -119,7 +119,7 @@ function file_load_world_chunk_old(_inst, _buffer2)
 		
 		var _durability;
 		
-		if (_item_data[$ _item_id].type & (ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
+		if (_item_data[$ _item_id].has_type(ITEM_TYPE_BIT.SWORD | ITEM_TYPE_BIT.PICKAXE | ITEM_TYPE_BIT.AXE | ITEM_TYPE_BIT.SHOVEL | ITEM_TYPE_BIT.HAMMER | ITEM_TYPE_BIT.WHIP | ITEM_TYPE_BIT.BOW | ITEM_TYPE_BIT.FISHING_POLE))
 		{
 			_durability = buffer_read(_buffer2, buffer_u16);
 		}

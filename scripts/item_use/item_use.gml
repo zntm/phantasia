@@ -3,11 +3,10 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
     var _item_data = global.item_data;
     
     var _data = _item_data[$ _item.item_id];
-    var _type = _data.type;
     
     var _id = id;
     
-    if (_type & ITEM_TYPE_BIT.WHIP)
+    if (_data.has_type(ITEM_TYPE_BIT.WHIP))
     {
         if (layer_sequence_exists("Instances", whip_sequence)) exit;
         
@@ -45,7 +44,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
         exit;
     }
     
-    if (_type & ITEM_TYPE_BIT.BOW)
+    if (_data.has_type(ITEM_TYPE_BIT.BOW))
     {
         if (cooldown_projectile > 0) exit;
         
@@ -61,7 +60,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
             
             var _inventory_data = _item_data[$ _inventory_item.item_id];
             
-            if ((_inventory_data.type & ITEM_TYPE_BIT.AMMO) == 0) || (_data.get_ammo_type() != _inventory_data.get_ammo_type()) continue;
+            if (!_inventory_data.has_type(ITEM_TYPE_BIT.AMMO)) || (_data.get_ammo_type() != _inventory_data.get_ammo_type()) continue;
             
             cooldown_projectile = _data.get_ammo_cooldown();
             
@@ -81,7 +80,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
         exit;
     }
     
-    if (_type & ITEM_TYPE_BIT.FISHING_POLE)
+    if (_data.has_type(ITEM_TYPE_BIT.FISHING_POLE))
     {
         if (!mouse_check_button_pressed(mb_right)) exit;
         
@@ -121,7 +120,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
         exit;
     }
     
-    if (_type & ITEM_TYPE_BIT.CONSUMABLE)
+    if (_data.has_type(ITEM_TYPE_BIT.CONSUMABLE))
     {
         var _can_always_consume = (_data.boolean & ITEM_BOOLEAN.CAN_ALWAYS_CONSUME);
         
@@ -238,7 +237,7 @@ function item_use(_item, _inventory_selected_hotbar, _mouse_left, _mouse_right)
         {
             item_on_interaction(_data.get_on_swing_interact(), x, y, _id);
             
-            if (_type & ITEM_TYPE_BIT.THROWABLE)
+            if (_data.has_type(ITEM_TYPE_BIT.THROWABLE))
             {
                 inventory_item_decrement("base", _inventory_selected_hotbar);
                 

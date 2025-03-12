@@ -22,7 +22,7 @@ function item_update_grass(_x, _y, _z, _dirt, _grass, _spread = true)
         {
             var _data = _item_data[$ _tile];
             
-            if (_data.type & ITEM_TYPE_BIT.SOLID)
+            if (_data.has_type(ITEM_TYPE_BIT.SOLID))
             {
                 tile_place(_x, _y, _z, new Tile(_dirt), _world_height);
                 tile_update_neighbor(_x, _y, undefined, undefined, _world_height);
@@ -47,7 +47,7 @@ function item_update_grass(_x, _y, _z, _dirt, _grass, _spread = true)
         {
             var _tile = tile_get(_x2, _y2 - 1, _z, undefined, _world_height);
             
-            if (_tile == TILE_EMPTY) || ((_item_data[$ _tile].type & ITEM_TYPE_BIT.SOLID) == 0)
+            if (_tile == TILE_EMPTY) || (!_item_data[$ _tile].has_type(ITEM_TYPE_BIT.SOLID))
             {
                 tile_place(_x2, _y2, _z, new Tile(_grass), _world_height);
                 tile_update_neighbor(_x2, _y2, undefined, undefined, _world_height);

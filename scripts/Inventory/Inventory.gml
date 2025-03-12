@@ -76,6 +76,13 @@ function Inventory(_item, _amount = 1) constructor
         return self;
     }
     
+    static add_durability = function(_durability)
+    {
+        ___durability += _durability;
+        
+        return self;
+    }
+    
     static get_durability = function()
     {
         return self[$ "___durability"];

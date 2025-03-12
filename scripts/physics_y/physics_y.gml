@@ -11,7 +11,7 @@ function physics_y(_multiplier = global.delta_time, _gravity = PHYSICS_GLOBAL_GR
         
         var _data = global.item_data[$ _tile.item_id];
         
-        if (_data.type & ITEM_TYPE_BIT.PLATFORM)
+        if (_data.has_type(ITEM_TYPE_BIT.PLATFORM))
         {
             return (_direction >= 0);
         }

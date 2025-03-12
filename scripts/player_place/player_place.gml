@@ -8,29 +8,28 @@ function player_place(_x, _y, _world_height)
     var _item_id = _holding.item_id;
     
     var _data = global.item_data[$ _item_id];
-    var _type = _data.type;
     var _tile = TILE_EMPTY;
     
     var _give_back = undefined;
     var _is_deployable = false;
     
-    if (_type & (ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER))
+    if (_data.has_type(ITEM_TYPE_BIT.SOLID | ITEM_TYPE_BIT.UNTOUCHABLE | ITEM_TYPE_BIT.CONTAINER))
     {
         _z = CHUNK_DEPTH_DEFAULT;
     }
-    else if (_type & ITEM_TYPE_BIT.WALL)
+    else if (_data.has_type(ITEM_TYPE_BIT.WALL))
     {
         _z = CHUNK_DEPTH_WALL;
     }
-    else if (_type & ITEM_TYPE_BIT.FOLIAGE)
+    else if (_data.has_type(ITEM_TYPE_BIT.FOLIAGE))
     {
         _z = CHUNK_DEPTH_FOLIAGE;
     }
-    else if (_type & ITEM_TYPE_BIT.LIQUID)
+    else if (_data.has_type(ITEM_TYPE_BIT.LIQUID))
     {
         _z = CHUNK_DEPTH_LIQUID;
     }
-    else if (_type & ITEM_TYPE_BIT.DEPLOYABLE) && (tile_get(_x, _y, _data.z) == TILE_EMPTY)
+    else if (_data.has_type(ITEM_TYPE_BIT.DEPLOYABLE)) && (tile_get(_x, _y, _data.z) == TILE_EMPTY)
     {
         _z = _data.deployable_z;
         _tile = _data.deployable_tile;
@@ -40,13 +39,13 @@ function player_place(_x, _y, _world_height)
     }
     else exit;
     
-    if ((_type & ITEM_TYPE_BIT.LIQUID) == 0)
+    if (!_data.has_type(ITEM_TYPE_BIT.LIQUID))
     {
         static __side = function(_x, _y, _z, _type, _world_height)
         {
             var _tile = tile_get(_x, _y, _z, undefined, _world_height);
             
-            return (_tile == TILE_EMPTY) || ((global.item_data[$ _tile].type & _type) == 0);
+            return (_tile == TILE_EMPTY) || (!global.item_data[$ _tile].has_type(_type));
         }
         
         static __plant = function(_x, _y, _z, _world_height)
@@ -57,7 +56,7 @@ function player_place(_x, _y, _world_height)
             
             var _data2 = global.item_data[$ _];
             
-            if ((_data2.type & ITEM_TYPE_BIT.FOLIAGE) == 0) || ((_data2.boolean & ITEM_BOOLEAN.IS_PLANT_REPLACEABLE) == 0) exit;
+            if (!_data2.has_type(ITEM_TYPE_BIT.FOLIAGE)) || ((_data2.boolean & ITEM_BOOLEAN.IS_PLANT_REPLACEABLE) == 0) exit;
             
             tile_place(_x, _y, _z, TILE_EMPTY, _world_height);
         }
@@ -68,7 +67,7 @@ function player_place(_x, _y, _world_height)
         {
             var _data2 = global.item_data[$ _];
             
-            if ((_data2.type & ITEM_TYPE_BIT.FOLIAGE) == 0) || ((_data2.boolean & ITEM_BOOLEAN.IS_PLANT_REPLACEABLE) == 0) exit;
+            if (!_data2.has_type(ITEM_TYPE_BIT.FOLIAGE)) || ((_data2.boolean & ITEM_BOOLEAN.IS_PLANT_REPLACEABLE) == 0) exit;
         }
         else
         {
@@ -103,7 +102,7 @@ function player_place(_x, _y, _world_height)
     
     chunk_refresh_fast(_x - CHUNK_SIZE_WIDTH_H, _y - CHUNK_SIZE_HEIGHT_H, _x + CHUNK_SIZE_WIDTH_H, _y + CHUNK_SIZE_HEIGHT_H);
     
-    if (_type & ITEM_TYPE_BIT.SOLID) && (_y < global.sun_rays_y[$ _r])
+    if (_data.has_type(ITEM_TYPE_BIT.SOLID)) && (_y < global.sun_rays_y[$ _r])
     {
         global.sun_rays_y[$ _r] = _y;
         

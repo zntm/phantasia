@@ -90,9 +90,7 @@ function gui_inventory_tooltip()
 		_description_string = _description + "\n";
 	}
 	
-	var _type = _data.type;
-	
-	if (_type & (ITEM_TYPE_BIT.ARMOR_HELMET | ITEM_TYPE_BIT.ARMOR_BREASTPLATE | ITEM_TYPE_BIT.ARMOR_LEGGINGS | ITEM_TYPE_BIT.ACCESSORY))
+	if (_data.has_type(ITEM_TYPE_BIT.ARMOR_HELMET | ITEM_TYPE_BIT.ARMOR_BREASTPLATE | ITEM_TYPE_BIT.ARMOR_LEGGINGS | ITEM_TYPE_BIT.ACCESSORY))
 	{
 		var _defense = _data.buffs[$ "defense"];
 		
@@ -110,7 +108,7 @@ function gui_inventory_tooltip()
 		_description_string += loca_translate("gui.material") + "\n";
 	}
 	
-	if (_type & ITEM_TYPE_BIT.THROWABLE)
+	if (_data.has_type(ITEM_TYPE_BIT.THROWABLE))
 	{
         _description_string += loca_translate("gui.throwable") + "\n";
 	}

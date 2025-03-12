@@ -38,7 +38,7 @@ function file_save_world_chunk(_inst, _force = false)
         {
             for (var j = 0; j < CHUNK_REGION_SIZE; ++j)
             {
-                // if ((i == _chunk_relative_x) && (j == _chunk_relative_y)) continue;
+                if ((i == _chunk_relative_x) && (j == _chunk_relative_y)) continue;
                 
                 var _tell = buffer_peek(_buffer3, 4 + (8 * ((j * CHUNK_REGION_SIZE) + i)) + 4, buffer_u32);
                 
@@ -61,7 +61,7 @@ function file_save_world_chunk(_inst, _force = false)
         {
             for (var j = 0; j < CHUNK_REGION_SIZE; ++j)
             {
-                // if (i == _chunk_relative_x) && (j == _chunk_relative_y) continue;
+                if (i == _chunk_relative_x) && (j == _chunk_relative_y) continue;
                 
                 var _offset = 4 + (8 * ((j * CHUNK_REGION_SIZE) + i));
                 

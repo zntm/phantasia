@@ -11,14 +11,7 @@ function physics_x(_speed, _collision = true, _step = -1, _world_height = global
             return false;
         }
         
-        var _data = global.item_data[$ _tile.item_id];
-        
-        if (_data.type & ITEM_TYPE_BIT.PLATFORM)
-        {
-            return false;
-        }
-        
-        return true;
+        return !global.item_data[$ _tile.item_id].has_type(ITEM_TYPE_BIT.PLATFORM);
     }
     
     var _ = xvelocity;
