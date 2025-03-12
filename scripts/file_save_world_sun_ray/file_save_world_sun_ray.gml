@@ -15,7 +15,7 @@ function file_save_world_sun_ray(_camera_x, _camera_width)
 	
 	var _sun_rays_y = global.sun_rays_y;
 	
-	for (var i = 9; i < _repeat; ++i)
+	for (var i = 0; i < _repeat; ++i)
 	{
 		buffer_write(_buffer, buffer_u16, _sun_rays_y[$ string(_start + i)]);
 	}

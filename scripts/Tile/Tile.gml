@@ -8,6 +8,11 @@ function Tile(_item, _item_data = global.item_data) constructor
 {
     item_id = _item;
     
+    static get_item_id = function()
+    {
+        return item_id;
+    }
+    
     var _data = _item_data[$ _item];
     
     var _animation_index_min = _data.get_random_index_min();
