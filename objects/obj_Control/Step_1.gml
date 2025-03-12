@@ -38,14 +38,7 @@ if (_cx == infinity) || (_cy == infinity)
         }
     }
     
-    var _directory2 = $"{global.world_directory}/realm";
-
-    if (!directory_exists(_directory2))
-    {
-        directory_create(_directory2);
-    }
-
-    var _directory3 = $"{_directory2}/{string_replace_all(global.world.realm, ":", "/")}";
+    var _directory3 = $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}";
     
     if (!directory_exists(_directory3))
     {

@@ -1,6 +1,6 @@
 function file_load_player_spawn(_inst)
 {
-    var _dir = $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/player/{_inst.uuid}/spawn.dat";
+    var _dir = $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/spawn/{_inst.uuid}.dat";
     
     if (!file_exists(_dir))
     {

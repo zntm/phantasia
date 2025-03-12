@@ -17,7 +17,7 @@ function file_save_player_spawn(_inst)
 	
 	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
 	
-	buffer_save(_buffer2, $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/player/{_inst.uuid}/spawn.dat");
+	buffer_save(_buffer2, $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/spawn/{_inst.uuid}.dat");
 	
 	buffer_delete(_buffer);
 	buffer_delete(_buffer2);
