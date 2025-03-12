@@ -1133,6 +1133,7 @@
     {"id":{"name":"file_load_player_inventory_new","path":"scripts/file_load_player_inventory_new/file_load_player_inventory_new.yy",},},
     {"id":{"name":"file_load_player_inventory_old","path":"scripts/file_load_player_inventory_old/file_load_player_inventory_old.yy",},},
     {"id":{"name":"file_load_player_inventory","path":"scripts/file_load_player_inventory/file_load_player_inventory.yy",},},
+    {"id":{"name":"file_load_player_spawn","path":"scripts/file_load_player_spawn/file_load_player_spawn.yy",},},
     {"id":{"name":"file_load_snippet_inventory","path":"scripts/file_load_snippet_inventory/file_load_snippet_inventory.yy",},},
     {"id":{"name":"file_load_snippet_item","path":"scripts/file_load_snippet_item/file_load_snippet_item.yy",},},
     {"id":{"name":"file_load_snippet_tile","path":"scripts/file_load_snippet_tile/file_load_snippet_tile.yy",},},

@@ -18,19 +18,24 @@ if (_cx == infinity) || (_cy == infinity)
     
     var _item_data = global.item_data;
     
-    while (true)
+    var _loaded = file_load_player_spawn(obj_Player);
+    
+    if (!_loaded)
     {
-        var _tile = tile_get(_xtile, round(obj_Player.y / TILE_SIZE), CHUNK_DEPTH_DEFAULT);
-        
-        if (_tile == TILE_EMPTY) || (!_item_data[$ _tile].has_type(ITEM_TYPE_BIT.SOLID))
+        while (true)
         {
-            // _camera_x = _xplayer - (_camera_width  / 2);
-            _camera_y = obj_Player.y - (_camera_height / 2);
+            var _tile = tile_get(_xtile, round(obj_Player.y / TILE_SIZE), CHUNK_DEPTH_DEFAULT);
             
-            break;
+            if (_tile == TILE_EMPTY) || (!_item_data[$ _tile].has_type(ITEM_TYPE_BIT.SOLID))
+            {
+                // _camera_x = _xplayer - (_camera_width  / 2);
+                _camera_y = obj_Player.y - (_camera_height / 2);
+                
+                break;
+            }
+            
+            obj_Player.y -= TILE_SIZE;
         }
-        
-        obj_Player.y -= TILE_SIZE;
     }
     
     var _directory2 = $"{global.world_directory}/realm";
