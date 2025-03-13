@@ -122,15 +122,15 @@ function menu_draw_credits(_xmultiplier, _ymultiplier, _display_width, _display_
 		
 		_offset += _height;
 		
-		var _xscale = _xmultiplier * MENU_CREDITS_CONTRIBUTORS_SCALE;
-		var _yscale = _ymultiplier * MENU_CREDITS_CONTRIBUTORS_SCALE;
+		var _xscale = _xmultiplier * MENU_CREDITS_ENTRIES_SCALE;
+		var _yscale = _ymultiplier * MENU_CREDITS_ENTRIES_SCALE;
 		
-		var _contributors = _credits.contributors;
-		var _contributors_length = _credits.contributors_length;
+		var _entries = _credits.entries;
+		var _entries_length = _credits.entries_length;
 		
-		for (var j = 0; j < _contributors_length; ++j)
+		for (var j = 0; j < _entries_length; ++j)
 		{
-			var _contributor = _contributors[j];
+			var _contributor = _entries[j];
 			
 			var _name = _contributor.name;
 			var _name_width = string_width(_name) * _xscale / 2;

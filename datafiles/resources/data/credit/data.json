@@ -3,7 +3,7 @@
 		{
 			"header": "lead_developer",
 			"colour": "#D2B5FF",
-			"contributors": [
+			"entries": [
 				{
 					"name": "Zhen",
 					"youtube": "zntm",
@@ -15,7 +15,7 @@
 		{
 			"header": "artist",
 			"colour": "#FFCEE7",
-			"contributors": [
+			"entries": [
 				{
 					"name": "cyanflower",
 					"bluesky": "cyanflower.bsky.social"
@@ -48,7 +48,7 @@
 		{
 			"header": "composer",
 			"colour": "#D8F4FF",
-			"contributors": [
+			"entries": [
 				{
 					"name": "GlydeOut",
 					"youtube": "GreetingsCultist",
@@ -68,7 +68,7 @@
 		{
 			"header": "translation_es",
 			"colour": "#FFEBB2",
-			"contributors": [
+			"entries": [
 				"vikkithecat",
 				"Artemisia"
 			]
@@ -76,7 +76,7 @@
 		{
 			"header": "playtester",
 			"colour": "#53626B",
-			"contributors": [
+			"entries": [
 				"zenuss",
 				"abyssaltheking",
 				"fordivinity",
@@ -101,12 +101,20 @@
 		{
 			"header": "special_thanks",
 			"colour": "#904443",
-			"contributors": [
+			"entries": [
 				"zenuss",
 				"pieusername",
 				"nisanunu",
 				"Jay-Ar",
 				"anxieteaplushbee"
+			]
+		},
+		{
+			"header": "fonts",
+			"colour": "#E9F1FA",
+			"entries": [
+				"Sriracha",
+				"Noto Sans JP"
 			]
 		}
 	]
