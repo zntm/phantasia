@@ -16,13 +16,7 @@ function render_glow(_camera_x, _camera_y, _camera_width, _camera_height)
 	{
 		if (bloom == c_black) continue;
         
-        var _x = x - _camera_x;
-        var _y = y - _camera_y;
-        
-        for (var i = 0; i < 4; ++i)
-        {
-            draw_sprite_ext(spr_Glow_Corner, 0, _x, _y, 1, 1, 90 * i, bloom, 1);
-        }
+        draw_glow(x - _camera_x, y - _camera_y, 1, bloom, 1);
 	}
 	
 	surface_reset_target();

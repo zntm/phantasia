@@ -2,26 +2,15 @@ var _delta_time = global.delta_time;
 
 gpu_set_blendmode(bm_add);
 
-var _length = array_length(flares);
-
-for (var i = 0; i < _length; ++i)
+for (var i = 0; i < glow_length; ++i)
 {
-	var _flare = flares[i];
-	
-    var _x = _flare.x;
-    var _y = _flare.y;
-    
-    var _scale = _flare.scale;
-    
-    var _colour = _flare.colour;
-    
-    for (var j = 0; j < 4; ++j)
+    with (glow[i])
     {
-        draw_sprite_ext(spr_Glow_Corner, 0, _x, _y, _scale, _scale, 90 * j, _colour, 1);
+        draw_glow(x, y, scale, colour, 1);
+        
+        x += xvelocity * _delta_time;
+        y += yvelocity * _delta_time;
     }
-	
-	flares[@ i].x += _flare.xvelocity * _delta_time;
-	flares[@ i].y += _flare.yvelocity * _delta_time;
 }
 
 gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_src_alpha, bm_one);

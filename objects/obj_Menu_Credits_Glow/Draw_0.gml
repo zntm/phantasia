@@ -1,22 +1,18 @@
 gpu_set_blendmode(bm_add);
 
-for (var i = 0; i < length; ++i)
+var _hue = hue;
+var _sat = sat;
+var _val = val;
+
+for (var i = 0; i < glow_length; ++i)
 {
-	var _glow = glow[i];
-	
-	glow[i].value += _glow.increment;
-	
-    var _x = ((sin(glow[i].value) + 1) / 2) * room_width;
-    var _y = room_height;
-    
-	var _scale = _glow.scale;
-	
-	var _colour_offset = _glow.colour_offset;
-    var _colour = make_colour_hsv(hue + _colour_offset[0], sat + _colour_offset[1], val + _colour_offset[2]);
-    
-	for (var j = 0; j < 4; ++j)
+    with (glow[i])
     {
-        draw_sprite_ext(spr_Glow_Corner, 0, _x, _y, _scale, _scale, 90 * j, _colour, 1);
+        value += increment;
+        
+        var _colour = make_colour_hsv(_hue + colour_offset[0], _sat + colour_offset[1], _val + colour_offset[2]);
+        
+        draw_glow(((dsin(value) + 1) / 2) * room_width, room_height, scale, _colour, 1);
     }
 }
 

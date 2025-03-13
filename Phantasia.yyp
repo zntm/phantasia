@@ -1106,6 +1106,7 @@
     {"id":{"name":"debug_log","path":"scripts/debug_log/debug_log.yy",},},
     {"id":{"name":"debug_timer","path":"scripts/debug_timer/debug_timer.yy",},},
     {"id":{"name":"draw_curve","path":"scripts/draw_curve/draw_curve.yy",},},
+    {"id":{"name":"draw_glow","path":"scripts/draw_glow/draw_glow.yy",},},
     {"id":{"name":"draw_set_align","path":"scripts/draw_set_align/draw_set_align.yy",},},
     {"id":{"name":"draw_sprite_pos_fixed","path":"scripts/draw_sprite_pos_fixed/draw_sprite_pos_fixed.yy",},},
     {"id":{"name":"draw_text_cuteify","path":"scripts/draw_text_cuteify/draw_text_cuteify.yy",},},

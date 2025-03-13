@@ -8,8 +8,8 @@ if (transition > 0) && (!keyboard_check_pressed(vk_anykey)) exit;
 
 with (instance_create_layer(0, 0, "Instances", obj_Fade))
 {
-	image_alpha = 0;
-		
-	value = MENU_TRANSITION_SPEED_FADE;
-	goto_room = rm_Menu_Title;
+    image_alpha = 0;
+    
+    value = MENU_TRANSITION_SPEED_FADE;
+    goto_room = rm_Menu_Title;
 }
