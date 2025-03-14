@@ -173,19 +173,15 @@ function file_load_world_chunk_new(_inst, _buffer2)
             }
         }
         
-        var _x = buffer_read(_buffer2, buffer_f64);
-        var _y = buffer_read(_buffer2, buffer_f64);
+        var _inst2 = instance_create_layer(0, 0, "Instances", obj_Creature);
         
-        var _xvelocity = buffer_read(_buffer2, buffer_f16);
-        var _yvelocity = buffer_read(_buffer2, buffer_f16);
+        file_load_snippet_position(_buffer2, _inst2);
         
         var _value = buffer_read(_buffer2, buffer_u64);
         
-        var _ylast = buffer_read(_buffer2, buffer_f64);
-        
         var _index = (_value >> 16) & 0xff;
         
-        with (instance_create_layer(_x, _y, "Instances", obj_Creature))
+        with (_inst2)
         {
             if (_index == 0)
             {

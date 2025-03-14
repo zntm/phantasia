@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"file_load_player_spawn",
+  "%Name":"file_load_player_position",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"file_load_player_spawn",
+  "name":"file_load_player_position",
   "parent":{
     "name":"Load",
     "path":"folders/Scripts/File/Load.yy",

@@ -18,7 +18,7 @@ if (_cx == infinity) || (_cy == infinity)
     
     var _item_data = global.item_data;
     
-    var _loaded = file_load_player_spawn(obj_Player);
+    var _loaded = file_load_player_position(obj_Player);
     
     if (!_loaded)
     {

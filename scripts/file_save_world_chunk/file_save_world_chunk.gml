@@ -185,19 +185,13 @@ function file_save_world_chunk(_inst, _force = false)
         var _creature_id = _.creature_id;
         var _data = _creature_data[$ _creature_id];
         
-        buffer_write(_buffer, buffer_f64, _.x);
-        buffer_write(_buffer, buffer_f64, _.y);
-        
-        buffer_write(_buffer, buffer_f16, _.xvelocity);
-        buffer_write(_buffer, buffer_f16, _.yvelocity);
-        
         buffer_write(_buffer, buffer_string, _creature_id);
+        
+        file_save_snippet_position(_buffer, _inst);
         
         var _index = _.index;
         
         buffer_write(_buffer, buffer_u64, ((_.ydirection + 1) << 26) | ((_.xdirection + 1) << 24) | ((_index == undefined ? 0 : _index + 1) << 16) | _.hp);
-        
-        buffer_write(_buffer, buffer_f64, _.ylast);
         
         buffer_write(_buffer, buffer_f16, _.sfx_time);
         buffer_write(_buffer, buffer_f16, _.coyote_time);
