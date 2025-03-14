@@ -85,15 +85,21 @@ function file_save_world_chunk(_inst, _force = false)
         {
             if ((surface_display & (1 << i)) == 0) continue;
             
-            var j = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
+            var _index_z = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
             
-            repeat (CHUNK_SIZE_X * CHUNK_SIZE_Y)
+            for (var j = 0; j < CHUNK_SIZE_X; ++j)
             {
-                var _tile = _chunk[j++];
-                
-                file_save_snippet_tile(_buffer3, _tile, _item_data);
-                
-                delete _tile;
+                for (var l = 0; l < CHUNK_SIZE_Y; ++l)
+                {
+                    var _tile = _chunk[_index_z | (l << CHUNK_SIZE_X_BIT) | j];
+                    
+                    file_save_snippet_tile(_buffer3, _tile, _item_data);
+                    
+                    if (_tile != TILE_EMPTY)
+                    {
+                        delete _tile;
+                    }
+                }
             }
         }
     }

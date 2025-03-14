@@ -23,4 +23,4 @@ draw_set_font(global.font_current);
 
 draw_text_transformed(_x, _y - 64, loca_translate("menu.open_beta"), 6, 6, 0);
 draw_text_transformed(_x, _y + 64, loca_translate("menu.open_beta.text"), 2, 2, 0);
-draw_text_transformed(_x, _y + 64 + (string_height("T") * 1.5), loca_translate("menu.warning.continue"), 1.3, 1.3, 0);
+draw_text_transformed(_x, _y + 64 + (string_height("I") * 1.5), loca_translate("menu.warning.continue"), 1.3, 1.3, 0);

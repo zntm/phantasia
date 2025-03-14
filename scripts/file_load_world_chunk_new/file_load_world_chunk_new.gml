@@ -40,21 +40,25 @@ function file_load_world_chunk_new(_inst, _buffer2)
                 
                 if ((_surface_display & _bit_z) == 0) continue;
                 
-                var j = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
+                var _index_z = i << (CHUNK_SIZE_X_BIT + CHUNK_SIZE_Y_BIT);
                 
-                repeat (CHUNK_SIZE_X * CHUNK_SIZE_Y)
+                for (var j = 0; j < CHUNK_SIZE_X; ++j)
                 {
-                    var _x = j & (CHUNK_SIZE_X - 1);
-                    var _y = (j >> CHUNK_SIZE_X_BIT) & (CHUNK_SIZE_Y - 1);
+                    var _tile_x = chunk_xstart + j;
                     
-                    var _xtile = chunk_xstart + _x;
-                    var _ytile = chunk_ystart + _y;
+                    var _string_x = string(_tile_x);
                     
-                    var _tile = file_load_snippet_tile(_buffer2, _xtile, _ytile, i, _item_data, _datafixer_item);
+                    var _sun_ray_y = _sun_rays_y[$ _string_x];
                     
-                    if (_tile != undefined)
+                    for (var l = 0; l < CHUNK_SIZE_Y; ++l)
                     {
-                        chunk[@ j] = _tile;
+                        var _tile_y = chunk_ystart + l;
+                        
+                        var _tile = file_load_snippet_tile(_buffer2, _tile_x, _tile_y, i, _item_data, _datafixer_item);
+                        
+                        if (_tile == undefined) continue;
+                        
+                        chunk[@ _index_z | (l << CHUNK_SIZE_X_BIT) | j] = _tile;
                         
                         var _item_id = _tile.item_id;
                         
@@ -62,15 +66,20 @@ function file_load_world_chunk_new(_inst, _buffer2)
                         {
                             is_on_draw_update |= _bit_z;
                             
-                            chunk_update_on_draw[@ (i << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
+                            chunk_update_on_draw[@ (i << CHUNK_SIZE_X_BIT) | j] |= 1 << l;
                         }
                         
-                        chunk_generate_anim_handler(_item_data[$ _item_id], _bit_z, _y);
+                        var _data = _item_data[$ _item_id];
+                         
+                        chunk_generate_anim_handler(_data, _bit_z, l);
                         
-                        tile_instance_create(_xtile, _ytile, i, _tile);
+                        tile_instance_create(_tile_x, _tile_y, i, _tile);
+                        
+                        if (_sun_ray_y == undefined) || ((_sun_ray_y > _tile_y) && (_data.has_type(ITEM_TYPE_BIT.SOLID)))
+                        {
+                            global.sun_rays_y[$ _string_x] = _tile_y;
+                        }
                     }
-                    
-                    ++j;
                 }
             }
         }
