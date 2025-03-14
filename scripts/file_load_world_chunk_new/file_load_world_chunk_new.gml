@@ -80,6 +80,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
                         if (_sun_ray_y == undefined) || ((_sun_ray_y > _tile_y) && (_data.has_type(ITEM_TYPE_BIT.SOLID)))
                         {
                             _sun_ray_y = _tile_y;
+                            
                             global.sun_rays_y[$ _string_x] = _tile_y;
                             
                             _moved_light = true;
@@ -139,11 +140,15 @@ function file_load_world_chunk_new(_inst, _buffer2)
     
     #endregion
     
+    var _effect_data = global.effect_data;
+    var _datafixer_effects = _datafixer.effects;
+    
     #region Creatures
     
     static __damage_unable = [ obj_Creature ];
     
     var _datafixer_creature = _datafixer.creature;
+    
     var _creature_data = global.creature_data;
     
     var _length_creature = buffer_read(_buffer2, buffer_u32);
@@ -218,21 +223,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
             
             immunity_frame = buffer_read(_buffer2, buffer_f16);
             
-            var _length = buffer_read(_buffer2, buffer_u8);
-            
-            effects = {}
-            
-            repeat (_length)
-            {
-                var _name = buffer_read(_buffer2, buffer_string);
-                var _level = buffer_read(_buffer2, buffer_u16);
-                
-                effects[$ _name] = (_level == 0 ? undefined : {
-                    level: real(_level & 0xff),
-                    timer: buffer_read(_buffer2, buffer_f64),
-                    particle: _level >> 8
-                });
-            }
+            file_load_snippet_effects(_buffer, id, _effect_data, _datafixer_effects);
             
             damage_unable = __damage_unable;
         }

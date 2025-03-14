@@ -6,7 +6,7 @@ function string_pad_start(_string, _substring, _length)
 	
 	if (_string_length < _length)
 	{
-		_string = $"{string_repeat(_substring, _length - _string_length)}{_string}";
+		return string_repeat(_substring, _length - _string_length) + _string;
 	}
 	
 	return _string;

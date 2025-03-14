@@ -11,21 +11,21 @@ function file_save_world_chunk(_inst, _force = false)
     var _region_y = floor(_chunk_y / CHUNK_REGION_SIZE);
     
     var _dir = $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/{_region_x} {_region_y}.dat";
-    var _buffer3;
+    var _buffer;
     
     if (!_force) && (file_exists(_dir))
     {
-        _buffer3 = buffer_load_decompressed(_dir);
+        _buffer = buffer_load_decompressed(_dir);
     }
     else
     {
-        _buffer3 = buffer_create(0xffff, buffer_grow, 1);
+        _buffer = buffer_create(0xffff, buffer_grow, 1);
     }
     
-    buffer_write(_buffer3, buffer_u8, VERSION_NUMBER.MAJOR);
-    buffer_write(_buffer3, buffer_u8, VERSION_NUMBER.MINOR);
-    buffer_write(_buffer3, buffer_u8, VERSION_NUMBER.PATCH);
-    buffer_write(_buffer3, buffer_u8, VERSION_NUMBER.TYPE);
+    buffer_write(_buffer, buffer_u8, VERSION_NUMBER.MAJOR);
+    buffer_write(_buffer, buffer_u8, VERSION_NUMBER.MINOR);
+    buffer_write(_buffer, buffer_u8, VERSION_NUMBER.PATCH);
+    buffer_write(_buffer, buffer_u8, VERSION_NUMBER.TYPE);
     
     var _chunk_relative_x = ((_chunk_x % CHUNK_REGION_SIZE) + CHUNK_REGION_SIZE) % CHUNK_REGION_SIZE;
     var _chunk_relative_y = ((_chunk_y % CHUNK_REGION_SIZE) + CHUNK_REGION_SIZE) % CHUNK_REGION_SIZE;
@@ -40,7 +40,7 @@ function file_save_world_chunk(_inst, _force = false)
             {
                 if ((i == _chunk_relative_x) && (j == _chunk_relative_y)) continue;
                 
-                var _tell = buffer_peek(_buffer3, 4 + (8 * ((j * CHUNK_REGION_SIZE) + i)) + 4, buffer_u32);
+                var _tell = buffer_peek(_buffer, 4 + (8 * ((j * CHUNK_REGION_SIZE) + i)) + 4, buffer_u32);
                 
                 _max = max(_max, _tell);
             }
@@ -48,11 +48,11 @@ function file_save_world_chunk(_inst, _force = false)
         
         if (_max <= 0)
         {
-            buffer_seek(_buffer3, buffer_seek_start, 4 + (8 * (CHUNK_REGION_SIZE * CHUNK_REGION_SIZE)));
+            buffer_seek(_buffer, buffer_seek_start, 4 + (8 * (CHUNK_REGION_SIZE * CHUNK_REGION_SIZE)));
         }
         else
         {
-        	buffer_seek(_buffer3, buffer_seek_start, _max);
+        	buffer_seek(_buffer, buffer_seek_start, _max);
         }
     }
     else
@@ -65,17 +65,17 @@ function file_save_world_chunk(_inst, _force = false)
                 
                 var _offset = 4 + (8 * ((j * CHUNK_REGION_SIZE) + i));
                 
-                buffer_poke(_buffer3, _offset, buffer_u32, 0);
-                buffer_poke(_buffer3, _offset + 4, buffer_u32, 0);
+                buffer_poke(_buffer, _offset, buffer_u32, 0);
+                buffer_poke(_buffer, _offset + 4, buffer_u32, 0);
             }
         }
         
-        buffer_seek(_buffer3, buffer_seek_start, 4 + (8 * (CHUNK_REGION_SIZE * CHUNK_REGION_SIZE)));
+        buffer_seek(_buffer, buffer_seek_start, 4 + (8 * (CHUNK_REGION_SIZE * CHUNK_REGION_SIZE)));
     }
     
-    buffer_poke(_buffer3, 4 + (8 * ((_chunk_relative_y * CHUNK_REGION_SIZE) + _chunk_relative_x)), buffer_u32, buffer_tell(_buffer3));
+    buffer_poke(_buffer, 4 + (8 * ((_chunk_relative_y * CHUNK_REGION_SIZE) + _chunk_relative_x)), buffer_u32, buffer_tell(_buffer));
     
-    buffer_write(_buffer3, buffer_u16, (is_generated << CHUNK_SIZE_Z) | surface_display);
+    buffer_write(_buffer, buffer_u16, (is_generated << CHUNK_SIZE_Z) | surface_display);
     
     if (surface_display)
     {
@@ -93,7 +93,7 @@ function file_save_world_chunk(_inst, _force = false)
                 {
                     var _tile = _chunk[_index_z | (l << CHUNK_SIZE_X_BIT) | j];
                     
-                    file_save_snippet_tile(_buffer3, _tile, _item_data);
+                    file_save_snippet_tile(_buffer, _tile, _item_data);
                     
                     if (_tile != TILE_EMPTY)
                     {
@@ -124,28 +124,28 @@ function file_save_world_chunk(_inst, _force = false)
         }
     }
     
-    buffer_write(_buffer3, buffer_u32, _length_item);
+    buffer_write(_buffer, buffer_u32, _length_item);
     
     for (var i = 0; i < _length_item; ++i)
     {
         var _ = __inst_item[i];
         
-        var _next = buffer_tell(_buffer3);
+        var _next = buffer_tell(_buffer);
         
-        buffer_write(_buffer3, buffer_u32, 0);
+        buffer_write(_buffer, buffer_u32, 0);
         
-        buffer_write(_buffer3, buffer_f32, _.time_pickup);
-        buffer_write(_buffer3, buffer_f32, _.time_life);
+        buffer_write(_buffer, buffer_f32, _.time_pickup);
+        buffer_write(_buffer, buffer_f32, _.time_life);
         
-        buffer_write(_buffer3, buffer_f64, _.x);
-        buffer_write(_buffer3, buffer_f64, _.y);
+        buffer_write(_buffer, buffer_f64, _.x);
+        buffer_write(_buffer, buffer_f64, _.y);
         
-        buffer_write(_buffer3, buffer_f16, _.xvelocity);
-        buffer_write(_buffer3, buffer_f16, _.yvelocity);
+        buffer_write(_buffer, buffer_f16, _.xvelocity);
+        buffer_write(_buffer, buffer_f16, _.yvelocity);
         
-        file_save_snippet_item(_buffer3, _item_data, _.item);
+        file_save_snippet_item(_buffer, _item_data, _.item);
         
-        buffer_poke(_buffer3, _next, buffer_u32, buffer_tell(_buffer3));
+        buffer_poke(_buffer, _next, buffer_u32, buffer_tell(_buffer));
         
         instance_destroy(_);
     }
@@ -173,76 +173,55 @@ function file_save_world_chunk(_inst, _force = false)
         }
     }
     
-    buffer_write(_buffer3, buffer_u32, _length_creature);
+    buffer_write(_buffer, buffer_u32, _length_creature);
     
     for (var i = 0; i < _length_creature; ++i)
     {
-        var _next = buffer_tell(_buffer3);
-        buffer_write(_buffer3, buffer_u32, 0);
+        var _next = buffer_tell(_buffer);
+        buffer_write(_buffer, buffer_u32, 0);
         
         var _ = __inst_creature[i];
         
         var _creature_id = _.creature_id;
         var _data = _creature_data[$ _creature_id];
         
-        buffer_write(_buffer3, buffer_f64, _.x);
-        buffer_write(_buffer3, buffer_f64, _.y);
+        buffer_write(_buffer, buffer_f64, _.x);
+        buffer_write(_buffer, buffer_f64, _.y);
         
-        buffer_write(_buffer3, buffer_f16, _.xvelocity);
-        buffer_write(_buffer3, buffer_f16, _.yvelocity);
+        buffer_write(_buffer, buffer_f16, _.xvelocity);
+        buffer_write(_buffer, buffer_f16, _.yvelocity);
         
-        buffer_write(_buffer3, buffer_string, _creature_id);
+        buffer_write(_buffer, buffer_string, _creature_id);
         
         var _index = _.index;
         
-        buffer_write(_buffer3, buffer_u64, ((_.ydirection + 1) << 26) | ((_.xdirection + 1) << 24) | ((_index == undefined ? 0 : _index + 1) << 16) | _.hp);
+        buffer_write(_buffer, buffer_u64, ((_.ydirection + 1) << 26) | ((_.xdirection + 1) << 24) | ((_index == undefined ? 0 : _index + 1) << 16) | _.hp);
         
-        buffer_write(_buffer3, buffer_f64, _.ylast);
+        buffer_write(_buffer, buffer_f64, _.ylast);
         
-        buffer_write(_buffer3, buffer_f16, _.sfx_time);
-        buffer_write(_buffer3, buffer_f16, _.coyote_time);
+        buffer_write(_buffer, buffer_f16, _.sfx_time);
+        buffer_write(_buffer, buffer_f16, _.coyote_time);
         
         if ((_data.type >> 4) & CREATURE_HOSTILITY_TYPE.PASSIVE)
         {
-            buffer_write(_buffer3, buffer_f16, _.panic_time);
+            buffer_write(_buffer, buffer_f16, _.panic_time);
         }
         
-        buffer_write(_buffer3, buffer_f16, _.immunity_frame);
+        buffer_write(_buffer, buffer_f16, _.immunity_frame);
         
-        var _effects = _.effects;
+        file_save_snippet_effects(_buffer, _.effects);
         
-        buffer_write(_buffer3, buffer_u8, _effect_length);
-        
-        for (var j = 0; j < _effect_length; ++j)
-        {
-            var _effect_name = _effect_names[j];
-            
-            buffer_write(_buffer3, buffer_string, _effect_name);
-            
-            var _effect = _effects[$ _effect_name];
-            
-            if (_effect == undefined)
-            {
-                buffer_write(_buffer3, buffer_u16, 0);
-                
-                continue;
-            }
-            
-            buffer_write(_buffer3, buffer_u16, (_effect.particle << 8) | _effect.level);
-            buffer_write(_buffer3, buffer_f64, _effect.timer);
-        }
-        
-        buffer_poke(_buffer3, _next, buffer_u32, buffer_tell(_buffer));
+        buffer_poke(_buffer, _next, buffer_u32, buffer_tell(_buffer));
         
         instance_destroy(_);
     }
     
-    buffer_poke(_buffer3, 4 + (8 * ((_chunk_relative_y * CHUNK_REGION_SIZE) + _chunk_relative_x)) + 4, buffer_u32, buffer_tell(_buffer3));
+    buffer_poke(_buffer, 4 + (8 * ((_chunk_relative_y * CHUNK_REGION_SIZE) + _chunk_relative_x)) + 4, buffer_u32, buffer_tell(_buffer));
     
-    var _buffer2 = buffer_compress(_buffer3, 0, buffer_get_size(_buffer3));
+    var _buffer2 = buffer_compress(_buffer, 0, buffer_get_size(_buffer));
     
     buffer_save(_buffer2, _dir);
     
-    buffer_delete(_buffer3);
+    buffer_delete(_buffer);
     buffer_delete(_buffer2);
 }
