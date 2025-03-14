@@ -34,6 +34,8 @@ function file_load_world_chunk_new(_inst, _buffer2)
         
         if (_surface_display)
         {
+            var _moved_light = false;
+            
             for (var i = 0; i < CHUNK_SIZE_Z; ++i)
             {
                 var _bit_z = 1 << i;
@@ -78,10 +80,14 @@ function file_load_world_chunk_new(_inst, _buffer2)
                         if (_sun_ray_y == undefined) || ((_sun_ray_y > _tile_y) && (_data.has_type(ITEM_TYPE_BIT.SOLID)))
                         {
                             global.sun_rays_y[$ _string_x] = _tile_y;
+                            
+                            _moved_light = true;
                         }
                     }
                 }
             }
+            
+            light_clusterize();
         }
     }
     

@@ -63,7 +63,6 @@ if (is_exiting)
     save_player(_uuid, obj_Player.name, obj_Player.hp, obj_Player.hp_max, global.inventory_selected_hotbar, global.player.attire);
     save_player_data(obj_Player);
     save_grimoire(_uuid, global.unlocked_grimoire);
-    file_save_world_sun_ray(global.camera_x, global.camera_width);
     file_save_world_values();
     
     surface_free_existing(surface_boss);

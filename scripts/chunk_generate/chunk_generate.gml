@@ -334,6 +334,8 @@ function chunk_generate(_world, _seed, _world_data)
                         
                         surface_display |= 1 << CHUNK_DEPTH_DEFAULT;
                         
+                        var _data = _item_data[$ _item_id];
+                        
                         if (_item_data_on_draw[$ _item_id] != undefined)
                         {
                             is_on_draw_update |= 1 << CHUNK_DEPTH_DEFAULT;
@@ -341,7 +343,7 @@ function chunk_generate(_world, _seed, _world_data)
                             chunk_update_on_draw[@ (CHUNK_DEPTH_DEFAULT << CHUNK_SIZE_X_BIT) | _x] |= 1 << _y;
                         }
                         
-                        chunk_generate_anim_handler(_item_data[$ _item_id], 1 << CHUNK_DEPTH_DEFAULT, _y);
+                        chunk_generate_anim_handler(_data, 1 << CHUNK_DEPTH_DEFAULT, _y);
                     }
                 }
             }

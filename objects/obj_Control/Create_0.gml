@@ -168,7 +168,11 @@ room_set_viewport(room, 0, true, 0, 0, _camera_width, _camera_height);
 
 init_inventory_instance();
 
-file_load_world_sun_ray(_camera_width);
+#macro LIGHT_STRECTCH_AMOUNT 8
+
+global.sun_rays = array_create_ext(ceil(_camera_width / TILE_SIZE) + (LIGHT_STRECTCH_AMOUNT * 2), array_instance_sun_rays);
+
+global.sun_rays_y = {}
 
 #region Rich Presence
 
