@@ -79,6 +79,7 @@ function file_load_world_chunk_new(_inst, _buffer2)
                         
                         if (_sun_ray_y == undefined) || ((_sun_ray_y > _tile_y) && (_data.has_type(ITEM_TYPE_BIT.SOLID)))
                         {
+                            _sun_ray_y = _tile_y;
                             global.sun_rays_y[$ _string_x] = _tile_y;
                             
                             _moved_light = true;
@@ -87,15 +88,16 @@ function file_load_world_chunk_new(_inst, _buffer2)
                 }
             }
             
-            light_clusterize();
+            if (_moved_light)
+            {
+                light_clusterize();
+            }
         }
     }
     
     #region Item Drops
     
     var _length_item = buffer_read(_buffer2, buffer_u32);
-    
-    show_debug_message(_length_item);
     
     repeat (_length_item)
     {
