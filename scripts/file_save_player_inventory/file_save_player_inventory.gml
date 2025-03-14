@@ -29,11 +29,8 @@ function file_save_player_inventory(_id)
         
         file_save_snippet_inventory(_buffer, _v, _l, _item_data);
         
-        var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
-        
-        buffer_save(_buffer2, $"{DIRECTORY_PLAYERS}/{_uuid}/inventory/{_name}.dat");
+        buffer_save_compressed(_buffer, $"{DIRECTORY_PLAYERS}/{_uuid}/inventory/{_name}.dat");
         
         buffer_delete(_buffer);
-        buffer_delete(_buffer2);
     }
 }

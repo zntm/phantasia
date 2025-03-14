@@ -16,10 +16,7 @@ function save_grimoire(_directory, _data)
 		buffer_write(_buffer, buffer_string, _data[i]);
 	}
 	
-	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
-	
-	buffer_save(_buffer2, $"{DIRECTORY_PLAYERS}/{_directory}/grimoire.dat");
+	buffer_save_compressed(_buffer, $"{DIRECTORY_PLAYERS}/{_directory}/grimoire.dat");
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

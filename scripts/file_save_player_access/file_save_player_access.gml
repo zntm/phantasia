@@ -20,10 +20,7 @@ function file_save_player_access(_inst)
 		buffer_write(_buffer, buffer_u64, _access_level[$ _name]);
 	}
 	
-	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
-	
-	buffer_save(_buffer2, $"{global.world_directory}/player/{_inst.uuid}/access_level.dat");
+	buffer_save_compressed(_buffer, $"{global.world_directory}/player/{_inst.uuid}/access_level.dat");
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

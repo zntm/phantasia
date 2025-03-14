@@ -38,10 +38,7 @@ function structure_export(_file_name, _xstart, _ystart, _xend, _yend)
         }
     }
     
-    var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
-    
-    buffer_save(_buffer2, $"{DIRECTORY_STRUCTURES}/{_file_name}.dat");
+    buffer_save_compressed(_buffer, $"{DIRECTORY_STRUCTURES}/{_file_name}.dat");
     
     buffer_delete(_buffer);
-    buffer_delete(_buffer2);
 }

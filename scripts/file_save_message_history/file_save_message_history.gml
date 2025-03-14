@@ -18,10 +18,7 @@ function file_save_message_history()
 		buffer_write(_buffer, buffer_string, _message_history[i]);
 	}
 	
-	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
-	
-	buffer_save(_buffer2, "message_history.dat");
+	buffer_save_compressed(_buffer, "message_history.dat");
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

@@ -46,10 +46,7 @@ function file_save_world_structures()
         buffer_write(_buffer, buffer_u32, _structure_checked_y[$ _name]);
     }
     
-	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
-	
-	buffer_save(_buffer2, $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/structure.dat");
+	buffer_save_compressed(_buffer, $"{global.world_directory}/dim/{string_replace_all(global.world.realm, ":", "/")}/structure.dat");
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

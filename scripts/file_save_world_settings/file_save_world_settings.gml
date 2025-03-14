@@ -22,10 +22,7 @@ function file_save_world_settings()
 		buffer_write(_buffer, buffer_f64, _world_settings[$ _name]);
 	}
 	
-	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
-	
-	buffer_save(_buffer2, $"{global.world_directory}/setting.dat");
+	buffer_save_compressed(_buffer, $"{global.world_directory}/setting.dat");
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 }

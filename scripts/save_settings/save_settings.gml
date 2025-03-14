@@ -21,10 +21,7 @@ function save_settings()
 		buffer_write(_buffer, buffer_f16, _settings_value[$ _settings_value_name]);
 	}
 	
-	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
+	buffer_save_compressed(_buffer, "setting.dat");
 	
-	buffer_save(_buffer2, "setting.dat");
-	
-	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
+	buffer_delete(_buffer
 }

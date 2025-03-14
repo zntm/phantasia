@@ -212,10 +212,7 @@ function file_save_world_chunk(_inst, _force = false)
     
     buffer_poke(_buffer, 4 + (8 * ((_chunk_relative_y * CHUNK_REGION_SIZE) + _chunk_relative_x)) + 4, buffer_u32, buffer_tell(_buffer));
     
-    var _buffer2 = buffer_compress(_buffer, 0, buffer_get_size(_buffer));
-    
-    buffer_save(_buffer2, _dir);
+    buffer_save_compressed(_buffer, _dir);
     
     buffer_delete(_buffer);
-    buffer_delete(_buffer2);
 }

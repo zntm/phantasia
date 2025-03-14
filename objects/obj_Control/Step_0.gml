@@ -80,6 +80,8 @@ if (is_exiting)
     surface_free_existing(obj_Player.surface);
     surface_free_existing(obj_Player.surface2);
     
+    file_save_message_history();
+    
     if (time_source_exists(time_source_rpc))
     {
         time_source_destroy(time_source_rpc);

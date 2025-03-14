@@ -19,12 +19,9 @@ function save_info(_directory)
 	buffer_write(_buffer, buffer_f64, _world.time);
 	buffer_write(_buffer, buffer_u64, _world.day);
 	
-	var _buffer2 = buffer_compress(_buffer, 0, buffer_tell(_buffer));
-	
-	buffer_save(_buffer2, _directory);
+	buffer_save_compressed(_buffer, _directory);
 	
 	buffer_delete(_buffer);
-	buffer_delete(_buffer2);
 	
 	// show_debug_message($"Saved World Info - {_world.name}");
 }
