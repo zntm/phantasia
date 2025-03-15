@@ -193,9 +193,6 @@ function file_save_world_chunk(_inst, _force = false)
         
         buffer_write(_buffer, buffer_u64, ((_.ydirection + 1) << 26) | ((_.xdirection + 1) << 24) | ((_index == undefined ? 0 : _index + 1) << 16) | _.hp);
         
-        buffer_write(_buffer, buffer_f16, _.sfx_time);
-        buffer_write(_buffer, buffer_f16, _.coyote_time);
-        
         if ((_data.type >> 4) & CREATURE_HOSTILITY_TYPE.PASSIVE)
         {
             buffer_write(_buffer, buffer_f16, _.panic_time);

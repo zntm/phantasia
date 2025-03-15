@@ -203,11 +203,6 @@ function file_load_world_chunk_new(_inst, _buffer2)
             xdirection = ((_value >> 24) & 0b11) - 1;
             ydirection = ((_value >> 26) & 0b11) - 1;
             
-            ylast = buffer_read(_buffer2, buffer_f64);
-            
-            sfx_time = buffer_read(_buffer2, buffer_f16);
-            coyote_time = buffer_read(_buffer2, buffer_f16);
-            
             if ((_data.type >> 4) & CREATURE_HOSTILITY_TYPE.PASSIVE)
             {
                 panic_time = buffer_read(_buffer2, buffer_f16);

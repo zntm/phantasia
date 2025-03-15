@@ -2,8 +2,6 @@ function file_load_world_chunk(_inst, _directory)
 {
 	var _item_data = global.item_data;
 	
-	_inst.is_generated = true;
-	
 	var _sun_rays_y = global.sun_rays_y;
 	
 	var _buffer = buffer_load_decompressed(_directory);
