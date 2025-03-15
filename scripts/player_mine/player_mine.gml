@@ -74,7 +74,7 @@ function player_mine(_x, _y, _holding, _world_height, _delta_time)
         }
         else
         {
-            if (!_mining_type.has_type(ITEM_TYPE_BIT.DEFAULT)) || (_data.get_mining_power() != TOOL_POWER.ALL)
+            if (!_data.has_type(ITEM_TYPE_BIT.DEFAULT)) || (_data.get_mining_power() != TOOL_POWER.ALL)
             {
                 return true;
             }

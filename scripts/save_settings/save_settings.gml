@@ -23,5 +23,5 @@ function save_settings()
 	
 	buffer_save_compressed(_buffer, "setting.dat");
 	
-	buffer_delete(_buffer
+	buffer_delete(_buffer);
 }

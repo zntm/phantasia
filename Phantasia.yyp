@@ -956,6 +956,7 @@
     {"$GMIncludedFile":"","%Name":"noise.png","CopyToMask":-1,"filePath":"datafiles/resources","name":"noise.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"poem.txt","CopyToMask":-1,"filePath":"datafiles/resources","name":"poem.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"Poem.txt","CopyToMask":-1,"filePath":"datafiles/Resources","name":"Poem.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"inventory.json","CopyToMask":-1,"filePath":"datafiles/resources/sandbox","name":"inventory.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"splash.json","CopyToMask":-1,"filePath":"datafiles/resources","name":"splash.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,

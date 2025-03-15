@@ -71,19 +71,19 @@ function ctrl_chunk_generate_1()
                             
                             var _item_id = _tile.item_id;
                             
-                            var _animation_type = _item_data[$ _item_id].get_animation_type();
+                            var _data = _item_data[$ _item_id];
+                            
+                            var _animation_type = _data.get_animation_type();
                             
                             var _index;
                             
                             if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED)
                             {
-                                var _type = _item_data[$ _item_id].type;
-                                
                                 _index = __index[
-                                    (tile_condition_connected(_xpos, _ypos - 1, _z, _item_id, _type, _item_data, _world_height) << 3) |
-                                    (tile_condition_connected(_xpos + 1, _ypos, _z, _item_id, _type, _item_data, _world_height) << 2) |
-                                    (tile_condition_connected(_xpos, _ypos + 1, _z, _item_id, _type, _item_data, _world_height) << 1) |
-                                    (tile_condition_connected(_xpos - 1, _ypos, _z, _item_id, _type, _item_data, _world_height) << 0)
+                                    (tile_condition_connected(_xpos, _ypos - 1, _z, _item_id, _data, _item_data, _world_height) << 3) |
+                                    (tile_condition_connected(_xpos + 1, _ypos, _z, _item_id, _data, _item_data, _world_height) << 2) |
+                                    (tile_condition_connected(_xpos, _ypos + 1, _z, _item_id, _data, _item_data, _world_height) << 1) |
+                                    (tile_condition_connected(_xpos - 1, _ypos, _z, _item_id, _data, _item_data, _world_height) << 0)
                                 ];
                             }
                             else if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED_TO_SELF)

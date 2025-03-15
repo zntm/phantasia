@@ -1,0 +1,80 @@
+{
+    "phantasia:tile_nature": [
+        "phantasia:stone",
+        "phantasia:stone_wall",
+        "phantasia:emustone",
+        "phantasia:emustone_wall",
+        "phantasia:dirt",
+        "phantasia:dirt_wall",
+        "phantasia:grass_block_greenia",
+        "phantasia:short_grass_greenia",
+        "phantasia:tall_grass_greenia",
+        "phantasia:grass_block_borealis",
+        "phantasia:short_grass_borealis",
+        "phantasia:tall_grass_borealis",
+        "phantasia:grass_block_swamplands",
+        "phantasia:short_grass_swamplands",
+        "phantasia:tall_grass_swamplands",
+        "phantasia:grass_block_tundra",
+        "phantasia:short_grass_tundra",
+        "phantasia:tall_grass_tundra",
+        "phantasia:grass_block_amazonia",
+        "phantasia:short_grass_amazonia",
+        "phantasia:tall_grass_amazonia",
+        "phantasia:grass_block_savannah",
+        "phantasia:short_grass_savannah",
+        "phantasia:tall_grass_savannah"
+    ],
+    "phantasia:tile_building": [
+
+    ],
+    "phantasia:tile_colors": [
+        "phantasia:red_cloth",
+        "phantasia:orange_cloth",
+        "phantasia:yellow_cloth",
+        "phantasia:lime_cloth",
+        "phantasia:green_cloth",
+        "phantasia:cyan_cloth",
+        "phantasia:blue_cloth",
+        "phantasia:purple_cloth",
+        "phantasia:pink_cloth",
+        "phantasia:white_cloth",
+        "phantasia:brown_cloth",
+        "phantasia:black_cloth",
+        "phantasia:red_candle",
+        "phantasia:orange_candle",
+        "phantasia:yellow_candle",
+        "phantasia:lime_candle",
+        "phantasia:green_candle",
+        "phantasia:cyan_candle",
+        "phantasia:blue_candle",
+        "phantasia:purple_candle",
+        "phantasia:pink_candle",
+        "phantasia:white_candle",
+        "phantasia:brown_candle",
+        "phantasia:black_candle"
+    ],
+    "phantasia:item_weapons_tools": [
+        "phantasia:hatchet"
+    ],
+    "phantasia:item_ingredients": [
+        "phantasia:red_dye",
+        "phantasia:orange_dye",
+        "phantasia:yellow_dye",
+        "phantasia:lime_dye",
+        "phantasia:green_dye",
+        "phantasia:cyan_dye",
+        "phantasia:blue_dye",
+        "phantasia:purple_dye",
+        "phantasia:pink_dye",
+        "phantasia:white_dye",
+        "phantasia:brown_dye",
+        "phantasia:black_dye"
+    ],
+    "phantasia:item_consumables": [
+
+    ],
+    "phantasia:item_operator": [
+
+    ]
+}

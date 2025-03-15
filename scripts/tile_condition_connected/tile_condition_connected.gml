@@ -1,4 +1,4 @@
-function tile_condition_connected(_x, _y, _z, _item_id, _type, _item_data, _world_height)
+function tile_condition_connected(_x, _y, _z, _item_id, _data, _item_data, _world_height)
 {
 	var _item_id2 = tile_get(_x, _y, _z, undefined, _world_height);
 	
@@ -12,7 +12,7 @@ function tile_condition_connected(_x, _y, _z, _item_id, _type, _item_data, _worl
 		return 1;
 	}
     
-    var _data = _item_data[$ _item_id2];
+    var _data2 = _item_data[$ _item_id2];
 	
-	return (_type & _data.type) && (_data.boolean & ITEM_BOOLEAN.CAN_CONNECT);
+	return (_data.has_type(_data2.get_type())) && (_data2.boolean & ITEM_BOOLEAN.CAN_CONNECT);
 }

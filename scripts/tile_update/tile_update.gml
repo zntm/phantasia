@@ -29,13 +29,11 @@ function tile_update(_x, _y, _z, _world_height = global.world_data[$ global.worl
 	
 	if (_animation_type & TILE_ANIMATION_TYPE.CONNECTED)
 	{
-		var _type = _data.type;
-		
 		var _index2 = __index[
-			(tile_condition_connected(_x, _y - 1, _z, _item_id, _type, _item_data, _world_height) << 3) |
-			(tile_condition_connected(_x + 1, _y, _z, _item_id, _type, _item_data, _world_height) << 2) |
-			(tile_condition_connected(_x, _y + 1, _z, _item_id, _type, _item_data, _world_height) << 1) |
-			(tile_condition_connected(_x - 1, _y, _z, _item_id, _type, _item_data, _world_height))
+			(tile_condition_connected(_x, _y - 1, _z, _item_id, _data, _item_data, _world_height) << 3) |
+			(tile_condition_connected(_x + 1, _y, _z, _item_id, _data, _item_data, _world_height) << 2) |
+			(tile_condition_connected(_x, _y + 1, _z, _item_id, _data, _item_data, _world_height) << 1) |
+			(tile_condition_connected(_x - 1, _y, _z, _item_id, _data, _item_data, _world_height))
 		];
         
     	var _bit = 1 << _index2;
