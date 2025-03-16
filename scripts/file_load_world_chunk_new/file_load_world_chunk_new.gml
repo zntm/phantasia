@@ -110,10 +110,10 @@ function file_load_world_chunk_new(_inst, _buffer2)
         var _x = buffer_read(_buffer2, buffer_f64);
         var _y = buffer_read(_buffer2, buffer_f64);
         
-        var _direction = buffer_read(_buffer2, buffer_u8);
-        
         var _xvelocity = buffer_read(_buffer2, buffer_f16);
         var _yvelocity = buffer_read(_buffer2, buffer_f16);
+        
+        var _direction = buffer_read(_buffer2, buffer_s8);
         
         var _item = file_load_snippet_item(_buffer2, _item_data, _datafixer_item);
         

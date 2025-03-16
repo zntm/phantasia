@@ -20,7 +20,7 @@ function file_load_snippet_effects(_buffer, _id, _effect_data, _datafixer)
             
             if (_data == undefined)
             {
-                // buffer_seek(_buffer, buffer_seek_start, _seek);
+                buffer_seek(_buffer, buffer_seek_start, _seek);
                 
                 continue;
             }
