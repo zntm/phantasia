@@ -6,10 +6,10 @@
         "white": 1
     },
     "bbox": {
-        "width": 8,
+        "width": 12,
         "height": 8
     },
-    "hp": 6,
+    "hp": 5,
     "type": {
         "hostility": "passive",
         "movement": "flight"

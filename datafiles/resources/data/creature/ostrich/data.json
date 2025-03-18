@@ -5,10 +5,10 @@
         "moving": 1
     },
     "bbox": {
-        "width": 8,
-        "height": 8
+        "width": 24,
+        "height": 26
     },
-    "hp": 28,
+    "hp": 55,
     "type": {
         "hostility": "passive",
         "movement": "ground"
