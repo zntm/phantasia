@@ -96,7 +96,7 @@ function inventory_interaction()
             
             inventory_interaction.__instance_link(_id.instance, _id.instance_link, _value);
         }
-        exit;
+        else exit;
         
         var _menu_tile = global.menu_tile;
         

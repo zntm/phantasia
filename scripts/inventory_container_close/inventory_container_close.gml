@@ -16,7 +16,7 @@ function inventory_container_close()
         
         _tile.set_index(0);
         
-        with (tile_get_inst(_x, _y, "get"))
+        with (tile_get_inst(_x, _y))
         {
             chunk_z_refresh |= surface_display;
         }

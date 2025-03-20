@@ -37,7 +37,7 @@ function inventory_container_open(_x, _y, _inst = noone)
 	
     _tile.set_index(1);
     
-    with (tile_get_inst(_px, _py, "get"))
+    with (tile_get_inst(_px, _py))
     {
         chunk_z_refresh |= surface_display;
     }

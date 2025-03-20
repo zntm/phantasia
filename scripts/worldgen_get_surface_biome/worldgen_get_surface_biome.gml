@@ -1,7 +1,7 @@
 #macro WORLDGEN_SIZE_HEAT 32
 #macro WORLDGEN_SIZE_HUMIDITY 32
 
-function worldgen_get_surface_biome(_x, _y, _seed, _ysurface, _world_data, _realm = global.world.realm)
+function worldgen_get_surface_biome(_x, _y, _seed, _ysurface, _world_data)
 {
 	if (DEVELOPER_MODE) && (global.debug_settings.force_surface != "-1")
 	{
