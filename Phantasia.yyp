@@ -929,6 +929,7 @@
     {"$GMIncludedFile":"","%Name":"wysteria.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/tree","name":"wysteria.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"yucca.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/tree","name":"yucca.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"generic.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/vine","name":"generic.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"lumin.json","CopyToMask":-1,"filePath":"datafiles/resources/data/structure/vine","name":"lumin.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"data.json","CopyToMask":-1,"filePath":"datafiles/resources/data/world/horizon","name":"data.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"map.png","CopyToMask":-1,"filePath":"datafiles/resources/data/world/horizon","name":"map.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"data.json","CopyToMask":-1,"filePath":"datafiles/resources/data/world/playground","name":"data.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -962,7 +963,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.1300.0.775",
+    "IDEVersion":"2024.1300.0.781",
   },
   "name":"Phantasia",
   "resources":[
